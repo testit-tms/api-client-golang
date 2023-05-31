@@ -16,7 +16,7 @@ go get github.com/testit-tms/api-client-golang
 
 ## Examples
 
-Please follow the [installation](#installation) instruction and execute the following Java code:
+Please follow the [installation](#installation) instruction and execute the following Golang code:
 
 ```go
 import (
