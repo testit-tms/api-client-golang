@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **TestPlanId** | Pointer to **string** |  | [optional] 
-**TestPlanChangedFields** | Pointer to [**TestPlanChangedFieldsViewModel**](TestPlanChangedFieldsViewModel.md) |  | [optional] 
+**TestPlanChangedFields** | Pointer to [**TestPlanChangeModelTestPlanChangedFields**](TestPlanChangeModelTestPlanChangedFields.md) |  | [optional] 
 **CreatedById** | Pointer to **string** |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 
@@ -81,20 +81,20 @@ HasTestPlanId returns a boolean if a field has been set.
 
 ### GetTestPlanChangedFields
 
-`func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangedFieldsViewModel`
+`func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangeModelTestPlanChangedFields`
 
 GetTestPlanChangedFields returns the TestPlanChangedFields field if non-nil, zero value otherwise.
 
 ### GetTestPlanChangedFieldsOk
 
-`func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangedFieldsViewModel, bool)`
+`func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangeModelTestPlanChangedFields, bool)`
 
 GetTestPlanChangedFieldsOk returns a tuple with the TestPlanChangedFields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestPlanChangedFields
 
-`func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangedFieldsViewModel)`
+`func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangeModelTestPlanChangedFields)`
 
 SetTestPlanChangedFields sets TestPlanChangedFields field to given value.
 

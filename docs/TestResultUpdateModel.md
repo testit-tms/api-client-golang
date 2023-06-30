@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DurationInMs** | Pointer to **NullableInt64** |  | [optional] 
 **StepComments** | Pointer to [**[]TestResultStepCommentPutModel**](TestResultStepCommentPutModel.md) |  | [optional] 
 **FailureClassIds** | Pointer to **[]string** |  | [optional] 
-**Outcome** | Pointer to **NullableString** |  | [optional] 
+**Outcome** | Pointer to **string** |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **StepResults** | Pointer to [**[]StepResultModel**](StepResultModel.md) |  | [optional] 
@@ -164,16 +164,6 @@ SetStepComments sets StepComments field to given value.
 
 HasStepComments returns a boolean if a field has been set.
 
-### SetStepCommentsNil
-
-`func (o *TestResultUpdateModel) SetStepCommentsNil(b bool)`
-
- SetStepCommentsNil sets the value for StepComments to be an explicit nil
-
-### UnsetStepComments
-`func (o *TestResultUpdateModel) UnsetStepComments()`
-
-UnsetStepComments ensures that no value is present for StepComments, not even an explicit nil
 ### GetFailureClassIds
 
 `func (o *TestResultUpdateModel) GetFailureClassIds() []string`
@@ -199,16 +189,6 @@ SetFailureClassIds sets FailureClassIds field to given value.
 
 HasFailureClassIds returns a boolean if a field has been set.
 
-### SetFailureClassIdsNil
-
-`func (o *TestResultUpdateModel) SetFailureClassIdsNil(b bool)`
-
- SetFailureClassIdsNil sets the value for FailureClassIds to be an explicit nil
-
-### UnsetFailureClassIds
-`func (o *TestResultUpdateModel) UnsetFailureClassIds()`
-
-UnsetFailureClassIds ensures that no value is present for FailureClassIds, not even an explicit nil
 ### GetOutcome
 
 `func (o *TestResultUpdateModel) GetOutcome() string`
@@ -234,16 +214,6 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
-### SetOutcomeNil
-
-`func (o *TestResultUpdateModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *TestResultUpdateModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultUpdateModel) GetComment() string`
@@ -339,16 +309,6 @@ SetStepResults sets StepResults field to given value.
 
 HasStepResults returns a boolean if a field has been set.
 
-### SetStepResultsNil
-
-`func (o *TestResultUpdateModel) SetStepResultsNil(b bool)`
-
- SetStepResultsNil sets the value for StepResults to be an explicit nil
-
-### UnsetStepResults
-`func (o *TestResultUpdateModel) UnsetStepResults()`
-
-UnsetStepResults ensures that no value is present for StepResults, not even an explicit nil
 ### GetAttachments
 
 `func (o *TestResultUpdateModel) GetAttachments() []AttachmentPutModel`

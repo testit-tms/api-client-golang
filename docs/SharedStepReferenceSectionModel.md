@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **HasThisSharedStepAsPrecondition** | Pointer to **bool** |  | [optional] 
 **HasThisSharedStepAsPostcondition** | Pointer to **bool** |  | [optional] 
 **CreatedById** | Pointer to **string** |  | [optional] 
@@ -83,16 +83,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *SharedStepReferenceSectionModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SharedStepReferenceSectionModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetHasThisSharedStepAsPrecondition
 
 `func (o *SharedStepReferenceSectionModel) GetHasThisSharedStepAsPrecondition() bool`

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **NullableString** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
 **Value** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -51,16 +51,6 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
-### SetStatusNil
-
-`func (o *TestRunGroupByStatusModel) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *TestRunGroupByStatusModel) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
 `func (o *TestRunGroupByStatusModel) GetValue() int32`

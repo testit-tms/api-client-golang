@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **CreatedById** | Pointer to **string** |  | [optional] 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**Data** | Pointer to [**WorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  | [optional] 
+**Data** | Pointer to [**FilterModelData**](FilterModelData.md) |  | [optional] 
 **ProjectId** | Pointer to **string** |  | [optional] 
 **FieldsToShow** | Pointer to **interface{}** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** | Unique ID of the entity | [optional] 
 **IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
 
@@ -156,20 +156,20 @@ HasModifiedById returns a boolean if a field has been set.
 UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
 ### GetData
 
-`func (o *FilterModel) GetData() WorkItemSearchQueryModel`
+`func (o *FilterModel) GetData() FilterModelData`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *FilterModel) GetDataOk() (*WorkItemSearchQueryModel, bool)`
+`func (o *FilterModel) GetDataOk() (*FilterModelData, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *FilterModel) SetData(v WorkItemSearchQueryModel)`
+`func (o *FilterModel) SetData(v FilterModelData)`
 
 SetData sets Data field to given value.
 
@@ -264,16 +264,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *FilterModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *FilterModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *FilterModel) GetId() string`

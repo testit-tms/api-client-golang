@@ -55,16 +55,6 @@ SetErrors sets Errors field to given value.
 
 HasErrors returns a boolean if a field has been set.
 
-### SetErrorsNil
-
-`func (o *ValidationProblemDetails) SetErrorsNil(b bool)`
-
- SetErrorsNil sets the value for Errors to be an explicit nil
-
-### UnsetErrors
-`func (o *ValidationProblemDetails) UnsetErrors()`
-
-UnsetErrors ensures that no value is present for Errors, not even an explicit nil
 ### GetType
 
 `func (o *ValidationProblemDetails) GetType() string`

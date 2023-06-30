@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **NullableString** |  | [optional] 
+**Outcome** | Pointer to **string** |  | [optional] 
 **Traces** | Pointer to **NullableString** |  | [optional] 
-**FailureType** | Pointer to **NullableString** |  | [optional] 
+**FailureType** | Pointer to **string** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
-**TestPoint** | Pointer to [**TestPointPutModel**](TestPointPutModel.md) |  | [optional] 
+**TestPoint** | Pointer to [**NullableTestPointPutModel**](TestPointPutModel.md) |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
-**AutoTest** | Pointer to [**AutoTestShortModel**](AutoTestShortModel.md) |  | [optional] 
+**AutoTest** | Pointer to [**NullableAutoTestShortModel**](AutoTestShortModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
 
 ## Methods
@@ -83,16 +83,6 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
-### SetOutcomeNil
-
-`func (o *TestResultShortModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *TestResultShortModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetTraces
 
 `func (o *TestResultShortModel) GetTraces() string`
@@ -153,16 +143,6 @@ SetFailureType sets FailureType field to given value.
 
 HasFailureType returns a boolean if a field has been set.
 
-### SetFailureTypeNil
-
-`func (o *TestResultShortModel) SetFailureTypeNil(b bool)`
-
- SetFailureTypeNil sets the value for FailureType to be an explicit nil
-
-### UnsetFailureType
-`func (o *TestResultShortModel) UnsetFailureType()`
-
-UnsetFailureType ensures that no value is present for FailureType, not even an explicit nil
 ### GetMessage
 
 `func (o *TestResultShortModel) GetMessage() string`
@@ -223,6 +203,16 @@ SetTestPoint sets TestPoint field to given value.
 
 HasTestPoint returns a boolean if a field has been set.
 
+### SetTestPointNil
+
+`func (o *TestResultShortModel) SetTestPointNil(b bool)`
+
+ SetTestPointNil sets the value for TestPoint to be an explicit nil
+
+### UnsetTestPoint
+`func (o *TestResultShortModel) UnsetTestPoint()`
+
+UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
 ### GetCreatedDate
 
 `func (o *TestResultShortModel) GetCreatedDate() time.Time`
@@ -283,6 +273,16 @@ SetAutoTest sets AutoTest field to given value.
 
 HasAutoTest returns a boolean if a field has been set.
 
+### SetAutoTestNil
+
+`func (o *TestResultShortModel) SetAutoTestNil(b bool)`
+
+ SetAutoTestNil sets the value for AutoTest to be an explicit nil
+
+### UnsetAutoTest
+`func (o *TestResultShortModel) UnsetAutoTest()`
+
+UnsetAutoTest ensures that no value is present for AutoTest, not even an explicit nil
 ### GetAttachments
 
 `func (o *TestResultShortModel) GetAttachments() []AttachmentModel`

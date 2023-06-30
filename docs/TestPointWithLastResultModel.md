@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **WorkItemId** | Pointer to **string** |  | [optional] 
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
 **TestSuiteId** | Pointer to **string** |  | [optional] 
-**LastTestResult** | Pointer to [**LastTestResultModel**](LastTestResultModel.md) |  | [optional] 
+**LastTestResult** | Pointer to [**NullableLastTestResultModel**](LastTestResultModel.md) |  | [optional] 
 **Status** | Pointer to **NullableString** |  | [optional] 
 **WorkItemGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **WorkItemEntityTypeName** | Pointer to **NullableString** |  | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **TestSuiteNameBreadCrumbs** | Pointer to **[]string** |  | [optional] 
 **GroupCount** | Pointer to **NullableInt32** |  | [optional] 
-**Iteration** | Pointer to [**IterationModel**](IterationModel.md) |  | [optional] 
+**Iteration** | Pointer to [**NullableIterationModel**](IterationModel.md) |  | [optional] 
 
 ## Methods
 
@@ -278,6 +278,16 @@ SetLastTestResult sets LastTestResult field to given value.
 
 HasLastTestResult returns a boolean if a field has been set.
 
+### SetLastTestResultNil
+
+`func (o *TestPointWithLastResultModel) SetLastTestResultNil(b bool)`
+
+ SetLastTestResultNil sets the value for LastTestResult to be an explicit nil
+
+### UnsetLastTestResult
+`func (o *TestPointWithLastResultModel) UnsetLastTestResult()`
+
+UnsetLastTestResult ensures that no value is present for LastTestResult, not even an explicit nil
 ### GetStatus
 
 `func (o *TestPointWithLastResultModel) GetStatus() string`
@@ -783,6 +793,16 @@ SetIteration sets Iteration field to given value.
 
 HasIteration returns a boolean if a field has been set.
 
+### SetIterationNil
+
+`func (o *TestPointWithLastResultModel) SetIterationNil(b bool)`
+
+ SetIterationNil sets the value for Iteration to be an explicit nil
+
+### UnsetIteration
+`func (o *TestPointWithLastResultModel) UnsetIteration()`
+
+UnsetIteration ensures that no value is present for Iteration, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique ID of test result | [optional] 
-**Name** | Pointer to **NullableString** | Name of autotest represented by the test result | [optional] 
+**Name** | Pointer to **string** | Name of autotest represented by the test result | [optional] 
 **AutotestGlobalId** | Pointer to **int64** | Global ID of autotest represented by test result | [optional] 
 **TestRunId** | Pointer to **string** | Unique ID of test run where test result is located | [optional] 
 **ConfigurationId** | Pointer to **string** | Unique ID of configuration which test result uses | [optional] 
-**ConfigurationName** | Pointer to **NullableString** | Name of configuration which test result uses | [optional] 
+**ConfigurationName** | Pointer to **string** | Name of configuration which test result uses | [optional] 
 **Outcome** | [**TestResultOutcome**](TestResultOutcome.md) |  | 
 **ResultReasons** | Pointer to [**[]AutotestResultReasonSubGetModel**](AutotestResultReasonSubGetModel.md) | Collection of result reasons which test result have | [optional] 
-**Comment** | Pointer to **NullableString** | Comment to test result | [optional] 
+**Comment** | Pointer to **string** | Comment to test result | [optional] 
 **Date** | Pointer to **time.Time** | Date when test result has been set | [optional] 
 **Duration** | Pointer to **NullableInt64** | Time which it took to run the test | [optional] 
 **Links** | Pointer to [**[]LinkSubGetModel**](LinkSubGetModel.md) | Collection of links attached to test result | [optional] 
@@ -87,16 +87,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TestResultShortGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestResultShortGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAutotestGlobalId
 
 `func (o *TestResultShortGetModel) GetAutotestGlobalId() int64`
@@ -197,16 +187,6 @@ SetConfigurationName sets ConfigurationName field to given value.
 
 HasConfigurationName returns a boolean if a field has been set.
 
-### SetConfigurationNameNil
-
-`func (o *TestResultShortGetModel) SetConfigurationNameNil(b bool)`
-
- SetConfigurationNameNil sets the value for ConfigurationName to be an explicit nil
-
-### UnsetConfigurationName
-`func (o *TestResultShortGetModel) UnsetConfigurationName()`
-
-UnsetConfigurationName ensures that no value is present for ConfigurationName, not even an explicit nil
 ### GetOutcome
 
 `func (o *TestResultShortGetModel) GetOutcome() TestResultOutcome`
@@ -252,16 +232,6 @@ SetResultReasons sets ResultReasons field to given value.
 
 HasResultReasons returns a boolean if a field has been set.
 
-### SetResultReasonsNil
-
-`func (o *TestResultShortGetModel) SetResultReasonsNil(b bool)`
-
- SetResultReasonsNil sets the value for ResultReasons to be an explicit nil
-
-### UnsetResultReasons
-`func (o *TestResultShortGetModel) UnsetResultReasons()`
-
-UnsetResultReasons ensures that no value is present for ResultReasons, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultShortGetModel) GetComment() string`
@@ -287,16 +257,6 @@ SetComment sets Comment field to given value.
 
 HasComment returns a boolean if a field has been set.
 
-### SetCommentNil
-
-`func (o *TestResultShortGetModel) SetCommentNil(b bool)`
-
- SetCommentNil sets the value for Comment to be an explicit nil
-
-### UnsetComment
-`func (o *TestResultShortGetModel) UnsetComment()`
-
-UnsetComment ensures that no value is present for Comment, not even an explicit nil
 ### GetDate
 
 `func (o *TestResultShortGetModel) GetDate() time.Time`
@@ -382,16 +342,6 @@ SetLinks sets Links field to given value.
 
 HasLinks returns a boolean if a field has been set.
 
-### SetLinksNil
-
-`func (o *TestResultShortGetModel) SetLinksNil(b bool)`
-
- SetLinksNil sets the value for Links to be an explicit nil
-
-### UnsetLinks
-`func (o *TestResultShortGetModel) UnsetLinks()`
-
-UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetAttachments
 
 `func (o *TestResultShortGetModel) GetAttachments() []AttachmentSubGetModel`
@@ -417,16 +367,6 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
-### SetAttachmentsNil
-
-`func (o *TestResultShortGetModel) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *TestResultShortGetModel) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

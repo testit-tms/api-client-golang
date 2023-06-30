@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Unique ID of project | [optional] 
 **IsDeleted** | Pointer to **bool** | Indicates whether the project is deleted | [optional] 
 **GlobalId** | Pointer to **int64** | Global ID of project | [optional] 
-**Name** | Pointer to **NullableString** | Name of project | [optional] 
+**Name** | Pointer to **string** | Name of project | [optional] 
 
 ## Methods
 
@@ -128,16 +128,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *ProjectShortestModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ProjectShortestModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

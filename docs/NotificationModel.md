@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **ProjectGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
 **TestPlanGlobalId** | Pointer to **int64** |  | [optional] 
-**TestPlanName** | Pointer to **NullableString** |  | [optional] 
+**TestPlanName** | Pointer to **string** |  | [optional] 
 **WorkitemGlobalId** | Pointer to **NullableInt64** |  | [optional] 
-**Comment** | Pointer to **NullableString** |  | [optional] 
-**WorkItemName** | Pointer to **NullableString** |  | [optional] 
+**Comment** | Pointer to **string** |  | [optional] 
+**WorkItemName** | Pointer to **string** |  | [optional] 
 **AttributeName** | Pointer to **NullableString** |  | [optional] 
 **CreatedById** | Pointer to **string** |  | [optional] 
 
@@ -288,16 +288,6 @@ SetTestPlanName sets TestPlanName field to given value.
 
 HasTestPlanName returns a boolean if a field has been set.
 
-### SetTestPlanNameNil
-
-`func (o *NotificationModel) SetTestPlanNameNil(b bool)`
-
- SetTestPlanNameNil sets the value for TestPlanName to be an explicit nil
-
-### UnsetTestPlanName
-`func (o *NotificationModel) UnsetTestPlanName()`
-
-UnsetTestPlanName ensures that no value is present for TestPlanName, not even an explicit nil
 ### GetWorkitemGlobalId
 
 `func (o *NotificationModel) GetWorkitemGlobalId() int64`
@@ -358,16 +348,6 @@ SetComment sets Comment field to given value.
 
 HasComment returns a boolean if a field has been set.
 
-### SetCommentNil
-
-`func (o *NotificationModel) SetCommentNil(b bool)`
-
- SetCommentNil sets the value for Comment to be an explicit nil
-
-### UnsetComment
-`func (o *NotificationModel) UnsetComment()`
-
-UnsetComment ensures that no value is present for Comment, not even an explicit nil
 ### GetWorkItemName
 
 `func (o *NotificationModel) GetWorkItemName() string`
@@ -393,16 +373,6 @@ SetWorkItemName sets WorkItemName field to given value.
 
 HasWorkItemName returns a boolean if a field has been set.
 
-### SetWorkItemNameNil
-
-`func (o *NotificationModel) SetWorkItemNameNil(b bool)`
-
- SetWorkItemNameNil sets the value for WorkItemName to be an explicit nil
-
-### UnsetWorkItemName
-`func (o *NotificationModel) UnsetWorkItemName()`
-
-UnsetWorkItemName ensures that no value is present for WorkItemName, not even an explicit nil
 ### GetAttributeName
 
 `func (o *NotificationModel) GetAttributeName() string`

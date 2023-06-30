@@ -85,12 +85,19 @@ Class | Method | HTTP request | Description
 *AutoTestsApi* | [**UpdateAutoTest**](docs/AutoTestsApi.md#updateautotest) | **Put** /api/v2/autoTests | Update autotest
 *AutoTestsApi* | [**UpdateMultiple**](docs/AutoTestsApi.md#updatemultiple) | **Put** /api/v2/autoTests/bulk | Update multiple autotests
 *BackgroundJobsApi* | [**ApiV2BackgroundJobsGet**](docs/BackgroundJobsApi.md#apiv2backgroundjobsget) | **Get** /api/v2/backgroundJobs | Get current user background jobs
+*BackgroundJobsApi* | [**ApiV2BackgroundJobsIdCancelPost**](docs/BackgroundJobsApi.md#apiv2backgroundjobsidcancelpost) | **Post** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
 *ConfigurationsApi* | [**ApiV2ConfigurationsCreateByParametersPost**](docs/ConfigurationsApi.md#apiv2configurationscreatebyparameterspost) | **Post** /api/v2/configurations/createByParameters | Create Configurations by parameters
+*ConfigurationsApi* | [**ApiV2ConfigurationsDeleteBulkPost**](docs/ConfigurationsApi.md#apiv2configurationsdeletebulkpost) | **Post** /api/v2/configurations/delete/bulk | Delete multiple configurations
+*ConfigurationsApi* | [**ApiV2ConfigurationsIdDelete**](docs/ConfigurationsApi.md#apiv2configurationsiddelete) | **Delete** /api/v2/configurations/{id} | Delete configuration
 *ConfigurationsApi* | [**ApiV2ConfigurationsIdPatch**](docs/ConfigurationsApi.md#apiv2configurationsidpatch) | **Patch** /api/v2/configurations/{id} | Patch configuration
+*ConfigurationsApi* | [**ApiV2ConfigurationsIdPurgePost**](docs/ConfigurationsApi.md#apiv2configurationsidpurgepost) | **Post** /api/v2/configurations/{id}/purge | Permanently delete configuration from archive
+*ConfigurationsApi* | [**ApiV2ConfigurationsIdRestorePost**](docs/ConfigurationsApi.md#apiv2configurationsidrestorepost) | **Post** /api/v2/configurations/{id}/restore | Restore configuration from the archive
+*ConfigurationsApi* | [**ApiV2ConfigurationsPurgeBulkPost**](docs/ConfigurationsApi.md#apiv2configurationspurgebulkpost) | **Post** /api/v2/configurations/purge/bulk | Permanently delete multiple archived configurations
+*ConfigurationsApi* | [**ApiV2ConfigurationsPut**](docs/ConfigurationsApi.md#apiv2configurationsput) | **Put** /api/v2/configurations | Edit configuration
+*ConfigurationsApi* | [**ApiV2ConfigurationsRestoreBulkPost**](docs/ConfigurationsApi.md#apiv2configurationsrestorebulkpost) | **Post** /api/v2/configurations/restore/bulk | Restore multiple configurations from the archive
 *ConfigurationsApi* | [**ApiV2ConfigurationsSearchPost**](docs/ConfigurationsApi.md#apiv2configurationssearchpost) | **Post** /api/v2/configurations/search | Search for configurations
 *ConfigurationsApi* | [**CreateConfiguration**](docs/ConfigurationsApi.md#createconfiguration) | **Post** /api/v2/configurations | Create Configuration
 *ConfigurationsApi* | [**GetConfigurationById**](docs/ConfigurationsApi.md#getconfigurationbyid) | **Get** /api/v2/configurations/{id} | Get configuration by internal or global ID
-*ConfigurationsApi* | [**UpdateConfiguration**](docs/ConfigurationsApi.md#updateconfiguration) | **Put** /api/v2/configurations | Update Configuration
 *CustomAttributeTemplatesApi* | [**ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost**](docs/CustomAttributeTemplatesApi.md#apiv2customattributestemplatesidcustomattributesexcludepost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/exclude | Exclude CustomAttributes from CustomAttributeTemplate
 *CustomAttributeTemplatesApi* | [**ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost**](docs/CustomAttributeTemplatesApi.md#apiv2customattributestemplatesidcustomattributesincludepost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/include | Include CustomAttributes to CustomAttributeTemplate
 *CustomAttributeTemplatesApi* | [**ApiV2CustomAttributesTemplatesIdDelete**](docs/CustomAttributeTemplatesApi.md#apiv2customattributestemplatesiddelete) | **Delete** /api/v2/customAttributes/templates/{id} | Delete CustomAttributeTemplate
@@ -122,7 +129,6 @@ Class | Method | HTTP request | Description
 *ParametersApi* | [**DeleteParameter**](docs/ParametersApi.md#deleteparameter) | **Delete** /api/v2/parameters/{id} | Delete parameter
 *ParametersApi* | [**GetAllParameters**](docs/ParametersApi.md#getallparameters) | **Get** /api/v2/parameters | Get all parameters
 *ParametersApi* | [**GetParameterById**](docs/ParametersApi.md#getparameterbyid) | **Get** /api/v2/parameters/{id} | Get parameter by ID
-*ParametersApi* | [**ObsoleteDeleteByName**](docs/ParametersApi.md#obsoletedeletebyname) | **Post** /api/v2/parameters/deleteByName | 
 *ParametersApi* | [**UpdateParameter**](docs/ParametersApi.md#updateparameter) | **Put** /api/v2/parameters | Update parameter
 *ProjectsApi* | [**AddGlobaAttributesToProject**](docs/ProjectsApi.md#addglobaattributestoproject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
 *ProjectsApi* | [**ApiV2ProjectsIdAttributesTemplatesSearchPost**](docs/ProjectsApi.md#apiv2projectsidattributestemplatessearchpost) | **Post** /api/v2/projects/{id}/attributes/templates/search | Search for custom attributes templates
@@ -135,6 +141,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansAnalyticsGet**](docs/ProjectsApi.md#apiv2projectsidtestplansanalyticsget) | **Get** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansDeleteBulkPost**](docs/ProjectsApi.md#apiv2projectsidtestplansdeletebulkpost) | **Post** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansNameExistsGet**](docs/ProjectsApi.md#apiv2projectsidtestplansnameexistsget) | **Get** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
+*ProjectsApi* | [**ApiV2ProjectsIdTestPlansPurgeBulkPost**](docs/ProjectsApi.md#apiv2projectsidtestplanspurgebulkpost) | **Post** /api/v2/projects/{id}/testPlans/purge/bulk | Permanently delete multiple archived test plans
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansRestoreBulkPost**](docs/ProjectsApi.md#apiv2projectsidtestplansrestorebulkpost) | **Post** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansSearchPost**](docs/ProjectsApi.md#apiv2projectsidtestplanssearchpost) | **Post** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics
 *ProjectsApi* | [**ApiV2ProjectsIdTestRunsActiveGet**](docs/ProjectsApi.md#apiv2projectsidtestrunsactiveget) | **Get** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
@@ -216,6 +223,7 @@ Class | Method | HTTP request | Description
 *TestPlansApi* | [**GetTestPlanById**](docs/TestPlansApi.md#gettestplanbyid) | **Get** /api/v2/testPlans/{id} | Get TestPlan by Id
 *TestPlansApi* | [**GetTestSuitesById**](docs/TestPlansApi.md#gettestsuitesbyid) | **Get** /api/v2/testPlans/{id}/testSuites | Get TestSuites Tree By Id
 *TestPlansApi* | [**Pause**](docs/TestPlansApi.md#pause) | **Post** /api/v2/testPlans/{id}/pause | Pause TestPlan
+*TestPlansApi* | [**PurgeTestPlan**](docs/TestPlansApi.md#purgetestplan) | **Post** /api/v2/testPlans/{id}/purge | Permanently delete test plan from archive
 *TestPlansApi* | [**RestoreTestPlan**](docs/TestPlansApi.md#restoretestplan) | **Post** /api/v2/testPlans/{id}/restore | Restore TestPlan
 *TestPlansApi* | [**Start**](docs/TestPlansApi.md#start) | **Post** /api/v2/testPlans/{id}/start | Start TestPlan
 *TestPlansApi* | [**UpdateTestPlan**](docs/TestPlansApi.md#updatetestplan) | **Put** /api/v2/testPlans | Update TestPlan
@@ -253,7 +261,9 @@ Class | Method | HTTP request | Description
 *TestSuitesApi* | [**AddTestPointsToTestSuite**](docs/TestSuitesApi.md#addtestpointstotestsuite) | **Post** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesApi* | [**ApiV2TestSuitesIdPatch**](docs/TestSuitesApi.md#apiv2testsuitesidpatch) | **Patch** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesApi* | [**ApiV2TestSuitesIdRefreshPost**](docs/TestSuitesApi.md#apiv2testsuitesidrefreshpost) | **Post** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
-*TestSuitesApi* | [**CreateTestSuite**](docs/TestSuitesApi.md#createtestsuite) | **Post** /api/v2/testSuites | Create TestSuite
+*TestSuitesApi* | [**ApiV2TestSuitesIdWorkItemsPost**](docs/TestSuitesApi.md#apiv2testsuitesidworkitemspost) | **Post** /api/v2/testSuites/{id}/workItems | Set work items for test suite
+*TestSuitesApi* | [**ApiV2TestSuitesPost**](docs/TestSuitesApi.md#apiv2testsuitespost) | **Post** /api/v2/testSuites | Create test suite
+*TestSuitesApi* | [**ApiV2TestSuitesPut**](docs/TestSuitesApi.md#apiv2testsuitesput) | **Put** /api/v2/testSuites | Edit test suite
 *TestSuitesApi* | [**DeleteTestSuite**](docs/TestSuitesApi.md#deletetestsuite) | **Delete** /api/v2/testSuites/{id} | Delete TestSuite
 *TestSuitesApi* | [**GetConfigurationsByTestSuiteId**](docs/TestSuitesApi.md#getconfigurationsbytestsuiteid) | **Get** /api/v2/testSuites/{id}/configurations | Get Configurations By Id
 *TestSuitesApi* | [**GetTestPointsById**](docs/TestSuitesApi.md#gettestpointsbyid) | **Get** /api/v2/testSuites/{id}/testPoints | Get TestPoints By Id
@@ -262,8 +272,6 @@ Class | Method | HTTP request | Description
 *TestSuitesApi* | [**GetWorkItemsById**](docs/TestSuitesApi.md#getworkitemsbyid) | **Get** /api/v2/testSuites/{id}/workItems | 
 *TestSuitesApi* | [**SearchWorkItems**](docs/TestSuitesApi.md#searchworkitems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
 *TestSuitesApi* | [**SetConfigurationsByTestSuiteId**](docs/TestSuitesApi.md#setconfigurationsbytestsuiteid) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
-*TestSuitesApi* | [**SetWorkItemsByTestSuiteId**](docs/TestSuitesApi.md#setworkitemsbytestsuiteid) | **Post** /api/v2/testSuites/{id}/workItems | Set WorkItems By TestSuite Id
-*TestSuitesApi* | [**UpdateTestSuite**](docs/TestSuitesApi.md#updatetestsuite) | **Put** /api/v2/testSuites | Update TestSuite
 *WebhooksApi* | [**ApiV2WebhooksGet**](docs/WebhooksApi.md#apiv2webhooksget) | **Get** /api/v2/webhooks | Get all webhooks
 *WebhooksApi* | [**ApiV2WebhooksIdDelete**](docs/WebhooksApi.md#apiv2webhooksiddelete) | **Delete** /api/v2/webhooks/{id} | Delete webhook by ID
 *WebhooksApi* | [**ApiV2WebhooksIdGet**](docs/WebhooksApi.md#apiv2webhooksidget) | **Get** /api/v2/webhooks/{id} | Get webhook by ID
@@ -271,6 +279,7 @@ Class | Method | HTTP request | Description
 *WebhooksApi* | [**ApiV2WebhooksPost**](docs/WebhooksApi.md#apiv2webhookspost) | **Post** /api/v2/webhooks | Create webhook
 *WebhooksApi* | [**ApiV2WebhooksSearchPost**](docs/WebhooksApi.md#apiv2webhookssearchpost) | **Post** /api/v2/webhooks/search | Search for webhooks
 *WebhooksApi* | [**ApiV2WebhooksSpecialVariablesGet**](docs/WebhooksApi.md#apiv2webhooksspecialvariablesget) | **Get** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
+*WebhooksApi* | [**ApiV2WebhooksTestPost**](docs/WebhooksApi.md#apiv2webhookstestpost) | **Post** /api/v2/webhooks/test | Test webhook&#39;s url
 *WebhooksLogsApi* | [**ApiV2WebhooksLogsGet**](docs/WebhooksLogsApi.md#apiv2webhookslogsget) | **Get** /api/v2/webhooks/logs | Get all webhook logs
 *WebhooksLogsApi* | [**ApiV2WebhooksLogsIdDelete**](docs/WebhooksLogsApi.md#apiv2webhookslogsiddelete) | **Delete** /api/v2/webhooks/logs/{id} | Delete webhook log by ID
 *WebhooksLogsApi* | [**ApiV2WebhooksLogsIdGet**](docs/WebhooksLogsApi.md#apiv2webhookslogsidget) | **Get** /api/v2/webhooks/logs/{id} | Get webhook log by ID
@@ -303,6 +312,7 @@ Class | Method | HTTP request | Description
 *WorkItemsCommentsApi* | [**ApiV2WorkItemsCommentsPost**](docs/WorkItemsCommentsApi.md#apiv2workitemscommentspost) | **Post** /api/v2/workItems/comments | Create WorkItem comment
 *WorkItemsCommentsApi* | [**ApiV2WorkItemsCommentsPut**](docs/WorkItemsCommentsApi.md#apiv2workitemscommentsput) | **Put** /api/v2/workItems/comments | Update work item comment
 *WorkItemsCommentsApi* | [**ApiV2WorkItemsIdCommentsGet**](docs/WorkItemsCommentsApi.md#apiv2workitemsidcommentsget) | **Get** /api/v2/workItems/{id}/comments | Get work item comments
+
 
 ## Documentation for Models
 

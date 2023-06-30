@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StepId** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **NullableString** |  | [optional] 
+**Outcome** | Pointer to **string** |  | [optional] 
 **SharedStepVersionId** | Pointer to **NullableString** |  | [optional] 
 **SharedStepResults** | Pointer to [**[]SharedStepResultModel**](SharedStepResultModel.md) |  | [optional] 
-**Comment** | Pointer to [**StepCommentModel**](StepCommentModel.md) |  | [optional] 
+**Comment** | Pointer to [**NullableStepCommentModel**](StepCommentModel.md) |  | [optional] 
 
 ## Methods
 
@@ -79,16 +79,6 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
-### SetOutcomeNil
-
-`func (o *StepResultModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *StepResultModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetSharedStepVersionId
 
 `func (o *StepResultModel) GetSharedStepVersionId() string`
@@ -184,6 +174,16 @@ SetComment sets Comment field to given value.
 
 HasComment returns a boolean if a field has been set.
 
+### SetCommentNil
+
+`func (o *StepResultModel) SetCommentNil(b bool)`
+
+ SetCommentNil sets the value for Comment to be an explicit nil
+
+### UnsetComment
+`func (o *StepResultModel) UnsetComment()`
+
+UnsetComment ensures that no value is present for Comment, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

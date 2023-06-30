@@ -1,0 +1,210 @@
+# ApiV2TestRunsSearchPostRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ProjectIds** | Pointer to **[]string** | Specifies a test run project IDs to search for | [optional] 
+**States** | Pointer to [**[]TestRunState**](TestRunState.md) | Specifies a test run states to search for | [optional] 
+**CreatedDate** | Pointer to [**NullableTestRunFilterModelCreatedDate**](TestRunFilterModelCreatedDate.md) |  | [optional] 
+**ModifiedByIds** | Pointer to **[]string** | Specifies a test run last editor IDs to search for | [optional] 
+**IsDeleted** | Pointer to **NullableBool** | Specifies a test run deleted status to search for | [optional] 
+
+## Methods
+
+### NewApiV2TestRunsSearchPostRequest
+
+`func NewApiV2TestRunsSearchPostRequest() *ApiV2TestRunsSearchPostRequest`
+
+NewApiV2TestRunsSearchPostRequest instantiates a new ApiV2TestRunsSearchPostRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewApiV2TestRunsSearchPostRequestWithDefaults
+
+`func NewApiV2TestRunsSearchPostRequestWithDefaults() *ApiV2TestRunsSearchPostRequest`
+
+NewApiV2TestRunsSearchPostRequestWithDefaults instantiates a new ApiV2TestRunsSearchPostRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetProjectIds
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
+
+### HasProjectIds
+
+`func (o *ApiV2TestRunsSearchPostRequest) HasProjectIds() bool`
+
+HasProjectIds returns a boolean if a field has been set.
+
+### SetProjectIdsNil
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetProjectIdsNil(b bool)`
+
+ SetProjectIdsNil sets the value for ProjectIds to be an explicit nil
+
+### UnsetProjectIds
+`func (o *ApiV2TestRunsSearchPostRequest) UnsetProjectIds()`
+
+UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
+### GetStates
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetStates() []TestRunState`
+
+GetStates returns the States field if non-nil, zero value otherwise.
+
+### GetStatesOk
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetStatesOk() (*[]TestRunState, bool)`
+
+GetStatesOk returns a tuple with the States field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStates
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetStates(v []TestRunState)`
+
+SetStates sets States field to given value.
+
+### HasStates
+
+`func (o *ApiV2TestRunsSearchPostRequest) HasStates() bool`
+
+HasStates returns a boolean if a field has been set.
+
+### SetStatesNil
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetStatesNil(b bool)`
+
+ SetStatesNil sets the value for States to be an explicit nil
+
+### UnsetStates
+`func (o *ApiV2TestRunsSearchPostRequest) UnsetStates()`
+
+UnsetStates ensures that no value is present for States, not even an explicit nil
+### GetCreatedDate
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetCreatedDate() TestRunFilterModelCreatedDate`
+
+GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
+
+### GetCreatedDateOk
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetCreatedDateOk() (*TestRunFilterModelCreatedDate, bool)`
+
+GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedDate
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetCreatedDate(v TestRunFilterModelCreatedDate)`
+
+SetCreatedDate sets CreatedDate field to given value.
+
+### HasCreatedDate
+
+`func (o *ApiV2TestRunsSearchPostRequest) HasCreatedDate() bool`
+
+HasCreatedDate returns a boolean if a field has been set.
+
+### SetCreatedDateNil
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *ApiV2TestRunsSearchPostRequest) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+### GetModifiedByIds
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetModifiedByIds() []string`
+
+GetModifiedByIds returns the ModifiedByIds field if non-nil, zero value otherwise.
+
+### GetModifiedByIdsOk
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetModifiedByIdsOk() (*[]string, bool)`
+
+GetModifiedByIdsOk returns a tuple with the ModifiedByIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedByIds
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetModifiedByIds(v []string)`
+
+SetModifiedByIds sets ModifiedByIds field to given value.
+
+### HasModifiedByIds
+
+`func (o *ApiV2TestRunsSearchPostRequest) HasModifiedByIds() bool`
+
+HasModifiedByIds returns a boolean if a field has been set.
+
+### SetModifiedByIdsNil
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetModifiedByIdsNil(b bool)`
+
+ SetModifiedByIdsNil sets the value for ModifiedByIds to be an explicit nil
+
+### UnsetModifiedByIds
+`func (o *ApiV2TestRunsSearchPostRequest) UnsetModifiedByIds()`
+
+UnsetModifiedByIds ensures that no value is present for ModifiedByIds, not even an explicit nil
+### GetIsDeleted
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetIsDeleted() bool`
+
+GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
+
+### GetIsDeletedOk
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetIsDeletedOk() (*bool, bool)`
+
+GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeleted
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetIsDeleted(v bool)`
+
+SetIsDeleted sets IsDeleted field to given value.
+
+### HasIsDeleted
+
+`func (o *ApiV2TestRunsSearchPostRequest) HasIsDeleted() bool`
+
+HasIsDeleted returns a boolean if a field has been set.
+
+### SetIsDeletedNil
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetIsDeletedNil(b bool)`
+
+ SetIsDeletedNil sets the value for IsDeleted to be an explicit nil
+
+### UnsetIsDeleted
+`func (o *ApiV2TestRunsSearchPostRequest) UnsetIsDeleted()`
+
+UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

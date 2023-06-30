@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BugLink** | Pointer to [**LinkModel**](LinkModel.md) |  | [optional] 
+**BugLink** | Pointer to [**NullableLinkModel**](LinkModel.md) |  | [optional] 
 **WorkItemGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **WorkItemName** | Pointer to **NullableString** |  | [optional] 
 **ConfigurationName** | Pointer to **NullableString** |  | [optional] 
 **CreatedById** | Pointer to **NullableString** |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
-**Info** | Pointer to [**ExternalLinkModel**](ExternalLinkModel.md) |  | [optional] 
+**Info** | Pointer to [**NullableExternalLinkModel**](ExternalLinkModel.md) |  | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetBugLink sets BugLink field to given value.
 
 HasBugLink returns a boolean if a field has been set.
 
+### SetBugLinkNil
+
+`func (o *TestPlanLink) SetBugLinkNil(b bool)`
+
+ SetBugLinkNil sets the value for BugLink to be an explicit nil
+
+### UnsetBugLink
+`func (o *TestPlanLink) UnsetBugLink()`
+
+UnsetBugLink ensures that no value is present for BugLink, not even an explicit nil
 ### GetWorkItemGlobalId
 
 `func (o *TestPlanLink) GetWorkItemGlobalId() int64`
@@ -256,6 +266,16 @@ SetInfo sets Info field to given value.
 
 HasInfo returns a boolean if a field has been set.
 
+### SetInfoNil
+
+`func (o *TestPlanLink) SetInfoNil(b bool)`
+
+ SetInfoNil sets the value for Info to be an explicit nil
+
+### UnsetInfo
+`func (o *TestPlanLink) UnsetInfo()`
+
+UnsetInfo ensures that no value is present for Info, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

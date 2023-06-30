@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-    commentId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    commentId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Comment internal (guid format) identifier
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -50,7 +50,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**commentId** | **string** |  | 
+**commentId** | **string** | Comment internal (guid format) identifier | 
 
 ### Other Parameters
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsCommentsPost
 
-> WorkItemCommentModel ApiV2WorkItemsCommentsPost(ctx).WorkItemCommentPostModel(workItemCommentPostModel).Execute()
+> WorkItemCommentModel ApiV2WorkItemsCommentsPost(ctx).ApiV2WorkItemsCommentsPostRequest(apiV2WorkItemsCommentsPostRequest).Execute()
 
 Create WorkItem comment
 
@@ -100,11 +100,11 @@ import (
 )
 
 func main() {
-    workItemCommentPostModel := *openapiclient.NewWorkItemCommentPostModel("Text_example", "WorkItemId_example") // WorkItemCommentPostModel |  (optional)
+    apiV2WorkItemsCommentsPostRequest := *openapiclient.NewApiV2WorkItemsCommentsPostRequest("Text_example", "WorkItemId_example") // ApiV2WorkItemsCommentsPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsCommentsPost(context.Background()).WorkItemCommentPostModel(workItemCommentPostModel).Execute()
+    resp, r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsCommentsPost(context.Background()).ApiV2WorkItemsCommentsPostRequest(apiV2WorkItemsCommentsPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsApi.ApiV2WorkItemsCommentsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -125,7 +125,7 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsCommentsPost
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemCommentPostModel** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md) |  | 
+ **apiV2WorkItemsCommentsPostRequest** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md) |  | 
 
 ### Return type
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsCommentsPut
 
-> ApiV2WorkItemsCommentsPut(ctx).WorkItemCommentPutModel(workItemCommentPutModel).Execute()
+> ApiV2WorkItemsCommentsPut(ctx).ApiV2WorkItemsCommentsPutRequest(apiV2WorkItemsCommentsPutRequest).Execute()
 
 Update work item comment
 
@@ -164,11 +164,11 @@ import (
 )
 
 func main() {
-    workItemCommentPutModel := *openapiclient.NewWorkItemCommentPutModel("Text_example", "Id_example") // WorkItemCommentPutModel |  (optional)
+    apiV2WorkItemsCommentsPutRequest := *openapiclient.NewApiV2WorkItemsCommentsPutRequest("Text_example", "Id_example") // ApiV2WorkItemsCommentsPutRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsCommentsPut(context.Background()).WorkItemCommentPutModel(workItemCommentPutModel).Execute()
+    r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsCommentsPut(context.Background()).ApiV2WorkItemsCommentsPutRequest(apiV2WorkItemsCommentsPutRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsApi.ApiV2WorkItemsCommentsPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -187,7 +187,7 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsCommentsPutR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemCommentPutModel** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md) |  | 
+ **apiV2WorkItemsCommentsPutRequest** | [**ApiV2WorkItemsCommentsPutRequest**](ApiV2WorkItemsCommentsPutRequest.md) |  | 
 
 ### Return type
 

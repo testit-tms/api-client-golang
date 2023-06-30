@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesGlobalIdPut
 
-> CustomAttributeModel ApiV2CustomAttributesGlobalIdPut(ctx, id).GlobalCustomAttributeUpdateModel(globalCustomAttributeUpdateModel).Execute()
+> CustomAttributeModel ApiV2CustomAttributesGlobalIdPut(ctx, id).ApiV2CustomAttributesGlobalIdPutRequest(apiV2CustomAttributesGlobalIdPutRequest).Execute()
 
 Edit global attribute
 
@@ -98,11 +98,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of attribute
-    globalCustomAttributeUpdateModel := *openapiclient.NewGlobalCustomAttributeUpdateModel("Name_example") // GlobalCustomAttributeUpdateModel |  (optional)
+    apiV2CustomAttributesGlobalIdPutRequest := *openapiclient.NewApiV2CustomAttributesGlobalIdPutRequest("Name_example") // ApiV2CustomAttributesGlobalIdPutRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CustomAttributesApi.ApiV2CustomAttributesGlobalIdPut(context.Background(), id).GlobalCustomAttributeUpdateModel(globalCustomAttributeUpdateModel).Execute()
+    resp, r, err := apiClient.CustomAttributesApi.ApiV2CustomAttributesGlobalIdPut(context.Background(), id).ApiV2CustomAttributesGlobalIdPutRequest(apiV2CustomAttributesGlobalIdPutRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributesApi.ApiV2CustomAttributesGlobalIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,7 +128,7 @@ Other parameters are passed through a pointer to a apiApiV2CustomAttributesGloba
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **globalCustomAttributeUpdateModel** | [**GlobalCustomAttributeUpdateModel**](GlobalCustomAttributeUpdateModel.md) |  | 
+ **apiV2CustomAttributesGlobalIdPutRequest** | [**ApiV2CustomAttributesGlobalIdPutRequest**](ApiV2CustomAttributesGlobalIdPutRequest.md) |  | 
 
 ### Return type
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesGlobalPost
 
-> CustomAttributeModel ApiV2CustomAttributesGlobalPost(ctx).GlobalCustomAttributePostModel(globalCustomAttributePostModel).Execute()
+> CustomAttributeModel ApiV2CustomAttributesGlobalPost(ctx).ApiV2CustomAttributesGlobalPostRequest(apiV2CustomAttributesGlobalPostRequest).Execute()
 
 Create global attribute
 
@@ -167,11 +167,11 @@ import (
 )
 
 func main() {
-    globalCustomAttributePostModel := *openapiclient.NewGlobalCustomAttributePostModel("Name_example", openapiclient.CustomAttributeTypesEnum("string")) // GlobalCustomAttributePostModel |  (optional)
+    apiV2CustomAttributesGlobalPostRequest := *openapiclient.NewApiV2CustomAttributesGlobalPostRequest("Name_example", openapiclient.CustomAttributeTypesEnum("string")) // ApiV2CustomAttributesGlobalPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CustomAttributesApi.ApiV2CustomAttributesGlobalPost(context.Background()).GlobalCustomAttributePostModel(globalCustomAttributePostModel).Execute()
+    resp, r, err := apiClient.CustomAttributesApi.ApiV2CustomAttributesGlobalPost(context.Background()).ApiV2CustomAttributesGlobalPostRequest(apiV2CustomAttributesGlobalPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributesApi.ApiV2CustomAttributesGlobalPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -192,7 +192,7 @@ Other parameters are passed through a pointer to a apiApiV2CustomAttributesGloba
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **globalCustomAttributePostModel** | [**GlobalCustomAttributePostModel**](GlobalCustomAttributePostModel.md) |  | 
+ **apiV2CustomAttributesGlobalPostRequest** | [**ApiV2CustomAttributesGlobalPostRequest**](ApiV2CustomAttributesGlobalPostRequest.md) |  | 
 
 ### Return type
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesSearchPost
 
-> []CustomAttributeModel ApiV2CustomAttributesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeSearchQueryModel(customAttributeSearchQueryModel).Execute()
+> []CustomAttributeModel ApiV2CustomAttributesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2CustomAttributesSearchPostRequest(apiV2CustomAttributesSearchPostRequest).Execute()
 
 Search for attributes
 
@@ -304,11 +304,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    customAttributeSearchQueryModel := *openapiclient.NewCustomAttributeSearchQueryModel() // CustomAttributeSearchQueryModel |  (optional)
+    apiV2CustomAttributesSearchPostRequest := *openapiclient.NewApiV2CustomAttributesSearchPostRequest() // ApiV2CustomAttributesSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CustomAttributesApi.ApiV2CustomAttributesSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeSearchQueryModel(customAttributeSearchQueryModel).Execute()
+    resp, r, err := apiClient.CustomAttributesApi.ApiV2CustomAttributesSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2CustomAttributesSearchPostRequest(apiV2CustomAttributesSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributesApi.ApiV2CustomAttributesSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **customAttributeSearchQueryModel** | [**CustomAttributeSearchQueryModel**](CustomAttributeSearchQueryModel.md) |  | 
+ **apiV2CustomAttributesSearchPostRequest** | [**ApiV2CustomAttributesSearchPostRequest**](ApiV2CustomAttributesSearchPostRequest.md) |  | 
 
 ### Return type
 

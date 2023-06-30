@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
+**AutoRefresh** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
@@ -128,6 +129,41 @@ SetIsDeleted sets IsDeleted field to given value.
 
 HasIsDeleted returns a boolean if a field has been set.
 
+### GetAutoRefresh
+
+`func (o *TestSuiteV2PutModel) GetAutoRefresh() bool`
+
+GetAutoRefresh returns the AutoRefresh field if non-nil, zero value otherwise.
+
+### GetAutoRefreshOk
+
+`func (o *TestSuiteV2PutModel) GetAutoRefreshOk() (*bool, bool)`
+
+GetAutoRefreshOk returns a tuple with the AutoRefresh field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoRefresh
+
+`func (o *TestSuiteV2PutModel) SetAutoRefresh(v bool)`
+
+SetAutoRefresh sets AutoRefresh field to given value.
+
+### HasAutoRefresh
+
+`func (o *TestSuiteV2PutModel) HasAutoRefresh() bool`
+
+HasAutoRefresh returns a boolean if a field has been set.
+
+### SetAutoRefreshNil
+
+`func (o *TestSuiteV2PutModel) SetAutoRefreshNil(b bool)`
+
+ SetAutoRefreshNil sets the value for AutoRefresh to be an explicit nil
+
+### UnsetAutoRefresh
+`func (o *TestSuiteV2PutModel) UnsetAutoRefresh()`
+
+UnsetAutoRefresh ensures that no value is present for AutoRefresh, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

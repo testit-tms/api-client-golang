@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TesterId** | Pointer to **NullableString** |  | [optional] 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **TestPlanId** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** | Unique ID of the entity | [optional] 
 **IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
 
@@ -186,16 +186,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TestSuiteWithChildrenModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestSuiteWithChildrenModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *TestSuiteWithChildrenModel) GetId() string`

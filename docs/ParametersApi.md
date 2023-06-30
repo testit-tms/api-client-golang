@@ -17,7 +17,6 @@ Method | HTTP request | Description
 [**DeleteParameter**](ParametersApi.md#DeleteParameter) | **Delete** /api/v2/parameters/{id} | Delete parameter
 [**GetAllParameters**](ParametersApi.md#GetAllParameters) | **Get** /api/v2/parameters | Get all parameters
 [**GetParameterById**](ParametersApi.md#GetParameterById) | **Get** /api/v2/parameters/{id} | Get parameter by ID
-[**ObsoleteDeleteByName**](ParametersApi.md#ObsoleteDeleteByName) | **Post** /api/v2/parameters/deleteByName | 
 [**UpdateParameter**](ParametersApi.md#UpdateParameter) | **Put** /api/v2/parameters | Update parameter
 
 
@@ -433,7 +432,7 @@ Other parameters are passed through a pointer to a apiApiV2ParametersKeysGetRequ
 
 ## ApiV2ParametersSearchPost
 
-> []ParameterModel ApiV2ParametersSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ParameterFilterModel(parameterFilterModel).Execute()
+> []ParameterModel ApiV2ParametersSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
 
 Search for parameters
 
@@ -455,11 +454,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    parameterFilterModel := *openapiclient.NewParameterFilterModel() // ParameterFilterModel |  (optional)
+    apiV2ParametersSearchPostRequest := *openapiclient.NewApiV2ParametersSearchPostRequest() // ApiV2ParametersSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ParameterFilterModel(parameterFilterModel).Execute()
+    resp, r, err := apiClient.ParametersApi.ApiV2ParametersSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -485,7 +484,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md) |  | 
+ **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -507,7 +506,7 @@ Name | Type | Description  | Notes
 
 ## CreateParameter
 
-> ParameterModel CreateParameter(ctx).ParameterPostModel(parameterPostModel).Execute()
+> ParameterModel CreateParameter(ctx).CreateParameterRequest(createParameterRequest).Execute()
 
 Create parameter
 
@@ -526,11 +525,11 @@ import (
 )
 
 func main() {
-    parameterPostModel := *openapiclient.NewParameterPostModel("Value_example", "Name_example") // ParameterPostModel |  (optional)
+    createParameterRequest := *openapiclient.NewCreateParameterRequest("Value_example", "Name_example") // CreateParameterRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.CreateParameter(context.Background()).ParameterPostModel(parameterPostModel).Execute()
+    resp, r, err := apiClient.ParametersApi.CreateParameter(context.Background()).CreateParameterRequest(createParameterRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.CreateParameter``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -551,7 +550,7 @@ Other parameters are passed through a pointer to a apiCreateParameterRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parameterPostModel** | [**ParameterPostModel**](ParameterPostModel.md) |  | 
+ **createParameterRequest** | [**CreateParameterRequest**](CreateParameterRequest.md) |  | 
 
 ### Return type
 
@@ -921,71 +920,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ObsoleteDeleteByName
-
-> ObsoleteDeleteByName(ctx).Name(name).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-    name := "name_example" // string |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ParametersApi.ObsoleteDeleteByName(context.Background()).Name(name).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ObsoleteDeleteByName``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiObsoleteDeleteByNameRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **string** |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## UpdateParameter
 
-> UpdateParameter(ctx).ParameterPutModel(parameterPutModel).Execute()
+> UpdateParameter(ctx).UpdateParameterRequest(updateParameterRequest).Execute()
 
 Update parameter
 
@@ -1004,11 +941,11 @@ import (
 )
 
 func main() {
-    parameterPutModel := *openapiclient.NewParameterPutModel("Value_example", "Name_example") // ParameterPutModel |  (optional)
+    updateParameterRequest := *openapiclient.NewUpdateParameterRequest("Value_example", "Name_example") // UpdateParameterRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ParametersApi.UpdateParameter(context.Background()).ParameterPutModel(parameterPutModel).Execute()
+    r, err := apiClient.ParametersApi.UpdateParameter(context.Background()).UpdateParameterRequest(updateParameterRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.UpdateParameter``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1027,7 +964,7 @@ Other parameters are passed through a pointer to a apiUpdateParameterRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parameterPutModel** | [**ParameterPutModel**](ParameterPutModel.md) |  | 
+ **updateParameterRequest** | [**UpdateParameterRequest**](UpdateParameterRequest.md) |  | 
 
 ### Return type
 

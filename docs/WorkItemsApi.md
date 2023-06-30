@@ -704,7 +704,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsMovePost
 
-> WorkItemShortModel ApiV2WorkItemsMovePost(ctx).WorkItemMovePostModel(workItemMovePostModel).Execute()
+> WorkItemShortModel ApiV2WorkItemsMovePost(ctx).ApiV2WorkItemsMovePostRequest(apiV2WorkItemsMovePostRequest).Execute()
 
 Move WorkItem to another section
 
@@ -723,11 +723,11 @@ import (
 )
 
 func main() {
-    workItemMovePostModel := *openapiclient.NewWorkItemMovePostModel("Id_example", "NewSectionId_example") // WorkItemMovePostModel |  (optional)
+    apiV2WorkItemsMovePostRequest := *openapiclient.NewApiV2WorkItemsMovePostRequest("Id_example", "NewSectionId_example") // ApiV2WorkItemsMovePostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsMovePost(context.Background()).WorkItemMovePostModel(workItemMovePostModel).Execute()
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsMovePost(context.Background()).ApiV2WorkItemsMovePostRequest(apiV2WorkItemsMovePostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsMovePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -748,7 +748,7 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsMovePostRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemMovePostModel** | [**WorkItemMovePostModel**](WorkItemMovePostModel.md) |  | 
+ **apiV2WorkItemsMovePostRequest** | [**ApiV2WorkItemsMovePostRequest**](ApiV2WorkItemsMovePostRequest.md) |  | 
 
 ### Return type
 
@@ -770,7 +770,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSearchPost
 
-> []WorkItemShortModel ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+> []WorkItemShortModel ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
 
 Search for work items
 
@@ -792,11 +792,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    workItemSelectModel := *openapiclient.NewWorkItemSelectModel() // WorkItemSelectModel |  (optional)
+    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -822,7 +822,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) |  | 
+ **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -844,7 +844,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSharedStepIdReferencesSectionsPost
 
-> []SharedStepReferenceSectionModel ApiV2WorkItemsSharedStepIdReferencesSectionsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferenceSectionsQueryFilterModel(sharedStepReferenceSectionsQueryFilterModel).Execute()
+> []SharedStepReferenceSectionModel ApiV2WorkItemsSharedStepIdReferencesSectionsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest).Execute()
 
 Get SharedStep references in sections
 
@@ -869,11 +869,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    sharedStepReferenceSectionsQueryFilterModel := *openapiclient.NewSharedStepReferenceSectionsQueryFilterModel() // SharedStepReferenceSectionsQueryFilterModel |  (optional)
+    apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest := *openapiclient.NewApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest() // ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesSectionsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferenceSectionsQueryFilterModel(sharedStepReferenceSectionsQueryFilterModel).Execute()
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesSectionsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesSectionsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -904,7 +904,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **sharedStepReferenceSectionsQueryFilterModel** | [**SharedStepReferenceSectionsQueryFilterModel**](SharedStepReferenceSectionsQueryFilterModel.md) |  | 
+ **apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest.md) |  | 
 
 ### Return type
 
@@ -926,7 +926,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost
 
-> []SharedStepReferenceModel ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferencesQueryFilterModel(sharedStepReferencesQueryFilterModel).Execute()
+> []SharedStepReferenceModel ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest).Execute()
 
 Get SharedStep references in workitems
 
@@ -951,11 +951,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    sharedStepReferencesQueryFilterModel := *openapiclient.NewSharedStepReferencesQueryFilterModel() // SharedStepReferencesQueryFilterModel |  (optional)
+    apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest := *openapiclient.NewApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest() // ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferencesQueryFilterModel(sharedStepReferencesQueryFilterModel).Execute()
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -986,7 +986,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **sharedStepReferencesQueryFilterModel** | [**SharedStepReferencesQueryFilterModel**](SharedStepReferencesQueryFilterModel.md) |  | 
+ **apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.md) |  | 
 
 ### Return type
 
@@ -1078,7 +1078,7 @@ Name | Type | Description  | Notes
 
 ## CreateWorkItem
 
-> WorkItemModel CreateWorkItem(ctx).WorkItemPostModel(workItemPostModel).Execute()
+> WorkItemModel CreateWorkItem(ctx).CreateWorkItemRequest(createWorkItemRequest).Execute()
 
 Create Test Case, Checklist or Shared Step
 
@@ -1097,11 +1097,11 @@ import (
 )
 
 func main() {
-    workItemPostModel := *openapiclient.NewWorkItemPostModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example")}, "Basic template", "d49af44b-dbd8-48b0-90e5-e065735d7229", "d49af44b-dbd8-48b0-90e5-e065735d7229") // WorkItemPostModel |  (optional)
+    createWorkItemRequest := *openapiclient.NewCreateWorkItemRequest(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example")}, "Basic template", "f0d5cbfd-25bc-4069-863f-b2945e748040", "f0d5cbfd-25bc-4069-863f-b2945e748040") // CreateWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkItemsApi.CreateWorkItem(context.Background()).WorkItemPostModel(workItemPostModel).Execute()
+    resp, r, err := apiClient.WorkItemsApi.CreateWorkItem(context.Background()).CreateWorkItemRequest(createWorkItemRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.CreateWorkItem``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1122,7 +1122,7 @@ Other parameters are passed through a pointer to a apiCreateWorkItemRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemPostModel** | [**WorkItemPostModel**](WorkItemPostModel.md) |  | 
+ **createWorkItemRequest** | [**CreateWorkItemRequest**](CreateWorkItemRequest.md) |  | 
 
 ### Return type
 
@@ -1772,7 +1772,7 @@ Name | Type | Description  | Notes
 
 ## UpdateWorkItem
 
-> UpdateWorkItem(ctx).WorkItemPutModel(workItemPutModel).Execute()
+> UpdateWorkItem(ctx).UpdateWorkItemRequest(updateWorkItemRequest).Execute()
 
 Update Test Case, Checklist or Shared Step
 
@@ -1791,11 +1791,11 @@ import (
 )
 
 func main() {
-    workItemPutModel := *openapiclient.NewWorkItemPutModel([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "d49af44b-dbd8-48b0-90e5-e065735d7229", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example")}, "Basic template") // WorkItemPutModel |  (optional)
+    updateWorkItemRequest := *openapiclient.NewUpdateWorkItemRequest([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "f0d5cbfd-25bc-4069-863f-b2945e748040", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example")}, "Basic template") // UpdateWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.WorkItemsApi.UpdateWorkItem(context.Background()).WorkItemPutModel(workItemPutModel).Execute()
+    r, err := apiClient.WorkItemsApi.UpdateWorkItem(context.Background()).UpdateWorkItemRequest(updateWorkItemRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.UpdateWorkItem``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1814,7 +1814,7 @@ Other parameters are passed through a pointer to a apiUpdateWorkItemRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemPutModel** | [**WorkItemPutModel**](WorkItemPutModel.md) |  | 
+ **updateWorkItemRequest** | [**UpdateWorkItemRequest**](UpdateWorkItemRequest.md) |  | 
 
 ### Return type
 

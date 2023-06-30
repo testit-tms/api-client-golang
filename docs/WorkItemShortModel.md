@@ -524,16 +524,6 @@ SetTagNames sets TagNames field to given value.
 
 HasTagNames returns a boolean if a field has been set.
 
-### SetTagNamesNil
-
-`func (o *WorkItemShortModel) SetTagNamesNil(b bool)`
-
- SetTagNamesNil sets the value for TagNames to be an explicit nil
-
-### UnsetTagNames
-`func (o *WorkItemShortModel) UnsetTagNames()`
-
-UnsetTagNames ensures that no value is present for TagNames, not even an explicit nil
 ### GetIterations
 
 `func (o *WorkItemShortModel) GetIterations() []IterationModel`
@@ -559,16 +549,6 @@ SetIterations sets Iterations field to given value.
 
 HasIterations returns a boolean if a field has been set.
 
-### SetIterationsNil
-
-`func (o *WorkItemShortModel) SetIterationsNil(b bool)`
-
- SetIterationsNil sets the value for Iterations to be an explicit nil
-
-### UnsetIterations
-`func (o *WorkItemShortModel) UnsetIterations()`
-
-UnsetIterations ensures that no value is present for Iterations, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

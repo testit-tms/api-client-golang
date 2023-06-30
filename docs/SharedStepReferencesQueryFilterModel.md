@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **States** | Pointer to [**[]WorkItemStates**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
 **EntityTypes** | Pointer to **[]string** | Collection of types of work item  &lt;br&gt;Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
-**CreatedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
-**ModifiedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableSharedStepReferenceSectionsQueryFilterModelCreatedDate**](SharedStepReferenceSectionsQueryFilterModelCreatedDate.md) |  | [optional] 
+**ModifiedDate** | Pointer to [**NullableSharedStepReferenceSectionsQueryFilterModelModifiedDate**](SharedStepReferenceSectionsQueryFilterModelModifiedDate.md) |  | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Is result must consist of only manual/automated work items | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags | [optional] 
 
@@ -318,20 +318,20 @@ HasEntityTypes returns a boolean if a field has been set.
 UnsetEntityTypes ensures that no value is present for EntityTypes, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *SharedStepReferencesQueryFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
+`func (o *SharedStepReferencesQueryFilterModel) GetCreatedDate() SharedStepReferenceSectionsQueryFilterModelCreatedDate`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *SharedStepReferencesQueryFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
+`func (o *SharedStepReferencesQueryFilterModel) GetCreatedDateOk() (*SharedStepReferenceSectionsQueryFilterModelCreatedDate, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *SharedStepReferencesQueryFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
+`func (o *SharedStepReferencesQueryFilterModel) SetCreatedDate(v SharedStepReferenceSectionsQueryFilterModelCreatedDate)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -341,22 +341,32 @@ SetCreatedDate sets CreatedDate field to given value.
 
 HasCreatedDate returns a boolean if a field has been set.
 
+### SetCreatedDateNil
+
+`func (o *SharedStepReferencesQueryFilterModel) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *SharedStepReferencesQueryFilterModel) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetModifiedDate
 
-`func (o *SharedStepReferencesQueryFilterModel) GetModifiedDate() DateTimeRangeSelectorModel`
+`func (o *SharedStepReferencesQueryFilterModel) GetModifiedDate() SharedStepReferenceSectionsQueryFilterModelModifiedDate`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *SharedStepReferencesQueryFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool)`
+`func (o *SharedStepReferencesQueryFilterModel) GetModifiedDateOk() (*SharedStepReferenceSectionsQueryFilterModelModifiedDate, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *SharedStepReferencesQueryFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel)`
+`func (o *SharedStepReferencesQueryFilterModel) SetModifiedDate(v SharedStepReferenceSectionsQueryFilterModelModifiedDate)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 
@@ -366,6 +376,16 @@ SetModifiedDate sets ModifiedDate field to given value.
 
 HasModifiedDate returns a boolean if a field has been set.
 
+### SetModifiedDateNil
+
+`func (o *SharedStepReferencesQueryFilterModel) SetModifiedDateNil(b bool)`
+
+ SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+
+### UnsetModifiedDate
+`func (o *SharedStepReferencesQueryFilterModel) UnsetModifiedDate()`
+
+UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
 ### GetIsAutomated
 
 `func (o *SharedStepReferencesQueryFilterModel) GetIsAutomated() bool`

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TestSuiteId** | Pointer to **string** |  | [optional] 
-**TestSuiteName** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **int32** |  | [optional] 
+**TestSuiteName** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -77,32 +77,22 @@ SetTestSuiteName sets TestSuiteName field to given value.
 
 HasTestSuiteName returns a boolean if a field has been set.
 
-### SetTestSuiteNameNil
-
-`func (o *TestPlanGroupByTestSuite) SetTestSuiteNameNil(b bool)`
-
- SetTestSuiteNameNil sets the value for TestSuiteName to be an explicit nil
-
-### UnsetTestSuiteName
-`func (o *TestPlanGroupByTestSuite) UnsetTestSuiteName()`
-
-UnsetTestSuiteName ensures that no value is present for TestSuiteName, not even an explicit nil
 ### GetValue
 
-`func (o *TestPlanGroupByTestSuite) GetValue() int32`
+`func (o *TestPlanGroupByTestSuite) GetValue() int64`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *TestPlanGroupByTestSuite) GetValueOk() (*int32, bool)`
+`func (o *TestPlanGroupByTestSuite) GetValueOk() (*int64, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *TestPlanGroupByTestSuite) SetValue(v int32)`
+`func (o *TestPlanGroupByTestSuite) SetValue(v int64)`
 
 SetValue sets Value field to given value.
 

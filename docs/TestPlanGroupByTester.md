@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserId** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **int32** |  | [optional] 
+**Value** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -63,20 +63,20 @@ HasUserId returns a boolean if a field has been set.
 UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetValue
 
-`func (o *TestPlanGroupByTester) GetValue() int32`
+`func (o *TestPlanGroupByTester) GetValue() int64`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *TestPlanGroupByTester) GetValueOk() (*int32, bool)`
+`func (o *TestPlanGroupByTester) GetValueOk() (*int64, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *TestPlanGroupByTester) SetValue(v int32)`
+`func (o *TestPlanGroupByTester) SetValue(v int64)`
 
 SetValue sets Value field to given value.
 

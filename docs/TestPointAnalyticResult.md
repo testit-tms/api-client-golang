@@ -54,16 +54,6 @@ SetCountGroupByStatus sets CountGroupByStatus field to given value.
 
 HasCountGroupByStatus returns a boolean if a field has been set.
 
-### SetCountGroupByStatusNil
-
-`func (o *TestPointAnalyticResult) SetCountGroupByStatusNil(b bool)`
-
- SetCountGroupByStatusNil sets the value for CountGroupByStatus to be an explicit nil
-
-### UnsetCountGroupByStatus
-`func (o *TestPointAnalyticResult) UnsetCountGroupByStatus()`
-
-UnsetCountGroupByStatus ensures that no value is present for CountGroupByStatus, not even an explicit nil
 ### GetSumGroupByTester
 
 `func (o *TestPointAnalyticResult) GetSumGroupByTester() []TestPlanGroupByTester`
@@ -89,16 +79,6 @@ SetSumGroupByTester sets SumGroupByTester field to given value.
 
 HasSumGroupByTester returns a boolean if a field has been set.
 
-### SetSumGroupByTesterNil
-
-`func (o *TestPointAnalyticResult) SetSumGroupByTesterNil(b bool)`
-
- SetSumGroupByTesterNil sets the value for SumGroupByTester to be an explicit nil
-
-### UnsetSumGroupByTester
-`func (o *TestPointAnalyticResult) UnsetSumGroupByTester()`
-
-UnsetSumGroupByTester ensures that no value is present for SumGroupByTester, not even an explicit nil
 ### GetCountGroupByTester
 
 `func (o *TestPointAnalyticResult) GetCountGroupByTester() []TestPlanGroupByTester`
@@ -124,16 +104,6 @@ SetCountGroupByTester sets CountGroupByTester field to given value.
 
 HasCountGroupByTester returns a boolean if a field has been set.
 
-### SetCountGroupByTesterNil
-
-`func (o *TestPointAnalyticResult) SetCountGroupByTesterNil(b bool)`
-
- SetCountGroupByTesterNil sets the value for CountGroupByTester to be an explicit nil
-
-### UnsetCountGroupByTester
-`func (o *TestPointAnalyticResult) UnsetCountGroupByTester()`
-
-UnsetCountGroupByTester ensures that no value is present for CountGroupByTester, not even an explicit nil
 ### GetCountGroupByTestSuite
 
 `func (o *TestPointAnalyticResult) GetCountGroupByTestSuite() []TestPlanGroupByTestSuite`
@@ -159,16 +129,6 @@ SetCountGroupByTestSuite sets CountGroupByTestSuite field to given value.
 
 HasCountGroupByTestSuite returns a boolean if a field has been set.
 
-### SetCountGroupByTestSuiteNil
-
-`func (o *TestPointAnalyticResult) SetCountGroupByTestSuiteNil(b bool)`
-
- SetCountGroupByTestSuiteNil sets the value for CountGroupByTestSuite to be an explicit nil
-
-### UnsetCountGroupByTestSuite
-`func (o *TestPointAnalyticResult) UnsetCountGroupByTestSuite()`
-
-UnsetCountGroupByTestSuite ensures that no value is present for CountGroupByTestSuite, not even an explicit nil
 ### GetCountGroupByTesterAndStatus
 
 `func (o *TestPointAnalyticResult) GetCountGroupByTesterAndStatus() []TestPlanGroupByTesterAndStatus`
@@ -194,16 +154,6 @@ SetCountGroupByTesterAndStatus sets CountGroupByTesterAndStatus field to given v
 
 HasCountGroupByTesterAndStatus returns a boolean if a field has been set.
 
-### SetCountGroupByTesterAndStatusNil
-
-`func (o *TestPointAnalyticResult) SetCountGroupByTesterAndStatusNil(b bool)`
-
- SetCountGroupByTesterAndStatusNil sets the value for CountGroupByTesterAndStatus to be an explicit nil
-
-### UnsetCountGroupByTesterAndStatus
-`func (o *TestPointAnalyticResult) UnsetCountGroupByTesterAndStatus()`
-
-UnsetCountGroupByTesterAndStatus ensures that no value is present for CountGroupByTesterAndStatus, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

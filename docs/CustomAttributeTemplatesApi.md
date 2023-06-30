@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesPost
 
-> CustomAttributeTemplateModel ApiV2CustomAttributesTemplatesPost(ctx).CustomAttributeTemplatePostModel(customAttributeTemplatePostModel).Execute()
+> CustomAttributeTemplateModel ApiV2CustomAttributesTemplatesPost(ctx).ApiV2CustomAttributesTemplatesPostRequest(apiV2CustomAttributesTemplatesPostRequest).Execute()
 
 Create CustomAttributeTemplate
 
@@ -386,11 +386,11 @@ import (
 )
 
 func main() {
-    customAttributeTemplatePostModel := *openapiclient.NewCustomAttributeTemplatePostModel("Name_example") // CustomAttributeTemplatePostModel |  (optional)
+    apiV2CustomAttributesTemplatesPostRequest := *openapiclient.NewApiV2CustomAttributesTemplatesPostRequest("Name_example") // ApiV2CustomAttributesTemplatesPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPost(context.Background()).CustomAttributeTemplatePostModel(customAttributeTemplatePostModel).Execute()
+    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPost(context.Background()).ApiV2CustomAttributesTemplatesPostRequest(apiV2CustomAttributesTemplatesPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -411,7 +411,7 @@ Other parameters are passed through a pointer to a apiApiV2CustomAttributesTempl
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customAttributeTemplatePostModel** | [**CustomAttributeTemplatePostModel**](CustomAttributeTemplatePostModel.md) |  | 
+ **apiV2CustomAttributesTemplatesPostRequest** | [**ApiV2CustomAttributesTemplatesPostRequest**](ApiV2CustomAttributesTemplatesPostRequest.md) |  | 
 
 ### Return type
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesPut
 
-> ApiV2CustomAttributesTemplatesPut(ctx).CustomAttributeTemplatePutModel(customAttributeTemplatePutModel).Execute()
+> ApiV2CustomAttributesTemplatesPut(ctx).ApiV2CustomAttributesTemplatesPutRequest(apiV2CustomAttributesTemplatesPutRequest).Execute()
 
 Update custom attributes template
 
@@ -450,11 +450,11 @@ import (
 )
 
 func main() {
-    customAttributeTemplatePutModel := *openapiclient.NewCustomAttributeTemplatePutModel("Id_example", "Name_example") // CustomAttributeTemplatePutModel |  (optional)
+    apiV2CustomAttributesTemplatesPutRequest := *openapiclient.NewApiV2CustomAttributesTemplatesPutRequest("Id_example", "Name_example") // ApiV2CustomAttributesTemplatesPutRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPut(context.Background()).CustomAttributeTemplatePutModel(customAttributeTemplatePutModel).Execute()
+    r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPut(context.Background()).ApiV2CustomAttributesTemplatesPutRequest(apiV2CustomAttributesTemplatesPutRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -473,7 +473,7 @@ Other parameters are passed through a pointer to a apiApiV2CustomAttributesTempl
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customAttributeTemplatePutModel** | [**CustomAttributeTemplatePutModel**](CustomAttributeTemplatePutModel.md) |  | 
+ **apiV2CustomAttributesTemplatesPutRequest** | [**ApiV2CustomAttributesTemplatesPutRequest**](ApiV2CustomAttributesTemplatesPutRequest.md) |  | 
 
 ### Return type
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesSearchPost
 
-> []SearchCustomAttributeTemplateGetModel ApiV2CustomAttributesTemplatesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeTemplateSearchQueryModel(customAttributeTemplateSearchQueryModel).Execute()
+> []SearchCustomAttributeTemplateGetModel ApiV2CustomAttributesTemplatesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2CustomAttributesTemplatesSearchPostRequest(apiV2CustomAttributesTemplatesSearchPostRequest).Execute()
 
 Search CustomAttributeTemplates
 
@@ -519,11 +519,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    customAttributeTemplateSearchQueryModel := *openapiclient.NewCustomAttributeTemplateSearchQueryModel() // CustomAttributeTemplateSearchQueryModel |  (optional)
+    apiV2CustomAttributesTemplatesSearchPostRequest := *openapiclient.NewApiV2CustomAttributesTemplatesSearchPostRequest() // ApiV2CustomAttributesTemplatesSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeTemplateSearchQueryModel(customAttributeTemplateSearchQueryModel).Execute()
+    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2CustomAttributesTemplatesSearchPostRequest(apiV2CustomAttributesTemplatesSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **customAttributeTemplateSearchQueryModel** | [**CustomAttributeTemplateSearchQueryModel**](CustomAttributeTemplateSearchQueryModel.md) |  | 
+ **apiV2CustomAttributesTemplatesSearchPostRequest** | [**ApiV2CustomAttributesTemplatesSearchPostRequest**](ApiV2CustomAttributesTemplatesSearchPostRequest.md) |  | 
 
 ### Return type
 

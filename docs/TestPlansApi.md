@@ -30,6 +30,7 @@ Method | HTTP request | Description
 [**GetTestPlanById**](TestPlansApi.md#GetTestPlanById) | **Get** /api/v2/testPlans/{id} | Get TestPlan by Id
 [**GetTestSuitesById**](TestPlansApi.md#GetTestSuitesById) | **Get** /api/v2/testPlans/{id}/testSuites | Get TestSuites Tree By Id
 [**Pause**](TestPlansApi.md#Pause) | **Post** /api/v2/testPlans/{id}/pause | Pause TestPlan
+[**PurgeTestPlan**](TestPlansApi.md#PurgeTestPlan) | **Post** /api/v2/testPlans/{id}/purge | Permanently delete test plan from archive
 [**RestoreTestPlan**](TestPlansApi.md#RestoreTestPlan) | **Post** /api/v2/testPlans/{id}/restore | Restore TestPlan
 [**Start**](TestPlansApi.md#Start) | **Post** /api/v2/testPlans/{id}/start | Start TestPlan
 [**UpdateTestPlan**](TestPlansApi.md#UpdateTestPlan) | **Put** /api/v2/testPlans | Update TestPlan
@@ -38,7 +39,7 @@ Method | HTTP request | Description
 
 ## AddTestPointsWithSections
 
-> AddTestPointsWithSections(ctx, id).WorkItemSelectModel(workItemSelectModel).Execute()
+> AddTestPointsWithSections(ctx, id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
 
 Add test-points to TestPlan with sections
 
@@ -56,11 +57,11 @@ import (
 
 func main() {
     id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    workItemSelectModel := *openapiclient.NewWorkItemSelectModel() // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project (optional)
+    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.AddTestPointsWithSections(context.Background(), id).WorkItemSelectModel(workItemSelectModel).Execute()
+    r, err := apiClient.TestPlansApi.AddTestPointsWithSections(context.Background(), id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.AddTestPointsWithSections``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -84,7 +85,7 @@ Other parameters are passed through a pointer to a apiAddTestPointsWithSectionsR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) | Filter object to retrieve work items for test-suite&#39;s project | 
+ **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
 
 ### Return type
 
@@ -386,7 +387,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdExportTestPointsXlsxPost
 
-> *os.File ApiV2TestPlansIdExportTestPointsXlsxPost(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).GetXlsxTestPointsByTestPlanModel(getXlsxTestPointsByTestPlanModel).Execute()
+> *os.File ApiV2TestPlansIdExportTestPointsXlsxPost(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ApiV2TestPlansIdExportTestPointsXlsxPostRequest(apiV2TestPlansIdExportTestPointsXlsxPostRequest).Execute()
 
 Export TestPoints from TestPlan in xls format
 
@@ -407,11 +408,11 @@ import (
 func main() {
     id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
     timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    getXlsxTestPointsByTestPlanModel := *openapiclient.NewGetXlsxTestPointsByTestPlanModel() // GetXlsxTestPointsByTestPlanModel |  (optional)
+    apiV2TestPlansIdExportTestPointsXlsxPostRequest := *openapiclient.NewApiV2TestPlansIdExportTestPointsXlsxPostRequest() // ApiV2TestPlansIdExportTestPointsXlsxPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdExportTestPointsXlsxPost(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).GetXlsxTestPointsByTestPlanModel(getXlsxTestPointsByTestPlanModel).Execute()
+    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdExportTestPointsXlsxPost(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ApiV2TestPlansIdExportTestPointsXlsxPostRequest(apiV2TestPlansIdExportTestPointsXlsxPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdExportTestPointsXlsxPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -438,7 +439,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **getXlsxTestPointsByTestPlanModel** | [**GetXlsxTestPointsByTestPlanModel**](GetXlsxTestPointsByTestPlanModel.md) |  | 
+ **apiV2TestPlansIdExportTestPointsXlsxPostRequest** | [**ApiV2TestPlansIdExportTestPointsXlsxPostRequest**](ApiV2TestPlansIdExportTestPointsXlsxPostRequest.md) |  | 
 
 ### Return type
 
@@ -916,7 +917,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestPointsTesterDelete
 
-> []string ApiV2TestPlansIdTestPointsTesterDelete(ctx, id).TestPointSelectModel(testPointSelectModel).Execute()
+> []string ApiV2TestPlansIdTestPointsTesterDelete(ctx, id).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
 
 Unassign users from multiple test points
 
@@ -934,11 +935,11 @@ import (
 
 func main() {
     id := "id_example" // string | Unique or global ID of the test plan
-    testPointSelectModel := *openapiclient.NewTestPointSelectModel() // TestPointSelectModel |  (optional)
+    apiV2TestPlansIdTestPointsTesterUserIdPostRequest := *openapiclient.NewApiV2TestPlansIdTestPointsTesterUserIdPostRequest() // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsTesterDelete(context.Background(), id).TestPointSelectModel(testPointSelectModel).Execute()
+    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsTesterDelete(context.Background(), id).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestPointsTesterDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -964,7 +965,7 @@ Other parameters are passed through a pointer to a apiApiV2TestPlansIdTestPoints
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md) |  | 
+ **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md) |  | 
 
 ### Return type
 
@@ -986,7 +987,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestPointsTesterUserIdPost
 
-> []string ApiV2TestPlansIdTestPointsTesterUserIdPost(ctx, id, userId).TestPointSelectModel(testPointSelectModel).Execute()
+> []string ApiV2TestPlansIdTestPointsTesterUserIdPost(ctx, id, userId).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
 
 Assign user as a tester to multiple test points
 
@@ -1005,11 +1006,11 @@ import (
 func main() {
     id := "id_example" // string | Unique or global ID of the test plan
     userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the user
-    testPointSelectModel := *openapiclient.NewTestPointSelectModel() // TestPointSelectModel |  (optional)
+    apiV2TestPlansIdTestPointsTesterUserIdPostRequest := *openapiclient.NewApiV2TestPlansIdTestPointsTesterUserIdPostRequest() // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsTesterUserIdPost(context.Background(), id, userId).TestPointSelectModel(testPointSelectModel).Execute()
+    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsTesterUserIdPost(context.Background(), id, userId).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestPointsTesterUserIdPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1037,7 +1038,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md) |  | 
+ **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md) |  | 
 
 ### Return type
 
@@ -1147,7 +1148,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestRunsSearchPost
 
-> []TestRunModel ApiV2TestPlansIdTestRunsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunSearchQueryModel(testRunSearchQueryModel).Execute()
+> []TestRunModel ApiV2TestPlansIdTestRunsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPlansIdTestRunsSearchPostRequest(apiV2TestPlansIdTestRunsSearchPostRequest).Execute()
 
 Search TestRuns of TestPlan
 
@@ -1172,11 +1173,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    testRunSearchQueryModel := *openapiclient.NewTestRunSearchQueryModel() // TestRunSearchQueryModel |  (optional)
+    apiV2TestPlansIdTestRunsSearchPostRequest := *openapiclient.NewApiV2TestPlansIdTestRunsSearchPostRequest() // ApiV2TestPlansIdTestRunsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestRunsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunSearchQueryModel(testRunSearchQueryModel).Execute()
+    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestRunsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPlansIdTestRunsSearchPostRequest(apiV2TestPlansIdTestRunsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestRunsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1207,7 +1208,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testRunSearchQueryModel** | [**TestRunSearchQueryModel**](TestRunSearchQueryModel.md) |  | 
+ **apiV2TestPlansIdTestRunsSearchPostRequest** | [**ApiV2TestPlansIdTestRunsSearchPostRequest**](ApiV2TestPlansIdTestRunsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -1571,7 +1572,7 @@ Name | Type | Description  | Notes
 
 ## CreateTestPlan
 
-> TestPlanModel CreateTestPlan(ctx).TestPlanPostModel(testPlanPostModel).Execute()
+> TestPlanModel CreateTestPlan(ctx).CreateTestPlanRequest(createTestPlanRequest).Execute()
 
 Create TestPlan
 
@@ -1590,11 +1591,11 @@ import (
 )
 
 func main() {
-    testPlanPostModel := *openapiclient.NewTestPlanPostModel("Base test plan", "d49af44b-dbd8-48b0-90e5-e065735d7229") // TestPlanPostModel |  (optional)
+    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "f0d5cbfd-25bc-4069-863f-b2945e748040") // CreateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.CreateTestPlan(context.Background()).TestPlanPostModel(testPlanPostModel).Execute()
+    resp, r, err := apiClient.TestPlansApi.CreateTestPlan(context.Background()).CreateTestPlanRequest(createTestPlanRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.CreateTestPlan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1615,7 +1616,7 @@ Other parameters are passed through a pointer to a apiCreateTestPlanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testPlanPostModel** | [**TestPlanPostModel**](TestPlanPostModel.md) |  | 
+ **createTestPlanRequest** | [**CreateTestPlanRequest**](CreateTestPlanRequest.md) |  | 
 
 ### Return type
 
@@ -1911,6 +1912,72 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## PurgeTestPlan
+
+> PurgeTestPlan(ctx, id).Execute()
+
+Permanently delete test plan from archive
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the test plan
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestPlansApi.PurgeTestPlan(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.PurgeTestPlan``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the test plan | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPurgeTestPlanRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RestoreTestPlan
 
 > RestoreTestPlan(ctx, id).Execute()
@@ -2049,7 +2116,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTestPlan
 
-> UpdateTestPlan(ctx).TestPlanPutModel(testPlanPutModel).Execute()
+> UpdateTestPlan(ctx).UpdateTestPlanRequest(updateTestPlanRequest).Execute()
 
 Update TestPlan
 
@@ -2068,11 +2135,11 @@ import (
 )
 
 func main() {
-    testPlanPutModel := *openapiclient.NewTestPlanPutModel("d49af44b-dbd8-48b0-90e5-e065735d7229", "Base test plan", "d49af44b-dbd8-48b0-90e5-e065735d7229") // TestPlanPutModel |  (optional)
+    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("f0d5cbfd-25bc-4069-863f-b2945e748040", "Base test plan", "f0d5cbfd-25bc-4069-863f-b2945e748040") // UpdateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.UpdateTestPlan(context.Background()).TestPlanPutModel(testPlanPutModel).Execute()
+    r, err := apiClient.TestPlansApi.UpdateTestPlan(context.Background()).UpdateTestPlanRequest(updateTestPlanRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.UpdateTestPlan``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2091,7 +2158,7 @@ Other parameters are passed through a pointer to a apiUpdateTestPlanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testPlanPutModel** | [**TestPlanPutModel**](TestPlanPutModel.md) |  | 
+ **updateTestPlanRequest** | [**UpdateTestPlanRequest**](UpdateTestPlanRequest.md) |  | 
 
 ### Return type
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **int32** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -51,32 +51,22 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
-### SetStatusNil
-
-`func (o *TestPlanGroupByStatus) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *TestPlanGroupByStatus) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
-`func (o *TestPlanGroupByStatus) GetValue() int32`
+`func (o *TestPlanGroupByStatus) GetValue() int64`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *TestPlanGroupByStatus) GetValueOk() (*int32, bool)`
+`func (o *TestPlanGroupByStatus) GetValueOk() (*int64, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *TestPlanGroupByStatus) SetValue(v int32)`
+`func (o *TestPlanGroupByStatus) SetValue(v int64)`
 
 SetValue sets Value field to given value.
 

@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**AddTestPointsToTestSuite**](TestSuitesApi.md#AddTestPointsToTestSuite) | **Post** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 [**ApiV2TestSuitesIdPatch**](TestSuitesApi.md#ApiV2TestSuitesIdPatch) | **Patch** /api/v2/testSuites/{id} | Patch test suite
 [**ApiV2TestSuitesIdRefreshPost**](TestSuitesApi.md#ApiV2TestSuitesIdRefreshPost) | **Post** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
-[**CreateTestSuite**](TestSuitesApi.md#CreateTestSuite) | **Post** /api/v2/testSuites | Create TestSuite
+[**ApiV2TestSuitesIdWorkItemsPost**](TestSuitesApi.md#ApiV2TestSuitesIdWorkItemsPost) | **Post** /api/v2/testSuites/{id}/workItems | Set work items for test suite
+[**ApiV2TestSuitesPost**](TestSuitesApi.md#ApiV2TestSuitesPost) | **Post** /api/v2/testSuites | Create test suite
+[**ApiV2TestSuitesPut**](TestSuitesApi.md#ApiV2TestSuitesPut) | **Put** /api/v2/testSuites | Edit test suite
 [**DeleteTestSuite**](TestSuitesApi.md#DeleteTestSuite) | **Delete** /api/v2/testSuites/{id} | Delete TestSuite
 [**GetConfigurationsByTestSuiteId**](TestSuitesApi.md#GetConfigurationsByTestSuiteId) | **Get** /api/v2/testSuites/{id}/configurations | Get Configurations By Id
 [**GetTestPointsById**](TestSuitesApi.md#GetTestPointsById) | **Get** /api/v2/testSuites/{id}/testPoints | Get TestPoints By Id
@@ -16,14 +18,12 @@ Method | HTTP request | Description
 [**GetWorkItemsById**](TestSuitesApi.md#GetWorkItemsById) | **Get** /api/v2/testSuites/{id}/workItems | 
 [**SearchWorkItems**](TestSuitesApi.md#SearchWorkItems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
 [**SetConfigurationsByTestSuiteId**](TestSuitesApi.md#SetConfigurationsByTestSuiteId) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
-[**SetWorkItemsByTestSuiteId**](TestSuitesApi.md#SetWorkItemsByTestSuiteId) | **Post** /api/v2/testSuites/{id}/workItems | Set WorkItems By TestSuite Id
-[**UpdateTestSuite**](TestSuitesApi.md#UpdateTestSuite) | **Put** /api/v2/testSuites | Update TestSuite
 
 
 
 ## AddTestPointsToTestSuite
 
-> AddTestPointsToTestSuite(ctx, id).WorkItemSelectModel(workItemSelectModel).Execute()
+> AddTestPointsToTestSuite(ctx, id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
 
 Add test-points to test suite
 
@@ -41,11 +41,11 @@ import (
 
 func main() {
     id := "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" // string | Test suite internal identifier
-    workItemSelectModel := *openapiclient.NewWorkItemSelectModel() // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project (optional)
+    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestSuitesApi.AddTestPointsToTestSuite(context.Background(), id).WorkItemSelectModel(workItemSelectModel).Execute()
+    r, err := apiClient.TestSuitesApi.AddTestPointsToTestSuite(context.Background(), id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.AddTestPointsToTestSuite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -69,7 +69,7 @@ Other parameters are passed through a pointer to a apiAddTestPointsToTestSuiteRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) | Filter object to retrieve work items for test-suite&#39;s project | 
+ **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
 
 ### Return type
 
@@ -225,13 +225,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateTestSuite
+## ApiV2TestSuitesIdWorkItemsPost
 
-> TestSuiteV2GetModel CreateTestSuite(ctx).TestSuiteV2PostModel(testSuiteV2PostModel).Execute()
+> ApiV2TestSuitesIdWorkItemsPost(ctx, id).RequestBody(requestBody).Execute()
 
-Create TestSuite
-
-
+Set work items for test suite
 
 ### Example
 
@@ -246,17 +244,85 @@ import (
 )
 
 func main() {
-    testSuiteV2PostModel := *openapiclient.NewTestSuiteV2PostModel("d49af44b-dbd8-48b0-90e5-e065735d7229", "base test suite") // TestSuiteV2PostModel |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the test suite
+    requestBody := []string{"Property_example"} // []string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestSuitesApi.CreateTestSuite(context.Background()).TestSuiteV2PostModel(testSuiteV2PostModel).Execute()
+    r, err := apiClient.TestSuitesApi.ApiV2TestSuitesIdWorkItemsPost(context.Background(), id).RequestBody(requestBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.CreateTestSuite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesIdWorkItemsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateTestSuite`: TestSuiteV2GetModel
-    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.CreateTestSuite`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique ID of the test suite | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestSuitesIdWorkItemsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **requestBody** | **[]string** |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestSuitesPost
+
+> TestSuiteV2GetModel ApiV2TestSuitesPost(ctx).ApiV2TestSuitesPostRequest(apiV2TestSuitesPostRequest).Execute()
+
+Create test suite
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2TestSuitesPostRequest := *openapiclient.NewApiV2TestSuitesPostRequest("TestPlanId_example", "Name_example") // ApiV2TestSuitesPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestSuitesApi.ApiV2TestSuitesPost(context.Background()).ApiV2TestSuitesPostRequest(apiV2TestSuitesPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestSuitesPost`: TestSuiteV2GetModel
+    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.ApiV2TestSuitesPost`: %v\n", resp)
 }
 ```
 
@@ -266,16 +332,78 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateTestSuiteRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiApiV2TestSuitesPostRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testSuiteV2PostModel** | [**TestSuiteV2PostModel**](TestSuiteV2PostModel.md) |  | 
+ **apiV2TestSuitesPostRequest** | [**ApiV2TestSuitesPostRequest**](ApiV2TestSuitesPostRequest.md) |  | 
 
 ### Return type
 
 [**TestSuiteV2GetModel**](TestSuiteV2GetModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestSuitesPut
+
+> ApiV2TestSuitesPut(ctx).ApiV2TestSuitesPutRequest(apiV2TestSuitesPutRequest).Execute()
+
+Edit test suite
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2TestSuitesPutRequest := *openapiclient.NewApiV2TestSuitesPutRequest("Id_example", "Name_example") // ApiV2TestSuitesPutRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.ApiV2TestSuitesPut(context.Background()).ApiV2TestSuitesPutRequest(apiV2TestSuitesPutRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestSuitesPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2TestSuitesPutRequest** | [**ApiV2TestSuitesPutRequest**](ApiV2TestSuitesPutRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -723,7 +851,7 @@ Name | Type | Description  | Notes
 
 ## SearchWorkItems
 
-> []WorkItemShortModel SearchWorkItems(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestSuiteWorkItemsSearchModel(testSuiteWorkItemsSearchModel).Execute()
+> []WorkItemShortModel SearchWorkItems(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWorkItemsRequest(searchWorkItemsRequest).Execute()
 
 Search WorkItems
 
@@ -748,11 +876,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    testSuiteWorkItemsSearchModel := *openapiclient.NewTestSuiteWorkItemsSearchModel() // TestSuiteWorkItemsSearchModel |  (optional)
+    searchWorkItemsRequest := *openapiclient.NewSearchWorkItemsRequest() // SearchWorkItemsRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestSuitesApi.SearchWorkItems(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestSuiteWorkItemsSearchModel(testSuiteWorkItemsSearchModel).Execute()
+    resp, r, err := apiClient.TestSuitesApi.SearchWorkItems(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWorkItemsRequest(searchWorkItemsRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.SearchWorkItems``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -783,7 +911,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testSuiteWorkItemsSearchModel** | [**TestSuiteWorkItemsSearchModel**](TestSuiteWorkItemsSearchModel.md) |  | 
+ **searchWorkItemsRequest** | [**SearchWorkItemsRequest**](SearchWorkItemsRequest.md) |  | 
 
 ### Return type
 
@@ -854,140 +982,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **requestBody** | **[]string** | Collection of configuration identifiers\&quot; | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SetWorkItemsByTestSuiteId
-
-> SetWorkItemsByTestSuiteId(ctx, id).RequestBody(requestBody).Execute()
-
-Set WorkItems By TestSuite Id
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
-    requestBody := []string{"Property_example"} // []string | Collection of work item identifiers\" (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestSuitesApi.SetWorkItemsByTestSuiteId(context.Background(), id).RequestBody(requestBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.SetWorkItemsByTestSuiteId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Test suite internal (guid format) identifier\&quot; | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSetWorkItemsByTestSuiteIdRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **requestBody** | **[]string** | Collection of work item identifiers\&quot; | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateTestSuite
-
-> UpdateTestSuite(ctx).TestSuiteV2PutModel(testSuiteV2PutModel).Execute()
-
-Update TestSuite
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-    testSuiteV2PutModel := *openapiclient.NewTestSuiteV2PutModel("Id_example", "Name_example") // TestSuiteV2PutModel |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestSuitesApi.UpdateTestSuite(context.Background()).TestSuiteV2PutModel(testSuiteV2PutModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.UpdateTestSuite``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateTestSuiteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **testSuiteV2PutModel** | [**TestSuiteV2PutModel**](TestSuiteV2PutModel.md) |  | 
 
 ### Return type
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Configuration** | Pointer to [**ConfigurationModel**](ConfigurationModel.md) |  | [optional] 
-**AutoTest** | Pointer to [**AutoTestModelV2GetModel**](AutoTestModelV2GetModel.md) |  | [optional] 
+**Configuration** | Pointer to [**NullableTestResultConfiguration**](TestResultConfiguration.md) |  | [optional] 
+**AutoTest** | Pointer to [**NullableAutoTestRelatedToTestResult**](AutoTestRelatedToTestResult.md) |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **ConfigurationId** | Pointer to **string** |  | [optional] 
 **WorkItemVersionId** | Pointer to **string** |  | [optional] 
@@ -17,9 +17,9 @@ Name | Type | Description | Notes
 **RunByUserId** | Pointer to **NullableString** |  | [optional] 
 **StoppedByUserId** | Pointer to **NullableString** |  | [optional] 
 **TestPointId** | Pointer to **NullableString** |  | [optional] 
-**TestPoint** | Pointer to [**TestPointShortModel**](TestPointShortModel.md) |  | [optional] 
+**TestPoint** | Pointer to [**NullableTestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  | [optional] 
 **TestRunId** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **NullableString** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
+**Outcome** | Pointer to **string** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
@@ -47,20 +47,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetConfiguration
 
-`func (o *TestResultV2GetModel) GetConfiguration() ConfigurationModel`
+`func (o *TestResultV2GetModel) GetConfiguration() TestResultConfiguration`
 
 GetConfiguration returns the Configuration field if non-nil, zero value otherwise.
 
 ### GetConfigurationOk
 
-`func (o *TestResultV2GetModel) GetConfigurationOk() (*ConfigurationModel, bool)`
+`func (o *TestResultV2GetModel) GetConfigurationOk() (*TestResultConfiguration, bool)`
 
 GetConfigurationOk returns a tuple with the Configuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfiguration
 
-`func (o *TestResultV2GetModel) SetConfiguration(v ConfigurationModel)`
+`func (o *TestResultV2GetModel) SetConfiguration(v TestResultConfiguration)`
 
 SetConfiguration sets Configuration field to given value.
 
@@ -70,22 +70,32 @@ SetConfiguration sets Configuration field to given value.
 
 HasConfiguration returns a boolean if a field has been set.
 
+### SetConfigurationNil
+
+`func (o *TestResultV2GetModel) SetConfigurationNil(b bool)`
+
+ SetConfigurationNil sets the value for Configuration to be an explicit nil
+
+### UnsetConfiguration
+`func (o *TestResultV2GetModel) UnsetConfiguration()`
+
+UnsetConfiguration ensures that no value is present for Configuration, not even an explicit nil
 ### GetAutoTest
 
-`func (o *TestResultV2GetModel) GetAutoTest() AutoTestModelV2GetModel`
+`func (o *TestResultV2GetModel) GetAutoTest() AutoTestRelatedToTestResult`
 
 GetAutoTest returns the AutoTest field if non-nil, zero value otherwise.
 
 ### GetAutoTestOk
 
-`func (o *TestResultV2GetModel) GetAutoTestOk() (*AutoTestModelV2GetModel, bool)`
+`func (o *TestResultV2GetModel) GetAutoTestOk() (*AutoTestRelatedToTestResult, bool)`
 
 GetAutoTestOk returns a tuple with the AutoTest field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoTest
 
-`func (o *TestResultV2GetModel) SetAutoTest(v AutoTestModelV2GetModel)`
+`func (o *TestResultV2GetModel) SetAutoTest(v AutoTestRelatedToTestResult)`
 
 SetAutoTest sets AutoTest field to given value.
 
@@ -95,6 +105,16 @@ SetAutoTest sets AutoTest field to given value.
 
 HasAutoTest returns a boolean if a field has been set.
 
+### SetAutoTestNil
+
+`func (o *TestResultV2GetModel) SetAutoTestNil(b bool)`
+
+ SetAutoTestNil sets the value for AutoTest to be an explicit nil
+
+### UnsetAutoTest
+`func (o *TestResultV2GetModel) UnsetAutoTest()`
+
+UnsetAutoTest ensures that no value is present for AutoTest, not even an explicit nil
 ### GetId
 
 `func (o *TestResultV2GetModel) GetId() string`
@@ -452,20 +472,20 @@ HasTestPointId returns a boolean if a field has been set.
 UnsetTestPointId ensures that no value is present for TestPointId, not even an explicit nil
 ### GetTestPoint
 
-`func (o *TestResultV2GetModel) GetTestPoint() TestPointShortModel`
+`func (o *TestResultV2GetModel) GetTestPoint() TestPointRelatedToTestResult`
 
 GetTestPoint returns the TestPoint field if non-nil, zero value otherwise.
 
 ### GetTestPointOk
 
-`func (o *TestResultV2GetModel) GetTestPointOk() (*TestPointShortModel, bool)`
+`func (o *TestResultV2GetModel) GetTestPointOk() (*TestPointRelatedToTestResult, bool)`
 
 GetTestPointOk returns a tuple with the TestPoint field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestPoint
 
-`func (o *TestResultV2GetModel) SetTestPoint(v TestPointShortModel)`
+`func (o *TestResultV2GetModel) SetTestPoint(v TestPointRelatedToTestResult)`
 
 SetTestPoint sets TestPoint field to given value.
 
@@ -475,6 +495,16 @@ SetTestPoint sets TestPoint field to given value.
 
 HasTestPoint returns a boolean if a field has been set.
 
+### SetTestPointNil
+
+`func (o *TestResultV2GetModel) SetTestPointNil(b bool)`
+
+ SetTestPointNil sets the value for TestPoint to be an explicit nil
+
+### UnsetTestPoint
+`func (o *TestResultV2GetModel) UnsetTestPoint()`
+
+UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
 ### GetTestRunId
 
 `func (o *TestResultV2GetModel) GetTestRunId() string`
@@ -525,16 +555,6 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
-### SetOutcomeNil
-
-`func (o *TestResultV2GetModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *TestResultV2GetModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultV2GetModel) GetComment() string`

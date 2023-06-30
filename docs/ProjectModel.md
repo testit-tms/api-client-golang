@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique ID of the project | [optional] 
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
-**Name** | Pointer to **NullableString** | Name of the project | [optional] 
+**Name** | Pointer to **string** | Name of the project | [optional] 
 **IsFavorite** | Pointer to **bool** | Indicates if the project is marked as favorite | [optional] 
 **AttributesScheme** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) | Collection of the project attributes | [optional] 
 **TestPlansAttributesScheme** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) | Collection of the project test plans attributes | [optional] 
@@ -125,16 +125,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *ProjectModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ProjectModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsFavorite
 
 `func (o *ProjectModel) GetIsFavorite() bool`

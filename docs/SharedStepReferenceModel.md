@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **GlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**EntityTypeName** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**EntityTypeName** | Pointer to **string** |  | [optional] 
 **HasThisSharedStepAsStep** | Pointer to **bool** |  | [optional] 
 **HasThisSharedStepAsPrecondition** | Pointer to **bool** |  | [optional] 
 **HasThisSharedStepAsPostcondition** | Pointer to **bool** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**State** | Pointer to **NullableString** |  | [optional] 
+**State** | Pointer to **string** |  | [optional] 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 **VersionId** | Pointer to **string** | used for versioning changes in workitem | [optional] 
@@ -117,16 +117,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *SharedStepReferenceModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SharedStepReferenceModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetEntityTypeName
 
 `func (o *SharedStepReferenceModel) GetEntityTypeName() string`
@@ -152,16 +142,6 @@ SetEntityTypeName sets EntityTypeName field to given value.
 
 HasEntityTypeName returns a boolean if a field has been set.
 
-### SetEntityTypeNameNil
-
-`func (o *SharedStepReferenceModel) SetEntityTypeNameNil(b bool)`
-
- SetEntityTypeNameNil sets the value for EntityTypeName to be an explicit nil
-
-### UnsetEntityTypeName
-`func (o *SharedStepReferenceModel) UnsetEntityTypeName()`
-
-UnsetEntityTypeName ensures that no value is present for EntityTypeName, not even an explicit nil
 ### GetHasThisSharedStepAsStep
 
 `func (o *SharedStepReferenceModel) GetHasThisSharedStepAsStep() bool`
@@ -392,16 +372,6 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
-### SetStateNil
-
-`func (o *SharedStepReferenceModel) SetStateNil(b bool)`
-
- SetStateNil sets the value for State to be an explicit nil
-
-### UnsetState
-`func (o *SharedStepReferenceModel) UnsetState()`
-
-UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetPriority
 
 `func (o *SharedStepReferenceModel) GetPriority() WorkItemPriorityModel`

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**TestPointFilterModel**](TestPointFilterModel.md) |  | [optional] 
-**ExtractionModel** | Pointer to [**TestPointsExtractionModel**](TestPointsExtractionModel.md) |  | [optional] 
+**Filter** | Pointer to [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md) |  | [optional] 
+**ExtractionModel** | Pointer to [**TestPointSelectModelExtractionModel**](TestPointSelectModelExtractionModel.md) |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *TestPointSelectModel) GetFilter() TestPointFilterModel`
+`func (o *TestPointSelectModel) GetFilter() ApiV2TestPointsSearchPostRequest`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *TestPointSelectModel) GetFilterOk() (*TestPointFilterModel, bool)`
+`func (o *TestPointSelectModel) GetFilterOk() (*ApiV2TestPointsSearchPostRequest, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *TestPointSelectModel) SetFilter(v TestPointFilterModel)`
+`func (o *TestPointSelectModel) SetFilter(v ApiV2TestPointsSearchPostRequest)`
 
 SetFilter sets Filter field to given value.
 
@@ -53,20 +53,20 @@ HasFilter returns a boolean if a field has been set.
 
 ### GetExtractionModel
 
-`func (o *TestPointSelectModel) GetExtractionModel() TestPointsExtractionModel`
+`func (o *TestPointSelectModel) GetExtractionModel() TestPointSelectModelExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *TestPointSelectModel) GetExtractionModelOk() (*TestPointsExtractionModel, bool)`
+`func (o *TestPointSelectModel) GetExtractionModelOk() (*TestPointSelectModelExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *TestPointSelectModel) SetExtractionModel(v TestPointsExtractionModel)`
+`func (o *TestPointSelectModel) SetExtractionModel(v TestPointSelectModelExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

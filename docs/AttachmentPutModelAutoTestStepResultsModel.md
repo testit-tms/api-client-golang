@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **StartedOn** | Pointer to **NullableTime** | Step start date. | [optional] 
 **CompletedOn** | Pointer to **NullableTime** | Step end date. | [optional] 
 **Duration** | Pointer to **NullableInt64** | Expected or actual duration of the test run execution in milliseconds. | [optional] 
-**Outcome** | Pointer to [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) |  | [optional] 
+**Outcome** | Pointer to [**NullableAvailableTestResultOutcome**](AvailableTestResultOutcome.md) |  | [optional] 
 **StepResults** | Pointer to [**[]AttachmentPutModelAutoTestStepResultsModel**](AttachmentPutModelAutoTestStepResultsModel.md) | Nested step results. The maximum nesting level is 15. | [optional] 
 **Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; | [optional] 
 **Parameters** | Pointer to **map[string]string** | \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent. | [optional] 
@@ -269,6 +269,16 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
+### SetOutcomeNil
+
+`func (o *AttachmentPutModelAutoTestStepResultsModel) SetOutcomeNil(b bool)`
+
+ SetOutcomeNil sets the value for Outcome to be an explicit nil
+
+### UnsetOutcome
+`func (o *AttachmentPutModelAutoTestStepResultsModel) UnsetOutcome()`
+
+UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetStepResults
 
 `func (o *AttachmentPutModelAutoTestStepResultsModel) GetStepResults() []AttachmentPutModelAutoTestStepResultsModel`

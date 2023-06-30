@@ -72,16 +72,6 @@ SetTestSuites sets TestSuites field to given value.
 
 HasTestSuites returns a boolean if a field has been set.
 
-### SetTestSuitesNil
-
-`func (o *TestPlanWithTestSuiteTreeModel) SetTestSuitesNil(b bool)`
-
- SetTestSuitesNil sets the value for TestSuites to be an explicit nil
-
-### UnsetTestSuites
-`func (o *TestPlanWithTestSuiteTreeModel) UnsetTestSuites()`
-
-UnsetTestSuites ensures that no value is present for TestSuites, not even an explicit nil
 ### GetStatus
 
 `func (o *TestPlanWithTestSuiteTreeModel) GetStatus() TestPlanStatusModel`
@@ -752,16 +742,6 @@ SetAttributes sets Attributes field to given value.
 
 HasAttributes returns a boolean if a field has been set.
 
-### SetAttributesNil
-
-`func (o *TestPlanWithTestSuiteTreeModel) SetAttributesNil(b bool)`
-
- SetAttributesNil sets the value for Attributes to be an explicit nil
-
-### UnsetAttributes
-`func (o *TestPlanWithTestSuiteTreeModel) UnsetAttributes()`
-
-UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

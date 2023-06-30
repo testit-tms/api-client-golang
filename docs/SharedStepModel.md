@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VersionId** | Pointer to **string** |  | [optional] 
 **GlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **Steps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
 
@@ -104,16 +104,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *SharedStepModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SharedStepModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSteps
 
 `func (o *SharedStepModel) GetSteps() []StepModel`
@@ -139,16 +129,6 @@ SetSteps sets Steps field to given value.
 
 HasSteps returns a boolean if a field has been set.
 
-### SetStepsNil
-
-`func (o *SharedStepModel) SetStepsNil(b bool)`
-
- SetStepsNil sets the value for Steps to be an explicit nil
-
-### UnsetSteps
-`func (o *SharedStepModel) UnsetSteps()`
-
-UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *SharedStepModel) GetIsDeleted() bool`

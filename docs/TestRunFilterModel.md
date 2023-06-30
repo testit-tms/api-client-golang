@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProjectIds** | Pointer to **[]string** | Specifies a test run project IDs to search for | [optional] 
 **States** | Pointer to [**[]TestRunState**](TestRunState.md) | Specifies a test run states to search for | [optional] 
-**CreatedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableTestRunFilterModelCreatedDate**](TestRunFilterModelCreatedDate.md) |  | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Specifies a test run last editor IDs to search for | [optional] 
 **IsDeleted** | Pointer to **NullableBool** | Specifies a test run deleted status to search for | [optional] 
 
@@ -101,20 +101,20 @@ HasStates returns a boolean if a field has been set.
 UnsetStates ensures that no value is present for States, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *TestRunFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
+`func (o *TestRunFilterModel) GetCreatedDate() TestRunFilterModelCreatedDate`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *TestRunFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
+`func (o *TestRunFilterModel) GetCreatedDateOk() (*TestRunFilterModelCreatedDate, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *TestRunFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
+`func (o *TestRunFilterModel) SetCreatedDate(v TestRunFilterModelCreatedDate)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -124,6 +124,16 @@ SetCreatedDate sets CreatedDate field to given value.
 
 HasCreatedDate returns a boolean if a field has been set.
 
+### SetCreatedDateNil
+
+`func (o *TestRunFilterModel) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *TestRunFilterModel) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetModifiedByIds
 
 `func (o *TestRunFilterModel) GetModifiedByIds() []string`

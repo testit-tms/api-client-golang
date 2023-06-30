@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ParentId** | Pointer to **NullableString** |  | [optional] 
-**TestPlanId** | **string** |  | 
-**Name** | **string** |  | 
-**Type** | Pointer to [**TestSuiteType**](TestSuiteType.md) |  | [optional] 
-**SaveStructure** | Pointer to **NullableBool** |  | [optional] 
+**ParentId** | Pointer to **NullableString** | Unique ID of the parent test suite in hierarchy | [optional] 
+**TestPlanId** | **string** | Unique ID of test plan to which the test suite belongs | 
+**Name** | **string** | Name of the test suite | 
+**Type** | Pointer to [**NullableTestSuiteType**](TestSuiteType.md) |  | [optional] 
+**SaveStructure** | Pointer to **NullableBool** | Indicates if the test suite retains section tree structure | [optional] 
+**AutoRefresh** | Pointer to **NullableBool** | Indicates if scheduled auto refresh is enabled for the test suite | [optional] 
 
 ## Methods
 
@@ -129,6 +130,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *TestSuiteV2PostModel) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *TestSuiteV2PostModel) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetSaveStructure
 
 `func (o *TestSuiteV2PostModel) GetSaveStructure() bool`
@@ -164,6 +175,41 @@ HasSaveStructure returns a boolean if a field has been set.
 `func (o *TestSuiteV2PostModel) UnsetSaveStructure()`
 
 UnsetSaveStructure ensures that no value is present for SaveStructure, not even an explicit nil
+### GetAutoRefresh
+
+`func (o *TestSuiteV2PostModel) GetAutoRefresh() bool`
+
+GetAutoRefresh returns the AutoRefresh field if non-nil, zero value otherwise.
+
+### GetAutoRefreshOk
+
+`func (o *TestSuiteV2PostModel) GetAutoRefreshOk() (*bool, bool)`
+
+GetAutoRefreshOk returns a tuple with the AutoRefresh field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoRefresh
+
+`func (o *TestSuiteV2PostModel) SetAutoRefresh(v bool)`
+
+SetAutoRefresh sets AutoRefresh field to given value.
+
+### HasAutoRefresh
+
+`func (o *TestSuiteV2PostModel) HasAutoRefresh() bool`
+
+HasAutoRefresh returns a boolean if a field has been set.
+
+### SetAutoRefreshNil
+
+`func (o *TestSuiteV2PostModel) SetAutoRefreshNil(b bool)`
+
+ SetAutoRefreshNil sets the value for AutoRefresh to be an explicit nil
+
+### UnsetAutoRefresh
+`func (o *TestSuiteV2PostModel) UnsetAutoRefresh()`
+
+UnsetAutoRefresh ensures that no value is present for AutoRefresh, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

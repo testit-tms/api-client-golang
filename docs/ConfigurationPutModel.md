@@ -6,9 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**IsActive** | Pointer to **bool** |  | [optional] 
-**Capabilities** | Pointer to **map[string]string** |  | [optional] 
-**Parameters** | Pointer to **map[string]string** |  | [optional] 
+**Parameters** | **map[string]string** |  | 
 **ProjectId** | **string** | This property is used to link configuration with project | 
 **IsDefault** | Pointer to **bool** |  | [optional] 
 **Name** | **string** |  | 
@@ -17,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewConfigurationPutModel
 
-`func NewConfigurationPutModel(id string, projectId string, name string, ) *ConfigurationPutModel`
+`func NewConfigurationPutModel(id string, parameters map[string]string, projectId string, name string, ) *ConfigurationPutModel`
 
 NewConfigurationPutModel instantiates a new ConfigurationPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,66 +85,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *ConfigurationPutModel) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetIsActive
-
-`func (o *ConfigurationPutModel) GetIsActive() bool`
-
-GetIsActive returns the IsActive field if non-nil, zero value otherwise.
-
-### GetIsActiveOk
-
-`func (o *ConfigurationPutModel) GetIsActiveOk() (*bool, bool)`
-
-GetIsActiveOk returns a tuple with the IsActive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsActive
-
-`func (o *ConfigurationPutModel) SetIsActive(v bool)`
-
-SetIsActive sets IsActive field to given value.
-
-### HasIsActive
-
-`func (o *ConfigurationPutModel) HasIsActive() bool`
-
-HasIsActive returns a boolean if a field has been set.
-
-### GetCapabilities
-
-`func (o *ConfigurationPutModel) GetCapabilities() map[string]string`
-
-GetCapabilities returns the Capabilities field if non-nil, zero value otherwise.
-
-### GetCapabilitiesOk
-
-`func (o *ConfigurationPutModel) GetCapabilitiesOk() (*map[string]string, bool)`
-
-GetCapabilitiesOk returns a tuple with the Capabilities field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCapabilities
-
-`func (o *ConfigurationPutModel) SetCapabilities(v map[string]string)`
-
-SetCapabilities sets Capabilities field to given value.
-
-### HasCapabilities
-
-`func (o *ConfigurationPutModel) HasCapabilities() bool`
-
-HasCapabilities returns a boolean if a field has been set.
-
-### SetCapabilitiesNil
-
-`func (o *ConfigurationPutModel) SetCapabilitiesNil(b bool)`
-
- SetCapabilitiesNil sets the value for Capabilities to be an explicit nil
-
-### UnsetCapabilities
-`func (o *ConfigurationPutModel) UnsetCapabilities()`
-
-UnsetCapabilities ensures that no value is present for Capabilities, not even an explicit nil
 ### GetParameters
 
 `func (o *ConfigurationPutModel) GetParameters() map[string]string`
@@ -166,22 +104,7 @@ and a boolean to check if the value has been set.
 
 SetParameters sets Parameters field to given value.
 
-### HasParameters
 
-`func (o *ConfigurationPutModel) HasParameters() bool`
-
-HasParameters returns a boolean if a field has been set.
-
-### SetParametersNil
-
-`func (o *ConfigurationPutModel) SetParametersNil(b bool)`
-
- SetParametersNil sets the value for Parameters to be an explicit nil
-
-### UnsetParameters
-`func (o *ConfigurationPutModel) UnsetParameters()`
-
-UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 ### GetProjectId
 
 `func (o *ConfigurationPutModel) GetProjectId() string`

@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**[]TestPlanStatusModel**](TestPlanStatusModel.md) |  | [optional] 
 **GlobalIds** | Pointer to **[]int64** |  | [optional] 
 **IsLocked** | Pointer to **NullableBool** |  | [optional] 
-**LockedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**LockedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **AutomaticDurationTimer** | Pointer to **[]bool** |  | [optional] 
 **CreatedByIds** | Pointer to **[]string** |  | [optional] 
-**CreatedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
-**StartDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
-**EndDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**StartDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**EndDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **TagNames** | Pointer to **[]string** |  | [optional] 
 **Attributes** | Pointer to **map[string][]string** |  | [optional] 
 **IsDeleted** | Pointer to **NullableBool** |  | [optional] 
@@ -310,6 +310,16 @@ SetLockedDate sets LockedDate field to given value.
 
 HasLockedDate returns a boolean if a field has been set.
 
+### SetLockedDateNil
+
+`func (o *ProjectTestPlansFilterModel) SetLockedDateNil(b bool)`
+
+ SetLockedDateNil sets the value for LockedDate to be an explicit nil
+
+### UnsetLockedDate
+`func (o *ProjectTestPlansFilterModel) UnsetLockedDate()`
+
+UnsetLockedDate ensures that no value is present for LockedDate, not even an explicit nil
 ### GetAutomaticDurationTimer
 
 `func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimer() []bool`
@@ -405,6 +415,16 @@ SetCreatedDate sets CreatedDate field to given value.
 
 HasCreatedDate returns a boolean if a field has been set.
 
+### SetCreatedDateNil
+
+`func (o *ProjectTestPlansFilterModel) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *ProjectTestPlansFilterModel) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetStartDate
 
 `func (o *ProjectTestPlansFilterModel) GetStartDate() DateTimeRangeSelectorModel`
@@ -430,6 +450,16 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### SetStartDateNil
+
+`func (o *ProjectTestPlansFilterModel) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *ProjectTestPlansFilterModel) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *ProjectTestPlansFilterModel) GetEndDate() DateTimeRangeSelectorModel`
@@ -455,6 +485,16 @@ SetEndDate sets EndDate field to given value.
 
 HasEndDate returns a boolean if a field has been set.
 
+### SetEndDateNil
+
+`func (o *ProjectTestPlansFilterModel) SetEndDateNil(b bool)`
+
+ SetEndDateNil sets the value for EndDate to be an explicit nil
+
+### UnsetEndDate
+`func (o *ProjectTestPlansFilterModel) UnsetEndDate()`
+
+UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetTagNames
 
 `func (o *ProjectTestPlansFilterModel) GetTagNames() []string`

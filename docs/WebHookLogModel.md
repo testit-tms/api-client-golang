@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WebHookName** | Pointer to **NullableString** |  | [optional] 
+**WebHookName** | Pointer to **string** |  | [optional] 
 **EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
 **WebHookId** | Pointer to **string** |  | [optional] 
 **RequestBody** | Pointer to **NullableString** |  | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ResponseBody** | Pointer to **NullableString** |  | [optional] 
 **ResponseMeta** | Pointer to **NullableString** |  | [optional] 
 **ProjectId** | Pointer to **string** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 **RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
@@ -66,16 +66,6 @@ SetWebHookName sets WebHookName field to given value.
 
 HasWebHookName returns a boolean if a field has been set.
 
-### SetWebHookNameNil
-
-`func (o *WebHookLogModel) SetWebHookNameNil(b bool)`
-
- SetWebHookNameNil sets the value for WebHookName to be an explicit nil
-
-### UnsetWebHookName
-`func (o *WebHookLogModel) UnsetWebHookName()`
-
-UnsetWebHookName ensures that no value is present for WebHookName, not even an explicit nil
 ### GetEventType
 
 `func (o *WebHookLogModel) GetEventType() WebHookEventTypeModel`
@@ -336,16 +326,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *WebHookLogModel) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *WebHookLogModel) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetRequestType
 
 `func (o *WebHookLogModel) GetRequestType() RequestTypeModel`

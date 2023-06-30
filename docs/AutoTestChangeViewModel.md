@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **ProjectId** | Pointer to **string** |  | [optional] 
-**ExternalId** | Pointer to **NullableString** |  | [optional] 
+**ExternalId** | Pointer to **string** |  | [optional] 
 **GlobalId** | Pointer to **int64** |  | [optional] 
 
 ## Methods
@@ -103,16 +103,6 @@ SetExternalId sets ExternalId field to given value.
 
 HasExternalId returns a boolean if a field has been set.
 
-### SetExternalIdNil
-
-`func (o *AutoTestChangeViewModel) SetExternalIdNil(b bool)`
-
- SetExternalIdNil sets the value for ExternalId to be an explicit nil
-
-### UnsetExternalId
-`func (o *AutoTestChangeViewModel) UnsetExternalId()`
-
-UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetGlobalId
 
 `func (o *AutoTestChangeViewModel) GetGlobalId() int64`

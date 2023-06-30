@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StepId** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **NullableString** |  | [optional] 
+**Outcome** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -76,16 +76,6 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
-### SetOutcomeNil
-
-`func (o *SharedStepResultModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *SharedStepResultModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

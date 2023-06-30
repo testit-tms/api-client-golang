@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
-**Text** | Pointer to **NullableString** |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
 **StepId** | **string** |  | 
 **ParentStepId** | Pointer to **NullableString** |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | [optional] 
@@ -79,16 +79,6 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *TestResultStepCommentPutModel) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *TestResultStepCommentPutModel) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetStepId
 
 `func (o *TestResultStepCommentPutModel) GetStepId() string`
@@ -169,16 +159,6 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
-### SetAttachmentsNil
-
-`func (o *TestResultStepCommentPutModel) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *TestResultStepCommentPutModel) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

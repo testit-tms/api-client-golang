@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ConfigurationIds** | Pointer to **[]string** |  | [optional] 
 **LaunchSource** | Pointer to **NullableString** |  | [optional] 
 **UserIds** | Pointer to **[]string** |  | [optional] 
-**Duration** | Pointer to [**Int64RangeSelectorModel**](Int64RangeSelectorModel.md) |  | [optional] 
+**Duration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) |  | [optional] 
 
 ## Methods
 
@@ -266,6 +266,16 @@ SetDuration sets Duration field to given value.
 
 HasDuration returns a boolean if a field has been set.
 
+### SetDurationNil
+
+`func (o *AutotestHistoricalResultSelectModel) SetDurationNil(b bool)`
+
+ SetDurationNil sets the value for Duration to be an explicit nil
+
+### UnsetDuration
+`func (o *AutotestHistoricalResultSelectModel) UnsetDuration()`
+
+UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
