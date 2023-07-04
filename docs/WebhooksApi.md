@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**ApiV2WebhooksPost**](WebhooksApi.md#ApiV2WebhooksPost) | **Post** /api/v2/webhooks | Create webhook
 [**ApiV2WebhooksSearchPost**](WebhooksApi.md#ApiV2WebhooksSearchPost) | **Post** /api/v2/webhooks/search | Search for webhooks
 [**ApiV2WebhooksSpecialVariablesGet**](WebhooksApi.md#ApiV2WebhooksSpecialVariablesGet) | **Get** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
+[**ApiV2WebhooksTestPost**](WebhooksApi.md#ApiV2WebhooksTestPost) | **Post** /api/v2/webhooks/test | Test webhook&#39;s url
 
 
 
@@ -214,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksIdPut
 
-> WebHookModel ApiV2WebhooksIdPut(ctx, id).WebHookPostModel(webHookPostModel).Execute()
+> WebHookModel ApiV2WebhooksIdPut(ctx, id).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
 
 Edit webhook by ID
 
@@ -232,11 +233,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
-    webHookPostModel := *openapiclient.NewWebHookPostModel("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), "Name_example") // WebHookPostModel |  (optional)
+    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), "Name_example") // ApiV2WebhooksPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksIdPut(context.Background(), id).WebHookPostModel(webHookPostModel).Execute()
+    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksIdPut(context.Background(), id).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -262,7 +263,7 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksIdPutRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md) |  | 
+ **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md) |  | 
 
 ### Return type
 
@@ -284,7 +285,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksPost
 
-> WebHookModel ApiV2WebhooksPost(ctx).WebHookPostModel(webHookPostModel).Execute()
+> WebHookModel ApiV2WebhooksPost(ctx).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
 
 Create webhook
 
@@ -301,11 +302,11 @@ import (
 )
 
 func main() {
-    webHookPostModel := *openapiclient.NewWebHookPostModel("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), "Name_example") // WebHookPostModel |  (optional)
+    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), "Name_example") // ApiV2WebhooksPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksPost(context.Background()).WebHookPostModel(webHookPostModel).Execute()
+    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksPost(context.Background()).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -326,7 +327,7 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksPostRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md) |  | 
+ **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md) |  | 
 
 ### Return type
 
@@ -348,7 +349,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksSearchPost
 
-> []WebHookModel ApiV2WebhooksSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWebhooksQueryModel(searchWebhooksQueryModel).Execute()
+> []WebHookModel ApiV2WebhooksSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WebhooksSearchPostRequest(apiV2WebhooksSearchPostRequest).Execute()
 
 Search for webhooks
 
@@ -370,11 +371,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    searchWebhooksQueryModel := *openapiclient.NewSearchWebhooksQueryModel() // SearchWebhooksQueryModel |  (optional)
+    apiV2WebhooksSearchPostRequest := *openapiclient.NewApiV2WebhooksSearchPostRequest() // ApiV2WebhooksSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWebhooksQueryModel(searchWebhooksQueryModel).Execute()
+    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WebhooksSearchPostRequest(apiV2WebhooksSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -400,7 +401,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **searchWebhooksQueryModel** | [**SearchWebhooksQueryModel**](SearchWebhooksQueryModel.md) |  | 
+ **apiV2WebhooksSearchPostRequest** | [**ApiV2WebhooksSearchPostRequest**](ApiV2WebhooksSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -477,6 +478,70 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2WebhooksTestPost
+
+> RequestData ApiV2WebhooksTestPost(ctx).ApiV2WebhooksTestPostRequest(apiV2WebhooksTestPostRequest).Execute()
+
+Test webhook's url
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2WebhooksTestPostRequest := *openapiclient.NewApiV2WebhooksTestPostRequest(openapiclient.RequestTypeModel("Post"), "Url_example") // ApiV2WebhooksTestPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksTestPost(context.Background()).ApiV2WebhooksTestPostRequest(apiV2WebhooksTestPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksTestPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WebhooksTestPost`: RequestData
+    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksTestPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2WebhooksTestPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2WebhooksTestPostRequest** | [**ApiV2WebhooksTestPostRequest**](ApiV2WebhooksTestPostRequest.md) |  | 
+
+### Return type
+
+[**RequestData**](RequestData.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

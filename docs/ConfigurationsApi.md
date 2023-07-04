@@ -5,17 +5,23 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ApiV2ConfigurationsCreateByParametersPost**](ConfigurationsApi.md#ApiV2ConfigurationsCreateByParametersPost) | **Post** /api/v2/configurations/createByParameters | Create Configurations by parameters
+[**ApiV2ConfigurationsDeleteBulkPost**](ConfigurationsApi.md#ApiV2ConfigurationsDeleteBulkPost) | **Post** /api/v2/configurations/delete/bulk | Delete multiple configurations
+[**ApiV2ConfigurationsIdDelete**](ConfigurationsApi.md#ApiV2ConfigurationsIdDelete) | **Delete** /api/v2/configurations/{id} | Delete configuration
 [**ApiV2ConfigurationsIdPatch**](ConfigurationsApi.md#ApiV2ConfigurationsIdPatch) | **Patch** /api/v2/configurations/{id} | Patch configuration
+[**ApiV2ConfigurationsIdPurgePost**](ConfigurationsApi.md#ApiV2ConfigurationsIdPurgePost) | **Post** /api/v2/configurations/{id}/purge | Permanently delete configuration from archive
+[**ApiV2ConfigurationsIdRestorePost**](ConfigurationsApi.md#ApiV2ConfigurationsIdRestorePost) | **Post** /api/v2/configurations/{id}/restore | Restore configuration from the archive
+[**ApiV2ConfigurationsPurgeBulkPost**](ConfigurationsApi.md#ApiV2ConfigurationsPurgeBulkPost) | **Post** /api/v2/configurations/purge/bulk | Permanently delete multiple archived configurations
+[**ApiV2ConfigurationsPut**](ConfigurationsApi.md#ApiV2ConfigurationsPut) | **Put** /api/v2/configurations | Edit configuration
+[**ApiV2ConfigurationsRestoreBulkPost**](ConfigurationsApi.md#ApiV2ConfigurationsRestoreBulkPost) | **Post** /api/v2/configurations/restore/bulk | Restore multiple configurations from the archive
 [**ApiV2ConfigurationsSearchPost**](ConfigurationsApi.md#ApiV2ConfigurationsSearchPost) | **Post** /api/v2/configurations/search | Search for configurations
 [**CreateConfiguration**](ConfigurationsApi.md#CreateConfiguration) | **Post** /api/v2/configurations | Create Configuration
 [**GetConfigurationById**](ConfigurationsApi.md#GetConfigurationById) | **Get** /api/v2/configurations/{id} | Get configuration by internal or global ID
-[**UpdateConfiguration**](ConfigurationsApi.md#UpdateConfiguration) | **Put** /api/v2/configurations | Update Configuration
 
 
 
 ## ApiV2ConfigurationsCreateByParametersPost
 
-> ApiV2ConfigurationsCreateByParametersPost(ctx).ConfigurationByParametersModel(configurationByParametersModel).Execute()
+> ApiV2ConfigurationsCreateByParametersPost(ctx).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
 
 Create Configurations by parameters
 
@@ -34,11 +40,11 @@ import (
 )
 
 func main() {
-    configurationByParametersModel := *openapiclient.NewConfigurationByParametersModel([]string{"ParameterIds_example"}) // ConfigurationByParametersModel |  (optional)
+    apiV2ConfigurationsCreateByParametersPostRequest := *openapiclient.NewApiV2ConfigurationsCreateByParametersPostRequest([]string{"ParameterIds_example"}) // ApiV2ConfigurationsCreateByParametersPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost(context.Background()).ConfigurationByParametersModel(configurationByParametersModel).Execute()
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost(context.Background()).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +63,7 @@ Other parameters are passed through a pointer to a apiApiV2ConfigurationsCreateB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationByParametersModel** | [**ConfigurationByParametersModel**](ConfigurationByParametersModel.md) |  | 
+ **apiV2ConfigurationsCreateByParametersPostRequest** | [**ApiV2ConfigurationsCreateByParametersPostRequest**](ApiV2ConfigurationsCreateByParametersPostRequest.md) |  | 
 
 ### Return type
 
@@ -70,6 +76,136 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ConfigurationsDeleteBulkPost
+
+> int32 ApiV2ConfigurationsDeleteBulkPost(ctx).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+
+Delete multiple configurations
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2ConfigurationsPurgeBulkPostRequest := *openapiclient.NewApiV2ConfigurationsPurgeBulkPostRequest() // ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsDeleteBulkPost(context.Background()).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsDeleteBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ConfigurationsDeleteBulkPost`: int32
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.ApiV2ConfigurationsDeleteBulkPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ConfigurationsDeleteBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md) |  | 
+
+### Return type
+
+**int32**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ConfigurationsIdDelete
+
+> ApiV2ConfigurationsIdDelete(ctx, id).Execute()
+
+Delete configuration
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the configuration
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsIdDelete(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the configuration | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ConfigurationsIdDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -147,9 +283,329 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiV2ConfigurationsIdPurgePost
+
+> ApiV2ConfigurationsIdPurgePost(ctx, id).Execute()
+
+Permanently delete configuration from archive
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the configuration
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsIdPurgePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsIdPurgePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the configuration | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ConfigurationsIdPurgePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ConfigurationsIdRestorePost
+
+> ApiV2ConfigurationsIdRestorePost(ctx, id).Execute()
+
+Restore configuration from the archive
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the configuration
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsIdRestorePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsIdRestorePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the configuration | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ConfigurationsIdRestorePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ConfigurationsPurgeBulkPost
+
+> ApiV2ConfigurationsPurgeBulkPost(ctx).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+
+Permanently delete multiple archived configurations
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2ConfigurationsPurgeBulkPostRequest := *openapiclient.NewApiV2ConfigurationsPurgeBulkPostRequest() // ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsPurgeBulkPost(context.Background()).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsPurgeBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ConfigurationsPurgeBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ConfigurationsPut
+
+> ApiV2ConfigurationsPut(ctx).ApiV2ConfigurationsPutRequest(apiV2ConfigurationsPutRequest).Execute()
+
+Edit configuration
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2ConfigurationsPutRequest := *openapiclient.NewApiV2ConfigurationsPutRequest("f0d5cbfd-25bc-4069-863f-b2945e748040", map[string]string{"key": "Inner_example"}, "ProjectId_example", "Default") // ApiV2ConfigurationsPutRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsPut(context.Background()).ApiV2ConfigurationsPutRequest(apiV2ConfigurationsPutRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ConfigurationsPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2ConfigurationsPutRequest** | [**ApiV2ConfigurationsPutRequest**](ApiV2ConfigurationsPutRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ConfigurationsRestoreBulkPost
+
+> int32 ApiV2ConfigurationsRestoreBulkPost(ctx).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+
+Restore multiple configurations from the archive
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2ConfigurationsPurgeBulkPostRequest := *openapiclient.NewApiV2ConfigurationsPurgeBulkPostRequest() // ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsRestoreBulkPost(context.Background()).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsRestoreBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ConfigurationsRestoreBulkPost`: int32
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.ApiV2ConfigurationsRestoreBulkPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ConfigurationsRestoreBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md) |  | 
+
+### Return type
+
+**int32**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2ConfigurationsSearchPost
 
-> []ConfigurationModel ApiV2ConfigurationsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ConfigurationSelectModel(configurationSelectModel).Execute()
+> []ConfigurationModel ApiV2ConfigurationsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ConfigurationsSearchPostRequest(apiV2ConfigurationsSearchPostRequest).Execute()
 
 Search for configurations
 
@@ -171,11 +627,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    configurationSelectModel := *openapiclient.NewConfigurationSelectModel() // ConfigurationSelectModel | Model containing all the filters (optional)
+    apiV2ConfigurationsSearchPostRequest := *openapiclient.NewApiV2ConfigurationsSearchPostRequest() // ApiV2ConfigurationsSearchPostRequest | Model containing all the filters (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ConfigurationSelectModel(configurationSelectModel).Execute()
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ConfigurationsSearchPostRequest(apiV2ConfigurationsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,7 +657,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md) | Model containing all the filters | 
+ **apiV2ConfigurationsSearchPostRequest** | [**ApiV2ConfigurationsSearchPostRequest**](ApiV2ConfigurationsSearchPostRequest.md) | Model containing all the filters | 
 
 ### Return type
 
@@ -223,7 +679,7 @@ Name | Type | Description  | Notes
 
 ## CreateConfiguration
 
-> ConfigurationModel CreateConfiguration(ctx).ConfigurationPostModel(configurationPostModel).Execute()
+> ConfigurationModel CreateConfiguration(ctx).CreateConfigurationRequest(createConfigurationRequest).Execute()
 
 Create Configuration
 
@@ -242,11 +698,11 @@ import (
 )
 
 func main() {
-    configurationPostModel := *openapiclient.NewConfigurationPostModel("ProjectId_example", "Default") // ConfigurationPostModel |  (optional)
+    createConfigurationRequest := *openapiclient.NewCreateConfigurationRequest(map[string]string{"key": "Inner_example"}, "ProjectId_example", "Default") // CreateConfigurationRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigurationsApi.CreateConfiguration(context.Background()).ConfigurationPostModel(configurationPostModel).Execute()
+    resp, r, err := apiClient.ConfigurationsApi.CreateConfiguration(context.Background()).CreateConfigurationRequest(createConfigurationRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.CreateConfiguration``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -267,7 +723,7 @@ Other parameters are passed through a pointer to a apiCreateConfigurationRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationPostModel** | [**ConfigurationPostModel**](ConfigurationPostModel.md) |  | 
+ **createConfigurationRequest** | [**CreateConfigurationRequest**](CreateConfigurationRequest.md) |  | 
 
 ### Return type
 
@@ -350,70 +806,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateConfiguration
-
-> UpdateConfiguration(ctx).ConfigurationPutModel(configurationPutModel).Execute()
-
-Update Configuration
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-    configurationPutModel := *openapiclient.NewConfigurationPutModel("d49af44b-dbd8-48b0-90e5-e065735d7229", "ProjectId_example", "Default") // ConfigurationPutModel |  (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ConfigurationsApi.UpdateConfiguration(context.Background()).ConfigurationPutModel(configurationPutModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.UpdateConfiguration``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateConfigurationRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **configurationPutModel** | [**ConfigurationPutModel**](ConfigurationPutModel.md) |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
-**JobId** | Pointer to **NullableString** |  | [optional] 
+**JobId** | Pointer to **string** |  | [optional] 
 **JobType** | Pointer to [**BackgroundJobType**](BackgroundJobType.md) |  | [optional] 
 **State** | Pointer to [**BackgroundJobState**](BackgroundJobState.md) |  | [optional] 
 **IsDeleted** | Pointer to **bool** |  | [optional] 
@@ -84,16 +84,6 @@ SetJobId sets JobId field to given value.
 
 HasJobId returns a boolean if a field has been set.
 
-### SetJobIdNil
-
-`func (o *BackgroundJobModel) SetJobIdNil(b bool)`
-
- SetJobIdNil sets the value for JobId to be an explicit nil
-
-### UnsetJobId
-`func (o *BackgroundJobModel) UnsetJobId()`
-
-UnsetJobId ensures that no value is present for JobId, not even an explicit nil
 ### GetJobType
 
 `func (o *BackgroundJobModel) GetJobType() BackgroundJobType`

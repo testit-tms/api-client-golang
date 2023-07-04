@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableString** |  | [optional] 
-**OldAttributeName** | Pointer to **NullableString** |  | [optional] 
-**NewAttributeName** | Pointer to **NullableString** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**OldAttributeName** | Pointer to **string** |  | [optional] 
+**NewAttributeName** | Pointer to **string** |  | [optional] 
 **OldValue** | Pointer to **interface{}** |  | [optional] 
 **NewValue** | Pointer to **interface{}** |  | [optional] 
 
@@ -54,16 +54,6 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### SetTypeNil
-
-`func (o *WorkItemChangedAttributeViewModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *WorkItemChangedAttributeViewModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetOldAttributeName
 
 `func (o *WorkItemChangedAttributeViewModel) GetOldAttributeName() string`
@@ -89,16 +79,6 @@ SetOldAttributeName sets OldAttributeName field to given value.
 
 HasOldAttributeName returns a boolean if a field has been set.
 
-### SetOldAttributeNameNil
-
-`func (o *WorkItemChangedAttributeViewModel) SetOldAttributeNameNil(b bool)`
-
- SetOldAttributeNameNil sets the value for OldAttributeName to be an explicit nil
-
-### UnsetOldAttributeName
-`func (o *WorkItemChangedAttributeViewModel) UnsetOldAttributeName()`
-
-UnsetOldAttributeName ensures that no value is present for OldAttributeName, not even an explicit nil
 ### GetNewAttributeName
 
 `func (o *WorkItemChangedAttributeViewModel) GetNewAttributeName() string`
@@ -124,16 +104,6 @@ SetNewAttributeName sets NewAttributeName field to given value.
 
 HasNewAttributeName returns a boolean if a field has been set.
 
-### SetNewAttributeNameNil
-
-`func (o *WorkItemChangedAttributeViewModel) SetNewAttributeNameNil(b bool)`
-
- SetNewAttributeNameNil sets the value for NewAttributeName to be an explicit nil
-
-### UnsetNewAttributeName
-`func (o *WorkItemChangedAttributeViewModel) UnsetNewAttributeName()`
-
-UnsetNewAttributeName ensures that no value is present for NewAttributeName, not even an explicit nil
 ### GetOldValue
 
 `func (o *WorkItemChangedAttributeViewModel) GetOldValue() interface{}`

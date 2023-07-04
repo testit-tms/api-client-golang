@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **States** | Pointer to [**[]TestRunState**](TestRunState.md) |  | [optional] 
-**StartedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
-**CompletedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**StartedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**CompletedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **CreatedByIds** | Pointer to **[]string** |  | [optional] 
 **ModifiedByIds** | Pointer to **[]string** |  | [optional] 
 
@@ -125,6 +125,16 @@ SetStartedDate sets StartedDate field to given value.
 
 HasStartedDate returns a boolean if a field has been set.
 
+### SetStartedDateNil
+
+`func (o *TestRunSearchQueryModel) SetStartedDateNil(b bool)`
+
+ SetStartedDateNil sets the value for StartedDate to be an explicit nil
+
+### UnsetStartedDate
+`func (o *TestRunSearchQueryModel) UnsetStartedDate()`
+
+UnsetStartedDate ensures that no value is present for StartedDate, not even an explicit nil
 ### GetCompletedDate
 
 `func (o *TestRunSearchQueryModel) GetCompletedDate() DateTimeRangeSelectorModel`
@@ -150,6 +160,16 @@ SetCompletedDate sets CompletedDate field to given value.
 
 HasCompletedDate returns a boolean if a field has been set.
 
+### SetCompletedDateNil
+
+`func (o *TestRunSearchQueryModel) SetCompletedDateNil(b bool)`
+
+ SetCompletedDateNil sets the value for CompletedDate to be an explicit nil
+
+### UnsetCompletedDate
+`func (o *TestRunSearchQueryModel) UnsetCompletedDate()`
+
+UnsetCompletedDate ensures that no value is present for CompletedDate, not even an explicit nil
 ### GetCreatedByIds
 
 `func (o *TestRunSearchQueryModel) GetCreatedByIds() []string`

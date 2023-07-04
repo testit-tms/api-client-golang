@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **StoppedByUserId** | Pointer to **NullableString** |  | [optional] 
 **TestPointId** | Pointer to **string** |  | [optional] 
 **TestRunId** | Pointer to **string** |  | [optional] 
-**TestPoint** | Pointer to [**TestPointPutModel**](TestPointPutModel.md) |  | [optional] 
-**AutoTest** | Pointer to [**AutoTestModel**](AutoTestModel.md) |  | [optional] 
+**TestPoint** | Pointer to [**NullableTestPointPutModel**](TestPointPutModel.md) |  | [optional] 
+**AutoTest** | Pointer to [**NullableAutoTestModel**](AutoTestModel.md) |  | [optional] 
 **AutoTestStepResults** | Pointer to [**[]AttachmentModelAutoTestStepResultsModel**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
 **SetupResults** | Pointer to [**[]AttachmentModelAutoTestStepResultsModel**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
 **TeardownResults** | Pointer to [**[]AttachmentModelAutoTestStepResultsModel**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **StepComments** | Pointer to [**[]StepCommentModel**](StepCommentModel.md) |  | [optional] 
 **FailureClassIds** | Pointer to **[]string** |  | [optional] 
-**Outcome** | Pointer to **NullableString** |  | [optional] 
+**Outcome** | Pointer to **string** |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **StepResults** | Pointer to [**[]StepResultModel**](StepResultModel.md) |  | [optional] 
@@ -472,6 +472,16 @@ SetTestPoint sets TestPoint field to given value.
 
 HasTestPoint returns a boolean if a field has been set.
 
+### SetTestPointNil
+
+`func (o *TestResultModel) SetTestPointNil(b bool)`
+
+ SetTestPointNil sets the value for TestPoint to be an explicit nil
+
+### UnsetTestPoint
+`func (o *TestResultModel) UnsetTestPoint()`
+
+UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
 ### GetAutoTest
 
 `func (o *TestResultModel) GetAutoTest() AutoTestModel`
@@ -497,6 +507,16 @@ SetAutoTest sets AutoTest field to given value.
 
 HasAutoTest returns a boolean if a field has been set.
 
+### SetAutoTestNil
+
+`func (o *TestResultModel) SetAutoTestNil(b bool)`
+
+ SetAutoTestNil sets the value for AutoTest to be an explicit nil
+
+### UnsetAutoTest
+`func (o *TestResultModel) UnsetAutoTest()`
+
+UnsetAutoTest ensures that no value is present for AutoTest, not even an explicit nil
 ### GetAutoTestStepResults
 
 `func (o *TestResultModel) GetAutoTestStepResults() []AttachmentModelAutoTestStepResultsModel`
@@ -937,16 +957,6 @@ SetFailureClassIds sets FailureClassIds field to given value.
 
 HasFailureClassIds returns a boolean if a field has been set.
 
-### SetFailureClassIdsNil
-
-`func (o *TestResultModel) SetFailureClassIdsNil(b bool)`
-
- SetFailureClassIdsNil sets the value for FailureClassIds to be an explicit nil
-
-### UnsetFailureClassIds
-`func (o *TestResultModel) UnsetFailureClassIds()`
-
-UnsetFailureClassIds ensures that no value is present for FailureClassIds, not even an explicit nil
 ### GetOutcome
 
 `func (o *TestResultModel) GetOutcome() string`
@@ -972,16 +982,6 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
-### SetOutcomeNil
-
-`func (o *TestResultModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *TestResultModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultModel) GetComment() string`
@@ -1077,16 +1077,6 @@ SetStepResults sets StepResults field to given value.
 
 HasStepResults returns a boolean if a field has been set.
 
-### SetStepResultsNil
-
-`func (o *TestResultModel) SetStepResultsNil(b bool)`
-
- SetStepResultsNil sets the value for StepResults to be an explicit nil
-
-### UnsetStepResults
-`func (o *TestResultModel) UnsetStepResults()`
-
-UnsetStepResults ensures that no value is present for StepResults, not even an explicit nil
 ### GetAttachments
 
 `func (o *TestResultModel) GetAttachments() []AttachmentModel`

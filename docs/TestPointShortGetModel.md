@@ -21,20 +21,25 @@ Name | Type | Description | Notes
 **Status** | [**TestPointStatus**](TestPointStatus.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **IsAutomated** | Pointer to **bool** | Indicates if the test point represents an autotest | [optional] 
-**Name** | Pointer to **NullableString** | Name of the test point | [optional] 
+**Name** | Pointer to **string** | Name of the test point | [optional] 
 **ConfigurationId** | Pointer to **string** | Unique ID of the test point configuration | [optional] 
 **Duration** | Pointer to **int32** | Duration of the test point | [optional] 
 **SectionId** | Pointer to **string** | Unique ID of section where work item the test point represents is located | [optional] 
 **SectionName** | Pointer to **NullableString** | Name of section where work item the test point represents is located | [optional] 
 **ProjectId** | Pointer to **string** | Unique ID of the test point project | [optional] 
-**LastTestResult** | [**LastTestResultModel**](LastTestResultModel.md) |  | 
+**LastTestResult** | [**TestPointShortGetModelLastTestResult**](TestPointShortGetModelLastTestResult.md) |  | 
 **IterationId** | Pointer to **string** | Unique ID of work item iteration the test point represents | [optional] 
+**WorkItemState** | Pointer to [**WorkItemState**](WorkItemState.md) |  | [optional] 
+**WorkItemCreatedById** | Pointer to **string** | Unique ID of the work item creator | [optional] 
+**WorkItemCreatedDate** | Pointer to **time.Time** | Creation date of work item | [optional] 
+**WorkItemModifiedById** | Pointer to **NullableString** | Unique ID of the work item last editor | [optional] 
+**WorkItemModifiedDate** | Pointer to **NullableTime** | Modified date of work item | [optional] 
 
 ## Methods
 
 ### NewTestPointShortGetModel
 
-`func NewTestPointShortGetModel(status TestPointStatus, priority WorkItemPriorityModel, lastTestResult LastTestResultModel, ) *TestPointShortGetModel`
+`func NewTestPointShortGetModel(status TestPointStatus, priority WorkItemPriorityModel, lastTestResult TestPointShortGetModelLastTestResult, ) *TestPointShortGetModel`
 
 NewTestPointShortGetModel instantiates a new TestPointShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -289,16 +294,6 @@ SetAttributes sets Attributes field to given value.
 
 HasAttributes returns a boolean if a field has been set.
 
-### SetAttributesNil
-
-`func (o *TestPointShortGetModel) SetAttributesNil(b bool)`
-
- SetAttributesNil sets the value for Attributes to be an explicit nil
-
-### UnsetAttributes
-`func (o *TestPointShortGetModel) UnsetAttributes()`
-
-UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetTags
 
 `func (o *TestPointShortGetModel) GetTags() []string`
@@ -324,16 +319,6 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
-### SetTagsNil
-
-`func (o *TestPointShortGetModel) SetTagsNil(b bool)`
-
- SetTagsNil sets the value for Tags to be an explicit nil
-
-### UnsetTags
-`func (o *TestPointShortGetModel) UnsetTags()`
-
-UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetLinks
 
 `func (o *TestPointShortGetModel) GetLinks() []string`
@@ -359,16 +344,6 @@ SetLinks sets Links field to given value.
 
 HasLinks returns a boolean if a field has been set.
 
-### SetLinksNil
-
-`func (o *TestPointShortGetModel) SetLinksNil(b bool)`
-
- SetLinksNil sets the value for Links to be an explicit nil
-
-### UnsetLinks
-`func (o *TestPointShortGetModel) UnsetLinks()`
-
-UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetTestSuiteId
 
 `func (o *TestPointShortGetModel) GetTestSuiteId() string`
@@ -559,16 +534,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TestPointShortGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestPointShortGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetConfigurationId
 
 `func (o *TestPointShortGetModel) GetConfigurationId() string`
@@ -706,20 +671,20 @@ HasProjectId returns a boolean if a field has been set.
 
 ### GetLastTestResult
 
-`func (o *TestPointShortGetModel) GetLastTestResult() LastTestResultModel`
+`func (o *TestPointShortGetModel) GetLastTestResult() TestPointShortGetModelLastTestResult`
 
 GetLastTestResult returns the LastTestResult field if non-nil, zero value otherwise.
 
 ### GetLastTestResultOk
 
-`func (o *TestPointShortGetModel) GetLastTestResultOk() (*LastTestResultModel, bool)`
+`func (o *TestPointShortGetModel) GetLastTestResultOk() (*TestPointShortGetModelLastTestResult, bool)`
 
 GetLastTestResultOk returns a tuple with the LastTestResult field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastTestResult
 
-`func (o *TestPointShortGetModel) SetLastTestResult(v LastTestResultModel)`
+`func (o *TestPointShortGetModel) SetLastTestResult(v TestPointShortGetModelLastTestResult)`
 
 SetLastTestResult sets LastTestResult field to given value.
 
@@ -749,6 +714,151 @@ SetIterationId sets IterationId field to given value.
 
 HasIterationId returns a boolean if a field has been set.
 
+### GetWorkItemState
+
+`func (o *TestPointShortGetModel) GetWorkItemState() WorkItemState`
+
+GetWorkItemState returns the WorkItemState field if non-nil, zero value otherwise.
+
+### GetWorkItemStateOk
+
+`func (o *TestPointShortGetModel) GetWorkItemStateOk() (*WorkItemState, bool)`
+
+GetWorkItemStateOk returns a tuple with the WorkItemState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemState
+
+`func (o *TestPointShortGetModel) SetWorkItemState(v WorkItemState)`
+
+SetWorkItemState sets WorkItemState field to given value.
+
+### HasWorkItemState
+
+`func (o *TestPointShortGetModel) HasWorkItemState() bool`
+
+HasWorkItemState returns a boolean if a field has been set.
+
+### GetWorkItemCreatedById
+
+`func (o *TestPointShortGetModel) GetWorkItemCreatedById() string`
+
+GetWorkItemCreatedById returns the WorkItemCreatedById field if non-nil, zero value otherwise.
+
+### GetWorkItemCreatedByIdOk
+
+`func (o *TestPointShortGetModel) GetWorkItemCreatedByIdOk() (*string, bool)`
+
+GetWorkItemCreatedByIdOk returns a tuple with the WorkItemCreatedById field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemCreatedById
+
+`func (o *TestPointShortGetModel) SetWorkItemCreatedById(v string)`
+
+SetWorkItemCreatedById sets WorkItemCreatedById field to given value.
+
+### HasWorkItemCreatedById
+
+`func (o *TestPointShortGetModel) HasWorkItemCreatedById() bool`
+
+HasWorkItemCreatedById returns a boolean if a field has been set.
+
+### GetWorkItemCreatedDate
+
+`func (o *TestPointShortGetModel) GetWorkItemCreatedDate() time.Time`
+
+GetWorkItemCreatedDate returns the WorkItemCreatedDate field if non-nil, zero value otherwise.
+
+### GetWorkItemCreatedDateOk
+
+`func (o *TestPointShortGetModel) GetWorkItemCreatedDateOk() (*time.Time, bool)`
+
+GetWorkItemCreatedDateOk returns a tuple with the WorkItemCreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemCreatedDate
+
+`func (o *TestPointShortGetModel) SetWorkItemCreatedDate(v time.Time)`
+
+SetWorkItemCreatedDate sets WorkItemCreatedDate field to given value.
+
+### HasWorkItemCreatedDate
+
+`func (o *TestPointShortGetModel) HasWorkItemCreatedDate() bool`
+
+HasWorkItemCreatedDate returns a boolean if a field has been set.
+
+### GetWorkItemModifiedById
+
+`func (o *TestPointShortGetModel) GetWorkItemModifiedById() string`
+
+GetWorkItemModifiedById returns the WorkItemModifiedById field if non-nil, zero value otherwise.
+
+### GetWorkItemModifiedByIdOk
+
+`func (o *TestPointShortGetModel) GetWorkItemModifiedByIdOk() (*string, bool)`
+
+GetWorkItemModifiedByIdOk returns a tuple with the WorkItemModifiedById field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemModifiedById
+
+`func (o *TestPointShortGetModel) SetWorkItemModifiedById(v string)`
+
+SetWorkItemModifiedById sets WorkItemModifiedById field to given value.
+
+### HasWorkItemModifiedById
+
+`func (o *TestPointShortGetModel) HasWorkItemModifiedById() bool`
+
+HasWorkItemModifiedById returns a boolean if a field has been set.
+
+### SetWorkItemModifiedByIdNil
+
+`func (o *TestPointShortGetModel) SetWorkItemModifiedByIdNil(b bool)`
+
+ SetWorkItemModifiedByIdNil sets the value for WorkItemModifiedById to be an explicit nil
+
+### UnsetWorkItemModifiedById
+`func (o *TestPointShortGetModel) UnsetWorkItemModifiedById()`
+
+UnsetWorkItemModifiedById ensures that no value is present for WorkItemModifiedById, not even an explicit nil
+### GetWorkItemModifiedDate
+
+`func (o *TestPointShortGetModel) GetWorkItemModifiedDate() time.Time`
+
+GetWorkItemModifiedDate returns the WorkItemModifiedDate field if non-nil, zero value otherwise.
+
+### GetWorkItemModifiedDateOk
+
+`func (o *TestPointShortGetModel) GetWorkItemModifiedDateOk() (*time.Time, bool)`
+
+GetWorkItemModifiedDateOk returns a tuple with the WorkItemModifiedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemModifiedDate
+
+`func (o *TestPointShortGetModel) SetWorkItemModifiedDate(v time.Time)`
+
+SetWorkItemModifiedDate sets WorkItemModifiedDate field to given value.
+
+### HasWorkItemModifiedDate
+
+`func (o *TestPointShortGetModel) HasWorkItemModifiedDate() bool`
+
+HasWorkItemModifiedDate returns a boolean if a field has been set.
+
+### SetWorkItemModifiedDateNil
+
+`func (o *TestPointShortGetModel) SetWorkItemModifiedDateNil(b bool)`
+
+ SetWorkItemModifiedDateNil sets the value for WorkItemModifiedDate to be an explicit nil
+
+### UnsetWorkItemModifiedDate
+`func (o *TestPointShortGetModel) UnsetWorkItemModifiedDate()`
+
+UnsetWorkItemModifiedDate ensures that no value is present for WorkItemModifiedDate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

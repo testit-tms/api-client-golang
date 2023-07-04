@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**WorkItemFilterModel**](WorkItemFilterModel.md) |  | [optional] 
-**ExtractionModel** | Pointer to [**WorkItemsExtractionModel**](WorkItemsExtractionModel.md) |  | [optional] 
+**Filter** | Pointer to [**WorkItemSelectModelFilter**](WorkItemSelectModelFilter.md) |  | [optional] 
+**ExtractionModel** | Pointer to [**WorkItemSelectModelExtractionModel**](WorkItemSelectModelExtractionModel.md) |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *WorkItemSelectModel) GetFilter() WorkItemFilterModel`
+`func (o *WorkItemSelectModel) GetFilter() WorkItemSelectModelFilter`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *WorkItemSelectModel) GetFilterOk() (*WorkItemFilterModel, bool)`
+`func (o *WorkItemSelectModel) GetFilterOk() (*WorkItemSelectModelFilter, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *WorkItemSelectModel) SetFilter(v WorkItemFilterModel)`
+`func (o *WorkItemSelectModel) SetFilter(v WorkItemSelectModelFilter)`
 
 SetFilter sets Filter field to given value.
 
@@ -53,20 +53,20 @@ HasFilter returns a boolean if a field has been set.
 
 ### GetExtractionModel
 
-`func (o *WorkItemSelectModel) GetExtractionModel() WorkItemsExtractionModel`
+`func (o *WorkItemSelectModel) GetExtractionModel() WorkItemSelectModelExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemsExtractionModel, bool)`
+`func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemSelectModelExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemsExtractionModel)`
+`func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemSelectModelExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique ID of the custom attributes template | [optional] 
 **IsDeleted** | Pointer to **bool** | Indicates if the custom attribute template is deleted | [optional] 
-**Name** | Pointer to **NullableString** | Name of the custom attribute template | [optional] 
+**Name** | Pointer to **string** | Name of the custom attribute template | [optional] 
 **CustomAttributeModels** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) | Attributes of the template | [optional] 
 
 ## Methods
@@ -103,16 +103,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *ProjectCustomAttributeTemplateGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ProjectCustomAttributeTemplateGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetCustomAttributeModels
 
 `func (o *ProjectCustomAttributeTemplateGetModel) GetCustomAttributeModels() []CustomAttributeModel`
@@ -138,16 +128,6 @@ SetCustomAttributeModels sets CustomAttributeModels field to given value.
 
 HasCustomAttributeModels returns a boolean if a field has been set.
 
-### SetCustomAttributeModelsNil
-
-`func (o *ProjectCustomAttributeTemplateGetModel) SetCustomAttributeModelsNil(b bool)`
-
- SetCustomAttributeModelsNil sets the value for CustomAttributeModels to be an explicit nil
-
-### UnsetCustomAttributeModels
-`func (o *ProjectCustomAttributeTemplateGetModel) UnsetCustomAttributeModels()`
-
-UnsetCustomAttributeModels ensures that no value is present for CustomAttributeModels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

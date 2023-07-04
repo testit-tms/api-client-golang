@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **RunByUserId** | Pointer to **NullableString** |  | [optional] 
 **StoppedByUserId** | Pointer to **NullableString** |  | [optional] 
 **TestPointId** | Pointer to **NullableString** |  | [optional] 
-**TestPoint** | Pointer to [**TestPointShortModel**](TestPointShortModel.md) |  | [optional] 
+**TestPoint** | Pointer to [**NullableTestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  | [optional] 
 **TestRunId** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **NullableString** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
+**Outcome** | Pointer to **string** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
@@ -400,20 +400,20 @@ HasTestPointId returns a boolean if a field has been set.
 UnsetTestPointId ensures that no value is present for TestPointId, not even an explicit nil
 ### GetTestPoint
 
-`func (o *TestResultV2ShortModel) GetTestPoint() TestPointShortModel`
+`func (o *TestResultV2ShortModel) GetTestPoint() TestPointRelatedToTestResult`
 
 GetTestPoint returns the TestPoint field if non-nil, zero value otherwise.
 
 ### GetTestPointOk
 
-`func (o *TestResultV2ShortModel) GetTestPointOk() (*TestPointShortModel, bool)`
+`func (o *TestResultV2ShortModel) GetTestPointOk() (*TestPointRelatedToTestResult, bool)`
 
 GetTestPointOk returns a tuple with the TestPoint field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestPoint
 
-`func (o *TestResultV2ShortModel) SetTestPoint(v TestPointShortModel)`
+`func (o *TestResultV2ShortModel) SetTestPoint(v TestPointRelatedToTestResult)`
 
 SetTestPoint sets TestPoint field to given value.
 
@@ -423,6 +423,16 @@ SetTestPoint sets TestPoint field to given value.
 
 HasTestPoint returns a boolean if a field has been set.
 
+### SetTestPointNil
+
+`func (o *TestResultV2ShortModel) SetTestPointNil(b bool)`
+
+ SetTestPointNil sets the value for TestPoint to be an explicit nil
+
+### UnsetTestPoint
+`func (o *TestResultV2ShortModel) UnsetTestPoint()`
+
+UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
 ### GetTestRunId
 
 `func (o *TestResultV2ShortModel) GetTestRunId() string`
@@ -473,16 +483,6 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
-### SetOutcomeNil
-
-`func (o *TestResultV2ShortModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *TestResultV2ShortModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultV2ShortModel) GetComment() string`

@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPointsSearchIdPost
 
-> []string ApiV2TestPointsSearchIdPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+> []string ApiV2TestPointsSearchIdPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
 
 Search for test points and extract IDs only
 
@@ -171,11 +171,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    testPointFilterModel := *openapiclient.NewTestPointFilterModel() // TestPointFilterModel |  (optional)
+    apiV2TestPointsSearchPostRequest := *openapiclient.NewApiV2TestPointsSearchPostRequest() // ApiV2TestPointsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsSearchIdPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsSearchIdPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPointsApi.ApiV2TestPointsSearchIdPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md) |  | 
+ **apiV2TestPointsSearchPostRequest** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPointsSearchPost
 
-> []TestPointShortGetModel ApiV2TestPointsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+> []TestPointShortGetModel ApiV2TestPointsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
 
 Search for test points
 
@@ -245,11 +245,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    testPointFilterModel := *openapiclient.NewTestPointFilterModel() // TestPointFilterModel |  (optional)
+    apiV2TestPointsSearchPostRequest := *openapiclient.NewApiV2TestPointsSearchPostRequest() // ApiV2TestPointsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPointsApi.ApiV2TestPointsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md) |  | 
+ **apiV2TestPointsSearchPostRequest** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md) |  | 
 
 ### Return type
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExternalId** | Pointer to **NullableString** | This property is used to set autotest identifier from client system | [optional] 
+**ExternalId** | Pointer to **string** | This property is used to set autotest identifier from client system | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **ProjectId** | Pointer to **string** | This property is used to link autotest with project | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **Namespace** | Pointer to **NullableString** |  | [optional] 
 **Classname** | Pointer to **NullableString** |  | [optional] 
 **Steps** | Pointer to [**[]AutoTestStepModel**](AutoTestStepModel.md) |  | [optional] 
@@ -66,16 +66,6 @@ SetExternalId sets ExternalId field to given value.
 
 HasExternalId returns a boolean if a field has been set.
 
-### SetExternalIdNil
-
-`func (o *AutoTestModelV2GetModel) SetExternalIdNil(b bool)`
-
- SetExternalIdNil sets the value for ExternalId to be an explicit nil
-
-### UnsetExternalId
-`func (o *AutoTestModelV2GetModel) UnsetExternalId()`
-
-UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetLinks
 
 `func (o *AutoTestModelV2GetModel) GetLinks() []LinkModel`
@@ -161,16 +151,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *AutoTestModelV2GetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *AutoTestModelV2GetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *AutoTestModelV2GetModel) GetNamespace() string`

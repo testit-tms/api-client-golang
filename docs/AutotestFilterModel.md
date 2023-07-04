@@ -10,17 +10,17 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Specifies an autotest name to search for | [optional] 
 **IsFlaky** | Pointer to **NullableBool** | Specifies an autotest flaky status to search for | [optional] 
 **MustBeApproved** | Pointer to **NullableBool** | Specifies an autotest unapproved changes status to search for | [optional] 
-**StabilityPercentage** | Pointer to [**Int64RangeSelectorModel**](Int64RangeSelectorModel.md) |  | [optional] 
-**CreatedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**StabilityPercentage** | Pointer to [**NullableAutotestFilterModelStabilityPercentage**](AutotestFilterModelStabilityPercentage.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableAutotestFilterModelCreatedDate**](AutotestFilterModelCreatedDate.md) |  | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies an autotest creator IDs to search for | [optional] 
-**ModifiedDate** | Pointer to [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**ModifiedDate** | Pointer to [**NullableAutotestFilterModelModifiedDate**](AutotestFilterModelModifiedDate.md) |  | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Specifies an autotest last editor IDs to search for | [optional] 
 **IsDeleted** | Pointer to **NullableBool** | Specifies an autotest deleted status to search for | [optional] 
 **Namespace** | Pointer to **NullableString** | Specifies an autotest namespace to search for | [optional] 
 **IsEmptyNamespace** | Pointer to **NullableBool** | Specifies an autotest namespace name presence status to search for | [optional] 
 **ClassName** | Pointer to **NullableString** | Specifies an autotest class name to search for | [optional] 
 **IsEmptyClassName** | Pointer to **NullableBool** | Specifies an autotest class name presence status to search for | [optional] 
-**LastTestResultOutcome** | Pointer to [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
+**LastTestResultOutcome** | Pointer to [**NullableAutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
 
 ## Methods
 
@@ -253,20 +253,20 @@ HasMustBeApproved returns a boolean if a field has been set.
 UnsetMustBeApproved ensures that no value is present for MustBeApproved, not even an explicit nil
 ### GetStabilityPercentage
 
-`func (o *AutotestFilterModel) GetStabilityPercentage() Int64RangeSelectorModel`
+`func (o *AutotestFilterModel) GetStabilityPercentage() AutotestFilterModelStabilityPercentage`
 
 GetStabilityPercentage returns the StabilityPercentage field if non-nil, zero value otherwise.
 
 ### GetStabilityPercentageOk
 
-`func (o *AutotestFilterModel) GetStabilityPercentageOk() (*Int64RangeSelectorModel, bool)`
+`func (o *AutotestFilterModel) GetStabilityPercentageOk() (*AutotestFilterModelStabilityPercentage, bool)`
 
 GetStabilityPercentageOk returns a tuple with the StabilityPercentage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStabilityPercentage
 
-`func (o *AutotestFilterModel) SetStabilityPercentage(v Int64RangeSelectorModel)`
+`func (o *AutotestFilterModel) SetStabilityPercentage(v AutotestFilterModelStabilityPercentage)`
 
 SetStabilityPercentage sets StabilityPercentage field to given value.
 
@@ -276,22 +276,32 @@ SetStabilityPercentage sets StabilityPercentage field to given value.
 
 HasStabilityPercentage returns a boolean if a field has been set.
 
+### SetStabilityPercentageNil
+
+`func (o *AutotestFilterModel) SetStabilityPercentageNil(b bool)`
+
+ SetStabilityPercentageNil sets the value for StabilityPercentage to be an explicit nil
+
+### UnsetStabilityPercentage
+`func (o *AutotestFilterModel) UnsetStabilityPercentage()`
+
+UnsetStabilityPercentage ensures that no value is present for StabilityPercentage, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *AutotestFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
+`func (o *AutotestFilterModel) GetCreatedDate() AutotestFilterModelCreatedDate`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *AutotestFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
+`func (o *AutotestFilterModel) GetCreatedDateOk() (*AutotestFilterModelCreatedDate, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *AutotestFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
+`func (o *AutotestFilterModel) SetCreatedDate(v AutotestFilterModelCreatedDate)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -301,6 +311,16 @@ SetCreatedDate sets CreatedDate field to given value.
 
 HasCreatedDate returns a boolean if a field has been set.
 
+### SetCreatedDateNil
+
+`func (o *AutotestFilterModel) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *AutotestFilterModel) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetCreatedByIds
 
 `func (o *AutotestFilterModel) GetCreatedByIds() []string`
@@ -338,20 +358,20 @@ HasCreatedByIds returns a boolean if a field has been set.
 UnsetCreatedByIds ensures that no value is present for CreatedByIds, not even an explicit nil
 ### GetModifiedDate
 
-`func (o *AutotestFilterModel) GetModifiedDate() DateTimeRangeSelectorModel`
+`func (o *AutotestFilterModel) GetModifiedDate() AutotestFilterModelModifiedDate`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *AutotestFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool)`
+`func (o *AutotestFilterModel) GetModifiedDateOk() (*AutotestFilterModelModifiedDate, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *AutotestFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel)`
+`func (o *AutotestFilterModel) SetModifiedDate(v AutotestFilterModelModifiedDate)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 
@@ -361,6 +381,16 @@ SetModifiedDate sets ModifiedDate field to given value.
 
 HasModifiedDate returns a boolean if a field has been set.
 
+### SetModifiedDateNil
+
+`func (o *AutotestFilterModel) SetModifiedDateNil(b bool)`
+
+ SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+
+### UnsetModifiedDate
+`func (o *AutotestFilterModel) UnsetModifiedDate()`
+
+UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
 ### GetModifiedByIds
 
 `func (o *AutotestFilterModel) GetModifiedByIds() []string`
@@ -596,6 +626,16 @@ SetLastTestResultOutcome sets LastTestResultOutcome field to given value.
 
 HasLastTestResultOutcome returns a boolean if a field has been set.
 
+### SetLastTestResultOutcomeNil
+
+`func (o *AutotestFilterModel) SetLastTestResultOutcomeNil(b bool)`
+
+ SetLastTestResultOutcomeNil sets the value for LastTestResultOutcome to be an explicit nil
+
+### UnsetLastTestResultOutcome
+`func (o *AutotestFilterModel) UnsetLastTestResultOutcome()`
+
+UnsetLastTestResultOutcome ensures that no value is present for LastTestResultOutcome, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

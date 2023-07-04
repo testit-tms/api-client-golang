@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | Pointer to [**GuidExtractionModel**](GuidExtractionModel.md) |  | [optional] 
+**Ids** | Pointer to [**NullableAutotestsExtractionModelIds**](AutotestsExtractionModelIds.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetIds
 
-`func (o *AutotestsExtractionModel) GetIds() GuidExtractionModel`
+`func (o *AutotestsExtractionModel) GetIds() AutotestsExtractionModelIds`
 
 GetIds returns the Ids field if non-nil, zero value otherwise.
 
 ### GetIdsOk
 
-`func (o *AutotestsExtractionModel) GetIdsOk() (*GuidExtractionModel, bool)`
+`func (o *AutotestsExtractionModel) GetIdsOk() (*AutotestsExtractionModelIds, bool)`
 
 GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIds
 
-`func (o *AutotestsExtractionModel) SetIds(v GuidExtractionModel)`
+`func (o *AutotestsExtractionModel) SetIds(v AutotestsExtractionModelIds)`
 
 SetIds sets Ids field to given value.
 
@@ -50,6 +50,16 @@ SetIds sets Ids field to given value.
 
 HasIds returns a boolean if a field has been set.
 
+### SetIdsNil
+
+`func (o *AutotestsExtractionModel) SetIdsNil(b bool)`
+
+ SetIdsNil sets the value for Ids to be an explicit nil
+
+### UnsetIds
+`func (o *AutotestsExtractionModel) UnsetIds()`
+
+UnsetIds ensures that no value is present for Ids, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FailureCategory** | Pointer to **NullableString** |  | [optional] 
+**FailureCategory** | Pointer to **string** |  | [optional] 
 **Value** | Pointer to **int32** |  | [optional] 
 
 ## Methods
@@ -51,16 +51,6 @@ SetFailureCategory sets FailureCategory field to given value.
 
 HasFailureCategory returns a boolean if a field has been set.
 
-### SetFailureCategoryNil
-
-`func (o *TestRunGroupByFailureClassModel) SetFailureCategoryNil(b bool)`
-
- SetFailureCategoryNil sets the value for FailureCategory to be an explicit nil
-
-### UnsetFailureCategory
-`func (o *TestRunGroupByFailureClassModel) UnsetFailureCategory()`
-
-UnsetFailureCategory ensures that no value is present for FailureCategory, not even an explicit nil
 ### GetValue
 
 `func (o *TestRunGroupByFailureClassModel) GetValue() int32`

@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**ApiV2ProjectsIdTestPlansAnalyticsGet**](ProjectsApi.md#ApiV2ProjectsIdTestPlansAnalyticsGet) | **Get** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
 [**ApiV2ProjectsIdTestPlansDeleteBulkPost**](ProjectsApi.md#ApiV2ProjectsIdTestPlansDeleteBulkPost) | **Post** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
 [**ApiV2ProjectsIdTestPlansNameExistsGet**](ProjectsApi.md#ApiV2ProjectsIdTestPlansNameExistsGet) | **Get** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
+[**ApiV2ProjectsIdTestPlansPurgeBulkPost**](ProjectsApi.md#ApiV2ProjectsIdTestPlansPurgeBulkPost) | **Post** /api/v2/projects/{id}/testPlans/purge/bulk | Permanently delete multiple archived test plans
 [**ApiV2ProjectsIdTestPlansRestoreBulkPost**](ProjectsApi.md#ApiV2ProjectsIdTestPlansRestoreBulkPost) | **Post** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans
 [**ApiV2ProjectsIdTestPlansSearchPost**](ProjectsApi.md#ApiV2ProjectsIdTestPlansSearchPost) | **Post** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics
 [**ApiV2ProjectsIdTestRunsActiveGet**](ProjectsApi.md#ApiV2ProjectsIdTestRunsActiveGet) | **Get** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
@@ -135,7 +136,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdAttributesTemplatesSearchPost
 
-> []ProjectCustomAttributeTemplateGetModel ApiV2ProjectsIdAttributesTemplatesSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectCustomAttributesTemplatesFilterModel(projectCustomAttributesTemplatesFilterModel).Execute()
+> []ProjectCustomAttributeTemplateGetModel ApiV2ProjectsIdAttributesTemplatesSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdAttributesTemplatesSearchPostRequest(apiV2ProjectsIdAttributesTemplatesSearchPostRequest).Execute()
 
 Search for custom attributes templates
 
@@ -158,11 +159,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    projectCustomAttributesTemplatesFilterModel := *openapiclient.NewProjectCustomAttributesTemplatesFilterModel() // ProjectCustomAttributesTemplatesFilterModel |  (optional)
+    apiV2ProjectsIdAttributesTemplatesSearchPostRequest := *openapiclient.NewApiV2ProjectsIdAttributesTemplatesSearchPostRequest() // ApiV2ProjectsIdAttributesTemplatesSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdAttributesTemplatesSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectCustomAttributesTemplatesFilterModel(projectCustomAttributesTemplatesFilterModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdAttributesTemplatesSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdAttributesTemplatesSearchPostRequest(apiV2ProjectsIdAttributesTemplatesSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdAttributesTemplatesSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -193,7 +194,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **projectCustomAttributesTemplatesFilterModel** | [**ProjectCustomAttributesTemplatesFilterModel**](ProjectCustomAttributesTemplatesFilterModel.md) |  | 
+ **apiV2ProjectsIdAttributesTemplatesSearchPostRequest** | [**ApiV2ProjectsIdAttributesTemplatesSearchPostRequest**](ApiV2ProjectsIdAttributesTemplatesSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -719,7 +720,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdTestPlansDeleteBulkPost
 
-> []string ApiV2ProjectsIdTestPlansDeleteBulkPost(ctx, id).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
+> []string ApiV2ProjectsIdTestPlansDeleteBulkPost(ctx, id).ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest).Execute()
 
 Delete multiple test plans
 
@@ -737,11 +738,11 @@ import (
 
 func main() {
     id := "id_example" // string | Unique or global ID of the project
-    projectTestPlansFilterModel := *openapiclient.NewProjectTestPlansFilterModel() // ProjectTestPlansFilterModel |  (optional)
+    apiV2ProjectsIdTestPlansDeleteBulkPostRequest := *openapiclient.NewApiV2ProjectsIdTestPlansDeleteBulkPostRequest() // ApiV2ProjectsIdTestPlansDeleteBulkPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansDeleteBulkPost(context.Background(), id).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansDeleteBulkPost(context.Background(), id).ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestPlansDeleteBulkPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -767,7 +768,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsIdTestPlansDe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  | 
+ **apiV2ProjectsIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -860,9 +861,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiV2ProjectsIdTestPlansPurgeBulkPost
+
+> ApiV2ProjectsIdTestPlansPurgeBulkPost(ctx, id).ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest).Execute()
+
+Permanently delete multiple archived test plans
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the project
+    apiV2ProjectsIdTestPlansDeleteBulkPostRequest := *openapiclient.NewApiV2ProjectsIdTestPlansDeleteBulkPostRequest() // ApiV2ProjectsIdTestPlansDeleteBulkPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansPurgeBulkPost(context.Background(), id).ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestPlansPurgeBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the project | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsIdTestPlansPurgeBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **apiV2ProjectsIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2ProjectsIdTestPlansRestoreBulkPost
 
-> ApiV2ProjectsIdTestPlansRestoreBulkPost(ctx, id).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
+> ApiV2ProjectsIdTestPlansRestoreBulkPost(ctx, id).ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest).Execute()
 
 Restore multiple test plans
 
@@ -880,11 +949,11 @@ import (
 
 func main() {
     id := "id_example" // string | Unique or global ID of the project
-    projectTestPlansFilterModel := *openapiclient.NewProjectTestPlansFilterModel() // ProjectTestPlansFilterModel |  (optional)
+    apiV2ProjectsIdTestPlansDeleteBulkPostRequest := *openapiclient.NewApiV2ProjectsIdTestPlansDeleteBulkPostRequest() // ApiV2ProjectsIdTestPlansDeleteBulkPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansRestoreBulkPost(context.Background(), id).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
+    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansRestoreBulkPost(context.Background(), id).ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestPlansRestoreBulkPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -908,7 +977,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsIdTestPlansRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  | 
+ **apiV2ProjectsIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsIdTestPlansDeleteBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -930,7 +999,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdTestPlansSearchPost
 
-> []TestPlanWithAnalyticModel ApiV2ProjectsIdTestPlansSearchPost(ctx, id).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
+> []TestPlanWithAnalyticModel ApiV2ProjectsIdTestPlansSearchPost(ctx, id).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdTestPlansSearchPostRequest(apiV2ProjectsIdTestPlansSearchPostRequest).Execute()
 
 Get Project TestPlans with analytics
 
@@ -956,11 +1025,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    projectTestPlansFilterModel := *openapiclient.NewProjectTestPlansFilterModel() // ProjectTestPlansFilterModel |  (optional)
+    apiV2ProjectsIdTestPlansSearchPostRequest := *openapiclient.NewApiV2ProjectsIdTestPlansSearchPostRequest() // ApiV2ProjectsIdTestPlansSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansSearchPost(context.Background(), id).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansSearchPost(context.Background(), id).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdTestPlansSearchPostRequest(apiV2ProjectsIdTestPlansSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestPlansSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -992,7 +1061,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  | 
+ **apiV2ProjectsIdTestPlansSearchPostRequest** | [**ApiV2ProjectsIdTestPlansSearchPostRequest**](ApiV2ProjectsIdTestPlansSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -1183,7 +1252,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdWorkItemsSearchIdPost
 
-> []string ApiV2ProjectsIdWorkItemsSearchIdPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+> []string ApiV2ProjectsIdWorkItemsSearchIdPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
 
 Search for work items and extract IDs only
 
@@ -1206,11 +1275,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    workItemSelectModel := *openapiclient.NewWorkItemSelectModel() // WorkItemSelectModel |  (optional)
+    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdWorkItemsSearchIdPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdWorkItemsSearchIdPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdWorkItemsSearchIdPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1241,7 +1310,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) |  | 
+ **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -1263,7 +1332,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdWorkItemsSearchPost
 
-> []WorkItemShortModel ApiV2ProjectsIdWorkItemsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+> []WorkItemShortModel ApiV2ProjectsIdWorkItemsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
 
 Search for work items
 
@@ -1286,11 +1355,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    workItemSelectModel := *openapiclient.NewWorkItemSelectModel() // WorkItemSelectModel |  (optional)
+    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdWorkItemsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdWorkItemsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdWorkItemsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1321,7 +1390,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) |  | 
+ **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -1483,7 +1552,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsSearchPost
 
-> []ProjectModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
+> []ProjectModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsSearchPostRequest(apiV2ProjectsSearchPostRequest).Execute()
 
 Search for projects
 
@@ -1505,11 +1574,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    projectsFilterModel := *openapiclient.NewProjectsFilterModel() // ProjectsFilterModel |  (optional)
+    apiV2ProjectsSearchPostRequest := *openapiclient.NewApiV2ProjectsSearchPostRequest() // ApiV2ProjectsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsSearchPostRequest(apiV2ProjectsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1535,7 +1604,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **projectsFilterModel** | [**ProjectsFilterModel**](ProjectsFilterModel.md) |  | 
+ **apiV2ProjectsSearchPostRequest** | [**ApiV2ProjectsSearchPostRequest**](ApiV2ProjectsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -1961,7 +2030,7 @@ Name | Type | Description  | Notes
 
 ## CreateProject
 
-> ProjectModel CreateProject(ctx).ProjectPostModel(projectPostModel).Execute()
+> ProjectModel CreateProject(ctx).CreateProjectRequest(createProjectRequest).Execute()
 
 Create project
 
@@ -1980,11 +2049,11 @@ import (
 )
 
 func main() {
-    projectPostModel := *openapiclient.NewProjectPostModel("Name_example") // ProjectPostModel |  (optional)
+    createProjectRequest := *openapiclient.NewCreateProjectRequest("Name_example") // CreateProjectRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.CreateProject(context.Background()).ProjectPostModel(projectPostModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.CreateProject(context.Background()).CreateProjectRequest(createProjectRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.CreateProject``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2005,7 +2074,7 @@ Other parameters are passed through a pointer to a apiCreateProjectRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md) |  | 
+ **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md) |  | 
 
 ### Return type
 
@@ -2027,7 +2096,7 @@ Name | Type | Description  | Notes
 
 ## CreateProjectsAttribute
 
-> CustomAttributeModel CreateProjectsAttribute(ctx, id).CustomAttributePostModel(customAttributePostModel).Execute()
+> CustomAttributeModel CreateProjectsAttribute(ctx, id).CreateProjectsAttributeRequest(createProjectsAttributeRequest).Execute()
 
 Create project attribute
 
@@ -2047,11 +2116,11 @@ import (
 
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    customAttributePostModel := *openapiclient.NewCustomAttributePostModel(openapiclient.CustomAttributeTypesEnum("string"), "Name_example") // CustomAttributePostModel |  (optional)
+    createProjectsAttributeRequest := *openapiclient.NewCreateProjectsAttributeRequest(openapiclient.CustomAttributeTypesEnum("string"), "Name_example") // CreateProjectsAttributeRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.CreateProjectsAttribute(context.Background(), id).CustomAttributePostModel(customAttributePostModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.CreateProjectsAttribute(context.Background(), id).CreateProjectsAttributeRequest(createProjectsAttributeRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.CreateProjectsAttribute``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2077,7 +2146,7 @@ Other parameters are passed through a pointer to a apiCreateProjectsAttributeReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **customAttributePostModel** | [**CustomAttributePostModel**](CustomAttributePostModel.md) |  | 
+ **createProjectsAttributeRequest** | [**CreateProjectsAttributeRequest**](CreateProjectsAttributeRequest.md) |  | 
 
 ### Return type
 
@@ -2377,7 +2446,7 @@ Name | Type | Description  | Notes
 
 ## Export
 
-> *os.File Export(ctx, id).IncludeAttachments(includeAttachments).ProjectExportQueryModel(projectExportQueryModel).Execute()
+> *os.File Export(ctx, id).IncludeAttachments(includeAttachments).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
 
 Export project as JSON file
 
@@ -2398,11 +2467,11 @@ import (
 func main() {
     id := "id_example" // string | Specifies the ID of the project you want to export.
     includeAttachments := true // bool | Enables attachment export. (optional) (default to false)
-    projectExportQueryModel := *openapiclient.NewProjectExportQueryModel() // ProjectExportQueryModel |  (optional)
+    exportProjectJsonRequest := *openapiclient.NewExportProjectJsonRequest() // ExportProjectJsonRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.Export(context.Background(), id).IncludeAttachments(includeAttachments).ProjectExportQueryModel(projectExportQueryModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.Export(context.Background(), id).IncludeAttachments(includeAttachments).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.Export``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2429,7 +2498,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **includeAttachments** | **bool** | Enables attachment export. | [default to false]
- **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md) |  | 
+ **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md) |  | 
 
 ### Return type
 
@@ -2451,7 +2520,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectJson
 
-> string ExportProjectJson(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
+> string ExportProjectJson(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
 
 Export project as JSON file in background job
 
@@ -2470,11 +2539,11 @@ import (
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
     timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    projectExportQueryModel := *openapiclient.NewProjectExportQueryModel() // ProjectExportQueryModel |  (optional)
+    exportProjectJsonRequest := *openapiclient.NewExportProjectJsonRequest() // ExportProjectJsonRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ExportProjectJson(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ExportProjectJson(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ExportProjectJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2501,7 +2570,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md) |  | 
+ **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md) |  | 
 
 ### Return type
 
@@ -2523,7 +2592,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectWithTestPlansJson
 
-> string ExportProjectWithTestPlansJson(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+> string ExportProjectWithTestPlansJson(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
 
 Export project as JSON file with test plans in background job
 
@@ -2542,11 +2611,11 @@ import (
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
     timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    projectExportWithTestPlansPostModel := *openapiclient.NewProjectExportWithTestPlansPostModel() // ProjectExportWithTestPlansPostModel |  (optional)
+    exportProjectWithTestPlansJsonRequest := *openapiclient.NewExportProjectWithTestPlansJsonRequest() // ExportProjectWithTestPlansJsonRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ExportProjectWithTestPlansJson(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ExportProjectWithTestPlansJson(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ExportProjectWithTestPlansJson``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2573,7 +2642,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md) |  | 
+ **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md) |  | 
 
 ### Return type
 
@@ -2595,7 +2664,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectWithTestPlansZip
 
-> string ExportProjectWithTestPlansZip(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+> string ExportProjectWithTestPlansZip(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
 
 Export project as Zip file with test plans in background job
 
@@ -2614,11 +2683,11 @@ import (
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
     timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    projectExportWithTestPlansPostModel := *openapiclient.NewProjectExportWithTestPlansPostModel() // ProjectExportWithTestPlansPostModel |  (optional)
+    exportProjectWithTestPlansJsonRequest := *openapiclient.NewExportProjectWithTestPlansJsonRequest() // ExportProjectWithTestPlansJsonRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ExportProjectWithTestPlansZip(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ExportProjectWithTestPlansZip(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ExportProjectWithTestPlansZip``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2645,7 +2714,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md) |  | 
+ **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md) |  | 
 
 ### Return type
 
@@ -2667,7 +2736,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectZip
 
-> string ExportProjectZip(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
+> string ExportProjectZip(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
 
 Export project as Zip file in background job
 
@@ -2686,11 +2755,11 @@ import (
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
     timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    projectExportQueryModel := *openapiclient.NewProjectExportQueryModel() // ProjectExportQueryModel |  (optional)
+    exportProjectJsonRequest := *openapiclient.NewExportProjectJsonRequest() // ExportProjectJsonRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ExportProjectZip(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ExportProjectZip(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ExportProjectZip``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2717,7 +2786,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md) |  | 
+ **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md) |  | 
 
 ### Return type
 
@@ -2739,7 +2808,7 @@ Name | Type | Description  | Notes
 
 ## ExportWithTestPlansAndConfigurations
 
-> *os.File ExportWithTestPlansAndConfigurations(ctx, id).IncludeAttachments(includeAttachments).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+> *os.File ExportWithTestPlansAndConfigurations(ctx, id).IncludeAttachments(includeAttachments).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
 
 Export project with test plans, test suites and test points as JSON file
 
@@ -2760,11 +2829,11 @@ import (
 func main() {
     id := "id_example" // string | Specifies the ID of the project you want to export.
     includeAttachments := true // bool | Enables attachment export. (optional) (default to false)
-    projectExportWithTestPlansPostModel := *openapiclient.NewProjectExportWithTestPlansPostModel() // ProjectExportWithTestPlansPostModel |  (optional)
+    exportProjectWithTestPlansJsonRequest := *openapiclient.NewExportProjectWithTestPlansJsonRequest() // ExportProjectWithTestPlansJsonRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ExportWithTestPlansAndConfigurations(context.Background(), id).IncludeAttachments(includeAttachments).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.ExportWithTestPlansAndConfigurations(context.Background(), id).IncludeAttachments(includeAttachments).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ExportWithTestPlansAndConfigurations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2791,7 +2860,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **includeAttachments** | **bool** | Enables attachment export. | [default to false]
- **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md) |  | 
+ **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md) |  | 
 
 ### Return type
 
@@ -2984,7 +3053,7 @@ import (
 
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional)
+    isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional) (default to "NotDeleted")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -3014,7 +3083,7 @@ Other parameters are passed through a pointer to a apiGetAttributesByProjectIdRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **isDeleted** | [**DeletionState**](DeletionState.md) |  | 
+ **isDeleted** | [**DeletionState**](DeletionState.md) |  | [default to &quot;NotDeleted&quot;]
 
 ### Return type
 
@@ -3789,7 +3858,7 @@ Name | Type | Description  | Notes
 
 ## SearchAttributesInProject
 
-> []CustomAttributeGetModel SearchAttributesInProject(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
+> []CustomAttributeGetModel SearchAttributesInProject(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchAttributesInProjectRequest(searchAttributesInProjectRequest).Execute()
 
 Search for attributes used in the project
 
@@ -3812,11 +3881,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    projectAttributesFilterModel := *openapiclient.NewProjectAttributesFilterModel() // ProjectAttributesFilterModel |  (optional)
+    searchAttributesInProjectRequest := *openapiclient.NewSearchAttributesInProjectRequest() // SearchAttributesInProjectRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.SearchAttributesInProject(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.SearchAttributesInProject(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchAttributesInProjectRequest(searchAttributesInProjectRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.SearchAttributesInProject``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3847,7 +3916,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md) |  | 
+ **searchAttributesInProjectRequest** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md) |  | 
 
 ### Return type
 
@@ -3869,7 +3938,7 @@ Name | Type | Description  | Notes
 
 ## SearchTestPlanAttributesInProject
 
-> []CustomAttributeGetModel SearchTestPlanAttributesInProject(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
+> []CustomAttributeGetModel SearchTestPlanAttributesInProject(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchAttributesInProjectRequest(searchAttributesInProjectRequest).Execute()
 
 Search for attributes used in the project test plans
 
@@ -3892,11 +3961,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    projectAttributesFilterModel := *openapiclient.NewProjectAttributesFilterModel() // ProjectAttributesFilterModel |  (optional)
+    searchAttributesInProjectRequest := *openapiclient.NewSearchAttributesInProjectRequest() // SearchAttributesInProjectRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.SearchTestPlanAttributesInProject(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
+    resp, r, err := apiClient.ProjectsApi.SearchTestPlanAttributesInProject(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchAttributesInProjectRequest(searchAttributesInProjectRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.SearchTestPlanAttributesInProject``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3927,7 +3996,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md) |  | 
+ **searchAttributesInProjectRequest** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md) |  | 
 
 ### Return type
 
@@ -3949,7 +4018,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCustomAttributeTestPlanProjectRelations
 
-> UpdateCustomAttributeTestPlanProjectRelations(ctx, id).CustomAttributeTestPlanProjectRelationPutModel(customAttributeTestPlanProjectRelationPutModel).Execute()
+> UpdateCustomAttributeTestPlanProjectRelations(ctx, id).UpdateCustomAttributeTestPlanProjectRelationsRequest(updateCustomAttributeTestPlanProjectRelationsRequest).Execute()
 
 Update attribute of project's test plans
 
@@ -3969,11 +4038,11 @@ import (
 
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    customAttributeTestPlanProjectRelationPutModel := *openapiclient.NewCustomAttributeTestPlanProjectRelationPutModel("Id_example", false, false) // CustomAttributeTestPlanProjectRelationPutModel |  (optional)
+    updateCustomAttributeTestPlanProjectRelationsRequest := *openapiclient.NewUpdateCustomAttributeTestPlanProjectRelationsRequest("Id_example", false, false) // UpdateCustomAttributeTestPlanProjectRelationsRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.UpdateCustomAttributeTestPlanProjectRelations(context.Background(), id).CustomAttributeTestPlanProjectRelationPutModel(customAttributeTestPlanProjectRelationPutModel).Execute()
+    r, err := apiClient.ProjectsApi.UpdateCustomAttributeTestPlanProjectRelations(context.Background(), id).UpdateCustomAttributeTestPlanProjectRelationsRequest(updateCustomAttributeTestPlanProjectRelationsRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.UpdateCustomAttributeTestPlanProjectRelations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3997,7 +4066,7 @@ Other parameters are passed through a pointer to a apiUpdateCustomAttributeTestP
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **customAttributeTestPlanProjectRelationPutModel** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md) |  | 
+ **updateCustomAttributeTestPlanProjectRelationsRequest** | [**UpdateCustomAttributeTestPlanProjectRelationsRequest**](UpdateCustomAttributeTestPlanProjectRelationsRequest.md) |  | 
 
 ### Return type
 
@@ -4019,7 +4088,7 @@ Name | Type | Description  | Notes
 
 ## UpdateProject
 
-> UpdateProject(ctx).ProjectPutModel(projectPutModel).Execute()
+> UpdateProject(ctx).UpdateProjectRequest(updateProjectRequest).Execute()
 
 Update project
 
@@ -4038,11 +4107,11 @@ import (
 )
 
 func main() {
-    projectPutModel := *openapiclient.NewProjectPutModel("Id_example", "Name_example") // ProjectPutModel |  (optional)
+    updateProjectRequest := *openapiclient.NewUpdateProjectRequest("Id_example", "Name_example") // UpdateProjectRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.UpdateProject(context.Background()).ProjectPutModel(projectPutModel).Execute()
+    r, err := apiClient.ProjectsApi.UpdateProject(context.Background()).UpdateProjectRequest(updateProjectRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.UpdateProject``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4061,7 +4130,7 @@ Other parameters are passed through a pointer to a apiUpdateProjectRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md) |  | 
+ **updateProjectRequest** | [**UpdateProjectRequest**](UpdateProjectRequest.md) |  | 
 
 ### Return type
 
@@ -4083,7 +4152,7 @@ Name | Type | Description  | Notes
 
 ## UpdateProjectsAttribute
 
-> UpdateProjectsAttribute(ctx, id).CustomAttributePutModel(customAttributePutModel).Execute()
+> UpdateProjectsAttribute(ctx, id).UpdateProjectsAttributeRequest(updateProjectsAttributeRequest).Execute()
 
 Edit attribute of the project
 
@@ -4101,11 +4170,11 @@ import (
 
 func main() {
     id := "id_example" // string | Unique or global project ID
-    customAttributePutModel := *openapiclient.NewCustomAttributePutModel(openapiclient.CustomAttributeTypesEnum("string"), "Name_example") // CustomAttributePutModel |  (optional)
+    updateProjectsAttributeRequest := *openapiclient.NewUpdateProjectsAttributeRequest(openapiclient.CustomAttributeTypesEnum("string"), "Name_example") // UpdateProjectsAttributeRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.UpdateProjectsAttribute(context.Background(), id).CustomAttributePutModel(customAttributePutModel).Execute()
+    r, err := apiClient.ProjectsApi.UpdateProjectsAttribute(context.Background(), id).UpdateProjectsAttributeRequest(updateProjectsAttributeRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.UpdateProjectsAttribute``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4129,7 +4198,7 @@ Other parameters are passed through a pointer to a apiUpdateProjectsAttributeReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **customAttributePutModel** | [**CustomAttributePutModel**](CustomAttributePutModel.md) |  | 
+ **updateProjectsAttributeRequest** | [**UpdateProjectsAttributeRequest**](UpdateProjectsAttributeRequest.md) |  | 
 
 ### Return type
 

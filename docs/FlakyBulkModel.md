@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AutotestSelect** | Pointer to [**AutotestSelectModel**](AutotestSelectModel.md) |  | [optional] 
+**AutotestSelect** | Pointer to [**FlakyBulkModelAutotestSelect**](FlakyBulkModelAutotestSelect.md) |  | [optional] 
 **Value** | **bool** | Are autotests flaky | 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAutotestSelect
 
-`func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel`
+`func (o *FlakyBulkModel) GetAutotestSelect() FlakyBulkModelAutotestSelect`
 
 GetAutotestSelect returns the AutotestSelect field if non-nil, zero value otherwise.
 
 ### GetAutotestSelectOk
 
-`func (o *FlakyBulkModel) GetAutotestSelectOk() (*AutotestSelectModel, bool)`
+`func (o *FlakyBulkModel) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool)`
 
 GetAutotestSelectOk returns a tuple with the AutotestSelect field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutotestSelect
 
-`func (o *FlakyBulkModel) SetAutotestSelect(v AutotestSelectModel)`
+`func (o *FlakyBulkModel) SetAutotestSelect(v FlakyBulkModelAutotestSelect)`
 
 SetAutotestSelect sets AutotestSelect field to given value.
 

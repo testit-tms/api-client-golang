@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
 **GlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **Steps** | Pointer to [**[]WorkItemStepChangeViewModel**](WorkItemStepChangeViewModel.md) |  | [optional] 
 
 ## Methods
@@ -103,16 +103,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *SharedStepChangeViewModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SharedStepChangeViewModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSteps
 
 `func (o *SharedStepChangeViewModel) GetSteps() []WorkItemStepChangeViewModel`
@@ -138,16 +128,6 @@ SetSteps sets Steps field to given value.
 
 HasSteps returns a boolean if a field has been set.
 
-### SetStepsNil
-
-`func (o *SharedStepChangeViewModel) SetStepsNil(b bool)`
-
- SetStepsNil sets the value for Steps to be an explicit nil
-
-### UnsetSteps
-`func (o *SharedStepChangeViewModel) UnsetSteps()`
-
-UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -203,16 +203,6 @@ SetHeaders sets Headers field to given value.
 
 HasHeaders returns a boolean if a field has been set.
 
-### SetHeadersNil
-
-`func (o *WebHookPostModel) SetHeadersNil(b bool)`
-
- SetHeadersNil sets the value for Headers to be an explicit nil
-
-### UnsetHeaders
-`func (o *WebHookPostModel) UnsetHeaders()`
-
-UnsetHeaders ensures that no value is present for Headers, not even an explicit nil
 ### GetQueryParameters
 
 `func (o *WebHookPostModel) GetQueryParameters() map[string]string`
@@ -238,16 +228,6 @@ SetQueryParameters sets QueryParameters field to given value.
 
 HasQueryParameters returns a boolean if a field has been set.
 
-### SetQueryParametersNil
-
-`func (o *WebHookPostModel) SetQueryParametersNil(b bool)`
-
- SetQueryParametersNil sets the value for QueryParameters to be an explicit nil
-
-### UnsetQueryParameters
-`func (o *WebHookPostModel) UnsetQueryParameters()`
-
-UnsetQueryParameters ensures that no value is present for QueryParameters, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *WebHookPostModel) GetIsEnabled() bool`

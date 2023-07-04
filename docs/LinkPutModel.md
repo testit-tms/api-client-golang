@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** | Link name. | [optional] 
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
-**Type** | Pointer to [**LinkType**](LinkType.md) |  | [optional] 
+**Type** | Pointer to [**NullableLinkType**](LinkType.md) |  | [optional] 
 **HasInfo** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -170,6 +170,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *LinkPutModel) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *LinkPutModel) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetHasInfo
 
 `func (o *LinkPutModel) GetHasInfo() bool`

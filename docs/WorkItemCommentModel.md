@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
-**Text** | Pointer to **NullableString** |  | [optional] 
-**User** | Pointer to [**UserWithRankModel**](UserWithRankModel.md) |  | [optional] 
+**Text** | Pointer to **string** |  | [optional] 
+**User** | Pointer to [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  | [optional] 
 **CreatedById** | Pointer to **string** |  | [optional] 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedDate** | Pointer to **time.Time** |  | [optional] 
@@ -81,32 +81,22 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
-### SetTextNil
-
-`func (o *WorkItemCommentModel) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *WorkItemCommentModel) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetUser
 
-`func (o *WorkItemCommentModel) GetUser() UserWithRankModel`
+`func (o *WorkItemCommentModel) GetUser() WorkItemCommentModelUser`
 
 GetUser returns the User field if non-nil, zero value otherwise.
 
 ### GetUserOk
 
-`func (o *WorkItemCommentModel) GetUserOk() (*UserWithRankModel, bool)`
+`func (o *WorkItemCommentModel) GetUserOk() (*WorkItemCommentModelUser, bool)`
 
 GetUserOk returns a tuple with the User field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUser
 
-`func (o *WorkItemCommentModel) SetUser(v UserWithRankModel)`
+`func (o *WorkItemCommentModel) SetUser(v WorkItemCommentModelUser)`
 
 SetUser sets User field to given value.
 

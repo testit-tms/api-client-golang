@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **WorkItemId** | Pointer to **string** |  | [optional] 
 **OldVersionId** | Pointer to **string** |  | [optional] 
 **NewVersionId** | Pointer to **string** |  | [optional] 
-**WorkItemChangedFields** | Pointer to [**WorkItemChangedFieldsViewModel**](WorkItemChangedFieldsViewModel.md) |  | [optional] 
+**WorkItemChangedFields** | Pointer to [**WorkItemChangeModelWorkItemChangedFields**](WorkItemChangeModelWorkItemChangedFields.md) |  | [optional] 
 **CreatedById** | Pointer to **string** |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 
@@ -133,20 +133,20 @@ HasNewVersionId returns a boolean if a field has been set.
 
 ### GetWorkItemChangedFields
 
-`func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsViewModel`
+`func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangeModelWorkItemChangedFields`
 
 GetWorkItemChangedFields returns the WorkItemChangedFields field if non-nil, zero value otherwise.
 
 ### GetWorkItemChangedFieldsOk
 
-`func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFieldsViewModel, bool)`
+`func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangeModelWorkItemChangedFields, bool)`
 
 GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItemChangedFields
 
-`func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangedFieldsViewModel)`
+`func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangeModelWorkItemChangedFields)`
 
 SetWorkItemChangedFields sets WorkItemChangedFields field to given value.
 

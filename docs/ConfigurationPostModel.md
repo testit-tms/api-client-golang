@@ -5,9 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **NullableString** |  | [optional] 
-**IsActive** | Pointer to **bool** |  | [optional] 
-**Capabilities** | Pointer to **map[string]string** |  | [optional] 
-**Parameters** | Pointer to **map[string]string** |  | [optional] 
+**Parameters** | **map[string]string** |  | 
 **ProjectId** | **string** | This property is used to link configuration with project | 
 **IsDefault** | Pointer to **bool** |  | [optional] 
 **Name** | **string** |  | 
@@ -16,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewConfigurationPostModel
 
-`func NewConfigurationPostModel(projectId string, name string, ) *ConfigurationPostModel`
+`func NewConfigurationPostModel(parameters map[string]string, projectId string, name string, ) *ConfigurationPostModel`
 
 NewConfigurationPostModel instantiates a new ConfigurationPostModel object
 This constructor will assign default values to properties that have it defined,
@@ -66,66 +64,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *ConfigurationPostModel) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetIsActive
-
-`func (o *ConfigurationPostModel) GetIsActive() bool`
-
-GetIsActive returns the IsActive field if non-nil, zero value otherwise.
-
-### GetIsActiveOk
-
-`func (o *ConfigurationPostModel) GetIsActiveOk() (*bool, bool)`
-
-GetIsActiveOk returns a tuple with the IsActive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsActive
-
-`func (o *ConfigurationPostModel) SetIsActive(v bool)`
-
-SetIsActive sets IsActive field to given value.
-
-### HasIsActive
-
-`func (o *ConfigurationPostModel) HasIsActive() bool`
-
-HasIsActive returns a boolean if a field has been set.
-
-### GetCapabilities
-
-`func (o *ConfigurationPostModel) GetCapabilities() map[string]string`
-
-GetCapabilities returns the Capabilities field if non-nil, zero value otherwise.
-
-### GetCapabilitiesOk
-
-`func (o *ConfigurationPostModel) GetCapabilitiesOk() (*map[string]string, bool)`
-
-GetCapabilitiesOk returns a tuple with the Capabilities field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCapabilities
-
-`func (o *ConfigurationPostModel) SetCapabilities(v map[string]string)`
-
-SetCapabilities sets Capabilities field to given value.
-
-### HasCapabilities
-
-`func (o *ConfigurationPostModel) HasCapabilities() bool`
-
-HasCapabilities returns a boolean if a field has been set.
-
-### SetCapabilitiesNil
-
-`func (o *ConfigurationPostModel) SetCapabilitiesNil(b bool)`
-
- SetCapabilitiesNil sets the value for Capabilities to be an explicit nil
-
-### UnsetCapabilities
-`func (o *ConfigurationPostModel) UnsetCapabilities()`
-
-UnsetCapabilities ensures that no value is present for Capabilities, not even an explicit nil
 ### GetParameters
 
 `func (o *ConfigurationPostModel) GetParameters() map[string]string`
@@ -145,22 +83,7 @@ and a boolean to check if the value has been set.
 
 SetParameters sets Parameters field to given value.
 
-### HasParameters
 
-`func (o *ConfigurationPostModel) HasParameters() bool`
-
-HasParameters returns a boolean if a field has been set.
-
-### SetParametersNil
-
-`func (o *ConfigurationPostModel) SetParametersNil(b bool)`
-
- SetParametersNil sets the value for Parameters to be an explicit nil
-
-### UnsetParameters
-`func (o *ConfigurationPostModel) UnsetParameters()`
-
-UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 ### GetProjectId
 
 `func (o *ConfigurationPostModel) GetProjectId() string`

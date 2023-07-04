@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RegexText** | Pointer to **NullableString** |  | [optional] 
+**RegexText** | Pointer to **string** |  | [optional] 
 **FailureClassId** | Pointer to **NullableString** |  | [optional] 
 **Id** | Pointer to **string** | Unique ID of the entity | [optional] 
 **IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
@@ -53,16 +53,6 @@ SetRegexText sets RegexText field to given value.
 
 HasRegexText returns a boolean if a field has been set.
 
-### SetRegexTextNil
-
-`func (o *FailureClassRegexModel) SetRegexTextNil(b bool)`
-
- SetRegexTextNil sets the value for RegexText to be an explicit nil
-
-### UnsetRegexText
-`func (o *FailureClassRegexModel) UnsetRegexText()`
-
-UnsetRegexText ensures that no value is present for RegexText, not even an explicit nil
 ### GetFailureClassId
 
 `func (o *FailureClassRegexModel) GetFailureClassId() string`

@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 ## ApiV2AutoTestsFlakyBulkPost
 
-> ApiV2AutoTestsFlakyBulkPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).FlakyBulkModel(flakyBulkModel).Execute()
+> ApiV2AutoTestsFlakyBulkPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsFlakyBulkPostRequest(apiV2AutoTestsFlakyBulkPostRequest).Execute()
 
 Set \"Flaky\" status for multiple autotests
 
@@ -53,11 +53,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    flakyBulkModel := *openapiclient.NewFlakyBulkModel(false) // FlakyBulkModel |  (optional)
+    apiV2AutoTestsFlakyBulkPostRequest := *openapiclient.NewApiV2AutoTestsFlakyBulkPostRequest(false) // ApiV2AutoTestsFlakyBulkPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AutoTestsApi.ApiV2AutoTestsFlakyBulkPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).FlakyBulkModel(flakyBulkModel).Execute()
+    r, err := apiClient.AutoTestsApi.ApiV2AutoTestsFlakyBulkPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsFlakyBulkPostRequest(apiV2AutoTestsFlakyBulkPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsFlakyBulkPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **flakyBulkModel** | [**FlakyBulkModel**](FlakyBulkModel.md) |  | 
+ **apiV2AutoTestsFlakyBulkPostRequest** | [**ApiV2AutoTestsFlakyBulkPostRequest**](ApiV2AutoTestsFlakyBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2AutoTestsIdTestResultsSearchPost
 
-> []AutotestResultHistoricalGetModel ApiV2AutoTestsIdTestResultsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestHistoricalResultSelectModel(autotestHistoricalResultSelectModel).Execute()
+> []AutotestResultHistoricalGetModel ApiV2AutoTestsIdTestResultsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsIdTestResultsSearchPostRequest(apiV2AutoTestsIdTestResultsSearchPostRequest).Execute()
 
 Get test results history for autotest
 
@@ -198,11 +198,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    autotestHistoricalResultSelectModel := *openapiclient.NewAutotestHistoricalResultSelectModel() // AutotestHistoricalResultSelectModel |  (optional)
+    apiV2AutoTestsIdTestResultsSearchPostRequest := *openapiclient.NewApiV2AutoTestsIdTestResultsSearchPostRequest() // ApiV2AutoTestsIdTestResultsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AutoTestsApi.ApiV2AutoTestsIdTestResultsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestHistoricalResultSelectModel(autotestHistoricalResultSelectModel).Execute()
+    resp, r, err := apiClient.AutoTestsApi.ApiV2AutoTestsIdTestResultsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsIdTestResultsSearchPostRequest(apiV2AutoTestsIdTestResultsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsIdTestResultsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **autotestHistoricalResultSelectModel** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md) |  | 
+ **apiV2AutoTestsIdTestResultsSearchPostRequest** | [**ApiV2AutoTestsIdTestResultsSearchPostRequest**](ApiV2AutoTestsIdTestResultsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2AutoTestsSearchPost
 
-> []AutoTestModel ApiV2AutoTestsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestsSelectModel(autotestsSelectModel).Execute()
+> []AutoTestModel ApiV2AutoTestsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsSearchPostRequest(apiV2AutoTestsSearchPostRequest).Execute()
 
 Search for autotests
 
@@ -418,11 +418,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    autotestsSelectModel := *openapiclient.NewAutotestsSelectModel() // AutotestsSelectModel |  (optional)
+    apiV2AutoTestsSearchPostRequest := *openapiclient.NewApiV2AutoTestsSearchPostRequest() // ApiV2AutoTestsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AutoTestsApi.ApiV2AutoTestsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestsSelectModel(autotestsSelectModel).Execute()
+    resp, r, err := apiClient.AutoTestsApi.ApiV2AutoTestsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsSearchPostRequest(apiV2AutoTestsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **autotestsSelectModel** | [**AutotestsSelectModel**](AutotestsSelectModel.md) |  | 
+ **apiV2AutoTestsSearchPostRequest** | [**ApiV2AutoTestsSearchPostRequest**](ApiV2AutoTestsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ## CreateAutoTest
 
-> AutoTestModel CreateAutoTest(ctx).AutoTestPostModel(autoTestPostModel).Execute()
+> AutoTestModel CreateAutoTest(ctx).CreateAutoTestRequest(createAutoTestRequest).Execute()
 
 Create autotest
 
@@ -489,11 +489,11 @@ import (
 )
 
 func main() {
-    autoTestPostModel := *openapiclient.NewAutoTestPostModel("ExternalId_example", "ProjectId_example", "Name_example") // AutoTestPostModel |  (optional)
+    createAutoTestRequest := *openapiclient.NewCreateAutoTestRequest("ExternalId_example", "ProjectId_example", "Name_example") // CreateAutoTestRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AutoTestsApi.CreateAutoTest(context.Background()).AutoTestPostModel(autoTestPostModel).Execute()
+    resp, r, err := apiClient.AutoTestsApi.CreateAutoTest(context.Background()).CreateAutoTestRequest(createAutoTestRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.CreateAutoTest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -514,7 +514,7 @@ Other parameters are passed through a pointer to a apiCreateAutoTestRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPostModel** | [**AutoTestPostModel**](AutoTestPostModel.md) |  | 
+ **createAutoTestRequest** | [**CreateAutoTestRequest**](CreateAutoTestRequest.md) |  | 
 
 ### Return type
 
@@ -1303,7 +1303,7 @@ Name | Type | Description  | Notes
 
 ## LinkAutoTestToWorkItem
 
-> LinkAutoTestToWorkItem(ctx, id).WorkItemIdModel(workItemIdModel).Execute()
+> LinkAutoTestToWorkItem(ctx, id).LinkAutoTestToWorkItemRequest(linkAutoTestToWorkItemRequest).Execute()
 
 Link autotest with work items
 
@@ -1323,11 +1323,11 @@ import (
 
 func main() {
     id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-    workItemIdModel := *openapiclient.NewWorkItemIdModel("d49af44b-dbd8-48b0-90e5-e065735d7229") // WorkItemIdModel |  (optional)
+    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("f0d5cbfd-25bc-4069-863f-b2945e748040") // LinkAutoTestToWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AutoTestsApi.LinkAutoTestToWorkItem(context.Background(), id).WorkItemIdModel(workItemIdModel).Execute()
+    r, err := apiClient.AutoTestsApi.LinkAutoTestToWorkItem(context.Background(), id).LinkAutoTestToWorkItemRequest(linkAutoTestToWorkItemRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.LinkAutoTestToWorkItem``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1351,7 +1351,7 @@ Other parameters are passed through a pointer to a apiLinkAutoTestToWorkItemRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemIdModel** | [**WorkItemIdModel**](WorkItemIdModel.md) |  | 
+ **linkAutoTestToWorkItemRequest** | [**LinkAutoTestToWorkItemRequest**](LinkAutoTestToWorkItemRequest.md) |  | 
 
 ### Return type
 
@@ -1373,7 +1373,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAutoTest
 
-> UpdateAutoTest(ctx).AutoTestPutModel(autoTestPutModel).Execute()
+> UpdateAutoTest(ctx).UpdateAutoTestRequest(updateAutoTestRequest).Execute()
 
 Update autotest
 
@@ -1392,11 +1392,11 @@ import (
 )
 
 func main() {
-    autoTestPutModel := *openapiclient.NewAutoTestPutModel("ExternalId_example", "ProjectId_example", "Name_example") // AutoTestPutModel |  (optional)
+    updateAutoTestRequest := *openapiclient.NewUpdateAutoTestRequest("ExternalId_example", "ProjectId_example", "Name_example") // UpdateAutoTestRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AutoTestsApi.UpdateAutoTest(context.Background()).AutoTestPutModel(autoTestPutModel).Execute()
+    r, err := apiClient.AutoTestsApi.UpdateAutoTest(context.Background()).UpdateAutoTestRequest(updateAutoTestRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.UpdateAutoTest``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1415,7 +1415,7 @@ Other parameters are passed through a pointer to a apiUpdateAutoTestRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPutModel** | [**AutoTestPutModel**](AutoTestPutModel.md) |  | 
+ **updateAutoTestRequest** | [**UpdateAutoTestRequest**](UpdateAutoTestRequest.md) |  | 
 
 ### Return type
 

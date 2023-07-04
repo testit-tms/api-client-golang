@@ -855,16 +855,6 @@ SetFailureClassIds sets FailureClassIds field to given value.
 
 HasFailureClassIds returns a boolean if a field has been set.
 
-### SetFailureClassIdsNil
-
-`func (o *TestResultHistoryReportModel) SetFailureClassIdsNil(b bool)`
-
- SetFailureClassIdsNil sets the value for FailureClassIds to be an explicit nil
-
-### UnsetFailureClassIds
-`func (o *TestResultHistoryReportModel) UnsetFailureClassIds()`
-
-UnsetFailureClassIds ensures that no value is present for FailureClassIds, not even an explicit nil
 ### GetParameters
 
 `func (o *TestResultHistoryReportModel) GetParameters() map[string]string`

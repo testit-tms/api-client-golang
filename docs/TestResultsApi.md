@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsIdPut
 
-> ApiV2TestResultsIdPut(ctx, id).TestResultUpdateModel(testResultUpdateModel).Execute()
+> ApiV2TestResultsIdPut(ctx, id).ApiV2TestResultsIdPutRequest(apiV2TestResultsIdPutRequest).Execute()
 
 Edit test result by ID
 
@@ -312,11 +312,11 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test result unique ID
-    testResultUpdateModel := *openapiclient.NewTestResultUpdateModel() // TestResultUpdateModel |  (optional)
+    apiV2TestResultsIdPutRequest := *openapiclient.NewApiV2TestResultsIdPutRequest() // ApiV2TestResultsIdPutRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestResultsApi.ApiV2TestResultsIdPut(context.Background(), id).TestResultUpdateModel(testResultUpdateModel).Execute()
+    r, err := apiClient.TestResultsApi.ApiV2TestResultsIdPut(context.Background(), id).ApiV2TestResultsIdPutRequest(apiV2TestResultsIdPutRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestResultsApi.ApiV2TestResultsIdPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -340,7 +340,7 @@ Other parameters are passed through a pointer to a apiApiV2TestResultsIdPutReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **testResultUpdateModel** | [**TestResultUpdateModel**](TestResultUpdateModel.md) |  | 
+ **apiV2TestResultsIdPutRequest** | [**ApiV2TestResultsIdPutRequest**](ApiV2TestResultsIdPutRequest.md) |  | 
 
 ### Return type
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsSearchPost
 
-> []TestResultShortGetModel ApiV2TestResultsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterModel(testResultsFilterModel).Execute()
+> []TestResultShortGetModel ApiV2TestResultsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest).Execute()
 
 Search for test results
 
@@ -384,11 +384,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    testResultsFilterModel := *openapiclient.NewTestResultsFilterModel() // TestResultsFilterModel |  (optional)
+    apiV2TestResultsSearchPostRequest := *openapiclient.NewApiV2TestResultsSearchPostRequest() // ApiV2TestResultsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestResultsApi.ApiV2TestResultsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterModel(testResultsFilterModel).Execute()
+    resp, r, err := apiClient.TestResultsApi.ApiV2TestResultsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestResultsApi.ApiV2TestResultsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md) |  | 
+ **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsStatisticsFilterPost
 
-> TestResultsStatisticsGetModel ApiV2TestResultsStatisticsFilterPost(ctx).TestResultsFilterModel(testResultsFilterModel).Execute()
+> TestResultsStatisticsGetModel ApiV2TestResultsStatisticsFilterPost(ctx).ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest).Execute()
 
 Search for test results and extract statistics
 
@@ -453,11 +453,11 @@ import (
 )
 
 func main() {
-    testResultsFilterModel := *openapiclient.NewTestResultsFilterModel() // TestResultsFilterModel |  (optional)
+    apiV2TestResultsSearchPostRequest := *openapiclient.NewApiV2TestResultsSearchPostRequest() // ApiV2TestResultsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestResultsApi.ApiV2TestResultsStatisticsFilterPost(context.Background()).TestResultsFilterModel(testResultsFilterModel).Execute()
+    resp, r, err := apiClient.TestResultsApi.ApiV2TestResultsStatisticsFilterPost(context.Background()).ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestResultsApi.ApiV2TestResultsStatisticsFilterPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -478,7 +478,7 @@ Other parameters are passed through a pointer to a apiApiV2TestResultsStatistics
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md) |  | 
+ **apiV2TestResultsSearchPostRequest** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md) |  | 
 
 ### Return type
 

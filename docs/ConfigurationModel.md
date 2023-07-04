@@ -5,8 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **NullableString** |  | [optional] 
-**IsActive** | Pointer to **bool** |  | [optional] 
-**Capabilities** | Pointer to **map[string]string** |  | [optional] 
 **Parameters** | Pointer to **map[string]string** |  | [optional] 
 **ProjectId** | Pointer to **string** | This property is used to link configuration with project | [optional] 
 **IsDefault** | Pointer to **bool** |  | [optional] 
@@ -73,66 +71,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *ConfigurationModel) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetIsActive
-
-`func (o *ConfigurationModel) GetIsActive() bool`
-
-GetIsActive returns the IsActive field if non-nil, zero value otherwise.
-
-### GetIsActiveOk
-
-`func (o *ConfigurationModel) GetIsActiveOk() (*bool, bool)`
-
-GetIsActiveOk returns a tuple with the IsActive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsActive
-
-`func (o *ConfigurationModel) SetIsActive(v bool)`
-
-SetIsActive sets IsActive field to given value.
-
-### HasIsActive
-
-`func (o *ConfigurationModel) HasIsActive() bool`
-
-HasIsActive returns a boolean if a field has been set.
-
-### GetCapabilities
-
-`func (o *ConfigurationModel) GetCapabilities() map[string]string`
-
-GetCapabilities returns the Capabilities field if non-nil, zero value otherwise.
-
-### GetCapabilitiesOk
-
-`func (o *ConfigurationModel) GetCapabilitiesOk() (*map[string]string, bool)`
-
-GetCapabilitiesOk returns a tuple with the Capabilities field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCapabilities
-
-`func (o *ConfigurationModel) SetCapabilities(v map[string]string)`
-
-SetCapabilities sets Capabilities field to given value.
-
-### HasCapabilities
-
-`func (o *ConfigurationModel) HasCapabilities() bool`
-
-HasCapabilities returns a boolean if a field has been set.
-
-### SetCapabilitiesNil
-
-`func (o *ConfigurationModel) SetCapabilitiesNil(b bool)`
-
- SetCapabilitiesNil sets the value for Capabilities to be an explicit nil
-
-### UnsetCapabilities
-`func (o *ConfigurationModel) UnsetCapabilities()`
-
-UnsetCapabilities ensures that no value is present for Capabilities, not even an explicit nil
 ### GetParameters
 
 `func (o *ConfigurationModel) GetParameters() map[string]string`

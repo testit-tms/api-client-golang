@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique ID of the test run | [optional] 
-**Name** | Pointer to **NullableString** | Name of the test run | [optional] 
+**Name** | Pointer to **string** | Name of the test run | [optional] 
 **ProjectId** | Pointer to **string** | Unique ID of project where test run is located | [optional] 
 **CreatedDate** | Pointer to **time.Time** | Date when the test run was created | [optional] 
 **CreatedById** | Pointer to **string** | Unique ID of user who created the test run | [optional] 
@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 **State** | [**TestRunState**](TestRunState.md) |  | 
 **StartedDate** | Pointer to **NullableTime** | Date when the test run was started | [optional] 
 **AutotestsCount** | Pointer to **int32** | Number of autotests run in the test run | [optional] 
-**Statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  | 
+**Statistics** | [**TestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  | 
 
 ## Methods
 
 ### NewTestRunShortGetModel
 
-`func NewTestRunShortGetModel(state TestRunState, statistics TestResultsStatisticsGetModel, ) *TestRunShortGetModel`
+`func NewTestRunShortGetModel(state TestRunState, statistics TestRunShortGetModelStatistics, ) *TestRunShortGetModel`
 
 NewTestRunShortGetModel instantiates a new TestRunShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -86,16 +86,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TestRunShortGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestRunShortGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProjectId
 
 `func (o *TestRunShortGetModel) GetProjectId() string`
@@ -348,20 +338,20 @@ HasAutotestsCount returns a boolean if a field has been set.
 
 ### GetStatistics
 
-`func (o *TestRunShortGetModel) GetStatistics() TestResultsStatisticsGetModel`
+`func (o *TestRunShortGetModel) GetStatistics() TestRunShortGetModelStatistics`
 
 GetStatistics returns the Statistics field if non-nil, zero value otherwise.
 
 ### GetStatisticsOk
 
-`func (o *TestRunShortGetModel) GetStatisticsOk() (*TestResultsStatisticsGetModel, bool)`
+`func (o *TestRunShortGetModel) GetStatisticsOk() (*TestRunShortGetModelStatistics, bool)`
 
 GetStatisticsOk returns a tuple with the Statistics field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatistics
 
-`func (o *TestRunShortGetModel) SetStatistics(v TestResultsStatisticsGetModel)`
+`func (o *TestRunShortGetModel) SetStatistics(v TestRunShortGetModelStatistics)`
 
 SetStatistics sets Statistics field to given value.
 

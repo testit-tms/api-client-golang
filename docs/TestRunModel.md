@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **AutoTestsCount** | Pointer to **int32** |  | [optional] 
 **TestSuiteIds** | Pointer to **[]string** |  | [optional] 
 **IsAutomated** | Pointer to **bool** |  | [optional] 
-**Analytic** | Pointer to [**TestRunAnalyticResultModel**](TestRunAnalyticResultModel.md) |  | [optional] 
+**Analytic** | Pointer to [**TestRunModelAnalytic**](TestRunModelAnalytic.md) |  | [optional] 
 **TestResults** | Pointer to [**[]TestResultModel**](TestResultModel.md) |  | [optional] 
-**TestPlan** | Pointer to [**TestPlanModel**](TestPlanModel.md) |  | [optional] 
+**TestPlan** | Pointer to [**NullableTestPlanModel**](TestPlanModel.md) |  | [optional] 
 **CreatedDate** | Pointer to **time.Time** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **CreatedById** | Pointer to **string** |  | [optional] 
@@ -18,15 +18,15 @@ Name | Type | Description | Notes
 **CreatedByUserName** | Pointer to **NullableString** |  | [optional] 
 **StartedDate** | Pointer to **NullableTime** |  | [optional] 
 **CompletedDate** | Pointer to **NullableTime** |  | [optional] 
-**Build** | Pointer to **NullableString** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Build** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **StateName** | [**TestRunState**](TestRunState.md) |  | 
 **ProjectId** | Pointer to **string** |  | [optional] 
 **TestPlanId** | Pointer to **NullableString** |  | [optional] 
 **RunByUserId** | Pointer to **NullableString** |  | [optional] 
 **StoppedByUserId** | Pointer to **NullableString** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**LaunchSource** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
+**LaunchSource** | Pointer to **string** |  | [optional] 
 **Id** | Pointer to **string** | Unique ID of the entity | [optional] 
 **IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
 
@@ -171,20 +171,20 @@ HasIsAutomated returns a boolean if a field has been set.
 
 ### GetAnalytic
 
-`func (o *TestRunModel) GetAnalytic() TestRunAnalyticResultModel`
+`func (o *TestRunModel) GetAnalytic() TestRunModelAnalytic`
 
 GetAnalytic returns the Analytic field if non-nil, zero value otherwise.
 
 ### GetAnalyticOk
 
-`func (o *TestRunModel) GetAnalyticOk() (*TestRunAnalyticResultModel, bool)`
+`func (o *TestRunModel) GetAnalyticOk() (*TestRunModelAnalytic, bool)`
 
 GetAnalyticOk returns a tuple with the Analytic field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAnalytic
 
-`func (o *TestRunModel) SetAnalytic(v TestRunAnalyticResultModel)`
+`func (o *TestRunModel) SetAnalytic(v TestRunModelAnalytic)`
 
 SetAnalytic sets Analytic field to given value.
 
@@ -254,6 +254,16 @@ SetTestPlan sets TestPlan field to given value.
 
 HasTestPlan returns a boolean if a field has been set.
 
+### SetTestPlanNil
+
+`func (o *TestRunModel) SetTestPlanNil(b bool)`
+
+ SetTestPlanNil sets the value for TestPlan to be an explicit nil
+
+### UnsetTestPlan
+`func (o *TestRunModel) UnsetTestPlan()`
+
+UnsetTestPlan ensures that no value is present for TestPlan, not even an explicit nil
 ### GetCreatedDate
 
 `func (o *TestRunModel) GetCreatedDate() time.Time`
@@ -504,16 +514,6 @@ SetBuild sets Build field to given value.
 
 HasBuild returns a boolean if a field has been set.
 
-### SetBuildNil
-
-`func (o *TestRunModel) SetBuildNil(b bool)`
-
- SetBuildNil sets the value for Build to be an explicit nil
-
-### UnsetBuild
-`func (o *TestRunModel) UnsetBuild()`
-
-UnsetBuild ensures that no value is present for Build, not even an explicit nil
 ### GetDescription
 
 `func (o *TestRunModel) GetDescription() string`
@@ -539,16 +539,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *TestRunModel) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *TestRunModel) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetStateName
 
 `func (o *TestRunModel) GetStateName() TestRunState`
@@ -724,16 +714,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TestRunModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestRunModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetLaunchSource
 
 `func (o *TestRunModel) GetLaunchSource() string`
@@ -759,16 +739,6 @@ SetLaunchSource sets LaunchSource field to given value.
 
 HasLaunchSource returns a boolean if a field has been set.
 
-### SetLaunchSourceNil
-
-`func (o *TestRunModel) SetLaunchSourceNil(b bool)`
-
- SetLaunchSourceNil sets the value for LaunchSource to be an explicit nil
-
-### UnsetLaunchSource
-`func (o *TestRunModel) UnsetLaunchSource()`
-
-UnsetLaunchSource ensures that no value is present for LaunchSource, not even an explicit nil
 ### GetId
 
 `func (o *TestRunModel) GetId() string`

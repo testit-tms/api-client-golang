@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserId** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to **NullableString** |  | [optional] 
-**Value** | Pointer to **int32** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
+**Value** | Pointer to **int64** |  | [optional] 
 
 ## Methods
 
@@ -87,32 +87,22 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
-### SetStatusNil
-
-`func (o *TestPlanGroupByTesterAndStatus) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *TestPlanGroupByTesterAndStatus) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
-`func (o *TestPlanGroupByTesterAndStatus) GetValue() int32`
+`func (o *TestPlanGroupByTesterAndStatus) GetValue() int64`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *TestPlanGroupByTesterAndStatus) GetValueOk() (*int32, bool)`
+`func (o *TestPlanGroupByTesterAndStatus) GetValueOk() (*int64, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *TestPlanGroupByTesterAndStatus) SetValue(v int32)`
+`func (o *TestPlanGroupByTesterAndStatus) SetValue(v int64)`
 
 SetValue sets Value field to given value.
 

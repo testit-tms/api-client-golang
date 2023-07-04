@@ -283,7 +283,7 @@ Other parameters are passed through a pointer to a apiApiV2NotificationsReadPost
 
 ## ApiV2NotificationsSearchPost
 
-> []NotificationModel ApiV2NotificationsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).NotificationQueryFilterModel(notificationQueryFilterModel).Execute()
+> []NotificationModel ApiV2NotificationsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2NotificationsSearchPostRequest(apiV2NotificationsSearchPostRequest).Execute()
 
 Search Notifications for current User
 
@@ -307,11 +307,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    notificationQueryFilterModel := *openapiclient.NewNotificationQueryFilterModel() // NotificationQueryFilterModel |  (optional)
+    apiV2NotificationsSearchPostRequest := *openapiclient.NewApiV2NotificationsSearchPostRequest() // ApiV2NotificationsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.NotificationsApi.ApiV2NotificationsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).NotificationQueryFilterModel(notificationQueryFilterModel).Execute()
+    resp, r, err := apiClient.NotificationsApi.ApiV2NotificationsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2NotificationsSearchPostRequest(apiV2NotificationsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `NotificationsApi.ApiV2NotificationsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **notificationQueryFilterModel** | [**NotificationQueryFilterModel**](NotificationQueryFilterModel.md) |  | 
+ **apiV2NotificationsSearchPostRequest** | [**ApiV2NotificationsSearchPostRequest**](ApiV2NotificationsSearchPostRequest.md) |  | 
 
 ### Return type
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**AutotestFilterModel**](AutotestFilterModel.md) |  | [optional] 
-**ExtractionModel** | Pointer to [**AutotestsExtractionModel**](AutotestsExtractionModel.md) |  | [optional] 
+**Filter** | Pointer to [**AutotestSelectModelFilter**](AutotestSelectModelFilter.md) |  | [optional] 
+**ExtractionModel** | Pointer to [**AutotestSelectModelExtractionModel**](AutotestSelectModelExtractionModel.md) |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *AutotestSelectModel) GetFilter() AutotestFilterModel`
+`func (o *AutotestSelectModel) GetFilter() AutotestSelectModelFilter`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *AutotestSelectModel) GetFilterOk() (*AutotestFilterModel, bool)`
+`func (o *AutotestSelectModel) GetFilterOk() (*AutotestSelectModelFilter, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *AutotestSelectModel) SetFilter(v AutotestFilterModel)`
+`func (o *AutotestSelectModel) SetFilter(v AutotestSelectModelFilter)`
 
 SetFilter sets Filter field to given value.
 
@@ -53,20 +53,20 @@ HasFilter returns a boolean if a field has been set.
 
 ### GetExtractionModel
 
-`func (o *AutotestSelectModel) GetExtractionModel() AutotestsExtractionModel`
+`func (o *AutotestSelectModel) GetExtractionModel() AutotestSelectModelExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestsExtractionModel, bool)`
+`func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestSelectModelExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *AutotestSelectModel) SetExtractionModel(v AutotestsExtractionModel)`
+`func (o *AutotestSelectModel) SetExtractionModel(v AutotestSelectModelExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

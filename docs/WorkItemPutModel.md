@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) |  | [optional] 
 **Id** | **string** |  | 
 **SectionId** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **State** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **Steps** | [**[]StepPutModel**](StepPutModel.md) |  | 
@@ -200,16 +200,6 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### SetDescriptionNil
-
-`func (o *WorkItemPutModel) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *WorkItemPutModel) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetState
 
 `func (o *WorkItemPutModel) GetState() WorkItemStates`

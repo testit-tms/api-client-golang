@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkItem** | Pointer to [**SharedStepModel**](SharedStepModel.md) |  | [optional] 
+**WorkItem** | Pointer to [**NullableSectionSharedStep**](SectionSharedStep.md) |  | [optional] 
 **Id** | Pointer to **string** |  | [optional] 
 **Action** | Pointer to **NullableString** |  | [optional] 
 **Expected** | Pointer to **NullableString** |  | [optional] 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetWorkItem
 
-`func (o *StepModel) GetWorkItem() SharedStepModel`
+`func (o *StepModel) GetWorkItem() SectionSharedStep`
 
 GetWorkItem returns the WorkItem field if non-nil, zero value otherwise.
 
 ### GetWorkItemOk
 
-`func (o *StepModel) GetWorkItemOk() (*SharedStepModel, bool)`
+`func (o *StepModel) GetWorkItemOk() (*SectionSharedStep, bool)`
 
 GetWorkItemOk returns a tuple with the WorkItem field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItem
 
-`func (o *StepModel) SetWorkItem(v SharedStepModel)`
+`func (o *StepModel) SetWorkItem(v SectionSharedStep)`
 
 SetWorkItem sets WorkItem field to given value.
 
@@ -56,6 +56,16 @@ SetWorkItem sets WorkItem field to given value.
 
 HasWorkItem returns a boolean if a field has been set.
 
+### SetWorkItemNil
+
+`func (o *StepModel) SetWorkItemNil(b bool)`
+
+ SetWorkItemNil sets the value for WorkItem to be an explicit nil
+
+### UnsetWorkItem
+`func (o *StepModel) UnsetWorkItem()`
+
+UnsetWorkItem ensures that no value is present for WorkItem, not even an explicit nil
 ### GetId
 
 `func (o *StepModel) GetId() string`

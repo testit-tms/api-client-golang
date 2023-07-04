@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## CreateSection
 
-> SectionWithStepsModel CreateSection(ctx).SectionPostModel(sectionPostModel).Execute()
+> SectionWithStepsModel CreateSection(ctx).CreateSectionRequest(createSectionRequest).Execute()
 
 Create section
 
@@ -106,11 +106,11 @@ import (
 )
 
 func main() {
-    sectionPostModel := *openapiclient.NewSectionPostModel("d49af44b-dbd8-48b0-90e5-e065735d7229", "d49af44b-dbd8-48b0-90e5-e065735d7229") // SectionPostModel |  (optional)
+    createSectionRequest := *openapiclient.NewCreateSectionRequest("f0d5cbfd-25bc-4069-863f-b2945e748040", "f0d5cbfd-25bc-4069-863f-b2945e748040") // CreateSectionRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SectionsApi.CreateSection(context.Background()).SectionPostModel(sectionPostModel).Execute()
+    resp, r, err := apiClient.SectionsApi.CreateSection(context.Background()).CreateSectionRequest(createSectionRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.CreateSection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -131,7 +131,7 @@ Other parameters are passed through a pointer to a apiCreateSectionRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sectionPostModel** | [**SectionPostModel**](SectionPostModel.md) |  | 
+ **createSectionRequest** | [**CreateSectionRequest**](CreateSectionRequest.md) |  | 
 
 ### Return type
 
@@ -241,7 +241,7 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
-    isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional)
+    isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional) (default to "NotDeleted")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -271,7 +271,7 @@ Other parameters are passed through a pointer to a apiGetSectionByIdRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **isDeleted** | [**DeletionState**](DeletionState.md) |  | 
+ **isDeleted** | [**DeletionState**](DeletionState.md) |  | [default to &quot;NotDeleted&quot;]
 
 ### Return type
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ## Move
 
-> Move(ctx).SectionMoveModel(sectionMoveModel).Execute()
+> Move(ctx).MoveRequest(moveRequest).Execute()
 
 Move section with all work items into another section
 
@@ -396,11 +396,11 @@ import (
 )
 
 func main() {
-    sectionMoveModel := *openapiclient.NewSectionMoveModel("Id_example", "OldParentId_example", "ParentId_example") // SectionMoveModel |  (optional)
+    moveRequest := *openapiclient.NewMoveRequest("Id_example", "OldParentId_example", "ParentId_example") // MoveRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.Move(context.Background()).SectionMoveModel(sectionMoveModel).Execute()
+    r, err := apiClient.SectionsApi.Move(context.Background()).MoveRequest(moveRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.Move``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -419,7 +419,7 @@ Other parameters are passed through a pointer to a apiMoveRequest struct via the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sectionMoveModel** | [**SectionMoveModel**](SectionMoveModel.md) |  | 
+ **moveRequest** | [**MoveRequest**](MoveRequest.md) |  | 
 
 ### Return type
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 ## Rename
 
-> Rename(ctx).SectionRenameModel(sectionRenameModel).Execute()
+> Rename(ctx).RenameRequest(renameRequest).Execute()
 
 Rename section
 
@@ -460,11 +460,11 @@ import (
 )
 
 func main() {
-    sectionRenameModel := *openapiclient.NewSectionRenameModel("d49af44b-dbd8-48b0-90e5-e065735d7229", "New root section") // SectionRenameModel |  (optional)
+    renameRequest := *openapiclient.NewRenameRequest("f0d5cbfd-25bc-4069-863f-b2945e748040", "New root section") // RenameRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.Rename(context.Background()).SectionRenameModel(sectionRenameModel).Execute()
+    r, err := apiClient.SectionsApi.Rename(context.Background()).RenameRequest(renameRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.Rename``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -483,7 +483,7 @@ Other parameters are passed through a pointer to a apiRenameRequest struct via t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sectionRenameModel** | [**SectionRenameModel**](SectionRenameModel.md) |  | 
+ **renameRequest** | [**RenameRequest**](RenameRequest.md) |  | 
 
 ### Return type
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSection
 
-> UpdateSection(ctx).SectionPutModel(sectionPutModel).Execute()
+> UpdateSection(ctx).UpdateSectionRequest(updateSectionRequest).Execute()
 
 Update section
 
@@ -524,11 +524,11 @@ import (
 )
 
 func main() {
-    sectionPutModel := *openapiclient.NewSectionPutModel("Id_example", "d49af44b-dbd8-48b0-90e5-e065735d7229", "d49af44b-dbd8-48b0-90e5-e065735d7229") // SectionPutModel |  (optional)
+    updateSectionRequest := *openapiclient.NewUpdateSectionRequest("Id_example", "f0d5cbfd-25bc-4069-863f-b2945e748040", "f0d5cbfd-25bc-4069-863f-b2945e748040") // UpdateSectionRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.UpdateSection(context.Background()).SectionPutModel(sectionPutModel).Execute()
+    r, err := apiClient.SectionsApi.UpdateSection(context.Background()).UpdateSectionRequest(updateSectionRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.UpdateSection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -547,7 +547,7 @@ Other parameters are passed through a pointer to a apiUpdateSectionRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sectionPutModel** | [**SectionPutModel**](SectionPutModel.md) |  | 
+ **updateSectionRequest** | [**UpdateSectionRequest**](UpdateSectionRequest.md) |  | 
 
 ### Return type
 

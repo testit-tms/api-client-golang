@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | Pointer to **string** |  | [optional] 
 **Configurations** | Pointer to [**[]ShortConfiguration**](ShortConfiguration.md) |  | [optional] 
 **WorkItemCount** | Pointer to **int64** |  | [optional] 
 
@@ -78,16 +78,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *TestSuiteChangeViewModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestSuiteChangeViewModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetConfigurations
 
 `func (o *TestSuiteChangeViewModel) GetConfigurations() []ShortConfiguration`

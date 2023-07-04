@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Statuses** | Pointer to [**TestRunStatisticsStatusesGetModel**](TestRunStatisticsStatusesGetModel.md) |  | [optional] 
-**FailureCategories** | Pointer to [**TestRunStatisticsErrorCategoriesGetModel**](TestRunStatisticsErrorCategoriesGetModel.md) |  | [optional] 
+**Statuses** | Pointer to [**TestResultsStatisticsGetModelStatuses**](TestResultsStatisticsGetModelStatuses.md) |  | [optional] 
+**FailureCategories** | Pointer to [**TestResultsStatisticsGetModelFailureCategories**](TestResultsStatisticsGetModelFailureCategories.md) |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatuses
 
-`func (o *TestResultsStatisticsGetModel) GetStatuses() TestRunStatisticsStatusesGetModel`
+`func (o *TestResultsStatisticsGetModel) GetStatuses() TestResultsStatisticsGetModelStatuses`
 
 GetStatuses returns the Statuses field if non-nil, zero value otherwise.
 
 ### GetStatusesOk
 
-`func (o *TestResultsStatisticsGetModel) GetStatusesOk() (*TestRunStatisticsStatusesGetModel, bool)`
+`func (o *TestResultsStatisticsGetModel) GetStatusesOk() (*TestResultsStatisticsGetModelStatuses, bool)`
 
 GetStatusesOk returns a tuple with the Statuses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatuses
 
-`func (o *TestResultsStatisticsGetModel) SetStatuses(v TestRunStatisticsStatusesGetModel)`
+`func (o *TestResultsStatisticsGetModel) SetStatuses(v TestResultsStatisticsGetModelStatuses)`
 
 SetStatuses sets Statuses field to given value.
 
@@ -53,20 +53,20 @@ HasStatuses returns a boolean if a field has been set.
 
 ### GetFailureCategories
 
-`func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestRunStatisticsErrorCategoriesGetModel`
+`func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestResultsStatisticsGetModelFailureCategories`
 
 GetFailureCategories returns the FailureCategories field if non-nil, zero value otherwise.
 
 ### GetFailureCategoriesOk
 
-`func (o *TestResultsStatisticsGetModel) GetFailureCategoriesOk() (*TestRunStatisticsErrorCategoriesGetModel, bool)`
+`func (o *TestResultsStatisticsGetModel) GetFailureCategoriesOk() (*TestResultsStatisticsGetModelFailureCategories, bool)`
 
 GetFailureCategoriesOk returns a tuple with the FailureCategories field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFailureCategories
 
-`func (o *TestResultsStatisticsGetModel) SetFailureCategories(v TestRunStatisticsErrorCategoriesGetModel)`
+`func (o *TestResultsStatisticsGetModel) SetFailureCategories(v TestResultsStatisticsGetModelFailureCategories)`
 
 SetFailureCategories sets FailureCategories field to given value.
 

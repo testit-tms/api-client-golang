@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Options** | Pointer to [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options | [optional] 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
 **IsDeleted** | Pointer to **bool** | Indicates if the attribute is deleted | [optional] 
-**Name** | Pointer to **NullableString** | Name of the attribute | [optional] 
+**Name** | Pointer to **string** | Name of the attribute | [optional] 
 **IsEnabled** | Pointer to **bool** | Indicates if the attribute is enabled | [optional] 
 **IsRequired** | Pointer to **bool** | Indicates if the attribute is mandatory to specify | [optional] 
 **IsGlobal** | Pointer to **bool** | Indicates if the attribute is available across all projects | [optional] 
@@ -82,16 +82,6 @@ SetOptions sets Options field to given value.
 
 HasOptions returns a boolean if a field has been set.
 
-### SetOptionsNil
-
-`func (o *CustomAttributeGetModel) SetOptionsNil(b bool)`
-
- SetOptionsNil sets the value for Options to be an explicit nil
-
-### UnsetOptions
-`func (o *CustomAttributeGetModel) UnsetOptions()`
-
-UnsetOptions ensures that no value is present for Options, not even an explicit nil
 ### GetType
 
 `func (o *CustomAttributeGetModel) GetType() CustomAttributeTypesEnum`
@@ -162,16 +152,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### SetNameNil
-
-`func (o *CustomAttributeGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *CustomAttributeGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *CustomAttributeGetModel) GetIsEnabled() bool`
