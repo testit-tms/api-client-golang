@@ -22,12 +22,38 @@ type WebHookEventTypeModel string
 const (
 	WEBHOOKEVENTTYPEMODEL_AUTOMATED_TEST_RUN_CREATED WebHookEventTypeModel = "AutomatedTestRunCreated"
 	WEBHOOKEVENTTYPEMODEL_TEST_PLANS_STATUS_CHANGED WebHookEventTypeModel = "TestPlansStatusChanged"
+	WEBHOOKEVENTTYPEMODEL_TEST_RUN_STOPPED WebHookEventTypeModel = "TestRunStopped"
+	WEBHOOKEVENTTYPEMODEL_TEST_POINT_ASSIGNED WebHookEventTypeModel = "TestPointAssigned"
+	WEBHOOKEVENTTYPEMODEL_TEST_RESULT_JIRA_ISSUE_CREATED WebHookEventTypeModel = "TestResultJiraIssueCreated"
+	WEBHOOKEVENTTYPEMODEL_AUTO_TEST_FINISHED WebHookEventTypeModel = "AutoTestFinished"
+	WEBHOOKEVENTTYPEMODEL_USER_MENTIONED_IN_COMMENT WebHookEventTypeModel = "UserMentionedInComment"
+	WEBHOOKEVENTTYPEMODEL_USER_SELECTED_IN_WORK_ITEM_ATTRIBUTE WebHookEventTypeModel = "UserSelectedInWorkItemAttribute"
+	WEBHOOKEVENTTYPEMODEL_ALL_TEST_POINTS_FINISHED WebHookEventTypeModel = "AllTestPointsFinished"
+	WEBHOOKEVENTTYPEMODEL_ALL_AUTO_TESTS_FINISHED WebHookEventTypeModel = "AllAutoTestsFinished"
+	WEBHOOKEVENTTYPEMODEL_AUTO_TEST_CHANGED WebHookEventTypeModel = "AutoTestChanged"
+	WEBHOOKEVENTTYPEMODEL_WORK_ITEM_AUTO_TEST_RELATION_CHANGED WebHookEventTypeModel = "WorkItemAutoTestRelationChanged"
+	WEBHOOKEVENTTYPEMODEL_WORK_ITEM_ATTRIBUTE_CHANGED WebHookEventTypeModel = "WorkItemAttributeChanged"
+	WEBHOOKEVENTTYPEMODEL_WORK_ITEM_CHANGED WebHookEventTypeModel = "WorkItemChanged"
+	WEBHOOKEVENTTYPEMODEL_CONFIGURATION_CHANGED WebHookEventTypeModel = "ConfigurationChanged"
 )
 
 // All allowed values of WebHookEventTypeModel enum
 var AllowedWebHookEventTypeModelEnumValues = []WebHookEventTypeModel{
 	"AutomatedTestRunCreated",
 	"TestPlansStatusChanged",
+	"TestRunStopped",
+	"TestPointAssigned",
+	"TestResultJiraIssueCreated",
+	"AutoTestFinished",
+	"UserMentionedInComment",
+	"UserSelectedInWorkItemAttribute",
+	"AllTestPointsFinished",
+	"AllAutoTestsFinished",
+	"AutoTestChanged",
+	"WorkItemAutoTestRelationChanged",
+	"WorkItemAttributeChanged",
+	"WorkItemChanged",
+	"ConfigurationChanged",
 }
 
 func (v *WebHookEventTypeModel) UnmarshalJSON(src []byte) error {

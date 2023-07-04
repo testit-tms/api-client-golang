@@ -20,10 +20,10 @@ var _ MappedNullable = &StepResultModel{}
 // StepResultModel struct for StepResultModel
 type StepResultModel struct {
 	StepId *string `json:"stepId,omitempty"`
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome *string `json:"outcome,omitempty"`
 	SharedStepVersionId NullableString `json:"sharedStepVersionId,omitempty"`
 	SharedStepResults []SharedStepResultModel `json:"sharedStepResults,omitempty"`
-	Comment *StepCommentModel `json:"comment,omitempty"`
+	Comment NullableStepCommentModel `json:"comment,omitempty"`
 }
 
 // NewStepResultModel instantiates a new StepResultModel object
@@ -75,46 +75,36 @@ func (o *StepResultModel) SetStepId(v string) {
 	o.StepId = &v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value if set, zero value otherwise.
 func (o *StepResultModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil || IsNil(o.Outcome) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+	return *o.Outcome
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StepResultModel) GetOutcomeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Outcome) {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return o.Outcome, true
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *StepResultModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
+	if o != nil && !IsNil(o.Outcome) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
 func (o *StepResultModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *StepResultModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *StepResultModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = &v
 }
 
 // GetSharedStepVersionId returns the SharedStepVersionId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -192,36 +182,46 @@ func (o *StepResultModel) SetSharedStepResults(v []SharedStepResultModel) {
 	o.SharedStepResults = v
 }
 
-// GetComment returns the Comment field value if set, zero value otherwise.
+// GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StepResultModel) GetComment() StepCommentModel {
-	if o == nil || IsNil(o.Comment) {
+	if o == nil || IsNil(o.Comment.Get()) {
 		var ret StepCommentModel
 		return ret
 	}
-	return *o.Comment
+	return *o.Comment.Get()
 }
 
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StepResultModel) GetCommentOk() (*StepCommentModel, bool) {
-	if o == nil || IsNil(o.Comment) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Comment, true
+	return o.Comment.Get(), o.Comment.IsSet()
 }
 
 // HasComment returns a boolean if a field has been set.
 func (o *StepResultModel) HasComment() bool {
-	if o != nil && !IsNil(o.Comment) {
+	if o != nil && o.Comment.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetComment gets a reference to the given StepCommentModel and assigns it to the Comment field.
+// SetComment gets a reference to the given NullableStepCommentModel and assigns it to the Comment field.
 func (o *StepResultModel) SetComment(v StepCommentModel) {
-	o.Comment = &v
+	o.Comment.Set(&v)
+}
+// SetCommentNil sets the value for Comment to be an explicit nil
+func (o *StepResultModel) SetCommentNil() {
+	o.Comment.Set(nil)
+}
+
+// UnsetComment ensures that no value is present for Comment, not even an explicit nil
+func (o *StepResultModel) UnsetComment() {
+	o.Comment.Unset()
 }
 
 func (o StepResultModel) MarshalJSON() ([]byte, error) {
@@ -237,8 +237,8 @@ func (o StepResultModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.StepId) {
 		toSerialize["stepId"] = o.StepId
 	}
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
+	if !IsNil(o.Outcome) {
+		toSerialize["outcome"] = o.Outcome
 	}
 	if o.SharedStepVersionId.IsSet() {
 		toSerialize["sharedStepVersionId"] = o.SharedStepVersionId.Get()
@@ -246,8 +246,8 @@ func (o StepResultModel) ToMap() (map[string]interface{}, error) {
 	if o.SharedStepResults != nil {
 		toSerialize["sharedStepResults"] = o.SharedStepResults
 	}
-	if !IsNil(o.Comment) {
-		toSerialize["comment"] = o.Comment
+	if o.Comment.IsSet() {
+		toSerialize["comment"] = o.Comment.Get()
 	}
 	return toSerialize, nil
 }

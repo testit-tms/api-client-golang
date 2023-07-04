@@ -19,8 +19,8 @@ var _ MappedNullable = &TestRunTestResultsSelectModel{}
 
 // TestRunTestResultsSelectModel struct for TestRunTestResultsSelectModel
 type TestRunTestResultsSelectModel struct {
-	Filter *TestResultsLocalFilterModel `json:"filter,omitempty"`
-	TestResultIdsExtractionModel *GuidExtractionModel `json:"testResultIdsExtractionModel,omitempty"`
+	Filter NullableTestRunTestResultsSelectModelFilter `json:"filter,omitempty"`
+	TestResultIdsExtractionModel NullableTestRunTestResultsSelectModelTestResultIdsExtractionModel `json:"testResultIdsExtractionModel,omitempty"`
 }
 
 // NewTestRunTestResultsSelectModel instantiates a new TestRunTestResultsSelectModel object
@@ -40,68 +40,88 @@ func NewTestRunTestResultsSelectModelWithDefaults() *TestRunTestResultsSelectMod
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise.
-func (o *TestRunTestResultsSelectModel) GetFilter() TestResultsLocalFilterModel {
-	if o == nil || IsNil(o.Filter) {
-		var ret TestResultsLocalFilterModel
+// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunTestResultsSelectModel) GetFilter() TestRunTestResultsSelectModelFilter {
+	if o == nil || IsNil(o.Filter.Get()) {
+		var ret TestRunTestResultsSelectModelFilter
 		return ret
 	}
-	return *o.Filter
+	return *o.Filter.Get()
 }
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestRunTestResultsSelectModel) GetFilterOk() (*TestResultsLocalFilterModel, bool) {
-	if o == nil || IsNil(o.Filter) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunTestResultsSelectModel) GetFilterOk() (*TestRunTestResultsSelectModelFilter, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Filter, true
+	return o.Filter.Get(), o.Filter.IsSet()
 }
 
 // HasFilter returns a boolean if a field has been set.
 func (o *TestRunTestResultsSelectModel) HasFilter() bool {
-	if o != nil && !IsNil(o.Filter) {
+	if o != nil && o.Filter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFilter gets a reference to the given TestResultsLocalFilterModel and assigns it to the Filter field.
-func (o *TestRunTestResultsSelectModel) SetFilter(v TestResultsLocalFilterModel) {
-	o.Filter = &v
+// SetFilter gets a reference to the given NullableTestRunTestResultsSelectModelFilter and assigns it to the Filter field.
+func (o *TestRunTestResultsSelectModel) SetFilter(v TestRunTestResultsSelectModelFilter) {
+	o.Filter.Set(&v)
+}
+// SetFilterNil sets the value for Filter to be an explicit nil
+func (o *TestRunTestResultsSelectModel) SetFilterNil() {
+	o.Filter.Set(nil)
 }
 
-// GetTestResultIdsExtractionModel returns the TestResultIdsExtractionModel field value if set, zero value otherwise.
-func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModel() GuidExtractionModel {
-	if o == nil || IsNil(o.TestResultIdsExtractionModel) {
-		var ret GuidExtractionModel
+// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
+func (o *TestRunTestResultsSelectModel) UnsetFilter() {
+	o.Filter.Unset()
+}
+
+// GetTestResultIdsExtractionModel returns the TestResultIdsExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModel() TestRunTestResultsSelectModelTestResultIdsExtractionModel {
+	if o == nil || IsNil(o.TestResultIdsExtractionModel.Get()) {
+		var ret TestRunTestResultsSelectModelTestResultIdsExtractionModel
 		return ret
 	}
-	return *o.TestResultIdsExtractionModel
+	return *o.TestResultIdsExtractionModel.Get()
 }
 
 // GetTestResultIdsExtractionModelOk returns a tuple with the TestResultIdsExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModelOk() (*GuidExtractionModel, bool) {
-	if o == nil || IsNil(o.TestResultIdsExtractionModel) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModelOk() (*TestRunTestResultsSelectModelTestResultIdsExtractionModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestResultIdsExtractionModel, true
+	return o.TestResultIdsExtractionModel.Get(), o.TestResultIdsExtractionModel.IsSet()
 }
 
 // HasTestResultIdsExtractionModel returns a boolean if a field has been set.
 func (o *TestRunTestResultsSelectModel) HasTestResultIdsExtractionModel() bool {
-	if o != nil && !IsNil(o.TestResultIdsExtractionModel) {
+	if o != nil && o.TestResultIdsExtractionModel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestResultIdsExtractionModel gets a reference to the given GuidExtractionModel and assigns it to the TestResultIdsExtractionModel field.
-func (o *TestRunTestResultsSelectModel) SetTestResultIdsExtractionModel(v GuidExtractionModel) {
-	o.TestResultIdsExtractionModel = &v
+// SetTestResultIdsExtractionModel gets a reference to the given NullableTestRunTestResultsSelectModelTestResultIdsExtractionModel and assigns it to the TestResultIdsExtractionModel field.
+func (o *TestRunTestResultsSelectModel) SetTestResultIdsExtractionModel(v TestRunTestResultsSelectModelTestResultIdsExtractionModel) {
+	o.TestResultIdsExtractionModel.Set(&v)
+}
+// SetTestResultIdsExtractionModelNil sets the value for TestResultIdsExtractionModel to be an explicit nil
+func (o *TestRunTestResultsSelectModel) SetTestResultIdsExtractionModelNil() {
+	o.TestResultIdsExtractionModel.Set(nil)
+}
+
+// UnsetTestResultIdsExtractionModel ensures that no value is present for TestResultIdsExtractionModel, not even an explicit nil
+func (o *TestRunTestResultsSelectModel) UnsetTestResultIdsExtractionModel() {
+	o.TestResultIdsExtractionModel.Unset()
 }
 
 func (o TestRunTestResultsSelectModel) MarshalJSON() ([]byte, error) {
@@ -114,11 +134,11 @@ func (o TestRunTestResultsSelectModel) MarshalJSON() ([]byte, error) {
 
 func (o TestRunTestResultsSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Filter) {
-		toSerialize["filter"] = o.Filter
+	if o.Filter.IsSet() {
+		toSerialize["filter"] = o.Filter.Get()
 	}
-	if !IsNil(o.TestResultIdsExtractionModel) {
-		toSerialize["testResultIdsExtractionModel"] = o.TestResultIdsExtractionModel
+	if o.TestResultIdsExtractionModel.IsSet() {
+		toSerialize["testResultIdsExtractionModel"] = o.TestResultIdsExtractionModel.Get()
 	}
 	return toSerialize, nil
 }

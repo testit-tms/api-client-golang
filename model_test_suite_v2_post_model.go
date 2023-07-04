@@ -19,11 +19,17 @@ var _ MappedNullable = &TestSuiteV2PostModel{}
 
 // TestSuiteV2PostModel struct for TestSuiteV2PostModel
 type TestSuiteV2PostModel struct {
+	// Unique ID of the parent test suite in hierarchy
 	ParentId NullableString `json:"parentId,omitempty"`
+	// Unique ID of test plan to which the test suite belongs
 	TestPlanId string `json:"testPlanId"`
+	// Name of the test suite
 	Name string `json:"name"`
-	Type *TestSuiteType `json:"type,omitempty"`
+	Type NullableTestSuiteType `json:"type,omitempty"`
+	// Indicates if the test suite retains section tree structure
 	SaveStructure NullableBool `json:"saveStructure,omitempty"`
+	// Indicates if scheduled auto refresh is enabled for the test suite
+	AutoRefresh NullableBool `json:"autoRefresh,omitempty"`
 }
 
 // NewTestSuiteV2PostModel instantiates a new TestSuiteV2PostModel object
@@ -135,36 +141,46 @@ func (o *TestSuiteV2PostModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestSuiteV2PostModel) GetType() TestSuiteType {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret TestSuiteType
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestSuiteV2PostModel) GetTypeOk() (*TestSuiteType, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *TestSuiteV2PostModel) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given TestSuiteType and assigns it to the Type field.
+// SetType gets a reference to the given NullableTestSuiteType and assigns it to the Type field.
 func (o *TestSuiteV2PostModel) SetType(v TestSuiteType) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *TestSuiteV2PostModel) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *TestSuiteV2PostModel) UnsetType() {
+	o.Type.Unset()
 }
 
 // GetSaveStructure returns the SaveStructure field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -209,6 +225,48 @@ func (o *TestSuiteV2PostModel) UnsetSaveStructure() {
 	o.SaveStructure.Unset()
 }
 
+// GetAutoRefresh returns the AutoRefresh field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteV2PostModel) GetAutoRefresh() bool {
+	if o == nil || IsNil(o.AutoRefresh.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.AutoRefresh.Get()
+}
+
+// GetAutoRefreshOk returns a tuple with the AutoRefresh field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteV2PostModel) GetAutoRefreshOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoRefresh.Get(), o.AutoRefresh.IsSet()
+}
+
+// HasAutoRefresh returns a boolean if a field has been set.
+func (o *TestSuiteV2PostModel) HasAutoRefresh() bool {
+	if o != nil && o.AutoRefresh.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoRefresh gets a reference to the given NullableBool and assigns it to the AutoRefresh field.
+func (o *TestSuiteV2PostModel) SetAutoRefresh(v bool) {
+	o.AutoRefresh.Set(&v)
+}
+// SetAutoRefreshNil sets the value for AutoRefresh to be an explicit nil
+func (o *TestSuiteV2PostModel) SetAutoRefreshNil() {
+	o.AutoRefresh.Set(nil)
+}
+
+// UnsetAutoRefresh ensures that no value is present for AutoRefresh, not even an explicit nil
+func (o *TestSuiteV2PostModel) UnsetAutoRefresh() {
+	o.AutoRefresh.Unset()
+}
+
 func (o TestSuiteV2PostModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -224,11 +282,14 @@ func (o TestSuiteV2PostModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["testPlanId"] = o.TestPlanId
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	if o.SaveStructure.IsSet() {
 		toSerialize["saveStructure"] = o.SaveStructure.Get()
+	}
+	if o.AutoRefresh.IsSet() {
+		toSerialize["autoRefresh"] = o.AutoRefresh.Get()
 	}
 	return toSerialize, nil
 }

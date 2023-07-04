@@ -281,7 +281,7 @@ type ApiApiV2TestPointsSearchIdPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	testPointFilterModel *TestPointFilterModel
+	apiV2TestPointsSearchPostRequest *ApiV2TestPointsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -314,8 +314,8 @@ func (r ApiApiV2TestPointsSearchIdPostRequest) SearchValue(searchValue string) A
 	return r
 }
 
-func (r ApiApiV2TestPointsSearchIdPostRequest) TestPointFilterModel(testPointFilterModel TestPointFilterModel) ApiApiV2TestPointsSearchIdPostRequest {
-	r.testPointFilterModel = &testPointFilterModel
+func (r ApiApiV2TestPointsSearchIdPostRequest) ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest ApiV2TestPointsSearchPostRequest) ApiApiV2TestPointsSearchIdPostRequest {
+	r.apiV2TestPointsSearchPostRequest = &apiV2TestPointsSearchPostRequest
 	return r
 }
 
@@ -390,7 +390,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchIdPostExecute(r ApiApiV2Test
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testPointFilterModel
+	localVarPostBody = r.apiV2TestPointsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -460,7 +460,7 @@ type ApiApiV2TestPointsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	testPointFilterModel *TestPointFilterModel
+	apiV2TestPointsSearchPostRequest *ApiV2TestPointsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -493,8 +493,8 @@ func (r ApiApiV2TestPointsSearchPostRequest) SearchValue(searchValue string) Api
 	return r
 }
 
-func (r ApiApiV2TestPointsSearchPostRequest) TestPointFilterModel(testPointFilterModel TestPointFilterModel) ApiApiV2TestPointsSearchPostRequest {
-	r.testPointFilterModel = &testPointFilterModel
+func (r ApiApiV2TestPointsSearchPostRequest) ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest ApiV2TestPointsSearchPostRequest) ApiApiV2TestPointsSearchPostRequest {
+	r.apiV2TestPointsSearchPostRequest = &apiV2TestPointsSearchPostRequest
 	return r
 }
 
@@ -569,7 +569,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchPostExecute(r ApiApiV2TestPo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testPointFilterModel
+	localVarPostBody = r.apiV2TestPointsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -615,7 +615,6 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchPostExecute(r ApiApiV2TestPo
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

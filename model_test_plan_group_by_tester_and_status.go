@@ -20,8 +20,8 @@ var _ MappedNullable = &TestPlanGroupByTesterAndStatus{}
 // TestPlanGroupByTesterAndStatus struct for TestPlanGroupByTesterAndStatus
 type TestPlanGroupByTesterAndStatus struct {
 	UserId NullableString `json:"userId,omitempty"`
-	Status NullableString `json:"status,omitempty"`
-	Value *int32 `json:"value,omitempty"`
+	Status *string `json:"status,omitempty"`
+	Value *int64 `json:"value,omitempty"`
 }
 
 // NewTestPlanGroupByTesterAndStatus instantiates a new TestPlanGroupByTesterAndStatus object
@@ -83,52 +83,42 @@ func (o *TestPlanGroupByTesterAndStatus) UnsetUserId() {
 	o.UserId.Unset()
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStatus returns the Status field value if set, zero value otherwise.
 func (o *TestPlanGroupByTesterAndStatus) GetStatus() string {
-	if o == nil || IsNil(o.Status.Get()) {
+	if o == nil || IsNil(o.Status) {
 		var ret string
 		return ret
 	}
-	return *o.Status.Get()
+	return *o.Status
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanGroupByTesterAndStatus) GetStatusOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return o.Status, true
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *TestPlanGroupByTesterAndStatus) HasStatus() bool {
-	if o != nil && o.Status.IsSet() {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
+// SetStatus gets a reference to the given string and assigns it to the Status field.
 func (o *TestPlanGroupByTesterAndStatus) SetStatus(v string) {
-	o.Status.Set(&v)
-}
-// SetStatusNil sets the value for Status to be an explicit nil
-func (o *TestPlanGroupByTesterAndStatus) SetStatusNil() {
-	o.Status.Set(nil)
-}
-
-// UnsetStatus ensures that no value is present for Status, not even an explicit nil
-func (o *TestPlanGroupByTesterAndStatus) UnsetStatus() {
-	o.Status.Unset()
+	o.Status = &v
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
-func (o *TestPlanGroupByTesterAndStatus) GetValue() int32 {
+func (o *TestPlanGroupByTesterAndStatus) GetValue() int64 {
 	if o == nil || IsNil(o.Value) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Value
@@ -136,7 +126,7 @@ func (o *TestPlanGroupByTesterAndStatus) GetValue() int32 {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanGroupByTesterAndStatus) GetValueOk() (*int32, bool) {
+func (o *TestPlanGroupByTesterAndStatus) GetValueOk() (*int64, bool) {
 	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
@@ -152,8 +142,8 @@ func (o *TestPlanGroupByTesterAndStatus) HasValue() bool {
 	return false
 }
 
-// SetValue gets a reference to the given int32 and assigns it to the Value field.
-func (o *TestPlanGroupByTesterAndStatus) SetValue(v int32) {
+// SetValue gets a reference to the given int64 and assigns it to the Value field.
+func (o *TestPlanGroupByTesterAndStatus) SetValue(v int64) {
 	o.Value = &v
 }
 
@@ -170,8 +160,8 @@ func (o TestPlanGroupByTesterAndStatus) ToMap() (map[string]interface{}, error) 
 	if o.UserId.IsSet() {
 		toSerialize["userId"] = o.UserId.Get()
 	}
-	if o.Status.IsSet() {
-		toSerialize["status"] = o.Status.Get()
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	if !IsNil(o.Value) {
 		toSerialize["value"] = o.Value

@@ -26,7 +26,7 @@ type LinkPutModel struct {
 	Url string `json:"url"`
 	// Link description.
 	Description NullableString `json:"description,omitempty"`
-	Type *LinkType `json:"type,omitempty"`
+	Type NullableLinkType `json:"type,omitempty"`
 	HasInfo *bool `json:"hasInfo,omitempty"`
 }
 
@@ -188,36 +188,46 @@ func (o *LinkPutModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LinkPutModel) GetType() LinkType {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret LinkType
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkPutModel) GetTypeOk() (*LinkType, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *LinkPutModel) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given LinkType and assigns it to the Type field.
+// SetType gets a reference to the given NullableLinkType and assigns it to the Type field.
 func (o *LinkPutModel) SetType(v LinkType) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *LinkPutModel) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *LinkPutModel) UnsetType() {
+	o.Type.Unset()
 }
 
 // GetHasInfo returns the HasInfo field value if set, zero value otherwise.
@@ -272,8 +282,8 @@ func (o LinkPutModel) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	if !IsNil(o.HasInfo) {
 		toSerialize["hasInfo"] = o.HasInfo

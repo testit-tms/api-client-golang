@@ -31,9 +31,9 @@ type TestSuiteWorkItemsSearchModel struct {
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Collection of states of work item
 	States []WorkItemStates `json:"states,omitempty"`
-	Duration *Int32RangeSelectorModel `json:"duration,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
-	ModifiedDate *DateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
+	Duration NullableTestSuiteWorkItemsSearchModelDuration `json:"duration,omitempty"`
+	CreatedDate NullableTestSuiteWorkItemsSearchModelCreatedDate `json:"createdDate,omitempty"`
+	ModifiedDate NullableTestSuiteWorkItemsSearchModelModifiedDate `json:"modifiedDate,omitempty"`
 	// Collection of identifiers of users who created work item
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 	// Collection of identifiers of users who applied last modification to work item
@@ -281,100 +281,130 @@ func (o *TestSuiteWorkItemsSearchModel) SetStates(v []WorkItemStates) {
 	o.States = v
 }
 
-// GetDuration returns the Duration field value if set, zero value otherwise.
-func (o *TestSuiteWorkItemsSearchModel) GetDuration() Int32RangeSelectorModel {
-	if o == nil || IsNil(o.Duration) {
-		var ret Int32RangeSelectorModel
+// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetDuration() TestSuiteWorkItemsSearchModelDuration {
+	if o == nil || IsNil(o.Duration.Get()) {
+		var ret TestSuiteWorkItemsSearchModelDuration
 		return ret
 	}
-	return *o.Duration
+	return *o.Duration.Get()
 }
 
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestSuiteWorkItemsSearchModel) GetDurationOk() (*Int32RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.Duration) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetDurationOk() (*TestSuiteWorkItemsSearchModelDuration, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Duration, true
+	return o.Duration.Get(), o.Duration.IsSet()
 }
 
 // HasDuration returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
+	if o != nil && o.Duration.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDuration gets a reference to the given Int32RangeSelectorModel and assigns it to the Duration field.
-func (o *TestSuiteWorkItemsSearchModel) SetDuration(v Int32RangeSelectorModel) {
-	o.Duration = &v
+// SetDuration gets a reference to the given NullableTestSuiteWorkItemsSearchModelDuration and assigns it to the Duration field.
+func (o *TestSuiteWorkItemsSearchModel) SetDuration(v TestSuiteWorkItemsSearchModelDuration) {
+	o.Duration.Set(&v)
+}
+// SetDurationNil sets the value for Duration to be an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) SetDurationNil() {
+	o.Duration.Set(nil)
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *TestSuiteWorkItemsSearchModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
-		var ret DateTimeRangeSelectorModel
+// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) UnsetDuration() {
+	o.Duration.Unset()
+}
+
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetCreatedDate() TestSuiteWorkItemsSearchModelCreatedDate {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
+		var ret TestSuiteWorkItemsSearchModelCreatedDate
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestSuiteWorkItemsSearchModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetCreatedDateOk() (*TestSuiteWorkItemsSearchModelCreatedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
-func (o *TestSuiteWorkItemsSearchModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+// SetCreatedDate gets a reference to the given NullableTestSuiteWorkItemsSearchModelCreatedDate and assigns it to the CreatedDate field.
+func (o *TestSuiteWorkItemsSearchModel) SetCreatedDate(v TestSuiteWorkItemsSearchModelCreatedDate) {
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
 }
 
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise.
-func (o *TestSuiteWorkItemsSearchModel) GetModifiedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.ModifiedDate) {
-		var ret DateTimeRangeSelectorModel
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
+}
+
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetModifiedDate() TestSuiteWorkItemsSearchModelModifiedDate {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret TestSuiteWorkItemsSearchModelModifiedDate
 		return ret
 	}
-	return *o.ModifiedDate
+	return *o.ModifiedDate.Get()
 }
 
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestSuiteWorkItemsSearchModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.ModifiedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetModifiedDateOk() (*TestSuiteWorkItemsSearchModelModifiedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ModifiedDate, true
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
 }
 
 // HasModifiedDate returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasModifiedDate() bool {
-	if o != nil && !IsNil(o.ModifiedDate) {
+	if o != nil && o.ModifiedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetModifiedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
-func (o *TestSuiteWorkItemsSearchModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
-	o.ModifiedDate = &v
+// SetModifiedDate gets a reference to the given NullableTestSuiteWorkItemsSearchModelModifiedDate and assigns it to the ModifiedDate field.
+func (o *TestSuiteWorkItemsSearchModel) SetModifiedDate(v TestSuiteWorkItemsSearchModelModifiedDate) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
 }
 
 // GetCreatedByIds returns the CreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -612,14 +642,14 @@ func (o TestSuiteWorkItemsSearchModel) ToMap() (map[string]interface{}, error) {
 	if o.States != nil {
 		toSerialize["states"] = o.States
 	}
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
+	if o.Duration.IsSet() {
+		toSerialize["duration"] = o.Duration.Get()
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
-	if !IsNil(o.ModifiedDate) {
-		toSerialize["modifiedDate"] = o.ModifiedDate
+	if o.ModifiedDate.IsSet() {
+		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds

@@ -21,9 +21,6 @@ var _ MappedNullable = &ConfigurationModel{}
 // ConfigurationModel struct for ConfigurationModel
 type ConfigurationModel struct {
 	Description NullableString `json:"description,omitempty"`
-	IsActive *bool `json:"isActive,omitempty"`
-	// Deprecated
-	Capabilities map[string]string `json:"capabilities,omitempty"`
 	Parameters map[string]string `json:"parameters,omitempty"`
 	// This property is used to link configuration with project
 	ProjectId *string `json:"projectId,omitempty"`
@@ -97,74 +94,6 @@ func (o *ConfigurationModel) SetDescriptionNil() {
 // UnsetDescription ensures that no value is present for Description, not even an explicit nil
 func (o *ConfigurationModel) UnsetDescription() {
 	o.Description.Unset()
-}
-
-// GetIsActive returns the IsActive field value if set, zero value otherwise.
-func (o *ConfigurationModel) GetIsActive() bool {
-	if o == nil || IsNil(o.IsActive) {
-		var ret bool
-		return ret
-	}
-	return *o.IsActive
-}
-
-// GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConfigurationModel) GetIsActiveOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsActive) {
-		return nil, false
-	}
-	return o.IsActive, true
-}
-
-// HasIsActive returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasIsActive() bool {
-	if o != nil && !IsNil(o.IsActive) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsActive gets a reference to the given bool and assigns it to the IsActive field.
-func (o *ConfigurationModel) SetIsActive(v bool) {
-	o.IsActive = &v
-}
-
-// GetCapabilities returns the Capabilities field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
-func (o *ConfigurationModel) GetCapabilities() map[string]string {
-	if o == nil {
-		var ret map[string]string
-		return ret
-	}
-	return o.Capabilities
-}
-
-// GetCapabilitiesOk returns a tuple with the Capabilities field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
-func (o *ConfigurationModel) GetCapabilitiesOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.Capabilities) {
-		return nil, false
-	}
-	return &o.Capabilities, true
-}
-
-// HasCapabilities returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasCapabilities() bool {
-	if o != nil && IsNil(o.Capabilities) {
-		return true
-	}
-
-	return false
-}
-
-// SetCapabilities gets a reference to the given map[string]string and assigns it to the Capabilities field.
-// Deprecated
-func (o *ConfigurationModel) SetCapabilities(v map[string]string) {
-	o.Capabilities = v
 }
 
 // GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -562,12 +491,6 @@ func (o ConfigurationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
-	}
-	if !IsNil(o.IsActive) {
-		toSerialize["isActive"] = o.IsActive
-	}
-	if o.Capabilities != nil {
-		toSerialize["capabilities"] = o.Capabilities
 	}
 	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters

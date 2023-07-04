@@ -20,7 +20,7 @@ var _ MappedNullable = &TestPlanWithAnalyticModel{}
 
 // TestPlanWithAnalyticModel struct for TestPlanWithAnalyticModel
 type TestPlanWithAnalyticModel struct {
-	Analytic *TestPointAnalyticResult `json:"analytic,omitempty"`
+	Analytic *TestPlanWithAnalyticModelAnalytic `json:"analytic,omitempty"`
 	Status TestPlanStatusModel `json:"status"`
 	// Set when test plan is starter (status changed to: In Progress)
 	StartedOn NullableTime `json:"startedOn,omitempty"`
@@ -72,9 +72,9 @@ func NewTestPlanWithAnalyticModelWithDefaults() *TestPlanWithAnalyticModel {
 }
 
 // GetAnalytic returns the Analytic field value if set, zero value otherwise.
-func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPointAnalyticResult {
+func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPlanWithAnalyticModelAnalytic {
 	if o == nil || IsNil(o.Analytic) {
-		var ret TestPointAnalyticResult
+		var ret TestPlanWithAnalyticModelAnalytic
 		return ret
 	}
 	return *o.Analytic
@@ -82,7 +82,7 @@ func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPointAnalyticResult {
 
 // GetAnalyticOk returns a tuple with the Analytic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPointAnalyticResult, bool) {
+func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPlanWithAnalyticModelAnalytic, bool) {
 	if o == nil || IsNil(o.Analytic) {
 		return nil, false
 	}
@@ -98,8 +98,8 @@ func (o *TestPlanWithAnalyticModel) HasAnalytic() bool {
 	return false
 }
 
-// SetAnalytic gets a reference to the given TestPointAnalyticResult and assigns it to the Analytic field.
-func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPointAnalyticResult) {
+// SetAnalytic gets a reference to the given TestPlanWithAnalyticModelAnalytic and assigns it to the Analytic field.
+func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPlanWithAnalyticModelAnalytic) {
 	o.Analytic = &v
 }
 
@@ -874,9 +874,9 @@ func (o *TestPlanWithAnalyticModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
 func (o *TestPlanWithAnalyticModel) GetAttributes() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Attributes) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -885,7 +885,6 @@ func (o *TestPlanWithAnalyticModel) GetAttributes() map[string]interface{} {
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanWithAnalyticModel) GetAttributesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return map[string]interface{}{}, false
@@ -895,7 +894,7 @@ func (o *TestPlanWithAnalyticModel) GetAttributesOk() (map[string]interface{}, b
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPlanWithAnalyticModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -975,7 +974,7 @@ func (o TestPlanWithAnalyticModel) ToMap() (map[string]interface{}, error) {
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if o.Attributes != nil {
+	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
 	return toSerialize, nil

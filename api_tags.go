@@ -317,7 +317,6 @@ func (a *TagsApiService) ApiV2TagsTestPlansTagsGetExecute(r ApiApiV2TagsTestPlan
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -71,9 +71,9 @@ func NewTestPlanWithTestSuiteTreeModelWithDefaults() *TestPlanWithTestSuiteTreeM
 	return &this
 }
 
-// GetTestSuites returns the TestSuites field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTestSuites returns the TestSuites field value if set, zero value otherwise.
 func (o *TestPlanWithTestSuiteTreeModel) GetTestSuites() []TestSuiteWithChildrenModel {
-	if o == nil {
+	if o == nil || IsNil(o.TestSuites) {
 		var ret []TestSuiteWithChildrenModel
 		return ret
 	}
@@ -82,7 +82,6 @@ func (o *TestPlanWithTestSuiteTreeModel) GetTestSuites() []TestSuiteWithChildren
 
 // GetTestSuitesOk returns a tuple with the TestSuites field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanWithTestSuiteTreeModel) GetTestSuitesOk() ([]TestSuiteWithChildrenModel, bool) {
 	if o == nil || IsNil(o.TestSuites) {
 		return nil, false
@@ -92,7 +91,7 @@ func (o *TestPlanWithTestSuiteTreeModel) GetTestSuitesOk() ([]TestSuiteWithChild
 
 // HasTestSuites returns a boolean if a field has been set.
 func (o *TestPlanWithTestSuiteTreeModel) HasTestSuites() bool {
-	if o != nil && IsNil(o.TestSuites) {
+	if o != nil && !IsNil(o.TestSuites) {
 		return true
 	}
 
@@ -875,9 +874,9 @@ func (o *TestPlanWithTestSuiteTreeModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
 func (o *TestPlanWithTestSuiteTreeModel) GetAttributes() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Attributes) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -886,7 +885,6 @@ func (o *TestPlanWithTestSuiteTreeModel) GetAttributes() map[string]interface{} 
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanWithTestSuiteTreeModel) GetAttributesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return map[string]interface{}{}, false
@@ -896,7 +894,7 @@ func (o *TestPlanWithTestSuiteTreeModel) GetAttributesOk() (map[string]interface
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPlanWithTestSuiteTreeModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -918,7 +916,7 @@ func (o TestPlanWithTestSuiteTreeModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanWithTestSuiteTreeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TestSuites != nil {
+	if !IsNil(o.TestSuites) {
 		toSerialize["testSuites"] = o.TestSuites
 	}
 	toSerialize["status"] = o.Status
@@ -976,7 +974,7 @@ func (o TestPlanWithTestSuiteTreeModel) ToMap() (map[string]interface{}, error) 
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if o.Attributes != nil {
+	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
 	return toSerialize, nil

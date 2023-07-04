@@ -19,7 +19,7 @@ var _ MappedNullable = &StepModel{}
 
 // StepModel struct for StepModel
 type StepModel struct {
-	WorkItem *SharedStepModel `json:"workItem,omitempty"`
+	WorkItem NullableSectionSharedStep `json:"workItem,omitempty"`
 	Id *string `json:"id,omitempty"`
 	Action NullableString `json:"action,omitempty"`
 	Expected NullableString `json:"expected,omitempty"`
@@ -45,36 +45,46 @@ func NewStepModelWithDefaults() *StepModel {
 	return &this
 }
 
-// GetWorkItem returns the WorkItem field value if set, zero value otherwise.
-func (o *StepModel) GetWorkItem() SharedStepModel {
-	if o == nil || IsNil(o.WorkItem) {
-		var ret SharedStepModel
+// GetWorkItem returns the WorkItem field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StepModel) GetWorkItem() SectionSharedStep {
+	if o == nil || IsNil(o.WorkItem.Get()) {
+		var ret SectionSharedStep
 		return ret
 	}
-	return *o.WorkItem
+	return *o.WorkItem.Get()
 }
 
 // GetWorkItemOk returns a tuple with the WorkItem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StepModel) GetWorkItemOk() (*SharedStepModel, bool) {
-	if o == nil || IsNil(o.WorkItem) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StepModel) GetWorkItemOk() (*SectionSharedStep, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItem, true
+	return o.WorkItem.Get(), o.WorkItem.IsSet()
 }
 
 // HasWorkItem returns a boolean if a field has been set.
 func (o *StepModel) HasWorkItem() bool {
-	if o != nil && !IsNil(o.WorkItem) {
+	if o != nil && o.WorkItem.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWorkItem gets a reference to the given SharedStepModel and assigns it to the WorkItem field.
-func (o *StepModel) SetWorkItem(v SharedStepModel) {
-	o.WorkItem = &v
+// SetWorkItem gets a reference to the given NullableSectionSharedStep and assigns it to the WorkItem field.
+func (o *StepModel) SetWorkItem(v SectionSharedStep) {
+	o.WorkItem.Set(&v)
+}
+// SetWorkItemNil sets the value for WorkItem to be an explicit nil
+func (o *StepModel) SetWorkItemNil() {
+	o.WorkItem.Set(nil)
+}
+
+// UnsetWorkItem ensures that no value is present for WorkItem, not even an explicit nil
+func (o *StepModel) UnsetWorkItem() {
+	o.WorkItem.Unset()
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -329,8 +339,8 @@ func (o StepModel) MarshalJSON() ([]byte, error) {
 
 func (o StepModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.WorkItem) {
-		toSerialize["workItem"] = o.WorkItem
+	if o.WorkItem.IsSet() {
+		toSerialize["workItem"] = o.WorkItem.Get()
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id

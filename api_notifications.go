@@ -475,7 +475,6 @@ func (a *NotificationsApiService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -605,7 +604,7 @@ type ApiApiV2NotificationsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	notificationQueryFilterModel *NotificationQueryFilterModel
+	apiV2NotificationsSearchPostRequest *ApiV2NotificationsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -638,8 +637,8 @@ func (r ApiApiV2NotificationsSearchPostRequest) SearchValue(searchValue string) 
 	return r
 }
 
-func (r ApiApiV2NotificationsSearchPostRequest) NotificationQueryFilterModel(notificationQueryFilterModel NotificationQueryFilterModel) ApiApiV2NotificationsSearchPostRequest {
-	r.notificationQueryFilterModel = &notificationQueryFilterModel
+func (r ApiApiV2NotificationsSearchPostRequest) ApiV2NotificationsSearchPostRequest(apiV2NotificationsSearchPostRequest ApiV2NotificationsSearchPostRequest) ApiApiV2NotificationsSearchPostRequest {
+	r.apiV2NotificationsSearchPostRequest = &apiV2NotificationsSearchPostRequest
 	return r
 }
 
@@ -718,7 +717,7 @@ func (a *NotificationsApiService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.notificationQueryFilterModel
+	localVarPostBody = r.apiV2NotificationsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -755,17 +754,6 @@ func (a *NotificationsApiService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -776,6 +764,16 @@ func (a *NotificationsApiService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

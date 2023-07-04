@@ -24,7 +24,7 @@ type WorkItemChangeModel struct {
 	WorkItemId *string `json:"workItemId,omitempty"`
 	OldVersionId *string `json:"oldVersionId,omitempty"`
 	NewVersionId *string `json:"newVersionId,omitempty"`
-	WorkItemChangedFields *WorkItemChangedFieldsViewModel `json:"workItemChangedFields,omitempty"`
+	WorkItemChangedFields *WorkItemChangeModelWorkItemChangedFields `json:"workItemChangedFields,omitempty"`
 	CreatedById *string `json:"createdById,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 }
@@ -175,9 +175,9 @@ func (o *WorkItemChangeModel) SetNewVersionId(v string) {
 }
 
 // GetWorkItemChangedFields returns the WorkItemChangedFields field value if set, zero value otherwise.
-func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsViewModel {
+func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangeModelWorkItemChangedFields {
 	if o == nil || IsNil(o.WorkItemChangedFields) {
-		var ret WorkItemChangedFieldsViewModel
+		var ret WorkItemChangeModelWorkItemChangedFields
 		return ret
 	}
 	return *o.WorkItemChangedFields
@@ -185,7 +185,7 @@ func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsVi
 
 // GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFieldsViewModel, bool) {
+func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangeModelWorkItemChangedFields, bool) {
 	if o == nil || IsNil(o.WorkItemChangedFields) {
 		return nil, false
 	}
@@ -201,8 +201,8 @@ func (o *WorkItemChangeModel) HasWorkItemChangedFields() bool {
 	return false
 }
 
-// SetWorkItemChangedFields gets a reference to the given WorkItemChangedFieldsViewModel and assigns it to the WorkItemChangedFields field.
-func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangedFieldsViewModel) {
+// SetWorkItemChangedFields gets a reference to the given WorkItemChangeModelWorkItemChangedFields and assigns it to the WorkItemChangedFields field.
+func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangeModelWorkItemChangedFields) {
 	o.WorkItemChangedFields = &v
 }
 

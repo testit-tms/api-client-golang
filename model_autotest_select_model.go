@@ -19,8 +19,8 @@ var _ MappedNullable = &AutotestSelectModel{}
 
 // AutotestSelectModel struct for AutotestSelectModel
 type AutotestSelectModel struct {
-	Filter *AutotestFilterModel `json:"filter,omitempty"`
-	ExtractionModel *AutotestsExtractionModel `json:"extractionModel,omitempty"`
+	Filter *AutotestSelectModelFilter `json:"filter,omitempty"`
+	ExtractionModel *AutotestSelectModelExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewAutotestSelectModel instantiates a new AutotestSelectModel object
@@ -41,9 +41,9 @@ func NewAutotestSelectModelWithDefaults() *AutotestSelectModel {
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise.
-func (o *AutotestSelectModel) GetFilter() AutotestFilterModel {
+func (o *AutotestSelectModel) GetFilter() AutotestSelectModelFilter {
 	if o == nil || IsNil(o.Filter) {
-		var ret AutotestFilterModel
+		var ret AutotestSelectModelFilter
 		return ret
 	}
 	return *o.Filter
@@ -51,7 +51,7 @@ func (o *AutotestSelectModel) GetFilter() AutotestFilterModel {
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestSelectModel) GetFilterOk() (*AutotestFilterModel, bool) {
+func (o *AutotestSelectModel) GetFilterOk() (*AutotestSelectModelFilter, bool) {
 	if o == nil || IsNil(o.Filter) {
 		return nil, false
 	}
@@ -67,15 +67,15 @@ func (o *AutotestSelectModel) HasFilter() bool {
 	return false
 }
 
-// SetFilter gets a reference to the given AutotestFilterModel and assigns it to the Filter field.
-func (o *AutotestSelectModel) SetFilter(v AutotestFilterModel) {
+// SetFilter gets a reference to the given AutotestSelectModelFilter and assigns it to the Filter field.
+func (o *AutotestSelectModel) SetFilter(v AutotestSelectModelFilter) {
 	o.Filter = &v
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise.
-func (o *AutotestSelectModel) GetExtractionModel() AutotestsExtractionModel {
+func (o *AutotestSelectModel) GetExtractionModel() AutotestSelectModelExtractionModel {
 	if o == nil || IsNil(o.ExtractionModel) {
-		var ret AutotestsExtractionModel
+		var ret AutotestSelectModelExtractionModel
 		return ret
 	}
 	return *o.ExtractionModel
@@ -83,7 +83,7 @@ func (o *AutotestSelectModel) GetExtractionModel() AutotestsExtractionModel {
 
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestsExtractionModel, bool) {
+func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestSelectModelExtractionModel, bool) {
 	if o == nil || IsNil(o.ExtractionModel) {
 		return nil, false
 	}
@@ -99,8 +99,8 @@ func (o *AutotestSelectModel) HasExtractionModel() bool {
 	return false
 }
 
-// SetExtractionModel gets a reference to the given AutotestsExtractionModel and assigns it to the ExtractionModel field.
-func (o *AutotestSelectModel) SetExtractionModel(v AutotestsExtractionModel) {
+// SetExtractionModel gets a reference to the given AutotestSelectModelExtractionModel and assigns it to the ExtractionModel field.
+func (o *AutotestSelectModel) SetExtractionModel(v AutotestSelectModelExtractionModel) {
 	o.ExtractionModel = &v
 }
 

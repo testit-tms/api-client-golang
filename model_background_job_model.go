@@ -21,7 +21,7 @@ var _ MappedNullable = &BackgroundJobModel{}
 // BackgroundJobModel struct for BackgroundJobModel
 type BackgroundJobModel struct {
 	Id *string `json:"id,omitempty"`
-	JobId NullableString `json:"jobId,omitempty"`
+	JobId *string `json:"jobId,omitempty"`
 	JobType *BackgroundJobType `json:"jobType,omitempty"`
 	State *BackgroundJobState `json:"state,omitempty"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
@@ -81,46 +81,36 @@ func (o *BackgroundJobModel) SetId(v string) {
 	o.Id = &v
 }
 
-// GetJobId returns the JobId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetJobId returns the JobId field value if set, zero value otherwise.
 func (o *BackgroundJobModel) GetJobId() string {
-	if o == nil || IsNil(o.JobId.Get()) {
+	if o == nil || IsNil(o.JobId) {
 		var ret string
 		return ret
 	}
-	return *o.JobId.Get()
+	return *o.JobId
 }
 
 // GetJobIdOk returns a tuple with the JobId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *BackgroundJobModel) GetJobIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.JobId) {
 		return nil, false
 	}
-	return o.JobId.Get(), o.JobId.IsSet()
+	return o.JobId, true
 }
 
 // HasJobId returns a boolean if a field has been set.
 func (o *BackgroundJobModel) HasJobId() bool {
-	if o != nil && o.JobId.IsSet() {
+	if o != nil && !IsNil(o.JobId) {
 		return true
 	}
 
 	return false
 }
 
-// SetJobId gets a reference to the given NullableString and assigns it to the JobId field.
+// SetJobId gets a reference to the given string and assigns it to the JobId field.
 func (o *BackgroundJobModel) SetJobId(v string) {
-	o.JobId.Set(&v)
-}
-// SetJobIdNil sets the value for JobId to be an explicit nil
-func (o *BackgroundJobModel) SetJobIdNil() {
-	o.JobId.Set(nil)
-}
-
-// UnsetJobId ensures that no value is present for JobId, not even an explicit nil
-func (o *BackgroundJobModel) UnsetJobId() {
-	o.JobId.Unset()
+	o.JobId = &v
 }
 
 // GetJobType returns the JobType field value if set, zero value otherwise.
@@ -423,8 +413,8 @@ func (o BackgroundJobModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.JobId.IsSet() {
-		toSerialize["jobId"] = o.JobId.Get()
+	if !IsNil(o.JobId) {
+		toSerialize["jobId"] = o.JobId
 	}
 	if !IsNil(o.JobType) {
 		toSerialize["jobType"] = o.JobType

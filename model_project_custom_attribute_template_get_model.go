@@ -24,7 +24,7 @@ type ProjectCustomAttributeTemplateGetModel struct {
 	// Indicates if the custom attribute template is deleted
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// Name of the custom attribute template
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	// Attributes of the template
 	CustomAttributeModels []CustomAttributeModel `json:"customAttributeModels,omitempty"`
 }
@@ -110,51 +110,41 @@ func (o *ProjectCustomAttributeTemplateGetModel) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ProjectCustomAttributeTemplateGetModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectCustomAttributeTemplateGetModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ProjectCustomAttributeTemplateGetModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ProjectCustomAttributeTemplateGetModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ProjectCustomAttributeTemplateGetModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ProjectCustomAttributeTemplateGetModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetCustomAttributeModels returns the CustomAttributeModels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCustomAttributeModels returns the CustomAttributeModels field value if set, zero value otherwise.
 func (o *ProjectCustomAttributeTemplateGetModel) GetCustomAttributeModels() []CustomAttributeModel {
-	if o == nil {
+	if o == nil || IsNil(o.CustomAttributeModels) {
 		var ret []CustomAttributeModel
 		return ret
 	}
@@ -163,7 +153,6 @@ func (o *ProjectCustomAttributeTemplateGetModel) GetCustomAttributeModels() []Cu
 
 // GetCustomAttributeModelsOk returns a tuple with the CustomAttributeModels field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectCustomAttributeTemplateGetModel) GetCustomAttributeModelsOk() ([]CustomAttributeModel, bool) {
 	if o == nil || IsNil(o.CustomAttributeModels) {
 		return nil, false
@@ -173,7 +162,7 @@ func (o *ProjectCustomAttributeTemplateGetModel) GetCustomAttributeModelsOk() ([
 
 // HasCustomAttributeModels returns a boolean if a field has been set.
 func (o *ProjectCustomAttributeTemplateGetModel) HasCustomAttributeModels() bool {
-	if o != nil && IsNil(o.CustomAttributeModels) {
+	if o != nil && !IsNil(o.CustomAttributeModels) {
 		return true
 	}
 
@@ -201,10 +190,10 @@ func (o ProjectCustomAttributeTemplateGetModel) ToMap() (map[string]interface{},
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.CustomAttributeModels != nil {
+	if !IsNil(o.CustomAttributeModels) {
 		toSerialize["customAttributeModels"] = o.CustomAttributeModels
 	}
 	return toSerialize, nil

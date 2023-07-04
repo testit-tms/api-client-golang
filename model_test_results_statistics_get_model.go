@@ -19,8 +19,8 @@ var _ MappedNullable = &TestResultsStatisticsGetModel{}
 
 // TestResultsStatisticsGetModel struct for TestResultsStatisticsGetModel
 type TestResultsStatisticsGetModel struct {
-	Statuses *TestRunStatisticsStatusesGetModel `json:"statuses,omitempty"`
-	FailureCategories *TestRunStatisticsErrorCategoriesGetModel `json:"failureCategories,omitempty"`
+	Statuses *TestResultsStatisticsGetModelStatuses `json:"statuses,omitempty"`
+	FailureCategories *TestResultsStatisticsGetModelFailureCategories `json:"failureCategories,omitempty"`
 }
 
 // NewTestResultsStatisticsGetModel instantiates a new TestResultsStatisticsGetModel object
@@ -41,9 +41,9 @@ func NewTestResultsStatisticsGetModelWithDefaults() *TestResultsStatisticsGetMod
 }
 
 // GetStatuses returns the Statuses field value if set, zero value otherwise.
-func (o *TestResultsStatisticsGetModel) GetStatuses() TestRunStatisticsStatusesGetModel {
+func (o *TestResultsStatisticsGetModel) GetStatuses() TestResultsStatisticsGetModelStatuses {
 	if o == nil || IsNil(o.Statuses) {
-		var ret TestRunStatisticsStatusesGetModel
+		var ret TestResultsStatisticsGetModelStatuses
 		return ret
 	}
 	return *o.Statuses
@@ -51,7 +51,7 @@ func (o *TestResultsStatisticsGetModel) GetStatuses() TestRunStatisticsStatusesG
 
 // GetStatusesOk returns a tuple with the Statuses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestResultsStatisticsGetModel) GetStatusesOk() (*TestRunStatisticsStatusesGetModel, bool) {
+func (o *TestResultsStatisticsGetModel) GetStatusesOk() (*TestResultsStatisticsGetModelStatuses, bool) {
 	if o == nil || IsNil(o.Statuses) {
 		return nil, false
 	}
@@ -67,15 +67,15 @@ func (o *TestResultsStatisticsGetModel) HasStatuses() bool {
 	return false
 }
 
-// SetStatuses gets a reference to the given TestRunStatisticsStatusesGetModel and assigns it to the Statuses field.
-func (o *TestResultsStatisticsGetModel) SetStatuses(v TestRunStatisticsStatusesGetModel) {
+// SetStatuses gets a reference to the given TestResultsStatisticsGetModelStatuses and assigns it to the Statuses field.
+func (o *TestResultsStatisticsGetModel) SetStatuses(v TestResultsStatisticsGetModelStatuses) {
 	o.Statuses = &v
 }
 
 // GetFailureCategories returns the FailureCategories field value if set, zero value otherwise.
-func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestRunStatisticsErrorCategoriesGetModel {
+func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestResultsStatisticsGetModelFailureCategories {
 	if o == nil || IsNil(o.FailureCategories) {
-		var ret TestRunStatisticsErrorCategoriesGetModel
+		var ret TestResultsStatisticsGetModelFailureCategories
 		return ret
 	}
 	return *o.FailureCategories
@@ -83,7 +83,7 @@ func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestRunStatistics
 
 // GetFailureCategoriesOk returns a tuple with the FailureCategories field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestResultsStatisticsGetModel) GetFailureCategoriesOk() (*TestRunStatisticsErrorCategoriesGetModel, bool) {
+func (o *TestResultsStatisticsGetModel) GetFailureCategoriesOk() (*TestResultsStatisticsGetModelFailureCategories, bool) {
 	if o == nil || IsNil(o.FailureCategories) {
 		return nil, false
 	}
@@ -99,8 +99,8 @@ func (o *TestResultsStatisticsGetModel) HasFailureCategories() bool {
 	return false
 }
 
-// SetFailureCategories gets a reference to the given TestRunStatisticsErrorCategoriesGetModel and assigns it to the FailureCategories field.
-func (o *TestResultsStatisticsGetModel) SetFailureCategories(v TestRunStatisticsErrorCategoriesGetModel) {
+// SetFailureCategories gets a reference to the given TestResultsStatisticsGetModelFailureCategories and assigns it to the FailureCategories field.
+func (o *TestResultsStatisticsGetModel) SetFailureCategories(v TestResultsStatisticsGetModelFailureCategories) {
 	o.FailureCategories = &v
 }
 

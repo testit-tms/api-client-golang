@@ -138,7 +138,6 @@ func (a *WebhooksApiService) ApiV2WebhooksGetExecute(r ApiApiV2WebhooksGetReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -388,11 +387,11 @@ type ApiApiV2WebhooksIdPutRequest struct {
 	ctx context.Context
 	ApiService *WebhooksApiService
 	id string
-	webHookPostModel *WebHookPostModel
+	apiV2WebhooksPostRequest *ApiV2WebhooksPostRequest
 }
 
-func (r ApiApiV2WebhooksIdPutRequest) WebHookPostModel(webHookPostModel WebHookPostModel) ApiApiV2WebhooksIdPutRequest {
-	r.webHookPostModel = &webHookPostModel
+func (r ApiApiV2WebhooksIdPutRequest) ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest ApiV2WebhooksPostRequest) ApiApiV2WebhooksIdPutRequest {
+	r.apiV2WebhooksPostRequest = &apiV2WebhooksPostRequest
 	return r
 }
 
@@ -455,7 +454,7 @@ func (a *WebhooksApiService) ApiV2WebhooksIdPutExecute(r ApiApiV2WebhooksIdPutRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.webHookPostModel
+	localVarPostBody = r.apiV2WebhooksPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -520,11 +519,11 @@ func (a *WebhooksApiService) ApiV2WebhooksIdPutExecute(r ApiApiV2WebhooksIdPutRe
 type ApiApiV2WebhooksPostRequest struct {
 	ctx context.Context
 	ApiService *WebhooksApiService
-	webHookPostModel *WebHookPostModel
+	apiV2WebhooksPostRequest *ApiV2WebhooksPostRequest
 }
 
-func (r ApiApiV2WebhooksPostRequest) WebHookPostModel(webHookPostModel WebHookPostModel) ApiApiV2WebhooksPostRequest {
-	r.webHookPostModel = &webHookPostModel
+func (r ApiApiV2WebhooksPostRequest) ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest ApiV2WebhooksPostRequest) ApiApiV2WebhooksPostRequest {
+	r.apiV2WebhooksPostRequest = &apiV2WebhooksPostRequest
 	return r
 }
 
@@ -584,7 +583,7 @@ func (a *WebhooksApiService) ApiV2WebhooksPostExecute(r ApiApiV2WebhooksPostRequ
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.webHookPostModel
+	localVarPostBody = r.apiV2WebhooksPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -630,7 +629,6 @@ func (a *WebhooksApiService) ApiV2WebhooksPostExecute(r ApiApiV2WebhooksPostRequ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -655,7 +653,7 @@ type ApiApiV2WebhooksSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	searchWebhooksQueryModel *SearchWebhooksQueryModel
+	apiV2WebhooksSearchPostRequest *ApiV2WebhooksSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -688,8 +686,8 @@ func (r ApiApiV2WebhooksSearchPostRequest) SearchValue(searchValue string) ApiAp
 	return r
 }
 
-func (r ApiApiV2WebhooksSearchPostRequest) SearchWebhooksQueryModel(searchWebhooksQueryModel SearchWebhooksQueryModel) ApiApiV2WebhooksSearchPostRequest {
-	r.searchWebhooksQueryModel = &searchWebhooksQueryModel
+func (r ApiApiV2WebhooksSearchPostRequest) ApiV2WebhooksSearchPostRequest(apiV2WebhooksSearchPostRequest ApiV2WebhooksSearchPostRequest) ApiApiV2WebhooksSearchPostRequest {
+	r.apiV2WebhooksSearchPostRequest = &apiV2WebhooksSearchPostRequest
 	return r
 }
 
@@ -764,7 +762,7 @@ func (a *WebhooksApiService) ApiV2WebhooksSearchPostExecute(r ApiApiV2WebhooksSe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.searchWebhooksQueryModel
+	localVarPostBody = r.apiV2WebhooksSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -810,7 +808,6 @@ func (a *WebhooksApiService) ApiV2WebhooksSearchPostExecute(r ApiApiV2WebhooksSe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -932,6 +929,135 @@ func (a *WebhooksApiService) ApiV2WebhooksSpecialVariablesGetExecute(r ApiApiV2W
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV2WebhooksTestPostRequest struct {
+	ctx context.Context
+	ApiService *WebhooksApiService
+	apiV2WebhooksTestPostRequest *ApiV2WebhooksTestPostRequest
+}
+
+func (r ApiApiV2WebhooksTestPostRequest) ApiV2WebhooksTestPostRequest(apiV2WebhooksTestPostRequest ApiV2WebhooksTestPostRequest) ApiApiV2WebhooksTestPostRequest {
+	r.apiV2WebhooksTestPostRequest = &apiV2WebhooksTestPostRequest
+	return r
+}
+
+func (r ApiApiV2WebhooksTestPostRequest) Execute() (*RequestData, *http.Response, error) {
+	return r.ApiService.ApiV2WebhooksTestPostExecute(r)
+}
+
+/*
+ApiV2WebhooksTestPost Test webhook's url
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiApiV2WebhooksTestPostRequest
+*/
+func (a *WebhooksApiService) ApiV2WebhooksTestPost(ctx context.Context) ApiApiV2WebhooksTestPostRequest {
+	return ApiApiV2WebhooksTestPostRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return RequestData
+func (a *WebhooksApiService) ApiV2WebhooksTestPostExecute(r ApiApiV2WebhooksTestPostRequest) (*RequestData, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *RequestData
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksApiService.ApiV2WebhooksTestPost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/webhooks/test"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiV2WebhooksTestPostRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

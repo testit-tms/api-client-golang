@@ -21,7 +21,7 @@ var _ MappedNullable = &NotificationQueryFilterModel{}
 type NotificationQueryFilterModel struct {
 	Types []NotificationTypeModel `json:"types,omitempty"`
 	IsRead NullableBool `json:"isRead,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 }
 
 // NewNotificationQueryFilterModel instantiates a new NotificationQueryFilterModel object
@@ -116,36 +116,46 @@ func (o *NotificationQueryFilterModel) UnsetIsRead() {
 	o.IsRead.Unset()
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NotificationQueryFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
 		var ret DateTimeRangeSelectorModel
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NotificationQueryFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *NotificationQueryFilterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
 func (o *NotificationQueryFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *NotificationQueryFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
+}
+
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *NotificationQueryFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
 }
 
 func (o NotificationQueryFilterModel) MarshalJSON() ([]byte, error) {
@@ -164,8 +174,8 @@ func (o NotificationQueryFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.IsRead.IsSet() {
 		toSerialize["isRead"] = o.IsRead.Get()
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
 	return toSerialize, nil
 }

@@ -21,13 +21,13 @@ var _ MappedNullable = &TestResultShortModel{}
 // TestResultShortModel struct for TestResultShortModel
 type TestResultShortModel struct {
 	Id *string `json:"id,omitempty"`
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome *string `json:"outcome,omitempty"`
 	Traces NullableString `json:"traces,omitempty"`
-	FailureType NullableString `json:"failureType,omitempty"`
+	FailureType *string `json:"failureType,omitempty"`
 	Message NullableString `json:"message,omitempty"`
-	TestPoint *TestPointPutModel `json:"testPoint,omitempty"`
+	TestPoint NullableTestPointPutModel `json:"testPoint,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
-	AutoTest *AutoTestShortModel `json:"autoTest,omitempty"`
+	AutoTest NullableAutoTestShortModel `json:"autoTest,omitempty"`
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
 }
 
@@ -80,46 +80,36 @@ func (o *TestResultShortModel) SetId(v string) {
 	o.Id = &v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value if set, zero value otherwise.
 func (o *TestResultShortModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil || IsNil(o.Outcome) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+	return *o.Outcome
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortModel) GetOutcomeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Outcome) {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return o.Outcome, true
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *TestResultShortModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
+	if o != nil && !IsNil(o.Outcome) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
 func (o *TestResultShortModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultShortModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultShortModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = &v
 }
 
 // GetTraces returns the Traces field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -164,46 +154,36 @@ func (o *TestResultShortModel) UnsetTraces() {
 	o.Traces.Unset()
 }
 
-// GetFailureType returns the FailureType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureType returns the FailureType field value if set, zero value otherwise.
 func (o *TestResultShortModel) GetFailureType() string {
-	if o == nil || IsNil(o.FailureType.Get()) {
+	if o == nil || IsNil(o.FailureType) {
 		var ret string
 		return ret
 	}
-	return *o.FailureType.Get()
+	return *o.FailureType
 }
 
 // GetFailureTypeOk returns a tuple with the FailureType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortModel) GetFailureTypeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.FailureType) {
 		return nil, false
 	}
-	return o.FailureType.Get(), o.FailureType.IsSet()
+	return o.FailureType, true
 }
 
 // HasFailureType returns a boolean if a field has been set.
 func (o *TestResultShortModel) HasFailureType() bool {
-	if o != nil && o.FailureType.IsSet() {
+	if o != nil && !IsNil(o.FailureType) {
 		return true
 	}
 
 	return false
 }
 
-// SetFailureType gets a reference to the given NullableString and assigns it to the FailureType field.
+// SetFailureType gets a reference to the given string and assigns it to the FailureType field.
 func (o *TestResultShortModel) SetFailureType(v string) {
-	o.FailureType.Set(&v)
-}
-// SetFailureTypeNil sets the value for FailureType to be an explicit nil
-func (o *TestResultShortModel) SetFailureTypeNil() {
-	o.FailureType.Set(nil)
-}
-
-// UnsetFailureType ensures that no value is present for FailureType, not even an explicit nil
-func (o *TestResultShortModel) UnsetFailureType() {
-	o.FailureType.Unset()
+	o.FailureType = &v
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -248,36 +228,46 @@ func (o *TestResultShortModel) UnsetMessage() {
 	o.Message.Unset()
 }
 
-// GetTestPoint returns the TestPoint field value if set, zero value otherwise.
+// GetTestPoint returns the TestPoint field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestResultShortModel) GetTestPoint() TestPointPutModel {
-	if o == nil || IsNil(o.TestPoint) {
+	if o == nil || IsNil(o.TestPoint.Get()) {
 		var ret TestPointPutModel
 		return ret
 	}
-	return *o.TestPoint
+	return *o.TestPoint.Get()
 }
 
 // GetTestPointOk returns a tuple with the TestPoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortModel) GetTestPointOk() (*TestPointPutModel, bool) {
-	if o == nil || IsNil(o.TestPoint) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPoint, true
+	return o.TestPoint.Get(), o.TestPoint.IsSet()
 }
 
 // HasTestPoint returns a boolean if a field has been set.
 func (o *TestResultShortModel) HasTestPoint() bool {
-	if o != nil && !IsNil(o.TestPoint) {
+	if o != nil && o.TestPoint.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPoint gets a reference to the given TestPointPutModel and assigns it to the TestPoint field.
+// SetTestPoint gets a reference to the given NullableTestPointPutModel and assigns it to the TestPoint field.
 func (o *TestResultShortModel) SetTestPoint(v TestPointPutModel) {
-	o.TestPoint = &v
+	o.TestPoint.Set(&v)
+}
+// SetTestPointNil sets the value for TestPoint to be an explicit nil
+func (o *TestResultShortModel) SetTestPointNil() {
+	o.TestPoint.Set(nil)
+}
+
+// UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
+func (o *TestResultShortModel) UnsetTestPoint() {
+	o.TestPoint.Unset()
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -322,36 +312,46 @@ func (o *TestResultShortModel) UnsetCreatedDate() {
 	o.CreatedDate.Unset()
 }
 
-// GetAutoTest returns the AutoTest field value if set, zero value otherwise.
+// GetAutoTest returns the AutoTest field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestResultShortModel) GetAutoTest() AutoTestShortModel {
-	if o == nil || IsNil(o.AutoTest) {
+	if o == nil || IsNil(o.AutoTest.Get()) {
 		var ret AutoTestShortModel
 		return ret
 	}
-	return *o.AutoTest
+	return *o.AutoTest.Get()
 }
 
 // GetAutoTestOk returns a tuple with the AutoTest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortModel) GetAutoTestOk() (*AutoTestShortModel, bool) {
-	if o == nil || IsNil(o.AutoTest) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AutoTest, true
+	return o.AutoTest.Get(), o.AutoTest.IsSet()
 }
 
 // HasAutoTest returns a boolean if a field has been set.
 func (o *TestResultShortModel) HasAutoTest() bool {
-	if o != nil && !IsNil(o.AutoTest) {
+	if o != nil && o.AutoTest.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAutoTest gets a reference to the given AutoTestShortModel and assigns it to the AutoTest field.
+// SetAutoTest gets a reference to the given NullableAutoTestShortModel and assigns it to the AutoTest field.
 func (o *TestResultShortModel) SetAutoTest(v AutoTestShortModel) {
-	o.AutoTest = &v
+	o.AutoTest.Set(&v)
+}
+// SetAutoTestNil sets the value for AutoTest to be an explicit nil
+func (o *TestResultShortModel) SetAutoTestNil() {
+	o.AutoTest.Set(nil)
+}
+
+// UnsetAutoTest ensures that no value is present for AutoTest, not even an explicit nil
+func (o *TestResultShortModel) UnsetAutoTest() {
+	o.AutoTest.Unset()
 }
 
 // GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -400,26 +400,26 @@ func (o TestResultShortModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
+	if !IsNil(o.Outcome) {
+		toSerialize["outcome"] = o.Outcome
 	}
 	if o.Traces.IsSet() {
 		toSerialize["traces"] = o.Traces.Get()
 	}
-	if o.FailureType.IsSet() {
-		toSerialize["failureType"] = o.FailureType.Get()
+	if !IsNil(o.FailureType) {
+		toSerialize["failureType"] = o.FailureType
 	}
 	if o.Message.IsSet() {
 		toSerialize["message"] = o.Message.Get()
 	}
-	if !IsNil(o.TestPoint) {
-		toSerialize["testPoint"] = o.TestPoint
+	if o.TestPoint.IsSet() {
+		toSerialize["testPoint"] = o.TestPoint.Get()
 	}
 	if o.CreatedDate.IsSet() {
 		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
-	if !IsNil(o.AutoTest) {
-		toSerialize["autoTest"] = o.AutoTest
+	if o.AutoTest.IsSet() {
+		toSerialize["autoTest"] = o.AutoTest.Get()
 	}
 	if o.Attachments != nil {
 		toSerialize["attachments"] = o.Attachments

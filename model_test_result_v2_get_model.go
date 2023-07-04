@@ -20,8 +20,8 @@ var _ MappedNullable = &TestResultV2GetModel{}
 
 // TestResultV2GetModel struct for TestResultV2GetModel
 type TestResultV2GetModel struct {
-	Configuration *ConfigurationModel `json:"configuration,omitempty"`
-	AutoTest *AutoTestModelV2GetModel `json:"autoTest,omitempty"`
+	Configuration NullableTestResultConfiguration `json:"configuration,omitempty"`
+	AutoTest NullableAutoTestRelatedToTestResult `json:"autoTest,omitempty"`
 	Id *string `json:"id,omitempty"`
 	ConfigurationId *string `json:"configurationId,omitempty"`
 	WorkItemVersionId *string `json:"workItemVersionId,omitempty"`
@@ -33,10 +33,10 @@ type TestResultV2GetModel struct {
 	RunByUserId NullableString `json:"runByUserId,omitempty"`
 	StoppedByUserId NullableString `json:"stoppedByUserId,omitempty"`
 	TestPointId NullableString `json:"testPointId,omitempty"`
-	TestPoint *TestPointShortModel `json:"testPoint,omitempty"`
+	TestPoint NullableTestPointRelatedToTestResult `json:"testPoint,omitempty"`
 	TestRunId *string `json:"testRunId,omitempty"`
 	// Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome *string `json:"outcome,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
@@ -61,68 +61,88 @@ func NewTestResultV2GetModelWithDefaults() *TestResultV2GetModel {
 	return &this
 }
 
-// GetConfiguration returns the Configuration field value if set, zero value otherwise.
-func (o *TestResultV2GetModel) GetConfiguration() ConfigurationModel {
-	if o == nil || IsNil(o.Configuration) {
-		var ret ConfigurationModel
+// GetConfiguration returns the Configuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultV2GetModel) GetConfiguration() TestResultConfiguration {
+	if o == nil || IsNil(o.Configuration.Get()) {
+		var ret TestResultConfiguration
 		return ret
 	}
-	return *o.Configuration
+	return *o.Configuration.Get()
 }
 
 // GetConfigurationOk returns a tuple with the Configuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestResultV2GetModel) GetConfigurationOk() (*ConfigurationModel, bool) {
-	if o == nil || IsNil(o.Configuration) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultV2GetModel) GetConfigurationOk() (*TestResultConfiguration, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Configuration, true
+	return o.Configuration.Get(), o.Configuration.IsSet()
 }
 
 // HasConfiguration returns a boolean if a field has been set.
 func (o *TestResultV2GetModel) HasConfiguration() bool {
-	if o != nil && !IsNil(o.Configuration) {
+	if o != nil && o.Configuration.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetConfiguration gets a reference to the given ConfigurationModel and assigns it to the Configuration field.
-func (o *TestResultV2GetModel) SetConfiguration(v ConfigurationModel) {
-	o.Configuration = &v
+// SetConfiguration gets a reference to the given NullableTestResultConfiguration and assigns it to the Configuration field.
+func (o *TestResultV2GetModel) SetConfiguration(v TestResultConfiguration) {
+	o.Configuration.Set(&v)
+}
+// SetConfigurationNil sets the value for Configuration to be an explicit nil
+func (o *TestResultV2GetModel) SetConfigurationNil() {
+	o.Configuration.Set(nil)
 }
 
-// GetAutoTest returns the AutoTest field value if set, zero value otherwise.
-func (o *TestResultV2GetModel) GetAutoTest() AutoTestModelV2GetModel {
-	if o == nil || IsNil(o.AutoTest) {
-		var ret AutoTestModelV2GetModel
+// UnsetConfiguration ensures that no value is present for Configuration, not even an explicit nil
+func (o *TestResultV2GetModel) UnsetConfiguration() {
+	o.Configuration.Unset()
+}
+
+// GetAutoTest returns the AutoTest field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultV2GetModel) GetAutoTest() AutoTestRelatedToTestResult {
+	if o == nil || IsNil(o.AutoTest.Get()) {
+		var ret AutoTestRelatedToTestResult
 		return ret
 	}
-	return *o.AutoTest
+	return *o.AutoTest.Get()
 }
 
 // GetAutoTestOk returns a tuple with the AutoTest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestResultV2GetModel) GetAutoTestOk() (*AutoTestModelV2GetModel, bool) {
-	if o == nil || IsNil(o.AutoTest) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultV2GetModel) GetAutoTestOk() (*AutoTestRelatedToTestResult, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AutoTest, true
+	return o.AutoTest.Get(), o.AutoTest.IsSet()
 }
 
 // HasAutoTest returns a boolean if a field has been set.
 func (o *TestResultV2GetModel) HasAutoTest() bool {
-	if o != nil && !IsNil(o.AutoTest) {
+	if o != nil && o.AutoTest.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAutoTest gets a reference to the given AutoTestModelV2GetModel and assigns it to the AutoTest field.
-func (o *TestResultV2GetModel) SetAutoTest(v AutoTestModelV2GetModel) {
-	o.AutoTest = &v
+// SetAutoTest gets a reference to the given NullableAutoTestRelatedToTestResult and assigns it to the AutoTest field.
+func (o *TestResultV2GetModel) SetAutoTest(v AutoTestRelatedToTestResult) {
+	o.AutoTest.Set(&v)
+}
+// SetAutoTestNil sets the value for AutoTest to be an explicit nil
+func (o *TestResultV2GetModel) SetAutoTestNil() {
+	o.AutoTest.Set(nil)
+}
+
+// UnsetAutoTest ensures that no value is present for AutoTest, not even an explicit nil
+func (o *TestResultV2GetModel) UnsetAutoTest() {
+	o.AutoTest.Unset()
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -557,36 +577,46 @@ func (o *TestResultV2GetModel) UnsetTestPointId() {
 	o.TestPointId.Unset()
 }
 
-// GetTestPoint returns the TestPoint field value if set, zero value otherwise.
-func (o *TestResultV2GetModel) GetTestPoint() TestPointShortModel {
-	if o == nil || IsNil(o.TestPoint) {
-		var ret TestPointShortModel
+// GetTestPoint returns the TestPoint field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultV2GetModel) GetTestPoint() TestPointRelatedToTestResult {
+	if o == nil || IsNil(o.TestPoint.Get()) {
+		var ret TestPointRelatedToTestResult
 		return ret
 	}
-	return *o.TestPoint
+	return *o.TestPoint.Get()
 }
 
 // GetTestPointOk returns a tuple with the TestPoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestResultV2GetModel) GetTestPointOk() (*TestPointShortModel, bool) {
-	if o == nil || IsNil(o.TestPoint) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultV2GetModel) GetTestPointOk() (*TestPointRelatedToTestResult, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPoint, true
+	return o.TestPoint.Get(), o.TestPoint.IsSet()
 }
 
 // HasTestPoint returns a boolean if a field has been set.
 func (o *TestResultV2GetModel) HasTestPoint() bool {
-	if o != nil && !IsNil(o.TestPoint) {
+	if o != nil && o.TestPoint.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPoint gets a reference to the given TestPointShortModel and assigns it to the TestPoint field.
-func (o *TestResultV2GetModel) SetTestPoint(v TestPointShortModel) {
-	o.TestPoint = &v
+// SetTestPoint gets a reference to the given NullableTestPointRelatedToTestResult and assigns it to the TestPoint field.
+func (o *TestResultV2GetModel) SetTestPoint(v TestPointRelatedToTestResult) {
+	o.TestPoint.Set(&v)
+}
+// SetTestPointNil sets the value for TestPoint to be an explicit nil
+func (o *TestResultV2GetModel) SetTestPointNil() {
+	o.TestPoint.Set(nil)
+}
+
+// UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
+func (o *TestResultV2GetModel) UnsetTestPoint() {
+	o.TestPoint.Unset()
 }
 
 // GetTestRunId returns the TestRunId field value if set, zero value otherwise.
@@ -621,46 +651,36 @@ func (o *TestResultV2GetModel) SetTestRunId(v string) {
 	o.TestRunId = &v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value if set, zero value otherwise.
 func (o *TestResultV2GetModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil || IsNil(o.Outcome) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+	return *o.Outcome
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultV2GetModel) GetOutcomeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Outcome) {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return o.Outcome, true
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *TestResultV2GetModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
+	if o != nil && !IsNil(o.Outcome) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
 func (o *TestResultV2GetModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultV2GetModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultV2GetModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = &v
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -847,11 +867,11 @@ func (o TestResultV2GetModel) MarshalJSON() ([]byte, error) {
 
 func (o TestResultV2GetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Configuration) {
-		toSerialize["configuration"] = o.Configuration
+	if o.Configuration.IsSet() {
+		toSerialize["configuration"] = o.Configuration.Get()
 	}
-	if !IsNil(o.AutoTest) {
-		toSerialize["autoTest"] = o.AutoTest
+	if o.AutoTest.IsSet() {
+		toSerialize["autoTest"] = o.AutoTest.Get()
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
@@ -886,14 +906,14 @@ func (o TestResultV2GetModel) ToMap() (map[string]interface{}, error) {
 	if o.TestPointId.IsSet() {
 		toSerialize["testPointId"] = o.TestPointId.Get()
 	}
-	if !IsNil(o.TestPoint) {
-		toSerialize["testPoint"] = o.TestPoint
+	if o.TestPoint.IsSet() {
+		toSerialize["testPoint"] = o.TestPoint.Get()
 	}
 	if !IsNil(o.TestRunId) {
 		toSerialize["testRunId"] = o.TestRunId
 	}
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
+	if !IsNil(o.Outcome) {
+		toSerialize["outcome"] = o.Outcome
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()

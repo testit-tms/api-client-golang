@@ -37,19 +37,25 @@ type TestPointFilterModel struct {
 	ConfigurationIds []string `json:"configurationIds,omitempty"`
 	// Specifies a test point assigned user IDs to search for
 	TesterIds []string `json:"testerIds,omitempty"`
-	Duration *Int64RangeSelectorModel `json:"duration,omitempty"`
+	Duration NullableTestPointFilterModelDuration `json:"duration,omitempty"`
 	// Specifies a test point work item section IDs to search for
 	SectionIds []string `json:"sectionIds,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	CreatedDate NullableTestPointFilterModelCreatedDate `json:"createdDate,omitempty"`
 	// Specifies a test point creator IDs to search for
 	CreatedByIds []string `json:"createdByIds,omitempty"`
-	ModifiedDate *DateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
+	ModifiedDate NullableTestPointFilterModelModifiedDate `json:"modifiedDate,omitempty"`
 	// Specifies a test point last editor IDs to search for
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 	// Specifies a test point tags to search for
 	Tags []string `json:"tags,omitempty"`
 	// Specifies a test point attributes to search for
 	Attributes map[string][]string `json:"attributes,omitempty"`
+	WorkItemCreatedDate NullableTestPointFilterModelWorkItemCreatedDate `json:"workItemCreatedDate,omitempty"`
+	// Specifies a work item creator IDs to search for
+	WorkItemCreatedByIds []string `json:"workItemCreatedByIds,omitempty"`
+	WorkItemModifiedDate NullableTestPointFilterModelWorkItemModifiedDate `json:"workItemModifiedDate,omitempty"`
+	// Specifies a work item last editor IDs to search for
+	WorkItemModifiedByIds []string `json:"workItemModifiedByIds,omitempty"`
 }
 
 // NewTestPointFilterModel instantiates a new TestPointFilterModel object
@@ -384,36 +390,46 @@ func (o *TestPointFilterModel) SetTesterIds(v []string) {
 	o.TesterIds = v
 }
 
-// GetDuration returns the Duration field value if set, zero value otherwise.
-func (o *TestPointFilterModel) GetDuration() Int64RangeSelectorModel {
-	if o == nil || IsNil(o.Duration) {
-		var ret Int64RangeSelectorModel
+// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetDuration() TestPointFilterModelDuration {
+	if o == nil || IsNil(o.Duration.Get()) {
+		var ret TestPointFilterModelDuration
 		return ret
 	}
-	return *o.Duration
+	return *o.Duration.Get()
 }
 
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPointFilterModel) GetDurationOk() (*Int64RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.Duration) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetDurationOk() (*TestPointFilterModelDuration, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Duration, true
+	return o.Duration.Get(), o.Duration.IsSet()
 }
 
 // HasDuration returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
+	if o != nil && o.Duration.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDuration gets a reference to the given Int64RangeSelectorModel and assigns it to the Duration field.
-func (o *TestPointFilterModel) SetDuration(v Int64RangeSelectorModel) {
-	o.Duration = &v
+// SetDuration gets a reference to the given NullableTestPointFilterModelDuration and assigns it to the Duration field.
+func (o *TestPointFilterModel) SetDuration(v TestPointFilterModelDuration) {
+	o.Duration.Set(&v)
+}
+// SetDurationNil sets the value for Duration to be an explicit nil
+func (o *TestPointFilterModel) SetDurationNil() {
+	o.Duration.Set(nil)
+}
+
+// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+func (o *TestPointFilterModel) UnsetDuration() {
+	o.Duration.Unset()
 }
 
 // GetSectionIds returns the SectionIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -449,36 +465,46 @@ func (o *TestPointFilterModel) SetSectionIds(v []string) {
 	o.SectionIds = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *TestPointFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
-		var ret DateTimeRangeSelectorModel
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetCreatedDate() TestPointFilterModelCreatedDate {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
+		var ret TestPointFilterModelCreatedDate
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPointFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetCreatedDateOk() (*TestPointFilterModelCreatedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
-func (o *TestPointFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+// SetCreatedDate gets a reference to the given NullableTestPointFilterModelCreatedDate and assigns it to the CreatedDate field.
+func (o *TestPointFilterModel) SetCreatedDate(v TestPointFilterModelCreatedDate) {
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *TestPointFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
+}
+
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *TestPointFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
 }
 
 // GetCreatedByIds returns the CreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -514,36 +540,46 @@ func (o *TestPointFilterModel) SetCreatedByIds(v []string) {
 	o.CreatedByIds = v
 }
 
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise.
-func (o *TestPointFilterModel) GetModifiedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.ModifiedDate) {
-		var ret DateTimeRangeSelectorModel
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetModifiedDate() TestPointFilterModelModifiedDate {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret TestPointFilterModelModifiedDate
 		return ret
 	}
-	return *o.ModifiedDate
+	return *o.ModifiedDate.Get()
 }
 
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPointFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.ModifiedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetModifiedDateOk() (*TestPointFilterModelModifiedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ModifiedDate, true
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
 }
 
 // HasModifiedDate returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasModifiedDate() bool {
-	if o != nil && !IsNil(o.ModifiedDate) {
+	if o != nil && o.ModifiedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetModifiedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
-func (o *TestPointFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
-	o.ModifiedDate = &v
+// SetModifiedDate gets a reference to the given NullableTestPointFilterModelModifiedDate and assigns it to the ModifiedDate field.
+func (o *TestPointFilterModel) SetModifiedDate(v TestPointFilterModelModifiedDate) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *TestPointFilterModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *TestPointFilterModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
 }
 
 // GetModifiedByIds returns the ModifiedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -645,6 +681,156 @@ func (o *TestPointFilterModel) SetAttributes(v map[string][]string) {
 	o.Attributes = v
 }
 
+// GetWorkItemCreatedDate returns the WorkItemCreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetWorkItemCreatedDate() TestPointFilterModelWorkItemCreatedDate {
+	if o == nil || IsNil(o.WorkItemCreatedDate.Get()) {
+		var ret TestPointFilterModelWorkItemCreatedDate
+		return ret
+	}
+	return *o.WorkItemCreatedDate.Get()
+}
+
+// GetWorkItemCreatedDateOk returns a tuple with the WorkItemCreatedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetWorkItemCreatedDateOk() (*TestPointFilterModelWorkItemCreatedDate, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WorkItemCreatedDate.Get(), o.WorkItemCreatedDate.IsSet()
+}
+
+// HasWorkItemCreatedDate returns a boolean if a field has been set.
+func (o *TestPointFilterModel) HasWorkItemCreatedDate() bool {
+	if o != nil && o.WorkItemCreatedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemCreatedDate gets a reference to the given NullableTestPointFilterModelWorkItemCreatedDate and assigns it to the WorkItemCreatedDate field.
+func (o *TestPointFilterModel) SetWorkItemCreatedDate(v TestPointFilterModelWorkItemCreatedDate) {
+	o.WorkItemCreatedDate.Set(&v)
+}
+// SetWorkItemCreatedDateNil sets the value for WorkItemCreatedDate to be an explicit nil
+func (o *TestPointFilterModel) SetWorkItemCreatedDateNil() {
+	o.WorkItemCreatedDate.Set(nil)
+}
+
+// UnsetWorkItemCreatedDate ensures that no value is present for WorkItemCreatedDate, not even an explicit nil
+func (o *TestPointFilterModel) UnsetWorkItemCreatedDate() {
+	o.WorkItemCreatedDate.Unset()
+}
+
+// GetWorkItemCreatedByIds returns the WorkItemCreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetWorkItemCreatedByIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemCreatedByIds
+}
+
+// GetWorkItemCreatedByIdsOk returns a tuple with the WorkItemCreatedByIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetWorkItemCreatedByIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemCreatedByIds) {
+		return nil, false
+	}
+	return o.WorkItemCreatedByIds, true
+}
+
+// HasWorkItemCreatedByIds returns a boolean if a field has been set.
+func (o *TestPointFilterModel) HasWorkItemCreatedByIds() bool {
+	if o != nil && IsNil(o.WorkItemCreatedByIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemCreatedByIds gets a reference to the given []string and assigns it to the WorkItemCreatedByIds field.
+func (o *TestPointFilterModel) SetWorkItemCreatedByIds(v []string) {
+	o.WorkItemCreatedByIds = v
+}
+
+// GetWorkItemModifiedDate returns the WorkItemModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetWorkItemModifiedDate() TestPointFilterModelWorkItemModifiedDate {
+	if o == nil || IsNil(o.WorkItemModifiedDate.Get()) {
+		var ret TestPointFilterModelWorkItemModifiedDate
+		return ret
+	}
+	return *o.WorkItemModifiedDate.Get()
+}
+
+// GetWorkItemModifiedDateOk returns a tuple with the WorkItemModifiedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetWorkItemModifiedDateOk() (*TestPointFilterModelWorkItemModifiedDate, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WorkItemModifiedDate.Get(), o.WorkItemModifiedDate.IsSet()
+}
+
+// HasWorkItemModifiedDate returns a boolean if a field has been set.
+func (o *TestPointFilterModel) HasWorkItemModifiedDate() bool {
+	if o != nil && o.WorkItemModifiedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemModifiedDate gets a reference to the given NullableTestPointFilterModelWorkItemModifiedDate and assigns it to the WorkItemModifiedDate field.
+func (o *TestPointFilterModel) SetWorkItemModifiedDate(v TestPointFilterModelWorkItemModifiedDate) {
+	o.WorkItemModifiedDate.Set(&v)
+}
+// SetWorkItemModifiedDateNil sets the value for WorkItemModifiedDate to be an explicit nil
+func (o *TestPointFilterModel) SetWorkItemModifiedDateNil() {
+	o.WorkItemModifiedDate.Set(nil)
+}
+
+// UnsetWorkItemModifiedDate ensures that no value is present for WorkItemModifiedDate, not even an explicit nil
+func (o *TestPointFilterModel) UnsetWorkItemModifiedDate() {
+	o.WorkItemModifiedDate.Unset()
+}
+
+// GetWorkItemModifiedByIds returns the WorkItemModifiedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetWorkItemModifiedByIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemModifiedByIds
+}
+
+// GetWorkItemModifiedByIdsOk returns a tuple with the WorkItemModifiedByIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetWorkItemModifiedByIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemModifiedByIds) {
+		return nil, false
+	}
+	return o.WorkItemModifiedByIds, true
+}
+
+// HasWorkItemModifiedByIds returns a boolean if a field has been set.
+func (o *TestPointFilterModel) HasWorkItemModifiedByIds() bool {
+	if o != nil && IsNil(o.WorkItemModifiedByIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemModifiedByIds gets a reference to the given []string and assigns it to the WorkItemModifiedByIds field.
+func (o *TestPointFilterModel) SetWorkItemModifiedByIds(v []string) {
+	o.WorkItemModifiedByIds = v
+}
+
 func (o TestPointFilterModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -682,20 +868,20 @@ func (o TestPointFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.TesterIds != nil {
 		toSerialize["testerIds"] = o.TesterIds
 	}
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
+	if o.Duration.IsSet() {
+		toSerialize["duration"] = o.Duration.Get()
 	}
 	if o.SectionIds != nil {
 		toSerialize["sectionIds"] = o.SectionIds
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds
 	}
-	if !IsNil(o.ModifiedDate) {
-		toSerialize["modifiedDate"] = o.ModifiedDate
+	if o.ModifiedDate.IsSet() {
+		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
 	if o.ModifiedByIds != nil {
 		toSerialize["modifiedByIds"] = o.ModifiedByIds
@@ -705,6 +891,18 @@ func (o TestPointFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Attributes != nil {
 		toSerialize["attributes"] = o.Attributes
+	}
+	if o.WorkItemCreatedDate.IsSet() {
+		toSerialize["workItemCreatedDate"] = o.WorkItemCreatedDate.Get()
+	}
+	if o.WorkItemCreatedByIds != nil {
+		toSerialize["workItemCreatedByIds"] = o.WorkItemCreatedByIds
+	}
+	if o.WorkItemModifiedDate.IsSet() {
+		toSerialize["workItemModifiedDate"] = o.WorkItemModifiedDate.Get()
+	}
+	if o.WorkItemModifiedByIds != nil {
+		toSerialize["workItemModifiedByIds"] = o.WorkItemModifiedByIds
 	}
 	return toSerialize, nil
 }

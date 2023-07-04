@@ -141,11 +141,11 @@ type ApiApiV2CustomAttributesGlobalIdPutRequest struct {
 	ctx context.Context
 	ApiService *CustomAttributesApiService
 	id string
-	globalCustomAttributeUpdateModel *GlobalCustomAttributeUpdateModel
+	apiV2CustomAttributesGlobalIdPutRequest *ApiV2CustomAttributesGlobalIdPutRequest
 }
 
-func (r ApiApiV2CustomAttributesGlobalIdPutRequest) GlobalCustomAttributeUpdateModel(globalCustomAttributeUpdateModel GlobalCustomAttributeUpdateModel) ApiApiV2CustomAttributesGlobalIdPutRequest {
-	r.globalCustomAttributeUpdateModel = &globalCustomAttributeUpdateModel
+func (r ApiApiV2CustomAttributesGlobalIdPutRequest) ApiV2CustomAttributesGlobalIdPutRequest(apiV2CustomAttributesGlobalIdPutRequest ApiV2CustomAttributesGlobalIdPutRequest) ApiApiV2CustomAttributesGlobalIdPutRequest {
+	r.apiV2CustomAttributesGlobalIdPutRequest = &apiV2CustomAttributesGlobalIdPutRequest
 	return r
 }
 
@@ -208,7 +208,7 @@ func (a *CustomAttributesApiService) ApiV2CustomAttributesGlobalIdPutExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.globalCustomAttributeUpdateModel
+	localVarPostBody = r.apiV2CustomAttributesGlobalIdPutRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -273,11 +273,11 @@ func (a *CustomAttributesApiService) ApiV2CustomAttributesGlobalIdPutExecute(r A
 type ApiApiV2CustomAttributesGlobalPostRequest struct {
 	ctx context.Context
 	ApiService *CustomAttributesApiService
-	globalCustomAttributePostModel *GlobalCustomAttributePostModel
+	apiV2CustomAttributesGlobalPostRequest *ApiV2CustomAttributesGlobalPostRequest
 }
 
-func (r ApiApiV2CustomAttributesGlobalPostRequest) GlobalCustomAttributePostModel(globalCustomAttributePostModel GlobalCustomAttributePostModel) ApiApiV2CustomAttributesGlobalPostRequest {
-	r.globalCustomAttributePostModel = &globalCustomAttributePostModel
+func (r ApiApiV2CustomAttributesGlobalPostRequest) ApiV2CustomAttributesGlobalPostRequest(apiV2CustomAttributesGlobalPostRequest ApiV2CustomAttributesGlobalPostRequest) ApiApiV2CustomAttributesGlobalPostRequest {
+	r.apiV2CustomAttributesGlobalPostRequest = &apiV2CustomAttributesGlobalPostRequest
 	return r
 }
 
@@ -337,7 +337,7 @@ func (a *CustomAttributesApiService) ApiV2CustomAttributesGlobalPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.globalCustomAttributePostModel
+	localVarPostBody = r.apiV2CustomAttributesGlobalPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -522,7 +522,7 @@ type ApiApiV2CustomAttributesSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	customAttributeSearchQueryModel *CustomAttributeSearchQueryModel
+	apiV2CustomAttributesSearchPostRequest *ApiV2CustomAttributesSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -555,8 +555,8 @@ func (r ApiApiV2CustomAttributesSearchPostRequest) SearchValue(searchValue strin
 	return r
 }
 
-func (r ApiApiV2CustomAttributesSearchPostRequest) CustomAttributeSearchQueryModel(customAttributeSearchQueryModel CustomAttributeSearchQueryModel) ApiApiV2CustomAttributesSearchPostRequest {
-	r.customAttributeSearchQueryModel = &customAttributeSearchQueryModel
+func (r ApiApiV2CustomAttributesSearchPostRequest) ApiV2CustomAttributesSearchPostRequest(apiV2CustomAttributesSearchPostRequest ApiV2CustomAttributesSearchPostRequest) ApiApiV2CustomAttributesSearchPostRequest {
+	r.apiV2CustomAttributesSearchPostRequest = &apiV2CustomAttributesSearchPostRequest
 	return r
 }
 
@@ -631,7 +631,7 @@ func (a *CustomAttributesApiService) ApiV2CustomAttributesSearchPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributeSearchQueryModel
+	localVarPostBody = r.apiV2CustomAttributesSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

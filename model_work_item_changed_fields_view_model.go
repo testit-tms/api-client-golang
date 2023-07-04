@@ -19,26 +19,26 @@ var _ MappedNullable = &WorkItemChangedFieldsViewModel{}
 
 // WorkItemChangedFieldsViewModel struct for WorkItemChangedFieldsViewModel
 type WorkItemChangedFieldsViewModel struct {
-	Name *StringWorkItemChangedFieldViewModel `json:"name,omitempty"`
-	IsDeleted *BooleanWorkItemChangedFieldViewModel `json:"isDeleted,omitempty"`
-	ProjectId *GuidWorkItemChangedFieldViewModel `json:"projectId,omitempty"`
-	IsAutomated *BooleanWorkItemChangedFieldViewModel `json:"isAutomated,omitempty"`
-	SectionId *GuidWorkItemChangedFieldViewModel `json:"sectionId,omitempty"`
-	Description *StringWorkItemChangedFieldViewModel `json:"description,omitempty"`
-	State *StringWorkItemChangedFieldViewModel `json:"state,omitempty"`
-	Priority *StringWorkItemChangedFieldViewModel `json:"priority,omitempty"`
-	Duration *Int32WorkItemChangedFieldViewModel `json:"duration,omitempty"`
-	Attributes map[string]WorkItemChangedAttributeViewModel `json:"attributes,omitempty"`
-	Steps *WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel `json:"steps,omitempty"`
-	PreconditionSteps *WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel `json:"preconditionSteps,omitempty"`
-	PostconditionSteps *WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel `json:"postconditionSteps,omitempty"`
-	AutoTests *AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel `json:"autoTests,omitempty"`
-	Attachments *AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel `json:"attachments,omitempty"`
-	Tags *StringArrayWorkItemChangedFieldViewModel `json:"tags,omitempty"`
-	Links *WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel `json:"links,omitempty"`
-	GlobalId *Int64WorkItemChangedFieldViewModel `json:"globalId,omitempty"`
-	VersionNumber *Int32WorkItemChangedFieldViewModel `json:"versionNumber,omitempty"`
-	EntityTypeName *StringWorkItemChangedFieldViewModel `json:"entityTypeName,omitempty"`
+	Name NullableStringChangedFieldWithDiffsViewModel `json:"name,omitempty"`
+	IsDeleted *WorkItemChangedFieldsViewModelIsDeleted `json:"isDeleted,omitempty"`
+	ProjectId *WorkItemChangedFieldsViewModelProjectId `json:"projectId,omitempty"`
+	IsAutomated *WorkItemChangedFieldsViewModelIsDeleted `json:"isAutomated,omitempty"`
+	SectionId *WorkItemChangedFieldsViewModelProjectId `json:"sectionId,omitempty"`
+	Description NullableStringChangedFieldWithDiffsViewModel `json:"description,omitempty"`
+	State *WorkItemChangedFieldsViewModelState `json:"state,omitempty"`
+	Priority *WorkItemChangedFieldsViewModelState `json:"priority,omitempty"`
+	Duration *WorkItemChangedFieldsViewModelDuration `json:"duration,omitempty"`
+	Attributes *map[string]WorkItemChangedAttributeViewModel `json:"attributes,omitempty"`
+	Steps *WorkItemChangedFieldsViewModelSteps `json:"steps,omitempty"`
+	PreconditionSteps *WorkItemChangedFieldsViewModelSteps `json:"preconditionSteps,omitempty"`
+	PostconditionSteps *WorkItemChangedFieldsViewModelSteps `json:"postconditionSteps,omitempty"`
+	AutoTests *WorkItemChangedFieldsViewModelAutoTests `json:"autoTests,omitempty"`
+	Attachments *WorkItemChangedFieldsViewModelAttachments `json:"attachments,omitempty"`
+	Tags *WorkItemChangedFieldsViewModelTags `json:"tags,omitempty"`
+	Links *WorkItemChangedFieldsViewModelLinks `json:"links,omitempty"`
+	GlobalId *WorkItemChangedFieldsViewModelGlobalId `json:"globalId,omitempty"`
+	VersionNumber *WorkItemChangedFieldsViewModelDuration `json:"versionNumber,omitempty"`
+	EntityTypeName *WorkItemChangedFieldsViewModelState `json:"entityTypeName,omitempty"`
 }
 
 // NewWorkItemChangedFieldsViewModel instantiates a new WorkItemChangedFieldsViewModel object
@@ -58,42 +58,52 @@ func NewWorkItemChangedFieldsViewModelWithDefaults() *WorkItemChangedFieldsViewM
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetName() StringWorkItemChangedFieldViewModel {
-	if o == nil || IsNil(o.Name) {
-		var ret StringWorkItemChangedFieldViewModel
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemChangedFieldsViewModel) GetName() StringChangedFieldWithDiffsViewModel {
+	if o == nil || IsNil(o.Name.Get()) {
+		var ret StringChangedFieldWithDiffsViewModel
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetNameOk() (*StringWorkItemChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Name) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemChangedFieldsViewModel) GetNameOk() (*StringChangedFieldWithDiffsViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *WorkItemChangedFieldsViewModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given StringWorkItemChangedFieldViewModel and assigns it to the Name field.
-func (o *WorkItemChangedFieldsViewModel) SetName(v StringWorkItemChangedFieldViewModel) {
-	o.Name = &v
+// SetName gets a reference to the given NullableStringChangedFieldWithDiffsViewModel and assigns it to the Name field.
+func (o *WorkItemChangedFieldsViewModel) SetName(v StringChangedFieldWithDiffsViewModel) {
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *WorkItemChangedFieldsViewModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *WorkItemChangedFieldsViewModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetIsDeleted() BooleanWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetIsDeleted() WorkItemChangedFieldsViewModelIsDeleted {
 	if o == nil || IsNil(o.IsDeleted) {
-		var ret BooleanWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelIsDeleted
 		return ret
 	}
 	return *o.IsDeleted
@@ -101,7 +111,7 @@ func (o *WorkItemChangedFieldsViewModel) GetIsDeleted() BooleanWorkItemChangedFi
 
 // GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetIsDeletedOk() (*BooleanWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetIsDeletedOk() (*WorkItemChangedFieldsViewModelIsDeleted, bool) {
 	if o == nil || IsNil(o.IsDeleted) {
 		return nil, false
 	}
@@ -117,15 +127,15 @@ func (o *WorkItemChangedFieldsViewModel) HasIsDeleted() bool {
 	return false
 }
 
-// SetIsDeleted gets a reference to the given BooleanWorkItemChangedFieldViewModel and assigns it to the IsDeleted field.
-func (o *WorkItemChangedFieldsViewModel) SetIsDeleted(v BooleanWorkItemChangedFieldViewModel) {
+// SetIsDeleted gets a reference to the given WorkItemChangedFieldsViewModelIsDeleted and assigns it to the IsDeleted field.
+func (o *WorkItemChangedFieldsViewModel) SetIsDeleted(v WorkItemChangedFieldsViewModelIsDeleted) {
 	o.IsDeleted = &v
 }
 
 // GetProjectId returns the ProjectId field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetProjectId() GuidWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetProjectId() WorkItemChangedFieldsViewModelProjectId {
 	if o == nil || IsNil(o.ProjectId) {
-		var ret GuidWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelProjectId
 		return ret
 	}
 	return *o.ProjectId
@@ -133,7 +143,7 @@ func (o *WorkItemChangedFieldsViewModel) GetProjectId() GuidWorkItemChangedField
 
 // GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetProjectIdOk() (*GuidWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetProjectIdOk() (*WorkItemChangedFieldsViewModelProjectId, bool) {
 	if o == nil || IsNil(o.ProjectId) {
 		return nil, false
 	}
@@ -149,15 +159,15 @@ func (o *WorkItemChangedFieldsViewModel) HasProjectId() bool {
 	return false
 }
 
-// SetProjectId gets a reference to the given GuidWorkItemChangedFieldViewModel and assigns it to the ProjectId field.
-func (o *WorkItemChangedFieldsViewModel) SetProjectId(v GuidWorkItemChangedFieldViewModel) {
+// SetProjectId gets a reference to the given WorkItemChangedFieldsViewModelProjectId and assigns it to the ProjectId field.
+func (o *WorkItemChangedFieldsViewModel) SetProjectId(v WorkItemChangedFieldsViewModelProjectId) {
 	o.ProjectId = &v
 }
 
 // GetIsAutomated returns the IsAutomated field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetIsAutomated() BooleanWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetIsAutomated() WorkItemChangedFieldsViewModelIsDeleted {
 	if o == nil || IsNil(o.IsAutomated) {
-		var ret BooleanWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelIsDeleted
 		return ret
 	}
 	return *o.IsAutomated
@@ -165,7 +175,7 @@ func (o *WorkItemChangedFieldsViewModel) GetIsAutomated() BooleanWorkItemChanged
 
 // GetIsAutomatedOk returns a tuple with the IsAutomated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetIsAutomatedOk() (*BooleanWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetIsAutomatedOk() (*WorkItemChangedFieldsViewModelIsDeleted, bool) {
 	if o == nil || IsNil(o.IsAutomated) {
 		return nil, false
 	}
@@ -181,15 +191,15 @@ func (o *WorkItemChangedFieldsViewModel) HasIsAutomated() bool {
 	return false
 }
 
-// SetIsAutomated gets a reference to the given BooleanWorkItemChangedFieldViewModel and assigns it to the IsAutomated field.
-func (o *WorkItemChangedFieldsViewModel) SetIsAutomated(v BooleanWorkItemChangedFieldViewModel) {
+// SetIsAutomated gets a reference to the given WorkItemChangedFieldsViewModelIsDeleted and assigns it to the IsAutomated field.
+func (o *WorkItemChangedFieldsViewModel) SetIsAutomated(v WorkItemChangedFieldsViewModelIsDeleted) {
 	o.IsAutomated = &v
 }
 
 // GetSectionId returns the SectionId field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetSectionId() GuidWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetSectionId() WorkItemChangedFieldsViewModelProjectId {
 	if o == nil || IsNil(o.SectionId) {
-		var ret GuidWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelProjectId
 		return ret
 	}
 	return *o.SectionId
@@ -197,7 +207,7 @@ func (o *WorkItemChangedFieldsViewModel) GetSectionId() GuidWorkItemChangedField
 
 // GetSectionIdOk returns a tuple with the SectionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetSectionIdOk() (*GuidWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetSectionIdOk() (*WorkItemChangedFieldsViewModelProjectId, bool) {
 	if o == nil || IsNil(o.SectionId) {
 		return nil, false
 	}
@@ -213,47 +223,57 @@ func (o *WorkItemChangedFieldsViewModel) HasSectionId() bool {
 	return false
 }
 
-// SetSectionId gets a reference to the given GuidWorkItemChangedFieldViewModel and assigns it to the SectionId field.
-func (o *WorkItemChangedFieldsViewModel) SetSectionId(v GuidWorkItemChangedFieldViewModel) {
+// SetSectionId gets a reference to the given WorkItemChangedFieldsViewModelProjectId and assigns it to the SectionId field.
+func (o *WorkItemChangedFieldsViewModel) SetSectionId(v WorkItemChangedFieldsViewModelProjectId) {
 	o.SectionId = &v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetDescription() StringWorkItemChangedFieldViewModel {
-	if o == nil || IsNil(o.Description) {
-		var ret StringWorkItemChangedFieldViewModel
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemChangedFieldsViewModel) GetDescription() StringChangedFieldWithDiffsViewModel {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret StringChangedFieldWithDiffsViewModel
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetDescriptionOk() (*StringWorkItemChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Description) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemChangedFieldsViewModel) GetDescriptionOk() (*StringChangedFieldWithDiffsViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *WorkItemChangedFieldsViewModel) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given StringWorkItemChangedFieldViewModel and assigns it to the Description field.
-func (o *WorkItemChangedFieldsViewModel) SetDescription(v StringWorkItemChangedFieldViewModel) {
-	o.Description = &v
+// SetDescription gets a reference to the given NullableStringChangedFieldWithDiffsViewModel and assigns it to the Description field.
+func (o *WorkItemChangedFieldsViewModel) SetDescription(v StringChangedFieldWithDiffsViewModel) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *WorkItemChangedFieldsViewModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *WorkItemChangedFieldsViewModel) UnsetDescription() {
+	o.Description.Unset()
 }
 
 // GetState returns the State field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetState() StringWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetState() WorkItemChangedFieldsViewModelState {
 	if o == nil || IsNil(o.State) {
-		var ret StringWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelState
 		return ret
 	}
 	return *o.State
@@ -261,7 +281,7 @@ func (o *WorkItemChangedFieldsViewModel) GetState() StringWorkItemChangedFieldVi
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetStateOk() (*StringWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetStateOk() (*WorkItemChangedFieldsViewModelState, bool) {
 	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
@@ -277,15 +297,15 @@ func (o *WorkItemChangedFieldsViewModel) HasState() bool {
 	return false
 }
 
-// SetState gets a reference to the given StringWorkItemChangedFieldViewModel and assigns it to the State field.
-func (o *WorkItemChangedFieldsViewModel) SetState(v StringWorkItemChangedFieldViewModel) {
+// SetState gets a reference to the given WorkItemChangedFieldsViewModelState and assigns it to the State field.
+func (o *WorkItemChangedFieldsViewModel) SetState(v WorkItemChangedFieldsViewModelState) {
 	o.State = &v
 }
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetPriority() StringWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetPriority() WorkItemChangedFieldsViewModelState {
 	if o == nil || IsNil(o.Priority) {
-		var ret StringWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelState
 		return ret
 	}
 	return *o.Priority
@@ -293,7 +313,7 @@ func (o *WorkItemChangedFieldsViewModel) GetPriority() StringWorkItemChangedFiel
 
 // GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetPriorityOk() (*StringWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetPriorityOk() (*WorkItemChangedFieldsViewModelState, bool) {
 	if o == nil || IsNil(o.Priority) {
 		return nil, false
 	}
@@ -309,15 +329,15 @@ func (o *WorkItemChangedFieldsViewModel) HasPriority() bool {
 	return false
 }
 
-// SetPriority gets a reference to the given StringWorkItemChangedFieldViewModel and assigns it to the Priority field.
-func (o *WorkItemChangedFieldsViewModel) SetPriority(v StringWorkItemChangedFieldViewModel) {
+// SetPriority gets a reference to the given WorkItemChangedFieldsViewModelState and assigns it to the Priority field.
+func (o *WorkItemChangedFieldsViewModel) SetPriority(v WorkItemChangedFieldsViewModelState) {
 	o.Priority = &v
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetDuration() Int32WorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetDuration() WorkItemChangedFieldsViewModelDuration {
 	if o == nil || IsNil(o.Duration) {
-		var ret Int32WorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelDuration
 		return ret
 	}
 	return *o.Duration
@@ -325,7 +345,7 @@ func (o *WorkItemChangedFieldsViewModel) GetDuration() Int32WorkItemChangedField
 
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetDurationOk() (*Int32WorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetDurationOk() (*WorkItemChangedFieldsViewModelDuration, bool) {
 	if o == nil || IsNil(o.Duration) {
 		return nil, false
 	}
@@ -341,33 +361,32 @@ func (o *WorkItemChangedFieldsViewModel) HasDuration() bool {
 	return false
 }
 
-// SetDuration gets a reference to the given Int32WorkItemChangedFieldViewModel and assigns it to the Duration field.
-func (o *WorkItemChangedFieldsViewModel) SetDuration(v Int32WorkItemChangedFieldViewModel) {
+// SetDuration gets a reference to the given WorkItemChangedFieldsViewModelDuration and assigns it to the Duration field.
+func (o *WorkItemChangedFieldsViewModel) SetDuration(v WorkItemChangedFieldsViewModelDuration) {
 	o.Duration = &v
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
 func (o *WorkItemChangedFieldsViewModel) GetAttributes() map[string]WorkItemChangedAttributeViewModel {
-	if o == nil {
+	if o == nil || IsNil(o.Attributes) {
 		var ret map[string]WorkItemChangedAttributeViewModel
 		return ret
 	}
-	return o.Attributes
+	return *o.Attributes
 }
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemChangedFieldsViewModel) GetAttributesOk() (*map[string]WorkItemChangedAttributeViewModel, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return nil, false
 	}
-	return &o.Attributes, true
+	return o.Attributes, true
 }
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *WorkItemChangedFieldsViewModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -376,13 +395,13 @@ func (o *WorkItemChangedFieldsViewModel) HasAttributes() bool {
 
 // SetAttributes gets a reference to the given map[string]WorkItemChangedAttributeViewModel and assigns it to the Attributes field.
 func (o *WorkItemChangedFieldsViewModel) SetAttributes(v map[string]WorkItemChangedAttributeViewModel) {
-	o.Attributes = v
+	o.Attributes = &v
 }
 
 // GetSteps returns the Steps field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetSteps() WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetSteps() WorkItemChangedFieldsViewModelSteps {
 	if o == nil || IsNil(o.Steps) {
-		var ret WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelSteps
 		return ret
 	}
 	return *o.Steps
@@ -390,7 +409,7 @@ func (o *WorkItemChangedFieldsViewModel) GetSteps() WorkItemStepChangeViewModelA
 
 // GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetStepsOk() (*WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetStepsOk() (*WorkItemChangedFieldsViewModelSteps, bool) {
 	if o == nil || IsNil(o.Steps) {
 		return nil, false
 	}
@@ -406,15 +425,15 @@ func (o *WorkItemChangedFieldsViewModel) HasSteps() bool {
 	return false
 }
 
-// SetSteps gets a reference to the given WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel and assigns it to the Steps field.
-func (o *WorkItemChangedFieldsViewModel) SetSteps(v WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel) {
+// SetSteps gets a reference to the given WorkItemChangedFieldsViewModelSteps and assigns it to the Steps field.
+func (o *WorkItemChangedFieldsViewModel) SetSteps(v WorkItemChangedFieldsViewModelSteps) {
 	o.Steps = &v
 }
 
 // GetPreconditionSteps returns the PreconditionSteps field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetPreconditionSteps() WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetPreconditionSteps() WorkItemChangedFieldsViewModelSteps {
 	if o == nil || IsNil(o.PreconditionSteps) {
-		var ret WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelSteps
 		return ret
 	}
 	return *o.PreconditionSteps
@@ -422,7 +441,7 @@ func (o *WorkItemChangedFieldsViewModel) GetPreconditionSteps() WorkItemStepChan
 
 // GetPreconditionStepsOk returns a tuple with the PreconditionSteps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetPreconditionStepsOk() (*WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetPreconditionStepsOk() (*WorkItemChangedFieldsViewModelSteps, bool) {
 	if o == nil || IsNil(o.PreconditionSteps) {
 		return nil, false
 	}
@@ -438,15 +457,15 @@ func (o *WorkItemChangedFieldsViewModel) HasPreconditionSteps() bool {
 	return false
 }
 
-// SetPreconditionSteps gets a reference to the given WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel and assigns it to the PreconditionSteps field.
-func (o *WorkItemChangedFieldsViewModel) SetPreconditionSteps(v WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel) {
+// SetPreconditionSteps gets a reference to the given WorkItemChangedFieldsViewModelSteps and assigns it to the PreconditionSteps field.
+func (o *WorkItemChangedFieldsViewModel) SetPreconditionSteps(v WorkItemChangedFieldsViewModelSteps) {
 	o.PreconditionSteps = &v
 }
 
 // GetPostconditionSteps returns the PostconditionSteps field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetPostconditionSteps() WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetPostconditionSteps() WorkItemChangedFieldsViewModelSteps {
 	if o == nil || IsNil(o.PostconditionSteps) {
-		var ret WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelSteps
 		return ret
 	}
 	return *o.PostconditionSteps
@@ -454,7 +473,7 @@ func (o *WorkItemChangedFieldsViewModel) GetPostconditionSteps() WorkItemStepCha
 
 // GetPostconditionStepsOk returns a tuple with the PostconditionSteps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetPostconditionStepsOk() (*WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetPostconditionStepsOk() (*WorkItemChangedFieldsViewModelSteps, bool) {
 	if o == nil || IsNil(o.PostconditionSteps) {
 		return nil, false
 	}
@@ -470,15 +489,15 @@ func (o *WorkItemChangedFieldsViewModel) HasPostconditionSteps() bool {
 	return false
 }
 
-// SetPostconditionSteps gets a reference to the given WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel and assigns it to the PostconditionSteps field.
-func (o *WorkItemChangedFieldsViewModel) SetPostconditionSteps(v WorkItemStepChangeViewModelArrayWorkItemChangedFieldViewModel) {
+// SetPostconditionSteps gets a reference to the given WorkItemChangedFieldsViewModelSteps and assigns it to the PostconditionSteps field.
+func (o *WorkItemChangedFieldsViewModel) SetPostconditionSteps(v WorkItemChangedFieldsViewModelSteps) {
 	o.PostconditionSteps = &v
 }
 
 // GetAutoTests returns the AutoTests field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetAutoTests() AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetAutoTests() WorkItemChangedFieldsViewModelAutoTests {
 	if o == nil || IsNil(o.AutoTests) {
-		var ret AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelAutoTests
 		return ret
 	}
 	return *o.AutoTests
@@ -486,7 +505,7 @@ func (o *WorkItemChangedFieldsViewModel) GetAutoTests() AutoTestChangeViewModelA
 
 // GetAutoTestsOk returns a tuple with the AutoTests field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetAutoTestsOk() (*AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetAutoTestsOk() (*WorkItemChangedFieldsViewModelAutoTests, bool) {
 	if o == nil || IsNil(o.AutoTests) {
 		return nil, false
 	}
@@ -502,15 +521,15 @@ func (o *WorkItemChangedFieldsViewModel) HasAutoTests() bool {
 	return false
 }
 
-// SetAutoTests gets a reference to the given AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel and assigns it to the AutoTests field.
-func (o *WorkItemChangedFieldsViewModel) SetAutoTests(v AutoTestChangeViewModelArrayWorkItemChangedFieldViewModel) {
+// SetAutoTests gets a reference to the given WorkItemChangedFieldsViewModelAutoTests and assigns it to the AutoTests field.
+func (o *WorkItemChangedFieldsViewModel) SetAutoTests(v WorkItemChangedFieldsViewModelAutoTests) {
 	o.AutoTests = &v
 }
 
 // GetAttachments returns the Attachments field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetAttachments() AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetAttachments() WorkItemChangedFieldsViewModelAttachments {
 	if o == nil || IsNil(o.Attachments) {
-		var ret AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelAttachments
 		return ret
 	}
 	return *o.Attachments
@@ -518,7 +537,7 @@ func (o *WorkItemChangedFieldsViewModel) GetAttachments() AttachmentChangeViewMo
 
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetAttachmentsOk() (*AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetAttachmentsOk() (*WorkItemChangedFieldsViewModelAttachments, bool) {
 	if o == nil || IsNil(o.Attachments) {
 		return nil, false
 	}
@@ -534,15 +553,15 @@ func (o *WorkItemChangedFieldsViewModel) HasAttachments() bool {
 	return false
 }
 
-// SetAttachments gets a reference to the given AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel and assigns it to the Attachments field.
-func (o *WorkItemChangedFieldsViewModel) SetAttachments(v AttachmentChangeViewModelArrayWorkItemChangedFieldViewModel) {
+// SetAttachments gets a reference to the given WorkItemChangedFieldsViewModelAttachments and assigns it to the Attachments field.
+func (o *WorkItemChangedFieldsViewModel) SetAttachments(v WorkItemChangedFieldsViewModelAttachments) {
 	o.Attachments = &v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetTags() StringArrayWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetTags() WorkItemChangedFieldsViewModelTags {
 	if o == nil || IsNil(o.Tags) {
-		var ret StringArrayWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelTags
 		return ret
 	}
 	return *o.Tags
@@ -550,7 +569,7 @@ func (o *WorkItemChangedFieldsViewModel) GetTags() StringArrayWorkItemChangedFie
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetTagsOk() (*StringArrayWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetTagsOk() (*WorkItemChangedFieldsViewModelTags, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
@@ -566,15 +585,15 @@ func (o *WorkItemChangedFieldsViewModel) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given StringArrayWorkItemChangedFieldViewModel and assigns it to the Tags field.
-func (o *WorkItemChangedFieldsViewModel) SetTags(v StringArrayWorkItemChangedFieldViewModel) {
+// SetTags gets a reference to the given WorkItemChangedFieldsViewModelTags and assigns it to the Tags field.
+func (o *WorkItemChangedFieldsViewModel) SetTags(v WorkItemChangedFieldsViewModelTags) {
 	o.Tags = &v
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetLinks() WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetLinks() WorkItemChangedFieldsViewModelLinks {
 	if o == nil || IsNil(o.Links) {
-		var ret WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelLinks
 		return ret
 	}
 	return *o.Links
@@ -582,7 +601,7 @@ func (o *WorkItemChangedFieldsViewModel) GetLinks() WorkItemLinkChangeViewModelA
 
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetLinksOk() (*WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetLinksOk() (*WorkItemChangedFieldsViewModelLinks, bool) {
 	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
@@ -598,15 +617,15 @@ func (o *WorkItemChangedFieldsViewModel) HasLinks() bool {
 	return false
 }
 
-// SetLinks gets a reference to the given WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel and assigns it to the Links field.
-func (o *WorkItemChangedFieldsViewModel) SetLinks(v WorkItemLinkChangeViewModelArrayWorkItemChangedFieldViewModel) {
+// SetLinks gets a reference to the given WorkItemChangedFieldsViewModelLinks and assigns it to the Links field.
+func (o *WorkItemChangedFieldsViewModel) SetLinks(v WorkItemChangedFieldsViewModelLinks) {
 	o.Links = &v
 }
 
 // GetGlobalId returns the GlobalId field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetGlobalId() Int64WorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetGlobalId() WorkItemChangedFieldsViewModelGlobalId {
 	if o == nil || IsNil(o.GlobalId) {
-		var ret Int64WorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelGlobalId
 		return ret
 	}
 	return *o.GlobalId
@@ -614,7 +633,7 @@ func (o *WorkItemChangedFieldsViewModel) GetGlobalId() Int64WorkItemChangedField
 
 // GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetGlobalIdOk() (*Int64WorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetGlobalIdOk() (*WorkItemChangedFieldsViewModelGlobalId, bool) {
 	if o == nil || IsNil(o.GlobalId) {
 		return nil, false
 	}
@@ -630,15 +649,15 @@ func (o *WorkItemChangedFieldsViewModel) HasGlobalId() bool {
 	return false
 }
 
-// SetGlobalId gets a reference to the given Int64WorkItemChangedFieldViewModel and assigns it to the GlobalId field.
-func (o *WorkItemChangedFieldsViewModel) SetGlobalId(v Int64WorkItemChangedFieldViewModel) {
+// SetGlobalId gets a reference to the given WorkItemChangedFieldsViewModelGlobalId and assigns it to the GlobalId field.
+func (o *WorkItemChangedFieldsViewModel) SetGlobalId(v WorkItemChangedFieldsViewModelGlobalId) {
 	o.GlobalId = &v
 }
 
 // GetVersionNumber returns the VersionNumber field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetVersionNumber() Int32WorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetVersionNumber() WorkItemChangedFieldsViewModelDuration {
 	if o == nil || IsNil(o.VersionNumber) {
-		var ret Int32WorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelDuration
 		return ret
 	}
 	return *o.VersionNumber
@@ -646,7 +665,7 @@ func (o *WorkItemChangedFieldsViewModel) GetVersionNumber() Int32WorkItemChanged
 
 // GetVersionNumberOk returns a tuple with the VersionNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetVersionNumberOk() (*Int32WorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetVersionNumberOk() (*WorkItemChangedFieldsViewModelDuration, bool) {
 	if o == nil || IsNil(o.VersionNumber) {
 		return nil, false
 	}
@@ -662,15 +681,15 @@ func (o *WorkItemChangedFieldsViewModel) HasVersionNumber() bool {
 	return false
 }
 
-// SetVersionNumber gets a reference to the given Int32WorkItemChangedFieldViewModel and assigns it to the VersionNumber field.
-func (o *WorkItemChangedFieldsViewModel) SetVersionNumber(v Int32WorkItemChangedFieldViewModel) {
+// SetVersionNumber gets a reference to the given WorkItemChangedFieldsViewModelDuration and assigns it to the VersionNumber field.
+func (o *WorkItemChangedFieldsViewModel) SetVersionNumber(v WorkItemChangedFieldsViewModelDuration) {
 	o.VersionNumber = &v
 }
 
 // GetEntityTypeName returns the EntityTypeName field value if set, zero value otherwise.
-func (o *WorkItemChangedFieldsViewModel) GetEntityTypeName() StringWorkItemChangedFieldViewModel {
+func (o *WorkItemChangedFieldsViewModel) GetEntityTypeName() WorkItemChangedFieldsViewModelState {
 	if o == nil || IsNil(o.EntityTypeName) {
-		var ret StringWorkItemChangedFieldViewModel
+		var ret WorkItemChangedFieldsViewModelState
 		return ret
 	}
 	return *o.EntityTypeName
@@ -678,7 +697,7 @@ func (o *WorkItemChangedFieldsViewModel) GetEntityTypeName() StringWorkItemChang
 
 // GetEntityTypeNameOk returns a tuple with the EntityTypeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangedFieldsViewModel) GetEntityTypeNameOk() (*StringWorkItemChangedFieldViewModel, bool) {
+func (o *WorkItemChangedFieldsViewModel) GetEntityTypeNameOk() (*WorkItemChangedFieldsViewModelState, bool) {
 	if o == nil || IsNil(o.EntityTypeName) {
 		return nil, false
 	}
@@ -694,8 +713,8 @@ func (o *WorkItemChangedFieldsViewModel) HasEntityTypeName() bool {
 	return false
 }
 
-// SetEntityTypeName gets a reference to the given StringWorkItemChangedFieldViewModel and assigns it to the EntityTypeName field.
-func (o *WorkItemChangedFieldsViewModel) SetEntityTypeName(v StringWorkItemChangedFieldViewModel) {
+// SetEntityTypeName gets a reference to the given WorkItemChangedFieldsViewModelState and assigns it to the EntityTypeName field.
+func (o *WorkItemChangedFieldsViewModel) SetEntityTypeName(v WorkItemChangedFieldsViewModelState) {
 	o.EntityTypeName = &v
 }
 
@@ -709,8 +728,8 @@ func (o WorkItemChangedFieldsViewModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemChangedFieldsViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
@@ -724,8 +743,8 @@ func (o WorkItemChangedFieldsViewModel) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.SectionId) {
 		toSerialize["sectionId"] = o.SectionId
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
 	if !IsNil(o.State) {
 		toSerialize["state"] = o.State
@@ -736,7 +755,7 @@ func (o WorkItemChangedFieldsViewModel) ToMap() (map[string]interface{}, error) 
 	if !IsNil(o.Duration) {
 		toSerialize["duration"] = o.Duration
 	}
-	if o.Attributes != nil {
+	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
 	if !IsNil(o.Steps) {

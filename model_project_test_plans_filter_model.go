@@ -26,12 +26,12 @@ type ProjectTestPlansFilterModel struct {
 	Status []TestPlanStatusModel `json:"status,omitempty"`
 	GlobalIds []int64 `json:"globalIds,omitempty"`
 	IsLocked NullableBool `json:"isLocked,omitempty"`
-	LockedDate *DateTimeRangeSelectorModel `json:"lockedDate,omitempty"`
+	LockedDate NullableDateTimeRangeSelectorModel `json:"lockedDate,omitempty"`
 	AutomaticDurationTimer []bool `json:"automaticDurationTimer,omitempty"`
 	CreatedByIds []string `json:"createdByIds,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
-	StartDate *DateTimeRangeSelectorModel `json:"startDate,omitempty"`
-	EndDate *DateTimeRangeSelectorModel `json:"endDate,omitempty"`
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	StartDate NullableDateTimeRangeSelectorModel `json:"startDate,omitempty"`
+	EndDate NullableDateTimeRangeSelectorModel `json:"endDate,omitempty"`
 	TagNames []string `json:"tagNames,omitempty"`
 	Attributes map[string][]string `json:"attributes,omitempty"`
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
@@ -330,36 +330,46 @@ func (o *ProjectTestPlansFilterModel) UnsetIsLocked() {
 	o.IsLocked.Unset()
 }
 
-// GetLockedDate returns the LockedDate field value if set, zero value otherwise.
+// GetLockedDate returns the LockedDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectTestPlansFilterModel) GetLockedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.LockedDate) {
+	if o == nil || IsNil(o.LockedDate.Get()) {
 		var ret DateTimeRangeSelectorModel
 		return ret
 	}
-	return *o.LockedDate
+	return *o.LockedDate.Get()
 }
 
 // GetLockedDateOk returns a tuple with the LockedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectTestPlansFilterModel) GetLockedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.LockedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LockedDate, true
+	return o.LockedDate.Get(), o.LockedDate.IsSet()
 }
 
 // HasLockedDate returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasLockedDate() bool {
-	if o != nil && !IsNil(o.LockedDate) {
+	if o != nil && o.LockedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLockedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the LockedDate field.
+// SetLockedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the LockedDate field.
 func (o *ProjectTestPlansFilterModel) SetLockedDate(v DateTimeRangeSelectorModel) {
-	o.LockedDate = &v
+	o.LockedDate.Set(&v)
+}
+// SetLockedDateNil sets the value for LockedDate to be an explicit nil
+func (o *ProjectTestPlansFilterModel) SetLockedDateNil() {
+	o.LockedDate.Set(nil)
+}
+
+// UnsetLockedDate ensures that no value is present for LockedDate, not even an explicit nil
+func (o *ProjectTestPlansFilterModel) UnsetLockedDate() {
+	o.LockedDate.Unset()
 }
 
 // GetAutomaticDurationTimer returns the AutomaticDurationTimer field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -428,100 +438,130 @@ func (o *ProjectTestPlansFilterModel) SetCreatedByIds(v []string) {
 	o.CreatedByIds = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectTestPlansFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
 		var ret DateTimeRangeSelectorModel
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectTestPlansFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
 func (o *ProjectTestPlansFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *ProjectTestPlansFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
 }
 
-// GetStartDate returns the StartDate field value if set, zero value otherwise.
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *ProjectTestPlansFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
+}
+
+// GetStartDate returns the StartDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectTestPlansFilterModel) GetStartDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.StartDate) {
+	if o == nil || IsNil(o.StartDate.Get()) {
 		var ret DateTimeRangeSelectorModel
 		return ret
 	}
-	return *o.StartDate
+	return *o.StartDate.Get()
 }
 
 // GetStartDateOk returns a tuple with the StartDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectTestPlansFilterModel) GetStartDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.StartDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartDate, true
+	return o.StartDate.Get(), o.StartDate.IsSet()
 }
 
 // HasStartDate returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasStartDate() bool {
-	if o != nil && !IsNil(o.StartDate) {
+	if o != nil && o.StartDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStartDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the StartDate field.
+// SetStartDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the StartDate field.
 func (o *ProjectTestPlansFilterModel) SetStartDate(v DateTimeRangeSelectorModel) {
-	o.StartDate = &v
+	o.StartDate.Set(&v)
+}
+// SetStartDateNil sets the value for StartDate to be an explicit nil
+func (o *ProjectTestPlansFilterModel) SetStartDateNil() {
+	o.StartDate.Set(nil)
 }
 
-// GetEndDate returns the EndDate field value if set, zero value otherwise.
+// UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
+func (o *ProjectTestPlansFilterModel) UnsetStartDate() {
+	o.StartDate.Unset()
+}
+
+// GetEndDate returns the EndDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectTestPlansFilterModel) GetEndDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.EndDate) {
+	if o == nil || IsNil(o.EndDate.Get()) {
 		var ret DateTimeRangeSelectorModel
 		return ret
 	}
-	return *o.EndDate
+	return *o.EndDate.Get()
 }
 
 // GetEndDateOk returns a tuple with the EndDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectTestPlansFilterModel) GetEndDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.EndDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EndDate, true
+	return o.EndDate.Get(), o.EndDate.IsSet()
 }
 
 // HasEndDate returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasEndDate() bool {
-	if o != nil && !IsNil(o.EndDate) {
+	if o != nil && o.EndDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetEndDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the EndDate field.
+// SetEndDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the EndDate field.
 func (o *ProjectTestPlansFilterModel) SetEndDate(v DateTimeRangeSelectorModel) {
-	o.EndDate = &v
+	o.EndDate.Set(&v)
+}
+// SetEndDateNil sets the value for EndDate to be an explicit nil
+func (o *ProjectTestPlansFilterModel) SetEndDateNil() {
+	o.EndDate.Set(nil)
+}
+
+// UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
+func (o *ProjectTestPlansFilterModel) UnsetEndDate() {
+	o.EndDate.Unset()
 }
 
 // GetTagNames returns the TagNames field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -663,8 +703,8 @@ func (o ProjectTestPlansFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.IsLocked.IsSet() {
 		toSerialize["isLocked"] = o.IsLocked.Get()
 	}
-	if !IsNil(o.LockedDate) {
-		toSerialize["lockedDate"] = o.LockedDate
+	if o.LockedDate.IsSet() {
+		toSerialize["lockedDate"] = o.LockedDate.Get()
 	}
 	if o.AutomaticDurationTimer != nil {
 		toSerialize["automaticDurationTimer"] = o.AutomaticDurationTimer
@@ -672,14 +712,14 @@ func (o ProjectTestPlansFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
-	if !IsNil(o.StartDate) {
-		toSerialize["startDate"] = o.StartDate
+	if o.StartDate.IsSet() {
+		toSerialize["startDate"] = o.StartDate.Get()
 	}
-	if !IsNil(o.EndDate) {
-		toSerialize["endDate"] = o.EndDate
+	if o.EndDate.IsSet() {
+		toSerialize["endDate"] = o.EndDate.Get()
 	}
 	if o.TagNames != nil {
 		toSerialize["tagNames"] = o.TagNames

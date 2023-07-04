@@ -20,10 +20,7 @@ var _ MappedNullable = &ConfigurationPostModel{}
 // ConfigurationPostModel struct for ConfigurationPostModel
 type ConfigurationPostModel struct {
 	Description NullableString `json:"description,omitempty"`
-	IsActive *bool `json:"isActive,omitempty"`
-	// Deprecated
-	Capabilities map[string]string `json:"capabilities,omitempty"`
-	Parameters map[string]string `json:"parameters,omitempty"`
+	Parameters map[string]string `json:"parameters"`
 	// This property is used to link configuration with project
 	ProjectId string `json:"projectId"`
 	IsDefault *bool `json:"isDefault,omitempty"`
@@ -34,8 +31,9 @@ type ConfigurationPostModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConfigurationPostModel(projectId string, name string) *ConfigurationPostModel {
+func NewConfigurationPostModel(parameters map[string]string, projectId string, name string) *ConfigurationPostModel {
 	this := ConfigurationPostModel{}
+	this.Parameters = parameters
 	this.ProjectId = projectId
 	this.Name = name
 	return &this
@@ -91,103 +89,26 @@ func (o *ConfigurationPostModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetIsActive returns the IsActive field value if set, zero value otherwise.
-func (o *ConfigurationPostModel) GetIsActive() bool {
-	if o == nil || IsNil(o.IsActive) {
-		var ret bool
-		return ret
-	}
-	return *o.IsActive
-}
-
-// GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ConfigurationPostModel) GetIsActiveOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsActive) {
-		return nil, false
-	}
-	return o.IsActive, true
-}
-
-// HasIsActive returns a boolean if a field has been set.
-func (o *ConfigurationPostModel) HasIsActive() bool {
-	if o != nil && !IsNil(o.IsActive) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsActive gets a reference to the given bool and assigns it to the IsActive field.
-func (o *ConfigurationPostModel) SetIsActive(v bool) {
-	o.IsActive = &v
-}
-
-// GetCapabilities returns the Capabilities field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
-func (o *ConfigurationPostModel) GetCapabilities() map[string]string {
-	if o == nil {
-		var ret map[string]string
-		return ret
-	}
-	return o.Capabilities
-}
-
-// GetCapabilitiesOk returns a tuple with the Capabilities field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
-func (o *ConfigurationPostModel) GetCapabilitiesOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.Capabilities) {
-		return nil, false
-	}
-	return &o.Capabilities, true
-}
-
-// HasCapabilities returns a boolean if a field has been set.
-func (o *ConfigurationPostModel) HasCapabilities() bool {
-	if o != nil && IsNil(o.Capabilities) {
-		return true
-	}
-
-	return false
-}
-
-// SetCapabilities gets a reference to the given map[string]string and assigns it to the Capabilities field.
-// Deprecated
-func (o *ConfigurationPostModel) SetCapabilities(v map[string]string) {
-	o.Capabilities = v
-}
-
-// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetParameters returns the Parameters field value
 func (o *ConfigurationPostModel) GetParameters() map[string]string {
 	if o == nil {
 		var ret map[string]string
 		return ret
 	}
+
 	return o.Parameters
 }
 
-// GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
+// GetParametersOk returns a tuple with the Parameters field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConfigurationPostModel) GetParametersOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.Parameters) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Parameters, true
 }
 
-// HasParameters returns a boolean if a field has been set.
-func (o *ConfigurationPostModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
-		return true
-	}
-
-	return false
-}
-
-// SetParameters gets a reference to the given map[string]string and assigns it to the Parameters field.
+// SetParameters sets field value
 func (o *ConfigurationPostModel) SetParameters(v map[string]string) {
 	o.Parameters = v
 }
@@ -285,15 +206,7 @@ func (o ConfigurationPostModel) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.IsActive) {
-		toSerialize["isActive"] = o.IsActive
-	}
-	if o.Capabilities != nil {
-		toSerialize["capabilities"] = o.Capabilities
-	}
-	if o.Parameters != nil {
-		toSerialize["parameters"] = o.Parameters
-	}
+	toSerialize["parameters"] = o.Parameters
 	toSerialize["projectId"] = o.ProjectId
 	if !IsNil(o.IsDefault) {
 		toSerialize["isDefault"] = o.IsDefault

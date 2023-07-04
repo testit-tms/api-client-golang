@@ -72,9 +72,9 @@ func (o *IterationModel) SetId(v string) {
 	o.Id = &v
 }
 
-// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetParameters returns the Parameters field value if set, zero value otherwise.
 func (o *IterationModel) GetParameters() []ParameterShortModel {
-	if o == nil {
+	if o == nil || IsNil(o.Parameters) {
 		var ret []ParameterShortModel
 		return ret
 	}
@@ -83,7 +83,6 @@ func (o *IterationModel) GetParameters() []ParameterShortModel {
 
 // GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IterationModel) GetParametersOk() ([]ParameterShortModel, bool) {
 	if o == nil || IsNil(o.Parameters) {
 		return nil, false
@@ -93,7 +92,7 @@ func (o *IterationModel) GetParametersOk() ([]ParameterShortModel, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *IterationModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 
@@ -118,7 +117,7 @@ func (o IterationModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Parameters != nil {
+	if !IsNil(o.Parameters) {
 		toSerialize["parameters"] = o.Parameters
 	}
 	return toSerialize, nil

@@ -1001,9 +1001,9 @@ func (o *TestResultHistoryReportModel) UnsetLaunchSource() {
 	o.LaunchSource.Unset()
 }
 
-// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise.
 func (o *TestResultHistoryReportModel) GetFailureClassIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.FailureClassIds) {
 		var ret []string
 		return ret
 	}
@@ -1012,7 +1012,6 @@ func (o *TestResultHistoryReportModel) GetFailureClassIds() []string {
 
 // GetFailureClassIdsOk returns a tuple with the FailureClassIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultHistoryReportModel) GetFailureClassIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.FailureClassIds) {
 		return nil, false
@@ -1022,7 +1021,7 @@ func (o *TestResultHistoryReportModel) GetFailureClassIdsOk() ([]string, bool) {
 
 // HasFailureClassIds returns a boolean if a field has been set.
 func (o *TestResultHistoryReportModel) HasFailureClassIds() bool {
-	if o != nil && IsNil(o.FailureClassIds) {
+	if o != nil && !IsNil(o.FailureClassIds) {
 		return true
 	}
 
@@ -1149,7 +1148,7 @@ func (o TestResultHistoryReportModel) ToMap() (map[string]interface{}, error) {
 	if o.LaunchSource.IsSet() {
 		toSerialize["launchSource"] = o.LaunchSource.Get()
 	}
-	if o.FailureClassIds != nil {
+	if !IsNil(o.FailureClassIds) {
 		toSerialize["failureClassIds"] = o.FailureClassIds
 	}
 	if o.Parameters != nil {

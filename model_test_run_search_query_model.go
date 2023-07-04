@@ -21,8 +21,8 @@ var _ MappedNullable = &TestRunSearchQueryModel{}
 type TestRunSearchQueryModel struct {
 	Name NullableString `json:"name,omitempty"`
 	States []TestRunState `json:"states,omitempty"`
-	StartedDate *DateTimeRangeSelectorModel `json:"startedDate,omitempty"`
-	CompletedDate *DateTimeRangeSelectorModel `json:"completedDate,omitempty"`
+	StartedDate NullableDateTimeRangeSelectorModel `json:"startedDate,omitempty"`
+	CompletedDate NullableDateTimeRangeSelectorModel `json:"completedDate,omitempty"`
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 }
@@ -119,68 +119,88 @@ func (o *TestRunSearchQueryModel) SetStates(v []TestRunState) {
 	o.States = v
 }
 
-// GetStartedDate returns the StartedDate field value if set, zero value otherwise.
+// GetStartedDate returns the StartedDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestRunSearchQueryModel) GetStartedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.StartedDate) {
+	if o == nil || IsNil(o.StartedDate.Get()) {
 		var ret DateTimeRangeSelectorModel
 		return ret
 	}
-	return *o.StartedDate
+	return *o.StartedDate.Get()
 }
 
 // GetStartedDateOk returns a tuple with the StartedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunSearchQueryModel) GetStartedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.StartedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StartedDate, true
+	return o.StartedDate.Get(), o.StartedDate.IsSet()
 }
 
 // HasStartedDate returns a boolean if a field has been set.
 func (o *TestRunSearchQueryModel) HasStartedDate() bool {
-	if o != nil && !IsNil(o.StartedDate) {
+	if o != nil && o.StartedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStartedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the StartedDate field.
+// SetStartedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the StartedDate field.
 func (o *TestRunSearchQueryModel) SetStartedDate(v DateTimeRangeSelectorModel) {
-	o.StartedDate = &v
+	o.StartedDate.Set(&v)
+}
+// SetStartedDateNil sets the value for StartedDate to be an explicit nil
+func (o *TestRunSearchQueryModel) SetStartedDateNil() {
+	o.StartedDate.Set(nil)
 }
 
-// GetCompletedDate returns the CompletedDate field value if set, zero value otherwise.
+// UnsetStartedDate ensures that no value is present for StartedDate, not even an explicit nil
+func (o *TestRunSearchQueryModel) UnsetStartedDate() {
+	o.StartedDate.Unset()
+}
+
+// GetCompletedDate returns the CompletedDate field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestRunSearchQueryModel) GetCompletedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CompletedDate) {
+	if o == nil || IsNil(o.CompletedDate.Get()) {
 		var ret DateTimeRangeSelectorModel
 		return ret
 	}
-	return *o.CompletedDate
+	return *o.CompletedDate.Get()
 }
 
 // GetCompletedDateOk returns a tuple with the CompletedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunSearchQueryModel) GetCompletedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CompletedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CompletedDate, true
+	return o.CompletedDate.Get(), o.CompletedDate.IsSet()
 }
 
 // HasCompletedDate returns a boolean if a field has been set.
 func (o *TestRunSearchQueryModel) HasCompletedDate() bool {
-	if o != nil && !IsNil(o.CompletedDate) {
+	if o != nil && o.CompletedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCompletedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CompletedDate field.
+// SetCompletedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CompletedDate field.
 func (o *TestRunSearchQueryModel) SetCompletedDate(v DateTimeRangeSelectorModel) {
-	o.CompletedDate = &v
+	o.CompletedDate.Set(&v)
+}
+// SetCompletedDateNil sets the value for CompletedDate to be an explicit nil
+func (o *TestRunSearchQueryModel) SetCompletedDateNil() {
+	o.CompletedDate.Set(nil)
+}
+
+// UnsetCompletedDate ensures that no value is present for CompletedDate, not even an explicit nil
+func (o *TestRunSearchQueryModel) UnsetCompletedDate() {
+	o.CompletedDate.Unset()
 }
 
 // GetCreatedByIds returns the CreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -265,11 +285,11 @@ func (o TestRunSearchQueryModel) ToMap() (map[string]interface{}, error) {
 	if o.States != nil {
 		toSerialize["states"] = o.States
 	}
-	if !IsNil(o.StartedDate) {
-		toSerialize["startedDate"] = o.StartedDate
+	if o.StartedDate.IsSet() {
+		toSerialize["startedDate"] = o.StartedDate.Get()
 	}
-	if !IsNil(o.CompletedDate) {
-		toSerialize["completedDate"] = o.CompletedDate
+	if o.CompletedDate.IsSet() {
+		toSerialize["completedDate"] = o.CompletedDate.Get()
 	}
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds

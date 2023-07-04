@@ -22,8 +22,8 @@ var _ MappedNullable = &SharedStepReferenceModel{}
 type SharedStepReferenceModel struct {
 	Id *string `json:"id,omitempty"`
 	GlobalId *int64 `json:"globalId,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	EntityTypeName NullableString `json:"entityTypeName,omitempty"`
+	Name *string `json:"name,omitempty"`
+	EntityTypeName *string `json:"entityTypeName,omitempty"`
 	HasThisSharedStepAsStep *bool `json:"hasThisSharedStepAsStep,omitempty"`
 	HasThisSharedStepAsPrecondition *bool `json:"hasThisSharedStepAsPrecondition,omitempty"`
 	HasThisSharedStepAsPostcondition *bool `json:"hasThisSharedStepAsPostcondition,omitempty"`
@@ -31,7 +31,7 @@ type SharedStepReferenceModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	State NullableString `json:"state,omitempty"`
+	State *string `json:"state,omitempty"`
 	Priority WorkItemPriorityModel `json:"priority"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// used for versioning changes in workitem
@@ -123,88 +123,68 @@ func (o *SharedStepReferenceModel) SetGlobalId(v int64) {
 	o.GlobalId = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *SharedStepReferenceModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepReferenceModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *SharedStepReferenceModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *SharedStepReferenceModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *SharedStepReferenceModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *SharedStepReferenceModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetEntityTypeName returns the EntityTypeName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetEntityTypeName returns the EntityTypeName field value if set, zero value otherwise.
 func (o *SharedStepReferenceModel) GetEntityTypeName() string {
-	if o == nil || IsNil(o.EntityTypeName.Get()) {
+	if o == nil || IsNil(o.EntityTypeName) {
 		var ret string
 		return ret
 	}
-	return *o.EntityTypeName.Get()
+	return *o.EntityTypeName
 }
 
 // GetEntityTypeNameOk returns a tuple with the EntityTypeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepReferenceModel) GetEntityTypeNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.EntityTypeName) {
 		return nil, false
 	}
-	return o.EntityTypeName.Get(), o.EntityTypeName.IsSet()
+	return o.EntityTypeName, true
 }
 
 // HasEntityTypeName returns a boolean if a field has been set.
 func (o *SharedStepReferenceModel) HasEntityTypeName() bool {
-	if o != nil && o.EntityTypeName.IsSet() {
+	if o != nil && !IsNil(o.EntityTypeName) {
 		return true
 	}
 
 	return false
 }
 
-// SetEntityTypeName gets a reference to the given NullableString and assigns it to the EntityTypeName field.
+// SetEntityTypeName gets a reference to the given string and assigns it to the EntityTypeName field.
 func (o *SharedStepReferenceModel) SetEntityTypeName(v string) {
-	o.EntityTypeName.Set(&v)
-}
-// SetEntityTypeNameNil sets the value for EntityTypeName to be an explicit nil
-func (o *SharedStepReferenceModel) SetEntityTypeNameNil() {
-	o.EntityTypeName.Set(nil)
-}
-
-// UnsetEntityTypeName ensures that no value is present for EntityTypeName, not even an explicit nil
-func (o *SharedStepReferenceModel) UnsetEntityTypeName() {
-	o.EntityTypeName.Unset()
+	o.EntityTypeName = &v
 }
 
 // GetHasThisSharedStepAsStep returns the HasThisSharedStepAsStep field value if set, zero value otherwise.
@@ -461,46 +441,36 @@ func (o *SharedStepReferenceModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetState returns the State field value if set, zero value otherwise.
 func (o *SharedStepReferenceModel) GetState() string {
-	if o == nil || IsNil(o.State.Get()) {
+	if o == nil || IsNil(o.State) {
 		var ret string
 		return ret
 	}
-	return *o.State.Get()
+	return *o.State
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepReferenceModel) GetStateOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.State) {
 		return nil, false
 	}
-	return o.State.Get(), o.State.IsSet()
+	return o.State, true
 }
 
 // HasState returns a boolean if a field has been set.
 func (o *SharedStepReferenceModel) HasState() bool {
-	if o != nil && o.State.IsSet() {
+	if o != nil && !IsNil(o.State) {
 		return true
 	}
 
 	return false
 }
 
-// SetState gets a reference to the given NullableString and assigns it to the State field.
+// SetState gets a reference to the given string and assigns it to the State field.
 func (o *SharedStepReferenceModel) SetState(v string) {
-	o.State.Set(&v)
-}
-// SetStateNil sets the value for State to be an explicit nil
-func (o *SharedStepReferenceModel) SetStateNil() {
-	o.State.Set(nil)
-}
-
-// UnsetState ensures that no value is present for State, not even an explicit nil
-func (o *SharedStepReferenceModel) UnsetState() {
-	o.State.Unset()
+	o.State = &v
 }
 
 // GetPriority returns the Priority field value
@@ -704,11 +674,11 @@ func (o SharedStepReferenceModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.GlobalId) {
 		toSerialize["globalId"] = o.GlobalId
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.EntityTypeName.IsSet() {
-		toSerialize["entityTypeName"] = o.EntityTypeName.Get()
+	if !IsNil(o.EntityTypeName) {
+		toSerialize["entityTypeName"] = o.EntityTypeName
 	}
 	if !IsNil(o.HasThisSharedStepAsStep) {
 		toSerialize["hasThisSharedStepAsStep"] = o.HasThisSharedStepAsStep
@@ -731,8 +701,8 @@ func (o SharedStepReferenceModel) ToMap() (map[string]interface{}, error) {
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if o.State.IsSet() {
-		toSerialize["state"] = o.State.Get()
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
 	}
 	toSerialize["priority"] = o.Priority
 	if !IsNil(o.IsDeleted) {

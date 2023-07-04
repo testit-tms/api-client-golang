@@ -30,9 +30,9 @@ type WebHookPostModel struct {
 	// Indicates if the webhook sends body
 	ShouldSendBody *bool `json:"shouldSendBody,omitempty"`
 	// Collection of the webhook headers
-	Headers map[string]string `json:"headers,omitempty"`
+	Headers *map[string]string `json:"headers,omitempty"`
 	// Collection of the webhook query parameters
-	QueryParameters map[string]string `json:"queryParameters,omitempty"`
+	QueryParameters *map[string]string `json:"queryParameters,omitempty"`
 	// Indicates if the webhook is active
 	IsEnabled *bool `json:"isEnabled,omitempty"`
 	// Indicates if the webhook sends custom body
@@ -239,28 +239,27 @@ func (o *WebHookPostModel) SetShouldSendBody(v bool) {
 	o.ShouldSendBody = &v
 }
 
-// GetHeaders returns the Headers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHeaders returns the Headers field value if set, zero value otherwise.
 func (o *WebHookPostModel) GetHeaders() map[string]string {
-	if o == nil {
+	if o == nil || IsNil(o.Headers) {
 		var ret map[string]string
 		return ret
 	}
-	return o.Headers
+	return *o.Headers
 }
 
 // GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookPostModel) GetHeadersOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Headers) {
 		return nil, false
 	}
-	return &o.Headers, true
+	return o.Headers, true
 }
 
 // HasHeaders returns a boolean if a field has been set.
 func (o *WebHookPostModel) HasHeaders() bool {
-	if o != nil && IsNil(o.Headers) {
+	if o != nil && !IsNil(o.Headers) {
 		return true
 	}
 
@@ -269,31 +268,30 @@ func (o *WebHookPostModel) HasHeaders() bool {
 
 // SetHeaders gets a reference to the given map[string]string and assigns it to the Headers field.
 func (o *WebHookPostModel) SetHeaders(v map[string]string) {
-	o.Headers = v
+	o.Headers = &v
 }
 
-// GetQueryParameters returns the QueryParameters field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetQueryParameters returns the QueryParameters field value if set, zero value otherwise.
 func (o *WebHookPostModel) GetQueryParameters() map[string]string {
-	if o == nil {
+	if o == nil || IsNil(o.QueryParameters) {
 		var ret map[string]string
 		return ret
 	}
-	return o.QueryParameters
+	return *o.QueryParameters
 }
 
 // GetQueryParametersOk returns a tuple with the QueryParameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookPostModel) GetQueryParametersOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.QueryParameters) {
 		return nil, false
 	}
-	return &o.QueryParameters, true
+	return o.QueryParameters, true
 }
 
 // HasQueryParameters returns a boolean if a field has been set.
 func (o *WebHookPostModel) HasQueryParameters() bool {
-	if o != nil && IsNil(o.QueryParameters) {
+	if o != nil && !IsNil(o.QueryParameters) {
 		return true
 	}
 
@@ -302,7 +300,7 @@ func (o *WebHookPostModel) HasQueryParameters() bool {
 
 // SetQueryParameters gets a reference to the given map[string]string and assigns it to the QueryParameters field.
 func (o *WebHookPostModel) SetQueryParameters(v map[string]string) {
-	o.QueryParameters = v
+	o.QueryParameters = &v
 }
 
 // GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
@@ -519,10 +517,10 @@ func (o WebHookPostModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ShouldSendBody) {
 		toSerialize["shouldSendBody"] = o.ShouldSendBody
 	}
-	if o.Headers != nil {
+	if !IsNil(o.Headers) {
 		toSerialize["headers"] = o.Headers
 	}
-	if o.QueryParameters != nil {
+	if !IsNil(o.QueryParameters) {
 		toSerialize["queryParameters"] = o.QueryParameters
 	}
 	if !IsNil(o.IsEnabled) {

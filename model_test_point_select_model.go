@@ -19,8 +19,8 @@ var _ MappedNullable = &TestPointSelectModel{}
 
 // TestPointSelectModel struct for TestPointSelectModel
 type TestPointSelectModel struct {
-	Filter *TestPointFilterModel `json:"filter,omitempty"`
-	ExtractionModel *TestPointsExtractionModel `json:"extractionModel,omitempty"`
+	Filter *ApiV2TestPointsSearchPostRequest `json:"filter,omitempty"`
+	ExtractionModel *TestPointSelectModelExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewTestPointSelectModel instantiates a new TestPointSelectModel object
@@ -41,9 +41,9 @@ func NewTestPointSelectModelWithDefaults() *TestPointSelectModel {
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise.
-func (o *TestPointSelectModel) GetFilter() TestPointFilterModel {
+func (o *TestPointSelectModel) GetFilter() ApiV2TestPointsSearchPostRequest {
 	if o == nil || IsNil(o.Filter) {
-		var ret TestPointFilterModel
+		var ret ApiV2TestPointsSearchPostRequest
 		return ret
 	}
 	return *o.Filter
@@ -51,7 +51,7 @@ func (o *TestPointSelectModel) GetFilter() TestPointFilterModel {
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPointSelectModel) GetFilterOk() (*TestPointFilterModel, bool) {
+func (o *TestPointSelectModel) GetFilterOk() (*ApiV2TestPointsSearchPostRequest, bool) {
 	if o == nil || IsNil(o.Filter) {
 		return nil, false
 	}
@@ -67,15 +67,15 @@ func (o *TestPointSelectModel) HasFilter() bool {
 	return false
 }
 
-// SetFilter gets a reference to the given TestPointFilterModel and assigns it to the Filter field.
-func (o *TestPointSelectModel) SetFilter(v TestPointFilterModel) {
+// SetFilter gets a reference to the given ApiV2TestPointsSearchPostRequest and assigns it to the Filter field.
+func (o *TestPointSelectModel) SetFilter(v ApiV2TestPointsSearchPostRequest) {
 	o.Filter = &v
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise.
-func (o *TestPointSelectModel) GetExtractionModel() TestPointsExtractionModel {
+func (o *TestPointSelectModel) GetExtractionModel() TestPointSelectModelExtractionModel {
 	if o == nil || IsNil(o.ExtractionModel) {
-		var ret TestPointsExtractionModel
+		var ret TestPointSelectModelExtractionModel
 		return ret
 	}
 	return *o.ExtractionModel
@@ -83,7 +83,7 @@ func (o *TestPointSelectModel) GetExtractionModel() TestPointsExtractionModel {
 
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPointSelectModel) GetExtractionModelOk() (*TestPointsExtractionModel, bool) {
+func (o *TestPointSelectModel) GetExtractionModelOk() (*TestPointSelectModelExtractionModel, bool) {
 	if o == nil || IsNil(o.ExtractionModel) {
 		return nil, false
 	}
@@ -99,8 +99,8 @@ func (o *TestPointSelectModel) HasExtractionModel() bool {
 	return false
 }
 
-// SetExtractionModel gets a reference to the given TestPointsExtractionModel and assigns it to the ExtractionModel field.
-func (o *TestPointSelectModel) SetExtractionModel(v TestPointsExtractionModel) {
+// SetExtractionModel gets a reference to the given TestPointSelectModelExtractionModel and assigns it to the ExtractionModel field.
+func (o *TestPointSelectModel) SetExtractionModel(v TestPointSelectModelExtractionModel) {
 	o.ExtractionModel = &v
 }
 

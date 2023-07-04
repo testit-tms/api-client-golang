@@ -135,8 +135,8 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -146,8 +146,8 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -275,8 +275,8 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -286,8 +286,8 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -560,7 +560,6 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdGet
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -700,11 +699,11 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesNameG
 type ApiApiV2CustomAttributesTemplatesPostRequest struct {
 	ctx context.Context
 	ApiService *CustomAttributeTemplatesApiService
-	customAttributeTemplatePostModel *CustomAttributeTemplatePostModel
+	apiV2CustomAttributesTemplatesPostRequest *ApiV2CustomAttributesTemplatesPostRequest
 }
 
-func (r ApiApiV2CustomAttributesTemplatesPostRequest) CustomAttributeTemplatePostModel(customAttributeTemplatePostModel CustomAttributeTemplatePostModel) ApiApiV2CustomAttributesTemplatesPostRequest {
-	r.customAttributeTemplatePostModel = &customAttributeTemplatePostModel
+func (r ApiApiV2CustomAttributesTemplatesPostRequest) ApiV2CustomAttributesTemplatesPostRequest(apiV2CustomAttributesTemplatesPostRequest ApiV2CustomAttributesTemplatesPostRequest) ApiApiV2CustomAttributesTemplatesPostRequest {
+	r.apiV2CustomAttributesTemplatesPostRequest = &apiV2CustomAttributesTemplatesPostRequest
 	return r
 }
 
@@ -770,7 +769,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPostE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributeTemplatePostModel
+	localVarPostBody = r.apiV2CustomAttributesTemplatesPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -846,11 +845,11 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPostE
 type ApiApiV2CustomAttributesTemplatesPutRequest struct {
 	ctx context.Context
 	ApiService *CustomAttributeTemplatesApiService
-	customAttributeTemplatePutModel *CustomAttributeTemplatePutModel
+	apiV2CustomAttributesTemplatesPutRequest *ApiV2CustomAttributesTemplatesPutRequest
 }
 
-func (r ApiApiV2CustomAttributesTemplatesPutRequest) CustomAttributeTemplatePutModel(customAttributeTemplatePutModel CustomAttributeTemplatePutModel) ApiApiV2CustomAttributesTemplatesPutRequest {
-	r.customAttributeTemplatePutModel = &customAttributeTemplatePutModel
+func (r ApiApiV2CustomAttributesTemplatesPutRequest) ApiV2CustomAttributesTemplatesPutRequest(apiV2CustomAttributesTemplatesPutRequest ApiV2CustomAttributesTemplatesPutRequest) ApiApiV2CustomAttributesTemplatesPutRequest {
+	r.apiV2CustomAttributesTemplatesPutRequest = &apiV2CustomAttributesTemplatesPutRequest
 	return r
 }
 
@@ -908,7 +907,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPutEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributeTemplatePutModel
+	localVarPostBody = r.apiV2CustomAttributesTemplatesPutRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -954,7 +953,6 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPutEx
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -970,7 +968,7 @@ type ApiApiV2CustomAttributesTemplatesSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	customAttributeTemplateSearchQueryModel *CustomAttributeTemplateSearchQueryModel
+	apiV2CustomAttributesTemplatesSearchPostRequest *ApiV2CustomAttributesTemplatesSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -1003,8 +1001,8 @@ func (r ApiApiV2CustomAttributesTemplatesSearchPostRequest) SearchValue(searchVa
 	return r
 }
 
-func (r ApiApiV2CustomAttributesTemplatesSearchPostRequest) CustomAttributeTemplateSearchQueryModel(customAttributeTemplateSearchQueryModel CustomAttributeTemplateSearchQueryModel) ApiApiV2CustomAttributesTemplatesSearchPostRequest {
-	r.customAttributeTemplateSearchQueryModel = &customAttributeTemplateSearchQueryModel
+func (r ApiApiV2CustomAttributesTemplatesSearchPostRequest) ApiV2CustomAttributesTemplatesSearchPostRequest(apiV2CustomAttributesTemplatesSearchPostRequest ApiV2CustomAttributesTemplatesSearchPostRequest) ApiApiV2CustomAttributesTemplatesSearchPostRequest {
+	r.apiV2CustomAttributesTemplatesSearchPostRequest = &apiV2CustomAttributesTemplatesSearchPostRequest
 	return r
 }
 
@@ -1084,7 +1082,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesSearc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributeTemplateSearchQueryModel
+	localVarPostBody = r.apiV2CustomAttributesTemplatesSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

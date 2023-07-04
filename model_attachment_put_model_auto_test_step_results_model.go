@@ -32,7 +32,7 @@ type AttachmentPutModelAutoTestStepResultsModel struct {
 	CompletedOn NullableTime `json:"completedOn,omitempty"`
 	// Expected or actual duration of the test run execution in milliseconds.
 	Duration NullableInt64 `json:"duration,omitempty"`
-	Outcome *AvailableTestResultOutcome `json:"outcome,omitempty"`
+	Outcome NullableAvailableTestResultOutcome `json:"outcome,omitempty"`
 	// Nested step results. The maximum nesting level is 15.
 	StepResults []AttachmentPutModelAutoTestStepResultsModel `json:"stepResults,omitempty"`
 	// /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>
@@ -310,36 +310,46 @@ func (o *AttachmentPutModelAutoTestStepResultsModel) UnsetDuration() {
 	o.Duration.Unset()
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise.
+// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AttachmentPutModelAutoTestStepResultsModel) GetOutcome() AvailableTestResultOutcome {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil || IsNil(o.Outcome.Get()) {
 		var ret AvailableTestResultOutcome
 		return ret
 	}
-	return *o.Outcome
+	return *o.Outcome.Get()
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentPutModelAutoTestStepResultsModel) GetOutcomeOk() (*AvailableTestResultOutcome, bool) {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Outcome, true
+	return o.Outcome.Get(), o.Outcome.IsSet()
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *AttachmentPutModelAutoTestStepResultsModel) HasOutcome() bool {
-	if o != nil && !IsNil(o.Outcome) {
+	if o != nil && o.Outcome.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given AvailableTestResultOutcome and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given NullableAvailableTestResultOutcome and assigns it to the Outcome field.
 func (o *AttachmentPutModelAutoTestStepResultsModel) SetOutcome(v AvailableTestResultOutcome) {
-	o.Outcome = &v
+	o.Outcome.Set(&v)
+}
+// SetOutcomeNil sets the value for Outcome to be an explicit nil
+func (o *AttachmentPutModelAutoTestStepResultsModel) SetOutcomeNil() {
+	o.Outcome.Set(nil)
+}
+
+// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+func (o *AttachmentPutModelAutoTestStepResultsModel) UnsetOutcome() {
+	o.Outcome.Unset()
 }
 
 // GetStepResults returns the StepResults field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -469,8 +479,8 @@ func (o AttachmentPutModelAutoTestStepResultsModel) ToMap() (map[string]interfac
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
 	}
-	if !IsNil(o.Outcome) {
-		toSerialize["outcome"] = o.Outcome
+	if o.Outcome.IsSet() {
+		toSerialize["outcome"] = o.Outcome.Get()
 	}
 	if o.StepResults != nil {
 		toSerialize["stepResults"] = o.StepResults

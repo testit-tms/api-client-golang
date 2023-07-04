@@ -27,7 +27,7 @@ type TestPointWithLastResultModel struct {
 	WorkItemId *string `json:"workItemId,omitempty"`
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
 	TestSuiteId *string `json:"testSuiteId,omitempty"`
-	LastTestResult *LastTestResultModel `json:"lastTestResult,omitempty"`
+	LastTestResult NullableLastTestResultModel `json:"lastTestResult,omitempty"`
 	Status NullableString `json:"status,omitempty"`
 	WorkItemGlobalId NullableInt64 `json:"workItemGlobalId,omitempty"`
 	WorkItemEntityTypeName NullableString `json:"workItemEntityTypeName,omitempty"`
@@ -43,7 +43,7 @@ type TestPointWithLastResultModel struct {
 	Priority WorkItemPriorityModel `json:"priority"`
 	TestSuiteNameBreadCrumbs []string `json:"testSuiteNameBreadCrumbs,omitempty"`
 	GroupCount NullableInt32 `json:"groupCount,omitempty"`
-	Iteration *IterationModel `json:"iteration,omitempty"`
+	Iteration NullableIterationModel `json:"iteration,omitempty"`
 }
 
 // NewTestPointWithLastResultModel instantiates a new TestPointWithLastResultModel object
@@ -318,36 +318,46 @@ func (o *TestPointWithLastResultModel) SetTestSuiteId(v string) {
 	o.TestSuiteId = &v
 }
 
-// GetLastTestResult returns the LastTestResult field value if set, zero value otherwise.
+// GetLastTestResult returns the LastTestResult field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPointWithLastResultModel) GetLastTestResult() LastTestResultModel {
-	if o == nil || IsNil(o.LastTestResult) {
+	if o == nil || IsNil(o.LastTestResult.Get()) {
 		var ret LastTestResultModel
 		return ret
 	}
-	return *o.LastTestResult
+	return *o.LastTestResult.Get()
 }
 
 // GetLastTestResultOk returns a tuple with the LastTestResult field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointWithLastResultModel) GetLastTestResultOk() (*LastTestResultModel, bool) {
-	if o == nil || IsNil(o.LastTestResult) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastTestResult, true
+	return o.LastTestResult.Get(), o.LastTestResult.IsSet()
 }
 
 // HasLastTestResult returns a boolean if a field has been set.
 func (o *TestPointWithLastResultModel) HasLastTestResult() bool {
-	if o != nil && !IsNil(o.LastTestResult) {
+	if o != nil && o.LastTestResult.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastTestResult gets a reference to the given LastTestResultModel and assigns it to the LastTestResult field.
+// SetLastTestResult gets a reference to the given NullableLastTestResultModel and assigns it to the LastTestResult field.
 func (o *TestPointWithLastResultModel) SetLastTestResult(v LastTestResultModel) {
-	o.LastTestResult = &v
+	o.LastTestResult.Set(&v)
+}
+// SetLastTestResultNil sets the value for LastTestResult to be an explicit nil
+func (o *TestPointWithLastResultModel) SetLastTestResultNil() {
+	o.LastTestResult.Set(nil)
+}
+
+// UnsetLastTestResult ensures that no value is present for LastTestResult, not even an explicit nil
+func (o *TestPointWithLastResultModel) UnsetLastTestResult() {
+	o.LastTestResult.Unset()
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -905,36 +915,46 @@ func (o *TestPointWithLastResultModel) UnsetGroupCount() {
 	o.GroupCount.Unset()
 }
 
-// GetIteration returns the Iteration field value if set, zero value otherwise.
+// GetIteration returns the Iteration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPointWithLastResultModel) GetIteration() IterationModel {
-	if o == nil || IsNil(o.Iteration) {
+	if o == nil || IsNil(o.Iteration.Get()) {
 		var ret IterationModel
 		return ret
 	}
-	return *o.Iteration
+	return *o.Iteration.Get()
 }
 
 // GetIterationOk returns a tuple with the Iteration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointWithLastResultModel) GetIterationOk() (*IterationModel, bool) {
-	if o == nil || IsNil(o.Iteration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Iteration, true
+	return o.Iteration.Get(), o.Iteration.IsSet()
 }
 
 // HasIteration returns a boolean if a field has been set.
 func (o *TestPointWithLastResultModel) HasIteration() bool {
-	if o != nil && !IsNil(o.Iteration) {
+	if o != nil && o.Iteration.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIteration gets a reference to the given IterationModel and assigns it to the Iteration field.
+// SetIteration gets a reference to the given NullableIterationModel and assigns it to the Iteration field.
 func (o *TestPointWithLastResultModel) SetIteration(v IterationModel) {
-	o.Iteration = &v
+	o.Iteration.Set(&v)
+}
+// SetIterationNil sets the value for Iteration to be an explicit nil
+func (o *TestPointWithLastResultModel) SetIterationNil() {
+	o.Iteration.Set(nil)
+}
+
+// UnsetIteration ensures that no value is present for Iteration, not even an explicit nil
+func (o *TestPointWithLastResultModel) UnsetIteration() {
+	o.Iteration.Unset()
 }
 
 func (o TestPointWithLastResultModel) MarshalJSON() ([]byte, error) {
@@ -968,8 +988,8 @@ func (o TestPointWithLastResultModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TestSuiteId) {
 		toSerialize["testSuiteId"] = o.TestSuiteId
 	}
-	if !IsNil(o.LastTestResult) {
-		toSerialize["lastTestResult"] = o.LastTestResult
+	if o.LastTestResult.IsSet() {
+		toSerialize["lastTestResult"] = o.LastTestResult.Get()
 	}
 	if o.Status.IsSet() {
 		toSerialize["status"] = o.Status.Get()
@@ -1014,8 +1034,8 @@ func (o TestPointWithLastResultModel) ToMap() (map[string]interface{}, error) {
 	if o.GroupCount.IsSet() {
 		toSerialize["groupCount"] = o.GroupCount.Get()
 	}
-	if !IsNil(o.Iteration) {
-		toSerialize["iteration"] = o.Iteration
+	if o.Iteration.IsSet() {
+		toSerialize["iteration"] = o.Iteration.Get()
 	}
 	return toSerialize, nil
 }

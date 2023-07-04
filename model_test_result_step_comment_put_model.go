@@ -20,7 +20,7 @@ var _ MappedNullable = &TestResultStepCommentPutModel{}
 // TestResultStepCommentPutModel struct for TestResultStepCommentPutModel
 type TestResultStepCommentPutModel struct {
 	Id *string `json:"id,omitempty"`
-	Text NullableString `json:"text,omitempty"`
+	Text *string `json:"text,omitempty"`
 	StepId string `json:"stepId"`
 	ParentStepId NullableString `json:"parentStepId,omitempty"`
 	Attachments []AttachmentPutModel `json:"attachments,omitempty"`
@@ -76,46 +76,36 @@ func (o *TestResultStepCommentPutModel) SetId(v string) {
 	o.Id = &v
 }
 
-// GetText returns the Text field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetText returns the Text field value if set, zero value otherwise.
 func (o *TestResultStepCommentPutModel) GetText() string {
-	if o == nil || IsNil(o.Text.Get()) {
+	if o == nil || IsNil(o.Text) {
 		var ret string
 		return ret
 	}
-	return *o.Text.Get()
+	return *o.Text
 }
 
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultStepCommentPutModel) GetTextOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Text) {
 		return nil, false
 	}
-	return o.Text.Get(), o.Text.IsSet()
+	return o.Text, true
 }
 
 // HasText returns a boolean if a field has been set.
 func (o *TestResultStepCommentPutModel) HasText() bool {
-	if o != nil && o.Text.IsSet() {
+	if o != nil && !IsNil(o.Text) {
 		return true
 	}
 
 	return false
 }
 
-// SetText gets a reference to the given NullableString and assigns it to the Text field.
+// SetText gets a reference to the given string and assigns it to the Text field.
 func (o *TestResultStepCommentPutModel) SetText(v string) {
-	o.Text.Set(&v)
-}
-// SetTextNil sets the value for Text to be an explicit nil
-func (o *TestResultStepCommentPutModel) SetTextNil() {
-	o.Text.Set(nil)
-}
-
-// UnsetText ensures that no value is present for Text, not even an explicit nil
-func (o *TestResultStepCommentPutModel) UnsetText() {
-	o.Text.Unset()
+	o.Text = &v
 }
 
 // GetStepId returns the StepId field value
@@ -184,9 +174,9 @@ func (o *TestResultStepCommentPutModel) UnsetParentStepId() {
 	o.ParentStepId.Unset()
 }
 
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachments returns the Attachments field value if set, zero value otherwise.
 func (o *TestResultStepCommentPutModel) GetAttachments() []AttachmentPutModel {
-	if o == nil {
+	if o == nil || IsNil(o.Attachments) {
 		var ret []AttachmentPutModel
 		return ret
 	}
@@ -195,7 +185,6 @@ func (o *TestResultStepCommentPutModel) GetAttachments() []AttachmentPutModel {
 
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultStepCommentPutModel) GetAttachmentsOk() ([]AttachmentPutModel, bool) {
 	if o == nil || IsNil(o.Attachments) {
 		return nil, false
@@ -205,7 +194,7 @@ func (o *TestResultStepCommentPutModel) GetAttachmentsOk() ([]AttachmentPutModel
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *TestResultStepCommentPutModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -230,14 +219,14 @@ func (o TestResultStepCommentPutModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Text.IsSet() {
-		toSerialize["text"] = o.Text.Get()
+	if !IsNil(o.Text) {
+		toSerialize["text"] = o.Text
 	}
 	toSerialize["stepId"] = o.StepId
 	if o.ParentStepId.IsSet() {
 		toSerialize["parentStepId"] = o.ParentStepId.Get()
 	}
-	if o.Attachments != nil {
+	if !IsNil(o.Attachments) {
 		toSerialize["attachments"] = o.Attachments
 	}
 	return toSerialize, nil

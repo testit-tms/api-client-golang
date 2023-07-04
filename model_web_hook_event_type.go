@@ -22,12 +22,38 @@ type WebHookEventType string
 const (
 	WEBHOOKEVENTTYPE_AUTOMATED_TEST_RUN_CREATED WebHookEventType = "AutomatedTestRunCreated"
 	WEBHOOKEVENTTYPE_TEST_PLANS_STATUS_CHANGED WebHookEventType = "TestPlansStatusChanged"
+	WEBHOOKEVENTTYPE_TEST_RUN_STOPPED WebHookEventType = "TestRunStopped"
+	WEBHOOKEVENTTYPE_TEST_POINT_ASSIGNED WebHookEventType = "TestPointAssigned"
+	WEBHOOKEVENTTYPE_TEST_RESULT_JIRA_ISSUE_CREATED WebHookEventType = "TestResultJiraIssueCreated"
+	WEBHOOKEVENTTYPE_AUTO_TEST_FINISHED WebHookEventType = "AutoTestFinished"
+	WEBHOOKEVENTTYPE_USER_MENTIONED_IN_COMMENT WebHookEventType = "UserMentionedInComment"
+	WEBHOOKEVENTTYPE_USER_SELECTED_IN_WORK_ITEM_ATTRIBUTE WebHookEventType = "UserSelectedInWorkItemAttribute"
+	WEBHOOKEVENTTYPE_ALL_TEST_POINTS_FINISHED WebHookEventType = "AllTestPointsFinished"
+	WEBHOOKEVENTTYPE_ALL_AUTO_TESTS_FINISHED WebHookEventType = "AllAutoTestsFinished"
+	WEBHOOKEVENTTYPE_AUTO_TEST_CHANGED WebHookEventType = "AutoTestChanged"
+	WEBHOOKEVENTTYPE_WORK_ITEM_AUTO_TEST_RELATION_CHANGED WebHookEventType = "WorkItemAutoTestRelationChanged"
+	WEBHOOKEVENTTYPE_WORK_ITEM_ATTRIBUTE_CHANGED WebHookEventType = "WorkItemAttributeChanged"
+	WEBHOOKEVENTTYPE_WORK_ITEM_CHANGED WebHookEventType = "WorkItemChanged"
+	WEBHOOKEVENTTYPE_CONFIGURATION_CHANGED WebHookEventType = "ConfigurationChanged"
 )
 
 // All allowed values of WebHookEventType enum
 var AllowedWebHookEventTypeEnumValues = []WebHookEventType{
 	"AutomatedTestRunCreated",
 	"TestPlansStatusChanged",
+	"TestRunStopped",
+	"TestPointAssigned",
+	"TestResultJiraIssueCreated",
+	"AutoTestFinished",
+	"UserMentionedInComment",
+	"UserSelectedInWorkItemAttribute",
+	"AllTestPointsFinished",
+	"AllAutoTestsFinished",
+	"AutoTestChanged",
+	"WorkItemAutoTestRelationChanged",
+	"WorkItemAttributeChanged",
+	"WorkItemChanged",
+	"ConfigurationChanged",
 }
 
 func (v *WebHookEventType) UnmarshalJSON(src []byte) error {

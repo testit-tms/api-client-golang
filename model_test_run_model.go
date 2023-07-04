@@ -24,9 +24,9 @@ type TestRunModel struct {
 	AutoTestsCount *int32 `json:"autoTestsCount,omitempty"`
 	TestSuiteIds []string `json:"testSuiteIds,omitempty"`
 	IsAutomated *bool `json:"isAutomated,omitempty"`
-	Analytic *TestRunAnalyticResultModel `json:"analytic,omitempty"`
+	Analytic *TestRunModelAnalytic `json:"analytic,omitempty"`
 	TestResults []TestResultModel `json:"testResults,omitempty"`
-	TestPlan *TestPlanModel `json:"testPlan,omitempty"`
+	TestPlan NullableTestPlanModel `json:"testPlan,omitempty"`
 	CreatedDate *time.Time `json:"createdDate,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	CreatedById *string `json:"createdById,omitempty"`
@@ -34,15 +34,15 @@ type TestRunModel struct {
 	CreatedByUserName NullableString `json:"createdByUserName,omitempty"`
 	StartedDate NullableTime `json:"startedDate,omitempty"`
 	CompletedDate NullableTime `json:"completedDate,omitempty"`
-	Build NullableString `json:"build,omitempty"`
-	Description NullableString `json:"description,omitempty"`
+	Build *string `json:"build,omitempty"`
+	Description *string `json:"description,omitempty"`
 	StateName TestRunState `json:"stateName"`
 	ProjectId *string `json:"projectId,omitempty"`
 	TestPlanId NullableString `json:"testPlanId,omitempty"`
 	RunByUserId NullableString `json:"runByUserId,omitempty"`
 	StoppedByUserId NullableString `json:"stoppedByUserId,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	LaunchSource NullableString `json:"launchSource,omitempty"`
+	Name *string `json:"name,omitempty"`
+	LaunchSource *string `json:"launchSource,omitempty"`
 	// Unique ID of the entity
 	Id *string `json:"id,omitempty"`
 	// Indicates if the entity is deleted
@@ -198,9 +198,9 @@ func (o *TestRunModel) SetIsAutomated(v bool) {
 }
 
 // GetAnalytic returns the Analytic field value if set, zero value otherwise.
-func (o *TestRunModel) GetAnalytic() TestRunAnalyticResultModel {
+func (o *TestRunModel) GetAnalytic() TestRunModelAnalytic {
 	if o == nil || IsNil(o.Analytic) {
-		var ret TestRunAnalyticResultModel
+		var ret TestRunModelAnalytic
 		return ret
 	}
 	return *o.Analytic
@@ -208,7 +208,7 @@ func (o *TestRunModel) GetAnalytic() TestRunAnalyticResultModel {
 
 // GetAnalyticOk returns a tuple with the Analytic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestRunModel) GetAnalyticOk() (*TestRunAnalyticResultModel, bool) {
+func (o *TestRunModel) GetAnalyticOk() (*TestRunModelAnalytic, bool) {
 	if o == nil || IsNil(o.Analytic) {
 		return nil, false
 	}
@@ -224,8 +224,8 @@ func (o *TestRunModel) HasAnalytic() bool {
 	return false
 }
 
-// SetAnalytic gets a reference to the given TestRunAnalyticResultModel and assigns it to the Analytic field.
-func (o *TestRunModel) SetAnalytic(v TestRunAnalyticResultModel) {
+// SetAnalytic gets a reference to the given TestRunModelAnalytic and assigns it to the Analytic field.
+func (o *TestRunModel) SetAnalytic(v TestRunModelAnalytic) {
 	o.Analytic = &v
 }
 
@@ -262,36 +262,46 @@ func (o *TestRunModel) SetTestResults(v []TestResultModel) {
 	o.TestResults = v
 }
 
-// GetTestPlan returns the TestPlan field value if set, zero value otherwise.
+// GetTestPlan returns the TestPlan field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestRunModel) GetTestPlan() TestPlanModel {
-	if o == nil || IsNil(o.TestPlan) {
+	if o == nil || IsNil(o.TestPlan.Get()) {
 		var ret TestPlanModel
 		return ret
 	}
-	return *o.TestPlan
+	return *o.TestPlan.Get()
 }
 
 // GetTestPlanOk returns a tuple with the TestPlan field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunModel) GetTestPlanOk() (*TestPlanModel, bool) {
-	if o == nil || IsNil(o.TestPlan) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPlan, true
+	return o.TestPlan.Get(), o.TestPlan.IsSet()
 }
 
 // HasTestPlan returns a boolean if a field has been set.
 func (o *TestRunModel) HasTestPlan() bool {
-	if o != nil && !IsNil(o.TestPlan) {
+	if o != nil && o.TestPlan.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPlan gets a reference to the given TestPlanModel and assigns it to the TestPlan field.
+// SetTestPlan gets a reference to the given NullableTestPlanModel and assigns it to the TestPlan field.
 func (o *TestRunModel) SetTestPlan(v TestPlanModel) {
-	o.TestPlan = &v
+	o.TestPlan.Set(&v)
+}
+// SetTestPlanNil sets the value for TestPlan to be an explicit nil
+func (o *TestRunModel) SetTestPlanNil() {
+	o.TestPlan.Set(nil)
+}
+
+// UnsetTestPlan ensures that no value is present for TestPlan, not even an explicit nil
+func (o *TestRunModel) UnsetTestPlan() {
+	o.TestPlan.Unset()
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
@@ -568,88 +578,68 @@ func (o *TestRunModel) UnsetCompletedDate() {
 	o.CompletedDate.Unset()
 }
 
-// GetBuild returns the Build field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetBuild returns the Build field value if set, zero value otherwise.
 func (o *TestRunModel) GetBuild() string {
-	if o == nil || IsNil(o.Build.Get()) {
+	if o == nil || IsNil(o.Build) {
 		var ret string
 		return ret
 	}
-	return *o.Build.Get()
+	return *o.Build
 }
 
 // GetBuildOk returns a tuple with the Build field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunModel) GetBuildOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Build) {
 		return nil, false
 	}
-	return o.Build.Get(), o.Build.IsSet()
+	return o.Build, true
 }
 
 // HasBuild returns a boolean if a field has been set.
 func (o *TestRunModel) HasBuild() bool {
-	if o != nil && o.Build.IsSet() {
+	if o != nil && !IsNil(o.Build) {
 		return true
 	}
 
 	return false
 }
 
-// SetBuild gets a reference to the given NullableString and assigns it to the Build field.
+// SetBuild gets a reference to the given string and assigns it to the Build field.
 func (o *TestRunModel) SetBuild(v string) {
-	o.Build.Set(&v)
-}
-// SetBuildNil sets the value for Build to be an explicit nil
-func (o *TestRunModel) SetBuildNil() {
-	o.Build.Set(nil)
+	o.Build = &v
 }
 
-// UnsetBuild ensures that no value is present for Build, not even an explicit nil
-func (o *TestRunModel) UnsetBuild() {
-	o.Build.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value if set, zero value otherwise.
 func (o *TestRunModel) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || IsNil(o.Description) {
 		var ret string
 		return ret
 	}
-	return *o.Description.Get()
+	return *o.Description
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunModel) GetDescriptionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Description) {
 		return nil, false
 	}
-	return o.Description.Get(), o.Description.IsSet()
+	return o.Description, true
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *TestRunModel) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
+	if o != nil && !IsNil(o.Description) {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription gets a reference to the given string and assigns it to the Description field.
 func (o *TestRunModel) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *TestRunModel) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *TestRunModel) UnsetDescription() {
-	o.Description.Unset()
+	o.Description = &v
 }
 
 // GetStateName returns the StateName field value
@@ -834,88 +824,68 @@ func (o *TestRunModel) UnsetStoppedByUserId() {
 	o.StoppedByUserId.Unset()
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *TestRunModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestRunModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TestRunModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *TestRunModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *TestRunModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetLaunchSource returns the LaunchSource field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLaunchSource returns the LaunchSource field value if set, zero value otherwise.
 func (o *TestRunModel) GetLaunchSource() string {
-	if o == nil || IsNil(o.LaunchSource.Get()) {
+	if o == nil || IsNil(o.LaunchSource) {
 		var ret string
 		return ret
 	}
-	return *o.LaunchSource.Get()
+	return *o.LaunchSource
 }
 
 // GetLaunchSourceOk returns a tuple with the LaunchSource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunModel) GetLaunchSourceOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LaunchSource) {
 		return nil, false
 	}
-	return o.LaunchSource.Get(), o.LaunchSource.IsSet()
+	return o.LaunchSource, true
 }
 
 // HasLaunchSource returns a boolean if a field has been set.
 func (o *TestRunModel) HasLaunchSource() bool {
-	if o != nil && o.LaunchSource.IsSet() {
+	if o != nil && !IsNil(o.LaunchSource) {
 		return true
 	}
 
 	return false
 }
 
-// SetLaunchSource gets a reference to the given NullableString and assigns it to the LaunchSource field.
+// SetLaunchSource gets a reference to the given string and assigns it to the LaunchSource field.
 func (o *TestRunModel) SetLaunchSource(v string) {
-	o.LaunchSource.Set(&v)
-}
-// SetLaunchSourceNil sets the value for LaunchSource to be an explicit nil
-func (o *TestRunModel) SetLaunchSourceNil() {
-	o.LaunchSource.Set(nil)
-}
-
-// UnsetLaunchSource ensures that no value is present for LaunchSource, not even an explicit nil
-func (o *TestRunModel) UnsetLaunchSource() {
-	o.LaunchSource.Unset()
+	o.LaunchSource = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -1010,8 +980,8 @@ func (o TestRunModel) ToMap() (map[string]interface{}, error) {
 	if o.TestResults != nil {
 		toSerialize["testResults"] = o.TestResults
 	}
-	if !IsNil(o.TestPlan) {
-		toSerialize["testPlan"] = o.TestPlan
+	if o.TestPlan.IsSet() {
+		toSerialize["testPlan"] = o.TestPlan.Get()
 	}
 	if !IsNil(o.CreatedDate) {
 		toSerialize["createdDate"] = o.CreatedDate
@@ -1034,11 +1004,11 @@ func (o TestRunModel) ToMap() (map[string]interface{}, error) {
 	if o.CompletedDate.IsSet() {
 		toSerialize["completedDate"] = o.CompletedDate.Get()
 	}
-	if o.Build.IsSet() {
-		toSerialize["build"] = o.Build.Get()
+	if !IsNil(o.Build) {
+		toSerialize["build"] = o.Build
 	}
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
+	if !IsNil(o.Description) {
+		toSerialize["description"] = o.Description
 	}
 	toSerialize["stateName"] = o.StateName
 	if !IsNil(o.ProjectId) {
@@ -1053,11 +1023,11 @@ func (o TestRunModel) ToMap() (map[string]interface{}, error) {
 	if o.StoppedByUserId.IsSet() {
 		toSerialize["stoppedByUserId"] = o.StoppedByUserId.Get()
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.LaunchSource.IsSet() {
-		toSerialize["launchSource"] = o.LaunchSource.Get()
+	if !IsNil(o.LaunchSource) {
+		toSerialize["launchSource"] = o.LaunchSource
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id

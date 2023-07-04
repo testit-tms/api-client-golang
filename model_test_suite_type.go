@@ -22,12 +22,14 @@ type TestSuiteType string
 const (
 	TESTSUITETYPE_CUSTOM TestSuiteType = "Custom"
 	TESTSUITETYPE_DYNAMIC TestSuiteType = "Dynamic"
+	TESTSUITETYPE_TREE TestSuiteType = "Tree"
 )
 
 // All allowed values of TestSuiteType enum
 var AllowedTestSuiteTypeEnumValues = []TestSuiteType{
 	"Custom",
 	"Dynamic",
+	"Tree",
 }
 
 func (v *TestSuiteType) UnmarshalJSON(src []byte) error {

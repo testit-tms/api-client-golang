@@ -19,18 +19,18 @@ var _ MappedNullable = &TestPlanChangedFieldsViewModel{}
 
 // TestPlanChangedFieldsViewModel struct for TestPlanChangedFieldsViewModel
 type TestPlanChangedFieldsViewModel struct {
-	Name *StringTestPlanChangedFieldViewModel `json:"name,omitempty"`
-	Description *StringTestPlanChangedFieldViewModel `json:"description,omitempty"`
-	ProductName *StringTestPlanChangedFieldViewModel `json:"productName,omitempty"`
-	Build *StringTestPlanChangedFieldViewModel `json:"build,omitempty"`
-	Period *PeriodViewModelTestPlanChangedFieldViewModel `json:"period,omitempty"`
-	Status *StringTestPlanChangedFieldViewModel `json:"status,omitempty"`
-	Tags *StringArrayTestPlanChangedFieldViewModel `json:"tags,omitempty"`
-	TestSuite *TestSuiteChangeViewModelTestPlanChangedFieldViewModel `json:"testSuite,omitempty"`
-	TestPoints *TestPointChangeViewModelTestPlanChangedFieldViewModel `json:"testPoints,omitempty"`
-	TestResults *TestResultChangeViewModelTestPlanChangedFieldViewModel `json:"testResults,omitempty"`
-	Locking *BooleanTestPlanChangedFieldViewModel `json:"locking,omitempty"`
-	HasAutomaticDurationTimer *BooleanNullableTestPlanChangedFieldViewModel `json:"hasAutomaticDurationTimer,omitempty"`
+	Name NullableStringChangedFieldWithDiffsViewModel `json:"name,omitempty"`
+	Description NullableStringChangedFieldWithDiffsViewModel `json:"description,omitempty"`
+	ProductName NullableStringChangedFieldViewModel `json:"productName,omitempty"`
+	Build NullableStringChangedFieldViewModel `json:"build,omitempty"`
+	Period NullablePeriodViewModelChangedFieldViewModel `json:"period,omitempty"`
+	Status NullableStringChangedFieldViewModel `json:"status,omitempty"`
+	Tags NullableStringArrayChangedFieldViewModel `json:"tags,omitempty"`
+	TestSuite NullableTestSuiteChangeViewModelChangedFieldViewModel `json:"testSuite,omitempty"`
+	TestPoints NullableTestPointChangeViewModelChangedFieldViewModel `json:"testPoints,omitempty"`
+	TestResults NullableTestResultChangeViewModelChangedFieldViewModel `json:"testResults,omitempty"`
+	Locking NullableBooleanChangedFieldViewModel `json:"locking,omitempty"`
+	HasAutomaticDurationTimer NullableBooleanNullableChangedFieldViewModel `json:"hasAutomaticDurationTimer,omitempty"`
 	Attributes map[string]CustomAttributeChangeModel `json:"attributes,omitempty"`
 }
 
@@ -51,388 +51,508 @@ func NewTestPlanChangedFieldsViewModelWithDefaults() *TestPlanChangedFieldsViewM
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetName() StringTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.Name) {
-		var ret StringTestPlanChangedFieldViewModel
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetName() StringChangedFieldWithDiffsViewModel {
+	if o == nil || IsNil(o.Name.Get()) {
+		var ret StringChangedFieldWithDiffsViewModel
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetNameOk() (*StringTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Name) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetNameOk() (*StringChangedFieldWithDiffsViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given StringTestPlanChangedFieldViewModel and assigns it to the Name field.
-func (o *TestPlanChangedFieldsViewModel) SetName(v StringTestPlanChangedFieldViewModel) {
-	o.Name = &v
+// SetName gets a reference to the given NullableStringChangedFieldWithDiffsViewModel and assigns it to the Name field.
+func (o *TestPlanChangedFieldsViewModel) SetName(v StringChangedFieldWithDiffsViewModel) {
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetDescription() StringTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.Description) {
-		var ret StringTestPlanChangedFieldViewModel
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetDescription() StringChangedFieldWithDiffsViewModel {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret StringChangedFieldWithDiffsViewModel
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetDescriptionOk() (*StringTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Description) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetDescriptionOk() (*StringChangedFieldWithDiffsViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given StringTestPlanChangedFieldViewModel and assigns it to the Description field.
-func (o *TestPlanChangedFieldsViewModel) SetDescription(v StringTestPlanChangedFieldViewModel) {
-	o.Description = &v
+// SetDescription gets a reference to the given NullableStringChangedFieldWithDiffsViewModel and assigns it to the Description field.
+func (o *TestPlanChangedFieldsViewModel) SetDescription(v StringChangedFieldWithDiffsViewModel) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetProductName returns the ProductName field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetProductName() StringTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.ProductName) {
-		var ret StringTestPlanChangedFieldViewModel
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetProductName returns the ProductName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetProductName() StringChangedFieldViewModel {
+	if o == nil || IsNil(o.ProductName.Get()) {
+		var ret StringChangedFieldViewModel
 		return ret
 	}
-	return *o.ProductName
+	return *o.ProductName.Get()
 }
 
 // GetProductNameOk returns a tuple with the ProductName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetProductNameOk() (*StringTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.ProductName) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetProductNameOk() (*StringChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProductName, true
+	return o.ProductName.Get(), o.ProductName.IsSet()
 }
 
 // HasProductName returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasProductName() bool {
-	if o != nil && !IsNil(o.ProductName) {
+	if o != nil && o.ProductName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProductName gets a reference to the given StringTestPlanChangedFieldViewModel and assigns it to the ProductName field.
-func (o *TestPlanChangedFieldsViewModel) SetProductName(v StringTestPlanChangedFieldViewModel) {
-	o.ProductName = &v
+// SetProductName gets a reference to the given NullableStringChangedFieldViewModel and assigns it to the ProductName field.
+func (o *TestPlanChangedFieldsViewModel) SetProductName(v StringChangedFieldViewModel) {
+	o.ProductName.Set(&v)
+}
+// SetProductNameNil sets the value for ProductName to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetProductNameNil() {
+	o.ProductName.Set(nil)
 }
 
-// GetBuild returns the Build field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetBuild() StringTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.Build) {
-		var ret StringTestPlanChangedFieldViewModel
+// UnsetProductName ensures that no value is present for ProductName, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetProductName() {
+	o.ProductName.Unset()
+}
+
+// GetBuild returns the Build field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetBuild() StringChangedFieldViewModel {
+	if o == nil || IsNil(o.Build.Get()) {
+		var ret StringChangedFieldViewModel
 		return ret
 	}
-	return *o.Build
+	return *o.Build.Get()
 }
 
 // GetBuildOk returns a tuple with the Build field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetBuildOk() (*StringTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Build) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetBuildOk() (*StringChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Build, true
+	return o.Build.Get(), o.Build.IsSet()
 }
 
 // HasBuild returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasBuild() bool {
-	if o != nil && !IsNil(o.Build) {
+	if o != nil && o.Build.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBuild gets a reference to the given StringTestPlanChangedFieldViewModel and assigns it to the Build field.
-func (o *TestPlanChangedFieldsViewModel) SetBuild(v StringTestPlanChangedFieldViewModel) {
-	o.Build = &v
+// SetBuild gets a reference to the given NullableStringChangedFieldViewModel and assigns it to the Build field.
+func (o *TestPlanChangedFieldsViewModel) SetBuild(v StringChangedFieldViewModel) {
+	o.Build.Set(&v)
+}
+// SetBuildNil sets the value for Build to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetBuildNil() {
+	o.Build.Set(nil)
 }
 
-// GetPeriod returns the Period field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetPeriod() PeriodViewModelTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.Period) {
-		var ret PeriodViewModelTestPlanChangedFieldViewModel
+// UnsetBuild ensures that no value is present for Build, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetBuild() {
+	o.Build.Unset()
+}
+
+// GetPeriod returns the Period field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetPeriod() PeriodViewModelChangedFieldViewModel {
+	if o == nil || IsNil(o.Period.Get()) {
+		var ret PeriodViewModelChangedFieldViewModel
 		return ret
 	}
-	return *o.Period
+	return *o.Period.Get()
 }
 
 // GetPeriodOk returns a tuple with the Period field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetPeriodOk() (*PeriodViewModelTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Period) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetPeriodOk() (*PeriodViewModelChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Period, true
+	return o.Period.Get(), o.Period.IsSet()
 }
 
 // HasPeriod returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasPeriod() bool {
-	if o != nil && !IsNil(o.Period) {
+	if o != nil && o.Period.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPeriod gets a reference to the given PeriodViewModelTestPlanChangedFieldViewModel and assigns it to the Period field.
-func (o *TestPlanChangedFieldsViewModel) SetPeriod(v PeriodViewModelTestPlanChangedFieldViewModel) {
-	o.Period = &v
+// SetPeriod gets a reference to the given NullablePeriodViewModelChangedFieldViewModel and assigns it to the Period field.
+func (o *TestPlanChangedFieldsViewModel) SetPeriod(v PeriodViewModelChangedFieldViewModel) {
+	o.Period.Set(&v)
+}
+// SetPeriodNil sets the value for Period to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetPeriodNil() {
+	o.Period.Set(nil)
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetStatus() StringTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.Status) {
-		var ret StringTestPlanChangedFieldViewModel
+// UnsetPeriod ensures that no value is present for Period, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetPeriod() {
+	o.Period.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetStatus() StringChangedFieldViewModel {
+	if o == nil || IsNil(o.Status.Get()) {
+		var ret StringChangedFieldViewModel
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetStatusOk() (*StringTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Status) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetStatusOk() (*StringChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
+	if o != nil && o.Status.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given StringTestPlanChangedFieldViewModel and assigns it to the Status field.
-func (o *TestPlanChangedFieldsViewModel) SetStatus(v StringTestPlanChangedFieldViewModel) {
-	o.Status = &v
+// SetStatus gets a reference to the given NullableStringChangedFieldViewModel and assigns it to the Status field.
+func (o *TestPlanChangedFieldsViewModel) SetStatus(v StringChangedFieldViewModel) {
+	o.Status.Set(&v)
+}
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetStatusNil() {
+	o.Status.Set(nil)
 }
 
-// GetTags returns the Tags field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetTags() StringArrayTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.Tags) {
-		var ret StringArrayTestPlanChangedFieldViewModel
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetTags() StringArrayChangedFieldViewModel {
+	if o == nil || IsNil(o.Tags.Get()) {
+		var ret StringArrayChangedFieldViewModel
 		return ret
 	}
-	return *o.Tags
+	return *o.Tags.Get()
 }
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetTagsOk() (*StringArrayTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Tags) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetTagsOk() (*StringArrayChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Tags, true
+	return o.Tags.Get(), o.Tags.IsSet()
 }
 
 // HasTags returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasTags() bool {
-	if o != nil && !IsNil(o.Tags) {
+	if o != nil && o.Tags.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTags gets a reference to the given StringArrayTestPlanChangedFieldViewModel and assigns it to the Tags field.
-func (o *TestPlanChangedFieldsViewModel) SetTags(v StringArrayTestPlanChangedFieldViewModel) {
-	o.Tags = &v
+// SetTags gets a reference to the given NullableStringArrayChangedFieldViewModel and assigns it to the Tags field.
+func (o *TestPlanChangedFieldsViewModel) SetTags(v StringArrayChangedFieldViewModel) {
+	o.Tags.Set(&v)
+}
+// SetTagsNil sets the value for Tags to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetTagsNil() {
+	o.Tags.Set(nil)
 }
 
-// GetTestSuite returns the TestSuite field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetTestSuite() TestSuiteChangeViewModelTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.TestSuite) {
-		var ret TestSuiteChangeViewModelTestPlanChangedFieldViewModel
+// UnsetTags ensures that no value is present for Tags, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetTags() {
+	o.Tags.Unset()
+}
+
+// GetTestSuite returns the TestSuite field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetTestSuite() TestSuiteChangeViewModelChangedFieldViewModel {
+	if o == nil || IsNil(o.TestSuite.Get()) {
+		var ret TestSuiteChangeViewModelChangedFieldViewModel
 		return ret
 	}
-	return *o.TestSuite
+	return *o.TestSuite.Get()
 }
 
 // GetTestSuiteOk returns a tuple with the TestSuite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetTestSuiteOk() (*TestSuiteChangeViewModelTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.TestSuite) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetTestSuiteOk() (*TestSuiteChangeViewModelChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestSuite, true
+	return o.TestSuite.Get(), o.TestSuite.IsSet()
 }
 
 // HasTestSuite returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasTestSuite() bool {
-	if o != nil && !IsNil(o.TestSuite) {
+	if o != nil && o.TestSuite.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestSuite gets a reference to the given TestSuiteChangeViewModelTestPlanChangedFieldViewModel and assigns it to the TestSuite field.
-func (o *TestPlanChangedFieldsViewModel) SetTestSuite(v TestSuiteChangeViewModelTestPlanChangedFieldViewModel) {
-	o.TestSuite = &v
+// SetTestSuite gets a reference to the given NullableTestSuiteChangeViewModelChangedFieldViewModel and assigns it to the TestSuite field.
+func (o *TestPlanChangedFieldsViewModel) SetTestSuite(v TestSuiteChangeViewModelChangedFieldViewModel) {
+	o.TestSuite.Set(&v)
+}
+// SetTestSuiteNil sets the value for TestSuite to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetTestSuiteNil() {
+	o.TestSuite.Set(nil)
 }
 
-// GetTestPoints returns the TestPoints field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetTestPoints() TestPointChangeViewModelTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.TestPoints) {
-		var ret TestPointChangeViewModelTestPlanChangedFieldViewModel
+// UnsetTestSuite ensures that no value is present for TestSuite, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetTestSuite() {
+	o.TestSuite.Unset()
+}
+
+// GetTestPoints returns the TestPoints field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetTestPoints() TestPointChangeViewModelChangedFieldViewModel {
+	if o == nil || IsNil(o.TestPoints.Get()) {
+		var ret TestPointChangeViewModelChangedFieldViewModel
 		return ret
 	}
-	return *o.TestPoints
+	return *o.TestPoints.Get()
 }
 
 // GetTestPointsOk returns a tuple with the TestPoints field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetTestPointsOk() (*TestPointChangeViewModelTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.TestPoints) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetTestPointsOk() (*TestPointChangeViewModelChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPoints, true
+	return o.TestPoints.Get(), o.TestPoints.IsSet()
 }
 
 // HasTestPoints returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasTestPoints() bool {
-	if o != nil && !IsNil(o.TestPoints) {
+	if o != nil && o.TestPoints.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPoints gets a reference to the given TestPointChangeViewModelTestPlanChangedFieldViewModel and assigns it to the TestPoints field.
-func (o *TestPlanChangedFieldsViewModel) SetTestPoints(v TestPointChangeViewModelTestPlanChangedFieldViewModel) {
-	o.TestPoints = &v
+// SetTestPoints gets a reference to the given NullableTestPointChangeViewModelChangedFieldViewModel and assigns it to the TestPoints field.
+func (o *TestPlanChangedFieldsViewModel) SetTestPoints(v TestPointChangeViewModelChangedFieldViewModel) {
+	o.TestPoints.Set(&v)
+}
+// SetTestPointsNil sets the value for TestPoints to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetTestPointsNil() {
+	o.TestPoints.Set(nil)
 }
 
-// GetTestResults returns the TestResults field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetTestResults() TestResultChangeViewModelTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.TestResults) {
-		var ret TestResultChangeViewModelTestPlanChangedFieldViewModel
+// UnsetTestPoints ensures that no value is present for TestPoints, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetTestPoints() {
+	o.TestPoints.Unset()
+}
+
+// GetTestResults returns the TestResults field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetTestResults() TestResultChangeViewModelChangedFieldViewModel {
+	if o == nil || IsNil(o.TestResults.Get()) {
+		var ret TestResultChangeViewModelChangedFieldViewModel
 		return ret
 	}
-	return *o.TestResults
+	return *o.TestResults.Get()
 }
 
 // GetTestResultsOk returns a tuple with the TestResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetTestResultsOk() (*TestResultChangeViewModelTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.TestResults) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetTestResultsOk() (*TestResultChangeViewModelChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestResults, true
+	return o.TestResults.Get(), o.TestResults.IsSet()
 }
 
 // HasTestResults returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasTestResults() bool {
-	if o != nil && !IsNil(o.TestResults) {
+	if o != nil && o.TestResults.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestResults gets a reference to the given TestResultChangeViewModelTestPlanChangedFieldViewModel and assigns it to the TestResults field.
-func (o *TestPlanChangedFieldsViewModel) SetTestResults(v TestResultChangeViewModelTestPlanChangedFieldViewModel) {
-	o.TestResults = &v
+// SetTestResults gets a reference to the given NullableTestResultChangeViewModelChangedFieldViewModel and assigns it to the TestResults field.
+func (o *TestPlanChangedFieldsViewModel) SetTestResults(v TestResultChangeViewModelChangedFieldViewModel) {
+	o.TestResults.Set(&v)
+}
+// SetTestResultsNil sets the value for TestResults to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetTestResultsNil() {
+	o.TestResults.Set(nil)
 }
 
-// GetLocking returns the Locking field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetLocking() BooleanTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.Locking) {
-		var ret BooleanTestPlanChangedFieldViewModel
+// UnsetTestResults ensures that no value is present for TestResults, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetTestResults() {
+	o.TestResults.Unset()
+}
+
+// GetLocking returns the Locking field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetLocking() BooleanChangedFieldViewModel {
+	if o == nil || IsNil(o.Locking.Get()) {
+		var ret BooleanChangedFieldViewModel
 		return ret
 	}
-	return *o.Locking
+	return *o.Locking.Get()
 }
 
 // GetLockingOk returns a tuple with the Locking field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetLockingOk() (*BooleanTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.Locking) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetLockingOk() (*BooleanChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Locking, true
+	return o.Locking.Get(), o.Locking.IsSet()
 }
 
 // HasLocking returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasLocking() bool {
-	if o != nil && !IsNil(o.Locking) {
+	if o != nil && o.Locking.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLocking gets a reference to the given BooleanTestPlanChangedFieldViewModel and assigns it to the Locking field.
-func (o *TestPlanChangedFieldsViewModel) SetLocking(v BooleanTestPlanChangedFieldViewModel) {
-	o.Locking = &v
+// SetLocking gets a reference to the given NullableBooleanChangedFieldViewModel and assigns it to the Locking field.
+func (o *TestPlanChangedFieldsViewModel) SetLocking(v BooleanChangedFieldViewModel) {
+	o.Locking.Set(&v)
+}
+// SetLockingNil sets the value for Locking to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetLockingNil() {
+	o.Locking.Set(nil)
 }
 
-// GetHasAutomaticDurationTimer returns the HasAutomaticDurationTimer field value if set, zero value otherwise.
-func (o *TestPlanChangedFieldsViewModel) GetHasAutomaticDurationTimer() BooleanNullableTestPlanChangedFieldViewModel {
-	if o == nil || IsNil(o.HasAutomaticDurationTimer) {
-		var ret BooleanNullableTestPlanChangedFieldViewModel
+// UnsetLocking ensures that no value is present for Locking, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetLocking() {
+	o.Locking.Unset()
+}
+
+// GetHasAutomaticDurationTimer returns the HasAutomaticDurationTimer field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangedFieldsViewModel) GetHasAutomaticDurationTimer() BooleanNullableChangedFieldViewModel {
+	if o == nil || IsNil(o.HasAutomaticDurationTimer.Get()) {
+		var ret BooleanNullableChangedFieldViewModel
 		return ret
 	}
-	return *o.HasAutomaticDurationTimer
+	return *o.HasAutomaticDurationTimer.Get()
 }
 
 // GetHasAutomaticDurationTimerOk returns a tuple with the HasAutomaticDurationTimer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangedFieldsViewModel) GetHasAutomaticDurationTimerOk() (*BooleanNullableTestPlanChangedFieldViewModel, bool) {
-	if o == nil || IsNil(o.HasAutomaticDurationTimer) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangedFieldsViewModel) GetHasAutomaticDurationTimerOk() (*BooleanNullableChangedFieldViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasAutomaticDurationTimer, true
+	return o.HasAutomaticDurationTimer.Get(), o.HasAutomaticDurationTimer.IsSet()
 }
 
 // HasHasAutomaticDurationTimer returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasHasAutomaticDurationTimer() bool {
-	if o != nil && !IsNil(o.HasAutomaticDurationTimer) {
+	if o != nil && o.HasAutomaticDurationTimer.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHasAutomaticDurationTimer gets a reference to the given BooleanNullableTestPlanChangedFieldViewModel and assigns it to the HasAutomaticDurationTimer field.
-func (o *TestPlanChangedFieldsViewModel) SetHasAutomaticDurationTimer(v BooleanNullableTestPlanChangedFieldViewModel) {
-	o.HasAutomaticDurationTimer = &v
+// SetHasAutomaticDurationTimer gets a reference to the given NullableBooleanNullableChangedFieldViewModel and assigns it to the HasAutomaticDurationTimer field.
+func (o *TestPlanChangedFieldsViewModel) SetHasAutomaticDurationTimer(v BooleanNullableChangedFieldViewModel) {
+	o.HasAutomaticDurationTimer.Set(&v)
+}
+// SetHasAutomaticDurationTimerNil sets the value for HasAutomaticDurationTimer to be an explicit nil
+func (o *TestPlanChangedFieldsViewModel) SetHasAutomaticDurationTimerNil() {
+	o.HasAutomaticDurationTimer.Set(nil)
+}
+
+// UnsetHasAutomaticDurationTimer ensures that no value is present for HasAutomaticDurationTimer, not even an explicit nil
+func (o *TestPlanChangedFieldsViewModel) UnsetHasAutomaticDurationTimer() {
+	o.HasAutomaticDurationTimer.Unset()
 }
 
 // GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -478,41 +598,41 @@ func (o TestPlanChangedFieldsViewModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanChangedFieldsViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.ProductName) {
-		toSerialize["productName"] = o.ProductName
+	if o.ProductName.IsSet() {
+		toSerialize["productName"] = o.ProductName.Get()
 	}
-	if !IsNil(o.Build) {
-		toSerialize["build"] = o.Build
+	if o.Build.IsSet() {
+		toSerialize["build"] = o.Build.Get()
 	}
-	if !IsNil(o.Period) {
-		toSerialize["period"] = o.Period
+	if o.Period.IsSet() {
+		toSerialize["period"] = o.Period.Get()
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.Tags) {
-		toSerialize["tags"] = o.Tags
+	if o.Tags.IsSet() {
+		toSerialize["tags"] = o.Tags.Get()
 	}
-	if !IsNil(o.TestSuite) {
-		toSerialize["testSuite"] = o.TestSuite
+	if o.TestSuite.IsSet() {
+		toSerialize["testSuite"] = o.TestSuite.Get()
 	}
-	if !IsNil(o.TestPoints) {
-		toSerialize["testPoints"] = o.TestPoints
+	if o.TestPoints.IsSet() {
+		toSerialize["testPoints"] = o.TestPoints.Get()
 	}
-	if !IsNil(o.TestResults) {
-		toSerialize["testResults"] = o.TestResults
+	if o.TestResults.IsSet() {
+		toSerialize["testResults"] = o.TestResults.Get()
 	}
-	if !IsNil(o.Locking) {
-		toSerialize["locking"] = o.Locking
+	if o.Locking.IsSet() {
+		toSerialize["locking"] = o.Locking.Get()
 	}
-	if !IsNil(o.HasAutomaticDurationTimer) {
-		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer
+	if o.HasAutomaticDurationTimer.IsSet() {
+		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
 	if o.Attributes != nil {
 		toSerialize["attributes"] = o.Attributes
