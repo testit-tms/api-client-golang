@@ -19,13 +19,13 @@ var _ MappedNullable = &TestPlanLink{}
 
 // TestPlanLink struct for TestPlanLink
 type TestPlanLink struct {
-	BugLink *LinkModel `json:"bugLink,omitempty"`
+	BugLink NullableLinkModel `json:"bugLink,omitempty"`
 	WorkItemGlobalId NullableInt64 `json:"workItemGlobalId,omitempty"`
 	WorkItemName NullableString `json:"workItemName,omitempty"`
 	ConfigurationName NullableString `json:"configurationName,omitempty"`
 	CreatedById NullableString `json:"createdById,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
-	Info *ExternalLinkModel `json:"info,omitempty"`
+	Info NullableExternalLinkModel `json:"info,omitempty"`
 }
 
 // NewTestPlanLink instantiates a new TestPlanLink object
@@ -45,36 +45,46 @@ func NewTestPlanLinkWithDefaults() *TestPlanLink {
 	return &this
 }
 
-// GetBugLink returns the BugLink field value if set, zero value otherwise.
+// GetBugLink returns the BugLink field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPlanLink) GetBugLink() LinkModel {
-	if o == nil || IsNil(o.BugLink) {
+	if o == nil || IsNil(o.BugLink.Get()) {
 		var ret LinkModel
 		return ret
 	}
-	return *o.BugLink
+	return *o.BugLink.Get()
 }
 
 // GetBugLinkOk returns a tuple with the BugLink field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanLink) GetBugLinkOk() (*LinkModel, bool) {
-	if o == nil || IsNil(o.BugLink) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BugLink, true
+	return o.BugLink.Get(), o.BugLink.IsSet()
 }
 
 // HasBugLink returns a boolean if a field has been set.
 func (o *TestPlanLink) HasBugLink() bool {
-	if o != nil && !IsNil(o.BugLink) {
+	if o != nil && o.BugLink.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetBugLink gets a reference to the given LinkModel and assigns it to the BugLink field.
+// SetBugLink gets a reference to the given NullableLinkModel and assigns it to the BugLink field.
 func (o *TestPlanLink) SetBugLink(v LinkModel) {
-	o.BugLink = &v
+	o.BugLink.Set(&v)
+}
+// SetBugLinkNil sets the value for BugLink to be an explicit nil
+func (o *TestPlanLink) SetBugLinkNil() {
+	o.BugLink.Set(nil)
+}
+
+// UnsetBugLink ensures that no value is present for BugLink, not even an explicit nil
+func (o *TestPlanLink) UnsetBugLink() {
+	o.BugLink.Unset()
 }
 
 // GetWorkItemGlobalId returns the WorkItemGlobalId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -287,36 +297,46 @@ func (o *TestPlanLink) UnsetComment() {
 	o.Comment.Unset()
 }
 
-// GetInfo returns the Info field value if set, zero value otherwise.
+// GetInfo returns the Info field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPlanLink) GetInfo() ExternalLinkModel {
-	if o == nil || IsNil(o.Info) {
+	if o == nil || IsNil(o.Info.Get()) {
 		var ret ExternalLinkModel
 		return ret
 	}
-	return *o.Info
+	return *o.Info.Get()
 }
 
 // GetInfoOk returns a tuple with the Info field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanLink) GetInfoOk() (*ExternalLinkModel, bool) {
-	if o == nil || IsNil(o.Info) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Info, true
+	return o.Info.Get(), o.Info.IsSet()
 }
 
 // HasInfo returns a boolean if a field has been set.
 func (o *TestPlanLink) HasInfo() bool {
-	if o != nil && !IsNil(o.Info) {
+	if o != nil && o.Info.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetInfo gets a reference to the given ExternalLinkModel and assigns it to the Info field.
+// SetInfo gets a reference to the given NullableExternalLinkModel and assigns it to the Info field.
 func (o *TestPlanLink) SetInfo(v ExternalLinkModel) {
-	o.Info = &v
+	o.Info.Set(&v)
+}
+// SetInfoNil sets the value for Info to be an explicit nil
+func (o *TestPlanLink) SetInfoNil() {
+	o.Info.Set(nil)
+}
+
+// UnsetInfo ensures that no value is present for Info, not even an explicit nil
+func (o *TestPlanLink) UnsetInfo() {
+	o.Info.Unset()
 }
 
 func (o TestPlanLink) MarshalJSON() ([]byte, error) {
@@ -329,8 +349,8 @@ func (o TestPlanLink) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanLink) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.BugLink) {
-		toSerialize["bugLink"] = o.BugLink
+	if o.BugLink.IsSet() {
+		toSerialize["bugLink"] = o.BugLink.Get()
 	}
 	if o.WorkItemGlobalId.IsSet() {
 		toSerialize["workItemGlobalId"] = o.WorkItemGlobalId.Get()
@@ -347,8 +367,8 @@ func (o TestPlanLink) ToMap() (map[string]interface{}, error) {
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()
 	}
-	if !IsNil(o.Info) {
-		toSerialize["info"] = o.Info
+	if o.Info.IsSet() {
+		toSerialize["info"] = o.Info.Get()
 	}
 	return toSerialize, nil
 }

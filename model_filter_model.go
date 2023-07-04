@@ -24,10 +24,10 @@ type FilterModel struct {
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	CreatedById *string `json:"createdById,omitempty"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	Data *WorkItemSearchQueryModel `json:"data,omitempty"`
+	Data *FilterModelData `json:"data,omitempty"`
 	ProjectId *string `json:"projectId,omitempty"`
 	FieldsToShow interface{} `json:"fieldsToShow,omitempty"`
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	// Unique ID of the entity
 	Id *string `json:"id,omitempty"`
 	// Indicates if the entity is deleted
@@ -200,9 +200,9 @@ func (o *FilterModel) UnsetModifiedById() {
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *FilterModel) GetData() WorkItemSearchQueryModel {
+func (o *FilterModel) GetData() FilterModelData {
 	if o == nil || IsNil(o.Data) {
-		var ret WorkItemSearchQueryModel
+		var ret FilterModelData
 		return ret
 	}
 	return *o.Data
@@ -210,7 +210,7 @@ func (o *FilterModel) GetData() WorkItemSearchQueryModel {
 
 // GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FilterModel) GetDataOk() (*WorkItemSearchQueryModel, bool) {
+func (o *FilterModel) GetDataOk() (*FilterModelData, bool) {
 	if o == nil || IsNil(o.Data) {
 		return nil, false
 	}
@@ -226,8 +226,8 @@ func (o *FilterModel) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given WorkItemSearchQueryModel and assigns it to the Data field.
-func (o *FilterModel) SetData(v WorkItemSearchQueryModel) {
+// SetData gets a reference to the given FilterModelData and assigns it to the Data field.
+func (o *FilterModel) SetData(v FilterModelData) {
 	o.Data = &v
 }
 
@@ -296,46 +296,36 @@ func (o *FilterModel) SetFieldsToShow(v interface{}) {
 	o.FieldsToShow = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *FilterModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FilterModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *FilterModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *FilterModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *FilterModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *FilterModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -433,8 +423,8 @@ func (o FilterModel) ToMap() (map[string]interface{}, error) {
 	if o.FieldsToShow != nil {
 		toSerialize["fieldsToShow"] = o.FieldsToShow
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id

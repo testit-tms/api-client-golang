@@ -19,8 +19,8 @@ var _ MappedNullable = &AutotestsSelectModel{}
 
 // AutotestsSelectModel struct for AutotestsSelectModel
 type AutotestsSelectModel struct {
-	Filter *AutotestFilterModel `json:"filter,omitempty"`
-	Includes *SearchAutoTestsQueryIncludesModel `json:"includes,omitempty"`
+	Filter *AutotestsSelectModelFilter `json:"filter,omitempty"`
+	Includes *AutotestsSelectModelIncludes `json:"includes,omitempty"`
 }
 
 // NewAutotestsSelectModel instantiates a new AutotestsSelectModel object
@@ -41,9 +41,9 @@ func NewAutotestsSelectModelWithDefaults() *AutotestsSelectModel {
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise.
-func (o *AutotestsSelectModel) GetFilter() AutotestFilterModel {
+func (o *AutotestsSelectModel) GetFilter() AutotestsSelectModelFilter {
 	if o == nil || IsNil(o.Filter) {
-		var ret AutotestFilterModel
+		var ret AutotestsSelectModelFilter
 		return ret
 	}
 	return *o.Filter
@@ -51,7 +51,7 @@ func (o *AutotestsSelectModel) GetFilter() AutotestFilterModel {
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestsSelectModel) GetFilterOk() (*AutotestFilterModel, bool) {
+func (o *AutotestsSelectModel) GetFilterOk() (*AutotestsSelectModelFilter, bool) {
 	if o == nil || IsNil(o.Filter) {
 		return nil, false
 	}
@@ -67,15 +67,15 @@ func (o *AutotestsSelectModel) HasFilter() bool {
 	return false
 }
 
-// SetFilter gets a reference to the given AutotestFilterModel and assigns it to the Filter field.
-func (o *AutotestsSelectModel) SetFilter(v AutotestFilterModel) {
+// SetFilter gets a reference to the given AutotestsSelectModelFilter and assigns it to the Filter field.
+func (o *AutotestsSelectModel) SetFilter(v AutotestsSelectModelFilter) {
 	o.Filter = &v
 }
 
 // GetIncludes returns the Includes field value if set, zero value otherwise.
-func (o *AutotestsSelectModel) GetIncludes() SearchAutoTestsQueryIncludesModel {
+func (o *AutotestsSelectModel) GetIncludes() AutotestsSelectModelIncludes {
 	if o == nil || IsNil(o.Includes) {
-		var ret SearchAutoTestsQueryIncludesModel
+		var ret AutotestsSelectModelIncludes
 		return ret
 	}
 	return *o.Includes
@@ -83,7 +83,7 @@ func (o *AutotestsSelectModel) GetIncludes() SearchAutoTestsQueryIncludesModel {
 
 // GetIncludesOk returns a tuple with the Includes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestsSelectModel) GetIncludesOk() (*SearchAutoTestsQueryIncludesModel, bool) {
+func (o *AutotestsSelectModel) GetIncludesOk() (*AutotestsSelectModelIncludes, bool) {
 	if o == nil || IsNil(o.Includes) {
 		return nil, false
 	}
@@ -99,8 +99,8 @@ func (o *AutotestsSelectModel) HasIncludes() bool {
 	return false
 }
 
-// SetIncludes gets a reference to the given SearchAutoTestsQueryIncludesModel and assigns it to the Includes field.
-func (o *AutotestsSelectModel) SetIncludes(v SearchAutoTestsQueryIncludesModel) {
+// SetIncludes gets a reference to the given AutotestsSelectModelIncludes and assigns it to the Includes field.
+func (o *AutotestsSelectModel) SetIncludes(v AutotestsSelectModelIncludes) {
 	o.Includes = &v
 }
 

@@ -31,11 +31,11 @@ type AutotestFilterModel struct {
 	IsFlaky NullableBool `json:"isFlaky,omitempty"`
 	// Specifies an autotest unapproved changes status to search for
 	MustBeApproved NullableBool `json:"mustBeApproved,omitempty"`
-	StabilityPercentage *Int64RangeSelectorModel `json:"stabilityPercentage,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	StabilityPercentage NullableAutotestFilterModelStabilityPercentage `json:"stabilityPercentage,omitempty"`
+	CreatedDate NullableAutotestFilterModelCreatedDate `json:"createdDate,omitempty"`
 	// Specifies an autotest creator IDs to search for
 	CreatedByIds []string `json:"createdByIds,omitempty"`
-	ModifiedDate *DateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
+	ModifiedDate NullableAutotestFilterModelModifiedDate `json:"modifiedDate,omitempty"`
 	// Specifies an autotest last editor IDs to search for
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 	// Specifies an autotest deleted status to search for
@@ -48,7 +48,7 @@ type AutotestFilterModel struct {
 	ClassName NullableString `json:"className,omitempty"`
 	// Specifies an autotest class name presence status to search for
 	IsEmptyClassName NullableBool `json:"isEmptyClassName,omitempty"`
-	LastTestResultOutcome *AutotestResultOutcome `json:"lastTestResultOutcome,omitempty"`
+	LastTestResultOutcome NullableAutotestResultOutcome `json:"lastTestResultOutcome,omitempty"`
 }
 
 // NewAutotestFilterModel instantiates a new AutotestFilterModel object
@@ -293,68 +293,88 @@ func (o *AutotestFilterModel) UnsetMustBeApproved() {
 	o.MustBeApproved.Unset()
 }
 
-// GetStabilityPercentage returns the StabilityPercentage field value if set, zero value otherwise.
-func (o *AutotestFilterModel) GetStabilityPercentage() Int64RangeSelectorModel {
-	if o == nil || IsNil(o.StabilityPercentage) {
-		var ret Int64RangeSelectorModel
+// GetStabilityPercentage returns the StabilityPercentage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestFilterModel) GetStabilityPercentage() AutotestFilterModelStabilityPercentage {
+	if o == nil || IsNil(o.StabilityPercentage.Get()) {
+		var ret AutotestFilterModelStabilityPercentage
 		return ret
 	}
-	return *o.StabilityPercentage
+	return *o.StabilityPercentage.Get()
 }
 
 // GetStabilityPercentageOk returns a tuple with the StabilityPercentage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestFilterModel) GetStabilityPercentageOk() (*Int64RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.StabilityPercentage) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestFilterModel) GetStabilityPercentageOk() (*AutotestFilterModelStabilityPercentage, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StabilityPercentage, true
+	return o.StabilityPercentage.Get(), o.StabilityPercentage.IsSet()
 }
 
 // HasStabilityPercentage returns a boolean if a field has been set.
 func (o *AutotestFilterModel) HasStabilityPercentage() bool {
-	if o != nil && !IsNil(o.StabilityPercentage) {
+	if o != nil && o.StabilityPercentage.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStabilityPercentage gets a reference to the given Int64RangeSelectorModel and assigns it to the StabilityPercentage field.
-func (o *AutotestFilterModel) SetStabilityPercentage(v Int64RangeSelectorModel) {
-	o.StabilityPercentage = &v
+// SetStabilityPercentage gets a reference to the given NullableAutotestFilterModelStabilityPercentage and assigns it to the StabilityPercentage field.
+func (o *AutotestFilterModel) SetStabilityPercentage(v AutotestFilterModelStabilityPercentage) {
+	o.StabilityPercentage.Set(&v)
+}
+// SetStabilityPercentageNil sets the value for StabilityPercentage to be an explicit nil
+func (o *AutotestFilterModel) SetStabilityPercentageNil() {
+	o.StabilityPercentage.Set(nil)
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *AutotestFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
-		var ret DateTimeRangeSelectorModel
+// UnsetStabilityPercentage ensures that no value is present for StabilityPercentage, not even an explicit nil
+func (o *AutotestFilterModel) UnsetStabilityPercentage() {
+	o.StabilityPercentage.Unset()
+}
+
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestFilterModel) GetCreatedDate() AutotestFilterModelCreatedDate {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
+		var ret AutotestFilterModelCreatedDate
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestFilterModel) GetCreatedDateOk() (*AutotestFilterModelCreatedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *AutotestFilterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
-func (o *AutotestFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+// SetCreatedDate gets a reference to the given NullableAutotestFilterModelCreatedDate and assigns it to the CreatedDate field.
+func (o *AutotestFilterModel) SetCreatedDate(v AutotestFilterModelCreatedDate) {
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *AutotestFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
+}
+
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *AutotestFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
 }
 
 // GetCreatedByIds returns the CreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -390,36 +410,46 @@ func (o *AutotestFilterModel) SetCreatedByIds(v []string) {
 	o.CreatedByIds = v
 }
 
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise.
-func (o *AutotestFilterModel) GetModifiedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.ModifiedDate) {
-		var ret DateTimeRangeSelectorModel
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestFilterModel) GetModifiedDate() AutotestFilterModelModifiedDate {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret AutotestFilterModelModifiedDate
 		return ret
 	}
-	return *o.ModifiedDate
+	return *o.ModifiedDate.Get()
 }
 
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.ModifiedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestFilterModel) GetModifiedDateOk() (*AutotestFilterModelModifiedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ModifiedDate, true
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
 }
 
 // HasModifiedDate returns a boolean if a field has been set.
 func (o *AutotestFilterModel) HasModifiedDate() bool {
-	if o != nil && !IsNil(o.ModifiedDate) {
+	if o != nil && o.ModifiedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetModifiedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
-func (o *AutotestFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
-	o.ModifiedDate = &v
+// SetModifiedDate gets a reference to the given NullableAutotestFilterModelModifiedDate and assigns it to the ModifiedDate field.
+func (o *AutotestFilterModel) SetModifiedDate(v AutotestFilterModelModifiedDate) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *AutotestFilterModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *AutotestFilterModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
 }
 
 // GetModifiedByIds returns the ModifiedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -665,36 +695,46 @@ func (o *AutotestFilterModel) UnsetIsEmptyClassName() {
 	o.IsEmptyClassName.Unset()
 }
 
-// GetLastTestResultOutcome returns the LastTestResultOutcome field value if set, zero value otherwise.
+// GetLastTestResultOutcome returns the LastTestResultOutcome field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutotestFilterModel) GetLastTestResultOutcome() AutotestResultOutcome {
-	if o == nil || IsNil(o.LastTestResultOutcome) {
+	if o == nil || IsNil(o.LastTestResultOutcome.Get()) {
 		var ret AutotestResultOutcome
 		return ret
 	}
-	return *o.LastTestResultOutcome
+	return *o.LastTestResultOutcome.Get()
 }
 
 // GetLastTestResultOutcomeOk returns a tuple with the LastTestResultOutcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutotestFilterModel) GetLastTestResultOutcomeOk() (*AutotestResultOutcome, bool) {
-	if o == nil || IsNil(o.LastTestResultOutcome) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LastTestResultOutcome, true
+	return o.LastTestResultOutcome.Get(), o.LastTestResultOutcome.IsSet()
 }
 
 // HasLastTestResultOutcome returns a boolean if a field has been set.
 func (o *AutotestFilterModel) HasLastTestResultOutcome() bool {
-	if o != nil && !IsNil(o.LastTestResultOutcome) {
+	if o != nil && o.LastTestResultOutcome.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLastTestResultOutcome gets a reference to the given AutotestResultOutcome and assigns it to the LastTestResultOutcome field.
+// SetLastTestResultOutcome gets a reference to the given NullableAutotestResultOutcome and assigns it to the LastTestResultOutcome field.
 func (o *AutotestFilterModel) SetLastTestResultOutcome(v AutotestResultOutcome) {
-	o.LastTestResultOutcome = &v
+	o.LastTestResultOutcome.Set(&v)
+}
+// SetLastTestResultOutcomeNil sets the value for LastTestResultOutcome to be an explicit nil
+func (o *AutotestFilterModel) SetLastTestResultOutcomeNil() {
+	o.LastTestResultOutcome.Set(nil)
+}
+
+// UnsetLastTestResultOutcome ensures that no value is present for LastTestResultOutcome, not even an explicit nil
+func (o *AutotestFilterModel) UnsetLastTestResultOutcome() {
+	o.LastTestResultOutcome.Unset()
 }
 
 func (o AutotestFilterModel) MarshalJSON() ([]byte, error) {
@@ -725,17 +765,17 @@ func (o AutotestFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.MustBeApproved.IsSet() {
 		toSerialize["mustBeApproved"] = o.MustBeApproved.Get()
 	}
-	if !IsNil(o.StabilityPercentage) {
-		toSerialize["stabilityPercentage"] = o.StabilityPercentage
+	if o.StabilityPercentage.IsSet() {
+		toSerialize["stabilityPercentage"] = o.StabilityPercentage.Get()
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds
 	}
-	if !IsNil(o.ModifiedDate) {
-		toSerialize["modifiedDate"] = o.ModifiedDate
+	if o.ModifiedDate.IsSet() {
+		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
 	if o.ModifiedByIds != nil {
 		toSerialize["modifiedByIds"] = o.ModifiedByIds
@@ -755,8 +795,8 @@ func (o AutotestFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.IsEmptyClassName.IsSet() {
 		toSerialize["isEmptyClassName"] = o.IsEmptyClassName.Get()
 	}
-	if !IsNil(o.LastTestResultOutcome) {
-		toSerialize["lastTestResultOutcome"] = o.LastTestResultOutcome
+	if o.LastTestResultOutcome.IsSet() {
+		toSerialize["lastTestResultOutcome"] = o.LastTestResultOutcome.Get()
 	}
 	return toSerialize, nil
 }

@@ -32,8 +32,8 @@ type TestResultModel struct {
 	StoppedByUserId NullableString `json:"stoppedByUserId,omitempty"`
 	TestPointId *string `json:"testPointId,omitempty"`
 	TestRunId *string `json:"testRunId,omitempty"`
-	TestPoint *TestPointPutModel `json:"testPoint,omitempty"`
-	AutoTest *AutoTestModel `json:"autoTest,omitempty"`
+	TestPoint NullableTestPointPutModel `json:"testPoint,omitempty"`
+	AutoTest NullableAutoTestModel `json:"autoTest,omitempty"`
 	AutoTestStepResults []AttachmentModelAutoTestStepResultsModel `json:"autoTestStepResults,omitempty"`
 	SetupResults []AttachmentModelAutoTestStepResultsModel `json:"setupResults,omitempty"`
 	TeardownResults []AttachmentModelAutoTestStepResultsModel `json:"teardownResults,omitempty"`
@@ -48,7 +48,7 @@ type TestResultModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	StepComments []StepCommentModel `json:"stepComments,omitempty"`
 	FailureClassIds []string `json:"failureClassIds,omitempty"`
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome *string `json:"outcome,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	StepResults []StepResultModel `json:"stepResults,omitempty"`
@@ -546,68 +546,88 @@ func (o *TestResultModel) SetTestRunId(v string) {
 	o.TestRunId = &v
 }
 
-// GetTestPoint returns the TestPoint field value if set, zero value otherwise.
+// GetTestPoint returns the TestPoint field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestResultModel) GetTestPoint() TestPointPutModel {
-	if o == nil || IsNil(o.TestPoint) {
+	if o == nil || IsNil(o.TestPoint.Get()) {
 		var ret TestPointPutModel
 		return ret
 	}
-	return *o.TestPoint
+	return *o.TestPoint.Get()
 }
 
 // GetTestPointOk returns a tuple with the TestPoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultModel) GetTestPointOk() (*TestPointPutModel, bool) {
-	if o == nil || IsNil(o.TestPoint) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPoint, true
+	return o.TestPoint.Get(), o.TestPoint.IsSet()
 }
 
 // HasTestPoint returns a boolean if a field has been set.
 func (o *TestResultModel) HasTestPoint() bool {
-	if o != nil && !IsNil(o.TestPoint) {
+	if o != nil && o.TestPoint.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPoint gets a reference to the given TestPointPutModel and assigns it to the TestPoint field.
+// SetTestPoint gets a reference to the given NullableTestPointPutModel and assigns it to the TestPoint field.
 func (o *TestResultModel) SetTestPoint(v TestPointPutModel) {
-	o.TestPoint = &v
+	o.TestPoint.Set(&v)
+}
+// SetTestPointNil sets the value for TestPoint to be an explicit nil
+func (o *TestResultModel) SetTestPointNil() {
+	o.TestPoint.Set(nil)
 }
 
-// GetAutoTest returns the AutoTest field value if set, zero value otherwise.
+// UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
+func (o *TestResultModel) UnsetTestPoint() {
+	o.TestPoint.Unset()
+}
+
+// GetAutoTest returns the AutoTest field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestResultModel) GetAutoTest() AutoTestModel {
-	if o == nil || IsNil(o.AutoTest) {
+	if o == nil || IsNil(o.AutoTest.Get()) {
 		var ret AutoTestModel
 		return ret
 	}
-	return *o.AutoTest
+	return *o.AutoTest.Get()
 }
 
 // GetAutoTestOk returns a tuple with the AutoTest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultModel) GetAutoTestOk() (*AutoTestModel, bool) {
-	if o == nil || IsNil(o.AutoTest) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AutoTest, true
+	return o.AutoTest.Get(), o.AutoTest.IsSet()
 }
 
 // HasAutoTest returns a boolean if a field has been set.
 func (o *TestResultModel) HasAutoTest() bool {
-	if o != nil && !IsNil(o.AutoTest) {
+	if o != nil && o.AutoTest.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAutoTest gets a reference to the given AutoTestModel and assigns it to the AutoTest field.
+// SetAutoTest gets a reference to the given NullableAutoTestModel and assigns it to the AutoTest field.
 func (o *TestResultModel) SetAutoTest(v AutoTestModel) {
-	o.AutoTest = &v
+	o.AutoTest.Set(&v)
+}
+// SetAutoTestNil sets the value for AutoTest to be an explicit nil
+func (o *TestResultModel) SetAutoTestNil() {
+	o.AutoTest.Set(nil)
+}
+
+// UnsetAutoTest ensures that no value is present for AutoTest, not even an explicit nil
+func (o *TestResultModel) UnsetAutoTest() {
+	o.AutoTest.Unset()
 }
 
 // GetAutoTestStepResults returns the AutoTestStepResults field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1062,9 +1082,9 @@ func (o *TestResultModel) SetStepComments(v []StepCommentModel) {
 	o.StepComments = v
 }
 
-// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise.
 func (o *TestResultModel) GetFailureClassIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.FailureClassIds) {
 		var ret []string
 		return ret
 	}
@@ -1073,7 +1093,6 @@ func (o *TestResultModel) GetFailureClassIds() []string {
 
 // GetFailureClassIdsOk returns a tuple with the FailureClassIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultModel) GetFailureClassIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.FailureClassIds) {
 		return nil, false
@@ -1083,7 +1102,7 @@ func (o *TestResultModel) GetFailureClassIdsOk() ([]string, bool) {
 
 // HasFailureClassIds returns a boolean if a field has been set.
 func (o *TestResultModel) HasFailureClassIds() bool {
-	if o != nil && IsNil(o.FailureClassIds) {
+	if o != nil && !IsNil(o.FailureClassIds) {
 		return true
 	}
 
@@ -1095,46 +1114,36 @@ func (o *TestResultModel) SetFailureClassIds(v []string) {
 	o.FailureClassIds = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value if set, zero value otherwise.
 func (o *TestResultModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil || IsNil(o.Outcome) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+	return *o.Outcome
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultModel) GetOutcomeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Outcome) {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return o.Outcome, true
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *TestResultModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
+	if o != nil && !IsNil(o.Outcome) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
 func (o *TestResultModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = &v
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1212,9 +1221,9 @@ func (o *TestResultModel) SetLinks(v []LinkModel) {
 	o.Links = v
 }
 
-// GetStepResults returns the StepResults field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStepResults returns the StepResults field value if set, zero value otherwise.
 func (o *TestResultModel) GetStepResults() []StepResultModel {
-	if o == nil {
+	if o == nil || IsNil(o.StepResults) {
 		var ret []StepResultModel
 		return ret
 	}
@@ -1223,7 +1232,6 @@ func (o *TestResultModel) GetStepResults() []StepResultModel {
 
 // GetStepResultsOk returns a tuple with the StepResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultModel) GetStepResultsOk() ([]StepResultModel, bool) {
 	if o == nil || IsNil(o.StepResults) {
 		return nil, false
@@ -1233,7 +1241,7 @@ func (o *TestResultModel) GetStepResultsOk() ([]StepResultModel, bool) {
 
 // HasStepResults returns a boolean if a field has been set.
 func (o *TestResultModel) HasStepResults() bool {
-	if o != nil && IsNil(o.StepResults) {
+	if o != nil && !IsNil(o.StepResults) {
 		return true
 	}
 
@@ -1324,11 +1332,11 @@ func (o TestResultModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TestRunId) {
 		toSerialize["testRunId"] = o.TestRunId
 	}
-	if !IsNil(o.TestPoint) {
-		toSerialize["testPoint"] = o.TestPoint
+	if o.TestPoint.IsSet() {
+		toSerialize["testPoint"] = o.TestPoint.Get()
 	}
-	if !IsNil(o.AutoTest) {
-		toSerialize["autoTest"] = o.AutoTest
+	if o.AutoTest.IsSet() {
+		toSerialize["autoTest"] = o.AutoTest.Get()
 	}
 	if o.AutoTestStepResults != nil {
 		toSerialize["autoTestStepResults"] = o.AutoTestStepResults
@@ -1369,11 +1377,11 @@ func (o TestResultModel) ToMap() (map[string]interface{}, error) {
 	if o.StepComments != nil {
 		toSerialize["stepComments"] = o.StepComments
 	}
-	if o.FailureClassIds != nil {
+	if !IsNil(o.FailureClassIds) {
 		toSerialize["failureClassIds"] = o.FailureClassIds
 	}
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
+	if !IsNil(o.Outcome) {
+		toSerialize["outcome"] = o.Outcome
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()
@@ -1381,7 +1389,7 @@ func (o TestResultModel) ToMap() (map[string]interface{}, error) {
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
 	}
-	if o.StepResults != nil {
+	if !IsNil(o.StepResults) {
 		toSerialize["stepResults"] = o.StepResults
 	}
 	if o.Attachments != nil {

@@ -19,14 +19,8 @@ var _ MappedNullable = &ConfigurationSelectModel{}
 
 // ConfigurationSelectModel struct for ConfigurationSelectModel
 type ConfigurationSelectModel struct {
-	// Collection of identifiers of projects from which configurations will be taken
-	ProjectIds []string `json:"projectIds,omitempty"`
-	// Filter to search by name (case-insensitive, partial match)
-	Name NullableString `json:"name,omitempty"`
-	// Is configurations deleted or existing
-	IsDeleted NullableBool `json:"isDeleted,omitempty"`
-	// Collection of global (integer) identifiers to filter configurations
-	GlobalIds []int64 `json:"globalIds,omitempty"`
+	Filter NullableConfigurationSelectModelFilter `json:"filter,omitempty"`
+	ExtractionModel NullableConfigurationSelectModelExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewConfigurationSelectModel instantiates a new ConfigurationSelectModel object
@@ -46,154 +40,88 @@ func NewConfigurationSelectModelWithDefaults() *ConfigurationSelectModel {
 	return &this
 }
 
-// GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationSelectModel) GetProjectIds() []string {
-	if o == nil {
-		var ret []string
+// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ConfigurationSelectModel) GetFilter() ConfigurationSelectModelFilter {
+	if o == nil || IsNil(o.Filter.Get()) {
+		var ret ConfigurationSelectModelFilter
 		return ret
 	}
-	return o.ProjectIds
+	return *o.Filter.Get()
 }
 
-// GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
+// GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationSelectModel) GetProjectIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.ProjectIds) {
+func (o *ConfigurationSelectModel) GetFilterOk() (*ConfigurationSelectModelFilter, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProjectIds, true
+	return o.Filter.Get(), o.Filter.IsSet()
 }
 
-// HasProjectIds returns a boolean if a field has been set.
-func (o *ConfigurationSelectModel) HasProjectIds() bool {
-	if o != nil && IsNil(o.ProjectIds) {
+// HasFilter returns a boolean if a field has been set.
+func (o *ConfigurationSelectModel) HasFilter() bool {
+	if o != nil && o.Filter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
-func (o *ConfigurationSelectModel) SetProjectIds(v []string) {
-	o.ProjectIds = v
+// SetFilter gets a reference to the given NullableConfigurationSelectModelFilter and assigns it to the Filter field.
+func (o *ConfigurationSelectModel) SetFilter(v ConfigurationSelectModelFilter) {
+	o.Filter.Set(&v)
+}
+// SetFilterNil sets the value for Filter to be an explicit nil
+func (o *ConfigurationSelectModel) SetFilterNil() {
+	o.Filter.Set(nil)
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationSelectModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
-		var ret string
+// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
+func (o *ConfigurationSelectModel) UnsetFilter() {
+	o.Filter.Unset()
+}
+
+// GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ConfigurationSelectModel) GetExtractionModel() ConfigurationSelectModelExtractionModel {
+	if o == nil || IsNil(o.ExtractionModel.Get()) {
+		var ret ConfigurationSelectModelExtractionModel
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.ExtractionModel.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationSelectModel) GetNameOk() (*string, bool) {
+func (o *ConfigurationSelectModel) GetExtractionModelOk() (*ConfigurationSelectModelExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.ExtractionModel.Get(), o.ExtractionModel.IsSet()
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ConfigurationSelectModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+// HasExtractionModel returns a boolean if a field has been set.
+func (o *ConfigurationSelectModel) HasExtractionModel() bool {
+	if o != nil && o.ExtractionModel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *ConfigurationSelectModel) SetName(v string) {
-	o.Name.Set(&v)
+// SetExtractionModel gets a reference to the given NullableConfigurationSelectModelExtractionModel and assigns it to the ExtractionModel field.
+func (o *ConfigurationSelectModel) SetExtractionModel(v ConfigurationSelectModelExtractionModel) {
+	o.ExtractionModel.Set(&v)
 }
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ConfigurationSelectModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ConfigurationSelectModel) UnsetName() {
-	o.Name.Unset()
+// SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil
+func (o *ConfigurationSelectModel) SetExtractionModelNil() {
+	o.ExtractionModel.Set(nil)
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationSelectModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.IsDeleted.Get()
-}
-
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationSelectModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.IsDeleted.Get(), o.IsDeleted.IsSet()
-}
-
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *ConfigurationSelectModel) HasIsDeleted() bool {
-	if o != nil && o.IsDeleted.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given NullableBool and assigns it to the IsDeleted field.
-func (o *ConfigurationSelectModel) SetIsDeleted(v bool) {
-	o.IsDeleted.Set(&v)
-}
-// SetIsDeletedNil sets the value for IsDeleted to be an explicit nil
-func (o *ConfigurationSelectModel) SetIsDeletedNil() {
-	o.IsDeleted.Set(nil)
-}
-
-// UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
-func (o *ConfigurationSelectModel) UnsetIsDeleted() {
-	o.IsDeleted.Unset()
-}
-
-// GetGlobalIds returns the GlobalIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationSelectModel) GetGlobalIds() []int64 {
-	if o == nil {
-		var ret []int64
-		return ret
-	}
-	return o.GlobalIds
-}
-
-// GetGlobalIdsOk returns a tuple with the GlobalIds field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationSelectModel) GetGlobalIdsOk() ([]int64, bool) {
-	if o == nil || IsNil(o.GlobalIds) {
-		return nil, false
-	}
-	return o.GlobalIds, true
-}
-
-// HasGlobalIds returns a boolean if a field has been set.
-func (o *ConfigurationSelectModel) HasGlobalIds() bool {
-	if o != nil && IsNil(o.GlobalIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalIds gets a reference to the given []int64 and assigns it to the GlobalIds field.
-func (o *ConfigurationSelectModel) SetGlobalIds(v []int64) {
-	o.GlobalIds = v
+// UnsetExtractionModel ensures that no value is present for ExtractionModel, not even an explicit nil
+func (o *ConfigurationSelectModel) UnsetExtractionModel() {
+	o.ExtractionModel.Unset()
 }
 
 func (o ConfigurationSelectModel) MarshalJSON() ([]byte, error) {
@@ -206,17 +134,11 @@ func (o ConfigurationSelectModel) MarshalJSON() ([]byte, error) {
 
 func (o ConfigurationSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ProjectIds != nil {
-		toSerialize["projectIds"] = o.ProjectIds
+	if o.Filter.IsSet() {
+		toSerialize["filter"] = o.Filter.Get()
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.IsDeleted.IsSet() {
-		toSerialize["isDeleted"] = o.IsDeleted.Get()
-	}
-	if o.GlobalIds != nil {
-		toSerialize["globalIds"] = o.GlobalIds
+	if o.ExtractionModel.IsSet() {
+		toSerialize["extractionModel"] = o.ExtractionModel.Get()
 	}
 	return toSerialize, nil
 }

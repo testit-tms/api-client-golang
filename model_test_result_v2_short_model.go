@@ -31,10 +31,10 @@ type TestResultV2ShortModel struct {
 	RunByUserId NullableString `json:"runByUserId,omitempty"`
 	StoppedByUserId NullableString `json:"stoppedByUserId,omitempty"`
 	TestPointId NullableString `json:"testPointId,omitempty"`
-	TestPoint *TestPointShortModel `json:"testPoint,omitempty"`
+	TestPoint NullableTestPointRelatedToTestResult `json:"testPoint,omitempty"`
 	TestRunId *string `json:"testRunId,omitempty"`
 	// Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome *string `json:"outcome,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
@@ -491,36 +491,46 @@ func (o *TestResultV2ShortModel) UnsetTestPointId() {
 	o.TestPointId.Unset()
 }
 
-// GetTestPoint returns the TestPoint field value if set, zero value otherwise.
-func (o *TestResultV2ShortModel) GetTestPoint() TestPointShortModel {
-	if o == nil || IsNil(o.TestPoint) {
-		var ret TestPointShortModel
+// GetTestPoint returns the TestPoint field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultV2ShortModel) GetTestPoint() TestPointRelatedToTestResult {
+	if o == nil || IsNil(o.TestPoint.Get()) {
+		var ret TestPointRelatedToTestResult
 		return ret
 	}
-	return *o.TestPoint
+	return *o.TestPoint.Get()
 }
 
 // GetTestPointOk returns a tuple with the TestPoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestResultV2ShortModel) GetTestPointOk() (*TestPointShortModel, bool) {
-	if o == nil || IsNil(o.TestPoint) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultV2ShortModel) GetTestPointOk() (*TestPointRelatedToTestResult, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPoint, true
+	return o.TestPoint.Get(), o.TestPoint.IsSet()
 }
 
 // HasTestPoint returns a boolean if a field has been set.
 func (o *TestResultV2ShortModel) HasTestPoint() bool {
-	if o != nil && !IsNil(o.TestPoint) {
+	if o != nil && o.TestPoint.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPoint gets a reference to the given TestPointShortModel and assigns it to the TestPoint field.
-func (o *TestResultV2ShortModel) SetTestPoint(v TestPointShortModel) {
-	o.TestPoint = &v
+// SetTestPoint gets a reference to the given NullableTestPointRelatedToTestResult and assigns it to the TestPoint field.
+func (o *TestResultV2ShortModel) SetTestPoint(v TestPointRelatedToTestResult) {
+	o.TestPoint.Set(&v)
+}
+// SetTestPointNil sets the value for TestPoint to be an explicit nil
+func (o *TestResultV2ShortModel) SetTestPointNil() {
+	o.TestPoint.Set(nil)
+}
+
+// UnsetTestPoint ensures that no value is present for TestPoint, not even an explicit nil
+func (o *TestResultV2ShortModel) UnsetTestPoint() {
+	o.TestPoint.Unset()
 }
 
 // GetTestRunId returns the TestRunId field value if set, zero value otherwise.
@@ -555,46 +565,36 @@ func (o *TestResultV2ShortModel) SetTestRunId(v string) {
 	o.TestRunId = &v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value if set, zero value otherwise.
 func (o *TestResultV2ShortModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil || IsNil(o.Outcome) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+	return *o.Outcome
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultV2ShortModel) GetOutcomeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Outcome) {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return o.Outcome, true
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *TestResultV2ShortModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
+	if o != nil && !IsNil(o.Outcome) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
 func (o *TestResultV2ShortModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultV2ShortModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultV2ShortModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = &v
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -814,14 +814,14 @@ func (o TestResultV2ShortModel) ToMap() (map[string]interface{}, error) {
 	if o.TestPointId.IsSet() {
 		toSerialize["testPointId"] = o.TestPointId.Get()
 	}
-	if !IsNil(o.TestPoint) {
-		toSerialize["testPoint"] = o.TestPoint
+	if o.TestPoint.IsSet() {
+		toSerialize["testPoint"] = o.TestPoint.Get()
 	}
 	if !IsNil(o.TestRunId) {
 		toSerialize["testRunId"] = o.TestRunId
 	}
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
+	if !IsNil(o.Outcome) {
+		toSerialize["outcome"] = o.Outcome
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()

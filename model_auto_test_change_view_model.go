@@ -21,7 +21,7 @@ var _ MappedNullable = &AutoTestChangeViewModel{}
 type AutoTestChangeViewModel struct {
 	Id *string `json:"id,omitempty"`
 	ProjectId *string `json:"projectId,omitempty"`
-	ExternalId NullableString `json:"externalId,omitempty"`
+	ExternalId *string `json:"externalId,omitempty"`
 	GlobalId *int64 `json:"globalId,omitempty"`
 }
 
@@ -106,46 +106,36 @@ func (o *AutoTestChangeViewModel) SetProjectId(v string) {
 	o.ProjectId = &v
 }
 
-// GetExternalId returns the ExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExternalId returns the ExternalId field value if set, zero value otherwise.
 func (o *AutoTestChangeViewModel) GetExternalId() string {
-	if o == nil || IsNil(o.ExternalId.Get()) {
+	if o == nil || IsNil(o.ExternalId) {
 		var ret string
 		return ret
 	}
-	return *o.ExternalId.Get()
+	return *o.ExternalId
 }
 
 // GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutoTestChangeViewModel) GetExternalIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ExternalId) {
 		return nil, false
 	}
-	return o.ExternalId.Get(), o.ExternalId.IsSet()
+	return o.ExternalId, true
 }
 
 // HasExternalId returns a boolean if a field has been set.
 func (o *AutoTestChangeViewModel) HasExternalId() bool {
-	if o != nil && o.ExternalId.IsSet() {
+	if o != nil && !IsNil(o.ExternalId) {
 		return true
 	}
 
 	return false
 }
 
-// SetExternalId gets a reference to the given NullableString and assigns it to the ExternalId field.
+// SetExternalId gets a reference to the given string and assigns it to the ExternalId field.
 func (o *AutoTestChangeViewModel) SetExternalId(v string) {
-	o.ExternalId.Set(&v)
-}
-// SetExternalIdNil sets the value for ExternalId to be an explicit nil
-func (o *AutoTestChangeViewModel) SetExternalIdNil() {
-	o.ExternalId.Set(nil)
-}
-
-// UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
-func (o *AutoTestChangeViewModel) UnsetExternalId() {
-	o.ExternalId.Unset()
+	o.ExternalId = &v
 }
 
 // GetGlobalId returns the GlobalId field value if set, zero value otherwise.
@@ -196,8 +186,8 @@ func (o AutoTestChangeViewModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ProjectId) {
 		toSerialize["projectId"] = o.ProjectId
 	}
-	if o.ExternalId.IsSet() {
-		toSerialize["externalId"] = o.ExternalId.Get()
+	if !IsNil(o.ExternalId) {
+		toSerialize["externalId"] = o.ExternalId
 	}
 	if !IsNil(o.GlobalId) {
 		toSerialize["globalId"] = o.GlobalId

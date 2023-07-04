@@ -19,8 +19,8 @@ var _ MappedNullable = &ParameterGroupModel{}
 
 // ParameterGroupModel struct for ParameterGroupModel
 type ParameterGroupModel struct {
-	Name NullableString `json:"name,omitempty"`
-	Values map[string]string `json:"values,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Values *map[string]string `json:"values,omitempty"`
 	ParameterKeyId *string `json:"parameterKeyId,omitempty"`
 }
 
@@ -41,70 +41,59 @@ func NewParameterGroupModelWithDefaults() *ParameterGroupModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ParameterGroupModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterGroupModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ParameterGroupModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ParameterGroupModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ParameterGroupModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = &v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ParameterGroupModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetValues returns the Values field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValues returns the Values field value if set, zero value otherwise.
 func (o *ParameterGroupModel) GetValues() map[string]string {
-	if o == nil {
+	if o == nil || IsNil(o.Values) {
 		var ret map[string]string
 		return ret
 	}
-	return o.Values
+	return *o.Values
 }
 
 // GetValuesOk returns a tuple with the Values field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterGroupModel) GetValuesOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Values) {
 		return nil, false
 	}
-	return &o.Values, true
+	return o.Values, true
 }
 
 // HasValues returns a boolean if a field has been set.
 func (o *ParameterGroupModel) HasValues() bool {
-	if o != nil && IsNil(o.Values) {
+	if o != nil && !IsNil(o.Values) {
 		return true
 	}
 
@@ -113,7 +102,7 @@ func (o *ParameterGroupModel) HasValues() bool {
 
 // SetValues gets a reference to the given map[string]string and assigns it to the Values field.
 func (o *ParameterGroupModel) SetValues(v map[string]string) {
-	o.Values = v
+	o.Values = &v
 }
 
 // GetParameterKeyId returns the ParameterKeyId field value if set, zero value otherwise.
@@ -158,10 +147,10 @@ func (o ParameterGroupModel) MarshalJSON() ([]byte, error) {
 
 func (o ParameterGroupModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
-	if o.Values != nil {
+	if !IsNil(o.Values) {
 		toSerialize["values"] = o.Values
 	}
 	if !IsNil(o.ParameterKeyId) {

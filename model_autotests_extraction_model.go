@@ -19,7 +19,7 @@ var _ MappedNullable = &AutotestsExtractionModel{}
 
 // AutotestsExtractionModel struct for AutotestsExtractionModel
 type AutotestsExtractionModel struct {
-	Ids *GuidExtractionModel `json:"ids,omitempty"`
+	Ids NullableAutotestsExtractionModelIds `json:"ids,omitempty"`
 }
 
 // NewAutotestsExtractionModel instantiates a new AutotestsExtractionModel object
@@ -39,36 +39,46 @@ func NewAutotestsExtractionModelWithDefaults() *AutotestsExtractionModel {
 	return &this
 }
 
-// GetIds returns the Ids field value if set, zero value otherwise.
-func (o *AutotestsExtractionModel) GetIds() GuidExtractionModel {
-	if o == nil || IsNil(o.Ids) {
-		var ret GuidExtractionModel
+// GetIds returns the Ids field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestsExtractionModel) GetIds() AutotestsExtractionModelIds {
+	if o == nil || IsNil(o.Ids.Get()) {
+		var ret AutotestsExtractionModelIds
 		return ret
 	}
-	return *o.Ids
+	return *o.Ids.Get()
 }
 
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestsExtractionModel) GetIdsOk() (*GuidExtractionModel, bool) {
-	if o == nil || IsNil(o.Ids) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestsExtractionModel) GetIdsOk() (*AutotestsExtractionModelIds, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Ids, true
+	return o.Ids.Get(), o.Ids.IsSet()
 }
 
 // HasIds returns a boolean if a field has been set.
 func (o *AutotestsExtractionModel) HasIds() bool {
-	if o != nil && !IsNil(o.Ids) {
+	if o != nil && o.Ids.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIds gets a reference to the given GuidExtractionModel and assigns it to the Ids field.
-func (o *AutotestsExtractionModel) SetIds(v GuidExtractionModel) {
-	o.Ids = &v
+// SetIds gets a reference to the given NullableAutotestsExtractionModelIds and assigns it to the Ids field.
+func (o *AutotestsExtractionModel) SetIds(v AutotestsExtractionModelIds) {
+	o.Ids.Set(&v)
+}
+// SetIdsNil sets the value for Ids to be an explicit nil
+func (o *AutotestsExtractionModel) SetIdsNil() {
+	o.Ids.Set(nil)
+}
+
+// UnsetIds ensures that no value is present for Ids, not even an explicit nil
+func (o *AutotestsExtractionModel) UnsetIds() {
+	o.Ids.Unset()
 }
 
 func (o AutotestsExtractionModel) MarshalJSON() ([]byte, error) {
@@ -81,8 +91,8 @@ func (o AutotestsExtractionModel) MarshalJSON() ([]byte, error) {
 
 func (o AutotestsExtractionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Ids) {
-		toSerialize["ids"] = o.Ids
+	if o.Ids.IsSet() {
+		toSerialize["ids"] = o.Ids.Get()
 	}
 	return toSerialize, nil
 }

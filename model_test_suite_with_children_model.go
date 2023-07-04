@@ -23,7 +23,7 @@ type TestSuiteWithChildrenModel struct {
 	TesterId NullableString `json:"testerId,omitempty"`
 	ParentId NullableString `json:"parentId,omitempty"`
 	TestPlanId *string `json:"testPlanId,omitempty"`
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	// Unique ID of the entity
 	Id *string `json:"id,omitempty"`
 	// Indicates if the entity is deleted
@@ -196,46 +196,36 @@ func (o *TestSuiteWithChildrenModel) SetTestPlanId(v string) {
 	o.TestPlanId = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *TestSuiteWithChildrenModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestSuiteWithChildrenModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestSuiteWithChildrenModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TestSuiteWithChildrenModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *TestSuiteWithChildrenModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *TestSuiteWithChildrenModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -324,8 +314,8 @@ func (o TestSuiteWithChildrenModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TestPlanId) {
 		toSerialize["testPlanId"] = o.TestPlanId
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id

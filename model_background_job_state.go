@@ -24,6 +24,7 @@ const (
 	BACKGROUNDJOBSTATE_IN_PROGRESS BackgroundJobState = "InProgress"
 	BACKGROUNDJOBSTATE_COMPLETED BackgroundJobState = "Completed"
 	BACKGROUNDJOBSTATE_FAILED BackgroundJobState = "Failed"
+	BACKGROUNDJOBSTATE_CANCELED BackgroundJobState = "Canceled"
 )
 
 // All allowed values of BackgroundJobState enum
@@ -32,6 +33,7 @@ var AllowedBackgroundJobStateEnumValues = []BackgroundJobState{
 	"InProgress",
 	"Completed",
 	"Failed",
+	"Canceled",
 }
 
 func (v *BackgroundJobState) UnmarshalJSON(src []byte) error {

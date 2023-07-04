@@ -25,7 +25,7 @@ type AutotestHistoricalResultSelectModel struct {
 	ConfigurationIds []string `json:"configurationIds,omitempty"`
 	LaunchSource NullableString `json:"launchSource,omitempty"`
 	UserIds []string `json:"userIds,omitempty"`
-	Duration *Int64RangeSelectorModel `json:"duration,omitempty"`
+	Duration NullableInt64RangeSelectorModel `json:"duration,omitempty"`
 }
 
 // NewAutotestHistoricalResultSelectModel instantiates a new AutotestHistoricalResultSelectModel object
@@ -252,36 +252,46 @@ func (o *AutotestHistoricalResultSelectModel) SetUserIds(v []string) {
 	o.UserIds = v
 }
 
-// GetDuration returns the Duration field value if set, zero value otherwise.
+// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutotestHistoricalResultSelectModel) GetDuration() Int64RangeSelectorModel {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil || IsNil(o.Duration.Get()) {
 		var ret Int64RangeSelectorModel
 		return ret
 	}
-	return *o.Duration
+	return *o.Duration.Get()
 }
 
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutotestHistoricalResultSelectModel) GetDurationOk() (*Int64RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Duration, true
+	return o.Duration.Get(), o.Duration.IsSet()
 }
 
 // HasDuration returns a boolean if a field has been set.
 func (o *AutotestHistoricalResultSelectModel) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
+	if o != nil && o.Duration.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDuration gets a reference to the given Int64RangeSelectorModel and assigns it to the Duration field.
+// SetDuration gets a reference to the given NullableInt64RangeSelectorModel and assigns it to the Duration field.
 func (o *AutotestHistoricalResultSelectModel) SetDuration(v Int64RangeSelectorModel) {
-	o.Duration = &v
+	o.Duration.Set(&v)
+}
+// SetDurationNil sets the value for Duration to be an explicit nil
+func (o *AutotestHistoricalResultSelectModel) SetDurationNil() {
+	o.Duration.Set(nil)
+}
+
+// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+func (o *AutotestHistoricalResultSelectModel) UnsetDuration() {
+	o.Duration.Unset()
 }
 
 func (o AutotestHistoricalResultSelectModel) MarshalJSON() ([]byte, error) {
@@ -312,8 +322,8 @@ func (o AutotestHistoricalResultSelectModel) ToMap() (map[string]interface{}, er
 	if o.UserIds != nil {
 		toSerialize["userIds"] = o.UserIds
 	}
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
+	if o.Duration.IsSet() {
+		toSerialize["duration"] = o.Duration.Get()
 	}
 	return toSerialize, nil
 }

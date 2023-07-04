@@ -43,7 +43,7 @@ ApiV2WorkItemsCommentsCommentIdDelete Delete WorkItem comment
 <br>System returns success status code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param commentId
+ @param commentId Comment internal (guid format) identifier
  @return ApiApiV2WorkItemsCommentsCommentIdDeleteRequest
 */
 func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDelete(ctx context.Context, commentId string) ApiApiV2WorkItemsCommentsCommentIdDeleteRequest {
@@ -127,8 +127,8 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDeleteExecu
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -149,8 +149,8 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDeleteExecu
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -169,11 +169,11 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDeleteExecu
 type ApiApiV2WorkItemsCommentsPostRequest struct {
 	ctx context.Context
 	ApiService *WorkItemsCommentsApiService
-	workItemCommentPostModel *WorkItemCommentPostModel
+	apiV2WorkItemsCommentsPostRequest *ApiV2WorkItemsCommentsPostRequest
 }
 
-func (r ApiApiV2WorkItemsCommentsPostRequest) WorkItemCommentPostModel(workItemCommentPostModel WorkItemCommentPostModel) ApiApiV2WorkItemsCommentsPostRequest {
-	r.workItemCommentPostModel = &workItemCommentPostModel
+func (r ApiApiV2WorkItemsCommentsPostRequest) ApiV2WorkItemsCommentsPostRequest(apiV2WorkItemsCommentsPostRequest ApiV2WorkItemsCommentsPostRequest) ApiApiV2WorkItemsCommentsPostRequest {
+	r.apiV2WorkItemsCommentsPostRequest = &apiV2WorkItemsCommentsPostRequest
 	return r
 }
 
@@ -239,7 +239,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemCommentPostModel
+	localVarPostBody = r.apiV2WorkItemsCommentsPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -287,6 +287,17 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -307,18 +318,6 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -338,11 +337,11 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 type ApiApiV2WorkItemsCommentsPutRequest struct {
 	ctx context.Context
 	ApiService *WorkItemsCommentsApiService
-	workItemCommentPutModel *WorkItemCommentPutModel
+	apiV2WorkItemsCommentsPutRequest *ApiV2WorkItemsCommentsPutRequest
 }
 
-func (r ApiApiV2WorkItemsCommentsPutRequest) WorkItemCommentPutModel(workItemCommentPutModel WorkItemCommentPutModel) ApiApiV2WorkItemsCommentsPutRequest {
-	r.workItemCommentPutModel = &workItemCommentPutModel
+func (r ApiApiV2WorkItemsCommentsPutRequest) ApiV2WorkItemsCommentsPutRequest(apiV2WorkItemsCommentsPutRequest ApiV2WorkItemsCommentsPutRequest) ApiApiV2WorkItemsCommentsPutRequest {
+	r.apiV2WorkItemsCommentsPutRequest = &apiV2WorkItemsCommentsPutRequest
 	return r
 }
 
@@ -400,7 +399,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemCommentPutModel
+	localVarPostBody = r.apiV2WorkItemsCommentsPutRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -446,7 +445,6 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -563,7 +561,6 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsIdCommentsGetExecute(r ApiAp
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

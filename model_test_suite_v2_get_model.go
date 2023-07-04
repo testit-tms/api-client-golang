@@ -12,6 +12,7 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the TestSuiteV2GetModel type satisfies the MappedNullable interface at compile time
@@ -19,12 +20,21 @@ var _ MappedNullable = &TestSuiteV2GetModel{}
 
 // TestSuiteV2GetModel struct for TestSuiteV2GetModel
 type TestSuiteV2GetModel struct {
+	// Unique ID of the test suite
 	Id *string `json:"id,omitempty"`
+	// Date of the last refresh of the test suite
+	RefreshDate NullableTime `json:"refreshDate,omitempty"`
+	// Unique ID of the parent test suite in hierarchy
 	ParentId NullableString `json:"parentId,omitempty"`
+	// Unique ID of test plan to which the test suite belongs
 	TestPlanId string `json:"testPlanId"`
+	// Name of the test suite
 	Name string `json:"name"`
-	Type *TestSuiteType `json:"type,omitempty"`
+	Type NullableTestSuiteType `json:"type,omitempty"`
+	// Indicates if the test suite retains section tree structure
 	SaveStructure NullableBool `json:"saveStructure,omitempty"`
+	// Indicates if scheduled auto refresh is enabled for the test suite
+	AutoRefresh NullableBool `json:"autoRefresh,omitempty"`
 }
 
 // NewTestSuiteV2GetModel instantiates a new TestSuiteV2GetModel object
@@ -76,6 +86,48 @@ func (o *TestSuiteV2GetModel) HasId() bool {
 // SetId gets a reference to the given string and assigns it to the Id field.
 func (o *TestSuiteV2GetModel) SetId(v string) {
 	o.Id = &v
+}
+
+// GetRefreshDate returns the RefreshDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteV2GetModel) GetRefreshDate() time.Time {
+	if o == nil || IsNil(o.RefreshDate.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.RefreshDate.Get()
+}
+
+// GetRefreshDateOk returns a tuple with the RefreshDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteV2GetModel) GetRefreshDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RefreshDate.Get(), o.RefreshDate.IsSet()
+}
+
+// HasRefreshDate returns a boolean if a field has been set.
+func (o *TestSuiteV2GetModel) HasRefreshDate() bool {
+	if o != nil && o.RefreshDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRefreshDate gets a reference to the given NullableTime and assigns it to the RefreshDate field.
+func (o *TestSuiteV2GetModel) SetRefreshDate(v time.Time) {
+	o.RefreshDate.Set(&v)
+}
+// SetRefreshDateNil sets the value for RefreshDate to be an explicit nil
+func (o *TestSuiteV2GetModel) SetRefreshDateNil() {
+	o.RefreshDate.Set(nil)
+}
+
+// UnsetRefreshDate ensures that no value is present for RefreshDate, not even an explicit nil
+func (o *TestSuiteV2GetModel) UnsetRefreshDate() {
+	o.RefreshDate.Unset()
 }
 
 // GetParentId returns the ParentId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -168,36 +220,46 @@ func (o *TestSuiteV2GetModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestSuiteV2GetModel) GetType() TestSuiteType {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret TestSuiteType
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestSuiteV2GetModel) GetTypeOk() (*TestSuiteType, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *TestSuiteV2GetModel) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given TestSuiteType and assigns it to the Type field.
+// SetType gets a reference to the given NullableTestSuiteType and assigns it to the Type field.
 func (o *TestSuiteV2GetModel) SetType(v TestSuiteType) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *TestSuiteV2GetModel) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *TestSuiteV2GetModel) UnsetType() {
+	o.Type.Unset()
 }
 
 // GetSaveStructure returns the SaveStructure field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -242,6 +304,48 @@ func (o *TestSuiteV2GetModel) UnsetSaveStructure() {
 	o.SaveStructure.Unset()
 }
 
+// GetAutoRefresh returns the AutoRefresh field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteV2GetModel) GetAutoRefresh() bool {
+	if o == nil || IsNil(o.AutoRefresh.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.AutoRefresh.Get()
+}
+
+// GetAutoRefreshOk returns a tuple with the AutoRefresh field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteV2GetModel) GetAutoRefreshOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoRefresh.Get(), o.AutoRefresh.IsSet()
+}
+
+// HasAutoRefresh returns a boolean if a field has been set.
+func (o *TestSuiteV2GetModel) HasAutoRefresh() bool {
+	if o != nil && o.AutoRefresh.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoRefresh gets a reference to the given NullableBool and assigns it to the AutoRefresh field.
+func (o *TestSuiteV2GetModel) SetAutoRefresh(v bool) {
+	o.AutoRefresh.Set(&v)
+}
+// SetAutoRefreshNil sets the value for AutoRefresh to be an explicit nil
+func (o *TestSuiteV2GetModel) SetAutoRefreshNil() {
+	o.AutoRefresh.Set(nil)
+}
+
+// UnsetAutoRefresh ensures that no value is present for AutoRefresh, not even an explicit nil
+func (o *TestSuiteV2GetModel) UnsetAutoRefresh() {
+	o.AutoRefresh.Unset()
+}
+
 func (o TestSuiteV2GetModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -255,16 +359,22 @@ func (o TestSuiteV2GetModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
+	if o.RefreshDate.IsSet() {
+		toSerialize["refreshDate"] = o.RefreshDate.Get()
+	}
 	if o.ParentId.IsSet() {
 		toSerialize["parentId"] = o.ParentId.Get()
 	}
 	toSerialize["testPlanId"] = o.TestPlanId
 	toSerialize["name"] = o.Name
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	if o.SaveStructure.IsSet() {
 		toSerialize["saveStructure"] = o.SaveStructure.Get()
+	}
+	if o.AutoRefresh.IsSet() {
+		toSerialize["autoRefresh"] = o.AutoRefresh.Get()
 	}
 	return toSerialize, nil
 }

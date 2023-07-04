@@ -19,8 +19,8 @@ var _ MappedNullable = &WorkItemSelectModel{}
 
 // WorkItemSelectModel Model containing options to filter work items
 type WorkItemSelectModel struct {
-	Filter *WorkItemFilterModel `json:"filter,omitempty"`
-	ExtractionModel *WorkItemsExtractionModel `json:"extractionModel,omitempty"`
+	Filter *WorkItemSelectModelFilter `json:"filter,omitempty"`
+	ExtractionModel *WorkItemSelectModelExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewWorkItemSelectModel instantiates a new WorkItemSelectModel object
@@ -41,9 +41,9 @@ func NewWorkItemSelectModelWithDefaults() *WorkItemSelectModel {
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise.
-func (o *WorkItemSelectModel) GetFilter() WorkItemFilterModel {
+func (o *WorkItemSelectModel) GetFilter() WorkItemSelectModelFilter {
 	if o == nil || IsNil(o.Filter) {
-		var ret WorkItemFilterModel
+		var ret WorkItemSelectModelFilter
 		return ret
 	}
 	return *o.Filter
@@ -51,7 +51,7 @@ func (o *WorkItemSelectModel) GetFilter() WorkItemFilterModel {
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemSelectModel) GetFilterOk() (*WorkItemFilterModel, bool) {
+func (o *WorkItemSelectModel) GetFilterOk() (*WorkItemSelectModelFilter, bool) {
 	if o == nil || IsNil(o.Filter) {
 		return nil, false
 	}
@@ -67,15 +67,15 @@ func (o *WorkItemSelectModel) HasFilter() bool {
 	return false
 }
 
-// SetFilter gets a reference to the given WorkItemFilterModel and assigns it to the Filter field.
-func (o *WorkItemSelectModel) SetFilter(v WorkItemFilterModel) {
+// SetFilter gets a reference to the given WorkItemSelectModelFilter and assigns it to the Filter field.
+func (o *WorkItemSelectModel) SetFilter(v WorkItemSelectModelFilter) {
 	o.Filter = &v
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise.
-func (o *WorkItemSelectModel) GetExtractionModel() WorkItemsExtractionModel {
+func (o *WorkItemSelectModel) GetExtractionModel() WorkItemSelectModelExtractionModel {
 	if o == nil || IsNil(o.ExtractionModel) {
-		var ret WorkItemsExtractionModel
+		var ret WorkItemSelectModelExtractionModel
 		return ret
 	}
 	return *o.ExtractionModel
@@ -83,7 +83,7 @@ func (o *WorkItemSelectModel) GetExtractionModel() WorkItemsExtractionModel {
 
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemsExtractionModel, bool) {
+func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemSelectModelExtractionModel, bool) {
 	if o == nil || IsNil(o.ExtractionModel) {
 		return nil, false
 	}
@@ -99,8 +99,8 @@ func (o *WorkItemSelectModel) HasExtractionModel() bool {
 	return false
 }
 
-// SetExtractionModel gets a reference to the given WorkItemsExtractionModel and assigns it to the ExtractionModel field.
-func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemsExtractionModel) {
+// SetExtractionModel gets a reference to the given WorkItemSelectModelExtractionModel and assigns it to the ExtractionModel field.
+func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemSelectModelExtractionModel) {
 	o.ExtractionModel = &v
 }
 

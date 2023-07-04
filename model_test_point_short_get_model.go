@@ -53,7 +53,7 @@ type TestPointShortGetModel struct {
 	// Indicates if the test point represents an autotest
 	IsAutomated *bool `json:"isAutomated,omitempty"`
 	// Name of the test point
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	// Unique ID of the test point configuration
 	ConfigurationId *string `json:"configurationId,omitempty"`
 	// Duration of the test point
@@ -64,16 +64,25 @@ type TestPointShortGetModel struct {
 	SectionName NullableString `json:"sectionName,omitempty"`
 	// Unique ID of the test point project
 	ProjectId *string `json:"projectId,omitempty"`
-	LastTestResult LastTestResultModel `json:"lastTestResult"`
+	LastTestResult TestPointShortGetModelLastTestResult `json:"lastTestResult"`
 	// Unique ID of work item iteration the test point represents
 	IterationId *string `json:"iterationId,omitempty"`
+	WorkItemState *WorkItemState `json:"workItemState,omitempty"`
+	// Unique ID of the work item creator
+	WorkItemCreatedById *string `json:"workItemCreatedById,omitempty"`
+	// Creation date of work item
+	WorkItemCreatedDate *time.Time `json:"workItemCreatedDate,omitempty"`
+	// Unique ID of the work item last editor
+	WorkItemModifiedById NullableString `json:"workItemModifiedById,omitempty"`
+	// Modified date of work item
+	WorkItemModifiedDate NullableTime `json:"workItemModifiedDate,omitempty"`
 }
 
 // NewTestPointShortGetModel instantiates a new TestPointShortGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointShortGetModel(status TestPointStatus, priority WorkItemPriorityModel, lastTestResult LastTestResultModel) *TestPointShortGetModel {
+func NewTestPointShortGetModel(status TestPointStatus, priority WorkItemPriorityModel, lastTestResult TestPointShortGetModelLastTestResult) *TestPointShortGetModel {
 	this := TestPointShortGetModel{}
 	this.Status = status
 	this.Priority = priority
@@ -344,9 +353,9 @@ func (o *TestPointShortGetModel) SetParameters(v map[string]string) {
 	o.Parameters = v
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
 func (o *TestPointShortGetModel) GetAttributes() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Attributes) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -355,7 +364,6 @@ func (o *TestPointShortGetModel) GetAttributes() map[string]interface{} {
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointShortGetModel) GetAttributesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return map[string]interface{}{}, false
@@ -365,7 +373,7 @@ func (o *TestPointShortGetModel) GetAttributesOk() (map[string]interface{}, bool
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPointShortGetModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -377,9 +385,9 @@ func (o *TestPointShortGetModel) SetAttributes(v map[string]interface{}) {
 	o.Attributes = v
 }
 
-// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTags returns the Tags field value if set, zero value otherwise.
 func (o *TestPointShortGetModel) GetTags() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Tags) {
 		var ret []string
 		return ret
 	}
@@ -388,7 +396,6 @@ func (o *TestPointShortGetModel) GetTags() []string {
 
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointShortGetModel) GetTagsOk() ([]string, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
@@ -398,7 +405,7 @@ func (o *TestPointShortGetModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *TestPointShortGetModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -410,9 +417,9 @@ func (o *TestPointShortGetModel) SetTags(v []string) {
 	o.Tags = v
 }
 
-// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLinks returns the Links field value if set, zero value otherwise.
 func (o *TestPointShortGetModel) GetLinks() []string {
-	if o == nil {
+	if o == nil || IsNil(o.Links) {
 		var ret []string
 		return ret
 	}
@@ -421,7 +428,6 @@ func (o *TestPointShortGetModel) GetLinks() []string {
 
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointShortGetModel) GetLinksOk() ([]string, bool) {
 	if o == nil || IsNil(o.Links) {
 		return nil, false
@@ -431,7 +437,7 @@ func (o *TestPointShortGetModel) GetLinksOk() ([]string, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *TestPointShortGetModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -651,46 +657,36 @@ func (o *TestPointShortGetModel) SetIsAutomated(v bool) {
 	o.IsAutomated = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *TestPointShortGetModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointShortGetModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestPointShortGetModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TestPointShortGetModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *TestPointShortGetModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *TestPointShortGetModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetConfigurationId returns the ConfigurationId field value if set, zero value otherwise.
@@ -864,9 +860,9 @@ func (o *TestPointShortGetModel) SetProjectId(v string) {
 }
 
 // GetLastTestResult returns the LastTestResult field value
-func (o *TestPointShortGetModel) GetLastTestResult() LastTestResultModel {
+func (o *TestPointShortGetModel) GetLastTestResult() TestPointShortGetModelLastTestResult {
 	if o == nil {
-		var ret LastTestResultModel
+		var ret TestPointShortGetModelLastTestResult
 		return ret
 	}
 
@@ -875,7 +871,7 @@ func (o *TestPointShortGetModel) GetLastTestResult() LastTestResultModel {
 
 // GetLastTestResultOk returns a tuple with the LastTestResult field value
 // and a boolean to check if the value has been set.
-func (o *TestPointShortGetModel) GetLastTestResultOk() (*LastTestResultModel, bool) {
+func (o *TestPointShortGetModel) GetLastTestResultOk() (*TestPointShortGetModelLastTestResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -883,7 +879,7 @@ func (o *TestPointShortGetModel) GetLastTestResultOk() (*LastTestResultModel, bo
 }
 
 // SetLastTestResult sets field value
-func (o *TestPointShortGetModel) SetLastTestResult(v LastTestResultModel) {
+func (o *TestPointShortGetModel) SetLastTestResult(v TestPointShortGetModelLastTestResult) {
 	o.LastTestResult = v
 }
 
@@ -919,6 +915,186 @@ func (o *TestPointShortGetModel) SetIterationId(v string) {
 	o.IterationId = &v
 }
 
+// GetWorkItemState returns the WorkItemState field value if set, zero value otherwise.
+func (o *TestPointShortGetModel) GetWorkItemState() WorkItemState {
+	if o == nil || IsNil(o.WorkItemState) {
+		var ret WorkItemState
+		return ret
+	}
+	return *o.WorkItemState
+}
+
+// GetWorkItemStateOk returns a tuple with the WorkItemState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TestPointShortGetModel) GetWorkItemStateOk() (*WorkItemState, bool) {
+	if o == nil || IsNil(o.WorkItemState) {
+		return nil, false
+	}
+	return o.WorkItemState, true
+}
+
+// HasWorkItemState returns a boolean if a field has been set.
+func (o *TestPointShortGetModel) HasWorkItemState() bool {
+	if o != nil && !IsNil(o.WorkItemState) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemState gets a reference to the given WorkItemState and assigns it to the WorkItemState field.
+func (o *TestPointShortGetModel) SetWorkItemState(v WorkItemState) {
+	o.WorkItemState = &v
+}
+
+// GetWorkItemCreatedById returns the WorkItemCreatedById field value if set, zero value otherwise.
+func (o *TestPointShortGetModel) GetWorkItemCreatedById() string {
+	if o == nil || IsNil(o.WorkItemCreatedById) {
+		var ret string
+		return ret
+	}
+	return *o.WorkItemCreatedById
+}
+
+// GetWorkItemCreatedByIdOk returns a tuple with the WorkItemCreatedById field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TestPointShortGetModel) GetWorkItemCreatedByIdOk() (*string, bool) {
+	if o == nil || IsNil(o.WorkItemCreatedById) {
+		return nil, false
+	}
+	return o.WorkItemCreatedById, true
+}
+
+// HasWorkItemCreatedById returns a boolean if a field has been set.
+func (o *TestPointShortGetModel) HasWorkItemCreatedById() bool {
+	if o != nil && !IsNil(o.WorkItemCreatedById) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemCreatedById gets a reference to the given string and assigns it to the WorkItemCreatedById field.
+func (o *TestPointShortGetModel) SetWorkItemCreatedById(v string) {
+	o.WorkItemCreatedById = &v
+}
+
+// GetWorkItemCreatedDate returns the WorkItemCreatedDate field value if set, zero value otherwise.
+func (o *TestPointShortGetModel) GetWorkItemCreatedDate() time.Time {
+	if o == nil || IsNil(o.WorkItemCreatedDate) {
+		var ret time.Time
+		return ret
+	}
+	return *o.WorkItemCreatedDate
+}
+
+// GetWorkItemCreatedDateOk returns a tuple with the WorkItemCreatedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TestPointShortGetModel) GetWorkItemCreatedDateOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.WorkItemCreatedDate) {
+		return nil, false
+	}
+	return o.WorkItemCreatedDate, true
+}
+
+// HasWorkItemCreatedDate returns a boolean if a field has been set.
+func (o *TestPointShortGetModel) HasWorkItemCreatedDate() bool {
+	if o != nil && !IsNil(o.WorkItemCreatedDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemCreatedDate gets a reference to the given time.Time and assigns it to the WorkItemCreatedDate field.
+func (o *TestPointShortGetModel) SetWorkItemCreatedDate(v time.Time) {
+	o.WorkItemCreatedDate = &v
+}
+
+// GetWorkItemModifiedById returns the WorkItemModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointShortGetModel) GetWorkItemModifiedById() string {
+	if o == nil || IsNil(o.WorkItemModifiedById.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.WorkItemModifiedById.Get()
+}
+
+// GetWorkItemModifiedByIdOk returns a tuple with the WorkItemModifiedById field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointShortGetModel) GetWorkItemModifiedByIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WorkItemModifiedById.Get(), o.WorkItemModifiedById.IsSet()
+}
+
+// HasWorkItemModifiedById returns a boolean if a field has been set.
+func (o *TestPointShortGetModel) HasWorkItemModifiedById() bool {
+	if o != nil && o.WorkItemModifiedById.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemModifiedById gets a reference to the given NullableString and assigns it to the WorkItemModifiedById field.
+func (o *TestPointShortGetModel) SetWorkItemModifiedById(v string) {
+	o.WorkItemModifiedById.Set(&v)
+}
+// SetWorkItemModifiedByIdNil sets the value for WorkItemModifiedById to be an explicit nil
+func (o *TestPointShortGetModel) SetWorkItemModifiedByIdNil() {
+	o.WorkItemModifiedById.Set(nil)
+}
+
+// UnsetWorkItemModifiedById ensures that no value is present for WorkItemModifiedById, not even an explicit nil
+func (o *TestPointShortGetModel) UnsetWorkItemModifiedById() {
+	o.WorkItemModifiedById.Unset()
+}
+
+// GetWorkItemModifiedDate returns the WorkItemModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointShortGetModel) GetWorkItemModifiedDate() time.Time {
+	if o == nil || IsNil(o.WorkItemModifiedDate.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.WorkItemModifiedDate.Get()
+}
+
+// GetWorkItemModifiedDateOk returns a tuple with the WorkItemModifiedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointShortGetModel) GetWorkItemModifiedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WorkItemModifiedDate.Get(), o.WorkItemModifiedDate.IsSet()
+}
+
+// HasWorkItemModifiedDate returns a boolean if a field has been set.
+func (o *TestPointShortGetModel) HasWorkItemModifiedDate() bool {
+	if o != nil && o.WorkItemModifiedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemModifiedDate gets a reference to the given NullableTime and assigns it to the WorkItemModifiedDate field.
+func (o *TestPointShortGetModel) SetWorkItemModifiedDate(v time.Time) {
+	o.WorkItemModifiedDate.Set(&v)
+}
+// SetWorkItemModifiedDateNil sets the value for WorkItemModifiedDate to be an explicit nil
+func (o *TestPointShortGetModel) SetWorkItemModifiedDateNil() {
+	o.WorkItemModifiedDate.Set(nil)
+}
+
+// UnsetWorkItemModifiedDate ensures that no value is present for WorkItemModifiedDate, not even an explicit nil
+func (o *TestPointShortGetModel) UnsetWorkItemModifiedDate() {
+	o.WorkItemModifiedDate.Unset()
+}
+
 func (o TestPointShortGetModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -950,13 +1126,13 @@ func (o TestPointShortGetModel) ToMap() (map[string]interface{}, error) {
 	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
 	}
-	if o.Attributes != nil {
+	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
-	if o.Tags != nil {
+	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
-	if o.Links != nil {
+	if !IsNil(o.Links) {
 		toSerialize["links"] = o.Links
 	}
 	if !IsNil(o.TestSuiteId) {
@@ -976,8 +1152,8 @@ func (o TestPointShortGetModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsAutomated) {
 		toSerialize["isAutomated"] = o.IsAutomated
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.ConfigurationId) {
 		toSerialize["configurationId"] = o.ConfigurationId
@@ -997,6 +1173,21 @@ func (o TestPointShortGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["lastTestResult"] = o.LastTestResult
 	if !IsNil(o.IterationId) {
 		toSerialize["iterationId"] = o.IterationId
+	}
+	if !IsNil(o.WorkItemState) {
+		toSerialize["workItemState"] = o.WorkItemState
+	}
+	if !IsNil(o.WorkItemCreatedById) {
+		toSerialize["workItemCreatedById"] = o.WorkItemCreatedById
+	}
+	if !IsNil(o.WorkItemCreatedDate) {
+		toSerialize["workItemCreatedDate"] = o.WorkItemCreatedDate
+	}
+	if o.WorkItemModifiedById.IsSet() {
+		toSerialize["workItemModifiedById"] = o.WorkItemModifiedById.Get()
+	}
+	if o.WorkItemModifiedDate.IsSet() {
+		toSerialize["workItemModifiedDate"] = o.WorkItemModifiedDate.Get()
 	}
 	return toSerialize, nil
 }

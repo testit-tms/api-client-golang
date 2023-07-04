@@ -24,7 +24,7 @@ type TestResultUpdateModel struct {
 	DurationInMs NullableInt64 `json:"durationInMs,omitempty"`
 	StepComments []TestResultStepCommentPutModel `json:"stepComments,omitempty"`
 	FailureClassIds []string `json:"failureClassIds,omitempty"`
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome *string `json:"outcome,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	StepResults []StepResultModel `json:"stepResults,omitempty"`
@@ -156,9 +156,9 @@ func (o *TestResultUpdateModel) UnsetDurationInMs() {
 	o.DurationInMs.Unset()
 }
 
-// GetStepComments returns the StepComments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStepComments returns the StepComments field value if set, zero value otherwise.
 func (o *TestResultUpdateModel) GetStepComments() []TestResultStepCommentPutModel {
-	if o == nil {
+	if o == nil || IsNil(o.StepComments) {
 		var ret []TestResultStepCommentPutModel
 		return ret
 	}
@@ -167,7 +167,6 @@ func (o *TestResultUpdateModel) GetStepComments() []TestResultStepCommentPutMode
 
 // GetStepCommentsOk returns a tuple with the StepComments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultUpdateModel) GetStepCommentsOk() ([]TestResultStepCommentPutModel, bool) {
 	if o == nil || IsNil(o.StepComments) {
 		return nil, false
@@ -177,7 +176,7 @@ func (o *TestResultUpdateModel) GetStepCommentsOk() ([]TestResultStepCommentPutM
 
 // HasStepComments returns a boolean if a field has been set.
 func (o *TestResultUpdateModel) HasStepComments() bool {
-	if o != nil && IsNil(o.StepComments) {
+	if o != nil && !IsNil(o.StepComments) {
 		return true
 	}
 
@@ -189,9 +188,9 @@ func (o *TestResultUpdateModel) SetStepComments(v []TestResultStepCommentPutMode
 	o.StepComments = v
 }
 
-// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise.
 func (o *TestResultUpdateModel) GetFailureClassIds() []string {
-	if o == nil {
+	if o == nil || IsNil(o.FailureClassIds) {
 		var ret []string
 		return ret
 	}
@@ -200,7 +199,6 @@ func (o *TestResultUpdateModel) GetFailureClassIds() []string {
 
 // GetFailureClassIdsOk returns a tuple with the FailureClassIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultUpdateModel) GetFailureClassIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.FailureClassIds) {
 		return nil, false
@@ -210,7 +208,7 @@ func (o *TestResultUpdateModel) GetFailureClassIdsOk() ([]string, bool) {
 
 // HasFailureClassIds returns a boolean if a field has been set.
 func (o *TestResultUpdateModel) HasFailureClassIds() bool {
-	if o != nil && IsNil(o.FailureClassIds) {
+	if o != nil && !IsNil(o.FailureClassIds) {
 		return true
 	}
 
@@ -222,46 +220,36 @@ func (o *TestResultUpdateModel) SetFailureClassIds(v []string) {
 	o.FailureClassIds = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value if set, zero value otherwise.
 func (o *TestResultUpdateModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil || IsNil(o.Outcome) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+	return *o.Outcome
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultUpdateModel) GetOutcomeOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Outcome) {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return o.Outcome, true
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *TestResultUpdateModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
+	if o != nil && !IsNil(o.Outcome) {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
 func (o *TestResultUpdateModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultUpdateModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultUpdateModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = &v
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -339,9 +327,9 @@ func (o *TestResultUpdateModel) SetLinks(v []LinkModel) {
 	o.Links = v
 }
 
-// GetStepResults returns the StepResults field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStepResults returns the StepResults field value if set, zero value otherwise.
 func (o *TestResultUpdateModel) GetStepResults() []StepResultModel {
-	if o == nil {
+	if o == nil || IsNil(o.StepResults) {
 		var ret []StepResultModel
 		return ret
 	}
@@ -350,7 +338,6 @@ func (o *TestResultUpdateModel) GetStepResults() []StepResultModel {
 
 // GetStepResultsOk returns a tuple with the StepResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultUpdateModel) GetStepResultsOk() ([]StepResultModel, bool) {
 	if o == nil || IsNil(o.StepResults) {
 		return nil, false
@@ -360,7 +347,7 @@ func (o *TestResultUpdateModel) GetStepResultsOk() ([]StepResultModel, bool) {
 
 // HasStepResults returns a boolean if a field has been set.
 func (o *TestResultUpdateModel) HasStepResults() bool {
-	if o != nil && IsNil(o.StepResults) {
+	if o != nil && !IsNil(o.StepResults) {
 		return true
 	}
 
@@ -424,14 +411,14 @@ func (o TestResultUpdateModel) ToMap() (map[string]interface{}, error) {
 	if o.DurationInMs.IsSet() {
 		toSerialize["durationInMs"] = o.DurationInMs.Get()
 	}
-	if o.StepComments != nil {
+	if !IsNil(o.StepComments) {
 		toSerialize["stepComments"] = o.StepComments
 	}
-	if o.FailureClassIds != nil {
+	if !IsNil(o.FailureClassIds) {
 		toSerialize["failureClassIds"] = o.FailureClassIds
 	}
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
+	if !IsNil(o.Outcome) {
+		toSerialize["outcome"] = o.Outcome
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()
@@ -439,7 +426,7 @@ func (o TestResultUpdateModel) ToMap() (map[string]interface{}, error) {
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
 	}
-	if o.StepResults != nil {
+	if !IsNil(o.StepResults) {
 		toSerialize["stepResults"] = o.StepResults
 	}
 	if o.Attachments != nil {

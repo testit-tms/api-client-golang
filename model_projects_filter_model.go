@@ -25,13 +25,13 @@ type ProjectsFilterModel struct {
 	IsFavorite NullableBool `json:"isFavorite,omitempty"`
 	// Specifies a project deleted status to search for
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
-	TestCasesCount *Int32RangeSelectorModel `json:"testCasesCount,omitempty"`
-	ChecklistsCount *Int32RangeSelectorModel `json:"checklistsCount,omitempty"`
-	SharedStepsCount *Int32RangeSelectorModel `json:"sharedStepsCount,omitempty"`
-	AutotestsCount *Int32RangeSelectorModel `json:"autotestsCount,omitempty"`
+	TestCasesCount NullableProjectsFilterModelTestCasesCount `json:"testCasesCount,omitempty"`
+	ChecklistsCount NullableProjectsFilterModelChecklistsCount `json:"checklistsCount,omitempty"`
+	SharedStepsCount NullableProjectsFilterModelSharedStepsCount `json:"sharedStepsCount,omitempty"`
+	AutotestsCount NullableProjectsFilterModelAutotestsCount `json:"autotestsCount,omitempty"`
 	// Specifies a project global IDs to search for
 	GlobalIds []int64 `json:"globalIds,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	CreatedDate NullableProjectsFilterModelCreatedDate `json:"createdDate,omitempty"`
 	// Specifies an autotest creator IDs to search for
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 }
@@ -179,132 +179,172 @@ func (o *ProjectsFilterModel) UnsetIsDeleted() {
 	o.IsDeleted.Unset()
 }
 
-// GetTestCasesCount returns the TestCasesCount field value if set, zero value otherwise.
-func (o *ProjectsFilterModel) GetTestCasesCount() Int32RangeSelectorModel {
-	if o == nil || IsNil(o.TestCasesCount) {
-		var ret Int32RangeSelectorModel
+// GetTestCasesCount returns the TestCasesCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectsFilterModel) GetTestCasesCount() ProjectsFilterModelTestCasesCount {
+	if o == nil || IsNil(o.TestCasesCount.Get()) {
+		var ret ProjectsFilterModelTestCasesCount
 		return ret
 	}
-	return *o.TestCasesCount
+	return *o.TestCasesCount.Get()
 }
 
 // GetTestCasesCountOk returns a tuple with the TestCasesCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectsFilterModel) GetTestCasesCountOk() (*Int32RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.TestCasesCount) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectsFilterModel) GetTestCasesCountOk() (*ProjectsFilterModelTestCasesCount, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestCasesCount, true
+	return o.TestCasesCount.Get(), o.TestCasesCount.IsSet()
 }
 
 // HasTestCasesCount returns a boolean if a field has been set.
 func (o *ProjectsFilterModel) HasTestCasesCount() bool {
-	if o != nil && !IsNil(o.TestCasesCount) {
+	if o != nil && o.TestCasesCount.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestCasesCount gets a reference to the given Int32RangeSelectorModel and assigns it to the TestCasesCount field.
-func (o *ProjectsFilterModel) SetTestCasesCount(v Int32RangeSelectorModel) {
-	o.TestCasesCount = &v
+// SetTestCasesCount gets a reference to the given NullableProjectsFilterModelTestCasesCount and assigns it to the TestCasesCount field.
+func (o *ProjectsFilterModel) SetTestCasesCount(v ProjectsFilterModelTestCasesCount) {
+	o.TestCasesCount.Set(&v)
+}
+// SetTestCasesCountNil sets the value for TestCasesCount to be an explicit nil
+func (o *ProjectsFilterModel) SetTestCasesCountNil() {
+	o.TestCasesCount.Set(nil)
 }
 
-// GetChecklistsCount returns the ChecklistsCount field value if set, zero value otherwise.
-func (o *ProjectsFilterModel) GetChecklistsCount() Int32RangeSelectorModel {
-	if o == nil || IsNil(o.ChecklistsCount) {
-		var ret Int32RangeSelectorModel
+// UnsetTestCasesCount ensures that no value is present for TestCasesCount, not even an explicit nil
+func (o *ProjectsFilterModel) UnsetTestCasesCount() {
+	o.TestCasesCount.Unset()
+}
+
+// GetChecklistsCount returns the ChecklistsCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectsFilterModel) GetChecklistsCount() ProjectsFilterModelChecklistsCount {
+	if o == nil || IsNil(o.ChecklistsCount.Get()) {
+		var ret ProjectsFilterModelChecklistsCount
 		return ret
 	}
-	return *o.ChecklistsCount
+	return *o.ChecklistsCount.Get()
 }
 
 // GetChecklistsCountOk returns a tuple with the ChecklistsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectsFilterModel) GetChecklistsCountOk() (*Int32RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.ChecklistsCount) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectsFilterModel) GetChecklistsCountOk() (*ProjectsFilterModelChecklistsCount, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ChecklistsCount, true
+	return o.ChecklistsCount.Get(), o.ChecklistsCount.IsSet()
 }
 
 // HasChecklistsCount returns a boolean if a field has been set.
 func (o *ProjectsFilterModel) HasChecklistsCount() bool {
-	if o != nil && !IsNil(o.ChecklistsCount) {
+	if o != nil && o.ChecklistsCount.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetChecklistsCount gets a reference to the given Int32RangeSelectorModel and assigns it to the ChecklistsCount field.
-func (o *ProjectsFilterModel) SetChecklistsCount(v Int32RangeSelectorModel) {
-	o.ChecklistsCount = &v
+// SetChecklistsCount gets a reference to the given NullableProjectsFilterModelChecklistsCount and assigns it to the ChecklistsCount field.
+func (o *ProjectsFilterModel) SetChecklistsCount(v ProjectsFilterModelChecklistsCount) {
+	o.ChecklistsCount.Set(&v)
+}
+// SetChecklistsCountNil sets the value for ChecklistsCount to be an explicit nil
+func (o *ProjectsFilterModel) SetChecklistsCountNil() {
+	o.ChecklistsCount.Set(nil)
 }
 
-// GetSharedStepsCount returns the SharedStepsCount field value if set, zero value otherwise.
-func (o *ProjectsFilterModel) GetSharedStepsCount() Int32RangeSelectorModel {
-	if o == nil || IsNil(o.SharedStepsCount) {
-		var ret Int32RangeSelectorModel
+// UnsetChecklistsCount ensures that no value is present for ChecklistsCount, not even an explicit nil
+func (o *ProjectsFilterModel) UnsetChecklistsCount() {
+	o.ChecklistsCount.Unset()
+}
+
+// GetSharedStepsCount returns the SharedStepsCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectsFilterModel) GetSharedStepsCount() ProjectsFilterModelSharedStepsCount {
+	if o == nil || IsNil(o.SharedStepsCount.Get()) {
+		var ret ProjectsFilterModelSharedStepsCount
 		return ret
 	}
-	return *o.SharedStepsCount
+	return *o.SharedStepsCount.Get()
 }
 
 // GetSharedStepsCountOk returns a tuple with the SharedStepsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectsFilterModel) GetSharedStepsCountOk() (*Int32RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.SharedStepsCount) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectsFilterModel) GetSharedStepsCountOk() (*ProjectsFilterModelSharedStepsCount, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SharedStepsCount, true
+	return o.SharedStepsCount.Get(), o.SharedStepsCount.IsSet()
 }
 
 // HasSharedStepsCount returns a boolean if a field has been set.
 func (o *ProjectsFilterModel) HasSharedStepsCount() bool {
-	if o != nil && !IsNil(o.SharedStepsCount) {
+	if o != nil && o.SharedStepsCount.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSharedStepsCount gets a reference to the given Int32RangeSelectorModel and assigns it to the SharedStepsCount field.
-func (o *ProjectsFilterModel) SetSharedStepsCount(v Int32RangeSelectorModel) {
-	o.SharedStepsCount = &v
+// SetSharedStepsCount gets a reference to the given NullableProjectsFilterModelSharedStepsCount and assigns it to the SharedStepsCount field.
+func (o *ProjectsFilterModel) SetSharedStepsCount(v ProjectsFilterModelSharedStepsCount) {
+	o.SharedStepsCount.Set(&v)
+}
+// SetSharedStepsCountNil sets the value for SharedStepsCount to be an explicit nil
+func (o *ProjectsFilterModel) SetSharedStepsCountNil() {
+	o.SharedStepsCount.Set(nil)
 }
 
-// GetAutotestsCount returns the AutotestsCount field value if set, zero value otherwise.
-func (o *ProjectsFilterModel) GetAutotestsCount() Int32RangeSelectorModel {
-	if o == nil || IsNil(o.AutotestsCount) {
-		var ret Int32RangeSelectorModel
+// UnsetSharedStepsCount ensures that no value is present for SharedStepsCount, not even an explicit nil
+func (o *ProjectsFilterModel) UnsetSharedStepsCount() {
+	o.SharedStepsCount.Unset()
+}
+
+// GetAutotestsCount returns the AutotestsCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectsFilterModel) GetAutotestsCount() ProjectsFilterModelAutotestsCount {
+	if o == nil || IsNil(o.AutotestsCount.Get()) {
+		var ret ProjectsFilterModelAutotestsCount
 		return ret
 	}
-	return *o.AutotestsCount
+	return *o.AutotestsCount.Get()
 }
 
 // GetAutotestsCountOk returns a tuple with the AutotestsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectsFilterModel) GetAutotestsCountOk() (*Int32RangeSelectorModel, bool) {
-	if o == nil || IsNil(o.AutotestsCount) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectsFilterModel) GetAutotestsCountOk() (*ProjectsFilterModelAutotestsCount, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AutotestsCount, true
+	return o.AutotestsCount.Get(), o.AutotestsCount.IsSet()
 }
 
 // HasAutotestsCount returns a boolean if a field has been set.
 func (o *ProjectsFilterModel) HasAutotestsCount() bool {
-	if o != nil && !IsNil(o.AutotestsCount) {
+	if o != nil && o.AutotestsCount.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAutotestsCount gets a reference to the given Int32RangeSelectorModel and assigns it to the AutotestsCount field.
-func (o *ProjectsFilterModel) SetAutotestsCount(v Int32RangeSelectorModel) {
-	o.AutotestsCount = &v
+// SetAutotestsCount gets a reference to the given NullableProjectsFilterModelAutotestsCount and assigns it to the AutotestsCount field.
+func (o *ProjectsFilterModel) SetAutotestsCount(v ProjectsFilterModelAutotestsCount) {
+	o.AutotestsCount.Set(&v)
+}
+// SetAutotestsCountNil sets the value for AutotestsCount to be an explicit nil
+func (o *ProjectsFilterModel) SetAutotestsCountNil() {
+	o.AutotestsCount.Set(nil)
+}
+
+// UnsetAutotestsCount ensures that no value is present for AutotestsCount, not even an explicit nil
+func (o *ProjectsFilterModel) UnsetAutotestsCount() {
+	o.AutotestsCount.Unset()
 }
 
 // GetGlobalIds returns the GlobalIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -340,36 +380,46 @@ func (o *ProjectsFilterModel) SetGlobalIds(v []int64) {
 	o.GlobalIds = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *ProjectsFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
-		var ret DateTimeRangeSelectorModel
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectsFilterModel) GetCreatedDate() ProjectsFilterModelCreatedDate {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
+		var ret ProjectsFilterModelCreatedDate
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProjectsFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectsFilterModel) GetCreatedDateOk() (*ProjectsFilterModelCreatedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *ProjectsFilterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
-func (o *ProjectsFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+// SetCreatedDate gets a reference to the given NullableProjectsFilterModelCreatedDate and assigns it to the CreatedDate field.
+func (o *ProjectsFilterModel) SetCreatedDate(v ProjectsFilterModelCreatedDate) {
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *ProjectsFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
+}
+
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *ProjectsFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
 }
 
 // GetCreatedByIds returns the CreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -424,23 +474,23 @@ func (o ProjectsFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.IsDeleted.IsSet() {
 		toSerialize["isDeleted"] = o.IsDeleted.Get()
 	}
-	if !IsNil(o.TestCasesCount) {
-		toSerialize["testCasesCount"] = o.TestCasesCount
+	if o.TestCasesCount.IsSet() {
+		toSerialize["testCasesCount"] = o.TestCasesCount.Get()
 	}
-	if !IsNil(o.ChecklistsCount) {
-		toSerialize["checklistsCount"] = o.ChecklistsCount
+	if o.ChecklistsCount.IsSet() {
+		toSerialize["checklistsCount"] = o.ChecklistsCount.Get()
 	}
-	if !IsNil(o.SharedStepsCount) {
-		toSerialize["sharedStepsCount"] = o.SharedStepsCount
+	if o.SharedStepsCount.IsSet() {
+		toSerialize["sharedStepsCount"] = o.SharedStepsCount.Get()
 	}
-	if !IsNil(o.AutotestsCount) {
-		toSerialize["autotestsCount"] = o.AutotestsCount
+	if o.AutotestsCount.IsSet() {
+		toSerialize["autotestsCount"] = o.AutotestsCount.Get()
 	}
 	if o.GlobalIds != nil {
 		toSerialize["globalIds"] = o.GlobalIds
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds

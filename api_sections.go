@@ -141,7 +141,6 @@ func (a *SectionsApiService) ApiV2SectionsIdPatchExecute(r ApiApiV2SectionsIdPat
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -152,11 +151,11 @@ func (a *SectionsApiService) ApiV2SectionsIdPatchExecute(r ApiApiV2SectionsIdPat
 type ApiCreateSectionRequest struct {
 	ctx context.Context
 	ApiService *SectionsApiService
-	sectionPostModel *SectionPostModel
+	createSectionRequest *CreateSectionRequest
 }
 
-func (r ApiCreateSectionRequest) SectionPostModel(sectionPostModel SectionPostModel) ApiCreateSectionRequest {
-	r.sectionPostModel = &sectionPostModel
+func (r ApiCreateSectionRequest) CreateSectionRequest(createSectionRequest CreateSectionRequest) ApiCreateSectionRequest {
+	r.createSectionRequest = &createSectionRequest
 	return r
 }
 
@@ -222,7 +221,7 @@ func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sectionPostModel
+	localVarPostBody = r.createSectionRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -259,8 +258,8 @@ func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -281,7 +280,7 @@ func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -292,8 +291,8 @@ func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -435,8 +434,8 @@ func (a *SectionsApiService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*h
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -446,8 +445,8 @@ func (a *SectionsApiService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*h
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -468,7 +467,7 @@ func (a *SectionsApiService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*h
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -604,6 +603,17 @@ func (a *SectionsApiService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -617,17 +627,6 @@ func (a *SectionsApiService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -860,8 +859,8 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -871,7 +870,7 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -893,8 +892,8 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -902,7 +901,6 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -922,11 +920,11 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 type ApiMoveRequest struct {
 	ctx context.Context
 	ApiService *SectionsApiService
-	sectionMoveModel *SectionMoveModel
+	moveRequest *MoveRequest
 }
 
-func (r ApiMoveRequest) SectionMoveModel(sectionMoveModel SectionMoveModel) ApiMoveRequest {
-	r.sectionMoveModel = &sectionMoveModel
+func (r ApiMoveRequest) MoveRequest(moveRequest MoveRequest) ApiMoveRequest {
+	r.moveRequest = &moveRequest
 	return r
 }
 
@@ -984,7 +982,7 @@ func (a *SectionsApiService) MoveExecute(r ApiMoveRequest) (*http.Response, erro
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sectionMoveModel
+	localVarPostBody = r.moveRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1040,11 +1038,11 @@ func (a *SectionsApiService) MoveExecute(r ApiMoveRequest) (*http.Response, erro
 type ApiRenameRequest struct {
 	ctx context.Context
 	ApiService *SectionsApiService
-	sectionRenameModel *SectionRenameModel
+	renameRequest *RenameRequest
 }
 
-func (r ApiRenameRequest) SectionRenameModel(sectionRenameModel SectionRenameModel) ApiRenameRequest {
-	r.sectionRenameModel = &sectionRenameModel
+func (r ApiRenameRequest) RenameRequest(renameRequest RenameRequest) ApiRenameRequest {
+	r.renameRequest = &renameRequest
 	return r
 }
 
@@ -1109,7 +1107,7 @@ func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sectionRenameModel
+	localVarPostBody = r.renameRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1146,17 +1144,6 @@ func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1168,7 +1155,7 @@ func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 409 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1190,6 +1177,17 @@ func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1199,11 +1197,11 @@ func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 type ApiUpdateSectionRequest struct {
 	ctx context.Context
 	ApiService *SectionsApiService
-	sectionPutModel *SectionPutModel
+	updateSectionRequest *UpdateSectionRequest
 }
 
-func (r ApiUpdateSectionRequest) SectionPutModel(sectionPutModel SectionPutModel) ApiUpdateSectionRequest {
-	r.sectionPutModel = &sectionPutModel
+func (r ApiUpdateSectionRequest) UpdateSectionRequest(updateSectionRequest UpdateSectionRequest) ApiUpdateSectionRequest {
+	r.updateSectionRequest = &updateSectionRequest
 	return r
 }
 
@@ -1268,7 +1266,7 @@ func (a *SectionsApiService) UpdateSectionExecute(r ApiUpdateSectionRequest) (*h
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sectionPutModel
+	localVarPostBody = r.updateSectionRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1304,17 +1302,6 @@ func (a *SectionsApiService) UpdateSectionExecute(r ApiUpdateSectionRequest) (*h
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
@@ -1361,6 +1348,17 @@ func (a *SectionsApiService) UpdateSectionExecute(r ApiUpdateSectionRequest) (*h
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

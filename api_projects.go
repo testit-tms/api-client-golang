@@ -138,17 +138,6 @@ func (a *ProjectsApiService) AddGlobaAttributesToProjectExecute(r ApiAddGlobaAtt
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -171,7 +160,7 @@ func (a *ProjectsApiService) AddGlobaAttributesToProjectExecute(r ApiAddGlobaAtt
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -182,7 +171,18 @@ func (a *ProjectsApiService) AddGlobaAttributesToProjectExecute(r ApiAddGlobaAtt
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -207,7 +207,7 @@ type ApiApiV2ProjectsIdAttributesTemplatesSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	projectCustomAttributesTemplatesFilterModel *ProjectCustomAttributesTemplatesFilterModel
+	apiV2ProjectsIdAttributesTemplatesSearchPostRequest *ApiV2ProjectsIdAttributesTemplatesSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -240,8 +240,8 @@ func (r ApiApiV2ProjectsIdAttributesTemplatesSearchPostRequest) SearchValue(sear
 	return r
 }
 
-func (r ApiApiV2ProjectsIdAttributesTemplatesSearchPostRequest) ProjectCustomAttributesTemplatesFilterModel(projectCustomAttributesTemplatesFilterModel ProjectCustomAttributesTemplatesFilterModel) ApiApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
-	r.projectCustomAttributesTemplatesFilterModel = &projectCustomAttributesTemplatesFilterModel
+func (r ApiApiV2ProjectsIdAttributesTemplatesSearchPostRequest) ApiV2ProjectsIdAttributesTemplatesSearchPostRequest(apiV2ProjectsIdAttributesTemplatesSearchPostRequest ApiV2ProjectsIdAttributesTemplatesSearchPostRequest) ApiApiV2ProjectsIdAttributesTemplatesSearchPostRequest {
+	r.apiV2ProjectsIdAttributesTemplatesSearchPostRequest = &apiV2ProjectsIdAttributesTemplatesSearchPostRequest
 	return r
 }
 
@@ -319,7 +319,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdAttributesTemplatesSearchPostExecute
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectCustomAttributesTemplatesFilterModel
+	localVarPostBody = r.apiV2ProjectsIdAttributesTemplatesSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -625,8 +625,8 @@ func (a *ProjectsApiService) ApiV2ProjectsIdAttributesTemplatesTemplateIdPostExe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -636,8 +636,8 @@ func (a *ProjectsApiService) ApiV2ProjectsIdAttributesTemplatesTemplateIdPostExe
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -901,7 +901,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdFavoritePutExecute(r ApiApiV2Project
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -912,7 +912,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdFavoritePutExecute(r ApiApiV2Project
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1175,7 +1175,6 @@ func (a *ProjectsApiService) ApiV2ProjectsIdPatchExecute(r ApiApiV2ProjectsIdPat
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1386,11 +1385,11 @@ type ApiApiV2ProjectsIdTestPlansDeleteBulkPostRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
 	id string
-	projectTestPlansFilterModel *ProjectTestPlansFilterModel
+	apiV2ProjectsIdTestPlansDeleteBulkPostRequest *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest
 }
 
-func (r ApiApiV2ProjectsIdTestPlansDeleteBulkPostRequest) ProjectTestPlansFilterModel(projectTestPlansFilterModel ProjectTestPlansFilterModel) ApiApiV2ProjectsIdTestPlansDeleteBulkPostRequest {
-	r.projectTestPlansFilterModel = &projectTestPlansFilterModel
+func (r ApiApiV2ProjectsIdTestPlansDeleteBulkPostRequest) ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) ApiApiV2ProjectsIdTestPlansDeleteBulkPostRequest {
+	r.apiV2ProjectsIdTestPlansDeleteBulkPostRequest = &apiV2ProjectsIdTestPlansDeleteBulkPostRequest
 	return r
 }
 
@@ -1453,7 +1452,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdTestPlansDeleteBulkPostExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectTestPlansFilterModel
+	localVarPostBody = r.apiV2ProjectsIdTestPlansDeleteBulkPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1499,7 +1498,6 @@ func (a *ProjectsApiService) ApiV2ProjectsIdTestPlansDeleteBulkPostExecute(r Api
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1640,15 +1638,137 @@ func (a *ProjectsApiService) ApiV2ProjectsIdTestPlansNameExistsGetExecute(r ApiA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest struct {
+	ctx context.Context
+	ApiService *ProjectsApiService
+	id string
+	apiV2ProjectsIdTestPlansDeleteBulkPostRequest *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest
+}
+
+func (r ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest) ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest {
+	r.apiV2ProjectsIdTestPlansDeleteBulkPostRequest = &apiV2ProjectsIdTestPlansDeleteBulkPostRequest
+	return r
+}
+
+func (r ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiV2ProjectsIdTestPlansPurgeBulkPostExecute(r)
+}
+
+/*
+ApiV2ProjectsIdTestPlansPurgeBulkPost Permanently delete multiple archived test plans
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Unique or global ID of the project
+ @return ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest
+*/
+func (a *ProjectsApiService) ApiV2ProjectsIdTestPlansPurgeBulkPost(ctx context.Context, id string) ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest {
+	return ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *ProjectsApiService) ApiV2ProjectsIdTestPlansPurgeBulkPostExecute(r ApiApiV2ProjectsIdTestPlansPurgeBulkPostRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsApiService.ApiV2ProjectsIdTestPlansPurgeBulkPost")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/projects/{id}/testPlans/purge/bulk"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiV2ProjectsIdTestPlansDeleteBulkPostRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiApiV2ProjectsIdTestPlansRestoreBulkPostRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
 	id string
-	projectTestPlansFilterModel *ProjectTestPlansFilterModel
+	apiV2ProjectsIdTestPlansDeleteBulkPostRequest *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest
 }
 
-func (r ApiApiV2ProjectsIdTestPlansRestoreBulkPostRequest) ProjectTestPlansFilterModel(projectTestPlansFilterModel ProjectTestPlansFilterModel) ApiApiV2ProjectsIdTestPlansRestoreBulkPostRequest {
-	r.projectTestPlansFilterModel = &projectTestPlansFilterModel
+func (r ApiApiV2ProjectsIdTestPlansRestoreBulkPostRequest) ApiV2ProjectsIdTestPlansDeleteBulkPostRequest(apiV2ProjectsIdTestPlansDeleteBulkPostRequest ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) ApiApiV2ProjectsIdTestPlansRestoreBulkPostRequest {
+	r.apiV2ProjectsIdTestPlansDeleteBulkPostRequest = &apiV2ProjectsIdTestPlansDeleteBulkPostRequest
 	return r
 }
 
@@ -1709,7 +1829,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdTestPlansRestoreBulkPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectTestPlansFilterModel
+	localVarPostBody = r.apiV2ProjectsIdTestPlansDeleteBulkPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1772,7 +1892,7 @@ type ApiApiV2ProjectsIdTestPlansSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	projectTestPlansFilterModel *ProjectTestPlansFilterModel
+	apiV2ProjectsIdTestPlansSearchPostRequest *ApiV2ProjectsIdTestPlansSearchPostRequest
 }
 
 func (r ApiApiV2ProjectsIdTestPlansSearchPostRequest) MustUpdateCache(mustUpdateCache bool) ApiApiV2ProjectsIdTestPlansSearchPostRequest {
@@ -1810,8 +1930,8 @@ func (r ApiApiV2ProjectsIdTestPlansSearchPostRequest) SearchValue(searchValue st
 	return r
 }
 
-func (r ApiApiV2ProjectsIdTestPlansSearchPostRequest) ProjectTestPlansFilterModel(projectTestPlansFilterModel ProjectTestPlansFilterModel) ApiApiV2ProjectsIdTestPlansSearchPostRequest {
-	r.projectTestPlansFilterModel = &projectTestPlansFilterModel
+func (r ApiApiV2ProjectsIdTestPlansSearchPostRequest) ApiV2ProjectsIdTestPlansSearchPostRequest(apiV2ProjectsIdTestPlansSearchPostRequest ApiV2ProjectsIdTestPlansSearchPostRequest) ApiApiV2ProjectsIdTestPlansSearchPostRequest {
+	r.apiV2ProjectsIdTestPlansSearchPostRequest = &apiV2ProjectsIdTestPlansSearchPostRequest
 	return r
 }
 
@@ -1898,7 +2018,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdTestPlansSearchPostExecute(r ApiApiV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectTestPlansFilterModel
+	localVarPostBody = r.apiV2ProjectsIdTestPlansSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2065,17 +2185,6 @@ func (a *ProjectsApiService) ApiV2ProjectsIdTestRunsActiveGetExecute(r ApiApiV2P
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2088,6 +2197,17 @@ func (a *ProjectsApiService) ApiV2ProjectsIdTestRunsActiveGetExecute(r ApiApiV2P
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2373,7 +2493,7 @@ type ApiApiV2ProjectsIdWorkItemsSearchIdPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	workItemSelectModel *WorkItemSelectModel
+	apiV2ProjectsIdWorkItemsSearchPostRequest *ApiV2ProjectsIdWorkItemsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -2406,8 +2526,8 @@ func (r ApiApiV2ProjectsIdWorkItemsSearchIdPostRequest) SearchValue(searchValue 
 	return r
 }
 
-func (r ApiApiV2ProjectsIdWorkItemsSearchIdPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2ProjectsIdWorkItemsSearchIdPostRequest {
-	r.workItemSelectModel = &workItemSelectModel
+func (r ApiApiV2ProjectsIdWorkItemsSearchIdPostRequest) ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest ApiV2ProjectsIdWorkItemsSearchPostRequest) ApiApiV2ProjectsIdWorkItemsSearchIdPostRequest {
+	r.apiV2ProjectsIdWorkItemsSearchPostRequest = &apiV2ProjectsIdWorkItemsSearchPostRequest
 	return r
 }
 
@@ -2485,7 +2605,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdWorkItemsSearchIdPostExecute(r ApiAp
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemSelectModel
+	localVarPostBody = r.apiV2ProjectsIdWorkItemsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2556,7 +2676,7 @@ type ApiApiV2ProjectsIdWorkItemsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	workItemSelectModel *WorkItemSelectModel
+	apiV2ProjectsIdWorkItemsSearchPostRequest *ApiV2ProjectsIdWorkItemsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -2589,8 +2709,8 @@ func (r ApiApiV2ProjectsIdWorkItemsSearchPostRequest) SearchValue(searchValue st
 	return r
 }
 
-func (r ApiApiV2ProjectsIdWorkItemsSearchPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2ProjectsIdWorkItemsSearchPostRequest {
-	r.workItemSelectModel = &workItemSelectModel
+func (r ApiApiV2ProjectsIdWorkItemsSearchPostRequest) ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest ApiV2ProjectsIdWorkItemsSearchPostRequest) ApiApiV2ProjectsIdWorkItemsSearchPostRequest {
+	r.apiV2ProjectsIdWorkItemsSearchPostRequest = &apiV2ProjectsIdWorkItemsSearchPostRequest
 	return r
 }
 
@@ -2668,7 +2788,7 @@ func (a *ProjectsApiService) ApiV2ProjectsIdWorkItemsSearchPostExecute(r ApiApiV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemSelectModel
+	localVarPostBody = r.apiV2ProjectsIdWorkItemsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2714,7 +2834,6 @@ func (a *ProjectsApiService) ApiV2ProjectsIdWorkItemsSearchPostExecute(r ApiApiV
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2854,7 +2973,6 @@ func (a *ProjectsApiService) ApiV2ProjectsIdWorkItemsTagsGetExecute(r ApiApiV2Pr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2994,7 +3112,7 @@ type ApiApiV2ProjectsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	projectsFilterModel *ProjectsFilterModel
+	apiV2ProjectsSearchPostRequest *ApiV2ProjectsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -3027,8 +3145,8 @@ func (r ApiApiV2ProjectsSearchPostRequest) SearchValue(searchValue string) ApiAp
 	return r
 }
 
-func (r ApiApiV2ProjectsSearchPostRequest) ProjectsFilterModel(projectsFilterModel ProjectsFilterModel) ApiApiV2ProjectsSearchPostRequest {
-	r.projectsFilterModel = &projectsFilterModel
+func (r ApiApiV2ProjectsSearchPostRequest) ApiV2ProjectsSearchPostRequest(apiV2ProjectsSearchPostRequest ApiV2ProjectsSearchPostRequest) ApiApiV2ProjectsSearchPostRequest {
+	r.apiV2ProjectsSearchPostRequest = &apiV2ProjectsSearchPostRequest
 	return r
 }
 
@@ -3103,7 +3221,7 @@ func (a *ProjectsApiService) ApiV2ProjectsSearchPostExecute(r ApiApiV2ProjectsSe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectsFilterModel
+	localVarPostBody = r.apiV2ProjectsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3850,6 +3968,17 @@ func (a *ProjectsApiService) CallImportExecute(r ApiCallImportRequest) (*http.Re
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3874,17 +4003,6 @@ func (a *ProjectsApiService) CallImportExecute(r ApiCallImportRequest) (*http.Re
 		}
 		if localVarHTTPResponse.StatusCode == 413 {
 			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4031,11 +4149,11 @@ func (a *ProjectsApiService) CreateCustomAttributeTestPlanProjectRelationsExecut
 type ApiCreateProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
-	projectPostModel *ProjectPostModel
+	createProjectRequest *CreateProjectRequest
 }
 
-func (r ApiCreateProjectRequest) ProjectPostModel(projectPostModel ProjectPostModel) ApiCreateProjectRequest {
-	r.projectPostModel = &projectPostModel
+func (r ApiCreateProjectRequest) CreateProjectRequest(createProjectRequest CreateProjectRequest) ApiCreateProjectRequest {
+	r.createProjectRequest = &createProjectRequest
 	return r
 }
 
@@ -4100,7 +4218,7 @@ func (a *ProjectsApiService) CreateProjectExecute(r ApiCreateProjectRequest) (*P
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectPostModel
+	localVarPostBody = r.createProjectRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -4148,7 +4266,7 @@ func (a *ProjectsApiService) CreateProjectExecute(r ApiCreateProjectRequest) (*P
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 409 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -4159,7 +4277,7 @@ func (a *ProjectsApiService) CreateProjectExecute(r ApiCreateProjectRequest) (*P
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -4188,11 +4306,11 @@ type ApiCreateProjectsAttributeRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
 	id string
-	customAttributePostModel *CustomAttributePostModel
+	createProjectsAttributeRequest *CreateProjectsAttributeRequest
 }
 
-func (r ApiCreateProjectsAttributeRequest) CustomAttributePostModel(customAttributePostModel CustomAttributePostModel) ApiCreateProjectsAttributeRequest {
-	r.customAttributePostModel = &customAttributePostModel
+func (r ApiCreateProjectsAttributeRequest) CreateProjectsAttributeRequest(createProjectsAttributeRequest CreateProjectsAttributeRequest) ApiCreateProjectsAttributeRequest {
+	r.createProjectsAttributeRequest = &createProjectsAttributeRequest
 	return r
 }
 
@@ -4261,7 +4379,7 @@ func (a *ProjectsApiService) CreateProjectsAttributeExecute(r ApiCreateProjectsA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributePostModel
+	localVarPostBody = r.createProjectsAttributeRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -4309,17 +4427,6 @@ func (a *ProjectsApiService) CreateProjectsAttributeExecute(r ApiCreateProjectsA
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4343,6 +4450,17 @@ func (a *ProjectsApiService) CreateProjectsAttributeExecute(r ApiCreateProjectsA
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -4614,7 +4732,6 @@ func (a *ProjectsApiService) DeleteProjectExecute(r ApiDeleteProjectRequest) (*h
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4726,17 +4843,6 @@ func (a *ProjectsApiService) DeleteProjectAutoTestsExecute(r ApiDeleteProjectAut
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4747,6 +4853,16 @@ func (a *ProjectsApiService) DeleteProjectAutoTestsExecute(r ApiDeleteProjectAut
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4864,17 +4980,6 @@ func (a *ProjectsApiService) DeleteProjectsAttributeExecute(r ApiDeleteProjectsA
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -4895,6 +5000,17 @@ func (a *ProjectsApiService) DeleteProjectsAttributeExecute(r ApiDeleteProjectsA
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4907,7 +5023,7 @@ type ApiExportRequest struct {
 	ApiService *ProjectsApiService
 	id string
 	includeAttachments *bool
-	projectExportQueryModel *ProjectExportQueryModel
+	exportProjectJsonRequest *ExportProjectJsonRequest
 }
 
 // Enables attachment export.
@@ -4916,8 +5032,8 @@ func (r ApiExportRequest) IncludeAttachments(includeAttachments bool) ApiExportR
 	return r
 }
 
-func (r ApiExportRequest) ProjectExportQueryModel(projectExportQueryModel ProjectExportQueryModel) ApiExportRequest {
-	r.projectExportQueryModel = &projectExportQueryModel
+func (r ApiExportRequest) ExportProjectJsonRequest(exportProjectJsonRequest ExportProjectJsonRequest) ApiExportRequest {
+	r.exportProjectJsonRequest = &exportProjectJsonRequest
 	return r
 }
 
@@ -5002,7 +5118,7 @@ func (a *ProjectsApiService) ExportExecute(r ApiExportRequest) (*os.File, *http.
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectExportQueryModel
+	localVarPostBody = r.exportProjectJsonRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -5039,6 +5155,17 @@ func (a *ProjectsApiService) ExportExecute(r ApiExportRequest) (*os.File, *http.
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -5059,18 +5186,6 @@ func (a *ProjectsApiService) ExportExecute(r ApiExportRequest) (*os.File, *http.
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5092,7 +5207,7 @@ type ApiExportProjectJsonRequest struct {
 	ApiService *ProjectsApiService
 	id string
 	timeZoneOffsetInMinutes *int64
-	projectExportQueryModel *ProjectExportQueryModel
+	exportProjectJsonRequest *ExportProjectJsonRequest
 }
 
 func (r ApiExportProjectJsonRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectJsonRequest {
@@ -5100,8 +5215,8 @@ func (r ApiExportProjectJsonRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMin
 	return r
 }
 
-func (r ApiExportProjectJsonRequest) ProjectExportQueryModel(projectExportQueryModel ProjectExportQueryModel) ApiExportProjectJsonRequest {
-	r.projectExportQueryModel = &projectExportQueryModel
+func (r ApiExportProjectJsonRequest) ExportProjectJsonRequest(exportProjectJsonRequest ExportProjectJsonRequest) ApiExportProjectJsonRequest {
+	r.exportProjectJsonRequest = &exportProjectJsonRequest
 	return r
 }
 
@@ -5167,7 +5282,7 @@ func (a *ProjectsApiService) ExportProjectJsonExecute(r ApiExportProjectJsonRequ
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.projectExportQueryModel
+	localVarPostBody = r.exportProjectJsonRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -5213,7 +5328,6 @@ func (a *ProjectsApiService) ExportProjectJsonExecute(r ApiExportProjectJsonRequ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5235,7 +5349,7 @@ type ApiExportProjectWithTestPlansJsonRequest struct {
 	ApiService *ProjectsApiService
 	id string
 	timeZoneOffsetInMinutes *int64
-	projectExportWithTestPlansPostModel *ProjectExportWithTestPlansPostModel
+	exportProjectWithTestPlansJsonRequest *ExportProjectWithTestPlansJsonRequest
 }
 
 func (r ApiExportProjectWithTestPlansJsonRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectWithTestPlansJsonRequest {
@@ -5243,8 +5357,8 @@ func (r ApiExportProjectWithTestPlansJsonRequest) TimeZoneOffsetInMinutes(timeZo
 	return r
 }
 
-func (r ApiExportProjectWithTestPlansJsonRequest) ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel ProjectExportWithTestPlansPostModel) ApiExportProjectWithTestPlansJsonRequest {
-	r.projectExportWithTestPlansPostModel = &projectExportWithTestPlansPostModel
+func (r ApiExportProjectWithTestPlansJsonRequest) ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest ExportProjectWithTestPlansJsonRequest) ApiExportProjectWithTestPlansJsonRequest {
+	r.exportProjectWithTestPlansJsonRequest = &exportProjectWithTestPlansJsonRequest
 	return r
 }
 
@@ -5310,7 +5424,7 @@ func (a *ProjectsApiService) ExportProjectWithTestPlansJsonExecute(r ApiExportPr
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.projectExportWithTestPlansPostModel
+	localVarPostBody = r.exportProjectWithTestPlansJsonRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -5377,7 +5491,7 @@ type ApiExportProjectWithTestPlansZipRequest struct {
 	ApiService *ProjectsApiService
 	id string
 	timeZoneOffsetInMinutes *int64
-	projectExportWithTestPlansPostModel *ProjectExportWithTestPlansPostModel
+	exportProjectWithTestPlansJsonRequest *ExportProjectWithTestPlansJsonRequest
 }
 
 func (r ApiExportProjectWithTestPlansZipRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectWithTestPlansZipRequest {
@@ -5385,8 +5499,8 @@ func (r ApiExportProjectWithTestPlansZipRequest) TimeZoneOffsetInMinutes(timeZon
 	return r
 }
 
-func (r ApiExportProjectWithTestPlansZipRequest) ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel ProjectExportWithTestPlansPostModel) ApiExportProjectWithTestPlansZipRequest {
-	r.projectExportWithTestPlansPostModel = &projectExportWithTestPlansPostModel
+func (r ApiExportProjectWithTestPlansZipRequest) ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest ExportProjectWithTestPlansJsonRequest) ApiExportProjectWithTestPlansZipRequest {
+	r.exportProjectWithTestPlansJsonRequest = &exportProjectWithTestPlansJsonRequest
 	return r
 }
 
@@ -5452,7 +5566,7 @@ func (a *ProjectsApiService) ExportProjectWithTestPlansZipExecute(r ApiExportPro
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.projectExportWithTestPlansPostModel
+	localVarPostBody = r.exportProjectWithTestPlansJsonRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -5498,7 +5612,6 @@ func (a *ProjectsApiService) ExportProjectWithTestPlansZipExecute(r ApiExportPro
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5520,7 +5633,7 @@ type ApiExportProjectZipRequest struct {
 	ApiService *ProjectsApiService
 	id string
 	timeZoneOffsetInMinutes *int64
-	projectExportQueryModel *ProjectExportQueryModel
+	exportProjectJsonRequest *ExportProjectJsonRequest
 }
 
 func (r ApiExportProjectZipRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectZipRequest {
@@ -5528,8 +5641,8 @@ func (r ApiExportProjectZipRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinu
 	return r
 }
 
-func (r ApiExportProjectZipRequest) ProjectExportQueryModel(projectExportQueryModel ProjectExportQueryModel) ApiExportProjectZipRequest {
-	r.projectExportQueryModel = &projectExportQueryModel
+func (r ApiExportProjectZipRequest) ExportProjectJsonRequest(exportProjectJsonRequest ExportProjectJsonRequest) ApiExportProjectZipRequest {
+	r.exportProjectJsonRequest = &exportProjectJsonRequest
 	return r
 }
 
@@ -5595,7 +5708,7 @@ func (a *ProjectsApiService) ExportProjectZipExecute(r ApiExportProjectZipReques
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.projectExportQueryModel
+	localVarPostBody = r.exportProjectJsonRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -5662,7 +5775,7 @@ type ApiExportWithTestPlansAndConfigurationsRequest struct {
 	ApiService *ProjectsApiService
 	id string
 	includeAttachments *bool
-	projectExportWithTestPlansPostModel *ProjectExportWithTestPlansPostModel
+	exportProjectWithTestPlansJsonRequest *ExportProjectWithTestPlansJsonRequest
 }
 
 // Enables attachment export.
@@ -5671,8 +5784,8 @@ func (r ApiExportWithTestPlansAndConfigurationsRequest) IncludeAttachments(inclu
 	return r
 }
 
-func (r ApiExportWithTestPlansAndConfigurationsRequest) ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel ProjectExportWithTestPlansPostModel) ApiExportWithTestPlansAndConfigurationsRequest {
-	r.projectExportWithTestPlansPostModel = &projectExportWithTestPlansPostModel
+func (r ApiExportWithTestPlansAndConfigurationsRequest) ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest ExportProjectWithTestPlansJsonRequest) ApiExportWithTestPlansAndConfigurationsRequest {
+	r.exportProjectWithTestPlansJsonRequest = &exportProjectWithTestPlansJsonRequest
 	return r
 }
 
@@ -5751,7 +5864,7 @@ func (a *ProjectsApiService) ExportWithTestPlansAndConfigurationsExecute(r ApiEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectExportWithTestPlansPostModel
+	localVarPostBody = r.exportProjectWithTestPlansJsonRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -5799,7 +5912,7 @@ func (a *ProjectsApiService) ExportWithTestPlansAndConfigurationsExecute(r ApiEx
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -5810,7 +5923,7 @@ func (a *ProjectsApiService) ExportWithTestPlansAndConfigurationsExecute(r ApiEx
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -6147,17 +6260,6 @@ func (a *ProjectsApiService) GetAttributeByProjectIdExecute(r ApiGetAttributeByP
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -6170,6 +6272,17 @@ func (a *ProjectsApiService) GetAttributeByProjectIdExecute(r ApiGetAttributeByP
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -6313,8 +6426,8 @@ func (a *ProjectsApiService) GetAttributesByProjectIdExecute(r ApiGetAttributesB
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -6324,8 +6437,8 @@ func (a *ProjectsApiService) GetAttributesByProjectIdExecute(r ApiGetAttributesB
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -6344,7 +6457,6 @@ func (a *ProjectsApiService) GetAttributesByProjectIdExecute(r ApiGetAttributesB
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6487,7 +6599,6 @@ func (a *ProjectsApiService) GetAutoTestsNamespacesExecute(r ApiGetAutoTestsName
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6771,7 +6882,6 @@ func (a *ProjectsApiService) GetCustomAttributeTestPlanProjectRelationsExecute(r
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7752,6 +7862,17 @@ func (a *ProjectsApiService) GetWorkItemsByProjectIdExecute(r ApiGetWorkItemsByP
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -7765,17 +7886,6 @@ func (a *ProjectsApiService) GetWorkItemsByProjectIdExecute(r ApiGetWorkItemsByP
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -7939,7 +8049,7 @@ func (a *ProjectsApiService) ImportToExistingProjectExecute(r ApiImportToExistin
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 409 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -7961,7 +8071,7 @@ func (a *ProjectsApiService) ImportToExistingProjectExecute(r ApiImportToExistin
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -7981,7 +8091,6 @@ func (a *ProjectsApiService) ImportToExistingProjectExecute(r ApiImportToExistin
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -8128,7 +8237,7 @@ type ApiSearchAttributesInProjectRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	projectAttributesFilterModel *ProjectAttributesFilterModel
+	searchAttributesInProjectRequest *SearchAttributesInProjectRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -8161,8 +8270,8 @@ func (r ApiSearchAttributesInProjectRequest) SearchValue(searchValue string) Api
 	return r
 }
 
-func (r ApiSearchAttributesInProjectRequest) ProjectAttributesFilterModel(projectAttributesFilterModel ProjectAttributesFilterModel) ApiSearchAttributesInProjectRequest {
-	r.projectAttributesFilterModel = &projectAttributesFilterModel
+func (r ApiSearchAttributesInProjectRequest) SearchAttributesInProjectRequest(searchAttributesInProjectRequest SearchAttributesInProjectRequest) ApiSearchAttributesInProjectRequest {
+	r.searchAttributesInProjectRequest = &searchAttributesInProjectRequest
 	return r
 }
 
@@ -8240,7 +8349,7 @@ func (a *ProjectsApiService) SearchAttributesInProjectExecute(r ApiSearchAttribu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectAttributesFilterModel
+	localVarPostBody = r.searchAttributesInProjectRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -8311,7 +8420,7 @@ type ApiSearchTestPlanAttributesInProjectRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	projectAttributesFilterModel *ProjectAttributesFilterModel
+	searchAttributesInProjectRequest *SearchAttributesInProjectRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -8344,8 +8453,8 @@ func (r ApiSearchTestPlanAttributesInProjectRequest) SearchValue(searchValue str
 	return r
 }
 
-func (r ApiSearchTestPlanAttributesInProjectRequest) ProjectAttributesFilterModel(projectAttributesFilterModel ProjectAttributesFilterModel) ApiSearchTestPlanAttributesInProjectRequest {
-	r.projectAttributesFilterModel = &projectAttributesFilterModel
+func (r ApiSearchTestPlanAttributesInProjectRequest) SearchAttributesInProjectRequest(searchAttributesInProjectRequest SearchAttributesInProjectRequest) ApiSearchTestPlanAttributesInProjectRequest {
+	r.searchAttributesInProjectRequest = &searchAttributesInProjectRequest
 	return r
 }
 
@@ -8423,7 +8532,7 @@ func (a *ProjectsApiService) SearchTestPlanAttributesInProjectExecute(r ApiSearc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectAttributesFilterModel
+	localVarPostBody = r.searchAttributesInProjectRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -8469,7 +8578,6 @@ func (a *ProjectsApiService) SearchTestPlanAttributesInProjectExecute(r ApiSearc
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8490,11 +8598,11 @@ type ApiUpdateCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
 	id string
-	customAttributeTestPlanProjectRelationPutModel *CustomAttributeTestPlanProjectRelationPutModel
+	updateCustomAttributeTestPlanProjectRelationsRequest *UpdateCustomAttributeTestPlanProjectRelationsRequest
 }
 
-func (r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) CustomAttributeTestPlanProjectRelationPutModel(customAttributeTestPlanProjectRelationPutModel CustomAttributeTestPlanProjectRelationPutModel) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
-	r.customAttributeTestPlanProjectRelationPutModel = &customAttributeTestPlanProjectRelationPutModel
+func (r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) UpdateCustomAttributeTestPlanProjectRelationsRequest(updateCustomAttributeTestPlanProjectRelationsRequest UpdateCustomAttributeTestPlanProjectRelationsRequest) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
+	r.updateCustomAttributeTestPlanProjectRelationsRequest = &updateCustomAttributeTestPlanProjectRelationsRequest
 	return r
 }
 
@@ -8561,7 +8669,7 @@ func (a *ProjectsApiService) UpdateCustomAttributeTestPlanProjectRelationsExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributeTestPlanProjectRelationPutModel
+	localVarPostBody = r.updateCustomAttributeTestPlanProjectRelationsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -8617,11 +8725,11 @@ func (a *ProjectsApiService) UpdateCustomAttributeTestPlanProjectRelationsExecut
 type ApiUpdateProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
-	projectPutModel *ProjectPutModel
+	updateProjectRequest *UpdateProjectRequest
 }
 
-func (r ApiUpdateProjectRequest) ProjectPutModel(projectPutModel ProjectPutModel) ApiUpdateProjectRequest {
-	r.projectPutModel = &projectPutModel
+func (r ApiUpdateProjectRequest) UpdateProjectRequest(updateProjectRequest UpdateProjectRequest) ApiUpdateProjectRequest {
+	r.updateProjectRequest = &updateProjectRequest
 	return r
 }
 
@@ -8684,7 +8792,7 @@ func (a *ProjectsApiService) UpdateProjectExecute(r ApiUpdateProjectRequest) (*h
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectPutModel
+	localVarPostBody = r.updateProjectRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -8732,7 +8840,7 @@ func (a *ProjectsApiService) UpdateProjectExecute(r ApiUpdateProjectRequest) (*h
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -8743,7 +8851,7 @@ func (a *ProjectsApiService) UpdateProjectExecute(r ApiUpdateProjectRequest) (*h
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -8774,11 +8882,11 @@ type ApiUpdateProjectsAttributeRequest struct {
 	ctx context.Context
 	ApiService *ProjectsApiService
 	id string
-	customAttributePutModel *CustomAttributePutModel
+	updateProjectsAttributeRequest *UpdateProjectsAttributeRequest
 }
 
-func (r ApiUpdateProjectsAttributeRequest) CustomAttributePutModel(customAttributePutModel CustomAttributePutModel) ApiUpdateProjectsAttributeRequest {
-	r.customAttributePutModel = &customAttributePutModel
+func (r ApiUpdateProjectsAttributeRequest) UpdateProjectsAttributeRequest(updateProjectsAttributeRequest UpdateProjectsAttributeRequest) ApiUpdateProjectsAttributeRequest {
+	r.updateProjectsAttributeRequest = &updateProjectsAttributeRequest
 	return r
 }
 
@@ -8839,7 +8947,7 @@ func (a *ProjectsApiService) UpdateProjectsAttributeExecute(r ApiUpdateProjectsA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributePutModel
+	localVarPostBody = r.updateProjectsAttributeRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

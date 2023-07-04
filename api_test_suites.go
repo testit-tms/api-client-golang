@@ -28,12 +28,12 @@ type ApiAddTestPointsToTestSuiteRequest struct {
 	ctx context.Context
 	ApiService *TestSuitesApiService
 	id string
-	workItemSelectModel *WorkItemSelectModel
+	apiV2ProjectsIdWorkItemsSearchPostRequest *ApiV2ProjectsIdWorkItemsSearchPostRequest
 }
 
 // Filter object to retrieve work items for test-suite&#39;s project
-func (r ApiAddTestPointsToTestSuiteRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiAddTestPointsToTestSuiteRequest {
-	r.workItemSelectModel = &workItemSelectModel
+func (r ApiAddTestPointsToTestSuiteRequest) ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest ApiV2ProjectsIdWorkItemsSearchPostRequest) ApiAddTestPointsToTestSuiteRequest {
+	r.apiV2ProjectsIdWorkItemsSearchPostRequest = &apiV2ProjectsIdWorkItemsSearchPostRequest
 	return r
 }
 
@@ -94,7 +94,7 @@ func (a *TestSuitesApiService) AddTestPointsToTestSuiteExecute(r ApiAddTestPoint
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemSelectModel
+	localVarPostBody = r.apiV2ProjectsIdWorkItemsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -131,28 +131,6 @@ func (a *TestSuitesApiService) AddTestPointsToTestSuiteExecute(r ApiAddTestPoint
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -176,6 +154,28 @@ func (a *TestSuitesApiService) AddTestPointsToTestSuiteExecute(r ApiAddTestPoint
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -308,7 +308,6 @@ func (a *TestSuitesApiService) ApiV2TestSuitesIdPatchExecute(r ApiApiV2TestSuite
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -430,35 +429,151 @@ func (a *TestSuitesApiService) ApiV2TestSuitesIdRefreshPostExecute(r ApiApiV2Tes
 	return localVarHTTPResponse, nil
 }
 
-type ApiCreateTestSuiteRequest struct {
+type ApiApiV2TestSuitesIdWorkItemsPostRequest struct {
 	ctx context.Context
 	ApiService *TestSuitesApiService
-	testSuiteV2PostModel *TestSuiteV2PostModel
+	id string
+	requestBody *[]string
 }
 
-func (r ApiCreateTestSuiteRequest) TestSuiteV2PostModel(testSuiteV2PostModel TestSuiteV2PostModel) ApiCreateTestSuiteRequest {
-	r.testSuiteV2PostModel = &testSuiteV2PostModel
+func (r ApiApiV2TestSuitesIdWorkItemsPostRequest) RequestBody(requestBody []string) ApiApiV2TestSuitesIdWorkItemsPostRequest {
+	r.requestBody = &requestBody
 	return r
 }
 
-func (r ApiCreateTestSuiteRequest) Execute() (*TestSuiteV2GetModel, *http.Response, error) {
-	return r.ApiService.CreateTestSuiteExecute(r)
+func (r ApiApiV2TestSuitesIdWorkItemsPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiV2TestSuitesIdWorkItemsPostExecute(r)
 }
 
 /*
-CreateTestSuite Create TestSuite
-
-<br>Use case
-<br>User sets test suite model (listed in request parameters)
-<br>User runs method execution
-<br>System creates test suite
-<br>System returns test suite
+ApiV2TestSuitesIdWorkItemsPost Set work items for test suite
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateTestSuiteRequest
+ @param id Unique ID of the test suite
+ @return ApiApiV2TestSuitesIdWorkItemsPostRequest
 */
-func (a *TestSuitesApiService) CreateTestSuite(ctx context.Context) ApiCreateTestSuiteRequest {
-	return ApiCreateTestSuiteRequest{
+func (a *TestSuitesApiService) ApiV2TestSuitesIdWorkItemsPost(ctx context.Context, id string) ApiApiV2TestSuitesIdWorkItemsPostRequest {
+	return ApiApiV2TestSuitesIdWorkItemsPostRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *TestSuitesApiService) ApiV2TestSuitesIdWorkItemsPostExecute(r ApiApiV2TestSuitesIdWorkItemsPostRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSuitesApiService.ApiV2TestSuitesIdWorkItemsPost")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/testSuites/{id}/workItems"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.requestBody
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiApiV2TestSuitesPostRequest struct {
+	ctx context.Context
+	ApiService *TestSuitesApiService
+	apiV2TestSuitesPostRequest *ApiV2TestSuitesPostRequest
+}
+
+func (r ApiApiV2TestSuitesPostRequest) ApiV2TestSuitesPostRequest(apiV2TestSuitesPostRequest ApiV2TestSuitesPostRequest) ApiApiV2TestSuitesPostRequest {
+	r.apiV2TestSuitesPostRequest = &apiV2TestSuitesPostRequest
+	return r
+}
+
+func (r ApiApiV2TestSuitesPostRequest) Execute() (*TestSuiteV2GetModel, *http.Response, error) {
+	return r.ApiService.ApiV2TestSuitesPostExecute(r)
+}
+
+/*
+ApiV2TestSuitesPost Create test suite
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiApiV2TestSuitesPostRequest
+*/
+func (a *TestSuitesApiService) ApiV2TestSuitesPost(ctx context.Context) ApiApiV2TestSuitesPostRequest {
+	return ApiApiV2TestSuitesPostRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -466,7 +581,7 @@ func (a *TestSuitesApiService) CreateTestSuite(ctx context.Context) ApiCreateTes
 
 // Execute executes the request
 //  @return TestSuiteV2GetModel
-func (a *TestSuitesApiService) CreateTestSuiteExecute(r ApiCreateTestSuiteRequest) (*TestSuiteV2GetModel, *http.Response, error) {
+func (a *TestSuitesApiService) ApiV2TestSuitesPostExecute(r ApiApiV2TestSuitesPostRequest) (*TestSuiteV2GetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -474,7 +589,7 @@ func (a *TestSuitesApiService) CreateTestSuiteExecute(r ApiCreateTestSuiteReques
 		localVarReturnValue  *TestSuiteV2GetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSuitesApiService.CreateTestSuite")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSuitesApiService.ApiV2TestSuitesPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -503,7 +618,7 @@ func (a *TestSuitesApiService) CreateTestSuiteExecute(r ApiCreateTestSuiteReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testSuiteV2PostModel
+	localVarPostBody = r.apiV2TestSuitesPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -540,40 +655,7 @@ func (a *TestSuitesApiService) CreateTestSuiteExecute(r ApiCreateTestSuiteReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -596,6 +678,124 @@ func (a *TestSuitesApiService) CreateTestSuiteExecute(r ApiCreateTestSuiteReques
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV2TestSuitesPutRequest struct {
+	ctx context.Context
+	ApiService *TestSuitesApiService
+	apiV2TestSuitesPutRequest *ApiV2TestSuitesPutRequest
+}
+
+func (r ApiApiV2TestSuitesPutRequest) ApiV2TestSuitesPutRequest(apiV2TestSuitesPutRequest ApiV2TestSuitesPutRequest) ApiApiV2TestSuitesPutRequest {
+	r.apiV2TestSuitesPutRequest = &apiV2TestSuitesPutRequest
+	return r
+}
+
+func (r ApiApiV2TestSuitesPutRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiV2TestSuitesPutExecute(r)
+}
+
+/*
+ApiV2TestSuitesPut Edit test suite
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiApiV2TestSuitesPutRequest
+*/
+func (a *TestSuitesApiService) ApiV2TestSuitesPut(ctx context.Context) ApiApiV2TestSuitesPutRequest {
+	return ApiApiV2TestSuitesPutRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+func (a *TestSuitesApiService) ApiV2TestSuitesPutExecute(r ApiApiV2TestSuitesPutRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSuitesApiService.ApiV2TestSuitesPut")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/testSuites"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiV2TestSuitesPutRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }
 
 type ApiDeleteTestSuiteRequest struct {
@@ -703,7 +903,7 @@ func (a *TestSuitesApiService) DeleteTestSuiteExecute(r ApiDeleteTestSuiteReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -725,7 +925,7 @@ func (a *TestSuitesApiService) DeleteTestSuiteExecute(r ApiDeleteTestSuiteReques
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -734,7 +934,6 @@ func (a *TestSuitesApiService) DeleteTestSuiteExecute(r ApiDeleteTestSuiteReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -881,7 +1080,6 @@ func (a *TestSuitesApiService) GetConfigurationsByTestSuiteIdExecute(r ApiGetCon
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1313,17 +1511,6 @@ func (a *TestSuitesApiService) GetTestSuiteByIdExecute(r ApiGetTestSuiteByIdRequ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1336,6 +1523,17 @@ func (a *TestSuitesApiService) GetTestSuiteByIdExecute(r ApiGetTestSuiteByIdRequ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1539,7 +1737,7 @@ func (a *TestSuitesApiService) GetWorkItemsByIdExecute(r ApiGetWorkItemsByIdRequ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1550,7 +1748,7 @@ func (a *TestSuitesApiService) GetWorkItemsByIdExecute(r ApiGetWorkItemsByIdRequ
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1595,7 +1793,7 @@ type ApiSearchWorkItemsRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	testSuiteWorkItemsSearchModel *TestSuiteWorkItemsSearchModel
+	searchWorkItemsRequest *SearchWorkItemsRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -1628,8 +1826,8 @@ func (r ApiSearchWorkItemsRequest) SearchValue(searchValue string) ApiSearchWork
 	return r
 }
 
-func (r ApiSearchWorkItemsRequest) TestSuiteWorkItemsSearchModel(testSuiteWorkItemsSearchModel TestSuiteWorkItemsSearchModel) ApiSearchWorkItemsRequest {
-	r.testSuiteWorkItemsSearchModel = &testSuiteWorkItemsSearchModel
+func (r ApiSearchWorkItemsRequest) SearchWorkItemsRequest(searchWorkItemsRequest SearchWorkItemsRequest) ApiSearchWorkItemsRequest {
+	r.searchWorkItemsRequest = &searchWorkItemsRequest
 	return r
 }
 
@@ -1719,7 +1917,7 @@ func (a *TestSuitesApiService) SearchWorkItemsExecute(r ApiSearchWorkItemsReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testSuiteWorkItemsSearchModel
+	localVarPostBody = r.searchWorkItemsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1756,8 +1954,8 @@ func (a *TestSuitesApiService) SearchWorkItemsExecute(r ApiSearchWorkItemsReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1767,7 +1965,7 @@ func (a *TestSuitesApiService) SearchWorkItemsExecute(r ApiSearchWorkItemsReques
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1789,8 +1987,8 @@ func (a *TestSuitesApiService) SearchWorkItemsExecute(r ApiSearchWorkItemsReques
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1931,17 +2129,6 @@ func (a *TestSuitesApiService) SetConfigurationsByTestSuiteIdExecute(r ApiSetCon
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1973,307 +2160,6 @@ func (a *TestSuitesApiService) SetConfigurationsByTestSuiteIdExecute(r ApiSetCon
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiSetWorkItemsByTestSuiteIdRequest struct {
-	ctx context.Context
-	ApiService *TestSuitesApiService
-	id string
-	requestBody *[]string
-}
-
-// Collection of work item identifiers\&quot;
-func (r ApiSetWorkItemsByTestSuiteIdRequest) RequestBody(requestBody []string) ApiSetWorkItemsByTestSuiteIdRequest {
-	r.requestBody = &requestBody
-	return r
-}
-
-func (r ApiSetWorkItemsByTestSuiteIdRequest) Execute() (*http.Response, error) {
-	return r.ApiService.SetWorkItemsByTestSuiteIdExecute(r)
-}
-
-/*
-SetWorkItemsByTestSuiteId Set WorkItems By TestSuite Id
-
-<br>Use case
-<br>User sets test suite identifier
-<br>User sets collection of work items identifiers
-<br>User runs method execution
-<br>System search test suite by identifier
-<br>System search test points related to the test suite
-<br>System search work items
-<br>System restores(if exist) or creates test points with listed work items
-<br>System returns no content response
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test suite internal (guid format) identifier\"
- @return ApiSetWorkItemsByTestSuiteIdRequest
-*/
-func (a *TestSuitesApiService) SetWorkItemsByTestSuiteId(ctx context.Context, id string) ApiSetWorkItemsByTestSuiteIdRequest {
-	return ApiSetWorkItemsByTestSuiteIdRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
-	}
-}
-
-// Execute executes the request
-func (a *TestSuitesApiService) SetWorkItemsByTestSuiteIdExecute(r ApiSetWorkItemsByTestSuiteIdRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSuitesApiService.SetWorkItemsByTestSuiteId")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/testSuites/{id}/workItems"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.requestBody
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiUpdateTestSuiteRequest struct {
-	ctx context.Context
-	ApiService *TestSuitesApiService
-	testSuiteV2PutModel *TestSuiteV2PutModel
-}
-
-func (r ApiUpdateTestSuiteRequest) TestSuiteV2PutModel(testSuiteV2PutModel TestSuiteV2PutModel) ApiUpdateTestSuiteRequest {
-	r.testSuiteV2PutModel = &testSuiteV2PutModel
-	return r
-}
-
-func (r ApiUpdateTestSuiteRequest) Execute() (*http.Response, error) {
-	return r.ApiService.UpdateTestSuiteExecute(r)
-}
-
-/*
-UpdateTestSuite Update TestSuite
-
-<br>Use case
-<br>User sets test suite model (listed in request parameters)
-<br>User runs method execution
-<br>System updates test suite
-<br>System returns test suite
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUpdateTestSuiteRequest
-*/
-func (a *TestSuitesApiService) UpdateTestSuite(ctx context.Context) ApiUpdateTestSuiteRequest {
-	return ApiUpdateTestSuiteRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-func (a *TestSuitesApiService) UpdateTestSuiteExecute(r ApiUpdateTestSuiteRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSuitesApiService.UpdateTestSuite")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/testSuites"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.testSuiteV2PutModel
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2285,29 +2171,6 @@ func (a *TestSuitesApiService) UpdateTestSuiteExecute(r ApiUpdateTestSuiteReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}

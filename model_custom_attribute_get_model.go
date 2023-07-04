@@ -27,7 +27,7 @@ type CustomAttributeGetModel struct {
 	// Indicates if the attribute is deleted
 	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// Name of the attribute
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	// Indicates if the attribute is enabled
 	IsEnabled *bool `json:"isEnabled,omitempty"`
 	// Indicates if the attribute is mandatory to specify
@@ -86,9 +86,9 @@ func (o *CustomAttributeGetModel) SetId(v string) {
 	o.Id = &v
 }
 
-// GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOptions returns the Options field value if set, zero value otherwise.
 func (o *CustomAttributeGetModel) GetOptions() []CustomAttributeOptionModel {
-	if o == nil {
+	if o == nil || IsNil(o.Options) {
 		var ret []CustomAttributeOptionModel
 		return ret
 	}
@@ -97,7 +97,6 @@ func (o *CustomAttributeGetModel) GetOptions() []CustomAttributeOptionModel {
 
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomAttributeGetModel) GetOptionsOk() ([]CustomAttributeOptionModel, bool) {
 	if o == nil || IsNil(o.Options) {
 		return nil, false
@@ -107,7 +106,7 @@ func (o *CustomAttributeGetModel) GetOptionsOk() ([]CustomAttributeOptionModel, 
 
 // HasOptions returns a boolean if a field has been set.
 func (o *CustomAttributeGetModel) HasOptions() bool {
-	if o != nil && IsNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 
@@ -175,46 +174,36 @@ func (o *CustomAttributeGetModel) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *CustomAttributeGetModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomAttributeGetModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CustomAttributeGetModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *CustomAttributeGetModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *CustomAttributeGetModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *CustomAttributeGetModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
@@ -326,15 +315,15 @@ func (o CustomAttributeGetModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Options != nil {
+	if !IsNil(o.Options) {
 		toSerialize["options"] = o.Options
 	}
 	toSerialize["type"] = o.Type
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.IsEnabled) {
 		toSerialize["isEnabled"] = o.IsEnabled

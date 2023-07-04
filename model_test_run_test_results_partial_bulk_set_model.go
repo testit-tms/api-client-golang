@@ -19,7 +19,7 @@ var _ MappedNullable = &TestRunTestResultsPartialBulkSetModel{}
 
 // TestRunTestResultsPartialBulkSetModel struct for TestRunTestResultsPartialBulkSetModel
 type TestRunTestResultsPartialBulkSetModel struct {
-	Selector *TestRunTestResultsSelectModel `json:"selector,omitempty"`
+	Selector NullableTestRunTestResultsPartialBulkSetModelSelector `json:"selector,omitempty"`
 	// Unique IDs of result reasons to be assigned to test results
 	ResultReasonIds []string `json:"resultReasonIds,omitempty"`
 	// Collection of links to be assigned to test results
@@ -47,36 +47,46 @@ func NewTestRunTestResultsPartialBulkSetModelWithDefaults() *TestRunTestResultsP
 	return &this
 }
 
-// GetSelector returns the Selector field value if set, zero value otherwise.
-func (o *TestRunTestResultsPartialBulkSetModel) GetSelector() TestRunTestResultsSelectModel {
-	if o == nil || IsNil(o.Selector) {
-		var ret TestRunTestResultsSelectModel
+// GetSelector returns the Selector field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunTestResultsPartialBulkSetModel) GetSelector() TestRunTestResultsPartialBulkSetModelSelector {
+	if o == nil || IsNil(o.Selector.Get()) {
+		var ret TestRunTestResultsPartialBulkSetModelSelector
 		return ret
 	}
-	return *o.Selector
+	return *o.Selector.Get()
 }
 
 // GetSelectorOk returns a tuple with the Selector field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestRunTestResultsPartialBulkSetModel) GetSelectorOk() (*TestRunTestResultsSelectModel, bool) {
-	if o == nil || IsNil(o.Selector) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunTestResultsPartialBulkSetModel) GetSelectorOk() (*TestRunTestResultsPartialBulkSetModelSelector, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Selector, true
+	return o.Selector.Get(), o.Selector.IsSet()
 }
 
 // HasSelector returns a boolean if a field has been set.
 func (o *TestRunTestResultsPartialBulkSetModel) HasSelector() bool {
-	if o != nil && !IsNil(o.Selector) {
+	if o != nil && o.Selector.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetSelector gets a reference to the given TestRunTestResultsSelectModel and assigns it to the Selector field.
-func (o *TestRunTestResultsPartialBulkSetModel) SetSelector(v TestRunTestResultsSelectModel) {
-	o.Selector = &v
+// SetSelector gets a reference to the given NullableTestRunTestResultsPartialBulkSetModelSelector and assigns it to the Selector field.
+func (o *TestRunTestResultsPartialBulkSetModel) SetSelector(v TestRunTestResultsPartialBulkSetModelSelector) {
+	o.Selector.Set(&v)
+}
+// SetSelectorNil sets the value for Selector to be an explicit nil
+func (o *TestRunTestResultsPartialBulkSetModel) SetSelectorNil() {
+	o.Selector.Set(nil)
+}
+
+// UnsetSelector ensures that no value is present for Selector, not even an explicit nil
+func (o *TestRunTestResultsPartialBulkSetModel) UnsetSelector() {
+	o.Selector.Unset()
 }
 
 // GetResultReasonIds returns the ResultReasonIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -230,8 +240,8 @@ func (o TestRunTestResultsPartialBulkSetModel) MarshalJSON() ([]byte, error) {
 
 func (o TestRunTestResultsPartialBulkSetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Selector) {
-		toSerialize["selector"] = o.Selector
+	if o.Selector.IsSet() {
+		toSerialize["selector"] = o.Selector.Get()
 	}
 	if o.ResultReasonIds != nil {
 		toSerialize["resultReasonIds"] = o.ResultReasonIds

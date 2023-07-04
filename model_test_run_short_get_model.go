@@ -23,7 +23,7 @@ type TestRunShortGetModel struct {
 	// Unique ID of the test run
 	Id *string `json:"id,omitempty"`
 	// Name of the test run
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	// Unique ID of project where test run is located
 	ProjectId *string `json:"projectId,omitempty"`
 	// Date when the test run was created
@@ -41,14 +41,14 @@ type TestRunShortGetModel struct {
 	StartedDate NullableTime `json:"startedDate,omitempty"`
 	// Number of autotests run in the test run
 	AutotestsCount *int32 `json:"autotestsCount,omitempty"`
-	Statistics TestResultsStatisticsGetModel `json:"statistics"`
+	Statistics TestRunShortGetModelStatistics `json:"statistics"`
 }
 
 // NewTestRunShortGetModel instantiates a new TestRunShortGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunShortGetModel(state TestRunState, statistics TestResultsStatisticsGetModel) *TestRunShortGetModel {
+func NewTestRunShortGetModel(state TestRunState, statistics TestRunShortGetModelStatistics) *TestRunShortGetModel {
 	this := TestRunShortGetModel{}
 	this.State = state
 	this.Statistics = statistics
@@ -95,46 +95,36 @@ func (o *TestRunShortGetModel) SetId(v string) {
 	o.Id = &v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *TestRunShortGetModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunShortGetModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestRunShortGetModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TestRunShortGetModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *TestRunShortGetModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *TestRunShortGetModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetProjectId returns the ProjectId field value if set, zero value otherwise.
@@ -448,9 +438,9 @@ func (o *TestRunShortGetModel) SetAutotestsCount(v int32) {
 }
 
 // GetStatistics returns the Statistics field value
-func (o *TestRunShortGetModel) GetStatistics() TestResultsStatisticsGetModel {
+func (o *TestRunShortGetModel) GetStatistics() TestRunShortGetModelStatistics {
 	if o == nil {
-		var ret TestResultsStatisticsGetModel
+		var ret TestRunShortGetModelStatistics
 		return ret
 	}
 
@@ -459,7 +449,7 @@ func (o *TestRunShortGetModel) GetStatistics() TestResultsStatisticsGetModel {
 
 // GetStatisticsOk returns a tuple with the Statistics field value
 // and a boolean to check if the value has been set.
-func (o *TestRunShortGetModel) GetStatisticsOk() (*TestResultsStatisticsGetModel, bool) {
+func (o *TestRunShortGetModel) GetStatisticsOk() (*TestRunShortGetModelStatistics, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -467,7 +457,7 @@ func (o *TestRunShortGetModel) GetStatisticsOk() (*TestResultsStatisticsGetModel
 }
 
 // SetStatistics sets field value
-func (o *TestRunShortGetModel) SetStatistics(v TestResultsStatisticsGetModel) {
+func (o *TestRunShortGetModel) SetStatistics(v TestRunShortGetModelStatistics) {
 	o.Statistics = v
 }
 
@@ -484,8 +474,8 @@ func (o TestRunShortGetModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.ProjectId) {
 		toSerialize["projectId"] = o.ProjectId

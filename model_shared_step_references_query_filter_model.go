@@ -35,8 +35,8 @@ type SharedStepReferencesQueryFilterModel struct {
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
 	// Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
 	EntityTypes []string `json:"entityTypes,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
-	ModifiedDate *DateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
+	CreatedDate NullableSharedStepReferenceSectionsQueryFilterModelCreatedDate `json:"createdDate,omitempty"`
+	ModifiedDate NullableSharedStepReferenceSectionsQueryFilterModelModifiedDate `json:"modifiedDate,omitempty"`
 	// Is result must consist of only manual/automated work items
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Collection of tags
@@ -333,68 +333,88 @@ func (o *SharedStepReferencesQueryFilterModel) SetEntityTypes(v []string) {
 	o.EntityTypes = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *SharedStepReferencesQueryFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
-		var ret DateTimeRangeSelectorModel
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SharedStepReferencesQueryFilterModel) GetCreatedDate() SharedStepReferenceSectionsQueryFilterModelCreatedDate {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
+		var ret SharedStepReferenceSectionsQueryFilterModelCreatedDate
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SharedStepReferencesQueryFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SharedStepReferencesQueryFilterModel) GetCreatedDateOk() (*SharedStepReferenceSectionsQueryFilterModelCreatedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *SharedStepReferencesQueryFilterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
-func (o *SharedStepReferencesQueryFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+// SetCreatedDate gets a reference to the given NullableSharedStepReferenceSectionsQueryFilterModelCreatedDate and assigns it to the CreatedDate field.
+func (o *SharedStepReferencesQueryFilterModel) SetCreatedDate(v SharedStepReferenceSectionsQueryFilterModelCreatedDate) {
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *SharedStepReferencesQueryFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
 }
 
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise.
-func (o *SharedStepReferencesQueryFilterModel) GetModifiedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.ModifiedDate) {
-		var ret DateTimeRangeSelectorModel
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *SharedStepReferencesQueryFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
+}
+
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SharedStepReferencesQueryFilterModel) GetModifiedDate() SharedStepReferenceSectionsQueryFilterModelModifiedDate {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret SharedStepReferenceSectionsQueryFilterModelModifiedDate
 		return ret
 	}
-	return *o.ModifiedDate
+	return *o.ModifiedDate.Get()
 }
 
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SharedStepReferencesQueryFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.ModifiedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SharedStepReferencesQueryFilterModel) GetModifiedDateOk() (*SharedStepReferenceSectionsQueryFilterModelModifiedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ModifiedDate, true
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
 }
 
 // HasModifiedDate returns a boolean if a field has been set.
 func (o *SharedStepReferencesQueryFilterModel) HasModifiedDate() bool {
-	if o != nil && !IsNil(o.ModifiedDate) {
+	if o != nil && o.ModifiedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetModifiedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
-func (o *SharedStepReferencesQueryFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
-	o.ModifiedDate = &v
+// SetModifiedDate gets a reference to the given NullableSharedStepReferenceSectionsQueryFilterModelModifiedDate and assigns it to the ModifiedDate field.
+func (o *SharedStepReferencesQueryFilterModel) SetModifiedDate(v SharedStepReferenceSectionsQueryFilterModelModifiedDate) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *SharedStepReferencesQueryFilterModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *SharedStepReferencesQueryFilterModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
 }
 
 // GetIsAutomated returns the IsAutomated field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -506,11 +526,11 @@ func (o SharedStepReferencesQueryFilterModel) ToMap() (map[string]interface{}, e
 	if o.EntityTypes != nil {
 		toSerialize["entityTypes"] = o.EntityTypes
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
-	if !IsNil(o.ModifiedDate) {
-		toSerialize["modifiedDate"] = o.ModifiedDate
+	if o.ModifiedDate.IsSet() {
+		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
 	if o.IsAutomated.IsSet() {
 		toSerialize["isAutomated"] = o.IsAutomated.Get()

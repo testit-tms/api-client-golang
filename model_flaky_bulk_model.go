@@ -19,7 +19,7 @@ var _ MappedNullable = &FlakyBulkModel{}
 
 // FlakyBulkModel struct for FlakyBulkModel
 type FlakyBulkModel struct {
-	AutotestSelect *AutotestSelectModel `json:"autotestSelect,omitempty"`
+	AutotestSelect *FlakyBulkModelAutotestSelect `json:"autotestSelect,omitempty"`
 	// Are autotests flaky
 	Value bool `json:"value"`
 }
@@ -43,9 +43,9 @@ func NewFlakyBulkModelWithDefaults() *FlakyBulkModel {
 }
 
 // GetAutotestSelect returns the AutotestSelect field value if set, zero value otherwise.
-func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel {
+func (o *FlakyBulkModel) GetAutotestSelect() FlakyBulkModelAutotestSelect {
 	if o == nil || IsNil(o.AutotestSelect) {
-		var ret AutotestSelectModel
+		var ret FlakyBulkModelAutotestSelect
 		return ret
 	}
 	return *o.AutotestSelect
@@ -53,7 +53,7 @@ func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel {
 
 // GetAutotestSelectOk returns a tuple with the AutotestSelect field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FlakyBulkModel) GetAutotestSelectOk() (*AutotestSelectModel, bool) {
+func (o *FlakyBulkModel) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool) {
 	if o == nil || IsNil(o.AutotestSelect) {
 		return nil, false
 	}
@@ -69,8 +69,8 @@ func (o *FlakyBulkModel) HasAutotestSelect() bool {
 	return false
 }
 
-// SetAutotestSelect gets a reference to the given AutotestSelectModel and assigns it to the AutotestSelect field.
-func (o *FlakyBulkModel) SetAutotestSelect(v AutotestSelectModel) {
+// SetAutotestSelect gets a reference to the given FlakyBulkModelAutotestSelect and assigns it to the AutotestSelect field.
+func (o *FlakyBulkModel) SetAutotestSelect(v FlakyBulkModelAutotestSelect) {
 	o.AutotestSelect = &v
 }
 

@@ -143,7 +143,6 @@ func (a *ParametersApiService) ApiV2ParametersBulkPostExecute(r ApiApiV2Paramete
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -883,7 +882,7 @@ type ApiApiV2ParametersSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	parameterFilterModel *ParameterFilterModel
+	apiV2ParametersSearchPostRequest *ApiV2ParametersSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -916,8 +915,8 @@ func (r ApiApiV2ParametersSearchPostRequest) SearchValue(searchValue string) Api
 	return r
 }
 
-func (r ApiApiV2ParametersSearchPostRequest) ParameterFilterModel(parameterFilterModel ParameterFilterModel) ApiApiV2ParametersSearchPostRequest {
-	r.parameterFilterModel = &parameterFilterModel
+func (r ApiApiV2ParametersSearchPostRequest) ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest ApiV2ParametersSearchPostRequest) ApiApiV2ParametersSearchPostRequest {
+	r.apiV2ParametersSearchPostRequest = &apiV2ParametersSearchPostRequest
 	return r
 }
 
@@ -992,7 +991,7 @@ func (a *ParametersApiService) ApiV2ParametersSearchPostExecute(r ApiApiV2Parame
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterFilterModel
+	localVarPostBody = r.apiV2ParametersSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1047,11 +1046,11 @@ func (a *ParametersApiService) ApiV2ParametersSearchPostExecute(r ApiApiV2Parame
 type ApiCreateParameterRequest struct {
 	ctx context.Context
 	ApiService *ParametersApiService
-	parameterPostModel *ParameterPostModel
+	createParameterRequest *CreateParameterRequest
 }
 
-func (r ApiCreateParameterRequest) ParameterPostModel(parameterPostModel ParameterPostModel) ApiCreateParameterRequest {
-	r.parameterPostModel = &parameterPostModel
+func (r ApiCreateParameterRequest) CreateParameterRequest(createParameterRequest CreateParameterRequest) ApiCreateParameterRequest {
+	r.createParameterRequest = &createParameterRequest
 	return r
 }
 
@@ -1117,7 +1116,7 @@ func (a *ParametersApiService) CreateParameterExecute(r ApiCreateParameterReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterPostModel
+	localVarPostBody = r.createParameterRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1163,7 +1162,6 @@ func (a *ParametersApiService) CreateParameterExecute(r ApiCreateParameterReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1413,17 +1411,6 @@ func (a *ParametersApiService) DeleteByParameterKeyIdExecute(r ApiDeleteByParame
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1434,6 +1421,16 @@ func (a *ParametersApiService) DeleteByParameterKeyIdExecute(r ApiDeleteByParame
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1743,7 +1740,6 @@ func (a *ParametersApiService) GetAllParametersExecute(r ApiGetAllParametersRequ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1891,126 +1887,14 @@ func (a *ParametersApiService) GetParameterByIdExecute(r ApiGetParameterByIdRequ
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiObsoleteDeleteByNameRequest struct {
-	ctx context.Context
-	ApiService *ParametersApiService
-	name *string
-}
-
-func (r ApiObsoleteDeleteByNameRequest) Name(name string) ApiObsoleteDeleteByNameRequest {
-	r.name = &name
-	return r
-}
-
-func (r ApiObsoleteDeleteByNameRequest) Execute() (*http.Response, error) {
-	return r.ApiService.ObsoleteDeleteByNameExecute(r)
-}
-
-/*
-ObsoleteDeleteByName Method for ObsoleteDeleteByName
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiObsoleteDeleteByNameRequest
-
-Deprecated
-*/
-func (a *ParametersApiService) ObsoleteDeleteByName(ctx context.Context) ApiObsoleteDeleteByNameRequest {
-	return ApiObsoleteDeleteByNameRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-// Deprecated
-func (a *ParametersApiService) ObsoleteDeleteByNameExecute(r ApiObsoleteDeleteByNameRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersApiService.ObsoleteDeleteByName")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/parameters/deleteByName"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.name != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
 type ApiUpdateParameterRequest struct {
 	ctx context.Context
 	ApiService *ParametersApiService
-	parameterPutModel *ParameterPutModel
+	updateParameterRequest *UpdateParameterRequest
 }
 
-func (r ApiUpdateParameterRequest) ParameterPutModel(parameterPutModel ParameterPutModel) ApiUpdateParameterRequest {
-	r.parameterPutModel = &parameterPutModel
+func (r ApiUpdateParameterRequest) UpdateParameterRequest(updateParameterRequest UpdateParameterRequest) ApiUpdateParameterRequest {
+	r.updateParameterRequest = &updateParameterRequest
 	return r
 }
 
@@ -2074,7 +1958,7 @@ func (a *ParametersApiService) UpdateParameterExecute(r ApiUpdateParameterReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterPutModel
+	localVarPostBody = r.updateParameterRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2111,8 +1995,8 @@ func (a *ParametersApiService) UpdateParameterExecute(r ApiUpdateParameterReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2122,8 +2006,8 @@ func (a *ParametersApiService) UpdateParameterExecute(r ApiUpdateParameterReques
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -622,9 +622,9 @@ func (o *WorkItemShortModel) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
-// GetTagNames returns the TagNames field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTagNames returns the TagNames field value if set, zero value otherwise.
 func (o *WorkItemShortModel) GetTagNames() []string {
-	if o == nil {
+	if o == nil || IsNil(o.TagNames) {
 		var ret []string
 		return ret
 	}
@@ -633,7 +633,6 @@ func (o *WorkItemShortModel) GetTagNames() []string {
 
 // GetTagNamesOk returns a tuple with the TagNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemShortModel) GetTagNamesOk() ([]string, bool) {
 	if o == nil || IsNil(o.TagNames) {
 		return nil, false
@@ -643,7 +642,7 @@ func (o *WorkItemShortModel) GetTagNamesOk() ([]string, bool) {
 
 // HasTagNames returns a boolean if a field has been set.
 func (o *WorkItemShortModel) HasTagNames() bool {
-	if o != nil && IsNil(o.TagNames) {
+	if o != nil && !IsNil(o.TagNames) {
 		return true
 	}
 
@@ -655,9 +654,9 @@ func (o *WorkItemShortModel) SetTagNames(v []string) {
 	o.TagNames = v
 }
 
-// GetIterations returns the Iterations field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIterations returns the Iterations field value if set, zero value otherwise.
 func (o *WorkItemShortModel) GetIterations() []IterationModel {
-	if o == nil {
+	if o == nil || IsNil(o.Iterations) {
 		var ret []IterationModel
 		return ret
 	}
@@ -666,7 +665,6 @@ func (o *WorkItemShortModel) GetIterations() []IterationModel {
 
 // GetIterationsOk returns a tuple with the Iterations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemShortModel) GetIterationsOk() ([]IterationModel, bool) {
 	if o == nil || IsNil(o.Iterations) {
 		return nil, false
@@ -676,7 +674,7 @@ func (o *WorkItemShortModel) GetIterationsOk() ([]IterationModel, bool) {
 
 // HasIterations returns a boolean if a field has been set.
 func (o *WorkItemShortModel) HasIterations() bool {
-	if o != nil && IsNil(o.Iterations) {
+	if o != nil && !IsNil(o.Iterations) {
 		return true
 	}
 
@@ -738,10 +736,10 @@ func (o WorkItemShortModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
 	}
-	if o.TagNames != nil {
+	if !IsNil(o.TagNames) {
 		toSerialize["tagNames"] = o.TagNames
 	}
-	if o.Iterations != nil {
+	if !IsNil(o.Iterations) {
 		toSerialize["iterations"] = o.Iterations
 	}
 	return toSerialize, nil

@@ -19,7 +19,7 @@ var _ MappedNullable = &ValidationProblemDetails{}
 
 // ValidationProblemDetails struct for ValidationProblemDetails
 type ValidationProblemDetails struct {
-	Errors map[string][]string `json:"errors,omitempty"`
+	Errors *map[string][]string `json:"errors,omitempty"`
 	Type NullableString `json:"type,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Status NullableInt32 `json:"status,omitempty"`
@@ -44,28 +44,27 @@ func NewValidationProblemDetailsWithDefaults() *ValidationProblemDetails {
 	return &this
 }
 
-// GetErrors returns the Errors field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetErrors returns the Errors field value if set, zero value otherwise.
 func (o *ValidationProblemDetails) GetErrors() map[string][]string {
-	if o == nil {
+	if o == nil || IsNil(o.Errors) {
 		var ret map[string][]string
 		return ret
 	}
-	return o.Errors
+	return *o.Errors
 }
 
 // GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ValidationProblemDetails) GetErrorsOk() (*map[string][]string, bool) {
 	if o == nil || IsNil(o.Errors) {
 		return nil, false
 	}
-	return &o.Errors, true
+	return o.Errors, true
 }
 
 // HasErrors returns a boolean if a field has been set.
 func (o *ValidationProblemDetails) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 
@@ -74,7 +73,7 @@ func (o *ValidationProblemDetails) HasErrors() bool {
 
 // SetErrors gets a reference to the given map[string][]string and assigns it to the Errors field.
 func (o *ValidationProblemDetails) SetErrors(v map[string][]string) {
-	o.Errors = v
+	o.Errors = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -297,7 +296,7 @@ func (o ValidationProblemDetails) MarshalJSON() ([]byte, error) {
 
 func (o ValidationProblemDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Errors != nil {
+	if !IsNil(o.Errors) {
 		toSerialize["errors"] = o.Errors
 	}
 	if o.Type.IsSet() {

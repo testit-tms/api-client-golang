@@ -20,7 +20,7 @@ var _ MappedNullable = &ProjectAttributesFilterModel{}
 // ProjectAttributesFilterModel struct for ProjectAttributesFilterModel
 type ProjectAttributesFilterModel struct {
 	// Specifies an attribute name to search for
-	Name NullableString `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 	// Specifies an attribute mandatory status to search for
 	IsRequired NullableBool `json:"isRequired,omitempty"`
 	// Specifies an attribute global status to search for
@@ -48,46 +48,36 @@ func NewProjectAttributesFilterModelWithDefaults() *ProjectAttributesFilterModel
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value if set, zero value otherwise.
 func (o *ProjectAttributesFilterModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil || IsNil(o.Name) {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+	return *o.Name
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectAttributesFilterModel) GetNameOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Name) {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return o.Name, true
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ProjectAttributesFilterModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
+	if o != nil && !IsNil(o.Name) {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName gets a reference to the given string and assigns it to the Name field.
 func (o *ProjectAttributesFilterModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ProjectAttributesFilterModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ProjectAttributesFilterModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = &v
 }
 
 // GetIsRequired returns the IsRequired field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -174,9 +164,9 @@ func (o *ProjectAttributesFilterModel) UnsetIsGlobal() {
 	o.IsGlobal.Unset()
 }
 
-// GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypes returns the Types field value if set, zero value otherwise.
 func (o *ProjectAttributesFilterModel) GetTypes() []CustomAttributeTypesEnum {
-	if o == nil {
+	if o == nil || IsNil(o.Types) {
 		var ret []CustomAttributeTypesEnum
 		return ret
 	}
@@ -185,7 +175,6 @@ func (o *ProjectAttributesFilterModel) GetTypes() []CustomAttributeTypesEnum {
 
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectAttributesFilterModel) GetTypesOk() ([]CustomAttributeTypesEnum, bool) {
 	if o == nil || IsNil(o.Types) {
 		return nil, false
@@ -195,7 +184,7 @@ func (o *ProjectAttributesFilterModel) GetTypesOk() ([]CustomAttributeTypesEnum,
 
 // HasTypes returns a boolean if a field has been set.
 func (o *ProjectAttributesFilterModel) HasTypes() bool {
-	if o != nil && IsNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -259,8 +248,8 @@ func (o ProjectAttributesFilterModel) MarshalJSON() ([]byte, error) {
 
 func (o ProjectAttributesFilterModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
+	if !IsNil(o.Name) {
+		toSerialize["name"] = o.Name
 	}
 	if o.IsRequired.IsSet() {
 		toSerialize["isRequired"] = o.IsRequired.Get()
@@ -268,7 +257,7 @@ func (o ProjectAttributesFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.IsGlobal.IsSet() {
 		toSerialize["isGlobal"] = o.IsGlobal.Get()
 	}
-	if o.Types != nil {
+	if !IsNil(o.Types) {
 		toSerialize["types"] = o.Types
 	}
 	if o.IsEnabled.IsSet() {

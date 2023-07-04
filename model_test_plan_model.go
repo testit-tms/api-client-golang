@@ -841,9 +841,9 @@ func (o *TestPlanModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value if set, zero value otherwise.
 func (o *TestPlanModel) GetAttributes() map[string]interface{} {
-	if o == nil {
+	if o == nil || IsNil(o.Attributes) {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -852,7 +852,6 @@ func (o *TestPlanModel) GetAttributes() map[string]interface{} {
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanModel) GetAttributesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return map[string]interface{}{}, false
@@ -862,7 +861,7 @@ func (o *TestPlanModel) GetAttributesOk() (map[string]interface{}, bool) {
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPlanModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -939,7 +938,7 @@ func (o TestPlanModel) ToMap() (map[string]interface{}, error) {
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if o.Attributes != nil {
+	if !IsNil(o.Attributes) {
 		toSerialize["attributes"] = o.Attributes
 	}
 	return toSerialize, nil

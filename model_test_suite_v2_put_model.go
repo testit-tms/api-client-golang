@@ -23,6 +23,7 @@ type TestSuiteV2PutModel struct {
 	ParentId NullableString `json:"parentId,omitempty"`
 	Name string `json:"name"`
 	IsDeleted *bool `json:"isDeleted,omitempty"`
+	AutoRefresh NullableBool `json:"autoRefresh,omitempty"`
 }
 
 // NewTestSuiteV2PutModel instantiates a new TestSuiteV2PutModel object
@@ -166,6 +167,48 @@ func (o *TestSuiteV2PutModel) SetIsDeleted(v bool) {
 	o.IsDeleted = &v
 }
 
+// GetAutoRefresh returns the AutoRefresh field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteV2PutModel) GetAutoRefresh() bool {
+	if o == nil || IsNil(o.AutoRefresh.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.AutoRefresh.Get()
+}
+
+// GetAutoRefreshOk returns a tuple with the AutoRefresh field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteV2PutModel) GetAutoRefreshOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoRefresh.Get(), o.AutoRefresh.IsSet()
+}
+
+// HasAutoRefresh returns a boolean if a field has been set.
+func (o *TestSuiteV2PutModel) HasAutoRefresh() bool {
+	if o != nil && o.AutoRefresh.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoRefresh gets a reference to the given NullableBool and assigns it to the AutoRefresh field.
+func (o *TestSuiteV2PutModel) SetAutoRefresh(v bool) {
+	o.AutoRefresh.Set(&v)
+}
+// SetAutoRefreshNil sets the value for AutoRefresh to be an explicit nil
+func (o *TestSuiteV2PutModel) SetAutoRefreshNil() {
+	o.AutoRefresh.Set(nil)
+}
+
+// UnsetAutoRefresh ensures that no value is present for AutoRefresh, not even an explicit nil
+func (o *TestSuiteV2PutModel) UnsetAutoRefresh() {
+	o.AutoRefresh.Unset()
+}
+
 func (o TestSuiteV2PutModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -183,6 +226,9 @@ func (o TestSuiteV2PutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	if !IsNil(o.IsDeleted) {
 		toSerialize["isDeleted"] = o.IsDeleted
+	}
+	if o.AutoRefresh.IsSet() {
+		toSerialize["autoRefresh"] = o.AutoRefresh.Get()
 	}
 	return toSerialize, nil
 }

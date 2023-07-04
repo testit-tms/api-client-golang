@@ -156,6 +156,17 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPostExecute(r ApiApiV2W
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -191,17 +202,6 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPostExecute(r ApiApiV2W
 		}
 		if localVarHTTPResponse.StatusCode == 413 {
 			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -341,17 +341,6 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdCheckListTransformToTestCasePostEx
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -375,6 +364,17 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdCheckListTransformToTestCasePostEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1531,11 +1531,11 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdVersionVersionIdActualPostExecute(
 type ApiApiV2WorkItemsMovePostRequest struct {
 	ctx context.Context
 	ApiService *WorkItemsApiService
-	workItemMovePostModel *WorkItemMovePostModel
+	apiV2WorkItemsMovePostRequest *ApiV2WorkItemsMovePostRequest
 }
 
-func (r ApiApiV2WorkItemsMovePostRequest) WorkItemMovePostModel(workItemMovePostModel WorkItemMovePostModel) ApiApiV2WorkItemsMovePostRequest {
-	r.workItemMovePostModel = &workItemMovePostModel
+func (r ApiApiV2WorkItemsMovePostRequest) ApiV2WorkItemsMovePostRequest(apiV2WorkItemsMovePostRequest ApiV2WorkItemsMovePostRequest) ApiApiV2WorkItemsMovePostRequest {
+	r.apiV2WorkItemsMovePostRequest = &apiV2WorkItemsMovePostRequest
 	return r
 }
 
@@ -1600,7 +1600,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsMovePostExecute(r ApiApiV2WorkItemsM
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemMovePostModel
+	localVarPostBody = r.apiV2WorkItemsMovePostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1671,7 +1671,7 @@ type ApiApiV2WorkItemsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	workItemSelectModel *WorkItemSelectModel
+	apiV2ProjectsIdWorkItemsSearchPostRequest *ApiV2ProjectsIdWorkItemsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -1704,8 +1704,8 @@ func (r ApiApiV2WorkItemsSearchPostRequest) SearchValue(searchValue string) ApiA
 	return r
 }
 
-func (r ApiApiV2WorkItemsSearchPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2WorkItemsSearchPostRequest {
-	r.workItemSelectModel = &workItemSelectModel
+func (r ApiApiV2WorkItemsSearchPostRequest) ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest ApiV2ProjectsIdWorkItemsSearchPostRequest) ApiApiV2WorkItemsSearchPostRequest {
+	r.apiV2ProjectsIdWorkItemsSearchPostRequest = &apiV2ProjectsIdWorkItemsSearchPostRequest
 	return r
 }
 
@@ -1780,7 +1780,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItem
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemSelectModel
+	localVarPostBody = r.apiV2ProjectsIdWorkItemsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1851,7 +1851,7 @@ type ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	sharedStepReferenceSectionsQueryFilterModel *SharedStepReferenceSectionsQueryFilterModel
+	apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest *ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -1884,8 +1884,8 @@ func (r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) SearchValue(
 	return r
 }
 
-func (r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) SharedStepReferenceSectionsQueryFilterModel(sharedStepReferenceSectionsQueryFilterModel SharedStepReferenceSectionsQueryFilterModel) ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest {
-	r.sharedStepReferenceSectionsQueryFilterModel = &sharedStepReferenceSectionsQueryFilterModel
+func (r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest {
+	r.apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest = &apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 	return r
 }
 
@@ -1968,7 +1968,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesSectionsPostEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sharedStepReferenceSectionsQueryFilterModel
+	localVarPostBody = r.apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2029,7 +2029,7 @@ type ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	sharedStepReferencesQueryFilterModel *SharedStepReferencesQueryFilterModel
+	apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest *ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -2062,8 +2062,8 @@ func (r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) SearchValue
 	return r
 }
 
-func (r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) SharedStepReferencesQueryFilterModel(sharedStepReferencesQueryFilterModel SharedStepReferencesQueryFilterModel) ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
-	r.sharedStepReferencesQueryFilterModel = &sharedStepReferencesQueryFilterModel
+func (r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
+	r.apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest = &apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 	return r
 }
 
@@ -2146,7 +2146,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sharedStepReferencesQueryFilterModel
+	localVarPostBody = r.apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2335,11 +2335,11 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet
 type ApiCreateWorkItemRequest struct {
 	ctx context.Context
 	ApiService *WorkItemsApiService
-	workItemPostModel *WorkItemPostModel
+	createWorkItemRequest *CreateWorkItemRequest
 }
 
-func (r ApiCreateWorkItemRequest) WorkItemPostModel(workItemPostModel WorkItemPostModel) ApiCreateWorkItemRequest {
-	r.workItemPostModel = &workItemPostModel
+func (r ApiCreateWorkItemRequest) CreateWorkItemRequest(createWorkItemRequest CreateWorkItemRequest) ApiCreateWorkItemRequest {
+	r.createWorkItemRequest = &createWorkItemRequest
 	return r
 }
 
@@ -2405,7 +2405,7 @@ func (a *WorkItemsApiService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemPostModel
+	localVarPostBody = r.createWorkItemRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2442,6 +2442,17 @@ func (a *WorkItemsApiService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2465,17 +2476,6 @@ func (a *WorkItemsApiService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2759,28 +2759,6 @@ func (a *WorkItemsApiService) DeleteWorkItemExecute(r ApiDeleteWorkItemRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2803,7 +2781,29 @@ func (a *WorkItemsApiService) DeleteWorkItemExecute(r ApiDeleteWorkItemRequest) 
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2926,6 +2926,17 @@ func (a *WorkItemsApiService) GetAutoTestsForWorkItemExecute(r ApiGetAutoTestsFo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2938,17 +2949,6 @@ func (a *WorkItemsApiService) GetAutoTestsForWorkItemExecute(r ApiGetAutoTestsFo
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3104,8 +3104,8 @@ func (a *WorkItemsApiService) GetIterationsExecute(r ApiGetIterationsRequest) ([
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v string
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3115,8 +3115,8 @@ func (a *WorkItemsApiService) GetIterationsExecute(r ApiGetIterationsRequest) ([
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3272,28 +3272,6 @@ func (a *WorkItemsApiService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3306,6 +3284,28 @@ func (a *WorkItemsApiService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3438,28 +3438,6 @@ func (a *WorkItemsApiService) GetWorkItemChronologyExecute(r ApiGetWorkItemChron
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3471,7 +3449,29 @@ func (a *WorkItemsApiService) GetWorkItemChronologyExecute(r ApiGetWorkItemChron
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3627,7 +3627,18 @@ func (a *WorkItemsApiService) GetWorkItemVersionsExecute(r ApiGetWorkItemVersion
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3649,18 +3660,7 @@ func (a *WorkItemsApiService) GetWorkItemVersionsExecute(r ApiGetWorkItemVersion
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v string
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v string
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3792,7 +3792,6 @@ func (a *WorkItemsApiService) PurgeWorkItemExecute(r ApiPurgeWorkItemRequest) (*
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3907,7 +3906,6 @@ func (a *WorkItemsApiService) RestoreWorkItemExecute(r ApiRestoreWorkItemRequest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3918,11 +3916,11 @@ func (a *WorkItemsApiService) RestoreWorkItemExecute(r ApiRestoreWorkItemRequest
 type ApiUpdateWorkItemRequest struct {
 	ctx context.Context
 	ApiService *WorkItemsApiService
-	workItemPutModel *WorkItemPutModel
+	updateWorkItemRequest *UpdateWorkItemRequest
 }
 
-func (r ApiUpdateWorkItemRequest) WorkItemPutModel(workItemPutModel WorkItemPutModel) ApiUpdateWorkItemRequest {
-	r.workItemPutModel = &workItemPutModel
+func (r ApiUpdateWorkItemRequest) UpdateWorkItemRequest(updateWorkItemRequest UpdateWorkItemRequest) ApiUpdateWorkItemRequest {
+	r.updateWorkItemRequest = &updateWorkItemRequest
 	return r
 }
 
@@ -3986,7 +3984,7 @@ func (a *WorkItemsApiService) UpdateWorkItemExecute(r ApiUpdateWorkItemRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemPutModel
+	localVarPostBody = r.updateWorkItemRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

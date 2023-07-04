@@ -23,7 +23,7 @@ type TestRunFilterModel struct {
 	ProjectIds []string `json:"projectIds,omitempty"`
 	// Specifies a test run states to search for
 	States []TestRunState `json:"states,omitempty"`
-	CreatedDate *DateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	CreatedDate NullableTestRunFilterModelCreatedDate `json:"createdDate,omitempty"`
 	// Specifies a test run last editor IDs to search for
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 	// Specifies a test run deleted status to search for
@@ -113,36 +113,46 @@ func (o *TestRunFilterModel) SetStates(v []TestRunState) {
 	o.States = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *TestRunFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
-	if o == nil || IsNil(o.CreatedDate) {
-		var ret DateTimeRangeSelectorModel
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunFilterModel) GetCreatedDate() TestRunFilterModelCreatedDate {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
+		var ret TestRunFilterModelCreatedDate
 		return ret
 	}
-	return *o.CreatedDate
+	return *o.CreatedDate.Get()
 }
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestRunFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunFilterModel) GetCreatedDateOk() (*TestRunFilterModelCreatedDate, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
 }
 
 // HasCreatedDate returns a boolean if a field has been set.
 func (o *TestRunFilterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
+	if o != nil && o.CreatedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given DateTimeRangeSelectorModel and assigns it to the CreatedDate field.
-func (o *TestRunFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
-	o.CreatedDate = &v
+// SetCreatedDate gets a reference to the given NullableTestRunFilterModelCreatedDate and assigns it to the CreatedDate field.
+func (o *TestRunFilterModel) SetCreatedDate(v TestRunFilterModelCreatedDate) {
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *TestRunFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
+}
+
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *TestRunFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
 }
 
 // GetModifiedByIds returns the ModifiedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -236,8 +246,8 @@ func (o TestRunFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.States != nil {
 		toSerialize["states"] = o.States
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.CreatedDate.IsSet() {
+		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
 	if o.ModifiedByIds != nil {
 		toSerialize["modifiedByIds"] = o.ModifiedByIds

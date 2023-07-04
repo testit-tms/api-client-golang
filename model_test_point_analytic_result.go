@@ -43,9 +43,9 @@ func NewTestPointAnalyticResultWithDefaults() *TestPointAnalyticResult {
 	return &this
 }
 
-// GetCountGroupByStatus returns the CountGroupByStatus field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCountGroupByStatus returns the CountGroupByStatus field value if set, zero value otherwise.
 func (o *TestPointAnalyticResult) GetCountGroupByStatus() []TestPlanGroupByStatus {
-	if o == nil {
+	if o == nil || IsNil(o.CountGroupByStatus) {
 		var ret []TestPlanGroupByStatus
 		return ret
 	}
@@ -54,7 +54,6 @@ func (o *TestPointAnalyticResult) GetCountGroupByStatus() []TestPlanGroupByStatu
 
 // GetCountGroupByStatusOk returns a tuple with the CountGroupByStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointAnalyticResult) GetCountGroupByStatusOk() ([]TestPlanGroupByStatus, bool) {
 	if o == nil || IsNil(o.CountGroupByStatus) {
 		return nil, false
@@ -64,7 +63,7 @@ func (o *TestPointAnalyticResult) GetCountGroupByStatusOk() ([]TestPlanGroupBySt
 
 // HasCountGroupByStatus returns a boolean if a field has been set.
 func (o *TestPointAnalyticResult) HasCountGroupByStatus() bool {
-	if o != nil && IsNil(o.CountGroupByStatus) {
+	if o != nil && !IsNil(o.CountGroupByStatus) {
 		return true
 	}
 
@@ -76,9 +75,9 @@ func (o *TestPointAnalyticResult) SetCountGroupByStatus(v []TestPlanGroupByStatu
 	o.CountGroupByStatus = v
 }
 
-// GetSumGroupByTester returns the SumGroupByTester field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSumGroupByTester returns the SumGroupByTester field value if set, zero value otherwise.
 func (o *TestPointAnalyticResult) GetSumGroupByTester() []TestPlanGroupByTester {
-	if o == nil {
+	if o == nil || IsNil(o.SumGroupByTester) {
 		var ret []TestPlanGroupByTester
 		return ret
 	}
@@ -87,7 +86,6 @@ func (o *TestPointAnalyticResult) GetSumGroupByTester() []TestPlanGroupByTester 
 
 // GetSumGroupByTesterOk returns a tuple with the SumGroupByTester field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointAnalyticResult) GetSumGroupByTesterOk() ([]TestPlanGroupByTester, bool) {
 	if o == nil || IsNil(o.SumGroupByTester) {
 		return nil, false
@@ -97,7 +95,7 @@ func (o *TestPointAnalyticResult) GetSumGroupByTesterOk() ([]TestPlanGroupByTest
 
 // HasSumGroupByTester returns a boolean if a field has been set.
 func (o *TestPointAnalyticResult) HasSumGroupByTester() bool {
-	if o != nil && IsNil(o.SumGroupByTester) {
+	if o != nil && !IsNil(o.SumGroupByTester) {
 		return true
 	}
 
@@ -109,9 +107,9 @@ func (o *TestPointAnalyticResult) SetSumGroupByTester(v []TestPlanGroupByTester)
 	o.SumGroupByTester = v
 }
 
-// GetCountGroupByTester returns the CountGroupByTester field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCountGroupByTester returns the CountGroupByTester field value if set, zero value otherwise.
 func (o *TestPointAnalyticResult) GetCountGroupByTester() []TestPlanGroupByTester {
-	if o == nil {
+	if o == nil || IsNil(o.CountGroupByTester) {
 		var ret []TestPlanGroupByTester
 		return ret
 	}
@@ -120,7 +118,6 @@ func (o *TestPointAnalyticResult) GetCountGroupByTester() []TestPlanGroupByTeste
 
 // GetCountGroupByTesterOk returns a tuple with the CountGroupByTester field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointAnalyticResult) GetCountGroupByTesterOk() ([]TestPlanGroupByTester, bool) {
 	if o == nil || IsNil(o.CountGroupByTester) {
 		return nil, false
@@ -130,7 +127,7 @@ func (o *TestPointAnalyticResult) GetCountGroupByTesterOk() ([]TestPlanGroupByTe
 
 // HasCountGroupByTester returns a boolean if a field has been set.
 func (o *TestPointAnalyticResult) HasCountGroupByTester() bool {
-	if o != nil && IsNil(o.CountGroupByTester) {
+	if o != nil && !IsNil(o.CountGroupByTester) {
 		return true
 	}
 
@@ -142,9 +139,9 @@ func (o *TestPointAnalyticResult) SetCountGroupByTester(v []TestPlanGroupByTeste
 	o.CountGroupByTester = v
 }
 
-// GetCountGroupByTestSuite returns the CountGroupByTestSuite field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCountGroupByTestSuite returns the CountGroupByTestSuite field value if set, zero value otherwise.
 func (o *TestPointAnalyticResult) GetCountGroupByTestSuite() []TestPlanGroupByTestSuite {
-	if o == nil {
+	if o == nil || IsNil(o.CountGroupByTestSuite) {
 		var ret []TestPlanGroupByTestSuite
 		return ret
 	}
@@ -153,7 +150,6 @@ func (o *TestPointAnalyticResult) GetCountGroupByTestSuite() []TestPlanGroupByTe
 
 // GetCountGroupByTestSuiteOk returns a tuple with the CountGroupByTestSuite field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointAnalyticResult) GetCountGroupByTestSuiteOk() ([]TestPlanGroupByTestSuite, bool) {
 	if o == nil || IsNil(o.CountGroupByTestSuite) {
 		return nil, false
@@ -163,7 +159,7 @@ func (o *TestPointAnalyticResult) GetCountGroupByTestSuiteOk() ([]TestPlanGroupB
 
 // HasCountGroupByTestSuite returns a boolean if a field has been set.
 func (o *TestPointAnalyticResult) HasCountGroupByTestSuite() bool {
-	if o != nil && IsNil(o.CountGroupByTestSuite) {
+	if o != nil && !IsNil(o.CountGroupByTestSuite) {
 		return true
 	}
 
@@ -175,9 +171,9 @@ func (o *TestPointAnalyticResult) SetCountGroupByTestSuite(v []TestPlanGroupByTe
 	o.CountGroupByTestSuite = v
 }
 
-// GetCountGroupByTesterAndStatus returns the CountGroupByTesterAndStatus field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCountGroupByTesterAndStatus returns the CountGroupByTesterAndStatus field value if set, zero value otherwise.
 func (o *TestPointAnalyticResult) GetCountGroupByTesterAndStatus() []TestPlanGroupByTesterAndStatus {
-	if o == nil {
+	if o == nil || IsNil(o.CountGroupByTesterAndStatus) {
 		var ret []TestPlanGroupByTesterAndStatus
 		return ret
 	}
@@ -186,7 +182,6 @@ func (o *TestPointAnalyticResult) GetCountGroupByTesterAndStatus() []TestPlanGro
 
 // GetCountGroupByTesterAndStatusOk returns a tuple with the CountGroupByTesterAndStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointAnalyticResult) GetCountGroupByTesterAndStatusOk() ([]TestPlanGroupByTesterAndStatus, bool) {
 	if o == nil || IsNil(o.CountGroupByTesterAndStatus) {
 		return nil, false
@@ -196,7 +191,7 @@ func (o *TestPointAnalyticResult) GetCountGroupByTesterAndStatusOk() ([]TestPlan
 
 // HasCountGroupByTesterAndStatus returns a boolean if a field has been set.
 func (o *TestPointAnalyticResult) HasCountGroupByTesterAndStatus() bool {
-	if o != nil && IsNil(o.CountGroupByTesterAndStatus) {
+	if o != nil && !IsNil(o.CountGroupByTesterAndStatus) {
 		return true
 	}
 
@@ -218,19 +213,19 @@ func (o TestPointAnalyticResult) MarshalJSON() ([]byte, error) {
 
 func (o TestPointAnalyticResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.CountGroupByStatus != nil {
+	if !IsNil(o.CountGroupByStatus) {
 		toSerialize["countGroupByStatus"] = o.CountGroupByStatus
 	}
-	if o.SumGroupByTester != nil {
+	if !IsNil(o.SumGroupByTester) {
 		toSerialize["sumGroupByTester"] = o.SumGroupByTester
 	}
-	if o.CountGroupByTester != nil {
+	if !IsNil(o.CountGroupByTester) {
 		toSerialize["countGroupByTester"] = o.CountGroupByTester
 	}
-	if o.CountGroupByTestSuite != nil {
+	if !IsNil(o.CountGroupByTestSuite) {
 		toSerialize["countGroupByTestSuite"] = o.CountGroupByTestSuite
 	}
-	if o.CountGroupByTesterAndStatus != nil {
+	if !IsNil(o.CountGroupByTesterAndStatus) {
 		toSerialize["countGroupByTesterAndStatus"] = o.CountGroupByTesterAndStatus
 	}
 	return toSerialize, nil

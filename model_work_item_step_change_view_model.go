@@ -19,13 +19,13 @@ var _ MappedNullable = &WorkItemStepChangeViewModel{}
 
 // WorkItemStepChangeViewModel struct for WorkItemStepChangeViewModel
 type WorkItemStepChangeViewModel struct {
-	Action NullableString `json:"action,omitempty"`
-	Expected NullableString `json:"expected,omitempty"`
-	Comments NullableString `json:"comments,omitempty"`
-	TestData NullableString `json:"testData,omitempty"`
+	Action *string `json:"action,omitempty"`
+	Expected *string `json:"expected,omitempty"`
+	Comments *string `json:"comments,omitempty"`
+	TestData *string `json:"testData,omitempty"`
 	Index *int32 `json:"index,omitempty"`
 	WorkItemId NullableString `json:"workItemId,omitempty"`
-	WorkItem *SharedStepChangeViewModel `json:"workItem,omitempty"`
+	WorkItem *WorkItemStepChangeViewModelWorkItem `json:"workItem,omitempty"`
 }
 
 // NewWorkItemStepChangeViewModel instantiates a new WorkItemStepChangeViewModel object
@@ -45,172 +45,132 @@ func NewWorkItemStepChangeViewModelWithDefaults() *WorkItemStepChangeViewModel {
 	return &this
 }
 
-// GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAction returns the Action field value if set, zero value otherwise.
 func (o *WorkItemStepChangeViewModel) GetAction() string {
-	if o == nil || IsNil(o.Action.Get()) {
+	if o == nil || IsNil(o.Action) {
 		var ret string
 		return ret
 	}
-	return *o.Action.Get()
+	return *o.Action
 }
 
 // GetActionOk returns a tuple with the Action field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetActionOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Action) {
 		return nil, false
 	}
-	return o.Action.Get(), o.Action.IsSet()
+	return o.Action, true
 }
 
 // HasAction returns a boolean if a field has been set.
 func (o *WorkItemStepChangeViewModel) HasAction() bool {
-	if o != nil && o.Action.IsSet() {
+	if o != nil && !IsNil(o.Action) {
 		return true
 	}
 
 	return false
 }
 
-// SetAction gets a reference to the given NullableString and assigns it to the Action field.
+// SetAction gets a reference to the given string and assigns it to the Action field.
 func (o *WorkItemStepChangeViewModel) SetAction(v string) {
-	o.Action.Set(&v)
-}
-// SetActionNil sets the value for Action to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetActionNil() {
-	o.Action.Set(nil)
+	o.Action = &v
 }
 
-// UnsetAction ensures that no value is present for Action, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetAction() {
-	o.Action.Unset()
-}
-
-// GetExpected returns the Expected field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpected returns the Expected field value if set, zero value otherwise.
 func (o *WorkItemStepChangeViewModel) GetExpected() string {
-	if o == nil || IsNil(o.Expected.Get()) {
+	if o == nil || IsNil(o.Expected) {
 		var ret string
 		return ret
 	}
-	return *o.Expected.Get()
+	return *o.Expected
 }
 
 // GetExpectedOk returns a tuple with the Expected field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetExpectedOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Expected) {
 		return nil, false
 	}
-	return o.Expected.Get(), o.Expected.IsSet()
+	return o.Expected, true
 }
 
 // HasExpected returns a boolean if a field has been set.
 func (o *WorkItemStepChangeViewModel) HasExpected() bool {
-	if o != nil && o.Expected.IsSet() {
+	if o != nil && !IsNil(o.Expected) {
 		return true
 	}
 
 	return false
 }
 
-// SetExpected gets a reference to the given NullableString and assigns it to the Expected field.
+// SetExpected gets a reference to the given string and assigns it to the Expected field.
 func (o *WorkItemStepChangeViewModel) SetExpected(v string) {
-	o.Expected.Set(&v)
-}
-// SetExpectedNil sets the value for Expected to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetExpectedNil() {
-	o.Expected.Set(nil)
+	o.Expected = &v
 }
 
-// UnsetExpected ensures that no value is present for Expected, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetExpected() {
-	o.Expected.Unset()
-}
-
-// GetComments returns the Comments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComments returns the Comments field value if set, zero value otherwise.
 func (o *WorkItemStepChangeViewModel) GetComments() string {
-	if o == nil || IsNil(o.Comments.Get()) {
+	if o == nil || IsNil(o.Comments) {
 		var ret string
 		return ret
 	}
-	return *o.Comments.Get()
+	return *o.Comments
 }
 
 // GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetCommentsOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Comments) {
 		return nil, false
 	}
-	return o.Comments.Get(), o.Comments.IsSet()
+	return o.Comments, true
 }
 
 // HasComments returns a boolean if a field has been set.
 func (o *WorkItemStepChangeViewModel) HasComments() bool {
-	if o != nil && o.Comments.IsSet() {
+	if o != nil && !IsNil(o.Comments) {
 		return true
 	}
 
 	return false
 }
 
-// SetComments gets a reference to the given NullableString and assigns it to the Comments field.
+// SetComments gets a reference to the given string and assigns it to the Comments field.
 func (o *WorkItemStepChangeViewModel) SetComments(v string) {
-	o.Comments.Set(&v)
-}
-// SetCommentsNil sets the value for Comments to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetCommentsNil() {
-	o.Comments.Set(nil)
+	o.Comments = &v
 }
 
-// UnsetComments ensures that no value is present for Comments, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetComments() {
-	o.Comments.Unset()
-}
-
-// GetTestData returns the TestData field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTestData returns the TestData field value if set, zero value otherwise.
 func (o *WorkItemStepChangeViewModel) GetTestData() string {
-	if o == nil || IsNil(o.TestData.Get()) {
+	if o == nil || IsNil(o.TestData) {
 		var ret string
 		return ret
 	}
-	return *o.TestData.Get()
+	return *o.TestData
 }
 
 // GetTestDataOk returns a tuple with the TestData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetTestDataOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TestData) {
 		return nil, false
 	}
-	return o.TestData.Get(), o.TestData.IsSet()
+	return o.TestData, true
 }
 
 // HasTestData returns a boolean if a field has been set.
 func (o *WorkItemStepChangeViewModel) HasTestData() bool {
-	if o != nil && o.TestData.IsSet() {
+	if o != nil && !IsNil(o.TestData) {
 		return true
 	}
 
 	return false
 }
 
-// SetTestData gets a reference to the given NullableString and assigns it to the TestData field.
+// SetTestData gets a reference to the given string and assigns it to the TestData field.
 func (o *WorkItemStepChangeViewModel) SetTestData(v string) {
-	o.TestData.Set(&v)
-}
-// SetTestDataNil sets the value for TestData to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetTestDataNil() {
-	o.TestData.Set(nil)
-}
-
-// UnsetTestData ensures that no value is present for TestData, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetTestData() {
-	o.TestData.Unset()
+	o.TestData = &v
 }
 
 // GetIndex returns the Index field value if set, zero value otherwise.
@@ -288,9 +248,9 @@ func (o *WorkItemStepChangeViewModel) UnsetWorkItemId() {
 }
 
 // GetWorkItem returns the WorkItem field value if set, zero value otherwise.
-func (o *WorkItemStepChangeViewModel) GetWorkItem() SharedStepChangeViewModel {
+func (o *WorkItemStepChangeViewModel) GetWorkItem() WorkItemStepChangeViewModelWorkItem {
 	if o == nil || IsNil(o.WorkItem) {
-		var ret SharedStepChangeViewModel
+		var ret WorkItemStepChangeViewModelWorkItem
 		return ret
 	}
 	return *o.WorkItem
@@ -298,7 +258,7 @@ func (o *WorkItemStepChangeViewModel) GetWorkItem() SharedStepChangeViewModel {
 
 // GetWorkItemOk returns a tuple with the WorkItem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*SharedStepChangeViewModel, bool) {
+func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*WorkItemStepChangeViewModelWorkItem, bool) {
 	if o == nil || IsNil(o.WorkItem) {
 		return nil, false
 	}
@@ -314,8 +274,8 @@ func (o *WorkItemStepChangeViewModel) HasWorkItem() bool {
 	return false
 }
 
-// SetWorkItem gets a reference to the given SharedStepChangeViewModel and assigns it to the WorkItem field.
-func (o *WorkItemStepChangeViewModel) SetWorkItem(v SharedStepChangeViewModel) {
+// SetWorkItem gets a reference to the given WorkItemStepChangeViewModelWorkItem and assigns it to the WorkItem field.
+func (o *WorkItemStepChangeViewModel) SetWorkItem(v WorkItemStepChangeViewModelWorkItem) {
 	o.WorkItem = &v
 }
 
@@ -329,17 +289,17 @@ func (o WorkItemStepChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemStepChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Action.IsSet() {
-		toSerialize["action"] = o.Action.Get()
+	if !IsNil(o.Action) {
+		toSerialize["action"] = o.Action
 	}
-	if o.Expected.IsSet() {
-		toSerialize["expected"] = o.Expected.Get()
+	if !IsNil(o.Expected) {
+		toSerialize["expected"] = o.Expected
 	}
-	if o.Comments.IsSet() {
-		toSerialize["comments"] = o.Comments.Get()
+	if !IsNil(o.Comments) {
+		toSerialize["comments"] = o.Comments
 	}
-	if o.TestData.IsSet() {
-		toSerialize["testData"] = o.TestData.Get()
+	if !IsNil(o.TestData) {
+		toSerialize["testData"] = o.TestData
 	}
 	if !IsNil(o.Index) {
 		toSerialize["index"] = o.Index

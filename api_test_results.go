@@ -133,7 +133,6 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAggregatedGetExecute(r ApiApiV
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -261,7 +260,6 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsAttachmentIdPutExec
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -523,11 +521,11 @@ type ApiApiV2TestResultsIdPutRequest struct {
 	ctx context.Context
 	ApiService *TestResultsApiService
 	id string
-	testResultUpdateModel *TestResultUpdateModel
+	apiV2TestResultsIdPutRequest *ApiV2TestResultsIdPutRequest
 }
 
-func (r ApiApiV2TestResultsIdPutRequest) TestResultUpdateModel(testResultUpdateModel TestResultUpdateModel) ApiApiV2TestResultsIdPutRequest {
-	r.testResultUpdateModel = &testResultUpdateModel
+func (r ApiApiV2TestResultsIdPutRequest) ApiV2TestResultsIdPutRequest(apiV2TestResultsIdPutRequest ApiV2TestResultsIdPutRequest) ApiApiV2TestResultsIdPutRequest {
+	r.apiV2TestResultsIdPutRequest = &apiV2TestResultsIdPutRequest
 	return r
 }
 
@@ -588,7 +586,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdPutExecute(r ApiApiV2TestResul
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testResultUpdateModel
+	localVarPostBody = r.apiV2TestResultsIdPutRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -649,7 +647,7 @@ type ApiApiV2TestResultsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	testResultsFilterModel *TestResultsFilterModel
+	apiV2TestResultsSearchPostRequest *ApiV2TestResultsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -682,8 +680,8 @@ func (r ApiApiV2TestResultsSearchPostRequest) SearchValue(searchValue string) Ap
 	return r
 }
 
-func (r ApiApiV2TestResultsSearchPostRequest) TestResultsFilterModel(testResultsFilterModel TestResultsFilterModel) ApiApiV2TestResultsSearchPostRequest {
-	r.testResultsFilterModel = &testResultsFilterModel
+func (r ApiApiV2TestResultsSearchPostRequest) ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest ApiV2TestResultsSearchPostRequest) ApiApiV2TestResultsSearchPostRequest {
+	r.apiV2TestResultsSearchPostRequest = &apiV2TestResultsSearchPostRequest
 	return r
 }
 
@@ -758,7 +756,7 @@ func (a *TestResultsApiService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testResultsFilterModel
+	localVarPostBody = r.apiV2TestResultsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -804,7 +802,6 @@ func (a *TestResultsApiService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -824,11 +821,11 @@ func (a *TestResultsApiService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 type ApiApiV2TestResultsStatisticsFilterPostRequest struct {
 	ctx context.Context
 	ApiService *TestResultsApiService
-	testResultsFilterModel *TestResultsFilterModel
+	apiV2TestResultsSearchPostRequest *ApiV2TestResultsSearchPostRequest
 }
 
-func (r ApiApiV2TestResultsStatisticsFilterPostRequest) TestResultsFilterModel(testResultsFilterModel TestResultsFilterModel) ApiApiV2TestResultsStatisticsFilterPostRequest {
-	r.testResultsFilterModel = &testResultsFilterModel
+func (r ApiApiV2TestResultsStatisticsFilterPostRequest) ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest ApiV2TestResultsSearchPostRequest) ApiApiV2TestResultsStatisticsFilterPostRequest {
+	r.apiV2TestResultsSearchPostRequest = &apiV2TestResultsSearchPostRequest
 	return r
 }
 
@@ -888,7 +885,7 @@ func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testResultsFilterModel
+	localVarPostBody = r.apiV2TestResultsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -934,7 +931,6 @@ func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPostExecute(r Ap
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1081,17 +1077,6 @@ func (a *TestResultsApiService) CreateAttachmentExecute(r ApiCreateAttachmentReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1104,6 +1089,17 @@ func (a *TestResultsApiService) CreateAttachmentExecute(r ApiCreateAttachmentReq
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1259,8 +1255,8 @@ func (a *TestResultsApiService) DeleteAttachmentExecute(r ApiDeleteAttachmentReq
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1281,8 +1277,8 @@ func (a *TestResultsApiService) DeleteAttachmentExecute(r ApiDeleteAttachmentReq
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1472,7 +1468,7 @@ func (a *TestResultsApiService) DownloadAttachmentExecute(r ApiDownloadAttachmen
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1494,7 +1490,7 @@ func (a *TestResultsApiService) DownloadAttachmentExecute(r ApiDownloadAttachmen
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1620,7 +1616,18 @@ func (a *TestResultsApiService) GetAttachmentExecute(r ApiGetAttachmentRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1642,18 +1649,7 @@ func (a *TestResultsApiService) GetAttachmentExecute(r ApiGetAttachmentRequest) 
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

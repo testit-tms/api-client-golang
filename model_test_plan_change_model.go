@@ -22,7 +22,7 @@ var _ MappedNullable = &TestPlanChangeModel{}
 type TestPlanChangeModel struct {
 	Id *string `json:"id,omitempty"`
 	TestPlanId *string `json:"testPlanId,omitempty"`
-	TestPlanChangedFields *TestPlanChangedFieldsViewModel `json:"testPlanChangedFields,omitempty"`
+	TestPlanChangedFields *TestPlanChangeModelTestPlanChangedFields `json:"testPlanChangedFields,omitempty"`
 	CreatedById *string `json:"createdById,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 }
@@ -109,9 +109,9 @@ func (o *TestPlanChangeModel) SetTestPlanId(v string) {
 }
 
 // GetTestPlanChangedFields returns the TestPlanChangedFields field value if set, zero value otherwise.
-func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangedFieldsViewModel {
+func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangeModelTestPlanChangedFields {
 	if o == nil || IsNil(o.TestPlanChangedFields) {
-		var ret TestPlanChangedFieldsViewModel
+		var ret TestPlanChangeModelTestPlanChangedFields
 		return ret
 	}
 	return *o.TestPlanChangedFields
@@ -119,7 +119,7 @@ func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangedFieldsVi
 
 // GetTestPlanChangedFieldsOk returns a tuple with the TestPlanChangedFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangedFieldsViewModel, bool) {
+func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangeModelTestPlanChangedFields, bool) {
 	if o == nil || IsNil(o.TestPlanChangedFields) {
 		return nil, false
 	}
@@ -135,8 +135,8 @@ func (o *TestPlanChangeModel) HasTestPlanChangedFields() bool {
 	return false
 }
 
-// SetTestPlanChangedFields gets a reference to the given TestPlanChangedFieldsViewModel and assigns it to the TestPlanChangedFields field.
-func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangedFieldsViewModel) {
+// SetTestPlanChangedFields gets a reference to the given TestPlanChangeModelTestPlanChangedFields and assigns it to the TestPlanChangedFields field.
+func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangeModelTestPlanChangedFields) {
 	o.TestPlanChangedFields = &v
 }
 
