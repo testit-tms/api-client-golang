@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**AutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  | [optional] 
-**Includes** | Pointer to [**AutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  | [optional] 
+**Filter** | Pointer to [**NullableAutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  | [optional] 
+**Includes** | Pointer to [**NullableAutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetFilter sets Filter field to given value.
 
 HasFilter returns a boolean if a field has been set.
 
+### SetFilterNil
+
+`func (o *AutotestsSelectModel) SetFilterNil(b bool)`
+
+ SetFilterNil sets the value for Filter to be an explicit nil
+
+### UnsetFilter
+`func (o *AutotestsSelectModel) UnsetFilter()`
+
+UnsetFilter ensures that no value is present for Filter, not even an explicit nil
 ### GetIncludes
 
 `func (o *AutotestsSelectModel) GetIncludes() AutotestsSelectModelIncludes`
@@ -76,6 +86,16 @@ SetIncludes sets Includes field to given value.
 
 HasIncludes returns a boolean if a field has been set.
 
+### SetIncludesNil
+
+`func (o *AutotestsSelectModel) SetIncludesNil(b bool)`
+
+ SetIncludesNil sets the value for Includes to be an explicit nil
+
+### UnsetIncludes
+`func (o *AutotestsSelectModel) UnsetIncludes()`
+
+UnsetIncludes ensures that no value is present for Includes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
-**Size** | Pointer to **float32** |  | [optional] 
+**Size** | **float32** |  | 
 
 ## Methods
 
 ### NewAttachmentChangeViewModel
 
-`func NewAttachmentChangeViewModel() *AttachmentChangeViewModel`
+`func NewAttachmentChangeViewModel(id string, size float32, ) *AttachmentChangeViewModel`
 
 NewAttachmentChangeViewModel instantiates a new AttachmentChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AttachmentChangeViewModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -142,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetSize sets Size field to given value.
 
-### HasSize
-
-`func (o *AttachmentChangeViewModel) HasSize() bool`
-
-HasSize returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

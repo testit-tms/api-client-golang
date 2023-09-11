@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RegexText** | Pointer to **string** |  | [optional] 
+**RegexText** | Pointer to **NullableString** |  | [optional] 
 **FailureClassId** | Pointer to **NullableString** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewFailureClassRegexModel
 
-`func NewFailureClassRegexModel() *FailureClassRegexModel`
+`func NewFailureClassRegexModel(id string, isDeleted bool, ) *FailureClassRegexModel`
 
 NewFailureClassRegexModel instantiates a new FailureClassRegexModel object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +53,16 @@ SetRegexText sets RegexText field to given value.
 
 HasRegexText returns a boolean if a field has been set.
 
+### SetRegexTextNil
+
+`func (o *FailureClassRegexModel) SetRegexTextNil(b bool)`
+
+ SetRegexTextNil sets the value for RegexText to be an explicit nil
+
+### UnsetRegexText
+`func (o *FailureClassRegexModel) UnsetRegexText()`
+
+UnsetRegexText ensures that no value is present for RegexText, not even an explicit nil
 ### GetFailureClassId
 
 `func (o *FailureClassRegexModel) GetFailureClassId() string`
@@ -107,11 +117,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *FailureClassRegexModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -132,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *FailureClassRegexModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

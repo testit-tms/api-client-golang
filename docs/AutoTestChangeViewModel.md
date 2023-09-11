@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**ProjectId** | Pointer to **string** |  | [optional] 
-**ExternalId** | Pointer to **string** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
+**Id** | **string** |  | 
+**ProjectId** | **string** |  | 
+**ExternalId** | Pointer to **NullableString** |  | [optional] 
+**GlobalId** | **int64** |  | 
 
 ## Methods
 
 ### NewAutoTestChangeViewModel
 
-`func NewAutoTestChangeViewModel() *AutoTestChangeViewModel`
+`func NewAutoTestChangeViewModel(id string, projectId string, globalId int64, ) *AutoTestChangeViewModel`
 
 NewAutoTestChangeViewModel instantiates a new AutoTestChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AutoTestChangeViewModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetProjectId
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *AutoTestChangeViewModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetExternalId
 
@@ -103,6 +93,16 @@ SetExternalId sets ExternalId field to given value.
 
 HasExternalId returns a boolean if a field has been set.
 
+### SetExternalIdNil
+
+`func (o *AutoTestChangeViewModel) SetExternalIdNil(b bool)`
+
+ SetExternalIdNil sets the value for ExternalId to be an explicit nil
+
+### UnsetExternalId
+`func (o *AutoTestChangeViewModel) UnsetExternalId()`
+
+UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetGlobalId
 
 `func (o *AutoTestChangeViewModel) GetGlobalId() int64`
@@ -122,11 +122,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *AutoTestChangeViewModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

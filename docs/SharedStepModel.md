@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VersionId** | Pointer to **string** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**VersionId** | **string** |  | 
+**GlobalId** | **int64** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Steps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
+**IsDeleted** | **bool** |  | 
 
 ## Methods
 
 ### NewSharedStepModel
 
-`func NewSharedStepModel() *SharedStepModel`
+`func NewSharedStepModel(versionId string, globalId int64, isDeleted bool, ) *SharedStepModel`
 
 NewSharedStepModel instantiates a new SharedStepModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetVersionId sets VersionId field to given value.
 
-### HasVersionId
-
-`func (o *SharedStepModel) HasVersionId() bool`
-
-HasVersionId returns a boolean if a field has been set.
 
 ### GetGlobalId
 
@@ -73,11 +68,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *SharedStepModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -104,6 +94,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *SharedStepModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *SharedStepModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSteps
 
 `func (o *SharedStepModel) GetSteps() []StepModel`
@@ -129,6 +129,16 @@ SetSteps sets Steps field to given value.
 
 HasSteps returns a boolean if a field has been set.
 
+### SetStepsNil
+
+`func (o *SharedStepModel) SetStepsNil(b bool)`
+
+ SetStepsNil sets the value for Steps to be an explicit nil
+
+### UnsetSteps
+`func (o *SharedStepModel) UnsetSteps()`
+
+UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *SharedStepModel) GetIsDeleted() bool`
@@ -148,11 +158,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *SharedStepModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

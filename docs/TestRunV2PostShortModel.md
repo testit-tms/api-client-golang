@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **LaunchSource** | Pointer to **NullableString** |  | [optional] 
+**Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | [optional] 
+**Links** | Pointer to [**[]LinkPostModel**](LinkPostModel.md) |  | [optional] 
 
 ## Methods
 
@@ -153,6 +155,76 @@ HasLaunchSource returns a boolean if a field has been set.
 `func (o *TestRunV2PostShortModel) UnsetLaunchSource()`
 
 UnsetLaunchSource ensures that no value is present for LaunchSource, not even an explicit nil
+### GetAttachments
+
+`func (o *TestRunV2PostShortModel) GetAttachments() []AttachmentPutModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *TestRunV2PostShortModel) GetAttachmentsOk() (*[]AttachmentPutModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *TestRunV2PostShortModel) SetAttachments(v []AttachmentPutModel)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *TestRunV2PostShortModel) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
+
+### SetAttachmentsNil
+
+`func (o *TestRunV2PostShortModel) SetAttachmentsNil(b bool)`
+
+ SetAttachmentsNil sets the value for Attachments to be an explicit nil
+
+### UnsetAttachments
+`func (o *TestRunV2PostShortModel) UnsetAttachments()`
+
+UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
+### GetLinks
+
+`func (o *TestRunV2PostShortModel) GetLinks() []LinkPostModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *TestRunV2PostShortModel) GetLinksOk() (*[]LinkPostModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *TestRunV2PostShortModel) SetLinks(v []LinkPostModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *TestRunV2PostShortModel) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *TestRunV2PostShortModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *TestRunV2PostShortModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

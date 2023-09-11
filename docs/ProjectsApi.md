@@ -8,10 +8,13 @@ Method | HTTP request | Description
 [**ApiV2ProjectsIdAttributesTemplatesSearchPost**](ProjectsApi.md#ApiV2ProjectsIdAttributesTemplatesSearchPost) | **Post** /api/v2/projects/{id}/attributes/templates/search | Search for custom attributes templates
 [**ApiV2ProjectsIdAttributesTemplatesTemplateIdDelete**](ProjectsApi.md#ApiV2ProjectsIdAttributesTemplatesTemplateIdDelete) | **Delete** /api/v2/projects/{id}/attributes/templates/{templateId} | Delete CustomAttributeTemplate from Project
 [**ApiV2ProjectsIdAttributesTemplatesTemplateIdPost**](ProjectsApi.md#ApiV2ProjectsIdAttributesTemplatesTemplateIdPost) | **Post** /api/v2/projects/{id}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project
-[**ApiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#ApiV2ProjectsIdFailureClassesGet) | **Get** /api/v2/projects/{id}/failureClasses | Get Project FailureClasses
+[**ApiV2ProjectsIdDelete**](ProjectsApi.md#ApiV2ProjectsIdDelete) | **Delete** /api/v2/projects/{id} | Archive project
+[**ApiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#ApiV2ProjectsIdFailureClassesGet) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 [**ApiV2ProjectsIdFavoritePut**](ProjectsApi.md#ApiV2ProjectsIdFavoritePut) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
 [**ApiV2ProjectsIdFiltersGet**](ProjectsApi.md#ApiV2ProjectsIdFiltersGet) | **Get** /api/v2/projects/{id}/filters | Get Project filters
 [**ApiV2ProjectsIdPatch**](ProjectsApi.md#ApiV2ProjectsIdPatch) | **Patch** /api/v2/projects/{id} | Patch project
+[**ApiV2ProjectsIdPurgePost**](ProjectsApi.md#ApiV2ProjectsIdPurgePost) | **Post** /api/v2/projects/{id}/purge | Purge archived project
+[**ApiV2ProjectsIdRestorePost**](ProjectsApi.md#ApiV2ProjectsIdRestorePost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
 [**ApiV2ProjectsIdTestPlansAnalyticsGet**](ProjectsApi.md#ApiV2ProjectsIdTestPlansAnalyticsGet) | **Get** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
 [**ApiV2ProjectsIdTestPlansDeleteBulkPost**](ProjectsApi.md#ApiV2ProjectsIdTestPlansDeleteBulkPost) | **Post** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
 [**ApiV2ProjectsIdTestPlansNameExistsGet**](ProjectsApi.md#ApiV2ProjectsIdTestPlansNameExistsGet) | **Get** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
@@ -24,6 +27,8 @@ Method | HTTP request | Description
 [**ApiV2ProjectsIdWorkItemsSearchPost**](ProjectsApi.md#ApiV2ProjectsIdWorkItemsSearchPost) | **Post** /api/v2/projects/{id}/workItems/search | Search for work items
 [**ApiV2ProjectsIdWorkItemsTagsGet**](ProjectsApi.md#ApiV2ProjectsIdWorkItemsTagsGet) | **Get** /api/v2/projects/{id}/workItems/tags | Get WorkItems Tags
 [**ApiV2ProjectsNameNameExistsGet**](ProjectsApi.md#ApiV2ProjectsNameNameExistsGet) | **Get** /api/v2/projects/name/{name}/exists | 
+[**ApiV2ProjectsPurgeBulkPost**](ProjectsApi.md#ApiV2ProjectsPurgeBulkPost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
+[**ApiV2ProjectsRestoreBulkPost**](ProjectsApi.md#ApiV2ProjectsRestoreBulkPost) | **Post** /api/v2/projects/restore/bulk | Restore multiple projects
 [**ApiV2ProjectsSearchPost**](ProjectsApi.md#ApiV2ProjectsSearchPost) | **Post** /api/v2/projects/search | Search for projects
 [**BackgroundImportProject**](ProjectsApi.md#BackgroundImportProject) | **Post** /api/v2/projects/import/json | Import project from JSON file in background job
 [**BackgroundImportToExistingProject**](ProjectsApi.md#BackgroundImportToExistingProject) | **Post** /api/v2/projects/{id}/import/json | Import project from JSON file into existing project in background job
@@ -34,8 +39,7 @@ Method | HTTP request | Description
 [**CreateProject**](ProjectsApi.md#CreateProject) | **Post** /api/v2/projects | Create project
 [**CreateProjectsAttribute**](ProjectsApi.md#CreateProjectsAttribute) | **Post** /api/v2/projects/{id}/attributes | Create project attribute
 [**DeleteCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#DeleteCustomAttributeTestPlanProjectRelations) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
-[**DeleteProject**](ProjectsApi.md#DeleteProject) | **Delete** /api/v2/projects/{id} | Delete project
-[**DeleteProjectAutoTests**](ProjectsApi.md#DeleteProjectAutoTests) | **Delete** /api/v2/projects/{id}/autoTests | Delete project
+[**DeleteProjectAutoTests**](ProjectsApi.md#DeleteProjectAutoTests) | **Delete** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 [**DeleteProjectsAttribute**](ProjectsApi.md#DeleteProjectsAttribute) | **Delete** /api/v2/projects/{id}/attributes/{attributeId} | Delete project attribute
 [**Export**](ProjectsApi.md#Export) | **Post** /api/v2/projects/{id}/export | Export project as JSON file
 [**ExportProjectJson**](ProjectsApi.md#ExportProjectJson) | **Post** /api/v2/projects/{id}/export/json | Export project as JSON file in background job
@@ -55,7 +59,6 @@ Method | HTTP request | Description
 [**GetTestRunsByProjectId**](ProjectsApi.md#GetTestRunsByProjectId) | **Get** /api/v2/projects/{id}/testRuns | Get project test runs
 [**GetWorkItemsByProjectId**](ProjectsApi.md#GetWorkItemsByProjectId) | **Get** /api/v2/projects/{id}/workItems | Get project work items
 [**ImportToExistingProject**](ProjectsApi.md#ImportToExistingProject) | **Post** /api/v2/projects/{id}/import | Import project from JSON file into existing project
-[**RestoreProject**](ProjectsApi.md#RestoreProject) | **Post** /api/v2/projects/{id}/restore | Restore project
 [**SearchAttributesInProject**](ProjectsApi.md#SearchAttributesInProject) | **Post** /api/v2/projects/{id}/attributes/search | Search for attributes used in the project
 [**SearchTestPlanAttributesInProject**](ProjectsApi.md#SearchTestPlanAttributesInProject) | **Post** /api/v2/projects/{id}/testPlans/attributes/search | Search for attributes used in the project test plans
 [**UpdateCustomAttributeTestPlanProjectRelations**](ProjectsApi.md#UpdateCustomAttributeTestPlanProjectRelations) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
@@ -356,13 +359,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2ProjectsIdFailureClassesGet
+## ApiV2ProjectsIdDelete
 
-> []FailureClassModel ApiV2ProjectsIdFailureClassesGet(ctx, id).IsDeleted(isDeleted).Execute()
+> ApiV2ProjectsIdDelete(ctx, id).Execute()
 
-Get Project FailureClasses
-
-
+Archive project
 
 ### Example
 
@@ -377,7 +378,73 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+    id := "id_example" // string | Unique or global ID of the project
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdDelete(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the project | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsIdDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsIdFailureClassesGet
+
+> []FailureClassModel ApiV2ProjectsIdFailureClassesGet(ctx, id).IsDeleted(isDeleted).Execute()
+
+Get failure classes
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the project
     isDeleted := true // bool |  (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -398,7 +465,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Project internal (UUID) or global (integer) identifier | 
+**id** | **string** | Unique or global ID of the project | 
 
 ### Other Parameters
 
@@ -627,6 +694,138 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsIdPurgePost
+
+> ApiV2ProjectsIdPurgePost(ctx, id).Execute()
+
+Purge archived project
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the project
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdPurgePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdPurgePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the project | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsIdPurgePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsIdRestorePost
+
+> ApiV2ProjectsIdRestorePost(ctx, id).Execute()
+
+Restore archived project
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "id_example" // string | Unique or global ID of the project
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdRestorePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdRestorePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique or global ID of the project | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsIdRestorePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1550,6 +1749,134 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiV2ProjectsPurgeBulkPost
+
+> int64 ApiV2ProjectsPurgeBulkPost(ctx).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
+
+Purge multiple projects
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2ProjectsRestoreBulkPostRequest := *openapiclient.NewApiV2ProjectsRestoreBulkPostRequest() // ApiV2ProjectsRestoreBulkPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsPurgeBulkPost(context.Background()).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsPurgeBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ProjectsPurgeBulkPost`: int64
+    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsPurgeBulkPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsPurgeBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md) |  | 
+
+### Return type
+
+**int64**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsRestoreBulkPost
+
+> int64 ApiV2ProjectsRestoreBulkPost(ctx).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
+
+Restore multiple projects
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2ProjectsRestoreBulkPostRequest := *openapiclient.NewApiV2ProjectsRestoreBulkPostRequest() // ApiV2ProjectsRestoreBulkPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsRestoreBulkPost(context.Background()).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsRestoreBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ProjectsRestoreBulkPost`: int64
+    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsRestoreBulkPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsRestoreBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md) |  | 
+
+### Return type
+
+**int64**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2ProjectsSearchPost
 
 > []ProjectModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsSearchPostRequest(apiV2ProjectsSearchPostRequest).Execute()
@@ -2116,7 +2443,7 @@ import (
 
 func main() {
     id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    createProjectsAttributeRequest := *openapiclient.NewCreateProjectsAttributeRequest(openapiclient.CustomAttributeTypesEnum("string"), "Name_example") // CreateProjectsAttributeRequest |  (optional)
+    createProjectsAttributeRequest := *openapiclient.NewCreateProjectsAttributeRequest(openapiclient.CustomAttributeTypesEnum("string"), "Name_example", false, false, false) // CreateProjectsAttributeRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2237,81 +2564,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## DeleteProject
-
-> DeleteProject(ctx, id).Execute()
-
-Delete project
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.DeleteProject(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.DeleteProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Project internal (UUID) or global (integer) identifier | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteProjectRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## DeleteProjectAutoTests
 
 > DeleteProjectAutoTests(ctx, id).Execute()
 
-Delete project
-
-
+Delete all autotests from project
 
 ### Example
 
@@ -2326,7 +2583,7 @@ import (
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+    id := "id_example" // string | Unique or global ID of the project
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2344,7 +2601,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Project internal (UUID) or global (integer) identifier | 
+**id** | **string** | Unique or global ID of the project | 
 
 ### Other Parameters
 
@@ -3788,74 +4045,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## RestoreProject
-
-> RestoreProject(ctx, id).Execute()
-
-Restore project
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.RestoreProject(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.RestoreProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Project internal (UUID) or global (integer) identifier | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRestoreProjectRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## SearchAttributesInProject
 
 > []CustomAttributeGetModel SearchAttributesInProject(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchAttributesInProjectRequest(searchAttributesInProjectRequest).Execute()
@@ -4170,7 +4359,7 @@ import (
 
 func main() {
     id := "id_example" // string | Unique or global project ID
-    updateProjectsAttributeRequest := *openapiclient.NewUpdateProjectsAttributeRequest(openapiclient.CustomAttributeTypesEnum("string"), "Name_example") // UpdateProjectsAttributeRequest |  (optional)
+    updateProjectsAttributeRequest := *openapiclient.NewUpdateProjectsAttributeRequest("Id_example", openapiclient.CustomAttributeTypesEnum("string"), false, "Name_example", false, false, false) // UpdateProjectsAttributeRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

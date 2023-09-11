@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Statuses** | Pointer to [**TestResultsStatisticsGetModelStatuses**](TestResultsStatisticsGetModelStatuses.md) |  | [optional] 
-**FailureCategories** | Pointer to [**TestResultsStatisticsGetModelFailureCategories**](TestResultsStatisticsGetModelFailureCategories.md) |  | [optional] 
+**Statuses** | Pointer to [**NullableTestResultsStatisticsGetModelStatuses**](TestResultsStatisticsGetModelStatuses.md) |  | [optional] 
+**FailureCategories** | Pointer to [**NullableTestResultsStatisticsGetModelFailureCategories**](TestResultsStatisticsGetModelFailureCategories.md) |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetStatuses sets Statuses field to given value.
 
 HasStatuses returns a boolean if a field has been set.
 
+### SetStatusesNil
+
+`func (o *TestResultsStatisticsGetModel) SetStatusesNil(b bool)`
+
+ SetStatusesNil sets the value for Statuses to be an explicit nil
+
+### UnsetStatuses
+`func (o *TestResultsStatisticsGetModel) UnsetStatuses()`
+
+UnsetStatuses ensures that no value is present for Statuses, not even an explicit nil
 ### GetFailureCategories
 
 `func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestResultsStatisticsGetModelFailureCategories`
@@ -76,6 +86,16 @@ SetFailureCategories sets FailureCategories field to given value.
 
 HasFailureCategories returns a boolean if a field has been set.
 
+### SetFailureCategoriesNil
+
+`func (o *TestResultsStatisticsGetModel) SetFailureCategoriesNil(b bool)`
+
+ SetFailureCategoriesNil sets the value for FailureCategories to be an explicit nil
+
+### UnsetFailureCategories
+`func (o *TestResultsStatisticsGetModel) UnsetFailureCategories()`
+
+UnsetFailureCategories ensures that no value is present for FailureCategories, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

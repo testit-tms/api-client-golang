@@ -19,8 +19,8 @@ var _ MappedNullable = &ParameterShortModel{}
 
 // ParameterShortModel struct for ParameterShortModel
 type ParameterShortModel struct {
-	Id *string `json:"id,omitempty"`
-	ParameterKeyId *string `json:"parameterKeyId,omitempty"`
+	Id string `json:"id"`
+	ParameterKeyId string `json:"parameterKeyId"`
 	Value string `json:"value"`
 	Name string `json:"name"`
 }
@@ -29,8 +29,10 @@ type ParameterShortModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewParameterShortModel(value string, name string) *ParameterShortModel {
+func NewParameterShortModel(id string, parameterKeyId string, value string, name string) *ParameterShortModel {
 	this := ParameterShortModel{}
+	this.Id = id
+	this.ParameterKeyId = parameterKeyId
 	this.Value = value
 	this.Name = name
 	return &this
@@ -44,68 +46,52 @@ func NewParameterShortModelWithDefaults() *ParameterShortModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ParameterShortModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ParameterShortModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ParameterShortModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *ParameterShortModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetParameterKeyId returns the ParameterKeyId field value if set, zero value otherwise.
+// GetParameterKeyId returns the ParameterKeyId field value
 func (o *ParameterShortModel) GetParameterKeyId() string {
-	if o == nil || IsNil(o.ParameterKeyId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ParameterKeyId
+
+	return o.ParameterKeyId
 }
 
-// GetParameterKeyIdOk returns a tuple with the ParameterKeyId field value if set, nil otherwise
+// GetParameterKeyIdOk returns a tuple with the ParameterKeyId field value
 // and a boolean to check if the value has been set.
 func (o *ParameterShortModel) GetParameterKeyIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ParameterKeyId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ParameterKeyId, true
+	return &o.ParameterKeyId, true
 }
 
-// HasParameterKeyId returns a boolean if a field has been set.
-func (o *ParameterShortModel) HasParameterKeyId() bool {
-	if o != nil && !IsNil(o.ParameterKeyId) {
-		return true
-	}
-
-	return false
-}
-
-// SetParameterKeyId gets a reference to the given string and assigns it to the ParameterKeyId field.
+// SetParameterKeyId sets field value
 func (o *ParameterShortModel) SetParameterKeyId(v string) {
-	o.ParameterKeyId = &v
+	o.ParameterKeyId = v
 }
 
 // GetValue returns the Value field value
@@ -166,12 +152,8 @@ func (o ParameterShortModel) MarshalJSON() ([]byte, error) {
 
 func (o ParameterShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.ParameterKeyId) {
-		toSerialize["parameterKeyId"] = o.ParameterKeyId
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["parameterKeyId"] = o.ParameterKeyId
 	toSerialize["value"] = o.Value
 	toSerialize["name"] = o.Name
 	return toSerialize, nil

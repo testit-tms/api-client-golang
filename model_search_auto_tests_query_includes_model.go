@@ -20,19 +20,22 @@ var _ MappedNullable = &SearchAutoTestsQueryIncludesModel{}
 // SearchAutoTestsQueryIncludesModel struct for SearchAutoTestsQueryIncludesModel
 type SearchAutoTestsQueryIncludesModel struct {
 	// If autotest steps will be included
-	IncludeSteps *bool `json:"includeSteps,omitempty"`
+	IncludeSteps bool `json:"includeSteps"`
 	// If autotest links will be included
-	IncludeLinks *bool `json:"includeLinks,omitempty"`
+	IncludeLinks bool `json:"includeLinks"`
 	// If autotest labels will be included
-	IncludeLabels *bool `json:"includeLabels,omitempty"`
+	IncludeLabels bool `json:"includeLabels"`
 }
 
 // NewSearchAutoTestsQueryIncludesModel instantiates a new SearchAutoTestsQueryIncludesModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchAutoTestsQueryIncludesModel() *SearchAutoTestsQueryIncludesModel {
+func NewSearchAutoTestsQueryIncludesModel(includeSteps bool, includeLinks bool, includeLabels bool) *SearchAutoTestsQueryIncludesModel {
 	this := SearchAutoTestsQueryIncludesModel{}
+	this.IncludeSteps = includeSteps
+	this.IncludeLinks = includeLinks
+	this.IncludeLabels = includeLabels
 	return &this
 }
 
@@ -44,100 +47,76 @@ func NewSearchAutoTestsQueryIncludesModelWithDefaults() *SearchAutoTestsQueryInc
 	return &this
 }
 
-// GetIncludeSteps returns the IncludeSteps field value if set, zero value otherwise.
+// GetIncludeSteps returns the IncludeSteps field value
 func (o *SearchAutoTestsQueryIncludesModel) GetIncludeSteps() bool {
-	if o == nil || IsNil(o.IncludeSteps) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeSteps
+
+	return o.IncludeSteps
 }
 
-// GetIncludeStepsOk returns a tuple with the IncludeSteps field value if set, nil otherwise
+// GetIncludeStepsOk returns a tuple with the IncludeSteps field value
 // and a boolean to check if the value has been set.
 func (o *SearchAutoTestsQueryIncludesModel) GetIncludeStepsOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeSteps) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeSteps, true
+	return &o.IncludeSteps, true
 }
 
-// HasIncludeSteps returns a boolean if a field has been set.
-func (o *SearchAutoTestsQueryIncludesModel) HasIncludeSteps() bool {
-	if o != nil && !IsNil(o.IncludeSteps) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeSteps gets a reference to the given bool and assigns it to the IncludeSteps field.
+// SetIncludeSteps sets field value
 func (o *SearchAutoTestsQueryIncludesModel) SetIncludeSteps(v bool) {
-	o.IncludeSteps = &v
+	o.IncludeSteps = v
 }
 
-// GetIncludeLinks returns the IncludeLinks field value if set, zero value otherwise.
+// GetIncludeLinks returns the IncludeLinks field value
 func (o *SearchAutoTestsQueryIncludesModel) GetIncludeLinks() bool {
-	if o == nil || IsNil(o.IncludeLinks) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeLinks
+
+	return o.IncludeLinks
 }
 
-// GetIncludeLinksOk returns a tuple with the IncludeLinks field value if set, nil otherwise
+// GetIncludeLinksOk returns a tuple with the IncludeLinks field value
 // and a boolean to check if the value has been set.
 func (o *SearchAutoTestsQueryIncludesModel) GetIncludeLinksOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeLinks) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeLinks, true
+	return &o.IncludeLinks, true
 }
 
-// HasIncludeLinks returns a boolean if a field has been set.
-func (o *SearchAutoTestsQueryIncludesModel) HasIncludeLinks() bool {
-	if o != nil && !IsNil(o.IncludeLinks) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeLinks gets a reference to the given bool and assigns it to the IncludeLinks field.
+// SetIncludeLinks sets field value
 func (o *SearchAutoTestsQueryIncludesModel) SetIncludeLinks(v bool) {
-	o.IncludeLinks = &v
+	o.IncludeLinks = v
 }
 
-// GetIncludeLabels returns the IncludeLabels field value if set, zero value otherwise.
+// GetIncludeLabels returns the IncludeLabels field value
 func (o *SearchAutoTestsQueryIncludesModel) GetIncludeLabels() bool {
-	if o == nil || IsNil(o.IncludeLabels) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeLabels
+
+	return o.IncludeLabels
 }
 
-// GetIncludeLabelsOk returns a tuple with the IncludeLabels field value if set, nil otherwise
+// GetIncludeLabelsOk returns a tuple with the IncludeLabels field value
 // and a boolean to check if the value has been set.
 func (o *SearchAutoTestsQueryIncludesModel) GetIncludeLabelsOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeLabels) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeLabels, true
+	return &o.IncludeLabels, true
 }
 
-// HasIncludeLabels returns a boolean if a field has been set.
-func (o *SearchAutoTestsQueryIncludesModel) HasIncludeLabels() bool {
-	if o != nil && !IsNil(o.IncludeLabels) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeLabels gets a reference to the given bool and assigns it to the IncludeLabels field.
+// SetIncludeLabels sets field value
 func (o *SearchAutoTestsQueryIncludesModel) SetIncludeLabels(v bool) {
-	o.IncludeLabels = &v
+	o.IncludeLabels = v
 }
 
 func (o SearchAutoTestsQueryIncludesModel) MarshalJSON() ([]byte, error) {
@@ -150,15 +129,9 @@ func (o SearchAutoTestsQueryIncludesModel) MarshalJSON() ([]byte, error) {
 
 func (o SearchAutoTestsQueryIncludesModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.IncludeSteps) {
-		toSerialize["includeSteps"] = o.IncludeSteps
-	}
-	if !IsNil(o.IncludeLinks) {
-		toSerialize["includeLinks"] = o.IncludeLinks
-	}
-	if !IsNil(o.IncludeLabels) {
-		toSerialize["includeLabels"] = o.IncludeLabels
-	}
+	toSerialize["includeSteps"] = o.IncludeSteps
+	toSerialize["includeLinks"] = o.IncludeLinks
+	toSerialize["includeLabels"] = o.IncludeLabels
 	return toSerialize, nil
 }
 

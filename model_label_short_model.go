@@ -19,8 +19,9 @@ var _ MappedNullable = &LabelShortModel{}
 
 // LabelShortModel struct for LabelShortModel
 type LabelShortModel struct {
-	GlobalId *int64 `json:"globalId,omitempty"`
-	// Label name.
+	// Global ID of the label
+	GlobalId int64 `json:"globalId"`
+	// Name of the label
 	Name string `json:"name"`
 }
 
@@ -28,8 +29,9 @@ type LabelShortModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLabelShortModel(name string) *LabelShortModel {
+func NewLabelShortModel(globalId int64, name string) *LabelShortModel {
 	this := LabelShortModel{}
+	this.GlobalId = globalId
 	this.Name = name
 	return &this
 }
@@ -42,36 +44,28 @@ func NewLabelShortModelWithDefaults() *LabelShortModel {
 	return &this
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *LabelShortModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *LabelShortModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *LabelShortModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *LabelShortModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
 // GetName returns the Name field value
@@ -108,9 +102,7 @@ func (o LabelShortModel) MarshalJSON() ([]byte, error) {
 
 func (o LabelShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
+	toSerialize["globalId"] = o.GlobalId
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }

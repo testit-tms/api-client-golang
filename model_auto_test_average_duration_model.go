@@ -19,16 +19,18 @@ var _ MappedNullable = &AutoTestAverageDurationModel{}
 
 // AutoTestAverageDurationModel struct for AutoTestAverageDurationModel
 type AutoTestAverageDurationModel struct {
-	PassedAverageDuration *float64 `json:"passedAverageDuration,omitempty"`
-	FailedAverageDuration *float64 `json:"failedAverageDuration,omitempty"`
+	PassedAverageDuration float64 `json:"passedAverageDuration"`
+	FailedAverageDuration float64 `json:"failedAverageDuration"`
 }
 
 // NewAutoTestAverageDurationModel instantiates a new AutoTestAverageDurationModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestAverageDurationModel() *AutoTestAverageDurationModel {
+func NewAutoTestAverageDurationModel(passedAverageDuration float64, failedAverageDuration float64) *AutoTestAverageDurationModel {
 	this := AutoTestAverageDurationModel{}
+	this.PassedAverageDuration = passedAverageDuration
+	this.FailedAverageDuration = failedAverageDuration
 	return &this
 }
 
@@ -40,68 +42,52 @@ func NewAutoTestAverageDurationModelWithDefaults() *AutoTestAverageDurationModel
 	return &this
 }
 
-// GetPassedAverageDuration returns the PassedAverageDuration field value if set, zero value otherwise.
+// GetPassedAverageDuration returns the PassedAverageDuration field value
 func (o *AutoTestAverageDurationModel) GetPassedAverageDuration() float64 {
-	if o == nil || IsNil(o.PassedAverageDuration) {
+	if o == nil {
 		var ret float64
 		return ret
 	}
-	return *o.PassedAverageDuration
+
+	return o.PassedAverageDuration
 }
 
-// GetPassedAverageDurationOk returns a tuple with the PassedAverageDuration field value if set, nil otherwise
+// GetPassedAverageDurationOk returns a tuple with the PassedAverageDuration field value
 // and a boolean to check if the value has been set.
 func (o *AutoTestAverageDurationModel) GetPassedAverageDurationOk() (*float64, bool) {
-	if o == nil || IsNil(o.PassedAverageDuration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PassedAverageDuration, true
+	return &o.PassedAverageDuration, true
 }
 
-// HasPassedAverageDuration returns a boolean if a field has been set.
-func (o *AutoTestAverageDurationModel) HasPassedAverageDuration() bool {
-	if o != nil && !IsNil(o.PassedAverageDuration) {
-		return true
-	}
-
-	return false
-}
-
-// SetPassedAverageDuration gets a reference to the given float64 and assigns it to the PassedAverageDuration field.
+// SetPassedAverageDuration sets field value
 func (o *AutoTestAverageDurationModel) SetPassedAverageDuration(v float64) {
-	o.PassedAverageDuration = &v
+	o.PassedAverageDuration = v
 }
 
-// GetFailedAverageDuration returns the FailedAverageDuration field value if set, zero value otherwise.
+// GetFailedAverageDuration returns the FailedAverageDuration field value
 func (o *AutoTestAverageDurationModel) GetFailedAverageDuration() float64 {
-	if o == nil || IsNil(o.FailedAverageDuration) {
+	if o == nil {
 		var ret float64
 		return ret
 	}
-	return *o.FailedAverageDuration
+
+	return o.FailedAverageDuration
 }
 
-// GetFailedAverageDurationOk returns a tuple with the FailedAverageDuration field value if set, nil otherwise
+// GetFailedAverageDurationOk returns a tuple with the FailedAverageDuration field value
 // and a boolean to check if the value has been set.
 func (o *AutoTestAverageDurationModel) GetFailedAverageDurationOk() (*float64, bool) {
-	if o == nil || IsNil(o.FailedAverageDuration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FailedAverageDuration, true
+	return &o.FailedAverageDuration, true
 }
 
-// HasFailedAverageDuration returns a boolean if a field has been set.
-func (o *AutoTestAverageDurationModel) HasFailedAverageDuration() bool {
-	if o != nil && !IsNil(o.FailedAverageDuration) {
-		return true
-	}
-
-	return false
-}
-
-// SetFailedAverageDuration gets a reference to the given float64 and assigns it to the FailedAverageDuration field.
+// SetFailedAverageDuration sets field value
 func (o *AutoTestAverageDurationModel) SetFailedAverageDuration(v float64) {
-	o.FailedAverageDuration = &v
+	o.FailedAverageDuration = v
 }
 
 func (o AutoTestAverageDurationModel) MarshalJSON() ([]byte, error) {
@@ -114,12 +100,8 @@ func (o AutoTestAverageDurationModel) MarshalJSON() ([]byte, error) {
 
 func (o AutoTestAverageDurationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PassedAverageDuration) {
-		toSerialize["passedAverageDuration"] = o.PassedAverageDuration
-	}
-	if !IsNil(o.FailedAverageDuration) {
-		toSerialize["failedAverageDuration"] = o.FailedAverageDuration
-	}
+	toSerialize["passedAverageDuration"] = o.PassedAverageDuration
+	toSerialize["failedAverageDuration"] = o.FailedAverageDuration
 	return toSerialize, nil
 }
 

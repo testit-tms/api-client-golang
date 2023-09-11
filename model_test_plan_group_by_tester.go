@@ -20,15 +20,16 @@ var _ MappedNullable = &TestPlanGroupByTester{}
 // TestPlanGroupByTester struct for TestPlanGroupByTester
 type TestPlanGroupByTester struct {
 	UserId NullableString `json:"userId,omitempty"`
-	Value *int64 `json:"value,omitempty"`
+	Value int64 `json:"value"`
 }
 
 // NewTestPlanGroupByTester instantiates a new TestPlanGroupByTester object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanGroupByTester() *TestPlanGroupByTester {
+func NewTestPlanGroupByTester(value int64) *TestPlanGroupByTester {
 	this := TestPlanGroupByTester{}
+	this.Value = value
 	return &this
 }
 
@@ -82,36 +83,28 @@ func (o *TestPlanGroupByTester) UnsetUserId() {
 	o.UserId.Unset()
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// GetValue returns the Value field value
 func (o *TestPlanGroupByTester) GetValue() int64 {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Value
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanGroupByTester) GetValueOk() (*int64, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *TestPlanGroupByTester) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given int64 and assigns it to the Value field.
+// SetValue sets field value
 func (o *TestPlanGroupByTester) SetValue(v int64) {
-	o.Value = &v
+	o.Value = v
 }
 
 func (o TestPlanGroupByTester) MarshalJSON() ([]byte, error) {
@@ -127,9 +120,7 @@ func (o TestPlanGroupByTester) ToMap() (map[string]interface{}, error) {
 	if o.UserId.IsSet() {
 		toSerialize["userId"] = o.UserId.Get()
 	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 

@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Parameters** | **map[string]string** |  | 
 **ProjectId** | **string** | This property is used to link configuration with project | 
-**IsDefault** | Pointer to **bool** |  | [optional] 
+**IsDefault** | **bool** |  | 
 **Name** | **string** |  | 
 
 ## Methods
 
 ### NewConfigurationPutModel
 
-`func NewConfigurationPutModel(id string, parameters map[string]string, projectId string, name string, ) *ConfigurationPutModel`
+`func NewConfigurationPutModel(id string, parameters map[string]string, projectId string, isDefault bool, name string, ) *ConfigurationPutModel`
 
 NewConfigurationPutModel instantiates a new ConfigurationPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -144,11 +144,6 @@ and a boolean to check if the value has been set.
 
 SetIsDefault sets IsDefault field to given value.
 
-### HasIsDefault
-
-`func (o *ConfigurationPutModel) HasIsDefault() bool`
-
-HasIsDefault returns a boolean if a field has been set.
 
 ### GetName
 

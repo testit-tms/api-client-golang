@@ -4,29 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExternalId** | Pointer to **string** | This property is used to set autotest identifier from client system | [optional] 
+**ExternalId** | Pointer to **NullableString** | This property is used to set autotest identifier from client system | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
-**ProjectId** | Pointer to **string** | This property is used to link autotest with project | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**ProjectId** | **string** | This property is used to link autotest with project | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Namespace** | Pointer to **NullableString** |  | [optional] 
 **Classname** | Pointer to **NullableString** |  | [optional] 
 **Steps** | Pointer to [**[]AutoTestStepModel**](AutoTestStepModel.md) |  | [optional] 
 **Setup** | Pointer to [**[]AutoTestStepModel**](AutoTestStepModel.md) |  | [optional] 
 **Teardown** | Pointer to [**[]AutoTestStepModel**](AutoTestStepModel.md) |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
+**GlobalId** | **int64** |  | 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **Labels** | Pointer to [**[]LabelShortModel**](LabelShortModel.md) |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewAutoTestModelV2GetModel
 
-`func NewAutoTestModelV2GetModel() *AutoTestModelV2GetModel`
+`func NewAutoTestModelV2GetModel(projectId string, globalId int64, createdById string, id string, isDeleted bool, ) *AutoTestModelV2GetModel`
 
 NewAutoTestModelV2GetModel instantiates a new AutoTestModelV2GetModel object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +66,16 @@ SetExternalId sets ExternalId field to given value.
 
 HasExternalId returns a boolean if a field has been set.
 
+### SetExternalIdNil
+
+`func (o *AutoTestModelV2GetModel) SetExternalIdNil(b bool)`
+
+ SetExternalIdNil sets the value for ExternalId to be an explicit nil
+
+### UnsetExternalId
+`func (o *AutoTestModelV2GetModel) UnsetExternalId()`
+
+UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetLinks
 
 `func (o *AutoTestModelV2GetModel) GetLinks() []LinkModel`
@@ -120,11 +130,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *AutoTestModelV2GetModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -151,6 +156,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AutoTestModelV2GetModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AutoTestModelV2GetModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *AutoTestModelV2GetModel) GetNamespace() string`
@@ -345,11 +360,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *AutoTestModelV2GetModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -440,11 +450,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *AutoTestModelV2GetModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -535,11 +540,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AutoTestModelV2GetModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -560,11 +560,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *AutoTestModelV2GetModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

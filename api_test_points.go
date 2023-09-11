@@ -132,6 +132,7 @@ func (a *TestPointsApiService) ApiV2TestPointsIdTestRunsGetExecute(r ApiApiV2Tes
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -257,6 +258,7 @@ func (a *TestPointsApiService) ApiV2TestPointsIdWorkItemGetExecute(r ApiApiV2Tes
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

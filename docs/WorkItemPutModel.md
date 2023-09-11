@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Iterations** | Pointer to [**[]IterationPutModel**](IterationPutModel.md) |  | [optional] 
 **AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) |  | [optional] 
 **Id** | **string** |  | 
-**SectionId** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
+**SectionId** | **string** |  | 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **State** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **Steps** | [**[]StepPutModel**](StepPutModel.md) |  | 
 **PreconditionSteps** | [**[]StepPutModel**](StepPutModel.md) |  | 
 **PostconditionSteps** | [**[]StepPutModel**](StepPutModel.md) |  | 
-**Duration** | Pointer to **int32** |  | [optional] 
+**Duration** | **int32** |  | 
 **Attributes** | **map[string]interface{}** |  | 
 **Tags** | [**[]TagShortModel**](TagShortModel.md) |  | 
 **Links** | [**[]LinkPutModel**](LinkPutModel.md) |  | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemPutModel
 
-`func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, attributes map[string]interface{}, tags []TagShortModel, links []LinkPutModel, name string, ) *WorkItemPutModel`
+`func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkPutModel, name string, ) *WorkItemPutModel`
 
 NewWorkItemPutModel instantiates a new WorkItemPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -169,11 +169,6 @@ and a boolean to check if the value has been set.
 
 SetSectionId sets SectionId field to given value.
 
-### HasSectionId
-
-`func (o *WorkItemPutModel) HasSectionId() bool`
-
-HasSectionId returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -200,6 +195,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *WorkItemPutModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *WorkItemPutModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetState
 
 `func (o *WorkItemPutModel) GetState() WorkItemStates`
@@ -319,11 +324,6 @@ and a boolean to check if the value has been set.
 
 SetDuration sets Duration field to given value.
 
-### HasDuration
-
-`func (o *WorkItemPutModel) HasDuration() bool`
-
-HasDuration returns a boolean if a field has been set.
 
 ### GetAttributes
 

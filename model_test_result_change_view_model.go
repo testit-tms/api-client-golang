@@ -19,15 +19,16 @@ var _ MappedNullable = &TestResultChangeViewModel{}
 
 // TestResultChangeViewModel struct for TestResultChangeViewModel
 type TestResultChangeViewModel struct {
-	TestPointCount *int64 `json:"testPointCount,omitempty"`
+	TestPointCount int64 `json:"testPointCount"`
 }
 
 // NewTestResultChangeViewModel instantiates a new TestResultChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultChangeViewModel() *TestResultChangeViewModel {
+func NewTestResultChangeViewModel(testPointCount int64) *TestResultChangeViewModel {
 	this := TestResultChangeViewModel{}
+	this.TestPointCount = testPointCount
 	return &this
 }
 
@@ -39,36 +40,28 @@ func NewTestResultChangeViewModelWithDefaults() *TestResultChangeViewModel {
 	return &this
 }
 
-// GetTestPointCount returns the TestPointCount field value if set, zero value otherwise.
+// GetTestPointCount returns the TestPointCount field value
 func (o *TestResultChangeViewModel) GetTestPointCount() int64 {
-	if o == nil || IsNil(o.TestPointCount) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.TestPointCount
+
+	return o.TestPointCount
 }
 
-// GetTestPointCountOk returns a tuple with the TestPointCount field value if set, nil otherwise
+// GetTestPointCountOk returns a tuple with the TestPointCount field value
 // and a boolean to check if the value has been set.
 func (o *TestResultChangeViewModel) GetTestPointCountOk() (*int64, bool) {
-	if o == nil || IsNil(o.TestPointCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPointCount, true
+	return &o.TestPointCount, true
 }
 
-// HasTestPointCount returns a boolean if a field has been set.
-func (o *TestResultChangeViewModel) HasTestPointCount() bool {
-	if o != nil && !IsNil(o.TestPointCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPointCount gets a reference to the given int64 and assigns it to the TestPointCount field.
+// SetTestPointCount sets field value
 func (o *TestResultChangeViewModel) SetTestPointCount(v int64) {
-	o.TestPointCount = &v
+	o.TestPointCount = v
 }
 
 func (o TestResultChangeViewModel) MarshalJSON() ([]byte, error) {
@@ -81,9 +74,7 @@ func (o TestResultChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o TestResultChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TestPointCount) {
-		toSerialize["testPointCount"] = o.TestPointCount
-	}
+	toSerialize["testPointCount"] = o.TestPointCount
 	return toSerialize, nil
 }
 

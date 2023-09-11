@@ -19,8 +19,8 @@ var _ MappedNullable = &CustomAttributeTemplateModel{}
 
 // CustomAttributeTemplateModel struct for CustomAttributeTemplateModel
 type CustomAttributeTemplateModel struct {
-	Id *string `json:"id,omitempty"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	Id string `json:"id"`
+	IsDeleted bool `json:"isDeleted"`
 	// Custom attributes template name
 	Name string `json:"name"`
 }
@@ -29,8 +29,10 @@ type CustomAttributeTemplateModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeTemplateModel(name string) *CustomAttributeTemplateModel {
+func NewCustomAttributeTemplateModel(id string, isDeleted bool, name string) *CustomAttributeTemplateModel {
 	this := CustomAttributeTemplateModel{}
+	this.Id = id
+	this.IsDeleted = isDeleted
 	this.Name = name
 	return &this
 }
@@ -43,68 +45,52 @@ func NewCustomAttributeTemplateModelWithDefaults() *CustomAttributeTemplateModel
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *CustomAttributeTemplateModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeTemplateModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *CustomAttributeTemplateModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *CustomAttributeTemplateModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *CustomAttributeTemplateModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeTemplateModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *CustomAttributeTemplateModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *CustomAttributeTemplateModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 // GetName returns the Name field value
@@ -141,12 +127,8 @@ func (o CustomAttributeTemplateModel) MarshalJSON() ([]byte, error) {
 
 func (o CustomAttributeTemplateModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }

@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Specifies the name of the test run. | [optional] 
 **Description** | Pointer to **NullableString** | Specifies the test run description. | [optional] 
 **LaunchSource** | Pointer to **NullableString** | Specifies the test run launch source. | [optional] 
+**Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) | Collection of attachment ids to relate to the test run | [optional] 
+**Links** | Pointer to [**[]LinkPostModel**](LinkPostModel.md) | Collection of links to relate to the test run | [optional] 
 
 ## Methods
 
@@ -195,6 +197,76 @@ HasLaunchSource returns a boolean if a field has been set.
 `func (o *CreateAndFillByConfigurationsRequest) UnsetLaunchSource()`
 
 UnsetLaunchSource ensures that no value is present for LaunchSource, not even an explicit nil
+### GetAttachments
+
+`func (o *CreateAndFillByConfigurationsRequest) GetAttachments() []AttachmentPutModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetAttachmentsOk() (*[]AttachmentPutModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *CreateAndFillByConfigurationsRequest) SetAttachments(v []AttachmentPutModel)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *CreateAndFillByConfigurationsRequest) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
+
+### SetAttachmentsNil
+
+`func (o *CreateAndFillByConfigurationsRequest) SetAttachmentsNil(b bool)`
+
+ SetAttachmentsNil sets the value for Attachments to be an explicit nil
+
+### UnsetAttachments
+`func (o *CreateAndFillByConfigurationsRequest) UnsetAttachments()`
+
+UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
+### GetLinks
+
+`func (o *CreateAndFillByConfigurationsRequest) GetLinks() []LinkPostModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetLinksOk() (*[]LinkPostModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *CreateAndFillByConfigurationsRequest) SetLinks(v []LinkPostModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *CreateAndFillByConfigurationsRequest) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *CreateAndFillByConfigurationsRequest) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *CreateAndFillByConfigurationsRequest) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

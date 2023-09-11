@@ -19,15 +19,16 @@ var _ MappedNullable = &NoContentResult{}
 
 // NoContentResult struct for NoContentResult
 type NoContentResult struct {
-	StatusCode *int32 `json:"statusCode,omitempty"`
+	StatusCode int32 `json:"statusCode"`
 }
 
 // NewNoContentResult instantiates a new NoContentResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNoContentResult() *NoContentResult {
+func NewNoContentResult(statusCode int32) *NoContentResult {
 	this := NoContentResult{}
+	this.StatusCode = statusCode
 	return &this
 }
 
@@ -39,36 +40,28 @@ func NewNoContentResultWithDefaults() *NoContentResult {
 	return &this
 }
 
-// GetStatusCode returns the StatusCode field value if set, zero value otherwise.
+// GetStatusCode returns the StatusCode field value
 func (o *NoContentResult) GetStatusCode() int32 {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.StatusCode
+
+	return o.StatusCode
 }
 
-// GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
+// GetStatusCodeOk returns a tuple with the StatusCode field value
 // and a boolean to check if the value has been set.
 func (o *NoContentResult) GetStatusCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusCode, true
+	return &o.StatusCode, true
 }
 
-// HasStatusCode returns a boolean if a field has been set.
-func (o *NoContentResult) HasStatusCode() bool {
-	if o != nil && !IsNil(o.StatusCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatusCode gets a reference to the given int32 and assigns it to the StatusCode field.
+// SetStatusCode sets field value
 func (o *NoContentResult) SetStatusCode(v int32) {
-	o.StatusCode = &v
+	o.StatusCode = v
 }
 
 func (o NoContentResult) MarshalJSON() ([]byte, error) {
@@ -81,9 +74,7 @@ func (o NoContentResult) MarshalJSON() ([]byte, error) {
 
 func (o NoContentResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.StatusCode) {
-		toSerialize["statusCode"] = o.StatusCode
-	}
+	toSerialize["statusCode"] = o.StatusCode
 	return toSerialize, nil
 }
 

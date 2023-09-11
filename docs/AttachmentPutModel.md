@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Specifies the GUID of the attachment. | 
+**Id** | **string** | Unique ID of the attachment | 
 
 ## Methods
 

@@ -20,12 +20,12 @@ var _ MappedNullable = &WorkItemChangeModel{}
 
 // WorkItemChangeModel struct for WorkItemChangeModel
 type WorkItemChangeModel struct {
-	Id *string `json:"id,omitempty"`
-	WorkItemId *string `json:"workItemId,omitempty"`
-	OldVersionId *string `json:"oldVersionId,omitempty"`
-	NewVersionId *string `json:"newVersionId,omitempty"`
-	WorkItemChangedFields *WorkItemChangeModelWorkItemChangedFields `json:"workItemChangedFields,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	Id string `json:"id"`
+	WorkItemId string `json:"workItemId"`
+	OldVersionId string `json:"oldVersionId"`
+	NewVersionId string `json:"newVersionId"`
+	WorkItemChangedFields NullableWorkItemChangedFieldsViewModel `json:"workItemChangedFields,omitempty"`
+	CreatedById string `json:"createdById"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 }
 
@@ -33,8 +33,13 @@ type WorkItemChangeModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemChangeModel() *WorkItemChangeModel {
+func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, createdById string) *WorkItemChangeModel {
 	this := WorkItemChangeModel{}
+	this.Id = id
+	this.WorkItemId = workItemId
+	this.OldVersionId = oldVersionId
+	this.NewVersionId = newVersionId
+	this.CreatedById = createdById
 	return &this
 }
 
@@ -46,196 +51,166 @@ func NewWorkItemChangeModelWithDefaults() *WorkItemChangeModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *WorkItemChangeModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemChangeModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *WorkItemChangeModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *WorkItemChangeModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetWorkItemId returns the WorkItemId field value if set, zero value otherwise.
+// GetWorkItemId returns the WorkItemId field value
 func (o *WorkItemChangeModel) GetWorkItemId() string {
-	if o == nil || IsNil(o.WorkItemId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WorkItemId
+
+	return o.WorkItemId
 }
 
-// GetWorkItemIdOk returns a tuple with the WorkItemId field value if set, nil otherwise
+// GetWorkItemIdOk returns a tuple with the WorkItemId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemChangeModel) GetWorkItemIdOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkItemId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemId, true
+	return &o.WorkItemId, true
 }
 
-// HasWorkItemId returns a boolean if a field has been set.
-func (o *WorkItemChangeModel) HasWorkItemId() bool {
-	if o != nil && !IsNil(o.WorkItemId) {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItemId gets a reference to the given string and assigns it to the WorkItemId field.
+// SetWorkItemId sets field value
 func (o *WorkItemChangeModel) SetWorkItemId(v string) {
-	o.WorkItemId = &v
+	o.WorkItemId = v
 }
 
-// GetOldVersionId returns the OldVersionId field value if set, zero value otherwise.
+// GetOldVersionId returns the OldVersionId field value
 func (o *WorkItemChangeModel) GetOldVersionId() string {
-	if o == nil || IsNil(o.OldVersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OldVersionId
+
+	return o.OldVersionId
 }
 
-// GetOldVersionIdOk returns a tuple with the OldVersionId field value if set, nil otherwise
+// GetOldVersionIdOk returns a tuple with the OldVersionId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemChangeModel) GetOldVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OldVersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldVersionId, true
+	return &o.OldVersionId, true
 }
 
-// HasOldVersionId returns a boolean if a field has been set.
-func (o *WorkItemChangeModel) HasOldVersionId() bool {
-	if o != nil && !IsNil(o.OldVersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldVersionId gets a reference to the given string and assigns it to the OldVersionId field.
+// SetOldVersionId sets field value
 func (o *WorkItemChangeModel) SetOldVersionId(v string) {
-	o.OldVersionId = &v
+	o.OldVersionId = v
 }
 
-// GetNewVersionId returns the NewVersionId field value if set, zero value otherwise.
+// GetNewVersionId returns the NewVersionId field value
 func (o *WorkItemChangeModel) GetNewVersionId() string {
-	if o == nil || IsNil(o.NewVersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NewVersionId
+
+	return o.NewVersionId
 }
 
-// GetNewVersionIdOk returns a tuple with the NewVersionId field value if set, nil otherwise
+// GetNewVersionIdOk returns a tuple with the NewVersionId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemChangeModel) GetNewVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.NewVersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewVersionId, true
+	return &o.NewVersionId, true
 }
 
-// HasNewVersionId returns a boolean if a field has been set.
-func (o *WorkItemChangeModel) HasNewVersionId() bool {
-	if o != nil && !IsNil(o.NewVersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewVersionId gets a reference to the given string and assigns it to the NewVersionId field.
+// SetNewVersionId sets field value
 func (o *WorkItemChangeModel) SetNewVersionId(v string) {
-	o.NewVersionId = &v
+	o.NewVersionId = v
 }
 
-// GetWorkItemChangedFields returns the WorkItemChangedFields field value if set, zero value otherwise.
-func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangeModelWorkItemChangedFields {
-	if o == nil || IsNil(o.WorkItemChangedFields) {
-		var ret WorkItemChangeModelWorkItemChangedFields
+// GetWorkItemChangedFields returns the WorkItemChangedFields field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsViewModel {
+	if o == nil || IsNil(o.WorkItemChangedFields.Get()) {
+		var ret WorkItemChangedFieldsViewModel
 		return ret
 	}
-	return *o.WorkItemChangedFields
+	return *o.WorkItemChangedFields.Get()
 }
 
 // GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangeModelWorkItemChangedFields, bool) {
-	if o == nil || IsNil(o.WorkItemChangedFields) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFieldsViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemChangedFields, true
+	return o.WorkItemChangedFields.Get(), o.WorkItemChangedFields.IsSet()
 }
 
 // HasWorkItemChangedFields returns a boolean if a field has been set.
 func (o *WorkItemChangeModel) HasWorkItemChangedFields() bool {
-	if o != nil && !IsNil(o.WorkItemChangedFields) {
+	if o != nil && o.WorkItemChangedFields.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWorkItemChangedFields gets a reference to the given WorkItemChangeModelWorkItemChangedFields and assigns it to the WorkItemChangedFields field.
-func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangeModelWorkItemChangedFields) {
-	o.WorkItemChangedFields = &v
+// SetWorkItemChangedFields gets a reference to the given NullableWorkItemChangedFieldsViewModel and assigns it to the WorkItemChangedFields field.
+func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangedFieldsViewModel) {
+	o.WorkItemChangedFields.Set(&v)
+}
+// SetWorkItemChangedFieldsNil sets the value for WorkItemChangedFields to be an explicit nil
+func (o *WorkItemChangeModel) SetWorkItemChangedFieldsNil() {
+	o.WorkItemChangedFields.Set(nil)
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// UnsetWorkItemChangedFields ensures that no value is present for WorkItemChangedFields, not even an explicit nil
+func (o *WorkItemChangeModel) UnsetWorkItemChangedFields() {
+	o.WorkItemChangedFields.Unset()
+}
+
+// GetCreatedById returns the CreatedById field value
 func (o *WorkItemChangeModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemChangeModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *WorkItemChangeModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *WorkItemChangeModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -290,24 +265,14 @@ func (o WorkItemChangeModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemChangeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	toSerialize["id"] = o.Id
+	toSerialize["workItemId"] = o.WorkItemId
+	toSerialize["oldVersionId"] = o.OldVersionId
+	toSerialize["newVersionId"] = o.NewVersionId
+	if o.WorkItemChangedFields.IsSet() {
+		toSerialize["workItemChangedFields"] = o.WorkItemChangedFields.Get()
 	}
-	if !IsNil(o.WorkItemId) {
-		toSerialize["workItemId"] = o.WorkItemId
-	}
-	if !IsNil(o.OldVersionId) {
-		toSerialize["oldVersionId"] = o.OldVersionId
-	}
-	if !IsNil(o.NewVersionId) {
-		toSerialize["newVersionId"] = o.NewVersionId
-	}
-	if !IsNil(o.WorkItemChangedFields) {
-		toSerialize["workItemChangedFields"] = o.WorkItemChangedFields
-	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.CreatedDate.IsSet() {
 		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}

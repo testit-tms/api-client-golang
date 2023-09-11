@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OldValue** | Pointer to **bool** |  | [optional] 
-**NewValue** | Pointer to **bool** |  | [optional] 
+**OldValue** | **bool** |  | 
+**NewValue** | **bool** |  | 
 
 ## Methods
 
 ### NewBooleanChangedFieldViewModel
 
-`func NewBooleanChangedFieldViewModel() *BooleanChangedFieldViewModel`
+`func NewBooleanChangedFieldViewModel(oldValue bool, newValue bool, ) *BooleanChangedFieldViewModel`
 
 NewBooleanChangedFieldViewModel instantiates a new BooleanChangedFieldViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetOldValue sets OldValue field to given value.
 
-### HasOldValue
-
-`func (o *BooleanChangedFieldViewModel) HasOldValue() bool`
-
-HasOldValue returns a boolean if a field has been set.
 
 ### GetNewValue
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetNewValue sets NewValue field to given value.
 
-### HasNewValue
-
-`func (o *BooleanChangedFieldViewModel) HasNewValue() bool`
-
-HasNewValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

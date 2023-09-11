@@ -19,7 +19,7 @@ var _ MappedNullable = &ParameterPutModel{}
 
 // ParameterPutModel struct for ParameterPutModel
 type ParameterPutModel struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Value string `json:"value"`
 	Name string `json:"name"`
 }
@@ -28,8 +28,9 @@ type ParameterPutModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewParameterPutModel(value string, name string) *ParameterPutModel {
+func NewParameterPutModel(id string, value string, name string) *ParameterPutModel {
 	this := ParameterPutModel{}
+	this.Id = id
 	this.Value = value
 	this.Name = name
 	return &this
@@ -43,36 +44,28 @@ func NewParameterPutModelWithDefaults() *ParameterPutModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ParameterPutModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ParameterPutModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ParameterPutModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *ParameterPutModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetValue returns the Value field value
@@ -133,9 +126,7 @@ func (o ParameterPutModel) MarshalJSON() ([]byte, error) {
 
 func (o ParameterPutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	toSerialize["value"] = o.Value
 	toSerialize["name"] = o.Name
 	return toSerialize, nil

@@ -21,9 +21,9 @@ var _ MappedNullable = &WorkItemVersionModel{}
 // WorkItemVersionModel struct for WorkItemVersionModel
 type WorkItemVersionModel struct {
 	// used for versioning changes in workitem
-	VersionId *string `json:"versionId,omitempty"`
+	VersionId string `json:"versionId"`
 	// used for define chronology of workitem state in each version
-	VersionNumber *int32 `json:"versionNumber,omitempty"`
+	VersionNumber int32 `json:"versionNumber"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 }
@@ -32,8 +32,10 @@ type WorkItemVersionModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemVersionModel() *WorkItemVersionModel {
+func NewWorkItemVersionModel(versionId string, versionNumber int32) *WorkItemVersionModel {
 	this := WorkItemVersionModel{}
+	this.VersionId = versionId
+	this.VersionNumber = versionNumber
 	return &this
 }
 
@@ -45,68 +47,52 @@ func NewWorkItemVersionModelWithDefaults() *WorkItemVersionModel {
 	return &this
 }
 
-// GetVersionId returns the VersionId field value if set, zero value otherwise.
+// GetVersionId returns the VersionId field value
 func (o *WorkItemVersionModel) GetVersionId() string {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VersionId
+
+	return o.VersionId
 }
 
-// GetVersionIdOk returns a tuple with the VersionId field value if set, nil otherwise
+// GetVersionIdOk returns a tuple with the VersionId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemVersionModel) GetVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VersionId, true
+	return &o.VersionId, true
 }
 
-// HasVersionId returns a boolean if a field has been set.
-func (o *WorkItemVersionModel) HasVersionId() bool {
-	if o != nil && !IsNil(o.VersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetVersionId gets a reference to the given string and assigns it to the VersionId field.
+// SetVersionId sets field value
 func (o *WorkItemVersionModel) SetVersionId(v string) {
-	o.VersionId = &v
+	o.VersionId = v
 }
 
-// GetVersionNumber returns the VersionNumber field value if set, zero value otherwise.
+// GetVersionNumber returns the VersionNumber field value
 func (o *WorkItemVersionModel) GetVersionNumber() int32 {
-	if o == nil || IsNil(o.VersionNumber) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.VersionNumber
+
+	return o.VersionNumber
 }
 
-// GetVersionNumberOk returns a tuple with the VersionNumber field value if set, nil otherwise
+// GetVersionNumberOk returns a tuple with the VersionNumber field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemVersionModel) GetVersionNumberOk() (*int32, bool) {
-	if o == nil || IsNil(o.VersionNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VersionNumber, true
+	return &o.VersionNumber, true
 }
 
-// HasVersionNumber returns a boolean if a field has been set.
-func (o *WorkItemVersionModel) HasVersionNumber() bool {
-	if o != nil && !IsNil(o.VersionNumber) {
-		return true
-	}
-
-	return false
-}
-
-// SetVersionNumber gets a reference to the given int32 and assigns it to the VersionNumber field.
+// SetVersionNumber sets field value
 func (o *WorkItemVersionModel) SetVersionNumber(v int32) {
-	o.VersionNumber = &v
+	o.VersionNumber = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -203,12 +189,8 @@ func (o WorkItemVersionModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemVersionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.VersionId) {
-		toSerialize["versionId"] = o.VersionId
-	}
-	if !IsNil(o.VersionNumber) {
-		toSerialize["versionNumber"] = o.VersionNumber
-	}
+	toSerialize["versionId"] = o.VersionId
+	toSerialize["versionNumber"] = o.VersionNumber
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}

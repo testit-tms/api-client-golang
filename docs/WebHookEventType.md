@@ -33,6 +33,10 @@
 
 * `CONFIGURATION_CHANGED` (value: `"ConfigurationChanged"`)
 
+* `PROJECT_CHANGED` (value: `"ProjectChanged"`)
+
+* `TEST_PLAN_CHANGED` (value: `"TestPlanChanged"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

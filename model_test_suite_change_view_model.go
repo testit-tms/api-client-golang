@@ -19,18 +19,20 @@ var _ MappedNullable = &TestSuiteChangeViewModel{}
 
 // TestSuiteChangeViewModel struct for TestSuiteChangeViewModel
 type TestSuiteChangeViewModel struct {
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Id string `json:"id"`
+	Name NullableString `json:"name,omitempty"`
 	Configurations []ShortConfiguration `json:"configurations,omitempty"`
-	WorkItemCount *int64 `json:"workItemCount,omitempty"`
+	WorkItemCount int64 `json:"workItemCount"`
 }
 
 // NewTestSuiteChangeViewModel instantiates a new TestSuiteChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestSuiteChangeViewModel() *TestSuiteChangeViewModel {
+func NewTestSuiteChangeViewModel(id string, workItemCount int64) *TestSuiteChangeViewModel {
 	this := TestSuiteChangeViewModel{}
+	this.Id = id
+	this.WorkItemCount = workItemCount
 	return &this
 }
 
@@ -42,68 +44,70 @@ func NewTestSuiteChangeViewModelWithDefaults() *TestSuiteChangeViewModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestSuiteChangeViewModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestSuiteChangeViewModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestSuiteChangeViewModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestSuiteChangeViewModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestSuiteChangeViewModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestSuiteChangeViewModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestSuiteChangeViewModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *TestSuiteChangeViewModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *TestSuiteChangeViewModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *TestSuiteChangeViewModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetConfigurations returns the Configurations field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -139,36 +143,28 @@ func (o *TestSuiteChangeViewModel) SetConfigurations(v []ShortConfiguration) {
 	o.Configurations = v
 }
 
-// GetWorkItemCount returns the WorkItemCount field value if set, zero value otherwise.
+// GetWorkItemCount returns the WorkItemCount field value
 func (o *TestSuiteChangeViewModel) GetWorkItemCount() int64 {
-	if o == nil || IsNil(o.WorkItemCount) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.WorkItemCount
+
+	return o.WorkItemCount
 }
 
-// GetWorkItemCountOk returns a tuple with the WorkItemCount field value if set, nil otherwise
+// GetWorkItemCountOk returns a tuple with the WorkItemCount field value
 // and a boolean to check if the value has been set.
 func (o *TestSuiteChangeViewModel) GetWorkItemCountOk() (*int64, bool) {
-	if o == nil || IsNil(o.WorkItemCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemCount, true
+	return &o.WorkItemCount, true
 }
 
-// HasWorkItemCount returns a boolean if a field has been set.
-func (o *TestSuiteChangeViewModel) HasWorkItemCount() bool {
-	if o != nil && !IsNil(o.WorkItemCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItemCount gets a reference to the given int64 and assigns it to the WorkItemCount field.
+// SetWorkItemCount sets field value
 func (o *TestSuiteChangeViewModel) SetWorkItemCount(v int64) {
-	o.WorkItemCount = &v
+	o.WorkItemCount = v
 }
 
 func (o TestSuiteChangeViewModel) MarshalJSON() ([]byte, error) {
@@ -181,18 +177,14 @@ func (o TestSuiteChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o TestSuiteChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	toSerialize["id"] = o.Id
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if o.Configurations != nil {
 		toSerialize["configurations"] = o.Configurations
 	}
-	if !IsNil(o.WorkItemCount) {
-		toSerialize["workItemCount"] = o.WorkItemCount
-	}
+	toSerialize["workItemCount"] = o.WorkItemCount
 	return toSerialize, nil
 }
 

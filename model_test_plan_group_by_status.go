@@ -19,16 +19,17 @@ var _ MappedNullable = &TestPlanGroupByStatus{}
 
 // TestPlanGroupByStatus struct for TestPlanGroupByStatus
 type TestPlanGroupByStatus struct {
-	Status *string `json:"status,omitempty"`
-	Value *int64 `json:"value,omitempty"`
+	Status NullableString `json:"status,omitempty"`
+	Value int64 `json:"value"`
 }
 
 // NewTestPlanGroupByStatus instantiates a new TestPlanGroupByStatus object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanGroupByStatus() *TestPlanGroupByStatus {
+func NewTestPlanGroupByStatus(value int64) *TestPlanGroupByStatus {
 	this := TestPlanGroupByStatus{}
+	this.Value = value
 	return &this
 }
 
@@ -40,68 +41,70 @@ func NewTestPlanGroupByStatusWithDefaults() *TestPlanGroupByStatus {
 	return &this
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPlanGroupByStatus) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanGroupByStatus) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *TestPlanGroupByStatus) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
+	if o != nil && o.Status.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *TestPlanGroupByStatus) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
+}
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *TestPlanGroupByStatus) SetStatusNil() {
+	o.Status.Set(nil)
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *TestPlanGroupByStatus) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetValue returns the Value field value
 func (o *TestPlanGroupByStatus) GetValue() int64 {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.Value
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanGroupByStatus) GetValueOk() (*int64, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *TestPlanGroupByStatus) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given int64 and assigns it to the Value field.
+// SetValue sets field value
 func (o *TestPlanGroupByStatus) SetValue(v int64) {
-	o.Value = &v
+	o.Value = v
 }
 
 func (o TestPlanGroupByStatus) MarshalJSON() ([]byte, error) {
@@ -114,12 +117,10 @@ func (o TestPlanGroupByStatus) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanGroupByStatus) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 

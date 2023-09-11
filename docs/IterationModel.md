@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **Parameters** | Pointer to [**[]ParameterShortModel**](ParameterShortModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewIterationModel
 
-`func NewIterationModel() *IterationModel`
+`func NewIterationModel(id string, ) *IterationModel`
 
 NewIterationModel instantiates a new IterationModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *IterationModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetParameters
 
@@ -76,6 +71,16 @@ SetParameters sets Parameters field to given value.
 
 HasParameters returns a boolean if a field has been set.
 
+### SetParametersNil
+
+`func (o *IterationModel) SetParametersNil(b bool)`
+
+ SetParametersNil sets the value for Parameters to be an explicit nil
+
+### UnsetParameters
+`func (o *IterationModel) UnsetParameters()`
+
+UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

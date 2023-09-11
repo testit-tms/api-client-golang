@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Label name. | 
+**Name** | **string** | Name of the label | 
 
 ## Methods
 

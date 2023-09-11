@@ -19,17 +19,20 @@ var _ MappedNullable = &ValidateAntiForgeryTokenAttribute{}
 
 // ValidateAntiForgeryTokenAttribute struct for ValidateAntiForgeryTokenAttribute
 type ValidateAntiForgeryTokenAttribute struct {
-	Order *int32 `json:"order,omitempty"`
-	IsReusable *bool `json:"isReusable,omitempty"`
-	TypeId interface{} `json:"typeId,omitempty"`
+	Order int32 `json:"order"`
+	IsReusable bool `json:"isReusable"`
+	TypeId interface{} `json:"typeId"`
 }
 
 // NewValidateAntiForgeryTokenAttribute instantiates a new ValidateAntiForgeryTokenAttribute object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewValidateAntiForgeryTokenAttribute() *ValidateAntiForgeryTokenAttribute {
+func NewValidateAntiForgeryTokenAttribute(order int32, isReusable bool, typeId interface{}) *ValidateAntiForgeryTokenAttribute {
 	this := ValidateAntiForgeryTokenAttribute{}
+	this.Order = order
+	this.IsReusable = isReusable
+	this.TypeId = typeId
 	return &this
 }
 
@@ -41,80 +44,66 @@ func NewValidateAntiForgeryTokenAttributeWithDefaults() *ValidateAntiForgeryToke
 	return &this
 }
 
-// GetOrder returns the Order field value if set, zero value otherwise.
+// GetOrder returns the Order field value
 func (o *ValidateAntiForgeryTokenAttribute) GetOrder() int32 {
-	if o == nil || IsNil(o.Order) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Order
+
+	return o.Order
 }
 
-// GetOrderOk returns a tuple with the Order field value if set, nil otherwise
+// GetOrderOk returns a tuple with the Order field value
 // and a boolean to check if the value has been set.
 func (o *ValidateAntiForgeryTokenAttribute) GetOrderOk() (*int32, bool) {
-	if o == nil || IsNil(o.Order) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Order, true
+	return &o.Order, true
 }
 
-// HasOrder returns a boolean if a field has been set.
-func (o *ValidateAntiForgeryTokenAttribute) HasOrder() bool {
-	if o != nil && !IsNil(o.Order) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrder gets a reference to the given int32 and assigns it to the Order field.
+// SetOrder sets field value
 func (o *ValidateAntiForgeryTokenAttribute) SetOrder(v int32) {
-	o.Order = &v
+	o.Order = v
 }
 
-// GetIsReusable returns the IsReusable field value if set, zero value otherwise.
+// GetIsReusable returns the IsReusable field value
 func (o *ValidateAntiForgeryTokenAttribute) GetIsReusable() bool {
-	if o == nil || IsNil(o.IsReusable) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsReusable
+
+	return o.IsReusable
 }
 
-// GetIsReusableOk returns a tuple with the IsReusable field value if set, nil otherwise
+// GetIsReusableOk returns a tuple with the IsReusable field value
 // and a boolean to check if the value has been set.
 func (o *ValidateAntiForgeryTokenAttribute) GetIsReusableOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsReusable) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsReusable, true
+	return &o.IsReusable, true
 }
 
-// HasIsReusable returns a boolean if a field has been set.
-func (o *ValidateAntiForgeryTokenAttribute) HasIsReusable() bool {
-	if o != nil && !IsNil(o.IsReusable) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsReusable gets a reference to the given bool and assigns it to the IsReusable field.
+// SetIsReusable sets field value
 func (o *ValidateAntiForgeryTokenAttribute) SetIsReusable(v bool) {
-	o.IsReusable = &v
+	o.IsReusable = v
 }
 
-// GetTypeId returns the TypeId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypeId returns the TypeId field value
+// If the value is explicit nil, the zero value for interface{} will be returned
 func (o *ValidateAntiForgeryTokenAttribute) GetTypeId() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
+
 	return o.TypeId
 }
 
-// GetTypeIdOk returns a tuple with the TypeId field value if set, nil otherwise
+// GetTypeIdOk returns a tuple with the TypeId field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ValidateAntiForgeryTokenAttribute) GetTypeIdOk() (*interface{}, bool) {
@@ -124,16 +113,7 @@ func (o *ValidateAntiForgeryTokenAttribute) GetTypeIdOk() (*interface{}, bool) {
 	return &o.TypeId, true
 }
 
-// HasTypeId returns a boolean if a field has been set.
-func (o *ValidateAntiForgeryTokenAttribute) HasTypeId() bool {
-	if o != nil && IsNil(o.TypeId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTypeId gets a reference to the given interface{} and assigns it to the TypeId field.
+// SetTypeId sets field value
 func (o *ValidateAntiForgeryTokenAttribute) SetTypeId(v interface{}) {
 	o.TypeId = v
 }
@@ -148,9 +128,7 @@ func (o ValidateAntiForgeryTokenAttribute) MarshalJSON() ([]byte, error) {
 
 func (o ValidateAntiForgeryTokenAttribute) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Order) {
-		toSerialize["order"] = o.Order
-	}
+	toSerialize["order"] = o.Order
 	// skip: isReusable is readOnly
 	if o.TypeId != nil {
 		toSerialize["typeId"] = o.TypeId

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Errors** | Pointer to **map[string][]string** |  | [optional] 
+**Errors** | **map[string][]string** |  | 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** |  | [optional] 
 **Status** | Pointer to **NullableInt32** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewValidationProblemDetails
 
-`func NewValidationProblemDetails() *ValidationProblemDetails`
+`func NewValidationProblemDetails(errors map[string][]string, ) *ValidationProblemDetails`
 
 NewValidationProblemDetails instantiates a new ValidationProblemDetails object
 This constructor will assign default values to properties that have it defined,
@@ -49,11 +49,6 @@ and a boolean to check if the value has been set.
 
 SetErrors sets Errors field to given value.
 
-### HasErrors
-
-`func (o *ValidationProblemDetails) HasErrors() bool`
-
-HasErrors returns a boolean if a field has been set.
 
 ### GetType
 

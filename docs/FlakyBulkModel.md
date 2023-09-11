@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AutotestSelect** | Pointer to [**FlakyBulkModelAutotestSelect**](FlakyBulkModelAutotestSelect.md) |  | [optional] 
+**AutotestSelect** | Pointer to [**NullableAutotestSelectModel**](AutotestSelectModel.md) |  | [optional] 
 **Value** | **bool** | Are autotests flaky | 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAutotestSelect
 
-`func (o *FlakyBulkModel) GetAutotestSelect() FlakyBulkModelAutotestSelect`
+`func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel`
 
 GetAutotestSelect returns the AutotestSelect field if non-nil, zero value otherwise.
 
 ### GetAutotestSelectOk
 
-`func (o *FlakyBulkModel) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool)`
+`func (o *FlakyBulkModel) GetAutotestSelectOk() (*AutotestSelectModel, bool)`
 
 GetAutotestSelectOk returns a tuple with the AutotestSelect field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutotestSelect
 
-`func (o *FlakyBulkModel) SetAutotestSelect(v FlakyBulkModelAutotestSelect)`
+`func (o *FlakyBulkModel) SetAutotestSelect(v AutotestSelectModel)`
 
 SetAutotestSelect sets AutotestSelect field to given value.
 
@@ -51,6 +51,16 @@ SetAutotestSelect sets AutotestSelect field to given value.
 
 HasAutotestSelect returns a boolean if a field has been set.
 
+### SetAutotestSelectNil
+
+`func (o *FlakyBulkModel) SetAutotestSelectNil(b bool)`
+
+ SetAutotestSelectNil sets the value for AutotestSelect to be an explicit nil
+
+### UnsetAutotestSelect
+`func (o *FlakyBulkModel) UnsetAutotestSelect()`
+
+UnsetAutotestSelect ensures that no value is present for AutotestSelect, not even an explicit nil
 ### GetValue
 
 `func (o *FlakyBulkModel) GetValue() bool`

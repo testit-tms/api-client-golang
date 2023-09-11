@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **Value** | **string** |  | 
 **Name** | **string** |  | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewUpdateParameterRequest
 
-`func NewUpdateParameterRequest(value string, name string, ) *UpdateParameterRequest`
+`func NewUpdateParameterRequest(id string, value string, name string, ) *UpdateParameterRequest`
 
 NewUpdateParameterRequest instantiates a new UpdateParameterRequest object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *UpdateParameterRequest) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetValue
 

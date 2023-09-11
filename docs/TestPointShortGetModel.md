@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Unique ID of the test point | [optional] 
-**CreatedDate** | Pointer to **time.Time** | Creation date of the test point | [optional] 
-**CreatedById** | Pointer to **string** | Unique ID of the test point creator | [optional] 
+**Id** | **string** | Unique ID of the test point | 
+**CreatedDate** | **time.Time** | Creation date of the test point | 
+**CreatedById** | **string** | Unique ID of the test point creator | 
 **ModifiedDate** | Pointer to **NullableTime** | Last modification date of the test point | [optional] 
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the test point last editor | [optional] 
 **TesterId** | Pointer to **NullableString** | Unique ID of the test point assigned user | [optional] 
@@ -14,24 +14,25 @@ Name | Type | Description | Notes
 **Attributes** | Pointer to **map[string]interface{}** | Collection of attributes of work item the test point represents | [optional] 
 **Tags** | Pointer to **[]string** | Collection of the test point tags | [optional] 
 **Links** | Pointer to **[]string** | Collection of the test point links | [optional] 
-**TestSuiteId** | Pointer to **string** | Unique ID of test suite the test point assigned to | [optional] 
-**WorkItemId** | Pointer to **string** | Unique ID of work item the test point represents | [optional] 
-**WorkItemGlobalId** | Pointer to **int64** | Global ID of work item the test point represents | [optional] 
-**WorkItemVersionId** | Pointer to **string** | Unique ID of work item version the test point represents | [optional] 
+**TestSuiteId** | **string** | Unique ID of test suite the test point assigned to | 
+**WorkItemId** | **string** | Unique ID of work item the test point represents | 
+**WorkItemGlobalId** | **int64** | Global ID of work item the test point represents | 
+**WorkItemVersionId** | **string** | Unique ID of work item version the test point represents | 
+**WorkItemMedianDuration** | Pointer to **NullableInt64** | Median duration of work item the test point represents | [optional] 
 **Status** | [**TestPointStatus**](TestPointStatus.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**IsAutomated** | Pointer to **bool** | Indicates if the test point represents an autotest | [optional] 
-**Name** | Pointer to **string** | Name of the test point | [optional] 
-**ConfigurationId** | Pointer to **string** | Unique ID of the test point configuration | [optional] 
-**Duration** | Pointer to **int32** | Duration of the test point | [optional] 
-**SectionId** | Pointer to **string** | Unique ID of section where work item the test point represents is located | [optional] 
+**IsAutomated** | **bool** | Indicates if the test point represents an autotest | 
+**Name** | Pointer to **NullableString** | Name of the test point | [optional] 
+**ConfigurationId** | **string** | Unique ID of the test point configuration | 
+**Duration** | **int32** | Duration of the test point | 
+**SectionId** | **string** | Unique ID of section where work item the test point represents is located | 
 **SectionName** | Pointer to **NullableString** | Name of section where work item the test point represents is located | [optional] 
-**ProjectId** | Pointer to **string** | Unique ID of the test point project | [optional] 
+**ProjectId** | **string** | Unique ID of the test point project | 
 **LastTestResult** | [**TestPointShortGetModelLastTestResult**](TestPointShortGetModelLastTestResult.md) |  | 
-**IterationId** | Pointer to **string** | Unique ID of work item iteration the test point represents | [optional] 
-**WorkItemState** | Pointer to [**WorkItemState**](WorkItemState.md) |  | [optional] 
-**WorkItemCreatedById** | Pointer to **string** | Unique ID of the work item creator | [optional] 
-**WorkItemCreatedDate** | Pointer to **time.Time** | Creation date of work item | [optional] 
+**IterationId** | **string** | Unique ID of work item iteration the test point represents | 
+**WorkItemState** | [**WorkItemState**](WorkItemState.md) |  | 
+**WorkItemCreatedById** | **string** | Unique ID of the work item creator | 
+**WorkItemCreatedDate** | **time.Time** | Creation date of work item | 
 **WorkItemModifiedById** | Pointer to **NullableString** | Unique ID of the work item last editor | [optional] 
 **WorkItemModifiedDate** | Pointer to **NullableTime** | Modified date of work item | [optional] 
 
@@ -39,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointShortGetModel
 
-`func NewTestPointShortGetModel(status TestPointStatus, priority WorkItemPriorityModel, lastTestResult TestPointShortGetModelLastTestResult, ) *TestPointShortGetModel`
+`func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, testSuiteId string, workItemId string, workItemGlobalId int64, workItemVersionId string, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortGetModel`
 
 NewTestPointShortGetModel instantiates a new TestPointShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -73,11 +74,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestPointShortGetModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -98,11 +94,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *TestPointShortGetModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetCreatedById
 
@@ -123,11 +114,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *TestPointShortGetModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -294,6 +280,16 @@ SetAttributes sets Attributes field to given value.
 
 HasAttributes returns a boolean if a field has been set.
 
+### SetAttributesNil
+
+`func (o *TestPointShortGetModel) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *TestPointShortGetModel) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetTags
 
 `func (o *TestPointShortGetModel) GetTags() []string`
@@ -319,6 +315,16 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *TestPointShortGetModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *TestPointShortGetModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetLinks
 
 `func (o *TestPointShortGetModel) GetLinks() []string`
@@ -344,6 +350,16 @@ SetLinks sets Links field to given value.
 
 HasLinks returns a boolean if a field has been set.
 
+### SetLinksNil
+
+`func (o *TestPointShortGetModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *TestPointShortGetModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetTestSuiteId
 
 `func (o *TestPointShortGetModel) GetTestSuiteId() string`
@@ -363,11 +379,6 @@ and a boolean to check if the value has been set.
 
 SetTestSuiteId sets TestSuiteId field to given value.
 
-### HasTestSuiteId
-
-`func (o *TestPointShortGetModel) HasTestSuiteId() bool`
-
-HasTestSuiteId returns a boolean if a field has been set.
 
 ### GetWorkItemId
 
@@ -388,11 +399,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemId sets WorkItemId field to given value.
 
-### HasWorkItemId
-
-`func (o *TestPointShortGetModel) HasWorkItemId() bool`
-
-HasWorkItemId returns a boolean if a field has been set.
 
 ### GetWorkItemGlobalId
 
@@ -413,11 +419,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemGlobalId sets WorkItemGlobalId field to given value.
 
-### HasWorkItemGlobalId
-
-`func (o *TestPointShortGetModel) HasWorkItemGlobalId() bool`
-
-HasWorkItemGlobalId returns a boolean if a field has been set.
 
 ### GetWorkItemVersionId
 
@@ -438,12 +439,42 @@ and a boolean to check if the value has been set.
 
 SetWorkItemVersionId sets WorkItemVersionId field to given value.
 
-### HasWorkItemVersionId
 
-`func (o *TestPointShortGetModel) HasWorkItemVersionId() bool`
+### GetWorkItemMedianDuration
 
-HasWorkItemVersionId returns a boolean if a field has been set.
+`func (o *TestPointShortGetModel) GetWorkItemMedianDuration() int64`
 
+GetWorkItemMedianDuration returns the WorkItemMedianDuration field if non-nil, zero value otherwise.
+
+### GetWorkItemMedianDurationOk
+
+`func (o *TestPointShortGetModel) GetWorkItemMedianDurationOk() (*int64, bool)`
+
+GetWorkItemMedianDurationOk returns a tuple with the WorkItemMedianDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemMedianDuration
+
+`func (o *TestPointShortGetModel) SetWorkItemMedianDuration(v int64)`
+
+SetWorkItemMedianDuration sets WorkItemMedianDuration field to given value.
+
+### HasWorkItemMedianDuration
+
+`func (o *TestPointShortGetModel) HasWorkItemMedianDuration() bool`
+
+HasWorkItemMedianDuration returns a boolean if a field has been set.
+
+### SetWorkItemMedianDurationNil
+
+`func (o *TestPointShortGetModel) SetWorkItemMedianDurationNil(b bool)`
+
+ SetWorkItemMedianDurationNil sets the value for WorkItemMedianDuration to be an explicit nil
+
+### UnsetWorkItemMedianDuration
+`func (o *TestPointShortGetModel) UnsetWorkItemMedianDuration()`
+
+UnsetWorkItemMedianDuration ensures that no value is present for WorkItemMedianDuration, not even an explicit nil
 ### GetStatus
 
 `func (o *TestPointShortGetModel) GetStatus() TestPointStatus`
@@ -503,11 +534,6 @@ and a boolean to check if the value has been set.
 
 SetIsAutomated sets IsAutomated field to given value.
 
-### HasIsAutomated
-
-`func (o *TestPointShortGetModel) HasIsAutomated() bool`
-
-HasIsAutomated returns a boolean if a field has been set.
 
 ### GetName
 
@@ -534,6 +560,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *TestPointShortGetModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *TestPointShortGetModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetConfigurationId
 
 `func (o *TestPointShortGetModel) GetConfigurationId() string`
@@ -553,11 +589,6 @@ and a boolean to check if the value has been set.
 
 SetConfigurationId sets ConfigurationId field to given value.
 
-### HasConfigurationId
-
-`func (o *TestPointShortGetModel) HasConfigurationId() bool`
-
-HasConfigurationId returns a boolean if a field has been set.
 
 ### GetDuration
 
@@ -578,11 +609,6 @@ and a boolean to check if the value has been set.
 
 SetDuration sets Duration field to given value.
 
-### HasDuration
-
-`func (o *TestPointShortGetModel) HasDuration() bool`
-
-HasDuration returns a boolean if a field has been set.
 
 ### GetSectionId
 
@@ -603,11 +629,6 @@ and a boolean to check if the value has been set.
 
 SetSectionId sets SectionId field to given value.
 
-### HasSectionId
-
-`func (o *TestPointShortGetModel) HasSectionId() bool`
-
-HasSectionId returns a boolean if a field has been set.
 
 ### GetSectionName
 
@@ -663,11 +684,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *TestPointShortGetModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetLastTestResult
 
@@ -708,11 +724,6 @@ and a boolean to check if the value has been set.
 
 SetIterationId sets IterationId field to given value.
 
-### HasIterationId
-
-`func (o *TestPointShortGetModel) HasIterationId() bool`
-
-HasIterationId returns a boolean if a field has been set.
 
 ### GetWorkItemState
 
@@ -733,11 +744,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemState sets WorkItemState field to given value.
 
-### HasWorkItemState
-
-`func (o *TestPointShortGetModel) HasWorkItemState() bool`
-
-HasWorkItemState returns a boolean if a field has been set.
 
 ### GetWorkItemCreatedById
 
@@ -758,11 +764,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemCreatedById sets WorkItemCreatedById field to given value.
 
-### HasWorkItemCreatedById
-
-`func (o *TestPointShortGetModel) HasWorkItemCreatedById() bool`
-
-HasWorkItemCreatedById returns a boolean if a field has been set.
 
 ### GetWorkItemCreatedDate
 
@@ -783,11 +784,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemCreatedDate sets WorkItemCreatedDate field to given value.
 
-### HasWorkItemCreatedDate
-
-`func (o *TestPointShortGetModel) HasWorkItemCreatedDate() bool`
-
-HasWorkItemCreatedDate returns a boolean if a field has been set.
 
 ### GetWorkItemModifiedById
 

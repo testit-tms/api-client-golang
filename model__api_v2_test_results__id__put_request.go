@@ -19,16 +19,20 @@ var _ MappedNullable = &ApiV2TestResultsIdPutRequest{}
 
 // ApiV2TestResultsIdPutRequest struct for ApiV2TestResultsIdPutRequest
 type ApiV2TestResultsIdPutRequest struct {
-	SetupResults []AttachmentPutModelAutoTestStepResultsModel `json:"setupResults,omitempty"`
-	TeardownResults []AttachmentPutModelAutoTestStepResultsModel `json:"teardownResults,omitempty"`
-	DurationInMs NullableInt64 `json:"durationInMs,omitempty"`
-	StepComments []TestResultStepCommentPutModel `json:"stepComments,omitempty"`
 	FailureClassIds []string `json:"failureClassIds,omitempty"`
-	Outcome *string `json:"outcome,omitempty"`
+	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	StepResults []StepResultModel `json:"stepResults,omitempty"`
 	Attachments []AttachmentPutModel `json:"attachments,omitempty"`
+	// Deprecated
+	DurationInMs NullableInt64 `json:"durationInMs,omitempty"`
+	Duration NullableInt64 `json:"duration,omitempty"`
+	StepComments []TestResultStepCommentPutModel `json:"stepComments,omitempty"`
+	SetupResults []AttachmentPutModelAutoTestStepResultsModel `json:"setupResults,omitempty"`
+	TeardownResults []AttachmentPutModelAutoTestStepResultsModel `json:"teardownResults,omitempty"`
+	Message NullableString `json:"message,omitempty"`
+	Trace NullableString `json:"trace,omitempty"`
 }
 
 // NewApiV2TestResultsIdPutRequest instantiates a new ApiV2TestResultsIdPutRequest object
@@ -48,149 +52,9 @@ func NewApiV2TestResultsIdPutRequestWithDefaults() *ApiV2TestResultsIdPutRequest
 	return &this
 }
 
-// GetSetupResults returns the SetupResults field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApiV2TestResultsIdPutRequest) GetSetupResults() []AttachmentPutModelAutoTestStepResultsModel {
-	if o == nil {
-		var ret []AttachmentPutModelAutoTestStepResultsModel
-		return ret
-	}
-	return o.SetupResults
-}
-
-// GetSetupResultsOk returns a tuple with the SetupResults field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApiV2TestResultsIdPutRequest) GetSetupResultsOk() ([]AttachmentPutModelAutoTestStepResultsModel, bool) {
-	if o == nil || IsNil(o.SetupResults) {
-		return nil, false
-	}
-	return o.SetupResults, true
-}
-
-// HasSetupResults returns a boolean if a field has been set.
-func (o *ApiV2TestResultsIdPutRequest) HasSetupResults() bool {
-	if o != nil && IsNil(o.SetupResults) {
-		return true
-	}
-
-	return false
-}
-
-// SetSetupResults gets a reference to the given []AttachmentPutModelAutoTestStepResultsModel and assigns it to the SetupResults field.
-func (o *ApiV2TestResultsIdPutRequest) SetSetupResults(v []AttachmentPutModelAutoTestStepResultsModel) {
-	o.SetupResults = v
-}
-
-// GetTeardownResults returns the TeardownResults field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApiV2TestResultsIdPutRequest) GetTeardownResults() []AttachmentPutModelAutoTestStepResultsModel {
-	if o == nil {
-		var ret []AttachmentPutModelAutoTestStepResultsModel
-		return ret
-	}
-	return o.TeardownResults
-}
-
-// GetTeardownResultsOk returns a tuple with the TeardownResults field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApiV2TestResultsIdPutRequest) GetTeardownResultsOk() ([]AttachmentPutModelAutoTestStepResultsModel, bool) {
-	if o == nil || IsNil(o.TeardownResults) {
-		return nil, false
-	}
-	return o.TeardownResults, true
-}
-
-// HasTeardownResults returns a boolean if a field has been set.
-func (o *ApiV2TestResultsIdPutRequest) HasTeardownResults() bool {
-	if o != nil && IsNil(o.TeardownResults) {
-		return true
-	}
-
-	return false
-}
-
-// SetTeardownResults gets a reference to the given []AttachmentPutModelAutoTestStepResultsModel and assigns it to the TeardownResults field.
-func (o *ApiV2TestResultsIdPutRequest) SetTeardownResults(v []AttachmentPutModelAutoTestStepResultsModel) {
-	o.TeardownResults = v
-}
-
-// GetDurationInMs returns the DurationInMs field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApiV2TestResultsIdPutRequest) GetDurationInMs() int64 {
-	if o == nil || IsNil(o.DurationInMs.Get()) {
-		var ret int64
-		return ret
-	}
-	return *o.DurationInMs.Get()
-}
-
-// GetDurationInMsOk returns a tuple with the DurationInMs field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApiV2TestResultsIdPutRequest) GetDurationInMsOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.DurationInMs.Get(), o.DurationInMs.IsSet()
-}
-
-// HasDurationInMs returns a boolean if a field has been set.
-func (o *ApiV2TestResultsIdPutRequest) HasDurationInMs() bool {
-	if o != nil && o.DurationInMs.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDurationInMs gets a reference to the given NullableInt64 and assigns it to the DurationInMs field.
-func (o *ApiV2TestResultsIdPutRequest) SetDurationInMs(v int64) {
-	o.DurationInMs.Set(&v)
-}
-// SetDurationInMsNil sets the value for DurationInMs to be an explicit nil
-func (o *ApiV2TestResultsIdPutRequest) SetDurationInMsNil() {
-	o.DurationInMs.Set(nil)
-}
-
-// UnsetDurationInMs ensures that no value is present for DurationInMs, not even an explicit nil
-func (o *ApiV2TestResultsIdPutRequest) UnsetDurationInMs() {
-	o.DurationInMs.Unset()
-}
-
-// GetStepComments returns the StepComments field value if set, zero value otherwise.
-func (o *ApiV2TestResultsIdPutRequest) GetStepComments() []TestResultStepCommentPutModel {
-	if o == nil || IsNil(o.StepComments) {
-		var ret []TestResultStepCommentPutModel
-		return ret
-	}
-	return o.StepComments
-}
-
-// GetStepCommentsOk returns a tuple with the StepComments field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ApiV2TestResultsIdPutRequest) GetStepCommentsOk() ([]TestResultStepCommentPutModel, bool) {
-	if o == nil || IsNil(o.StepComments) {
-		return nil, false
-	}
-	return o.StepComments, true
-}
-
-// HasStepComments returns a boolean if a field has been set.
-func (o *ApiV2TestResultsIdPutRequest) HasStepComments() bool {
-	if o != nil && !IsNil(o.StepComments) {
-		return true
-	}
-
-	return false
-}
-
-// SetStepComments gets a reference to the given []TestResultStepCommentPutModel and assigns it to the StepComments field.
-func (o *ApiV2TestResultsIdPutRequest) SetStepComments(v []TestResultStepCommentPutModel) {
-	o.StepComments = v
-}
-
-// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise.
+// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiV2TestResultsIdPutRequest) GetFailureClassIds() []string {
-	if o == nil || IsNil(o.FailureClassIds) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -199,6 +63,7 @@ func (o *ApiV2TestResultsIdPutRequest) GetFailureClassIds() []string {
 
 // GetFailureClassIdsOk returns a tuple with the FailureClassIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2TestResultsIdPutRequest) GetFailureClassIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.FailureClassIds) {
 		return nil, false
@@ -208,7 +73,7 @@ func (o *ApiV2TestResultsIdPutRequest) GetFailureClassIdsOk() ([]string, bool) {
 
 // HasFailureClassIds returns a boolean if a field has been set.
 func (o *ApiV2TestResultsIdPutRequest) HasFailureClassIds() bool {
-	if o != nil && !IsNil(o.FailureClassIds) {
+	if o != nil && IsNil(o.FailureClassIds) {
 		return true
 	}
 
@@ -220,36 +85,46 @@ func (o *ApiV2TestResultsIdPutRequest) SetFailureClassIds(v []string) {
 	o.FailureClassIds = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise.
-func (o *ApiV2TestResultsIdPutRequest) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome) {
-		var ret string
+// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsIdPutRequest) GetOutcome() TestResultOutcome {
+	if o == nil || IsNil(o.Outcome.Get()) {
+		var ret TestResultOutcome
 		return ret
 	}
-	return *o.Outcome
+	return *o.Outcome.Get()
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiV2TestResultsIdPutRequest) GetOutcomeOk() (*string, bool) {
-	if o == nil || IsNil(o.Outcome) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsIdPutRequest) GetOutcomeOk() (*TestResultOutcome, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Outcome, true
+	return o.Outcome.Get(), o.Outcome.IsSet()
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *ApiV2TestResultsIdPutRequest) HasOutcome() bool {
-	if o != nil && !IsNil(o.Outcome) {
+	if o != nil && o.Outcome.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
-func (o *ApiV2TestResultsIdPutRequest) SetOutcome(v string) {
-	o.Outcome = &v
+// SetOutcome gets a reference to the given NullableTestResultOutcome and assigns it to the Outcome field.
+func (o *ApiV2TestResultsIdPutRequest) SetOutcome(v TestResultOutcome) {
+	o.Outcome.Set(&v)
+}
+// SetOutcomeNil sets the value for Outcome to be an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) SetOutcomeNil() {
+	o.Outcome.Set(nil)
+}
+
+// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) UnsetOutcome() {
+	o.Outcome.Unset()
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -327,9 +202,9 @@ func (o *ApiV2TestResultsIdPutRequest) SetLinks(v []LinkModel) {
 	o.Links = v
 }
 
-// GetStepResults returns the StepResults field value if set, zero value otherwise.
+// GetStepResults returns the StepResults field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiV2TestResultsIdPutRequest) GetStepResults() []StepResultModel {
-	if o == nil || IsNil(o.StepResults) {
+	if o == nil {
 		var ret []StepResultModel
 		return ret
 	}
@@ -338,6 +213,7 @@ func (o *ApiV2TestResultsIdPutRequest) GetStepResults() []StepResultModel {
 
 // GetStepResultsOk returns a tuple with the StepResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2TestResultsIdPutRequest) GetStepResultsOk() ([]StepResultModel, bool) {
 	if o == nil || IsNil(o.StepResults) {
 		return nil, false
@@ -347,7 +223,7 @@ func (o *ApiV2TestResultsIdPutRequest) GetStepResultsOk() ([]StepResultModel, bo
 
 // HasStepResults returns a boolean if a field has been set.
 func (o *ApiV2TestResultsIdPutRequest) HasStepResults() bool {
-	if o != nil && !IsNil(o.StepResults) {
+	if o != nil && IsNil(o.StepResults) {
 		return true
 	}
 
@@ -392,6 +268,276 @@ func (o *ApiV2TestResultsIdPutRequest) SetAttachments(v []AttachmentPutModel) {
 	o.Attachments = v
 }
 
+// GetDurationInMs returns the DurationInMs field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
+func (o *ApiV2TestResultsIdPutRequest) GetDurationInMs() int64 {
+	if o == nil || IsNil(o.DurationInMs.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.DurationInMs.Get()
+}
+
+// GetDurationInMsOk returns a tuple with the DurationInMs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
+func (o *ApiV2TestResultsIdPutRequest) GetDurationInMsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DurationInMs.Get(), o.DurationInMs.IsSet()
+}
+
+// HasDurationInMs returns a boolean if a field has been set.
+func (o *ApiV2TestResultsIdPutRequest) HasDurationInMs() bool {
+	if o != nil && o.DurationInMs.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDurationInMs gets a reference to the given NullableInt64 and assigns it to the DurationInMs field.
+// Deprecated
+func (o *ApiV2TestResultsIdPutRequest) SetDurationInMs(v int64) {
+	o.DurationInMs.Set(&v)
+}
+// SetDurationInMsNil sets the value for DurationInMs to be an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) SetDurationInMsNil() {
+	o.DurationInMs.Set(nil)
+}
+
+// UnsetDurationInMs ensures that no value is present for DurationInMs, not even an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) UnsetDurationInMs() {
+	o.DurationInMs.Unset()
+}
+
+// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsIdPutRequest) GetDuration() int64 {
+	if o == nil || IsNil(o.Duration.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.Duration.Get()
+}
+
+// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsIdPutRequest) GetDurationOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Duration.Get(), o.Duration.IsSet()
+}
+
+// HasDuration returns a boolean if a field has been set.
+func (o *ApiV2TestResultsIdPutRequest) HasDuration() bool {
+	if o != nil && o.Duration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDuration gets a reference to the given NullableInt64 and assigns it to the Duration field.
+func (o *ApiV2TestResultsIdPutRequest) SetDuration(v int64) {
+	o.Duration.Set(&v)
+}
+// SetDurationNil sets the value for Duration to be an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) SetDurationNil() {
+	o.Duration.Set(nil)
+}
+
+// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) UnsetDuration() {
+	o.Duration.Unset()
+}
+
+// GetStepComments returns the StepComments field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsIdPutRequest) GetStepComments() []TestResultStepCommentPutModel {
+	if o == nil {
+		var ret []TestResultStepCommentPutModel
+		return ret
+	}
+	return o.StepComments
+}
+
+// GetStepCommentsOk returns a tuple with the StepComments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsIdPutRequest) GetStepCommentsOk() ([]TestResultStepCommentPutModel, bool) {
+	if o == nil || IsNil(o.StepComments) {
+		return nil, false
+	}
+	return o.StepComments, true
+}
+
+// HasStepComments returns a boolean if a field has been set.
+func (o *ApiV2TestResultsIdPutRequest) HasStepComments() bool {
+	if o != nil && IsNil(o.StepComments) {
+		return true
+	}
+
+	return false
+}
+
+// SetStepComments gets a reference to the given []TestResultStepCommentPutModel and assigns it to the StepComments field.
+func (o *ApiV2TestResultsIdPutRequest) SetStepComments(v []TestResultStepCommentPutModel) {
+	o.StepComments = v
+}
+
+// GetSetupResults returns the SetupResults field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsIdPutRequest) GetSetupResults() []AttachmentPutModelAutoTestStepResultsModel {
+	if o == nil {
+		var ret []AttachmentPutModelAutoTestStepResultsModel
+		return ret
+	}
+	return o.SetupResults
+}
+
+// GetSetupResultsOk returns a tuple with the SetupResults field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsIdPutRequest) GetSetupResultsOk() ([]AttachmentPutModelAutoTestStepResultsModel, bool) {
+	if o == nil || IsNil(o.SetupResults) {
+		return nil, false
+	}
+	return o.SetupResults, true
+}
+
+// HasSetupResults returns a boolean if a field has been set.
+func (o *ApiV2TestResultsIdPutRequest) HasSetupResults() bool {
+	if o != nil && IsNil(o.SetupResults) {
+		return true
+	}
+
+	return false
+}
+
+// SetSetupResults gets a reference to the given []AttachmentPutModelAutoTestStepResultsModel and assigns it to the SetupResults field.
+func (o *ApiV2TestResultsIdPutRequest) SetSetupResults(v []AttachmentPutModelAutoTestStepResultsModel) {
+	o.SetupResults = v
+}
+
+// GetTeardownResults returns the TeardownResults field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsIdPutRequest) GetTeardownResults() []AttachmentPutModelAutoTestStepResultsModel {
+	if o == nil {
+		var ret []AttachmentPutModelAutoTestStepResultsModel
+		return ret
+	}
+	return o.TeardownResults
+}
+
+// GetTeardownResultsOk returns a tuple with the TeardownResults field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsIdPutRequest) GetTeardownResultsOk() ([]AttachmentPutModelAutoTestStepResultsModel, bool) {
+	if o == nil || IsNil(o.TeardownResults) {
+		return nil, false
+	}
+	return o.TeardownResults, true
+}
+
+// HasTeardownResults returns a boolean if a field has been set.
+func (o *ApiV2TestResultsIdPutRequest) HasTeardownResults() bool {
+	if o != nil && IsNil(o.TeardownResults) {
+		return true
+	}
+
+	return false
+}
+
+// SetTeardownResults gets a reference to the given []AttachmentPutModelAutoTestStepResultsModel and assigns it to the TeardownResults field.
+func (o *ApiV2TestResultsIdPutRequest) SetTeardownResults(v []AttachmentPutModelAutoTestStepResultsModel) {
+	o.TeardownResults = v
+}
+
+// GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsIdPutRequest) GetMessage() string {
+	if o == nil || IsNil(o.Message.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Message.Get()
+}
+
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsIdPutRequest) GetMessageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Message.Get(), o.Message.IsSet()
+}
+
+// HasMessage returns a boolean if a field has been set.
+func (o *ApiV2TestResultsIdPutRequest) HasMessage() bool {
+	if o != nil && o.Message.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given NullableString and assigns it to the Message field.
+func (o *ApiV2TestResultsIdPutRequest) SetMessage(v string) {
+	o.Message.Set(&v)
+}
+// SetMessageNil sets the value for Message to be an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) SetMessageNil() {
+	o.Message.Set(nil)
+}
+
+// UnsetMessage ensures that no value is present for Message, not even an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) UnsetMessage() {
+	o.Message.Unset()
+}
+
+// GetTrace returns the Trace field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsIdPutRequest) GetTrace() string {
+	if o == nil || IsNil(o.Trace.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Trace.Get()
+}
+
+// GetTraceOk returns a tuple with the Trace field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsIdPutRequest) GetTraceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Trace.Get(), o.Trace.IsSet()
+}
+
+// HasTrace returns a boolean if a field has been set.
+func (o *ApiV2TestResultsIdPutRequest) HasTrace() bool {
+	if o != nil && o.Trace.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTrace gets a reference to the given NullableString and assigns it to the Trace field.
+func (o *ApiV2TestResultsIdPutRequest) SetTrace(v string) {
+	o.Trace.Set(&v)
+}
+// SetTraceNil sets the value for Trace to be an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) SetTraceNil() {
+	o.Trace.Set(nil)
+}
+
+// UnsetTrace ensures that no value is present for Trace, not even an explicit nil
+func (o *ApiV2TestResultsIdPutRequest) UnsetTrace() {
+	o.Trace.Unset()
+}
+
 func (o ApiV2TestResultsIdPutRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -402,23 +548,11 @@ func (o ApiV2TestResultsIdPutRequest) MarshalJSON() ([]byte, error) {
 
 func (o ApiV2TestResultsIdPutRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.SetupResults != nil {
-		toSerialize["setupResults"] = o.SetupResults
-	}
-	if o.TeardownResults != nil {
-		toSerialize["teardownResults"] = o.TeardownResults
-	}
-	if o.DurationInMs.IsSet() {
-		toSerialize["durationInMs"] = o.DurationInMs.Get()
-	}
-	if !IsNil(o.StepComments) {
-		toSerialize["stepComments"] = o.StepComments
-	}
-	if !IsNil(o.FailureClassIds) {
+	if o.FailureClassIds != nil {
 		toSerialize["failureClassIds"] = o.FailureClassIds
 	}
-	if !IsNil(o.Outcome) {
-		toSerialize["outcome"] = o.Outcome
+	if o.Outcome.IsSet() {
+		toSerialize["outcome"] = o.Outcome.Get()
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()
@@ -426,11 +560,32 @@ func (o ApiV2TestResultsIdPutRequest) ToMap() (map[string]interface{}, error) {
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
 	}
-	if !IsNil(o.StepResults) {
+	if o.StepResults != nil {
 		toSerialize["stepResults"] = o.StepResults
 	}
 	if o.Attachments != nil {
 		toSerialize["attachments"] = o.Attachments
+	}
+	if o.DurationInMs.IsSet() {
+		toSerialize["durationInMs"] = o.DurationInMs.Get()
+	}
+	if o.Duration.IsSet() {
+		toSerialize["duration"] = o.Duration.Get()
+	}
+	if o.StepComments != nil {
+		toSerialize["stepComments"] = o.StepComments
+	}
+	if o.SetupResults != nil {
+		toSerialize["setupResults"] = o.SetupResults
+	}
+	if o.TeardownResults != nil {
+		toSerialize["teardownResults"] = o.TeardownResults
+	}
+	if o.Message.IsSet() {
+		toSerialize["message"] = o.Message.Get()
+	}
+	if o.Trace.IsSet() {
+		toSerialize["trace"] = o.Trace.Get()
 	}
 	return toSerialize, nil
 }

@@ -22,7 +22,7 @@ type TestSuiteV2PutModel struct {
 	Id string `json:"id"`
 	ParentId NullableString `json:"parentId,omitempty"`
 	Name string `json:"name"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 	AutoRefresh NullableBool `json:"autoRefresh,omitempty"`
 }
 
@@ -30,10 +30,11 @@ type TestSuiteV2PutModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestSuiteV2PutModel(id string, name string) *TestSuiteV2PutModel {
+func NewTestSuiteV2PutModel(id string, name string, isDeleted bool) *TestSuiteV2PutModel {
 	this := TestSuiteV2PutModel{}
 	this.Id = id
 	this.Name = name
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -135,36 +136,28 @@ func (o *TestSuiteV2PutModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *TestSuiteV2PutModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *TestSuiteV2PutModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *TestSuiteV2PutModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *TestSuiteV2PutModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 // GetAutoRefresh returns the AutoRefresh field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,9 +217,7 @@ func (o TestSuiteV2PutModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["parentId"] = o.ParentId.Get()
 	}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["isDeleted"] = o.IsDeleted
 	if o.AutoRefresh.IsSet() {
 		toSerialize["autoRefresh"] = o.AutoRefresh.Get()
 	}

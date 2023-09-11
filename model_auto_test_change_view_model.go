@@ -19,18 +19,21 @@ var _ MappedNullable = &AutoTestChangeViewModel{}
 
 // AutoTestChangeViewModel struct for AutoTestChangeViewModel
 type AutoTestChangeViewModel struct {
-	Id *string `json:"id,omitempty"`
-	ProjectId *string `json:"projectId,omitempty"`
-	ExternalId *string `json:"externalId,omitempty"`
-	GlobalId *int64 `json:"globalId,omitempty"`
+	Id string `json:"id"`
+	ProjectId string `json:"projectId"`
+	ExternalId NullableString `json:"externalId,omitempty"`
+	GlobalId int64 `json:"globalId"`
 }
 
 // NewAutoTestChangeViewModel instantiates a new AutoTestChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestChangeViewModel() *AutoTestChangeViewModel {
+func NewAutoTestChangeViewModel(id string, projectId string, globalId int64) *AutoTestChangeViewModel {
 	this := AutoTestChangeViewModel{}
+	this.Id = id
+	this.ProjectId = projectId
+	this.GlobalId = globalId
 	return &this
 }
 
@@ -42,132 +45,118 @@ func NewAutoTestChangeViewModelWithDefaults() *AutoTestChangeViewModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *AutoTestChangeViewModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AutoTestChangeViewModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AutoTestChangeViewModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *AutoTestChangeViewModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetProjectId returns the ProjectId field value if set, zero value otherwise.
+// GetProjectId returns the ProjectId field value
 func (o *AutoTestChangeViewModel) GetProjectId() string {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ProjectId
+
+	return o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// GetProjectIdOk returns a tuple with the ProjectId field value
 // and a boolean to check if the value has been set.
 func (o *AutoTestChangeViewModel) GetProjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProjectId, true
+	return &o.ProjectId, true
 }
 
-// HasProjectId returns a boolean if a field has been set.
-func (o *AutoTestChangeViewModel) HasProjectId() bool {
-	if o != nil && !IsNil(o.ProjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectId gets a reference to the given string and assigns it to the ProjectId field.
+// SetProjectId sets field value
 func (o *AutoTestChangeViewModel) SetProjectId(v string) {
-	o.ProjectId = &v
+	o.ProjectId = v
 }
 
-// GetExternalId returns the ExternalId field value if set, zero value otherwise.
+// GetExternalId returns the ExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutoTestChangeViewModel) GetExternalId() string {
-	if o == nil || IsNil(o.ExternalId) {
+	if o == nil || IsNil(o.ExternalId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ExternalId
+	return *o.ExternalId.Get()
 }
 
 // GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutoTestChangeViewModel) GetExternalIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ExternalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExternalId, true
+	return o.ExternalId.Get(), o.ExternalId.IsSet()
 }
 
 // HasExternalId returns a boolean if a field has been set.
 func (o *AutoTestChangeViewModel) HasExternalId() bool {
-	if o != nil && !IsNil(o.ExternalId) {
+	if o != nil && o.ExternalId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExternalId gets a reference to the given string and assigns it to the ExternalId field.
+// SetExternalId gets a reference to the given NullableString and assigns it to the ExternalId field.
 func (o *AutoTestChangeViewModel) SetExternalId(v string) {
-	o.ExternalId = &v
+	o.ExternalId.Set(&v)
+}
+// SetExternalIdNil sets the value for ExternalId to be an explicit nil
+func (o *AutoTestChangeViewModel) SetExternalIdNil() {
+	o.ExternalId.Set(nil)
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
+func (o *AutoTestChangeViewModel) UnsetExternalId() {
+	o.ExternalId.Unset()
+}
+
+// GetGlobalId returns the GlobalId field value
 func (o *AutoTestChangeViewModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *AutoTestChangeViewModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *AutoTestChangeViewModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *AutoTestChangeViewModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
 func (o AutoTestChangeViewModel) MarshalJSON() ([]byte, error) {
@@ -180,18 +169,12 @@ func (o AutoTestChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o AutoTestChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	toSerialize["id"] = o.Id
+	toSerialize["projectId"] = o.ProjectId
+	if o.ExternalId.IsSet() {
+		toSerialize["externalId"] = o.ExternalId.Get()
 	}
-	if !IsNil(o.ProjectId) {
-		toSerialize["projectId"] = o.ProjectId
-	}
-	if !IsNil(o.ExternalId) {
-		toSerialize["externalId"] = o.ExternalId
-	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
+	toSerialize["globalId"] = o.GlobalId
 	return toSerialize, nil
 }
 

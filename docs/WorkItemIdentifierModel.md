@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
+**Id** | **string** | Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format | 
+**GlobalId** | **int64** |  | 
 
 ## Methods
 
 ### NewWorkItemIdentifierModel
 
-`func NewWorkItemIdentifierModel() *WorkItemIdentifierModel`
+`func NewWorkItemIdentifierModel(id string, globalId int64, ) *WorkItemIdentifierModel`
 
 NewWorkItemIdentifierModel instantiates a new WorkItemIdentifierModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *WorkItemIdentifierModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetGlobalId
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *WorkItemIdentifierModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

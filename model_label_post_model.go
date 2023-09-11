@@ -19,7 +19,7 @@ var _ MappedNullable = &LabelPostModel{}
 
 // LabelPostModel struct for LabelPostModel
 type LabelPostModel struct {
-	// Label name.
+	// Name of the label
 	Name string `json:"name"`
 }
 

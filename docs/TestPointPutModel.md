@@ -5,20 +5,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TesterId** | Pointer to **NullableString** |  | [optional] 
-**IterationId** | Pointer to **string** |  | [optional] 
+**IterationId** | **string** |  | 
 **WorkItemId** | Pointer to **NullableString** |  | [optional] 
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
-**TestSuiteId** | Pointer to **string** |  | [optional] 
+**TestSuiteId** | **string** |  | 
 **Status** | Pointer to **NullableString** |  | [optional] 
 **LastTestResultId** | Pointer to **NullableString** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewTestPointPutModel
 
-`func NewTestPointPutModel() *TestPointPutModel`
+`func NewTestPointPutModel(iterationId string, testSuiteId string, id string, isDeleted bool, ) *TestPointPutModel`
 
 NewTestPointPutModel instantiates a new TestPointPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,11 +87,6 @@ and a boolean to check if the value has been set.
 
 SetIterationId sets IterationId field to given value.
 
-### HasIterationId
-
-`func (o *TestPointPutModel) HasIterationId() bool`
-
-HasIterationId returns a boolean if a field has been set.
 
 ### GetWorkItemId
 
@@ -182,11 +177,6 @@ and a boolean to check if the value has been set.
 
 SetTestSuiteId sets TestSuiteId field to given value.
 
-### HasTestSuiteId
-
-`func (o *TestPointPutModel) HasTestSuiteId() bool`
-
-HasTestSuiteId returns a boolean if a field has been set.
 
 ### GetStatus
 
@@ -277,11 +267,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestPointPutModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -302,11 +287,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *TestPointPutModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

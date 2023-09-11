@@ -23,26 +23,33 @@ type ConfigurationModel struct {
 	Description NullableString `json:"description,omitempty"`
 	Parameters map[string]string `json:"parameters,omitempty"`
 	// This property is used to link configuration with project
-	ProjectId *string `json:"projectId,omitempty"`
-	IsDefault *bool `json:"isDefault,omitempty"`
+	ProjectId string `json:"projectId"`
+	IsDefault bool `json:"isDefault"`
 	Name NullableString `json:"name,omitempty"`
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	GlobalId *int64 `json:"globalId,omitempty"`
+	GlobalId int64 `json:"globalId"`
 	// Unique ID of the entity
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Indicates if the entity is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 }
 
 // NewConfigurationModel instantiates a new ConfigurationModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConfigurationModel() *ConfigurationModel {
+func NewConfigurationModel(projectId string, isDefault bool, createdDate time.Time, createdById string, globalId int64, id string, isDeleted bool) *ConfigurationModel {
 	this := ConfigurationModel{}
+	this.ProjectId = projectId
+	this.IsDefault = isDefault
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
+	this.GlobalId = globalId
+	this.Id = id
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -129,68 +136,52 @@ func (o *ConfigurationModel) SetParameters(v map[string]string) {
 	o.Parameters = v
 }
 
-// GetProjectId returns the ProjectId field value if set, zero value otherwise.
+// GetProjectId returns the ProjectId field value
 func (o *ConfigurationModel) GetProjectId() string {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ProjectId
+
+	return o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// GetProjectIdOk returns a tuple with the ProjectId field value
 // and a boolean to check if the value has been set.
 func (o *ConfigurationModel) GetProjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProjectId, true
+	return &o.ProjectId, true
 }
 
-// HasProjectId returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasProjectId() bool {
-	if o != nil && !IsNil(o.ProjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectId gets a reference to the given string and assigns it to the ProjectId field.
+// SetProjectId sets field value
 func (o *ConfigurationModel) SetProjectId(v string) {
-	o.ProjectId = &v
+	o.ProjectId = v
 }
 
-// GetIsDefault returns the IsDefault field value if set, zero value otherwise.
+// GetIsDefault returns the IsDefault field value
 func (o *ConfigurationModel) GetIsDefault() bool {
-	if o == nil || IsNil(o.IsDefault) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDefault
+
+	return o.IsDefault
 }
 
-// GetIsDefaultOk returns a tuple with the IsDefault field value if set, nil otherwise
+// GetIsDefaultOk returns a tuple with the IsDefault field value
 // and a boolean to check if the value has been set.
 func (o *ConfigurationModel) GetIsDefaultOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDefault) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDefault, true
+	return &o.IsDefault, true
 }
 
-// HasIsDefault returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasIsDefault() bool {
-	if o != nil && !IsNil(o.IsDefault) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDefault gets a reference to the given bool and assigns it to the IsDefault field.
+// SetIsDefault sets field value
 func (o *ConfigurationModel) SetIsDefault(v bool) {
-	o.IsDefault = &v
+	o.IsDefault = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -235,36 +226,28 @@ func (o *ConfigurationModel) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *ConfigurationModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *ConfigurationModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *ConfigurationModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -309,36 +292,28 @@ func (o *ConfigurationModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *ConfigurationModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *ConfigurationModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *ConfigurationModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -383,100 +358,76 @@ func (o *ConfigurationModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *ConfigurationModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *ConfigurationModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *ConfigurationModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ConfigurationModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ConfigurationModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *ConfigurationModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *ConfigurationModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *ConfigurationModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *ConfigurationModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *ConfigurationModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 func (o ConfigurationModel) MarshalJSON() ([]byte, error) {
@@ -495,36 +446,22 @@ func (o ConfigurationModel) ToMap() (map[string]interface{}, error) {
 	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
 	}
-	if !IsNil(o.ProjectId) {
-		toSerialize["projectId"] = o.ProjectId
-	}
-	if !IsNil(o.IsDefault) {
-		toSerialize["isDefault"] = o.IsDefault
-	}
+	toSerialize["projectId"] = o.ProjectId
+	toSerialize["isDefault"] = o.IsDefault
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["globalId"] = o.GlobalId
+	toSerialize["id"] = o.Id
+	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
 }
 

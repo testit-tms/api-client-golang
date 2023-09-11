@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PassedAverageDuration** | Pointer to **float64** |  | [optional] 
-**FailedAverageDuration** | Pointer to **float64** |  | [optional] 
+**PassedAverageDuration** | **float64** |  | 
+**FailedAverageDuration** | **float64** |  | 
 
 ## Methods
 
 ### NewAutoTestAverageDurationModel
 
-`func NewAutoTestAverageDurationModel() *AutoTestAverageDurationModel`
+`func NewAutoTestAverageDurationModel(passedAverageDuration float64, failedAverageDuration float64, ) *AutoTestAverageDurationModel`
 
 NewAutoTestAverageDurationModel instantiates a new AutoTestAverageDurationModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetPassedAverageDuration sets PassedAverageDuration field to given value.
 
-### HasPassedAverageDuration
-
-`func (o *AutoTestAverageDurationModel) HasPassedAverageDuration() bool`
-
-HasPassedAverageDuration returns a boolean if a field has been set.
 
 ### GetFailedAverageDuration
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetFailedAverageDuration sets FailedAverageDuration field to given value.
 
-### HasFailedAverageDuration
-
-`func (o *AutoTestAverageDurationModel) HasFailedAverageDuration() bool`
-
-HasFailedAverageDuration returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

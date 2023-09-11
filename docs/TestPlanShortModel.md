@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**ProjectId** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**ProjectId** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewTestPlanShortModel
 
-`func NewTestPlanShortModel() *TestPlanShortModel`
+`func NewTestPlanShortModel(id string, projectId string, ) *TestPlanShortModel`
 
 NewTestPlanShortModel instantiates a new TestPlanShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestPlanShortModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetProjectId
 
@@ -71,11 +66,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *TestPlanShortModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -102,6 +92,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *TestPlanShortModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *TestPlanShortModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,19 +6,19 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** |  | [optional] 
 **FailureCategory** | [**FailureCategoryModel**](FailureCategoryModel.md) |  | 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **FailureClassRegexes** | Pointer to [**[]FailureClassRegexModel**](FailureClassRegexModel.md) |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewFailureClassModel
 
-`func NewFailureClassModel(failureCategory FailureCategoryModel, ) *FailureClassModel`
+`func NewFailureClassModel(failureCategory FailureCategoryModel, createdDate time.Time, createdById string, id string, isDeleted bool, ) *FailureClassModel`
 
 NewFailureClassModel instantiates a new FailureClassModel object
 This constructor will assign default values to properties that have it defined,
@@ -107,11 +107,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *FailureClassModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -167,11 +162,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *FailureClassModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -262,11 +252,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *FailureClassModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -287,11 +272,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *FailureClassModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

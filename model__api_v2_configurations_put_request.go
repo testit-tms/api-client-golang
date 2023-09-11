@@ -24,7 +24,7 @@ type ApiV2ConfigurationsPutRequest struct {
 	Parameters map[string]string `json:"parameters"`
 	// This property is used to link configuration with project
 	ProjectId string `json:"projectId"`
-	IsDefault *bool `json:"isDefault,omitempty"`
+	IsDefault bool `json:"isDefault"`
 	Name string `json:"name"`
 }
 
@@ -32,11 +32,12 @@ type ApiV2ConfigurationsPutRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2ConfigurationsPutRequest(id string, parameters map[string]string, projectId string, name string) *ApiV2ConfigurationsPutRequest {
+func NewApiV2ConfigurationsPutRequest(id string, parameters map[string]string, projectId string, isDefault bool, name string) *ApiV2ConfigurationsPutRequest {
 	this := ApiV2ConfigurationsPutRequest{}
 	this.Id = id
 	this.Parameters = parameters
 	this.ProjectId = projectId
+	this.IsDefault = isDefault
 	this.Name = name
 	return &this
 }
@@ -163,36 +164,28 @@ func (o *ApiV2ConfigurationsPutRequest) SetProjectId(v string) {
 	o.ProjectId = v
 }
 
-// GetIsDefault returns the IsDefault field value if set, zero value otherwise.
+// GetIsDefault returns the IsDefault field value
 func (o *ApiV2ConfigurationsPutRequest) GetIsDefault() bool {
-	if o == nil || IsNil(o.IsDefault) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDefault
+
+	return o.IsDefault
 }
 
-// GetIsDefaultOk returns a tuple with the IsDefault field value if set, nil otherwise
+// GetIsDefaultOk returns a tuple with the IsDefault field value
 // and a boolean to check if the value has been set.
 func (o *ApiV2ConfigurationsPutRequest) GetIsDefaultOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDefault) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDefault, true
+	return &o.IsDefault, true
 }
 
-// HasIsDefault returns a boolean if a field has been set.
-func (o *ApiV2ConfigurationsPutRequest) HasIsDefault() bool {
-	if o != nil && !IsNil(o.IsDefault) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDefault gets a reference to the given bool and assigns it to the IsDefault field.
+// SetIsDefault sets field value
 func (o *ApiV2ConfigurationsPutRequest) SetIsDefault(v bool) {
-	o.IsDefault = &v
+	o.IsDefault = v
 }
 
 // GetName returns the Name field value
@@ -235,9 +228,7 @@ func (o ApiV2ConfigurationsPutRequest) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["parameters"] = o.Parameters
 	toSerialize["projectId"] = o.ProjectId
-	if !IsNil(o.IsDefault) {
-		toSerialize["isDefault"] = o.IsDefault
-	}
+	toSerialize["isDefault"] = o.IsDefault
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }

@@ -20,7 +20,7 @@ var _ MappedNullable = &StepModel{}
 // StepModel struct for StepModel
 type StepModel struct {
 	WorkItem NullableSectionSharedStep `json:"workItem,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Action NullableString `json:"action,omitempty"`
 	Expected NullableString `json:"expected,omitempty"`
 	TestData NullableString `json:"testData,omitempty"`
@@ -32,8 +32,9 @@ type StepModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStepModel() *StepModel {
+func NewStepModel(id string) *StepModel {
 	this := StepModel{}
+	this.Id = id
 	return &this
 }
 
@@ -87,36 +88,28 @@ func (o *StepModel) UnsetWorkItem() {
 	o.WorkItem.Unset()
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *StepModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *StepModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *StepModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *StepModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -342,9 +335,7 @@ func (o StepModel) ToMap() (map[string]interface{}, error) {
 	if o.WorkItem.IsSet() {
 		toSerialize["workItem"] = o.WorkItem.Get()
 	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.Action.IsSet() {
 		toSerialize["action"] = o.Action.Get()
 	}

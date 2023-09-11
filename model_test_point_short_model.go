@@ -19,23 +19,26 @@ var _ MappedNullable = &TestPointShortModel{}
 
 // TestPointShortModel struct for TestPointShortModel
 type TestPointShortModel struct {
-	TestSuiteId *string `json:"testSuiteId,omitempty"`
-	Id *string `json:"id,omitempty"`
+	TestSuiteId string `json:"testSuiteId"`
+	Id string `json:"id"`
 	TesterId NullableString `json:"testerId,omitempty"`
 	WorkItemId NullableString `json:"workItemId,omitempty"`
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
 	// Applies one of these values: Blocked, NoResults, Failed, Passed
 	Status NullableString `json:"status,omitempty"`
 	LastTestResultId NullableString `json:"lastTestResultId,omitempty"`
-	IterationId *string `json:"iterationId,omitempty"`
+	IterationId string `json:"iterationId"`
 }
 
 // NewTestPointShortModel instantiates a new TestPointShortModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointShortModel() *TestPointShortModel {
+func NewTestPointShortModel(testSuiteId string, id string, iterationId string) *TestPointShortModel {
 	this := TestPointShortModel{}
+	this.TestSuiteId = testSuiteId
+	this.Id = id
+	this.IterationId = iterationId
 	return &this
 }
 
@@ -47,68 +50,52 @@ func NewTestPointShortModelWithDefaults() *TestPointShortModel {
 	return &this
 }
 
-// GetTestSuiteId returns the TestSuiteId field value if set, zero value otherwise.
+// GetTestSuiteId returns the TestSuiteId field value
 func (o *TestPointShortModel) GetTestSuiteId() string {
-	if o == nil || IsNil(o.TestSuiteId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestSuiteId
+
+	return o.TestSuiteId
 }
 
-// GetTestSuiteIdOk returns a tuple with the TestSuiteId field value if set, nil otherwise
+// GetTestSuiteIdOk returns a tuple with the TestSuiteId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointShortModel) GetTestSuiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestSuiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestSuiteId, true
+	return &o.TestSuiteId, true
 }
 
-// HasTestSuiteId returns a boolean if a field has been set.
-func (o *TestPointShortModel) HasTestSuiteId() bool {
-	if o != nil && !IsNil(o.TestSuiteId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestSuiteId gets a reference to the given string and assigns it to the TestSuiteId field.
+// SetTestSuiteId sets field value
 func (o *TestPointShortModel) SetTestSuiteId(v string) {
-	o.TestSuiteId = &v
+	o.TestSuiteId = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestPointShortModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestPointShortModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestPointShortModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestPointShortModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetTesterId returns the TesterId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -321,36 +308,28 @@ func (o *TestPointShortModel) UnsetLastTestResultId() {
 	o.LastTestResultId.Unset()
 }
 
-// GetIterationId returns the IterationId field value if set, zero value otherwise.
+// GetIterationId returns the IterationId field value
 func (o *TestPointShortModel) GetIterationId() string {
-	if o == nil || IsNil(o.IterationId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IterationId
+
+	return o.IterationId
 }
 
-// GetIterationIdOk returns a tuple with the IterationId field value if set, nil otherwise
+// GetIterationIdOk returns a tuple with the IterationId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointShortModel) GetIterationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.IterationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IterationId, true
+	return &o.IterationId, true
 }
 
-// HasIterationId returns a boolean if a field has been set.
-func (o *TestPointShortModel) HasIterationId() bool {
-	if o != nil && !IsNil(o.IterationId) {
-		return true
-	}
-
-	return false
-}
-
-// SetIterationId gets a reference to the given string and assigns it to the IterationId field.
+// SetIterationId sets field value
 func (o *TestPointShortModel) SetIterationId(v string) {
-	o.IterationId = &v
+	o.IterationId = v
 }
 
 func (o TestPointShortModel) MarshalJSON() ([]byte, error) {
@@ -363,12 +342,8 @@ func (o TestPointShortModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPointShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TestSuiteId) {
-		toSerialize["testSuiteId"] = o.TestSuiteId
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["testSuiteId"] = o.TestSuiteId
+	toSerialize["id"] = o.Id
 	if o.TesterId.IsSet() {
 		toSerialize["testerId"] = o.TesterId.Get()
 	}
@@ -384,9 +359,7 @@ func (o TestPointShortModel) ToMap() (map[string]interface{}, error) {
 	if o.LastTestResultId.IsSet() {
 		toSerialize["lastTestResultId"] = o.LastTestResultId.Get()
 	}
-	if !IsNil(o.IterationId) {
-		toSerialize["iterationId"] = o.IterationId
-	}
+	toSerialize["iterationId"] = o.IterationId
 	return toSerialize, nil
 }
 

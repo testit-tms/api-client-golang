@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**WorkItemSelectModelFilter**](WorkItemSelectModelFilter.md) |  | [optional] 
-**ExtractionModel** | Pointer to [**WorkItemSelectModelExtractionModel**](WorkItemSelectModelExtractionModel.md) |  | [optional] 
+**Filter** | Pointer to [**NullableWorkItemSelectModelFilter**](WorkItemSelectModelFilter.md) |  | [optional] 
+**ExtractionModel** | Pointer to [**NullableWorkItemSelectModelExtractionModel**](WorkItemSelectModelExtractionModel.md) |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetFilter sets Filter field to given value.
 
 HasFilter returns a boolean if a field has been set.
 
+### SetFilterNil
+
+`func (o *WorkItemSelectModel) SetFilterNil(b bool)`
+
+ SetFilterNil sets the value for Filter to be an explicit nil
+
+### UnsetFilter
+`func (o *WorkItemSelectModel) UnsetFilter()`
+
+UnsetFilter ensures that no value is present for Filter, not even an explicit nil
 ### GetExtractionModel
 
 `func (o *WorkItemSelectModel) GetExtractionModel() WorkItemSelectModelExtractionModel`
@@ -76,6 +86,16 @@ SetExtractionModel sets ExtractionModel field to given value.
 
 HasExtractionModel returns a boolean if a field has been set.
 
+### SetExtractionModelNil
+
+`func (o *WorkItemSelectModel) SetExtractionModelNil(b bool)`
+
+ SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil
+
+### UnsetExtractionModel
+`func (o *WorkItemSelectModel) UnsetExtractionModel()`
+
+UnsetExtractionModel ensures that no value is present for ExtractionModel, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

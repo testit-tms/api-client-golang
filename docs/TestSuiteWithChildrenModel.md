@@ -7,16 +7,16 @@ Name | Type | Description | Notes
 **Children** | Pointer to [**[]TestSuiteWithChildrenModel**](TestSuiteWithChildrenModel.md) |  | [optional] 
 **TesterId** | Pointer to **NullableString** |  | [optional] 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
-**TestPlanId** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**TestPlanId** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewTestSuiteWithChildrenModel
 
-`func NewTestSuiteWithChildrenModel() *TestSuiteWithChildrenModel`
+`func NewTestSuiteWithChildrenModel(testPlanId string, id string, isDeleted bool, ) *TestSuiteWithChildrenModel`
 
 NewTestSuiteWithChildrenModel instantiates a new TestSuiteWithChildrenModel object
 This constructor will assign default values to properties that have it defined,
@@ -155,11 +155,6 @@ and a boolean to check if the value has been set.
 
 SetTestPlanId sets TestPlanId field to given value.
 
-### HasTestPlanId
-
-`func (o *TestSuiteWithChildrenModel) HasTestPlanId() bool`
-
-HasTestPlanId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -186,6 +181,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *TestSuiteWithChildrenModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *TestSuiteWithChildrenModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *TestSuiteWithChildrenModel) GetId() string`
@@ -205,11 +210,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestSuiteWithChildrenModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -230,11 +230,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *TestSuiteWithChildrenModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

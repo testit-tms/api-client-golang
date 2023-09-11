@@ -20,29 +20,34 @@ var _ MappedNullable = &NotificationModel{}
 
 // NotificationModel struct for NotificationModel
 type NotificationModel struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
-	IsRead *bool `json:"isRead,omitempty"`
-	EntityId *string `json:"entityId,omitempty"`
+	IsRead bool `json:"isRead"`
+	EntityId string `json:"entityId"`
 	NotificationType NotificationTypeModel `json:"notificationType"`
 	ProjectGlobalId NullableInt64 `json:"projectGlobalId,omitempty"`
 	ProjectName NullableString `json:"projectName,omitempty"`
-	TestPlanGlobalId *int64 `json:"testPlanGlobalId,omitempty"`
-	TestPlanName *string `json:"testPlanName,omitempty"`
+	TestPlanGlobalId int64 `json:"testPlanGlobalId"`
+	TestPlanName NullableString `json:"testPlanName,omitempty"`
 	WorkitemGlobalId NullableInt64 `json:"workitemGlobalId,omitempty"`
-	Comment *string `json:"comment,omitempty"`
-	WorkItemName *string `json:"workItemName,omitempty"`
+	Comment NullableString `json:"comment,omitempty"`
+	WorkItemName NullableString `json:"workItemName,omitempty"`
 	AttributeName NullableString `json:"attributeName,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 }
 
 // NewNotificationModel instantiates a new NotificationModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNotificationModel(notificationType NotificationTypeModel) *NotificationModel {
+func NewNotificationModel(id string, isRead bool, entityId string, notificationType NotificationTypeModel, testPlanGlobalId int64, createdById string) *NotificationModel {
 	this := NotificationModel{}
+	this.Id = id
+	this.IsRead = isRead
+	this.EntityId = entityId
 	this.NotificationType = notificationType
+	this.TestPlanGlobalId = testPlanGlobalId
+	this.CreatedById = createdById
 	return &this
 }
 
@@ -54,36 +59,28 @@ func NewNotificationModelWithDefaults() *NotificationModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *NotificationModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *NotificationModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *NotificationModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *NotificationModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -128,68 +125,52 @@ func (o *NotificationModel) UnsetCreatedDate() {
 	o.CreatedDate.Unset()
 }
 
-// GetIsRead returns the IsRead field value if set, zero value otherwise.
+// GetIsRead returns the IsRead field value
 func (o *NotificationModel) GetIsRead() bool {
-	if o == nil || IsNil(o.IsRead) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsRead
+
+	return o.IsRead
 }
 
-// GetIsReadOk returns a tuple with the IsRead field value if set, nil otherwise
+// GetIsReadOk returns a tuple with the IsRead field value
 // and a boolean to check if the value has been set.
 func (o *NotificationModel) GetIsReadOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsRead) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsRead, true
+	return &o.IsRead, true
 }
 
-// HasIsRead returns a boolean if a field has been set.
-func (o *NotificationModel) HasIsRead() bool {
-	if o != nil && !IsNil(o.IsRead) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsRead gets a reference to the given bool and assigns it to the IsRead field.
+// SetIsRead sets field value
 func (o *NotificationModel) SetIsRead(v bool) {
-	o.IsRead = &v
+	o.IsRead = v
 }
 
-// GetEntityId returns the EntityId field value if set, zero value otherwise.
+// GetEntityId returns the EntityId field value
 func (o *NotificationModel) GetEntityId() string {
-	if o == nil || IsNil(o.EntityId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.EntityId
+
+	return o.EntityId
 }
 
-// GetEntityIdOk returns a tuple with the EntityId field value if set, nil otherwise
+// GetEntityIdOk returns a tuple with the EntityId field value
 // and a boolean to check if the value has been set.
 func (o *NotificationModel) GetEntityIdOk() (*string, bool) {
-	if o == nil || IsNil(o.EntityId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EntityId, true
+	return &o.EntityId, true
 }
 
-// HasEntityId returns a boolean if a field has been set.
-func (o *NotificationModel) HasEntityId() bool {
-	if o != nil && !IsNil(o.EntityId) {
-		return true
-	}
-
-	return false
-}
-
-// SetEntityId gets a reference to the given string and assigns it to the EntityId field.
+// SetEntityId sets field value
 func (o *NotificationModel) SetEntityId(v string) {
-	o.EntityId = &v
+	o.EntityId = v
 }
 
 // GetNotificationType returns the NotificationType field value
@@ -300,68 +281,70 @@ func (o *NotificationModel) UnsetProjectName() {
 	o.ProjectName.Unset()
 }
 
-// GetTestPlanGlobalId returns the TestPlanGlobalId field value if set, zero value otherwise.
+// GetTestPlanGlobalId returns the TestPlanGlobalId field value
 func (o *NotificationModel) GetTestPlanGlobalId() int64 {
-	if o == nil || IsNil(o.TestPlanGlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.TestPlanGlobalId
+
+	return o.TestPlanGlobalId
 }
 
-// GetTestPlanGlobalIdOk returns a tuple with the TestPlanGlobalId field value if set, nil otherwise
+// GetTestPlanGlobalIdOk returns a tuple with the TestPlanGlobalId field value
 // and a boolean to check if the value has been set.
 func (o *NotificationModel) GetTestPlanGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.TestPlanGlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPlanGlobalId, true
+	return &o.TestPlanGlobalId, true
 }
 
-// HasTestPlanGlobalId returns a boolean if a field has been set.
-func (o *NotificationModel) HasTestPlanGlobalId() bool {
-	if o != nil && !IsNil(o.TestPlanGlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlanGlobalId gets a reference to the given int64 and assigns it to the TestPlanGlobalId field.
+// SetTestPlanGlobalId sets field value
 func (o *NotificationModel) SetTestPlanGlobalId(v int64) {
-	o.TestPlanGlobalId = &v
+	o.TestPlanGlobalId = v
 }
 
-// GetTestPlanName returns the TestPlanName field value if set, zero value otherwise.
+// GetTestPlanName returns the TestPlanName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NotificationModel) GetTestPlanName() string {
-	if o == nil || IsNil(o.TestPlanName) {
+	if o == nil || IsNil(o.TestPlanName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TestPlanName
+	return *o.TestPlanName.Get()
 }
 
 // GetTestPlanNameOk returns a tuple with the TestPlanName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NotificationModel) GetTestPlanNameOk() (*string, bool) {
-	if o == nil || IsNil(o.TestPlanName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPlanName, true
+	return o.TestPlanName.Get(), o.TestPlanName.IsSet()
 }
 
 // HasTestPlanName returns a boolean if a field has been set.
 func (o *NotificationModel) HasTestPlanName() bool {
-	if o != nil && !IsNil(o.TestPlanName) {
+	if o != nil && o.TestPlanName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPlanName gets a reference to the given string and assigns it to the TestPlanName field.
+// SetTestPlanName gets a reference to the given NullableString and assigns it to the TestPlanName field.
 func (o *NotificationModel) SetTestPlanName(v string) {
-	o.TestPlanName = &v
+	o.TestPlanName.Set(&v)
+}
+// SetTestPlanNameNil sets the value for TestPlanName to be an explicit nil
+func (o *NotificationModel) SetTestPlanNameNil() {
+	o.TestPlanName.Set(nil)
+}
+
+// UnsetTestPlanName ensures that no value is present for TestPlanName, not even an explicit nil
+func (o *NotificationModel) UnsetTestPlanName() {
+	o.TestPlanName.Unset()
 }
 
 // GetWorkitemGlobalId returns the WorkitemGlobalId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -406,68 +389,88 @@ func (o *NotificationModel) UnsetWorkitemGlobalId() {
 	o.WorkitemGlobalId.Unset()
 }
 
-// GetComment returns the Comment field value if set, zero value otherwise.
+// GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NotificationModel) GetComment() string {
-	if o == nil || IsNil(o.Comment) {
+	if o == nil || IsNil(o.Comment.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Comment
+	return *o.Comment.Get()
 }
 
 // GetCommentOk returns a tuple with the Comment field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NotificationModel) GetCommentOk() (*string, bool) {
-	if o == nil || IsNil(o.Comment) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Comment, true
+	return o.Comment.Get(), o.Comment.IsSet()
 }
 
 // HasComment returns a boolean if a field has been set.
 func (o *NotificationModel) HasComment() bool {
-	if o != nil && !IsNil(o.Comment) {
+	if o != nil && o.Comment.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetComment gets a reference to the given string and assigns it to the Comment field.
+// SetComment gets a reference to the given NullableString and assigns it to the Comment field.
 func (o *NotificationModel) SetComment(v string) {
-	o.Comment = &v
+	o.Comment.Set(&v)
+}
+// SetCommentNil sets the value for Comment to be an explicit nil
+func (o *NotificationModel) SetCommentNil() {
+	o.Comment.Set(nil)
 }
 
-// GetWorkItemName returns the WorkItemName field value if set, zero value otherwise.
+// UnsetComment ensures that no value is present for Comment, not even an explicit nil
+func (o *NotificationModel) UnsetComment() {
+	o.Comment.Unset()
+}
+
+// GetWorkItemName returns the WorkItemName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NotificationModel) GetWorkItemName() string {
-	if o == nil || IsNil(o.WorkItemName) {
+	if o == nil || IsNil(o.WorkItemName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.WorkItemName
+	return *o.WorkItemName.Get()
 }
 
 // GetWorkItemNameOk returns a tuple with the WorkItemName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NotificationModel) GetWorkItemNameOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkItemName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemName, true
+	return o.WorkItemName.Get(), o.WorkItemName.IsSet()
 }
 
 // HasWorkItemName returns a boolean if a field has been set.
 func (o *NotificationModel) HasWorkItemName() bool {
-	if o != nil && !IsNil(o.WorkItemName) {
+	if o != nil && o.WorkItemName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWorkItemName gets a reference to the given string and assigns it to the WorkItemName field.
+// SetWorkItemName gets a reference to the given NullableString and assigns it to the WorkItemName field.
 func (o *NotificationModel) SetWorkItemName(v string) {
-	o.WorkItemName = &v
+	o.WorkItemName.Set(&v)
+}
+// SetWorkItemNameNil sets the value for WorkItemName to be an explicit nil
+func (o *NotificationModel) SetWorkItemNameNil() {
+	o.WorkItemName.Set(nil)
+}
+
+// UnsetWorkItemName ensures that no value is present for WorkItemName, not even an explicit nil
+func (o *NotificationModel) UnsetWorkItemName() {
+	o.WorkItemName.Unset()
 }
 
 // GetAttributeName returns the AttributeName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -512,36 +515,28 @@ func (o *NotificationModel) UnsetAttributeName() {
 	o.AttributeName.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *NotificationModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *NotificationModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *NotificationModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *NotificationModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 func (o NotificationModel) MarshalJSON() ([]byte, error) {
@@ -554,18 +549,12 @@ func (o NotificationModel) MarshalJSON() ([]byte, error) {
 
 func (o NotificationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.CreatedDate.IsSet() {
 		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
-	if !IsNil(o.IsRead) {
-		toSerialize["isRead"] = o.IsRead
-	}
-	if !IsNil(o.EntityId) {
-		toSerialize["entityId"] = o.EntityId
-	}
+	toSerialize["isRead"] = o.IsRead
+	toSerialize["entityId"] = o.EntityId
 	toSerialize["notificationType"] = o.NotificationType
 	if o.ProjectGlobalId.IsSet() {
 		toSerialize["projectGlobalId"] = o.ProjectGlobalId.Get()
@@ -573,27 +562,23 @@ func (o NotificationModel) ToMap() (map[string]interface{}, error) {
 	if o.ProjectName.IsSet() {
 		toSerialize["projectName"] = o.ProjectName.Get()
 	}
-	if !IsNil(o.TestPlanGlobalId) {
-		toSerialize["testPlanGlobalId"] = o.TestPlanGlobalId
-	}
-	if !IsNil(o.TestPlanName) {
-		toSerialize["testPlanName"] = o.TestPlanName
+	toSerialize["testPlanGlobalId"] = o.TestPlanGlobalId
+	if o.TestPlanName.IsSet() {
+		toSerialize["testPlanName"] = o.TestPlanName.Get()
 	}
 	if o.WorkitemGlobalId.IsSet() {
 		toSerialize["workitemGlobalId"] = o.WorkitemGlobalId.Get()
 	}
-	if !IsNil(o.Comment) {
-		toSerialize["comment"] = o.Comment
+	if o.Comment.IsSet() {
+		toSerialize["comment"] = o.Comment.Get()
 	}
-	if !IsNil(o.WorkItemName) {
-		toSerialize["workItemName"] = o.WorkItemName
+	if o.WorkItemName.IsSet() {
+		toSerialize["workItemName"] = o.WorkItemName.Get()
 	}
 	if o.AttributeName.IsSet() {
 		toSerialize["attributeName"] = o.AttributeName.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	return toSerialize, nil
 }
 

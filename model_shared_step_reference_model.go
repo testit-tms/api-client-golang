@@ -20,24 +20,24 @@ var _ MappedNullable = &SharedStepReferenceModel{}
 
 // SharedStepReferenceModel struct for SharedStepReferenceModel
 type SharedStepReferenceModel struct {
-	Id *string `json:"id,omitempty"`
-	GlobalId *int64 `json:"globalId,omitempty"`
-	Name *string `json:"name,omitempty"`
-	EntityTypeName *string `json:"entityTypeName,omitempty"`
-	HasThisSharedStepAsStep *bool `json:"hasThisSharedStepAsStep,omitempty"`
-	HasThisSharedStepAsPrecondition *bool `json:"hasThisSharedStepAsPrecondition,omitempty"`
-	HasThisSharedStepAsPostcondition *bool `json:"hasThisSharedStepAsPostcondition,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	Id string `json:"id"`
+	GlobalId int64 `json:"globalId"`
+	Name NullableString `json:"name,omitempty"`
+	EntityTypeName NullableString `json:"entityTypeName,omitempty"`
+	HasThisSharedStepAsStep bool `json:"hasThisSharedStepAsStep"`
+	HasThisSharedStepAsPrecondition bool `json:"hasThisSharedStepAsPrecondition"`
+	HasThisSharedStepAsPostcondition bool `json:"hasThisSharedStepAsPostcondition"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	State *string `json:"state,omitempty"`
+	State NullableString `json:"state,omitempty"`
 	Priority WorkItemPriorityModel `json:"priority"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 	// used for versioning changes in workitem
-	VersionId *string `json:"versionId,omitempty"`
-	IsAutomated *bool `json:"isAutomated,omitempty"`
-	SectionId *string `json:"sectionId,omitempty"`
+	VersionId string `json:"versionId"`
+	IsAutomated bool `json:"isAutomated"`
+	SectionId string `json:"sectionId"`
 	Tags []TagShortModel `json:"tags,omitempty"`
 }
 
@@ -45,9 +45,19 @@ type SharedStepReferenceModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSharedStepReferenceModel(priority WorkItemPriorityModel) *SharedStepReferenceModel {
+func NewSharedStepReferenceModel(id string, globalId int64, hasThisSharedStepAsStep bool, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, priority WorkItemPriorityModel, isDeleted bool, versionId string, isAutomated bool, sectionId string) *SharedStepReferenceModel {
 	this := SharedStepReferenceModel{}
+	this.Id = id
+	this.GlobalId = globalId
+	this.HasThisSharedStepAsStep = hasThisSharedStepAsStep
+	this.HasThisSharedStepAsPrecondition = hasThisSharedStepAsPrecondition
+	this.HasThisSharedStepAsPostcondition = hasThisSharedStepAsPostcondition
+	this.CreatedById = createdById
 	this.Priority = priority
+	this.IsDeleted = isDeleted
+	this.VersionId = versionId
+	this.IsAutomated = isAutomated
+	this.SectionId = sectionId
 	return &this
 }
 
@@ -59,260 +69,232 @@ func NewSharedStepReferenceModelWithDefaults() *SharedStepReferenceModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *SharedStepReferenceModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *SharedStepReferenceModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *SharedStepReferenceModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *SharedStepReferenceModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SharedStepReferenceModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepReferenceModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *SharedStepReferenceModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *SharedStepReferenceModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *SharedStepReferenceModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetEntityTypeName returns the EntityTypeName field value if set, zero value otherwise.
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *SharedStepReferenceModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetEntityTypeName returns the EntityTypeName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SharedStepReferenceModel) GetEntityTypeName() string {
-	if o == nil || IsNil(o.EntityTypeName) {
+	if o == nil || IsNil(o.EntityTypeName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.EntityTypeName
+	return *o.EntityTypeName.Get()
 }
 
 // GetEntityTypeNameOk returns a tuple with the EntityTypeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepReferenceModel) GetEntityTypeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.EntityTypeName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EntityTypeName, true
+	return o.EntityTypeName.Get(), o.EntityTypeName.IsSet()
 }
 
 // HasEntityTypeName returns a boolean if a field has been set.
 func (o *SharedStepReferenceModel) HasEntityTypeName() bool {
-	if o != nil && !IsNil(o.EntityTypeName) {
+	if o != nil && o.EntityTypeName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetEntityTypeName gets a reference to the given string and assigns it to the EntityTypeName field.
+// SetEntityTypeName gets a reference to the given NullableString and assigns it to the EntityTypeName field.
 func (o *SharedStepReferenceModel) SetEntityTypeName(v string) {
-	o.EntityTypeName = &v
+	o.EntityTypeName.Set(&v)
+}
+// SetEntityTypeNameNil sets the value for EntityTypeName to be an explicit nil
+func (o *SharedStepReferenceModel) SetEntityTypeNameNil() {
+	o.EntityTypeName.Set(nil)
 }
 
-// GetHasThisSharedStepAsStep returns the HasThisSharedStepAsStep field value if set, zero value otherwise.
+// UnsetEntityTypeName ensures that no value is present for EntityTypeName, not even an explicit nil
+func (o *SharedStepReferenceModel) UnsetEntityTypeName() {
+	o.EntityTypeName.Unset()
+}
+
+// GetHasThisSharedStepAsStep returns the HasThisSharedStepAsStep field value
 func (o *SharedStepReferenceModel) GetHasThisSharedStepAsStep() bool {
-	if o == nil || IsNil(o.HasThisSharedStepAsStep) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasThisSharedStepAsStep
+
+	return o.HasThisSharedStepAsStep
 }
 
-// GetHasThisSharedStepAsStepOk returns a tuple with the HasThisSharedStepAsStep field value if set, nil otherwise
+// GetHasThisSharedStepAsStepOk returns a tuple with the HasThisSharedStepAsStep field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetHasThisSharedStepAsStepOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasThisSharedStepAsStep) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasThisSharedStepAsStep, true
+	return &o.HasThisSharedStepAsStep, true
 }
 
-// HasHasThisSharedStepAsStep returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasHasThisSharedStepAsStep() bool {
-	if o != nil && !IsNil(o.HasThisSharedStepAsStep) {
-		return true
-	}
-
-	return false
-}
-
-// SetHasThisSharedStepAsStep gets a reference to the given bool and assigns it to the HasThisSharedStepAsStep field.
+// SetHasThisSharedStepAsStep sets field value
 func (o *SharedStepReferenceModel) SetHasThisSharedStepAsStep(v bool) {
-	o.HasThisSharedStepAsStep = &v
+	o.HasThisSharedStepAsStep = v
 }
 
-// GetHasThisSharedStepAsPrecondition returns the HasThisSharedStepAsPrecondition field value if set, zero value otherwise.
+// GetHasThisSharedStepAsPrecondition returns the HasThisSharedStepAsPrecondition field value
 func (o *SharedStepReferenceModel) GetHasThisSharedStepAsPrecondition() bool {
-	if o == nil || IsNil(o.HasThisSharedStepAsPrecondition) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasThisSharedStepAsPrecondition
+
+	return o.HasThisSharedStepAsPrecondition
 }
 
-// GetHasThisSharedStepAsPreconditionOk returns a tuple with the HasThisSharedStepAsPrecondition field value if set, nil otherwise
+// GetHasThisSharedStepAsPreconditionOk returns a tuple with the HasThisSharedStepAsPrecondition field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetHasThisSharedStepAsPreconditionOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasThisSharedStepAsPrecondition) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasThisSharedStepAsPrecondition, true
+	return &o.HasThisSharedStepAsPrecondition, true
 }
 
-// HasHasThisSharedStepAsPrecondition returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasHasThisSharedStepAsPrecondition() bool {
-	if o != nil && !IsNil(o.HasThisSharedStepAsPrecondition) {
-		return true
-	}
-
-	return false
-}
-
-// SetHasThisSharedStepAsPrecondition gets a reference to the given bool and assigns it to the HasThisSharedStepAsPrecondition field.
+// SetHasThisSharedStepAsPrecondition sets field value
 func (o *SharedStepReferenceModel) SetHasThisSharedStepAsPrecondition(v bool) {
-	o.HasThisSharedStepAsPrecondition = &v
+	o.HasThisSharedStepAsPrecondition = v
 }
 
-// GetHasThisSharedStepAsPostcondition returns the HasThisSharedStepAsPostcondition field value if set, zero value otherwise.
+// GetHasThisSharedStepAsPostcondition returns the HasThisSharedStepAsPostcondition field value
 func (o *SharedStepReferenceModel) GetHasThisSharedStepAsPostcondition() bool {
-	if o == nil || IsNil(o.HasThisSharedStepAsPostcondition) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasThisSharedStepAsPostcondition
+
+	return o.HasThisSharedStepAsPostcondition
 }
 
-// GetHasThisSharedStepAsPostconditionOk returns a tuple with the HasThisSharedStepAsPostcondition field value if set, nil otherwise
+// GetHasThisSharedStepAsPostconditionOk returns a tuple with the HasThisSharedStepAsPostcondition field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetHasThisSharedStepAsPostconditionOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasThisSharedStepAsPostcondition) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasThisSharedStepAsPostcondition, true
+	return &o.HasThisSharedStepAsPostcondition, true
 }
 
-// HasHasThisSharedStepAsPostcondition returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasHasThisSharedStepAsPostcondition() bool {
-	if o != nil && !IsNil(o.HasThisSharedStepAsPostcondition) {
-		return true
-	}
-
-	return false
-}
-
-// SetHasThisSharedStepAsPostcondition gets a reference to the given bool and assigns it to the HasThisSharedStepAsPostcondition field.
+// SetHasThisSharedStepAsPostcondition sets field value
 func (o *SharedStepReferenceModel) SetHasThisSharedStepAsPostcondition(v bool) {
-	o.HasThisSharedStepAsPostcondition = &v
+	o.HasThisSharedStepAsPostcondition = v
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *SharedStepReferenceModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *SharedStepReferenceModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -441,36 +423,46 @@ func (o *SharedStepReferenceModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetState returns the State field value if set, zero value otherwise.
+// GetState returns the State field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SharedStepReferenceModel) GetState() string {
-	if o == nil || IsNil(o.State) {
+	if o == nil || IsNil(o.State.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.State
+	return *o.State.Get()
 }
 
 // GetStateOk returns a tuple with the State field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepReferenceModel) GetStateOk() (*string, bool) {
-	if o == nil || IsNil(o.State) {
+	if o == nil {
 		return nil, false
 	}
-	return o.State, true
+	return o.State.Get(), o.State.IsSet()
 }
 
 // HasState returns a boolean if a field has been set.
 func (o *SharedStepReferenceModel) HasState() bool {
-	if o != nil && !IsNil(o.State) {
+	if o != nil && o.State.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetState gets a reference to the given string and assigns it to the State field.
+// SetState gets a reference to the given NullableString and assigns it to the State field.
 func (o *SharedStepReferenceModel) SetState(v string) {
-	o.State = &v
+	o.State.Set(&v)
+}
+// SetStateNil sets the value for State to be an explicit nil
+func (o *SharedStepReferenceModel) SetStateNil() {
+	o.State.Set(nil)
+}
+
+// UnsetState ensures that no value is present for State, not even an explicit nil
+func (o *SharedStepReferenceModel) UnsetState() {
+	o.State.Unset()
 }
 
 // GetPriority returns the Priority field value
@@ -497,132 +489,100 @@ func (o *SharedStepReferenceModel) SetPriority(v WorkItemPriorityModel) {
 	o.Priority = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *SharedStepReferenceModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *SharedStepReferenceModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
-// GetVersionId returns the VersionId field value if set, zero value otherwise.
+// GetVersionId returns the VersionId field value
 func (o *SharedStepReferenceModel) GetVersionId() string {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VersionId
+
+	return o.VersionId
 }
 
-// GetVersionIdOk returns a tuple with the VersionId field value if set, nil otherwise
+// GetVersionIdOk returns a tuple with the VersionId field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VersionId, true
+	return &o.VersionId, true
 }
 
-// HasVersionId returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasVersionId() bool {
-	if o != nil && !IsNil(o.VersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetVersionId gets a reference to the given string and assigns it to the VersionId field.
+// SetVersionId sets field value
 func (o *SharedStepReferenceModel) SetVersionId(v string) {
-	o.VersionId = &v
+	o.VersionId = v
 }
 
-// GetIsAutomated returns the IsAutomated field value if set, zero value otherwise.
+// GetIsAutomated returns the IsAutomated field value
 func (o *SharedStepReferenceModel) GetIsAutomated() bool {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsAutomated
+
+	return o.IsAutomated
 }
 
-// GetIsAutomatedOk returns a tuple with the IsAutomated field value if set, nil otherwise
+// GetIsAutomatedOk returns a tuple with the IsAutomated field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetIsAutomatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsAutomated, true
+	return &o.IsAutomated, true
 }
 
-// HasIsAutomated returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasIsAutomated() bool {
-	if o != nil && !IsNil(o.IsAutomated) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsAutomated gets a reference to the given bool and assigns it to the IsAutomated field.
+// SetIsAutomated sets field value
 func (o *SharedStepReferenceModel) SetIsAutomated(v bool) {
-	o.IsAutomated = &v
+	o.IsAutomated = v
 }
 
-// GetSectionId returns the SectionId field value if set, zero value otherwise.
+// GetSectionId returns the SectionId field value
 func (o *SharedStepReferenceModel) GetSectionId() string {
-	if o == nil || IsNil(o.SectionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SectionId
+
+	return o.SectionId
 }
 
-// GetSectionIdOk returns a tuple with the SectionId field value if set, nil otherwise
+// GetSectionIdOk returns a tuple with the SectionId field value
 // and a boolean to check if the value has been set.
 func (o *SharedStepReferenceModel) GetSectionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SectionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SectionId, true
+	return &o.SectionId, true
 }
 
-// HasSectionId returns a boolean if a field has been set.
-func (o *SharedStepReferenceModel) HasSectionId() bool {
-	if o != nil && !IsNil(o.SectionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSectionId gets a reference to the given string and assigns it to the SectionId field.
+// SetSectionId sets field value
 func (o *SharedStepReferenceModel) SetSectionId(v string) {
-	o.SectionId = &v
+	o.SectionId = v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -668,30 +628,18 @@ func (o SharedStepReferenceModel) MarshalJSON() ([]byte, error) {
 
 func (o SharedStepReferenceModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	toSerialize["id"] = o.Id
+	toSerialize["globalId"] = o.GlobalId
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
+	if o.EntityTypeName.IsSet() {
+		toSerialize["entityTypeName"] = o.EntityTypeName.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.EntityTypeName) {
-		toSerialize["entityTypeName"] = o.EntityTypeName
-	}
-	if !IsNil(o.HasThisSharedStepAsStep) {
-		toSerialize["hasThisSharedStepAsStep"] = o.HasThisSharedStepAsStep
-	}
-	if !IsNil(o.HasThisSharedStepAsPrecondition) {
-		toSerialize["hasThisSharedStepAsPrecondition"] = o.HasThisSharedStepAsPrecondition
-	}
-	if !IsNil(o.HasThisSharedStepAsPostcondition) {
-		toSerialize["hasThisSharedStepAsPostcondition"] = o.HasThisSharedStepAsPostcondition
-	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["hasThisSharedStepAsStep"] = o.HasThisSharedStepAsStep
+	toSerialize["hasThisSharedStepAsPrecondition"] = o.HasThisSharedStepAsPrecondition
+	toSerialize["hasThisSharedStepAsPostcondition"] = o.HasThisSharedStepAsPostcondition
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
@@ -701,22 +649,14 @@ func (o SharedStepReferenceModel) ToMap() (map[string]interface{}, error) {
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.State) {
-		toSerialize["state"] = o.State
+	if o.State.IsSet() {
+		toSerialize["state"] = o.State.Get()
 	}
 	toSerialize["priority"] = o.Priority
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !IsNil(o.VersionId) {
-		toSerialize["versionId"] = o.VersionId
-	}
-	if !IsNil(o.IsAutomated) {
-		toSerialize["isAutomated"] = o.IsAutomated
-	}
-	if !IsNil(o.SectionId) {
-		toSerialize["sectionId"] = o.SectionId
-	}
+	toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["versionId"] = o.VersionId
+	toSerialize["isAutomated"] = o.IsAutomated
+	toSerialize["sectionId"] = o.SectionId
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
 	}

@@ -19,16 +19,18 @@ var _ MappedNullable = &GuidChangedFieldViewModel{}
 
 // GuidChangedFieldViewModel struct for GuidChangedFieldViewModel
 type GuidChangedFieldViewModel struct {
-	OldValue *string `json:"oldValue,omitempty"`
-	NewValue *string `json:"newValue,omitempty"`
+	OldValue string `json:"oldValue"`
+	NewValue string `json:"newValue"`
 }
 
 // NewGuidChangedFieldViewModel instantiates a new GuidChangedFieldViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGuidChangedFieldViewModel() *GuidChangedFieldViewModel {
+func NewGuidChangedFieldViewModel(oldValue string, newValue string) *GuidChangedFieldViewModel {
 	this := GuidChangedFieldViewModel{}
+	this.OldValue = oldValue
+	this.NewValue = newValue
 	return &this
 }
 
@@ -40,68 +42,52 @@ func NewGuidChangedFieldViewModelWithDefaults() *GuidChangedFieldViewModel {
 	return &this
 }
 
-// GetOldValue returns the OldValue field value if set, zero value otherwise.
+// GetOldValue returns the OldValue field value
 func (o *GuidChangedFieldViewModel) GetOldValue() string {
-	if o == nil || IsNil(o.OldValue) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OldValue
+
+	return o.OldValue
 }
 
-// GetOldValueOk returns a tuple with the OldValue field value if set, nil otherwise
+// GetOldValueOk returns a tuple with the OldValue field value
 // and a boolean to check if the value has been set.
 func (o *GuidChangedFieldViewModel) GetOldValueOk() (*string, bool) {
-	if o == nil || IsNil(o.OldValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldValue, true
+	return &o.OldValue, true
 }
 
-// HasOldValue returns a boolean if a field has been set.
-func (o *GuidChangedFieldViewModel) HasOldValue() bool {
-	if o != nil && !IsNil(o.OldValue) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldValue gets a reference to the given string and assigns it to the OldValue field.
+// SetOldValue sets field value
 func (o *GuidChangedFieldViewModel) SetOldValue(v string) {
-	o.OldValue = &v
+	o.OldValue = v
 }
 
-// GetNewValue returns the NewValue field value if set, zero value otherwise.
+// GetNewValue returns the NewValue field value
 func (o *GuidChangedFieldViewModel) GetNewValue() string {
-	if o == nil || IsNil(o.NewValue) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.NewValue
+
+	return o.NewValue
 }
 
-// GetNewValueOk returns a tuple with the NewValue field value if set, nil otherwise
+// GetNewValueOk returns a tuple with the NewValue field value
 // and a boolean to check if the value has been set.
 func (o *GuidChangedFieldViewModel) GetNewValueOk() (*string, bool) {
-	if o == nil || IsNil(o.NewValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewValue, true
+	return &o.NewValue, true
 }
 
-// HasNewValue returns a boolean if a field has been set.
-func (o *GuidChangedFieldViewModel) HasNewValue() bool {
-	if o != nil && !IsNil(o.NewValue) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewValue gets a reference to the given string and assigns it to the NewValue field.
+// SetNewValue sets field value
 func (o *GuidChangedFieldViewModel) SetNewValue(v string) {
-	o.NewValue = &v
+	o.NewValue = v
 }
 
 func (o GuidChangedFieldViewModel) MarshalJSON() ([]byte, error) {
@@ -114,12 +100,8 @@ func (o GuidChangedFieldViewModel) MarshalJSON() ([]byte, error) {
 
 func (o GuidChangedFieldViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OldValue) {
-		toSerialize["oldValue"] = o.OldValue
-	}
-	if !IsNil(o.NewValue) {
-		toSerialize["newValue"] = o.NewValue
-	}
+	toSerialize["oldValue"] = o.OldValue
+	toSerialize["newValue"] = o.NewValue
 	return toSerialize, nil
 }
 

@@ -19,8 +19,8 @@ var _ MappedNullable = &AutotestsSelectModel{}
 
 // AutotestsSelectModel struct for AutotestsSelectModel
 type AutotestsSelectModel struct {
-	Filter *AutotestsSelectModelFilter `json:"filter,omitempty"`
-	Includes *AutotestsSelectModelIncludes `json:"includes,omitempty"`
+	Filter NullableAutotestsSelectModelFilter `json:"filter,omitempty"`
+	Includes NullableAutotestsSelectModelIncludes `json:"includes,omitempty"`
 }
 
 // NewAutotestsSelectModel instantiates a new AutotestsSelectModel object
@@ -40,68 +40,88 @@ func NewAutotestsSelectModelWithDefaults() *AutotestsSelectModel {
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise.
+// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutotestsSelectModel) GetFilter() AutotestsSelectModelFilter {
-	if o == nil || IsNil(o.Filter) {
+	if o == nil || IsNil(o.Filter.Get()) {
 		var ret AutotestsSelectModelFilter
 		return ret
 	}
-	return *o.Filter
+	return *o.Filter.Get()
 }
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutotestsSelectModel) GetFilterOk() (*AutotestsSelectModelFilter, bool) {
-	if o == nil || IsNil(o.Filter) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Filter, true
+	return o.Filter.Get(), o.Filter.IsSet()
 }
 
 // HasFilter returns a boolean if a field has been set.
 func (o *AutotestsSelectModel) HasFilter() bool {
-	if o != nil && !IsNil(o.Filter) {
+	if o != nil && o.Filter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFilter gets a reference to the given AutotestsSelectModelFilter and assigns it to the Filter field.
+// SetFilter gets a reference to the given NullableAutotestsSelectModelFilter and assigns it to the Filter field.
 func (o *AutotestsSelectModel) SetFilter(v AutotestsSelectModelFilter) {
-	o.Filter = &v
+	o.Filter.Set(&v)
+}
+// SetFilterNil sets the value for Filter to be an explicit nil
+func (o *AutotestsSelectModel) SetFilterNil() {
+	o.Filter.Set(nil)
 }
 
-// GetIncludes returns the Includes field value if set, zero value otherwise.
+// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
+func (o *AutotestsSelectModel) UnsetFilter() {
+	o.Filter.Unset()
+}
+
+// GetIncludes returns the Includes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutotestsSelectModel) GetIncludes() AutotestsSelectModelIncludes {
-	if o == nil || IsNil(o.Includes) {
+	if o == nil || IsNil(o.Includes.Get()) {
 		var ret AutotestsSelectModelIncludes
 		return ret
 	}
-	return *o.Includes
+	return *o.Includes.Get()
 }
 
 // GetIncludesOk returns a tuple with the Includes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutotestsSelectModel) GetIncludesOk() (*AutotestsSelectModelIncludes, bool) {
-	if o == nil || IsNil(o.Includes) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Includes, true
+	return o.Includes.Get(), o.Includes.IsSet()
 }
 
 // HasIncludes returns a boolean if a field has been set.
 func (o *AutotestsSelectModel) HasIncludes() bool {
-	if o != nil && !IsNil(o.Includes) {
+	if o != nil && o.Includes.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIncludes gets a reference to the given AutotestsSelectModelIncludes and assigns it to the Includes field.
+// SetIncludes gets a reference to the given NullableAutotestsSelectModelIncludes and assigns it to the Includes field.
 func (o *AutotestsSelectModel) SetIncludes(v AutotestsSelectModelIncludes) {
-	o.Includes = &v
+	o.Includes.Set(&v)
+}
+// SetIncludesNil sets the value for Includes to be an explicit nil
+func (o *AutotestsSelectModel) SetIncludesNil() {
+	o.Includes.Set(nil)
+}
+
+// UnsetIncludes ensures that no value is present for Includes, not even an explicit nil
+func (o *AutotestsSelectModel) UnsetIncludes() {
+	o.Includes.Unset()
 }
 
 func (o AutotestsSelectModel) MarshalJSON() ([]byte, error) {
@@ -114,11 +134,11 @@ func (o AutotestsSelectModel) MarshalJSON() ([]byte, error) {
 
 func (o AutotestsSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Filter) {
-		toSerialize["filter"] = o.Filter
+	if o.Filter.IsSet() {
+		toSerialize["filter"] = o.Filter.Get()
 	}
-	if !IsNil(o.Includes) {
-		toSerialize["includes"] = o.Includes
+	if o.Includes.IsSet() {
+		toSerialize["includes"] = o.Includes.Get()
 	}
 	return toSerialize, nil
 }

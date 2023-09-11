@@ -24,6 +24,7 @@ const (
 	FAILURECATEGORYMODEL_PRODUCT_DEFECT FailureCategoryModel = "ProductDefect"
 	FAILURECATEGORYMODEL_TEST_DEFECT FailureCategoryModel = "TestDefect"
 	FAILURECATEGORYMODEL_NO_DEFECT FailureCategoryModel = "NoDefect"
+	FAILURECATEGORYMODEL_NO_ANALYTICS FailureCategoryModel = "NoAnalytics"
 )
 
 // All allowed values of FailureCategoryModel enum
@@ -32,6 +33,7 @@ var AllowedFailureCategoryModelEnumValues = []FailureCategoryModel{
 	"ProductDefect",
 	"TestDefect",
 	"NoDefect",
+	"NoAnalytics",
 }
 
 func (v *FailureCategoryModel) UnmarshalJSON(src []byte) error {

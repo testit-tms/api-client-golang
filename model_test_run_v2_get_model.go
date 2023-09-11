@@ -24,15 +24,17 @@ type TestRunV2GetModel struct {
 	CompletedOn NullableTime `json:"completedOn,omitempty"`
 	StateName TestRunState `json:"stateName"`
 	// This property is used to link test run with project
-	ProjectId *string `json:"projectId,omitempty"`
+	ProjectId string `json:"projectId"`
 	// This property is used to link test run with test plan
 	TestPlanId NullableString `json:"testPlanId,omitempty"`
 	TestResults []TestResultV2GetModel `json:"testResults,omitempty"`
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	CreatedByUserName NullableString `json:"createdByUserName,omitempty"`
+	Attachments []AttachmentModel `json:"attachments,omitempty"`
+	Links []LinkModel `json:"links,omitempty"`
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
@@ -44,9 +46,12 @@ type TestRunV2GetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunV2GetModel(stateName TestRunState, id string, name string) *TestRunV2GetModel {
+func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, id string, name string) *TestRunV2GetModel {
 	this := TestRunV2GetModel{}
 	this.StateName = stateName
+	this.ProjectId = projectId
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
 	this.Id = id
 	this.Name = name
 	return &this
@@ -168,36 +173,28 @@ func (o *TestRunV2GetModel) SetStateName(v TestRunState) {
 	o.StateName = v
 }
 
-// GetProjectId returns the ProjectId field value if set, zero value otherwise.
+// GetProjectId returns the ProjectId field value
 func (o *TestRunV2GetModel) GetProjectId() string {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ProjectId
+
+	return o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// GetProjectIdOk returns a tuple with the ProjectId field value
 // and a boolean to check if the value has been set.
 func (o *TestRunV2GetModel) GetProjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProjectId, true
+	return &o.ProjectId, true
 }
 
-// HasProjectId returns a boolean if a field has been set.
-func (o *TestRunV2GetModel) HasProjectId() bool {
-	if o != nil && !IsNil(o.ProjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectId gets a reference to the given string and assigns it to the ProjectId field.
+// SetProjectId sets field value
 func (o *TestRunV2GetModel) SetProjectId(v string) {
-	o.ProjectId = &v
+	o.ProjectId = v
 }
 
 // GetTestPlanId returns the TestPlanId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -275,36 +272,28 @@ func (o *TestRunV2GetModel) SetTestResults(v []TestResultV2GetModel) {
 	o.TestResults = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *TestRunV2GetModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *TestRunV2GetModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *TestRunV2GetModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *TestRunV2GetModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -349,36 +338,28 @@ func (o *TestRunV2GetModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *TestRunV2GetModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *TestRunV2GetModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *TestRunV2GetModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *TestRunV2GetModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -463,6 +444,72 @@ func (o *TestRunV2GetModel) SetCreatedByUserNameNil() {
 // UnsetCreatedByUserName ensures that no value is present for CreatedByUserName, not even an explicit nil
 func (o *TestRunV2GetModel) UnsetCreatedByUserName() {
 	o.CreatedByUserName.Unset()
+}
+
+// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunV2GetModel) GetAttachments() []AttachmentModel {
+	if o == nil {
+		var ret []AttachmentModel
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunV2GetModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *TestRunV2GetModel) HasAttachments() bool {
+	if o != nil && IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []AttachmentModel and assigns it to the Attachments field.
+func (o *TestRunV2GetModel) SetAttachments(v []AttachmentModel) {
+	o.Attachments = v
+}
+
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunV2GetModel) GetLinks() []LinkModel {
+	if o == nil {
+		var ret []LinkModel
+		return ret
+	}
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunV2GetModel) GetLinksOk() ([]LinkModel, bool) {
+	if o == nil || IsNil(o.Links) {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *TestRunV2GetModel) HasLinks() bool {
+	if o != nil && IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinkModel and assigns it to the Links field.
+func (o *TestRunV2GetModel) SetLinks(v []LinkModel) {
+	o.Links = v
 }
 
 // GetId returns the Id field value
@@ -614,29 +661,29 @@ func (o TestRunV2GetModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["completedOn"] = o.CompletedOn.Get()
 	}
 	toSerialize["stateName"] = o.StateName
-	if !IsNil(o.ProjectId) {
-		toSerialize["projectId"] = o.ProjectId
-	}
+	toSerialize["projectId"] = o.ProjectId
 	if o.TestPlanId.IsSet() {
 		toSerialize["testPlanId"] = o.TestPlanId.Get()
 	}
 	if o.TestResults != nil {
 		toSerialize["testResults"] = o.TestResults
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
 	if o.CreatedByUserName.IsSet() {
 		toSerialize["createdByUserName"] = o.CreatedByUserName.Get()
+	}
+	if o.Attachments != nil {
+		toSerialize["attachments"] = o.Attachments
+	}
+	if o.Links != nil {
+		toSerialize["links"] = o.Links
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name

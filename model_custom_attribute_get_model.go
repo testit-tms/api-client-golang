@@ -20,29 +20,34 @@ var _ MappedNullable = &CustomAttributeGetModel{}
 // CustomAttributeGetModel struct for CustomAttributeGetModel
 type CustomAttributeGetModel struct {
 	// Unique ID of the attribute
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Collection of the attribute options
 	Options []CustomAttributeOptionModel `json:"options,omitempty"`
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Indicates if the attribute is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 	// Name of the attribute
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// Indicates if the attribute is enabled
-	IsEnabled *bool `json:"isEnabled,omitempty"`
+	IsEnabled bool `json:"isEnabled"`
 	// Indicates if the attribute is mandatory to specify
-	IsRequired *bool `json:"isRequired,omitempty"`
+	IsRequired bool `json:"isRequired"`
 	// Indicates if the attribute is available across all projects
-	IsGlobal *bool `json:"isGlobal,omitempty"`
+	IsGlobal bool `json:"isGlobal"`
 }
 
 // NewCustomAttributeGetModel instantiates a new CustomAttributeGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeGetModel(type_ CustomAttributeTypesEnum) *CustomAttributeGetModel {
+func NewCustomAttributeGetModel(id string, type_ CustomAttributeTypesEnum, isDeleted bool, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeGetModel {
 	this := CustomAttributeGetModel{}
+	this.Id = id
 	this.Type = type_
+	this.IsDeleted = isDeleted
+	this.IsEnabled = isEnabled
+	this.IsRequired = isRequired
+	this.IsGlobal = isGlobal
 	return &this
 }
 
@@ -54,41 +59,33 @@ func NewCustomAttributeGetModelWithDefaults() *CustomAttributeGetModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *CustomAttributeGetModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeGetModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *CustomAttributeGetModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *CustomAttributeGetModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetOptions returns the Options field value if set, zero value otherwise.
+// GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomAttributeGetModel) GetOptions() []CustomAttributeOptionModel {
-	if o == nil || IsNil(o.Options) {
+	if o == nil {
 		var ret []CustomAttributeOptionModel
 		return ret
 	}
@@ -97,6 +94,7 @@ func (o *CustomAttributeGetModel) GetOptions() []CustomAttributeOptionModel {
 
 // GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomAttributeGetModel) GetOptionsOk() ([]CustomAttributeOptionModel, bool) {
 	if o == nil || IsNil(o.Options) {
 		return nil, false
@@ -106,7 +104,7 @@ func (o *CustomAttributeGetModel) GetOptionsOk() ([]CustomAttributeOptionModel, 
 
 // HasOptions returns a boolean if a field has been set.
 func (o *CustomAttributeGetModel) HasOptions() bool {
-	if o != nil && !IsNil(o.Options) {
+	if o != nil && IsNil(o.Options) {
 		return true
 	}
 
@@ -142,164 +140,142 @@ func (o *CustomAttributeGetModel) SetType(v CustomAttributeTypesEnum) {
 	o.Type = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *CustomAttributeGetModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeGetModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *CustomAttributeGetModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *CustomAttributeGetModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CustomAttributeGetModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomAttributeGetModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *CustomAttributeGetModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *CustomAttributeGetModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *CustomAttributeGetModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *CustomAttributeGetModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetIsEnabled returns the IsEnabled field value
 func (o *CustomAttributeGetModel) GetIsEnabled() bool {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsEnabled
+
+	return o.IsEnabled
 }
 
-// GetIsEnabledOk returns a tuple with the IsEnabled field value if set, nil otherwise
+// GetIsEnabledOk returns a tuple with the IsEnabled field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeGetModel) GetIsEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsEnabled, true
+	return &o.IsEnabled, true
 }
 
-// HasIsEnabled returns a boolean if a field has been set.
-func (o *CustomAttributeGetModel) HasIsEnabled() bool {
-	if o != nil && !IsNil(o.IsEnabled) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsEnabled gets a reference to the given bool and assigns it to the IsEnabled field.
+// SetIsEnabled sets field value
 func (o *CustomAttributeGetModel) SetIsEnabled(v bool) {
-	o.IsEnabled = &v
+	o.IsEnabled = v
 }
 
-// GetIsRequired returns the IsRequired field value if set, zero value otherwise.
+// GetIsRequired returns the IsRequired field value
 func (o *CustomAttributeGetModel) GetIsRequired() bool {
-	if o == nil || IsNil(o.IsRequired) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsRequired
+
+	return o.IsRequired
 }
 
-// GetIsRequiredOk returns a tuple with the IsRequired field value if set, nil otherwise
+// GetIsRequiredOk returns a tuple with the IsRequired field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeGetModel) GetIsRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsRequired) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsRequired, true
+	return &o.IsRequired, true
 }
 
-// HasIsRequired returns a boolean if a field has been set.
-func (o *CustomAttributeGetModel) HasIsRequired() bool {
-	if o != nil && !IsNil(o.IsRequired) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsRequired gets a reference to the given bool and assigns it to the IsRequired field.
+// SetIsRequired sets field value
 func (o *CustomAttributeGetModel) SetIsRequired(v bool) {
-	o.IsRequired = &v
+	o.IsRequired = v
 }
 
-// GetIsGlobal returns the IsGlobal field value if set, zero value otherwise.
+// GetIsGlobal returns the IsGlobal field value
 func (o *CustomAttributeGetModel) GetIsGlobal() bool {
-	if o == nil || IsNil(o.IsGlobal) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsGlobal
+
+	return o.IsGlobal
 }
 
-// GetIsGlobalOk returns a tuple with the IsGlobal field value if set, nil otherwise
+// GetIsGlobalOk returns a tuple with the IsGlobal field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeGetModel) GetIsGlobalOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsGlobal) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsGlobal, true
+	return &o.IsGlobal, true
 }
 
-// HasIsGlobal returns a boolean if a field has been set.
-func (o *CustomAttributeGetModel) HasIsGlobal() bool {
-	if o != nil && !IsNil(o.IsGlobal) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsGlobal gets a reference to the given bool and assigns it to the IsGlobal field.
+// SetIsGlobal sets field value
 func (o *CustomAttributeGetModel) SetIsGlobal(v bool) {
-	o.IsGlobal = &v
+	o.IsGlobal = v
 }
 
 func (o CustomAttributeGetModel) MarshalJSON() ([]byte, error) {
@@ -312,28 +288,18 @@ func (o CustomAttributeGetModel) MarshalJSON() ([]byte, error) {
 
 func (o CustomAttributeGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.Options) {
+	toSerialize["id"] = o.Id
+	if o.Options != nil {
 		toSerialize["options"] = o.Options
 	}
 	toSerialize["type"] = o.Type
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["isDeleted"] = o.IsDeleted
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.IsEnabled) {
-		toSerialize["isEnabled"] = o.IsEnabled
-	}
-	if !IsNil(o.IsRequired) {
-		toSerialize["isRequired"] = o.IsRequired
-	}
-	if !IsNil(o.IsGlobal) {
-		toSerialize["isGlobal"] = o.IsGlobal
-	}
+	toSerialize["isEnabled"] = o.IsEnabled
+	toSerialize["isRequired"] = o.IsRequired
+	toSerialize["isGlobal"] = o.IsGlobal
 	return toSerialize, nil
 }
 

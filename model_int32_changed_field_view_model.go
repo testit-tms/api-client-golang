@@ -19,16 +19,18 @@ var _ MappedNullable = &Int32ChangedFieldViewModel{}
 
 // Int32ChangedFieldViewModel struct for Int32ChangedFieldViewModel
 type Int32ChangedFieldViewModel struct {
-	OldValue *int32 `json:"oldValue,omitempty"`
-	NewValue *int32 `json:"newValue,omitempty"`
+	OldValue int32 `json:"oldValue"`
+	NewValue int32 `json:"newValue"`
 }
 
 // NewInt32ChangedFieldViewModel instantiates a new Int32ChangedFieldViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInt32ChangedFieldViewModel() *Int32ChangedFieldViewModel {
+func NewInt32ChangedFieldViewModel(oldValue int32, newValue int32) *Int32ChangedFieldViewModel {
 	this := Int32ChangedFieldViewModel{}
+	this.OldValue = oldValue
+	this.NewValue = newValue
 	return &this
 }
 
@@ -40,68 +42,52 @@ func NewInt32ChangedFieldViewModelWithDefaults() *Int32ChangedFieldViewModel {
 	return &this
 }
 
-// GetOldValue returns the OldValue field value if set, zero value otherwise.
+// GetOldValue returns the OldValue field value
 func (o *Int32ChangedFieldViewModel) GetOldValue() int32 {
-	if o == nil || IsNil(o.OldValue) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.OldValue
+
+	return o.OldValue
 }
 
-// GetOldValueOk returns a tuple with the OldValue field value if set, nil otherwise
+// GetOldValueOk returns a tuple with the OldValue field value
 // and a boolean to check if the value has been set.
 func (o *Int32ChangedFieldViewModel) GetOldValueOk() (*int32, bool) {
-	if o == nil || IsNil(o.OldValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldValue, true
+	return &o.OldValue, true
 }
 
-// HasOldValue returns a boolean if a field has been set.
-func (o *Int32ChangedFieldViewModel) HasOldValue() bool {
-	if o != nil && !IsNil(o.OldValue) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldValue gets a reference to the given int32 and assigns it to the OldValue field.
+// SetOldValue sets field value
 func (o *Int32ChangedFieldViewModel) SetOldValue(v int32) {
-	o.OldValue = &v
+	o.OldValue = v
 }
 
-// GetNewValue returns the NewValue field value if set, zero value otherwise.
+// GetNewValue returns the NewValue field value
 func (o *Int32ChangedFieldViewModel) GetNewValue() int32 {
-	if o == nil || IsNil(o.NewValue) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NewValue
+
+	return o.NewValue
 }
 
-// GetNewValueOk returns a tuple with the NewValue field value if set, nil otherwise
+// GetNewValueOk returns a tuple with the NewValue field value
 // and a boolean to check if the value has been set.
 func (o *Int32ChangedFieldViewModel) GetNewValueOk() (*int32, bool) {
-	if o == nil || IsNil(o.NewValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewValue, true
+	return &o.NewValue, true
 }
 
-// HasNewValue returns a boolean if a field has been set.
-func (o *Int32ChangedFieldViewModel) HasNewValue() bool {
-	if o != nil && !IsNil(o.NewValue) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewValue gets a reference to the given int32 and assigns it to the NewValue field.
+// SetNewValue sets field value
 func (o *Int32ChangedFieldViewModel) SetNewValue(v int32) {
-	o.NewValue = &v
+	o.NewValue = v
 }
 
 func (o Int32ChangedFieldViewModel) MarshalJSON() ([]byte, error) {
@@ -114,12 +100,8 @@ func (o Int32ChangedFieldViewModel) MarshalJSON() ([]byte, error) {
 
 func (o Int32ChangedFieldViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OldValue) {
-		toSerialize["oldValue"] = o.OldValue
-	}
-	if !IsNil(o.NewValue) {
-		toSerialize["newValue"] = o.NewValue
-	}
+	toSerialize["oldValue"] = o.OldValue
+	toSerialize["newValue"] = o.NewValue
 	return toSerialize, nil
 }
 

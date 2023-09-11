@@ -9,21 +9,21 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the webhook | [optional] 
 **Url** | **string** | Request URL of the webhook | 
 **RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
-**ShouldSendBody** | Pointer to **bool** | Indicates if the webhook sends body | [optional] 
+**ShouldSendBody** | **bool** | Indicates if the webhook sends body | 
 **Headers** | Pointer to **map[string]string** | Collection of the webhook headers | [optional] 
 **QueryParameters** | Pointer to **map[string]string** | Collection of the webhook query parameters | [optional] 
-**IsEnabled** | Pointer to **bool** | Indicates if the webhook is active | [optional] 
-**ShouldSendCustomBody** | Pointer to **bool** | Indicates if the webhook sends custom body | [optional] 
+**IsEnabled** | **bool** | Indicates if the webhook is active | 
+**ShouldSendCustomBody** | **bool** | Indicates if the webhook sends custom body | 
 **CustomBody** | Pointer to **NullableString** | Custom body of the webhook | [optional] 
-**ShouldReplaceParameters** | Pointer to **bool** | Indicates if the webhook injects parameters | [optional] 
-**ShouldEscapeParameters** | Pointer to **bool** | Indicates if the webhook escapes invalid characters in parameters | [optional] 
+**ShouldReplaceParameters** | **bool** | Indicates if the webhook injects parameters | 
+**ShouldEscapeParameters** | **bool** | Indicates if the webhook escapes invalid characters in parameters | 
 **Name** | **string** | Name of the webhook | 
 
 ## Methods
 
 ### NewWebHookPostModel
 
-`func NewWebHookPostModel(projectId string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, name string, ) *WebHookPostModel`
+`func NewWebHookPostModel(projectId string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, name string, ) *WebHookPostModel`
 
 NewWebHookPostModel instantiates a new WebHookPostModel object
 This constructor will assign default values to properties that have it defined,
@@ -172,11 +172,6 @@ and a boolean to check if the value has been set.
 
 SetShouldSendBody sets ShouldSendBody field to given value.
 
-### HasShouldSendBody
-
-`func (o *WebHookPostModel) HasShouldSendBody() bool`
-
-HasShouldSendBody returns a boolean if a field has been set.
 
 ### GetHeaders
 
@@ -203,6 +198,16 @@ SetHeaders sets Headers field to given value.
 
 HasHeaders returns a boolean if a field has been set.
 
+### SetHeadersNil
+
+`func (o *WebHookPostModel) SetHeadersNil(b bool)`
+
+ SetHeadersNil sets the value for Headers to be an explicit nil
+
+### UnsetHeaders
+`func (o *WebHookPostModel) UnsetHeaders()`
+
+UnsetHeaders ensures that no value is present for Headers, not even an explicit nil
 ### GetQueryParameters
 
 `func (o *WebHookPostModel) GetQueryParameters() map[string]string`
@@ -228,6 +233,16 @@ SetQueryParameters sets QueryParameters field to given value.
 
 HasQueryParameters returns a boolean if a field has been set.
 
+### SetQueryParametersNil
+
+`func (o *WebHookPostModel) SetQueryParametersNil(b bool)`
+
+ SetQueryParametersNil sets the value for QueryParameters to be an explicit nil
+
+### UnsetQueryParameters
+`func (o *WebHookPostModel) UnsetQueryParameters()`
+
+UnsetQueryParameters ensures that no value is present for QueryParameters, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *WebHookPostModel) GetIsEnabled() bool`
@@ -247,11 +262,6 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
-### HasIsEnabled
-
-`func (o *WebHookPostModel) HasIsEnabled() bool`
-
-HasIsEnabled returns a boolean if a field has been set.
 
 ### GetShouldSendCustomBody
 
@@ -272,11 +282,6 @@ and a boolean to check if the value has been set.
 
 SetShouldSendCustomBody sets ShouldSendCustomBody field to given value.
 
-### HasShouldSendCustomBody
-
-`func (o *WebHookPostModel) HasShouldSendCustomBody() bool`
-
-HasShouldSendCustomBody returns a boolean if a field has been set.
 
 ### GetCustomBody
 
@@ -332,11 +337,6 @@ and a boolean to check if the value has been set.
 
 SetShouldReplaceParameters sets ShouldReplaceParameters field to given value.
 
-### HasShouldReplaceParameters
-
-`func (o *WebHookPostModel) HasShouldReplaceParameters() bool`
-
-HasShouldReplaceParameters returns a boolean if a field has been set.
 
 ### GetShouldEscapeParameters
 
@@ -357,11 +357,6 @@ and a boolean to check if the value has been set.
 
 SetShouldEscapeParameters sets ShouldEscapeParameters field to given value.
 
-### HasShouldEscapeParameters
-
-`func (o *WebHookPostModel) HasShouldEscapeParameters() bool`
-
-HasShouldEscapeParameters returns a boolean if a field has been set.
 
 ### GetName
 

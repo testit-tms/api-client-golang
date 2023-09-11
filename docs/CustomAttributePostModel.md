@@ -7,15 +7,15 @@ Name | Type | Description | Notes
 **Options** | Pointer to [**[]CustomAttributeOptionPostModel**](CustomAttributeOptionPostModel.md) | Collection of attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
 **Name** | **string** | Name of the attribute | 
-**IsEnabled** | Pointer to **bool** | Indicates if the attribute is enabled | [optional] 
-**IsRequired** | Pointer to **bool** | Indicates if the attribute value is mandatory to specify | [optional] 
-**IsGlobal** | Pointer to **bool** | Indicates if the attribute is available across all projects | [optional] 
+**IsEnabled** | **bool** | Indicates if the attribute is enabled | 
+**IsRequired** | **bool** | Indicates if the attribute value is mandatory to specify | 
+**IsGlobal** | **bool** | Indicates if the attribute is available across all projects | 
 
 ## Methods
 
 ### NewCustomAttributePostModel
 
-`func NewCustomAttributePostModel(type_ CustomAttributeTypesEnum, name string, ) *CustomAttributePostModel`
+`func NewCustomAttributePostModel(type_ CustomAttributeTypesEnum, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributePostModel`
 
 NewCustomAttributePostModel instantiates a new CustomAttributePostModel object
 This constructor will assign default values to properties that have it defined,
@@ -124,11 +124,6 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
-### HasIsEnabled
-
-`func (o *CustomAttributePostModel) HasIsEnabled() bool`
-
-HasIsEnabled returns a boolean if a field has been set.
 
 ### GetIsRequired
 
@@ -149,11 +144,6 @@ and a boolean to check if the value has been set.
 
 SetIsRequired sets IsRequired field to given value.
 
-### HasIsRequired
-
-`func (o *CustomAttributePostModel) HasIsRequired() bool`
-
-HasIsRequired returns a boolean if a field has been set.
 
 ### GetIsGlobal
 
@@ -174,11 +164,6 @@ and a boolean to check if the value has been set.
 
 SetIsGlobal sets IsGlobal field to given value.
 
-### HasIsGlobal
-
-`func (o *CustomAttributePostModel) HasIsGlobal() bool`
-
-HasIsGlobal returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

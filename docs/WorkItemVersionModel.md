@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VersionId** | Pointer to **string** | used for versioning changes in workitem | [optional] 
-**VersionNumber** | Pointer to **int32** | used for define chronology of workitem state in each version | [optional] 
+**VersionId** | **string** | used for versioning changes in workitem | 
+**VersionNumber** | **int32** | used for define chronology of workitem state in each version | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemVersionModel
 
-`func NewWorkItemVersionModel() *WorkItemVersionModel`
+`func NewWorkItemVersionModel(versionId string, versionNumber int32, ) *WorkItemVersionModel`
 
 NewWorkItemVersionModel instantiates a new WorkItemVersionModel object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetVersionId sets VersionId field to given value.
 
-### HasVersionId
-
-`func (o *WorkItemVersionModel) HasVersionId() bool`
-
-HasVersionId returns a boolean if a field has been set.
 
 ### GetVersionNumber
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetVersionNumber sets VersionNumber field to given value.
 
-### HasVersionNumber
-
-`func (o *WorkItemVersionModel) HasVersionNumber() bool`
-
-HasVersionNumber returns a boolean if a field has been set.
 
 ### GetModifiedDate
 

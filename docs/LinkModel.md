@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **Title** | Pointer to **NullableString** | Link name. | [optional] 
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
 **Type** | Pointer to [**NullableLinkType**](LinkType.md) |  | [optional] 
-**HasInfo** | Pointer to **bool** |  | [optional] 
+**HasInfo** | **bool** |  | 
 
 ## Methods
 
 ### NewLinkModel
 
-`func NewLinkModel(url string, ) *LinkModel`
+`func NewLinkModel(id string, url string, hasInfo bool, ) *LinkModel`
 
 NewLinkModel instantiates a new LinkModel object
 This constructor will assign default values to properties that have it defined,
@@ -49,11 +49,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *LinkModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetTitle
 
@@ -199,11 +194,6 @@ and a boolean to check if the value has been set.
 
 SetHasInfo sets HasInfo field to given value.
 
-### HasHasInfo
-
-`func (o *LinkModel) HasHasInfo() bool`
-
-HasHasInfo returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

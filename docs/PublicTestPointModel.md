@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConfigurationId** | Pointer to **string** |  | [optional] 
-**ConfigurationGlobalId** | Pointer to **int64** |  | [optional] 
+**ConfigurationId** | **string** |  | 
+**ConfigurationGlobalId** | **int64** |  | 
 **AutoTestIds** | Pointer to **[]string** |  | [optional] 
-**IterationId** | Pointer to **string** |  | [optional] 
+**IterationId** | **string** |  | 
 **ParameterModels** | Pointer to [**[]ParameterShortModel**](ParameterShortModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewPublicTestPointModel
 
-`func NewPublicTestPointModel() *PublicTestPointModel`
+`func NewPublicTestPointModel(configurationId string, configurationGlobalId int64, iterationId string, ) *PublicTestPointModel`
 
 NewPublicTestPointModel instantiates a new PublicTestPointModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetConfigurationId sets ConfigurationId field to given value.
 
-### HasConfigurationId
-
-`func (o *PublicTestPointModel) HasConfigurationId() bool`
-
-HasConfigurationId returns a boolean if a field has been set.
 
 ### GetConfigurationGlobalId
 
@@ -73,11 +68,6 @@ and a boolean to check if the value has been set.
 
 SetConfigurationGlobalId sets ConfigurationGlobalId field to given value.
 
-### HasConfigurationGlobalId
-
-`func (o *PublicTestPointModel) HasConfigurationGlobalId() bool`
-
-HasConfigurationGlobalId returns a boolean if a field has been set.
 
 ### GetAutoTestIds
 
@@ -133,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetIterationId sets IterationId field to given value.
 
-### HasIterationId
-
-`func (o *PublicTestPointModel) HasIterationId() bool`
-
-HasIterationId returns a boolean if a field has been set.
 
 ### GetParameterModels
 

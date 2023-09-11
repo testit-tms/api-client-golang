@@ -19,18 +19,20 @@ var _ MappedNullable = &AttachmentChangeViewModel{}
 
 // AttachmentChangeViewModel struct for AttachmentChangeViewModel
 type AttachmentChangeViewModel struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Name NullableString `json:"name,omitempty"`
 	Type NullableString `json:"type,omitempty"`
-	Size *float32 `json:"size,omitempty"`
+	Size float32 `json:"size"`
 }
 
 // NewAttachmentChangeViewModel instantiates a new AttachmentChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttachmentChangeViewModel() *AttachmentChangeViewModel {
+func NewAttachmentChangeViewModel(id string, size float32) *AttachmentChangeViewModel {
 	this := AttachmentChangeViewModel{}
+	this.Id = id
+	this.Size = size
 	return &this
 }
 
@@ -42,36 +44,28 @@ func NewAttachmentChangeViewModelWithDefaults() *AttachmentChangeViewModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *AttachmentChangeViewModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AttachmentChangeViewModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AttachmentChangeViewModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *AttachmentChangeViewModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -158,36 +152,28 @@ func (o *AttachmentChangeViewModel) UnsetType() {
 	o.Type.Unset()
 }
 
-// GetSize returns the Size field value if set, zero value otherwise.
+// GetSize returns the Size field value
 func (o *AttachmentChangeViewModel) GetSize() float32 {
-	if o == nil || IsNil(o.Size) {
+	if o == nil {
 		var ret float32
 		return ret
 	}
-	return *o.Size
+
+	return o.Size
 }
 
-// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *AttachmentChangeViewModel) GetSizeOk() (*float32, bool) {
-	if o == nil || IsNil(o.Size) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Size, true
+	return &o.Size, true
 }
 
-// HasSize returns a boolean if a field has been set.
-func (o *AttachmentChangeViewModel) HasSize() bool {
-	if o != nil && !IsNil(o.Size) {
-		return true
-	}
-
-	return false
-}
-
-// SetSize gets a reference to the given float32 and assigns it to the Size field.
+// SetSize sets field value
 func (o *AttachmentChangeViewModel) SetSize(v float32) {
-	o.Size = &v
+	o.Size = v
 }
 
 func (o AttachmentChangeViewModel) MarshalJSON() ([]byte, error) {
@@ -200,18 +186,14 @@ func (o AttachmentChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o AttachmentChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.Size) {
-		toSerialize["size"] = o.Size
-	}
+	toSerialize["size"] = o.Size
 	return toSerialize, nil
 }
 

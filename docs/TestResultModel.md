@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutoTestId** | Pointer to **NullableString** |  | [optional] 
-**ConfigurationId** | Pointer to **string** |  | [optional] 
+**ConfigurationId** | **string** |  | 
 **StartedOn** | Pointer to **NullableTime** |  | [optional] 
 **CompletedOn** | Pointer to **NullableTime** |  | [optional] 
 **DurationInMs** | Pointer to **NullableInt64** |  | [optional] 
@@ -14,25 +14,25 @@ Name | Type | Description | Notes
 **Message** | Pointer to **NullableString** |  | [optional] 
 **RunByUserId** | Pointer to **NullableString** |  | [optional] 
 **StoppedByUserId** | Pointer to **NullableString** |  | [optional] 
-**TestPointId** | Pointer to **string** |  | [optional] 
-**TestRunId** | Pointer to **string** |  | [optional] 
+**TestPointId** | **string** |  | 
+**TestRunId** | **string** |  | 
 **TestPoint** | Pointer to [**NullableTestPointPutModel**](TestPointPutModel.md) |  | [optional] 
 **AutoTest** | Pointer to [**NullableAutoTestModel**](AutoTestModel.md) |  | [optional] 
 **AutoTestStepResults** | Pointer to [**[]AttachmentModelAutoTestStepResultsModel**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
 **SetupResults** | Pointer to [**[]AttachmentModelAutoTestStepResultsModel**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
 **TeardownResults** | Pointer to [**[]AttachmentModelAutoTestStepResultsModel**](AttachmentModelAutoTestStepResultsModel.md) |  | [optional] 
-**WorkItemVersionId** | Pointer to **string** |  | [optional] 
+**WorkItemVersionId** | **string** |  | 
 **WorkItemVersionNumber** | Pointer to **NullableInt32** |  | [optional] 
 **Parameters** | Pointer to **map[string]string** |  | [optional] 
 **Properties** | Pointer to **map[string]string** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**Id** | **string** |  | 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **StepComments** | Pointer to [**[]StepCommentModel**](StepCommentModel.md) |  | [optional] 
 **FailureClassIds** | Pointer to **[]string** |  | [optional] 
-**Outcome** | Pointer to **string** |  | [optional] 
+**Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **StepResults** | Pointer to [**[]StepResultModel**](StepResultModel.md) |  | [optional] 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultModel
 
-`func NewTestResultModel() *TestResultModel`
+`func NewTestResultModel(configurationId string, testPointId string, testRunId string, workItemVersionId string, id string, createdDate time.Time, createdById string, ) *TestResultModel`
 
 NewTestResultModel instantiates a new TestResultModel object
 This constructor will assign default values to properties that have it defined,
@@ -111,11 +111,6 @@ and a boolean to check if the value has been set.
 
 SetConfigurationId sets ConfigurationId field to given value.
 
-### HasConfigurationId
-
-`func (o *TestResultModel) HasConfigurationId() bool`
-
-HasConfigurationId returns a boolean if a field has been set.
 
 ### GetStartedOn
 
@@ -416,11 +411,6 @@ and a boolean to check if the value has been set.
 
 SetTestPointId sets TestPointId field to given value.
 
-### HasTestPointId
-
-`func (o *TestResultModel) HasTestPointId() bool`
-
-HasTestPointId returns a boolean if a field has been set.
 
 ### GetTestRunId
 
@@ -441,11 +431,6 @@ and a boolean to check if the value has been set.
 
 SetTestRunId sets TestRunId field to given value.
 
-### HasTestRunId
-
-`func (o *TestResultModel) HasTestRunId() bool`
-
-HasTestRunId returns a boolean if a field has been set.
 
 ### GetTestPoint
 
@@ -641,11 +626,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemVersionId sets WorkItemVersionId field to given value.
 
-### HasWorkItemVersionId
-
-`func (o *TestResultModel) HasWorkItemVersionId() bool`
-
-HasWorkItemVersionId returns a boolean if a field has been set.
 
 ### GetWorkItemVersionNumber
 
@@ -771,11 +751,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestResultModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -796,11 +771,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *TestResultModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -856,11 +826,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *TestResultModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -957,22 +922,32 @@ SetFailureClassIds sets FailureClassIds field to given value.
 
 HasFailureClassIds returns a boolean if a field has been set.
 
+### SetFailureClassIdsNil
+
+`func (o *TestResultModel) SetFailureClassIdsNil(b bool)`
+
+ SetFailureClassIdsNil sets the value for FailureClassIds to be an explicit nil
+
+### UnsetFailureClassIds
+`func (o *TestResultModel) UnsetFailureClassIds()`
+
+UnsetFailureClassIds ensures that no value is present for FailureClassIds, not even an explicit nil
 ### GetOutcome
 
-`func (o *TestResultModel) GetOutcome() string`
+`func (o *TestResultModel) GetOutcome() TestResultOutcome`
 
 GetOutcome returns the Outcome field if non-nil, zero value otherwise.
 
 ### GetOutcomeOk
 
-`func (o *TestResultModel) GetOutcomeOk() (*string, bool)`
+`func (o *TestResultModel) GetOutcomeOk() (*TestResultOutcome, bool)`
 
 GetOutcomeOk returns a tuple with the Outcome field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutcome
 
-`func (o *TestResultModel) SetOutcome(v string)`
+`func (o *TestResultModel) SetOutcome(v TestResultOutcome)`
 
 SetOutcome sets Outcome field to given value.
 
@@ -982,6 +957,16 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
+### SetOutcomeNil
+
+`func (o *TestResultModel) SetOutcomeNil(b bool)`
+
+ SetOutcomeNil sets the value for Outcome to be an explicit nil
+
+### UnsetOutcome
+`func (o *TestResultModel) UnsetOutcome()`
+
+UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultModel) GetComment() string`
@@ -1077,6 +1062,16 @@ SetStepResults sets StepResults field to given value.
 
 HasStepResults returns a boolean if a field has been set.
 
+### SetStepResultsNil
+
+`func (o *TestResultModel) SetStepResultsNil(b bool)`
+
+ SetStepResultsNil sets the value for StepResults to be an explicit nil
+
+### UnsetStepResults
+`func (o *TestResultModel) UnsetStepResults()`
+
+UnsetStepResults ensures that no value is present for StepResults, not even an explicit nil
 ### GetAttachments
 
 `func (o *TestResultModel) GetAttachments() []AttachmentModel`

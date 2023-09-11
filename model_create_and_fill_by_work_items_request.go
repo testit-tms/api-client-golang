@@ -33,6 +33,10 @@ type CreateAndFillByWorkItemsRequest struct {
 	Description NullableString `json:"description,omitempty"`
 	// Specifies the test run launch source.
 	LaunchSource NullableString `json:"launchSource,omitempty"`
+	// Collection of attachment ids to relate to the test run
+	Attachments []AttachmentPutModel `json:"attachments,omitempty"`
+	// Collection of links to relate to the test run
+	Links []LinkPostModel `json:"links,omitempty"`
 }
 
 // NewCreateAndFillByWorkItemsRequest instantiates a new CreateAndFillByWorkItemsRequest object
@@ -278,6 +282,72 @@ func (o *CreateAndFillByWorkItemsRequest) UnsetLaunchSource() {
 	o.LaunchSource.Unset()
 }
 
+// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateAndFillByWorkItemsRequest) GetAttachments() []AttachmentPutModel {
+	if o == nil {
+		var ret []AttachmentPutModel
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateAndFillByWorkItemsRequest) GetAttachmentsOk() ([]AttachmentPutModel, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *CreateAndFillByWorkItemsRequest) HasAttachments() bool {
+	if o != nil && IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []AttachmentPutModel and assigns it to the Attachments field.
+func (o *CreateAndFillByWorkItemsRequest) SetAttachments(v []AttachmentPutModel) {
+	o.Attachments = v
+}
+
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateAndFillByWorkItemsRequest) GetLinks() []LinkPostModel {
+	if o == nil {
+		var ret []LinkPostModel
+		return ret
+	}
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateAndFillByWorkItemsRequest) GetLinksOk() ([]LinkPostModel, bool) {
+	if o == nil || IsNil(o.Links) {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *CreateAndFillByWorkItemsRequest) HasLinks() bool {
+	if o != nil && IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinkPostModel and assigns it to the Links field.
+func (o *CreateAndFillByWorkItemsRequest) SetLinks(v []LinkPostModel) {
+	o.Links = v
+}
+
 func (o CreateAndFillByWorkItemsRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -300,6 +370,12 @@ func (o CreateAndFillByWorkItemsRequest) ToMap() (map[string]interface{}, error)
 	}
 	if o.LaunchSource.IsSet() {
 		toSerialize["launchSource"] = o.LaunchSource.Get()
+	}
+	if o.Attachments != nil {
+		toSerialize["attachments"] = o.Attachments
+	}
+	if o.Links != nil {
+		toSerialize["links"] = o.Links
 	}
 	return toSerialize, nil
 }

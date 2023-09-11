@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **LaunchSource** | Pointer to **NullableString** | Once launch source is specified it cannot be updated | [optional] 
+**Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | [optional] 
+**Links** | Pointer to [**[]LinkPutModel**](LinkPutModel.md) |  | [optional] 
 
 ## Methods
 
@@ -138,6 +140,76 @@ HasLaunchSource returns a boolean if a field has been set.
 `func (o *UpdateEmptyRequest) UnsetLaunchSource()`
 
 UnsetLaunchSource ensures that no value is present for LaunchSource, not even an explicit nil
+### GetAttachments
+
+`func (o *UpdateEmptyRequest) GetAttachments() []AttachmentPutModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *UpdateEmptyRequest) GetAttachmentsOk() (*[]AttachmentPutModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *UpdateEmptyRequest) SetAttachments(v []AttachmentPutModel)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *UpdateEmptyRequest) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
+
+### SetAttachmentsNil
+
+`func (o *UpdateEmptyRequest) SetAttachmentsNil(b bool)`
+
+ SetAttachmentsNil sets the value for Attachments to be an explicit nil
+
+### UnsetAttachments
+`func (o *UpdateEmptyRequest) UnsetAttachments()`
+
+UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
+### GetLinks
+
+`func (o *UpdateEmptyRequest) GetLinks() []LinkPutModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *UpdateEmptyRequest) GetLinksOk() (*[]LinkPutModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *UpdateEmptyRequest) SetLinks(v []LinkPutModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *UpdateEmptyRequest) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *UpdateEmptyRequest) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *UpdateEmptyRequest) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

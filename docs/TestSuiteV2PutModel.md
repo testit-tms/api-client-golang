@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
+**IsDeleted** | **bool** |  | 
 **AutoRefresh** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
 ### NewTestSuiteV2PutModel
 
-`func NewTestSuiteV2PutModel(id string, name string, ) *TestSuiteV2PutModel`
+`func NewTestSuiteV2PutModel(id string, name string, isDeleted bool, ) *TestSuiteV2PutModel`
 
 NewTestSuiteV2PutModel instantiates a new TestSuiteV2PutModel object
 This constructor will assign default values to properties that have it defined,
@@ -123,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *TestSuiteV2PutModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetAutoRefresh
 

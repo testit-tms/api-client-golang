@@ -4,32 +4,34 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**VersionId** | Pointer to **string** | used for versioning changes in workitem | [optional] 
-**Name** | **string** |  | 
-**EntityTypeName** | **string** | Property can have one of these values: CheckLists, SharedSteps, TestCases | 
-**ProjectId** | **string** | This property is used to link autotest with project | 
-**SectionId** | **string** | This property links workitem with section | 
-**SectionName** | **string** | Name of the section where work item is located | 
-**IsAutomated** | Pointer to **bool** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
-**Duration** | Pointer to **int32** |  | [optional] 
-**Attributes** | Pointer to **map[string]interface{}** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
-**ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**CreatedDate** | Pointer to **NullableTime** |  | [optional] 
-**ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
+**Id** | **string** | Work Item internal unique identifier | 
+**VersionId** | **string** | Work Item version identifier | 
+**Name** | **string** | Work Item name | 
+**EntityTypeName** | **string** | Work Item type. Possible values: CheckLists, SharedSteps, TestCases | 
+**ProjectId** | **string** | Project unique identifier | 
+**SectionId** | **string** | Identifier of Section where Work Item is located | 
+**SectionName** | **string** | Section name of Work Item | 
+**IsAutomated** | **bool** | Boolean flag determining whether Work Item is automated | 
+**GlobalId** | **int64** | Work Item global identifier | 
+**Duration** | **int32** | Work Item duration | 
+**MedianDuration** | Pointer to **NullableInt64** | Work Item median duration | [optional] 
+**Attributes** | Pointer to **map[string]interface{}** | Work Item attributes | [optional] 
+**CreatedById** | **string** | Unique identifier of user who created Work Item | 
+**ModifiedById** | Pointer to **NullableString** | Unique identifier of user who applied the latest modification of Work Item | [optional] 
+**CreatedDate** | Pointer to **NullableTime** | Date and time of Work Item creation | [optional] 
+**ModifiedDate** | Pointer to **NullableTime** | Date and time of the latest modification of Work Item | [optional] 
 **State** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
-**TagNames** | Pointer to **[]string** |  | [optional] 
-**Iterations** | Pointer to [**[]IterationModel**](IterationModel.md) |  | [optional] 
+**IsDeleted** | **bool** | Flag determining whether Work Item is deleted | 
+**TagNames** | Pointer to **[]string** | Array of tag names of Work Item | [optional] 
+**Iterations** | Pointer to [**[]IterationModel**](IterationModel.md) | Set of iterations related to Work Item | [optional] 
+**Links** | Pointer to [**[]LinkShortModel**](LinkShortModel.md) | Set of links related to Work Item | [optional] 
 
 ## Methods
 
 ### NewWorkItemShortModel
 
-`func NewWorkItemShortModel(name string, entityTypeName string, projectId string, sectionId string, sectionName string, state WorkItemStates, priority WorkItemPriorityModel, ) *WorkItemShortModel`
+`func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, ) *WorkItemShortModel`
 
 NewWorkItemShortModel instantiates a new WorkItemShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -63,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *WorkItemShortModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetVersionId
 
@@ -88,11 +85,6 @@ and a boolean to check if the value has been set.
 
 SetVersionId sets VersionId field to given value.
 
-### HasVersionId
-
-`func (o *WorkItemShortModel) HasVersionId() bool`
-
-HasVersionId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -213,11 +205,6 @@ and a boolean to check if the value has been set.
 
 SetIsAutomated sets IsAutomated field to given value.
 
-### HasIsAutomated
-
-`func (o *WorkItemShortModel) HasIsAutomated() bool`
-
-HasIsAutomated returns a boolean if a field has been set.
 
 ### GetGlobalId
 
@@ -238,11 +225,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *WorkItemShortModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetDuration
 
@@ -263,12 +245,42 @@ and a boolean to check if the value has been set.
 
 SetDuration sets Duration field to given value.
 
-### HasDuration
 
-`func (o *WorkItemShortModel) HasDuration() bool`
+### GetMedianDuration
 
-HasDuration returns a boolean if a field has been set.
+`func (o *WorkItemShortModel) GetMedianDuration() int64`
 
+GetMedianDuration returns the MedianDuration field if non-nil, zero value otherwise.
+
+### GetMedianDurationOk
+
+`func (o *WorkItemShortModel) GetMedianDurationOk() (*int64, bool)`
+
+GetMedianDurationOk returns a tuple with the MedianDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMedianDuration
+
+`func (o *WorkItemShortModel) SetMedianDuration(v int64)`
+
+SetMedianDuration sets MedianDuration field to given value.
+
+### HasMedianDuration
+
+`func (o *WorkItemShortModel) HasMedianDuration() bool`
+
+HasMedianDuration returns a boolean if a field has been set.
+
+### SetMedianDurationNil
+
+`func (o *WorkItemShortModel) SetMedianDurationNil(b bool)`
+
+ SetMedianDurationNil sets the value for MedianDuration to be an explicit nil
+
+### UnsetMedianDuration
+`func (o *WorkItemShortModel) UnsetMedianDuration()`
+
+UnsetMedianDuration ensures that no value is present for MedianDuration, not even an explicit nil
 ### GetAttributes
 
 `func (o *WorkItemShortModel) GetAttributes() map[string]interface{}`
@@ -323,11 +335,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *WorkItemShortModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -493,11 +500,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *WorkItemShortModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetTagNames
 
@@ -524,6 +526,16 @@ SetTagNames sets TagNames field to given value.
 
 HasTagNames returns a boolean if a field has been set.
 
+### SetTagNamesNil
+
+`func (o *WorkItemShortModel) SetTagNamesNil(b bool)`
+
+ SetTagNamesNil sets the value for TagNames to be an explicit nil
+
+### UnsetTagNames
+`func (o *WorkItemShortModel) UnsetTagNames()`
+
+UnsetTagNames ensures that no value is present for TagNames, not even an explicit nil
 ### GetIterations
 
 `func (o *WorkItemShortModel) GetIterations() []IterationModel`
@@ -549,6 +561,51 @@ SetIterations sets Iterations field to given value.
 
 HasIterations returns a boolean if a field has been set.
 
+### SetIterationsNil
+
+`func (o *WorkItemShortModel) SetIterationsNil(b bool)`
+
+ SetIterationsNil sets the value for Iterations to be an explicit nil
+
+### UnsetIterations
+`func (o *WorkItemShortModel) UnsetIterations()`
+
+UnsetIterations ensures that no value is present for Iterations, not even an explicit nil
+### GetLinks
+
+`func (o *WorkItemShortModel) GetLinks() []LinkShortModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *WorkItemShortModel) GetLinksOk() (*[]LinkShortModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *WorkItemShortModel) SetLinks(v []LinkShortModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *WorkItemShortModel) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *WorkItemShortModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *WorkItemShortModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

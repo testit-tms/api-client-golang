@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OldValue** | Pointer to **int64** |  | [optional] 
-**NewValue** | Pointer to **int64** |  | [optional] 
+**OldValue** | **int64** |  | 
+**NewValue** | **int64** |  | 
 
 ## Methods
 
 ### NewInt64ChangedFieldViewModel
 
-`func NewInt64ChangedFieldViewModel() *Int64ChangedFieldViewModel`
+`func NewInt64ChangedFieldViewModel(oldValue int64, newValue int64, ) *Int64ChangedFieldViewModel`
 
 NewInt64ChangedFieldViewModel instantiates a new Int64ChangedFieldViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetOldValue sets OldValue field to given value.
 
-### HasOldValue
-
-`func (o *Int64ChangedFieldViewModel) HasOldValue() bool`
-
-HasOldValue returns a boolean if a field has been set.
 
 ### GetNewValue
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetNewValue sets NewValue field to given value.
 
-### HasNewValue
-
-`func (o *Int64ChangedFieldViewModel) HasNewValue() bool`
-
-HasNewValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

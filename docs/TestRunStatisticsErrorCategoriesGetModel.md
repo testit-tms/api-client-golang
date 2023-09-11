@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NoAnalytics** | Pointer to **int32** | Number of test results which outcomes were not analyzed | [optional] 
-**NoDefect** | Pointer to **int32** | Number of test results which outcomes were not caused by any defect | [optional] 
-**InfrastructureDefect** | Pointer to **int32** | Number of test results which outcomes were caused by some infrastructure defect | [optional] 
-**ProductDefect** | Pointer to **int32** | Number of test results which outcomes were caused by some tested product defect | [optional] 
-**TestDefect** | Pointer to **int32** | Number of test results which outcomes were caused by test itself | [optional] 
+**NoAnalytics** | **int32** | Number of test results which outcomes were not analyzed | 
+**NoDefect** | **int32** | Number of test results which outcomes were not caused by any defect | 
+**InfrastructureDefect** | **int32** | Number of test results which outcomes were caused by some infrastructure defect | 
+**ProductDefect** | **int32** | Number of test results which outcomes were caused by some tested product defect | 
+**TestDefect** | **int32** | Number of test results which outcomes were caused by test itself | 
 
 ## Methods
 
 ### NewTestRunStatisticsErrorCategoriesGetModel
 
-`func NewTestRunStatisticsErrorCategoriesGetModel() *TestRunStatisticsErrorCategoriesGetModel`
+`func NewTestRunStatisticsErrorCategoriesGetModel(noAnalytics int32, noDefect int32, infrastructureDefect int32, productDefect int32, testDefect int32, ) *TestRunStatisticsErrorCategoriesGetModel`
 
 NewTestRunStatisticsErrorCategoriesGetModel instantiates a new TestRunStatisticsErrorCategoriesGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetNoAnalytics sets NoAnalytics field to given value.
 
-### HasNoAnalytics
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) HasNoAnalytics() bool`
-
-HasNoAnalytics returns a boolean if a field has been set.
 
 ### GetNoDefect
 
@@ -73,11 +68,6 @@ and a boolean to check if the value has been set.
 
 SetNoDefect sets NoDefect field to given value.
 
-### HasNoDefect
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) HasNoDefect() bool`
-
-HasNoDefect returns a boolean if a field has been set.
 
 ### GetInfrastructureDefect
 
@@ -98,11 +88,6 @@ and a boolean to check if the value has been set.
 
 SetInfrastructureDefect sets InfrastructureDefect field to given value.
 
-### HasInfrastructureDefect
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) HasInfrastructureDefect() bool`
-
-HasInfrastructureDefect returns a boolean if a field has been set.
 
 ### GetProductDefect
 
@@ -123,11 +108,6 @@ and a boolean to check if the value has been set.
 
 SetProductDefect sets ProductDefect field to given value.
 
-### HasProductDefect
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) HasProductDefect() bool`
-
-HasProductDefect returns a boolean if a field has been set.
 
 ### GetTestDefect
 
@@ -148,11 +128,6 @@ and a boolean to check if the value has been set.
 
 SetTestDefect sets TestDefect field to given value.
 
-### HasTestDefect
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) HasTestDefect() bool`
-
-HasTestDefect returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

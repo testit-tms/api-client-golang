@@ -21,37 +21,39 @@ var _ MappedNullable = &TestRunShortGetModel{}
 // TestRunShortGetModel struct for TestRunShortGetModel
 type TestRunShortGetModel struct {
 	// Unique ID of the test run
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Name of the test run
-	Name *string `json:"name,omitempty"`
-	// Unique ID of project where test run is located
-	ProjectId *string `json:"projectId,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	State TestRunState `json:"state"`
 	// Date when the test run was created
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	// Date when the test run was started
+	StartedDate NullableTime `json:"startedDate,omitempty"`
+	// Completion date of the test run
+	CompletedDate NullableTime `json:"completedDate,omitempty"`
 	// Unique ID of user who created the test run
-	CreatedById *string `json:"createdById,omitempty"`
-	// Date when the test run was modified last time
-	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
+	CreatedById string `json:"createdById"`
 	// Unique ID of user who modified the test run last time
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Is the test run is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
-	State TestRunState `json:"state"`
-	// Date when the test run was started
-	StartedDate NullableTime `json:"startedDate,omitempty"`
-	// Number of autotests run in the test run
-	AutotestsCount *int32 `json:"autotestsCount,omitempty"`
-	Statistics TestRunShortGetModelStatistics `json:"statistics"`
+	IsDeleted bool `json:"isDeleted"`
+	// Number of AutoTests run in the test run
+	AutoTestsCount int32 `json:"autoTestsCount"`
+	Statistics NullableTestRunShortGetModelStatistics `json:"statistics,omitempty"`
 }
 
 // NewTestRunShortGetModel instantiates a new TestRunShortGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunShortGetModel(state TestRunState, statistics TestRunShortGetModelStatistics) *TestRunShortGetModel {
+func NewTestRunShortGetModel(id string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32) *TestRunShortGetModel {
 	this := TestRunShortGetModel{}
+	this.Id = id
 	this.State = state
-	this.Statistics = statistics
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
+	this.IsDeleted = isDeleted
+	this.AutoTestsCount = autoTestsCount
 	return &this
 }
 
@@ -63,280 +65,70 @@ func NewTestRunShortGetModelWithDefaults() *TestRunShortGetModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestRunShortGetModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestRunShortGetModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestRunShortGetModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestRunShortGetModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunShortGetModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestRunShortGetModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *TestRunShortGetModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *TestRunShortGetModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetProjectId returns the ProjectId field value if set, zero value otherwise.
-func (o *TestRunShortGetModel) GetProjectId() string {
-	if o == nil || IsNil(o.ProjectId) {
-		var ret string
-		return ret
-	}
-	return *o.ProjectId
-}
-
-// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TestRunShortGetModel) GetProjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProjectId) {
-		return nil, false
-	}
-	return o.ProjectId, true
-}
-
-// HasProjectId returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasProjectId() bool {
-	if o != nil && !IsNil(o.ProjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectId gets a reference to the given string and assigns it to the ProjectId field.
-func (o *TestRunShortGetModel) SetProjectId(v string) {
-	o.ProjectId = &v
-}
-
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
-func (o *TestRunShortGetModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
-		var ret time.Time
-		return ret
-	}
-	return *o.CreatedDate
-}
-
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TestRunShortGetModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
-		return nil, false
-	}
-	return o.CreatedDate, true
-}
-
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
-func (o *TestRunShortGetModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
-}
-
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
-func (o *TestRunShortGetModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
-		var ret string
-		return ret
-	}
-	return *o.CreatedById
-}
-
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TestRunShortGetModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
-		return nil, false
-	}
-	return o.CreatedById, true
-}
-
-// HasCreatedById returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
-func (o *TestRunShortGetModel) SetCreatedById(v string) {
-	o.CreatedById = &v
-}
-
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunShortGetModel) GetModifiedDate() time.Time {
-	if o == nil || IsNil(o.ModifiedDate.Get()) {
-		var ret time.Time
-		return ret
-	}
-	return *o.ModifiedDate.Get()
-}
-
-// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunShortGetModel) GetModifiedDateOk() (*time.Time, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
-}
-
-// HasModifiedDate returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasModifiedDate() bool {
-	if o != nil && o.ModifiedDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetModifiedDate gets a reference to the given NullableTime and assigns it to the ModifiedDate field.
-func (o *TestRunShortGetModel) SetModifiedDate(v time.Time) {
-	o.ModifiedDate.Set(&v)
-}
-// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
-func (o *TestRunShortGetModel) SetModifiedDateNil() {
-	o.ModifiedDate.Set(nil)
-}
-
-// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
-func (o *TestRunShortGetModel) UnsetModifiedDate() {
-	o.ModifiedDate.Unset()
-}
-
-// GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunShortGetModel) GetModifiedById() string {
-	if o == nil || IsNil(o.ModifiedById.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ModifiedById.Get()
-}
-
-// GetModifiedByIdOk returns a tuple with the ModifiedById field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunShortGetModel) GetModifiedByIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ModifiedById.Get(), o.ModifiedById.IsSet()
-}
-
-// HasModifiedById returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasModifiedById() bool {
-	if o != nil && o.ModifiedById.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetModifiedById gets a reference to the given NullableString and assigns it to the ModifiedById field.
-func (o *TestRunShortGetModel) SetModifiedById(v string) {
-	o.ModifiedById.Set(&v)
-}
-// SetModifiedByIdNil sets the value for ModifiedById to be an explicit nil
-func (o *TestRunShortGetModel) SetModifiedByIdNil() {
-	o.ModifiedById.Set(nil)
-}
-
-// UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
-func (o *TestRunShortGetModel) UnsetModifiedById() {
-	o.ModifiedById.Unset()
-}
-
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
-func (o *TestRunShortGetModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
-		var ret bool
-		return ret
-	}
-	return *o.IsDeleted
-}
-
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *TestRunShortGetModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
-		return nil, false
-	}
-	return o.IsDeleted, true
-}
-
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
-func (o *TestRunShortGetModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *TestRunShortGetModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetState returns the State field value
@@ -361,6 +153,30 @@ func (o *TestRunShortGetModel) GetStateOk() (*TestRunState, bool) {
 // SetState sets field value
 func (o *TestRunShortGetModel) SetState(v TestRunState) {
 	o.State = v
+}
+
+// GetCreatedDate returns the CreatedDate field value
+func (o *TestRunShortGetModel) GetCreatedDate() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CreatedDate
+}
+
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
+// and a boolean to check if the value has been set.
+func (o *TestRunShortGetModel) GetCreatedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedDate, true
+}
+
+// SetCreatedDate sets field value
+func (o *TestRunShortGetModel) SetCreatedDate(v time.Time) {
+	o.CreatedDate = v
 }
 
 // GetStartedDate returns the StartedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -405,60 +221,202 @@ func (o *TestRunShortGetModel) UnsetStartedDate() {
 	o.StartedDate.Unset()
 }
 
-// GetAutotestsCount returns the AutotestsCount field value if set, zero value otherwise.
-func (o *TestRunShortGetModel) GetAutotestsCount() int32 {
-	if o == nil || IsNil(o.AutotestsCount) {
-		var ret int32
+// GetCompletedDate returns the CompletedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunShortGetModel) GetCompletedDate() time.Time {
+	if o == nil || IsNil(o.CompletedDate.Get()) {
+		var ret time.Time
 		return ret
 	}
-	return *o.AutotestsCount
+	return *o.CompletedDate.Get()
 }
 
-// GetAutotestsCountOk returns a tuple with the AutotestsCount field value if set, nil otherwise
+// GetCompletedDateOk returns a tuple with the CompletedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestRunShortGetModel) GetAutotestsCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.AutotestsCount) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunShortGetModel) GetCompletedDateOk() (*time.Time, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AutotestsCount, true
+	return o.CompletedDate.Get(), o.CompletedDate.IsSet()
 }
 
-// HasAutotestsCount returns a boolean if a field has been set.
-func (o *TestRunShortGetModel) HasAutotestsCount() bool {
-	if o != nil && !IsNil(o.AutotestsCount) {
+// HasCompletedDate returns a boolean if a field has been set.
+func (o *TestRunShortGetModel) HasCompletedDate() bool {
+	if o != nil && o.CompletedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAutotestsCount gets a reference to the given int32 and assigns it to the AutotestsCount field.
-func (o *TestRunShortGetModel) SetAutotestsCount(v int32) {
-	o.AutotestsCount = &v
+// SetCompletedDate gets a reference to the given NullableTime and assigns it to the CompletedDate field.
+func (o *TestRunShortGetModel) SetCompletedDate(v time.Time) {
+	o.CompletedDate.Set(&v)
+}
+// SetCompletedDateNil sets the value for CompletedDate to be an explicit nil
+func (o *TestRunShortGetModel) SetCompletedDateNil() {
+	o.CompletedDate.Set(nil)
 }
 
-// GetStatistics returns the Statistics field value
-func (o *TestRunShortGetModel) GetStatistics() TestRunShortGetModelStatistics {
+// UnsetCompletedDate ensures that no value is present for CompletedDate, not even an explicit nil
+func (o *TestRunShortGetModel) UnsetCompletedDate() {
+	o.CompletedDate.Unset()
+}
+
+// GetCreatedById returns the CreatedById field value
+func (o *TestRunShortGetModel) GetCreatedById() string {
 	if o == nil {
-		var ret TestRunShortGetModelStatistics
+		var ret string
 		return ret
 	}
 
-	return o.Statistics
+	return o.CreatedById
 }
 
-// GetStatisticsOk returns a tuple with the Statistics field value
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
+func (o *TestRunShortGetModel) GetCreatedByIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedById, true
+}
+
+// SetCreatedById sets field value
+func (o *TestRunShortGetModel) SetCreatedById(v string) {
+	o.CreatedById = v
+}
+
+// GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunShortGetModel) GetModifiedById() string {
+	if o == nil || IsNil(o.ModifiedById.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ModifiedById.Get()
+}
+
+// GetModifiedByIdOk returns a tuple with the ModifiedById field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunShortGetModel) GetModifiedByIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedById.Get(), o.ModifiedById.IsSet()
+}
+
+// HasModifiedById returns a boolean if a field has been set.
+func (o *TestRunShortGetModel) HasModifiedById() bool {
+	if o != nil && o.ModifiedById.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedById gets a reference to the given NullableString and assigns it to the ModifiedById field.
+func (o *TestRunShortGetModel) SetModifiedById(v string) {
+	o.ModifiedById.Set(&v)
+}
+// SetModifiedByIdNil sets the value for ModifiedById to be an explicit nil
+func (o *TestRunShortGetModel) SetModifiedByIdNil() {
+	o.ModifiedById.Set(nil)
+}
+
+// UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
+func (o *TestRunShortGetModel) UnsetModifiedById() {
+	o.ModifiedById.Unset()
+}
+
+// GetIsDeleted returns the IsDeleted field value
+func (o *TestRunShortGetModel) GetIsDeleted() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
+// and a boolean to check if the value has been set.
+func (o *TestRunShortGetModel) GetIsDeletedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsDeleted, true
+}
+
+// SetIsDeleted sets field value
+func (o *TestRunShortGetModel) SetIsDeleted(v bool) {
+	o.IsDeleted = v
+}
+
+// GetAutoTestsCount returns the AutoTestsCount field value
+func (o *TestRunShortGetModel) GetAutoTestsCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.AutoTestsCount
+}
+
+// GetAutoTestsCountOk returns a tuple with the AutoTestsCount field value
+// and a boolean to check if the value has been set.
+func (o *TestRunShortGetModel) GetAutoTestsCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AutoTestsCount, true
+}
+
+// SetAutoTestsCount sets field value
+func (o *TestRunShortGetModel) SetAutoTestsCount(v int32) {
+	o.AutoTestsCount = v
+}
+
+// GetStatistics returns the Statistics field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunShortGetModel) GetStatistics() TestRunShortGetModelStatistics {
+	if o == nil || IsNil(o.Statistics.Get()) {
+		var ret TestRunShortGetModelStatistics
+		return ret
+	}
+	return *o.Statistics.Get()
+}
+
+// GetStatisticsOk returns a tuple with the Statistics field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunShortGetModel) GetStatisticsOk() (*TestRunShortGetModelStatistics, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Statistics, true
+	return o.Statistics.Get(), o.Statistics.IsSet()
 }
 
-// SetStatistics sets field value
+// HasStatistics returns a boolean if a field has been set.
+func (o *TestRunShortGetModel) HasStatistics() bool {
+	if o != nil && o.Statistics.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStatistics gets a reference to the given NullableTestRunShortGetModelStatistics and assigns it to the Statistics field.
 func (o *TestRunShortGetModel) SetStatistics(v TestRunShortGetModelStatistics) {
-	o.Statistics = v
+	o.Statistics.Set(&v)
+}
+// SetStatisticsNil sets the value for Statistics to be an explicit nil
+func (o *TestRunShortGetModel) SetStatisticsNil() {
+	o.Statistics.Set(nil)
+}
+
+// UnsetStatistics ensures that no value is present for Statistics, not even an explicit nil
+func (o *TestRunShortGetModel) UnsetStatistics() {
+	o.Statistics.Unset()
 }
 
 func (o TestRunShortGetModel) MarshalJSON() ([]byte, error) {
@@ -471,38 +429,27 @@ func (o TestRunShortGetModel) MarshalJSON() ([]byte, error) {
 
 func (o TestRunShortGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.ProjectId) {
-		toSerialize["projectId"] = o.ProjectId
-	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
-	if o.ModifiedDate.IsSet() {
-		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
-	}
-	if o.ModifiedById.IsSet() {
-		toSerialize["modifiedById"] = o.ModifiedById.Get()
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["id"] = o.Id
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	toSerialize["state"] = o.State
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.StartedDate.IsSet() {
 		toSerialize["startedDate"] = o.StartedDate.Get()
 	}
-	if !IsNil(o.AutotestsCount) {
-		toSerialize["autotestsCount"] = o.AutotestsCount
+	if o.CompletedDate.IsSet() {
+		toSerialize["completedDate"] = o.CompletedDate.Get()
 	}
-	toSerialize["statistics"] = o.Statistics
+	toSerialize["createdById"] = o.CreatedById
+	if o.ModifiedById.IsSet() {
+		toSerialize["modifiedById"] = o.ModifiedById.Get()
+	}
+	toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["autoTestsCount"] = o.AutoTestsCount
+	if o.Statistics.IsSet() {
+		toSerialize["statistics"] = o.Statistics.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InProgress** | Pointer to **int32** | Number of test results which is running currently | [optional] 
-**Passed** | Pointer to **int32** | Number of test results which successfully passed | [optional] 
-**Failed** | Pointer to **int32** | Number of test results which failed with an error | [optional] 
-**Skipped** | Pointer to **int32** | Number of test results which did not run and were skipped | [optional] 
-**Blocked** | Pointer to **int32** | Number of test results which cannot be launched | [optional] 
+**InProgress** | **int32** | Number of test results which is running currently | 
+**Passed** | **int32** | Number of test results which successfully passed | 
+**Failed** | **int32** | Number of test results which failed with an error | 
+**Skipped** | **int32** | Number of test results which did not run and were skipped | 
+**Blocked** | **int32** | Number of test results which cannot be launched | 
 
 ## Methods
 
 ### NewTestRunStatisticsStatusesGetModel
 
-`func NewTestRunStatisticsStatusesGetModel() *TestRunStatisticsStatusesGetModel`
+`func NewTestRunStatisticsStatusesGetModel(inProgress int32, passed int32, failed int32, skipped int32, blocked int32, ) *TestRunStatisticsStatusesGetModel`
 
 NewTestRunStatisticsStatusesGetModel instantiates a new TestRunStatisticsStatusesGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetInProgress sets InProgress field to given value.
 
-### HasInProgress
-
-`func (o *TestRunStatisticsStatusesGetModel) HasInProgress() bool`
-
-HasInProgress returns a boolean if a field has been set.
 
 ### GetPassed
 
@@ -73,11 +68,6 @@ and a boolean to check if the value has been set.
 
 SetPassed sets Passed field to given value.
 
-### HasPassed
-
-`func (o *TestRunStatisticsStatusesGetModel) HasPassed() bool`
-
-HasPassed returns a boolean if a field has been set.
 
 ### GetFailed
 
@@ -98,11 +88,6 @@ and a boolean to check if the value has been set.
 
 SetFailed sets Failed field to given value.
 
-### HasFailed
-
-`func (o *TestRunStatisticsStatusesGetModel) HasFailed() bool`
-
-HasFailed returns a boolean if a field has been set.
 
 ### GetSkipped
 
@@ -123,11 +108,6 @@ and a boolean to check if the value has been set.
 
 SetSkipped sets Skipped field to given value.
 
-### HasSkipped
-
-`func (o *TestRunStatisticsStatusesGetModel) HasSkipped() bool`
-
-HasSkipped returns a boolean if a field has been set.
 
 ### GetBlocked
 
@@ -148,11 +128,6 @@ and a boolean to check if the value has been set.
 
 SetBlocked sets Blocked field to given value.
 
-### HasBlocked
-
-`func (o *TestRunStatisticsStatusesGetModel) HasBlocked() bool`
-
-HasBlocked returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

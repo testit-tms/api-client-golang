@@ -19,16 +19,17 @@ var _ MappedNullable = &TestRunGroupByStatusModel{}
 
 // TestRunGroupByStatusModel struct for TestRunGroupByStatusModel
 type TestRunGroupByStatusModel struct {
-	Status *string `json:"status,omitempty"`
-	Value *int32 `json:"value,omitempty"`
+	Status NullableString `json:"status,omitempty"`
+	Value int32 `json:"value"`
 }
 
 // NewTestRunGroupByStatusModel instantiates a new TestRunGroupByStatusModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunGroupByStatusModel() *TestRunGroupByStatusModel {
+func NewTestRunGroupByStatusModel(value int32) *TestRunGroupByStatusModel {
 	this := TestRunGroupByStatusModel{}
+	this.Value = value
 	return &this
 }
 
@@ -40,68 +41,70 @@ func NewTestRunGroupByStatusModelWithDefaults() *TestRunGroupByStatusModel {
 	return &this
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestRunGroupByStatusModel) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunGroupByStatusModel) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *TestRunGroupByStatusModel) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
+	if o != nil && o.Status.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *TestRunGroupByStatusModel) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
+}
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *TestRunGroupByStatusModel) SetStatusNil() {
+	o.Status.Set(nil)
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *TestRunGroupByStatusModel) UnsetStatus() {
+	o.Status.Unset()
+}
+
+// GetValue returns the Value field value
 func (o *TestRunGroupByStatusModel) GetValue() int32 {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Value
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *TestRunGroupByStatusModel) GetValueOk() (*int32, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *TestRunGroupByStatusModel) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given int32 and assigns it to the Value field.
+// SetValue sets field value
 func (o *TestRunGroupByStatusModel) SetValue(v int32) {
-	o.Value = &v
+	o.Value = v
 }
 
 func (o TestRunGroupByStatusModel) MarshalJSON() ([]byte, error) {
@@ -114,12 +117,10 @@ func (o TestRunGroupByStatusModel) MarshalJSON() ([]byte, error) {
 
 func (o TestRunGroupByStatusModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 

@@ -21,55 +21,65 @@ var _ MappedNullable = &WebHookModel{}
 // WebHookModel struct for WebHookModel
 type WebHookModel struct {
 	// Name of the webhook
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	EventType WebHookEventTypeModel `json:"eventType"`
 	// Description of the webhook
 	Description NullableString `json:"description,omitempty"`
 	// Url to which the webhook sends request
-	Url *string `json:"url,omitempty"`
+	Url NullableString `json:"url,omitempty"`
 	RequestType RequestTypeModel `json:"requestType"`
 	// Indicates if the webhook sends body
-	ShouldSendBody *bool `json:"shouldSendBody,omitempty"`
+	ShouldSendBody bool `json:"shouldSendBody"`
 	// Collection of headers which the webhook sends
 	Headers map[string]string `json:"headers,omitempty"`
 	// Collection of query parameters which the webhook sends
 	QueryParameters map[string]string `json:"queryParameters,omitempty"`
 	// Indicates if the webhook is active
-	IsEnabled *bool `json:"isEnabled,omitempty"`
+	IsEnabled bool `json:"isEnabled"`
 	// Indicates if the webhook sends custom body
-	ShouldSendCustomBody *bool `json:"shouldSendCustomBody,omitempty"`
+	ShouldSendCustomBody bool `json:"shouldSendCustomBody"`
 	// Custom body of the webhook
 	CustomBody NullableString `json:"customBody,omitempty"`
 	// MIME type of body of the webhook
 	CustomBodyMediaType NullableString `json:"customBodyMediaType,omitempty"`
 	// Indicates if the webhook injects parameters
-	ShouldReplaceParameters *bool `json:"shouldReplaceParameters,omitempty"`
+	ShouldReplaceParameters bool `json:"shouldReplaceParameters"`
 	// Indicates if the webhook escapes invalid characters in parameters
-	ShouldEscapeParameters *bool `json:"shouldEscapeParameters,omitempty"`
+	ShouldEscapeParameters bool `json:"shouldEscapeParameters"`
 	// Creation date of the webhook
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
 	// Unique ID of user who created the webhook
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	// Last modification date of the webhook
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	// Unique ID of user who modified the webhook last time
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Unique ID of project where the webhook is located
-	ProjectId *string `json:"projectId,omitempty"`
+	ProjectId string `json:"projectId"`
 	// Unique ID of the entity
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Indicates if the entity is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 }
 
 // NewWebHookModel instantiates a new WebHookModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebHookModel(eventType WebHookEventTypeModel, requestType RequestTypeModel) *WebHookModel {
+func NewWebHookModel(eventType WebHookEventTypeModel, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, createdDate time.Time, createdById string, projectId string, id string, isDeleted bool) *WebHookModel {
 	this := WebHookModel{}
 	this.EventType = eventType
 	this.RequestType = requestType
+	this.ShouldSendBody = shouldSendBody
+	this.IsEnabled = isEnabled
+	this.ShouldSendCustomBody = shouldSendCustomBody
+	this.ShouldReplaceParameters = shouldReplaceParameters
+	this.ShouldEscapeParameters = shouldEscapeParameters
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
+	this.ProjectId = projectId
+	this.Id = id
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -81,36 +91,46 @@ func NewWebHookModelWithDefaults() *WebHookModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WebHookModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *WebHookModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *WebHookModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *WebHookModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *WebHookModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetEventType returns the EventType field value
@@ -179,36 +199,46 @@ func (o *WebHookModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WebHookModel) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Url
+	return *o.Url.Get()
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookModel) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *WebHookModel) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
+	if o != nil && o.Url.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given string and assigns it to the Url field.
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *WebHookModel) SetUrl(v string) {
-	o.Url = &v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *WebHookModel) SetUrlNil() {
+	o.Url.Set(nil)
+}
+
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *WebHookModel) UnsetUrl() {
+	o.Url.Unset()
 }
 
 // GetRequestType returns the RequestType field value
@@ -235,36 +265,28 @@ func (o *WebHookModel) SetRequestType(v RequestTypeModel) {
 	o.RequestType = v
 }
 
-// GetShouldSendBody returns the ShouldSendBody field value if set, zero value otherwise.
+// GetShouldSendBody returns the ShouldSendBody field value
 func (o *WebHookModel) GetShouldSendBody() bool {
-	if o == nil || IsNil(o.ShouldSendBody) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.ShouldSendBody
+
+	return o.ShouldSendBody
 }
 
-// GetShouldSendBodyOk returns a tuple with the ShouldSendBody field value if set, nil otherwise
+// GetShouldSendBodyOk returns a tuple with the ShouldSendBody field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetShouldSendBodyOk() (*bool, bool) {
-	if o == nil || IsNil(o.ShouldSendBody) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShouldSendBody, true
+	return &o.ShouldSendBody, true
 }
 
-// HasShouldSendBody returns a boolean if a field has been set.
-func (o *WebHookModel) HasShouldSendBody() bool {
-	if o != nil && !IsNil(o.ShouldSendBody) {
-		return true
-	}
-
-	return false
-}
-
-// SetShouldSendBody gets a reference to the given bool and assigns it to the ShouldSendBody field.
+// SetShouldSendBody sets field value
 func (o *WebHookModel) SetShouldSendBody(v bool) {
-	o.ShouldSendBody = &v
+	o.ShouldSendBody = v
 }
 
 // GetHeaders returns the Headers field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -333,68 +355,52 @@ func (o *WebHookModel) SetQueryParameters(v map[string]string) {
 	o.QueryParameters = v
 }
 
-// GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
+// GetIsEnabled returns the IsEnabled field value
 func (o *WebHookModel) GetIsEnabled() bool {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsEnabled
+
+	return o.IsEnabled
 }
 
-// GetIsEnabledOk returns a tuple with the IsEnabled field value if set, nil otherwise
+// GetIsEnabledOk returns a tuple with the IsEnabled field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetIsEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsEnabled, true
+	return &o.IsEnabled, true
 }
 
-// HasIsEnabled returns a boolean if a field has been set.
-func (o *WebHookModel) HasIsEnabled() bool {
-	if o != nil && !IsNil(o.IsEnabled) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsEnabled gets a reference to the given bool and assigns it to the IsEnabled field.
+// SetIsEnabled sets field value
 func (o *WebHookModel) SetIsEnabled(v bool) {
-	o.IsEnabled = &v
+	o.IsEnabled = v
 }
 
-// GetShouldSendCustomBody returns the ShouldSendCustomBody field value if set, zero value otherwise.
+// GetShouldSendCustomBody returns the ShouldSendCustomBody field value
 func (o *WebHookModel) GetShouldSendCustomBody() bool {
-	if o == nil || IsNil(o.ShouldSendCustomBody) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.ShouldSendCustomBody
+
+	return o.ShouldSendCustomBody
 }
 
-// GetShouldSendCustomBodyOk returns a tuple with the ShouldSendCustomBody field value if set, nil otherwise
+// GetShouldSendCustomBodyOk returns a tuple with the ShouldSendCustomBody field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetShouldSendCustomBodyOk() (*bool, bool) {
-	if o == nil || IsNil(o.ShouldSendCustomBody) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShouldSendCustomBody, true
+	return &o.ShouldSendCustomBody, true
 }
 
-// HasShouldSendCustomBody returns a boolean if a field has been set.
-func (o *WebHookModel) HasShouldSendCustomBody() bool {
-	if o != nil && !IsNil(o.ShouldSendCustomBody) {
-		return true
-	}
-
-	return false
-}
-
-// SetShouldSendCustomBody gets a reference to the given bool and assigns it to the ShouldSendCustomBody field.
+// SetShouldSendCustomBody sets field value
 func (o *WebHookModel) SetShouldSendCustomBody(v bool) {
-	o.ShouldSendCustomBody = &v
+	o.ShouldSendCustomBody = v
 }
 
 // GetCustomBody returns the CustomBody field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -481,132 +487,100 @@ func (o *WebHookModel) UnsetCustomBodyMediaType() {
 	o.CustomBodyMediaType.Unset()
 }
 
-// GetShouldReplaceParameters returns the ShouldReplaceParameters field value if set, zero value otherwise.
+// GetShouldReplaceParameters returns the ShouldReplaceParameters field value
 func (o *WebHookModel) GetShouldReplaceParameters() bool {
-	if o == nil || IsNil(o.ShouldReplaceParameters) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.ShouldReplaceParameters
+
+	return o.ShouldReplaceParameters
 }
 
-// GetShouldReplaceParametersOk returns a tuple with the ShouldReplaceParameters field value if set, nil otherwise
+// GetShouldReplaceParametersOk returns a tuple with the ShouldReplaceParameters field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetShouldReplaceParametersOk() (*bool, bool) {
-	if o == nil || IsNil(o.ShouldReplaceParameters) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShouldReplaceParameters, true
+	return &o.ShouldReplaceParameters, true
 }
 
-// HasShouldReplaceParameters returns a boolean if a field has been set.
-func (o *WebHookModel) HasShouldReplaceParameters() bool {
-	if o != nil && !IsNil(o.ShouldReplaceParameters) {
-		return true
-	}
-
-	return false
-}
-
-// SetShouldReplaceParameters gets a reference to the given bool and assigns it to the ShouldReplaceParameters field.
+// SetShouldReplaceParameters sets field value
 func (o *WebHookModel) SetShouldReplaceParameters(v bool) {
-	o.ShouldReplaceParameters = &v
+	o.ShouldReplaceParameters = v
 }
 
-// GetShouldEscapeParameters returns the ShouldEscapeParameters field value if set, zero value otherwise.
+// GetShouldEscapeParameters returns the ShouldEscapeParameters field value
 func (o *WebHookModel) GetShouldEscapeParameters() bool {
-	if o == nil || IsNil(o.ShouldEscapeParameters) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.ShouldEscapeParameters
+
+	return o.ShouldEscapeParameters
 }
 
-// GetShouldEscapeParametersOk returns a tuple with the ShouldEscapeParameters field value if set, nil otherwise
+// GetShouldEscapeParametersOk returns a tuple with the ShouldEscapeParameters field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetShouldEscapeParametersOk() (*bool, bool) {
-	if o == nil || IsNil(o.ShouldEscapeParameters) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ShouldEscapeParameters, true
+	return &o.ShouldEscapeParameters, true
 }
 
-// HasShouldEscapeParameters returns a boolean if a field has been set.
-func (o *WebHookModel) HasShouldEscapeParameters() bool {
-	if o != nil && !IsNil(o.ShouldEscapeParameters) {
-		return true
-	}
-
-	return false
-}
-
-// SetShouldEscapeParameters gets a reference to the given bool and assigns it to the ShouldEscapeParameters field.
+// SetShouldEscapeParameters sets field value
 func (o *WebHookModel) SetShouldEscapeParameters(v bool) {
-	o.ShouldEscapeParameters = &v
+	o.ShouldEscapeParameters = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *WebHookModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *WebHookModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *WebHookModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *WebHookModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *WebHookModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *WebHookModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -693,100 +667,76 @@ func (o *WebHookModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetProjectId returns the ProjectId field value if set, zero value otherwise.
+// GetProjectId returns the ProjectId field value
 func (o *WebHookModel) GetProjectId() string {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ProjectId
+
+	return o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// GetProjectIdOk returns a tuple with the ProjectId field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetProjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProjectId, true
+	return &o.ProjectId, true
 }
 
-// HasProjectId returns a boolean if a field has been set.
-func (o *WebHookModel) HasProjectId() bool {
-	if o != nil && !IsNil(o.ProjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectId gets a reference to the given string and assigns it to the ProjectId field.
+// SetProjectId sets field value
 func (o *WebHookModel) SetProjectId(v string) {
-	o.ProjectId = &v
+	o.ProjectId = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *WebHookModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *WebHookModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *WebHookModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *WebHookModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *WebHookModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *WebHookModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *WebHookModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 func (o WebHookModel) MarshalJSON() ([]byte, error) {
@@ -799,65 +749,45 @@ func (o WebHookModel) MarshalJSON() ([]byte, error) {
 
 func (o WebHookModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	toSerialize["eventType"] = o.EventType
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
 	}
 	toSerialize["requestType"] = o.RequestType
-	if !IsNil(o.ShouldSendBody) {
-		toSerialize["shouldSendBody"] = o.ShouldSendBody
-	}
+	toSerialize["shouldSendBody"] = o.ShouldSendBody
 	if o.Headers != nil {
 		toSerialize["headers"] = o.Headers
 	}
 	if o.QueryParameters != nil {
 		toSerialize["queryParameters"] = o.QueryParameters
 	}
-	if !IsNil(o.IsEnabled) {
-		toSerialize["isEnabled"] = o.IsEnabled
-	}
-	if !IsNil(o.ShouldSendCustomBody) {
-		toSerialize["shouldSendCustomBody"] = o.ShouldSendCustomBody
-	}
+	toSerialize["isEnabled"] = o.IsEnabled
+	toSerialize["shouldSendCustomBody"] = o.ShouldSendCustomBody
 	if o.CustomBody.IsSet() {
 		toSerialize["customBody"] = o.CustomBody.Get()
 	}
 	if o.CustomBodyMediaType.IsSet() {
 		toSerialize["customBodyMediaType"] = o.CustomBodyMediaType.Get()
 	}
-	if !IsNil(o.ShouldReplaceParameters) {
-		toSerialize["shouldReplaceParameters"] = o.ShouldReplaceParameters
-	}
-	if !IsNil(o.ShouldEscapeParameters) {
-		toSerialize["shouldEscapeParameters"] = o.ShouldEscapeParameters
-	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["shouldReplaceParameters"] = o.ShouldReplaceParameters
+	toSerialize["shouldEscapeParameters"] = o.ShouldEscapeParameters
+	toSerialize["createdDate"] = o.CreatedDate
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if !IsNil(o.ProjectId) {
-		toSerialize["projectId"] = o.ProjectId
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["projectId"] = o.ProjectId
+	toSerialize["id"] = o.Id
+	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
 }
 

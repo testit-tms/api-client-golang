@@ -19,24 +19,26 @@ var _ MappedNullable = &PublicTestRunModel{}
 
 // PublicTestRunModel struct for PublicTestRunModel
 type PublicTestRunModel struct {
-	TestRunId *string `json:"testRunId,omitempty"`
+	TestRunId string `json:"testRunId"`
 	TestPlanId NullableString `json:"testPlanId,omitempty"`
-	TestPlanGlobalId *int64 `json:"testPlanGlobalId,omitempty"`
-	Name *string `json:"name,omitempty"`
+	TestPlanGlobalId int64 `json:"testPlanGlobalId"`
+	Name NullableString `json:"name,omitempty"`
 	ProductName NullableString `json:"productName,omitempty"`
 	Build NullableString `json:"build,omitempty"`
 	Configurations []ConfigurationModel `json:"configurations,omitempty"`
 	AutoTests []AutoTestModel `json:"autoTests,omitempty"`
 	TestPoints []PublicTestPointModel `json:"testPoints,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Status NullableString `json:"status,omitempty"`
 }
 
 // NewPublicTestRunModel instantiates a new PublicTestRunModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicTestRunModel() *PublicTestRunModel {
+func NewPublicTestRunModel(testRunId string, testPlanGlobalId int64) *PublicTestRunModel {
 	this := PublicTestRunModel{}
+	this.TestRunId = testRunId
+	this.TestPlanGlobalId = testPlanGlobalId
 	return &this
 }
 
@@ -48,36 +50,28 @@ func NewPublicTestRunModelWithDefaults() *PublicTestRunModel {
 	return &this
 }
 
-// GetTestRunId returns the TestRunId field value if set, zero value otherwise.
+// GetTestRunId returns the TestRunId field value
 func (o *PublicTestRunModel) GetTestRunId() string {
-	if o == nil || IsNil(o.TestRunId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestRunId
+
+	return o.TestRunId
 }
 
-// GetTestRunIdOk returns a tuple with the TestRunId field value if set, nil otherwise
+// GetTestRunIdOk returns a tuple with the TestRunId field value
 // and a boolean to check if the value has been set.
 func (o *PublicTestRunModel) GetTestRunIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestRunId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestRunId, true
+	return &o.TestRunId, true
 }
 
-// HasTestRunId returns a boolean if a field has been set.
-func (o *PublicTestRunModel) HasTestRunId() bool {
-	if o != nil && !IsNil(o.TestRunId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestRunId gets a reference to the given string and assigns it to the TestRunId field.
+// SetTestRunId sets field value
 func (o *PublicTestRunModel) SetTestRunId(v string) {
-	o.TestRunId = &v
+	o.TestRunId = v
 }
 
 // GetTestPlanId returns the TestPlanId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -122,68 +116,70 @@ func (o *PublicTestRunModel) UnsetTestPlanId() {
 	o.TestPlanId.Unset()
 }
 
-// GetTestPlanGlobalId returns the TestPlanGlobalId field value if set, zero value otherwise.
+// GetTestPlanGlobalId returns the TestPlanGlobalId field value
 func (o *PublicTestRunModel) GetTestPlanGlobalId() int64 {
-	if o == nil || IsNil(o.TestPlanGlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.TestPlanGlobalId
+
+	return o.TestPlanGlobalId
 }
 
-// GetTestPlanGlobalIdOk returns a tuple with the TestPlanGlobalId field value if set, nil otherwise
+// GetTestPlanGlobalIdOk returns a tuple with the TestPlanGlobalId field value
 // and a boolean to check if the value has been set.
 func (o *PublicTestRunModel) GetTestPlanGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.TestPlanGlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPlanGlobalId, true
+	return &o.TestPlanGlobalId, true
 }
 
-// HasTestPlanGlobalId returns a boolean if a field has been set.
-func (o *PublicTestRunModel) HasTestPlanGlobalId() bool {
-	if o != nil && !IsNil(o.TestPlanGlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlanGlobalId gets a reference to the given int64 and assigns it to the TestPlanGlobalId field.
+// SetTestPlanGlobalId sets field value
 func (o *PublicTestRunModel) SetTestPlanGlobalId(v int64) {
-	o.TestPlanGlobalId = &v
+	o.TestPlanGlobalId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicTestRunModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicTestRunModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *PublicTestRunModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *PublicTestRunModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *PublicTestRunModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *PublicTestRunModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetProductName returns the ProductName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -270,9 +266,9 @@ func (o *PublicTestRunModel) UnsetBuild() {
 	o.Build.Unset()
 }
 
-// GetConfigurations returns the Configurations field value if set, zero value otherwise.
+// GetConfigurations returns the Configurations field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicTestRunModel) GetConfigurations() []ConfigurationModel {
-	if o == nil || IsNil(o.Configurations) {
+	if o == nil {
 		var ret []ConfigurationModel
 		return ret
 	}
@@ -281,6 +277,7 @@ func (o *PublicTestRunModel) GetConfigurations() []ConfigurationModel {
 
 // GetConfigurationsOk returns a tuple with the Configurations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicTestRunModel) GetConfigurationsOk() ([]ConfigurationModel, bool) {
 	if o == nil || IsNil(o.Configurations) {
 		return nil, false
@@ -290,7 +287,7 @@ func (o *PublicTestRunModel) GetConfigurationsOk() ([]ConfigurationModel, bool) 
 
 // HasConfigurations returns a boolean if a field has been set.
 func (o *PublicTestRunModel) HasConfigurations() bool {
-	if o != nil && !IsNil(o.Configurations) {
+	if o != nil && IsNil(o.Configurations) {
 		return true
 	}
 
@@ -302,9 +299,9 @@ func (o *PublicTestRunModel) SetConfigurations(v []ConfigurationModel) {
 	o.Configurations = v
 }
 
-// GetAutoTests returns the AutoTests field value if set, zero value otherwise.
+// GetAutoTests returns the AutoTests field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicTestRunModel) GetAutoTests() []AutoTestModel {
-	if o == nil || IsNil(o.AutoTests) {
+	if o == nil {
 		var ret []AutoTestModel
 		return ret
 	}
@@ -313,6 +310,7 @@ func (o *PublicTestRunModel) GetAutoTests() []AutoTestModel {
 
 // GetAutoTestsOk returns a tuple with the AutoTests field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicTestRunModel) GetAutoTestsOk() ([]AutoTestModel, bool) {
 	if o == nil || IsNil(o.AutoTests) {
 		return nil, false
@@ -322,7 +320,7 @@ func (o *PublicTestRunModel) GetAutoTestsOk() ([]AutoTestModel, bool) {
 
 // HasAutoTests returns a boolean if a field has been set.
 func (o *PublicTestRunModel) HasAutoTests() bool {
-	if o != nil && !IsNil(o.AutoTests) {
+	if o != nil && IsNil(o.AutoTests) {
 		return true
 	}
 
@@ -334,9 +332,9 @@ func (o *PublicTestRunModel) SetAutoTests(v []AutoTestModel) {
 	o.AutoTests = v
 }
 
-// GetTestPoints returns the TestPoints field value if set, zero value otherwise.
+// GetTestPoints returns the TestPoints field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicTestRunModel) GetTestPoints() []PublicTestPointModel {
-	if o == nil || IsNil(o.TestPoints) {
+	if o == nil {
 		var ret []PublicTestPointModel
 		return ret
 	}
@@ -345,6 +343,7 @@ func (o *PublicTestRunModel) GetTestPoints() []PublicTestPointModel {
 
 // GetTestPointsOk returns a tuple with the TestPoints field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicTestRunModel) GetTestPointsOk() ([]PublicTestPointModel, bool) {
 	if o == nil || IsNil(o.TestPoints) {
 		return nil, false
@@ -354,7 +353,7 @@ func (o *PublicTestRunModel) GetTestPointsOk() ([]PublicTestPointModel, bool) {
 
 // HasTestPoints returns a boolean if a field has been set.
 func (o *PublicTestRunModel) HasTestPoints() bool {
-	if o != nil && !IsNil(o.TestPoints) {
+	if o != nil && IsNil(o.TestPoints) {
 		return true
 	}
 
@@ -366,36 +365,46 @@ func (o *PublicTestRunModel) SetTestPoints(v []PublicTestPointModel) {
 	o.TestPoints = v
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PublicTestRunModel) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Status
+	return *o.Status.Get()
 }
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *PublicTestRunModel) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return o.Status.Get(), o.Status.IsSet()
 }
 
 // HasStatus returns a boolean if a field has been set.
 func (o *PublicTestRunModel) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
+	if o != nil && o.Status.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus gets a reference to the given NullableString and assigns it to the Status field.
 func (o *PublicTestRunModel) SetStatus(v string) {
-	o.Status = &v
+	o.Status.Set(&v)
+}
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *PublicTestRunModel) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *PublicTestRunModel) UnsetStatus() {
+	o.Status.Unset()
 }
 
 func (o PublicTestRunModel) MarshalJSON() ([]byte, error) {
@@ -408,17 +417,13 @@ func (o PublicTestRunModel) MarshalJSON() ([]byte, error) {
 
 func (o PublicTestRunModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.TestRunId) {
-		toSerialize["testRunId"] = o.TestRunId
-	}
+	toSerialize["testRunId"] = o.TestRunId
 	if o.TestPlanId.IsSet() {
 		toSerialize["testPlanId"] = o.TestPlanId.Get()
 	}
-	if !IsNil(o.TestPlanGlobalId) {
-		toSerialize["testPlanGlobalId"] = o.TestPlanGlobalId
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	toSerialize["testPlanGlobalId"] = o.TestPlanGlobalId
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if o.ProductName.IsSet() {
 		toSerialize["productName"] = o.ProductName.Get()
@@ -426,17 +431,17 @@ func (o PublicTestRunModel) ToMap() (map[string]interface{}, error) {
 	if o.Build.IsSet() {
 		toSerialize["build"] = o.Build.Get()
 	}
-	if !IsNil(o.Configurations) {
+	if o.Configurations != nil {
 		toSerialize["configurations"] = o.Configurations
 	}
-	if !IsNil(o.AutoTests) {
+	if o.AutoTests != nil {
 		toSerialize["autoTests"] = o.AutoTests
 	}
-	if !IsNil(o.TestPoints) {
+	if o.TestPoints != nil {
 		toSerialize["testPoints"] = o.TestPoints
 	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
 	return toSerialize, nil
 }

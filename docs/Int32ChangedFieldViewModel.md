@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OldValue** | Pointer to **int32** |  | [optional] 
-**NewValue** | Pointer to **int32** |  | [optional] 
+**OldValue** | **int32** |  | 
+**NewValue** | **int32** |  | 
 
 ## Methods
 
 ### NewInt32ChangedFieldViewModel
 
-`func NewInt32ChangedFieldViewModel() *Int32ChangedFieldViewModel`
+`func NewInt32ChangedFieldViewModel(oldValue int32, newValue int32, ) *Int32ChangedFieldViewModel`
 
 NewInt32ChangedFieldViewModel instantiates a new Int32ChangedFieldViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetOldValue sets OldValue field to given value.
 
-### HasOldValue
-
-`func (o *Int32ChangedFieldViewModel) HasOldValue() bool`
-
-HasOldValue returns a boolean if a field has been set.
 
 ### GetNewValue
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetNewValue sets NewValue field to given value.
 
-### HasNewValue
-
-`func (o *Int32ChangedFieldViewModel) HasNewValue() bool`
-
-HasNewValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

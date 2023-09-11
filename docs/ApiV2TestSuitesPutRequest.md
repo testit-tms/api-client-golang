@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
+**IsDeleted** | **bool** |  | 
 **AutoRefresh** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
 ### NewApiV2TestSuitesPutRequest
 
-`func NewApiV2TestSuitesPutRequest(id string, name string, ) *ApiV2TestSuitesPutRequest`
+`func NewApiV2TestSuitesPutRequest(id string, name string, isDeleted bool, ) *ApiV2TestSuitesPutRequest`
 
 NewApiV2TestSuitesPutRequest instantiates a new ApiV2TestSuitesPutRequest object
 This constructor will assign default values to properties that have it defined,
@@ -123,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *ApiV2TestSuitesPutRequest) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetAutoRefresh
 

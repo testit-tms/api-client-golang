@@ -27,11 +27,11 @@ type TestPlanModel struct {
 	CompletedOn NullableTime `json:"completedOn,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Used for search Test plan
-	GlobalId *int64 `json:"globalId,omitempty"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	GlobalId int64 `json:"globalId"`
+	IsDeleted bool `json:"isDeleted"`
 	LockedDate NullableTime `json:"lockedDate,omitempty"`
 	Id string `json:"id"`
 	LockedById NullableString `json:"lockedById,omitempty"`
@@ -53,9 +53,12 @@ type TestPlanModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanModel(status TestPlanStatusModel, id string, name string, projectId string) *TestPlanModel {
+func NewTestPlanModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string) *TestPlanModel {
 	this := TestPlanModel{}
 	this.Status = status
+	this.CreatedById = createdById
+	this.GlobalId = globalId
+	this.IsDeleted = isDeleted
 	this.Id = id
 	this.Name = name
 	this.ProjectId = projectId
@@ -262,36 +265,28 @@ func (o *TestPlanModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *TestPlanModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *TestPlanModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *TestPlanModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -336,68 +331,52 @@ func (o *TestPlanModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *TestPlanModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *TestPlanModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *TestPlanModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *TestPlanModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *TestPlanModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *TestPlanModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 // GetLockedDate returns the LockedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -841,9 +820,9 @@ func (o *TestPlanModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise.
+// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPlanModel) GetAttributes() map[string]interface{} {
-	if o == nil || IsNil(o.Attributes) {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -852,6 +831,7 @@ func (o *TestPlanModel) GetAttributes() map[string]interface{} {
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanModel) GetAttributesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return map[string]interface{}{}, false
@@ -861,7 +841,7 @@ func (o *TestPlanModel) GetAttributesOk() (map[string]interface{}, bool) {
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPlanModel) HasAttributes() bool {
-	if o != nil && !IsNil(o.Attributes) {
+	if o != nil && IsNil(o.Attributes) {
 		return true
 	}
 
@@ -896,18 +876,12 @@ func (o TestPlanModel) ToMap() (map[string]interface{}, error) {
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["globalId"] = o.GlobalId
+	toSerialize["isDeleted"] = o.IsDeleted
 	if o.LockedDate.IsSet() {
 		toSerialize["lockedDate"] = o.LockedDate.Get()
 	}
@@ -938,7 +912,7 @@ func (o TestPlanModel) ToMap() (map[string]interface{}, error) {
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if !IsNil(o.Attributes) {
+	if o.Attributes != nil {
 		toSerialize["attributes"] = o.Attributes
 	}
 	return toSerialize, nil

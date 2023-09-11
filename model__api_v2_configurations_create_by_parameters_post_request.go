@@ -20,7 +20,7 @@ var _ MappedNullable = &ApiV2ConfigurationsCreateByParametersPostRequest{}
 // ApiV2ConfigurationsCreateByParametersPostRequest struct for ApiV2ConfigurationsCreateByParametersPostRequest
 type ApiV2ConfigurationsCreateByParametersPostRequest struct {
 	// This property is used to link configuration with project
-	ProjectId *string `json:"projectId,omitempty"`
+	ProjectId string `json:"projectId"`
 	ParameterIds []string `json:"parameterIds"`
 }
 
@@ -28,8 +28,9 @@ type ApiV2ConfigurationsCreateByParametersPostRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2ConfigurationsCreateByParametersPostRequest(parameterIds []string) *ApiV2ConfigurationsCreateByParametersPostRequest {
+func NewApiV2ConfigurationsCreateByParametersPostRequest(projectId string, parameterIds []string) *ApiV2ConfigurationsCreateByParametersPostRequest {
 	this := ApiV2ConfigurationsCreateByParametersPostRequest{}
+	this.ProjectId = projectId
 	this.ParameterIds = parameterIds
 	return &this
 }
@@ -42,36 +43,28 @@ func NewApiV2ConfigurationsCreateByParametersPostRequestWithDefaults() *ApiV2Con
 	return &this
 }
 
-// GetProjectId returns the ProjectId field value if set, zero value otherwise.
+// GetProjectId returns the ProjectId field value
 func (o *ApiV2ConfigurationsCreateByParametersPostRequest) GetProjectId() string {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ProjectId
+
+	return o.ProjectId
 }
 
-// GetProjectIdOk returns a tuple with the ProjectId field value if set, nil otherwise
+// GetProjectIdOk returns a tuple with the ProjectId field value
 // and a boolean to check if the value has been set.
 func (o *ApiV2ConfigurationsCreateByParametersPostRequest) GetProjectIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ProjectId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProjectId, true
+	return &o.ProjectId, true
 }
 
-// HasProjectId returns a boolean if a field has been set.
-func (o *ApiV2ConfigurationsCreateByParametersPostRequest) HasProjectId() bool {
-	if o != nil && !IsNil(o.ProjectId) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectId gets a reference to the given string and assigns it to the ProjectId field.
+// SetProjectId sets field value
 func (o *ApiV2ConfigurationsCreateByParametersPostRequest) SetProjectId(v string) {
-	o.ProjectId = &v
+	o.ProjectId = v
 }
 
 // GetParameterIds returns the ParameterIds field value
@@ -108,9 +101,7 @@ func (o ApiV2ConfigurationsCreateByParametersPostRequest) MarshalJSON() ([]byte,
 
 func (o ApiV2ConfigurationsCreateByParametersPostRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ProjectId) {
-		toSerialize["projectId"] = o.ProjectId
-	}
+	toSerialize["projectId"] = o.ProjectId
 	toSerialize["parameterIds"] = o.ParameterIds
 	return toSerialize, nil
 }

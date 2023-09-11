@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StepId** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **string** |  | [optional] 
+**StepId** | **string** |  | 
+**Outcome** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewSharedStepResultModel
 
-`func NewSharedStepResultModel() *SharedStepResultModel`
+`func NewSharedStepResultModel(stepId string, ) *SharedStepResultModel`
 
 NewSharedStepResultModel instantiates a new SharedStepResultModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetStepId sets StepId field to given value.
 
-### HasStepId
-
-`func (o *SharedStepResultModel) HasStepId() bool`
-
-HasStepId returns a boolean if a field has been set.
 
 ### GetOutcome
 
@@ -76,6 +71,16 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
+### SetOutcomeNil
+
+`func (o *SharedStepResultModel) SetOutcomeNil(b bool)`
+
+ SetOutcomeNil sets the value for Outcome to be an explicit nil
+
+### UnsetOutcome
+`func (o *SharedStepResultModel) UnsetOutcome()`
+
+UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

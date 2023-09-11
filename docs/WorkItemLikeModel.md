@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkItemId** | Pointer to **string** |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**WorkItemId** | **string** |  | 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewWorkItemLikeModel
 
-`func NewWorkItemLikeModel() *WorkItemLikeModel`
+`func NewWorkItemLikeModel(workItemId string, createdDate time.Time, createdById string, id string, isDeleted bool, ) *WorkItemLikeModel`
 
 NewWorkItemLikeModel instantiates a new WorkItemLikeModel object
 This constructor will assign default values to properties that have it defined,
@@ -50,11 +50,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemId sets WorkItemId field to given value.
 
-### HasWorkItemId
-
-`func (o *WorkItemLikeModel) HasWorkItemId() bool`
-
-HasWorkItemId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -75,11 +70,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *WorkItemLikeModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -135,11 +125,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *WorkItemLikeModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -195,11 +180,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *WorkItemLikeModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -220,11 +200,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *WorkItemLikeModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

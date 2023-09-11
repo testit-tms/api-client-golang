@@ -19,20 +19,23 @@ var _ MappedNullable = &SectionSharedStep{}
 
 // SectionSharedStep Nested shared steps are allowed
 type SectionSharedStep struct {
-	VersionId *string `json:"versionId,omitempty"`
-	GlobalId *int64 `json:"globalId,omitempty"`
-	Name *string `json:"name,omitempty"`
+	VersionId string `json:"versionId"`
+	GlobalId int64 `json:"globalId"`
+	Name NullableString `json:"name,omitempty"`
 	// Deprecated
 	Steps []StepModel `json:"steps,omitempty"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 }
 
 // NewSectionSharedStep instantiates a new SectionSharedStep object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSectionSharedStep() *SectionSharedStep {
+func NewSectionSharedStep(versionId string, globalId int64, isDeleted bool) *SectionSharedStep {
 	this := SectionSharedStep{}
+	this.VersionId = versionId
+	this.GlobalId = globalId
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -44,106 +47,100 @@ func NewSectionSharedStepWithDefaults() *SectionSharedStep {
 	return &this
 }
 
-// GetVersionId returns the VersionId field value if set, zero value otherwise.
+// GetVersionId returns the VersionId field value
 func (o *SectionSharedStep) GetVersionId() string {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VersionId
+
+	return o.VersionId
 }
 
-// GetVersionIdOk returns a tuple with the VersionId field value if set, nil otherwise
+// GetVersionIdOk returns a tuple with the VersionId field value
 // and a boolean to check if the value has been set.
 func (o *SectionSharedStep) GetVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VersionId, true
+	return &o.VersionId, true
 }
 
-// HasVersionId returns a boolean if a field has been set.
-func (o *SectionSharedStep) HasVersionId() bool {
-	if o != nil && !IsNil(o.VersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetVersionId gets a reference to the given string and assigns it to the VersionId field.
+// SetVersionId sets field value
 func (o *SectionSharedStep) SetVersionId(v string) {
-	o.VersionId = &v
+	o.VersionId = v
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *SectionSharedStep) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *SectionSharedStep) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *SectionSharedStep) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *SectionSharedStep) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SectionSharedStep) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SectionSharedStep) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *SectionSharedStep) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *SectionSharedStep) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *SectionSharedStep) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetSteps returns the Steps field value if set, zero value otherwise.
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *SectionSharedStep) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetSteps returns the Steps field value if set, zero value otherwise (both if not set or set to explicit null).
 // Deprecated
 func (o *SectionSharedStep) GetSteps() []StepModel {
-	if o == nil || IsNil(o.Steps) {
+	if o == nil {
 		var ret []StepModel
 		return ret
 	}
@@ -152,6 +149,7 @@ func (o *SectionSharedStep) GetSteps() []StepModel {
 
 // GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 // Deprecated
 func (o *SectionSharedStep) GetStepsOk() ([]StepModel, bool) {
 	if o == nil || IsNil(o.Steps) {
@@ -162,7 +160,7 @@ func (o *SectionSharedStep) GetStepsOk() ([]StepModel, bool) {
 
 // HasSteps returns a boolean if a field has been set.
 func (o *SectionSharedStep) HasSteps() bool {
-	if o != nil && !IsNil(o.Steps) {
+	if o != nil && IsNil(o.Steps) {
 		return true
 	}
 
@@ -175,36 +173,28 @@ func (o *SectionSharedStep) SetSteps(v []StepModel) {
 	o.Steps = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *SectionSharedStep) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *SectionSharedStep) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *SectionSharedStep) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *SectionSharedStep) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 func (o SectionSharedStep) MarshalJSON() ([]byte, error) {
@@ -217,21 +207,15 @@ func (o SectionSharedStep) MarshalJSON() ([]byte, error) {
 
 func (o SectionSharedStep) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.VersionId) {
-		toSerialize["versionId"] = o.VersionId
+	toSerialize["versionId"] = o.VersionId
+	toSerialize["globalId"] = o.GlobalId
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.Steps) {
+	if o.Steps != nil {
 		toSerialize["steps"] = o.Steps
 	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
 }
 

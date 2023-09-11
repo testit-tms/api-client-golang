@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**WorkItemId** | Pointer to **string** |  | [optional] 
-**OldVersionId** | Pointer to **string** |  | [optional] 
-**NewVersionId** | Pointer to **string** |  | [optional] 
-**WorkItemChangedFields** | Pointer to [**WorkItemChangeModelWorkItemChangedFields**](WorkItemChangeModelWorkItemChangedFields.md) |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**WorkItemId** | **string** |  | 
+**OldVersionId** | **string** |  | 
+**NewVersionId** | **string** |  | 
+**WorkItemChangedFields** | Pointer to [**NullableWorkItemChangedFieldsViewModel**](WorkItemChangedFieldsViewModel.md) |  | [optional] 
+**CreatedById** | **string** |  | 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
 ### NewWorkItemChangeModel
 
-`func NewWorkItemChangeModel() *WorkItemChangeModel`
+`func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, createdById string, ) *WorkItemChangeModel`
 
 NewWorkItemChangeModel instantiates a new WorkItemChangeModel object
 This constructor will assign default values to properties that have it defined,
@@ -50,11 +50,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *WorkItemChangeModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetWorkItemId
 
@@ -75,11 +70,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemId sets WorkItemId field to given value.
 
-### HasWorkItemId
-
-`func (o *WorkItemChangeModel) HasWorkItemId() bool`
-
-HasWorkItemId returns a boolean if a field has been set.
 
 ### GetOldVersionId
 
@@ -100,11 +90,6 @@ and a boolean to check if the value has been set.
 
 SetOldVersionId sets OldVersionId field to given value.
 
-### HasOldVersionId
-
-`func (o *WorkItemChangeModel) HasOldVersionId() bool`
-
-HasOldVersionId returns a boolean if a field has been set.
 
 ### GetNewVersionId
 
@@ -125,28 +110,23 @@ and a boolean to check if the value has been set.
 
 SetNewVersionId sets NewVersionId field to given value.
 
-### HasNewVersionId
-
-`func (o *WorkItemChangeModel) HasNewVersionId() bool`
-
-HasNewVersionId returns a boolean if a field has been set.
 
 ### GetWorkItemChangedFields
 
-`func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangeModelWorkItemChangedFields`
+`func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsViewModel`
 
 GetWorkItemChangedFields returns the WorkItemChangedFields field if non-nil, zero value otherwise.
 
 ### GetWorkItemChangedFieldsOk
 
-`func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangeModelWorkItemChangedFields, bool)`
+`func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFieldsViewModel, bool)`
 
 GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItemChangedFields
 
-`func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangeModelWorkItemChangedFields)`
+`func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangedFieldsViewModel)`
 
 SetWorkItemChangedFields sets WorkItemChangedFields field to given value.
 
@@ -156,6 +136,16 @@ SetWorkItemChangedFields sets WorkItemChangedFields field to given value.
 
 HasWorkItemChangedFields returns a boolean if a field has been set.
 
+### SetWorkItemChangedFieldsNil
+
+`func (o *WorkItemChangeModel) SetWorkItemChangedFieldsNil(b bool)`
+
+ SetWorkItemChangedFieldsNil sets the value for WorkItemChangedFields to be an explicit nil
+
+### UnsetWorkItemChangedFields
+`func (o *WorkItemChangeModel) UnsetWorkItemChangedFields()`
+
+UnsetWorkItemChangedFields ensures that no value is present for WorkItemChangedFields, not even an explicit nil
 ### GetCreatedById
 
 `func (o *WorkItemChangeModel) GetCreatedById() string`
@@ -175,11 +165,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *WorkItemChangeModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetCreatedDate
 

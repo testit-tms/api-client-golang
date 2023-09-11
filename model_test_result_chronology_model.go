@@ -20,15 +20,16 @@ var _ MappedNullable = &TestResultChronologyModel{}
 // TestResultChronologyModel struct for TestResultChronologyModel
 type TestResultChronologyModel struct {
 	Outcome NullableString `json:"outcome,omitempty"`
-	Count *int32 `json:"count,omitempty"`
+	Count int32 `json:"count"`
 }
 
 // NewTestResultChronologyModel instantiates a new TestResultChronologyModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultChronologyModel() *TestResultChronologyModel {
+func NewTestResultChronologyModel(count int32) *TestResultChronologyModel {
 	this := TestResultChronologyModel{}
+	this.Count = count
 	return &this
 }
 
@@ -82,36 +83,28 @@ func (o *TestResultChronologyModel) UnsetOutcome() {
 	o.Outcome.Unset()
 }
 
-// GetCount returns the Count field value if set, zero value otherwise.
+// GetCount returns the Count field value
 func (o *TestResultChronologyModel) GetCount() int32 {
-	if o == nil || IsNil(o.Count) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Count
+
+	return o.Count
 }
 
-// GetCountOk returns a tuple with the Count field value if set, nil otherwise
+// GetCountOk returns a tuple with the Count field value
 // and a boolean to check if the value has been set.
 func (o *TestResultChronologyModel) GetCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Count) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Count, true
+	return &o.Count, true
 }
 
-// HasCount returns a boolean if a field has been set.
-func (o *TestResultChronologyModel) HasCount() bool {
-	if o != nil && !IsNil(o.Count) {
-		return true
-	}
-
-	return false
-}
-
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
+// SetCount sets field value
 func (o *TestResultChronologyModel) SetCount(v int32) {
-	o.Count = &v
+	o.Count = v
 }
 
 func (o TestResultChronologyModel) MarshalJSON() ([]byte, error) {
@@ -127,9 +120,7 @@ func (o TestResultChronologyModel) ToMap() (map[string]interface{}, error) {
 	if o.Outcome.IsSet() {
 		toSerialize["outcome"] = o.Outcome.Get()
 	}
-	if !IsNil(o.Count) {
-		toSerialize["count"] = o.Count
-	}
+	toSerialize["count"] = o.Count
 	return toSerialize, nil
 }
 

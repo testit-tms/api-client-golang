@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**ApiV2ProjectsIdTestPlansSearchPostRequest**](ApiV2ProjectsIdTestPlansSearchPostRequest.md) |  | [optional] 
+**Filter** | Pointer to [**NullableProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  | [optional] 
 **ExtractionModel** | Pointer to [**NullableTestPlanExtractionModel**](TestPlanExtractionModel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) GetFilter() ApiV2ProjectsIdTestPlansSearchPostRequest`
+`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) GetFilter() ProjectTestPlansFilterModel`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) GetFilterOk() (*ApiV2ProjectsIdTestPlansSearchPostRequest, bool)`
+`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) GetFilterOk() (*ProjectTestPlansFilterModel, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) SetFilter(v ApiV2ProjectsIdTestPlansSearchPostRequest)`
+`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) SetFilter(v ProjectTestPlansFilterModel)`
 
 SetFilter sets Filter field to given value.
 
@@ -51,6 +51,16 @@ SetFilter sets Filter field to given value.
 
 HasFilter returns a boolean if a field has been set.
 
+### SetFilterNil
+
+`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) SetFilterNil(b bool)`
+
+ SetFilterNil sets the value for Filter to be an explicit nil
+
+### UnsetFilter
+`func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) UnsetFilter()`
+
+UnsetFilter ensures that no value is present for Filter, not even an explicit nil
 ### GetExtractionModel
 
 `func (o *ApiV2ProjectsIdTestPlansDeleteBulkPostRequest) GetExtractionModel() TestPlanExtractionModel`

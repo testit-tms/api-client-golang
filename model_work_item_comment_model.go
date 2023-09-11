@@ -20,12 +20,12 @@ var _ MappedNullable = &WorkItemCommentModel{}
 
 // WorkItemCommentModel struct for WorkItemCommentModel
 type WorkItemCommentModel struct {
-	Id *string `json:"id,omitempty"`
-	Text *string `json:"text,omitempty"`
-	User *WorkItemCommentModelUser `json:"user,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	Id string `json:"id"`
+	Text NullableString `json:"text,omitempty"`
+	User NullableUserWithRankModel `json:"user,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 }
 
@@ -33,8 +33,11 @@ type WorkItemCommentModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemCommentModel() *WorkItemCommentModel {
+func NewWorkItemCommentModel(id string, createdById string, createdDate time.Time) *WorkItemCommentModel {
 	this := WorkItemCommentModel{}
+	this.Id = id
+	this.CreatedById = createdById
+	this.CreatedDate = createdDate
 	return &this
 }
 
@@ -46,132 +49,136 @@ func NewWorkItemCommentModelWithDefaults() *WorkItemCommentModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *WorkItemCommentModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemCommentModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *WorkItemCommentModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *WorkItemCommentModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetText returns the Text field value if set, zero value otherwise.
+// GetText returns the Text field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemCommentModel) GetText() string {
-	if o == nil || IsNil(o.Text) {
+	if o == nil || IsNil(o.Text.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Text
+	return *o.Text.Get()
 }
 
 // GetTextOk returns a tuple with the Text field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemCommentModel) GetTextOk() (*string, bool) {
-	if o == nil || IsNil(o.Text) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Text, true
+	return o.Text.Get(), o.Text.IsSet()
 }
 
 // HasText returns a boolean if a field has been set.
 func (o *WorkItemCommentModel) HasText() bool {
-	if o != nil && !IsNil(o.Text) {
+	if o != nil && o.Text.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetText gets a reference to the given string and assigns it to the Text field.
+// SetText gets a reference to the given NullableString and assigns it to the Text field.
 func (o *WorkItemCommentModel) SetText(v string) {
-	o.Text = &v
+	o.Text.Set(&v)
+}
+// SetTextNil sets the value for Text to be an explicit nil
+func (o *WorkItemCommentModel) SetTextNil() {
+	o.Text.Set(nil)
 }
 
-// GetUser returns the User field value if set, zero value otherwise.
-func (o *WorkItemCommentModel) GetUser() WorkItemCommentModelUser {
-	if o == nil || IsNil(o.User) {
-		var ret WorkItemCommentModelUser
+// UnsetText ensures that no value is present for Text, not even an explicit nil
+func (o *WorkItemCommentModel) UnsetText() {
+	o.Text.Unset()
+}
+
+// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemCommentModel) GetUser() UserWithRankModel {
+	if o == nil || IsNil(o.User.Get()) {
+		var ret UserWithRankModel
 		return ret
 	}
-	return *o.User
+	return *o.User.Get()
 }
 
 // GetUserOk returns a tuple with the User field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WorkItemCommentModel) GetUserOk() (*WorkItemCommentModelUser, bool) {
-	if o == nil || IsNil(o.User) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemCommentModel) GetUserOk() (*UserWithRankModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.User, true
+	return o.User.Get(), o.User.IsSet()
 }
 
 // HasUser returns a boolean if a field has been set.
 func (o *WorkItemCommentModel) HasUser() bool {
-	if o != nil && !IsNil(o.User) {
+	if o != nil && o.User.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUser gets a reference to the given WorkItemCommentModelUser and assigns it to the User field.
-func (o *WorkItemCommentModel) SetUser(v WorkItemCommentModelUser) {
-	o.User = &v
+// SetUser gets a reference to the given NullableUserWithRankModel and assigns it to the User field.
+func (o *WorkItemCommentModel) SetUser(v UserWithRankModel) {
+	o.User.Set(&v)
+}
+// SetUserNil sets the value for User to be an explicit nil
+func (o *WorkItemCommentModel) SetUserNil() {
+	o.User.Set(nil)
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// UnsetUser ensures that no value is present for User, not even an explicit nil
+func (o *WorkItemCommentModel) UnsetUser() {
+	o.User.Unset()
+}
+
+// GetCreatedById returns the CreatedById field value
 func (o *WorkItemCommentModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemCommentModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *WorkItemCommentModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *WorkItemCommentModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -216,36 +223,28 @@ func (o *WorkItemCommentModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *WorkItemCommentModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemCommentModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *WorkItemCommentModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *WorkItemCommentModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -300,24 +299,18 @@ func (o WorkItemCommentModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemCommentModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	toSerialize["id"] = o.Id
+	if o.Text.IsSet() {
+		toSerialize["text"] = o.Text.Get()
 	}
-	if !IsNil(o.Text) {
-		toSerialize["text"] = o.Text
+	if o.User.IsSet() {
+		toSerialize["user"] = o.User.Get()
 	}
-	if !IsNil(o.User) {
-		toSerialize["user"] = o.User
-	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}

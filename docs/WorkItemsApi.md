@@ -16,13 +16,13 @@ Method | HTTP request | Description
 [**ApiV2WorkItemsMovePost**](WorkItemsApi.md#ApiV2WorkItemsMovePost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
 [**ApiV2WorkItemsSearchPost**](WorkItemsApi.md#ApiV2WorkItemsSearchPost) | **Post** /api/v2/workItems/search | Search for work items
 [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsApi.md#ApiV2WorkItemsSharedStepIdReferencesSectionsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
-[**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](WorkItemsApi.md#ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in workitems
+[**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](WorkItemsApi.md#ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
 [**ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet**](WorkItemsApi.md#ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet) | **Get** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
 [**CreateWorkItem**](WorkItemsApi.md#CreateWorkItem) | **Post** /api/v2/workItems | Create Test Case, Checklist or Shared Step
 [**DeleteAllWorkItemsFromAutoTest**](WorkItemsApi.md#DeleteAllWorkItemsFromAutoTest) | **Delete** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
 [**DeleteWorkItem**](WorkItemsApi.md#DeleteWorkItem) | **Delete** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
 [**GetAutoTestsForWorkItem**](WorkItemsApi.md#GetAutoTestsForWorkItem) | **Get** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
-[**GetIterations**](WorkItemsApi.md#GetIterations) | **Get** /api/v2/workItems/{id}/iterations | Get iterations by workitem Id or GlobalId
+[**GetIterations**](WorkItemsApi.md#GetIterations) | **Get** /api/v2/workItems/{id}/iterations | Get iterations by work item Id or GlobalId
 [**GetWorkItemById**](WorkItemsApi.md#GetWorkItemById) | **Get** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
 [**GetWorkItemChronology**](WorkItemsApi.md#GetWorkItemChronology) | **Get** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
 [**GetWorkItemVersions**](WorkItemsApi.md#GetWorkItemVersions) | **Get** /api/v2/workItems/{id}/versions | Get WorkItem versions
@@ -928,7 +928,7 @@ Name | Type | Description  | Notes
 
 > []SharedStepReferenceModel ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest).Execute()
 
-Get SharedStep references in workitems
+Get SharedStep references in work items
 
 
 
@@ -1097,7 +1097,7 @@ import (
 )
 
 func main() {
-    createWorkItemRequest := *openapiclient.NewCreateWorkItemRequest(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example")}, "Basic template", "f0d5cbfd-25bc-4069-863f-b2945e748040", "f0d5cbfd-25bc-4069-863f-b2945e748040") // CreateWorkItemRequest |  (optional)
+    createWorkItemRequest := *openapiclient.NewCreateWorkItemRequest(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example")}, "Basic template", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // CreateWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1352,7 +1352,7 @@ Name | Type | Description  | Notes
 
 > []IterationModel GetIterations(ctx, id).VersionId(versionId).VersionNumber(versionNumber).Execute()
 
-Get iterations by workitem Id or GlobalId
+Get iterations by work item Id or GlobalId
 
 ### Example
 
@@ -1791,7 +1791,7 @@ import (
 )
 
 func main() {
-    updateWorkItemRequest := *openapiclient.NewUpdateWorkItemRequest([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "f0d5cbfd-25bc-4069-863f-b2945e748040", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel()}, map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example")}, "Basic template") // UpdateWorkItemRequest |  (optional)
+    updateWorkItemRequest := *openapiclient.NewUpdateWorkItemRequest([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example")}, "Basic template") // UpdateWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

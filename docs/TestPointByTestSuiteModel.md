@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **TesterId** | Pointer to **NullableString** |  | [optional] 
 **WorkItemId** | Pointer to **NullableString** |  | [optional] 
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
 **Status** | Pointer to **NullableString** | Applies one of these values: Blocked, NoResults, Failed, Passed | [optional] 
 **LastTestResultId** | Pointer to **NullableString** |  | [optional] 
-**IterationId** | Pointer to **string** |  | [optional] 
+**IterationId** | **string** |  | 
 
 ## Methods
 
 ### NewTestPointByTestSuiteModel
 
-`func NewTestPointByTestSuiteModel() *TestPointByTestSuiteModel`
+`func NewTestPointByTestSuiteModel(id string, iterationId string, ) *TestPointByTestSuiteModel`
 
 NewTestPointByTestSuiteModel instantiates a new TestPointByTestSuiteModel object
 This constructor will assign default values to properties that have it defined,
@@ -50,11 +50,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestPointByTestSuiteModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetTesterId
 
@@ -250,11 +245,6 @@ and a boolean to check if the value has been set.
 
 SetIterationId sets IterationId field to given value.
 
-### HasIterationId
-
-`func (o *TestPointByTestSuiteModel) HasIterationId() bool`
-
-HasIterationId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
-**ParameterKeyId** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**IsDeleted** | **bool** |  | 
+**ParameterKeyId** | **string** |  | 
+**Id** | **string** |  | 
 **Value** | **string** |  | 
 **Name** | **string** |  | 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewParameterModel
 
-`func NewParameterModel(value string, name string, ) *ParameterModel`
+`func NewParameterModel(createdDate time.Time, createdById string, isDeleted bool, parameterKeyId string, id string, value string, name string, ) *ParameterModel`
 
 NewParameterModel instantiates a new ParameterModel object
 This constructor will assign default values to properties that have it defined,
@@ -52,11 +52,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *ParameterModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -112,11 +107,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *ParameterModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -172,11 +162,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *ParameterModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetParameterKeyId
 
@@ -197,11 +182,6 @@ and a boolean to check if the value has been set.
 
 SetParameterKeyId sets ParameterKeyId field to given value.
 
-### HasParameterKeyId
-
-`func (o *ParameterModel) HasParameterKeyId() bool`
-
-HasParameterKeyId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -222,11 +202,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *ParameterModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetValue
 

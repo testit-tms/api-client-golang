@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **ClassName** | Pointer to **NullableString** | Specifies an autotest class name to search for | [optional] 
 **IsEmptyClassName** | Pointer to **NullableBool** | Specifies an autotest class name presence status to search for | [optional] 
 **LastTestResultOutcome** | Pointer to [**NullableAutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
+**ExternalKey** | Pointer to **NullableString** | Specifies an autotest external key to search for | [optional] 
 
 ## Methods
 
@@ -636,6 +637,41 @@ HasLastTestResultOutcome returns a boolean if a field has been set.
 `func (o *AutotestsSelectModelFilter) UnsetLastTestResultOutcome()`
 
 UnsetLastTestResultOutcome ensures that no value is present for LastTestResultOutcome, not even an explicit nil
+### GetExternalKey
+
+`func (o *AutotestsSelectModelFilter) GetExternalKey() string`
+
+GetExternalKey returns the ExternalKey field if non-nil, zero value otherwise.
+
+### GetExternalKeyOk
+
+`func (o *AutotestsSelectModelFilter) GetExternalKeyOk() (*string, bool)`
+
+GetExternalKeyOk returns a tuple with the ExternalKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalKey
+
+`func (o *AutotestsSelectModelFilter) SetExternalKey(v string)`
+
+SetExternalKey sets ExternalKey field to given value.
+
+### HasExternalKey
+
+`func (o *AutotestsSelectModelFilter) HasExternalKey() bool`
+
+HasExternalKey returns a boolean if a field has been set.
+
+### SetExternalKeyNil
+
+`func (o *AutotestsSelectModelFilter) SetExternalKeyNil(b bool)`
+
+ SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+
+### UnsetExternalKey
+`func (o *AutotestsSelectModelFilter) UnsetExternalKey()`
+
+UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

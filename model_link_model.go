@@ -19,7 +19,7 @@ var _ MappedNullable = &LinkModel{}
 
 // LinkModel struct for LinkModel
 type LinkModel struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Link name.
 	Title NullableString `json:"title,omitempty"`
 	// Address can be specified without protocol, but necessarily with the domain.
@@ -27,16 +27,18 @@ type LinkModel struct {
 	// Link description.
 	Description NullableString `json:"description,omitempty"`
 	Type NullableLinkType `json:"type,omitempty"`
-	HasInfo *bool `json:"hasInfo,omitempty"`
+	HasInfo bool `json:"hasInfo"`
 }
 
 // NewLinkModel instantiates a new LinkModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkModel(url string) *LinkModel {
+func NewLinkModel(id string, url string, hasInfo bool) *LinkModel {
 	this := LinkModel{}
+	this.Id = id
 	this.Url = url
+	this.HasInfo = hasInfo
 	return &this
 }
 
@@ -48,36 +50,28 @@ func NewLinkModelWithDefaults() *LinkModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *LinkModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *LinkModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *LinkModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *LinkModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -230,36 +224,28 @@ func (o *LinkModel) UnsetType() {
 	o.Type.Unset()
 }
 
-// GetHasInfo returns the HasInfo field value if set, zero value otherwise.
+// GetHasInfo returns the HasInfo field value
 func (o *LinkModel) GetHasInfo() bool {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasInfo
+
+	return o.HasInfo
 }
 
-// GetHasInfoOk returns a tuple with the HasInfo field value if set, nil otherwise
+// GetHasInfoOk returns a tuple with the HasInfo field value
 // and a boolean to check if the value has been set.
 func (o *LinkModel) GetHasInfoOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasInfo, true
+	return &o.HasInfo, true
 }
 
-// HasHasInfo returns a boolean if a field has been set.
-func (o *LinkModel) HasHasInfo() bool {
-	if o != nil && !IsNil(o.HasInfo) {
-		return true
-	}
-
-	return false
-}
-
-// SetHasInfo gets a reference to the given bool and assigns it to the HasInfo field.
+// SetHasInfo sets field value
 func (o *LinkModel) SetHasInfo(v bool) {
-	o.HasInfo = &v
+	o.HasInfo = v
 }
 
 func (o LinkModel) MarshalJSON() ([]byte, error) {
@@ -272,9 +258,7 @@ func (o LinkModel) MarshalJSON() ([]byte, error) {
 
 func (o LinkModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}
@@ -285,9 +269,7 @@ func (o LinkModel) ToMap() (map[string]interface{}, error) {
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.HasInfo) {
-		toSerialize["hasInfo"] = o.HasInfo
-	}
+	toSerialize["hasInfo"] = o.HasInfo
 	return toSerialize, nil
 }
 

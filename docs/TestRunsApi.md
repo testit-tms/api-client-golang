@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**ApiV2TestRunsIdTestResultsBulkPut**](TestRunsApi.md#ApiV2TestRunsIdTestResultsBulkPut) | **Put** /api/v2/testRuns/{id}/testResults/bulk | Partial edit of multiple test results in the test run
 [**ApiV2TestRunsIdTestResultsLastModifiedModificationDateGet**](TestRunsApi.md#ApiV2TestRunsIdTestResultsLastModifiedModificationDateGet) | **Get** /api/v2/testRuns/{id}/testResults/lastModified/modificationDate | Get modification date of last test result of the test run
 [**ApiV2TestRunsSearchPost**](TestRunsApi.md#ApiV2TestRunsSearchPost) | **Post** /api/v2/testRuns/search | Search for test runs
+[**ApiV2TestRunsUpdateMultiplePost**](TestRunsApi.md#ApiV2TestRunsUpdateMultiplePost) | **Post** /api/v2/testRuns/updateMultiple | Update multiple test runs
 [**CompleteTestRun**](TestRunsApi.md#CompleteTestRun) | **Post** /api/v2/testRuns/{id}/complete | Complete TestRun
 [**CreateAndFillByAutoTests**](TestRunsApi.md#CreateAndFillByAutoTests) | **Post** /api/v2/testRuns/byAutoTests | Create test runs based on autotests and configurations
 [**CreateAndFillByConfigurations**](TestRunsApi.md#CreateAndFillByConfigurations) | **Post** /api/v2/testRuns/byConfigurations | Create test runs picking the needed test points
@@ -370,6 +371,68 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiV2TestRunsUpdateMultiplePost
+
+> ApiV2TestRunsUpdateMultiplePost(ctx).ApiV2TestRunsUpdateMultiplePostRequest(apiV2TestRunsUpdateMultiplePostRequest).Execute()
+
+Update multiple test runs
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2TestRunsUpdateMultiplePostRequest := *openapiclient.NewApiV2TestRunsUpdateMultiplePostRequest(*openapiclient.NewTestRunSelectionModel()) // ApiV2TestRunsUpdateMultiplePostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestRunsApi.ApiV2TestRunsUpdateMultiplePost(context.Background()).ApiV2TestRunsUpdateMultiplePostRequest(apiV2TestRunsUpdateMultiplePostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestRunsApi.ApiV2TestRunsUpdateMultiplePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsUpdateMultiplePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2TestRunsUpdateMultiplePostRequest** | [**ApiV2TestRunsUpdateMultiplePostRequest**](ApiV2TestRunsUpdateMultiplePostRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CompleteTestRun
 
 > CompleteTestRun(ctx, id).Execute()
@@ -657,7 +720,7 @@ import (
 )
 
 func main() {
-    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("f0d5cbfd-25bc-4069-863f-b2945e748040") // CreateEmptyRequest |  (optional)
+    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // CreateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1001,7 +1064,7 @@ import (
 )
 
 func main() {
-    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("f0d5cbfd-25bc-4069-863f-b2945e748040", "First run") // UpdateEmptyRequest |  (optional)
+    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "First run") // UpdateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

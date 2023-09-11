@@ -19,10 +19,10 @@ var _ MappedNullable = &PublicTestPointModel{}
 
 // PublicTestPointModel struct for PublicTestPointModel
 type PublicTestPointModel struct {
-	ConfigurationId *string `json:"configurationId,omitempty"`
-	ConfigurationGlobalId *int64 `json:"configurationGlobalId,omitempty"`
+	ConfigurationId string `json:"configurationId"`
+	ConfigurationGlobalId int64 `json:"configurationGlobalId"`
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
-	IterationId *string `json:"iterationId,omitempty"`
+	IterationId string `json:"iterationId"`
 	ParameterModels []ParameterShortModel `json:"parameterModels,omitempty"`
 }
 
@@ -30,8 +30,11 @@ type PublicTestPointModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicTestPointModel() *PublicTestPointModel {
+func NewPublicTestPointModel(configurationId string, configurationGlobalId int64, iterationId string) *PublicTestPointModel {
 	this := PublicTestPointModel{}
+	this.ConfigurationId = configurationId
+	this.ConfigurationGlobalId = configurationGlobalId
+	this.IterationId = iterationId
 	return &this
 }
 
@@ -43,68 +46,52 @@ func NewPublicTestPointModelWithDefaults() *PublicTestPointModel {
 	return &this
 }
 
-// GetConfigurationId returns the ConfigurationId field value if set, zero value otherwise.
+// GetConfigurationId returns the ConfigurationId field value
 func (o *PublicTestPointModel) GetConfigurationId() string {
-	if o == nil || IsNil(o.ConfigurationId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ConfigurationId
+
+	return o.ConfigurationId
 }
 
-// GetConfigurationIdOk returns a tuple with the ConfigurationId field value if set, nil otherwise
+// GetConfigurationIdOk returns a tuple with the ConfigurationId field value
 // and a boolean to check if the value has been set.
 func (o *PublicTestPointModel) GetConfigurationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ConfigurationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConfigurationId, true
+	return &o.ConfigurationId, true
 }
 
-// HasConfigurationId returns a boolean if a field has been set.
-func (o *PublicTestPointModel) HasConfigurationId() bool {
-	if o != nil && !IsNil(o.ConfigurationId) {
-		return true
-	}
-
-	return false
-}
-
-// SetConfigurationId gets a reference to the given string and assigns it to the ConfigurationId field.
+// SetConfigurationId sets field value
 func (o *PublicTestPointModel) SetConfigurationId(v string) {
-	o.ConfigurationId = &v
+	o.ConfigurationId = v
 }
 
-// GetConfigurationGlobalId returns the ConfigurationGlobalId field value if set, zero value otherwise.
+// GetConfigurationGlobalId returns the ConfigurationGlobalId field value
 func (o *PublicTestPointModel) GetConfigurationGlobalId() int64 {
-	if o == nil || IsNil(o.ConfigurationGlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.ConfigurationGlobalId
+
+	return o.ConfigurationGlobalId
 }
 
-// GetConfigurationGlobalIdOk returns a tuple with the ConfigurationGlobalId field value if set, nil otherwise
+// GetConfigurationGlobalIdOk returns a tuple with the ConfigurationGlobalId field value
 // and a boolean to check if the value has been set.
 func (o *PublicTestPointModel) GetConfigurationGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.ConfigurationGlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConfigurationGlobalId, true
+	return &o.ConfigurationGlobalId, true
 }
 
-// HasConfigurationGlobalId returns a boolean if a field has been set.
-func (o *PublicTestPointModel) HasConfigurationGlobalId() bool {
-	if o != nil && !IsNil(o.ConfigurationGlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetConfigurationGlobalId gets a reference to the given int64 and assigns it to the ConfigurationGlobalId field.
+// SetConfigurationGlobalId sets field value
 func (o *PublicTestPointModel) SetConfigurationGlobalId(v int64) {
-	o.ConfigurationGlobalId = &v
+	o.ConfigurationGlobalId = v
 }
 
 // GetAutoTestIds returns the AutoTestIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -140,36 +127,28 @@ func (o *PublicTestPointModel) SetAutoTestIds(v []string) {
 	o.AutoTestIds = v
 }
 
-// GetIterationId returns the IterationId field value if set, zero value otherwise.
+// GetIterationId returns the IterationId field value
 func (o *PublicTestPointModel) GetIterationId() string {
-	if o == nil || IsNil(o.IterationId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IterationId
+
+	return o.IterationId
 }
 
-// GetIterationIdOk returns a tuple with the IterationId field value if set, nil otherwise
+// GetIterationIdOk returns a tuple with the IterationId field value
 // and a boolean to check if the value has been set.
 func (o *PublicTestPointModel) GetIterationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.IterationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IterationId, true
+	return &o.IterationId, true
 }
 
-// HasIterationId returns a boolean if a field has been set.
-func (o *PublicTestPointModel) HasIterationId() bool {
-	if o != nil && !IsNil(o.IterationId) {
-		return true
-	}
-
-	return false
-}
-
-// SetIterationId gets a reference to the given string and assigns it to the IterationId field.
+// SetIterationId sets field value
 func (o *PublicTestPointModel) SetIterationId(v string) {
-	o.IterationId = &v
+	o.IterationId = v
 }
 
 // GetParameterModels returns the ParameterModels field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -215,18 +194,12 @@ func (o PublicTestPointModel) MarshalJSON() ([]byte, error) {
 
 func (o PublicTestPointModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ConfigurationId) {
-		toSerialize["configurationId"] = o.ConfigurationId
-	}
-	if !IsNil(o.ConfigurationGlobalId) {
-		toSerialize["configurationGlobalId"] = o.ConfigurationGlobalId
-	}
+	toSerialize["configurationId"] = o.ConfigurationId
+	toSerialize["configurationGlobalId"] = o.ConfigurationGlobalId
 	if o.AutoTestIds != nil {
 		toSerialize["autoTestIds"] = o.AutoTestIds
 	}
-	if !IsNil(o.IterationId) {
-		toSerialize["iterationId"] = o.IterationId
-	}
+	toSerialize["iterationId"] = o.IterationId
 	if o.ParameterModels != nil {
 		toSerialize["parameterModels"] = o.ParameterModels
 	}

@@ -21,7 +21,7 @@ var _ MappedNullable = &TestSuiteV2GetModel{}
 // TestSuiteV2GetModel struct for TestSuiteV2GetModel
 type TestSuiteV2GetModel struct {
 	// Unique ID of the test suite
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Date of the last refresh of the test suite
 	RefreshDate NullableTime `json:"refreshDate,omitempty"`
 	// Unique ID of the parent test suite in hierarchy
@@ -41,8 +41,9 @@ type TestSuiteV2GetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestSuiteV2GetModel(testPlanId string, name string) *TestSuiteV2GetModel {
+func NewTestSuiteV2GetModel(id string, testPlanId string, name string) *TestSuiteV2GetModel {
 	this := TestSuiteV2GetModel{}
+	this.Id = id
 	this.TestPlanId = testPlanId
 	this.Name = name
 	return &this
@@ -56,36 +57,28 @@ func NewTestSuiteV2GetModelWithDefaults() *TestSuiteV2GetModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestSuiteV2GetModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestSuiteV2GetModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestSuiteV2GetModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestSuiteV2GetModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetRefreshDate returns the RefreshDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -356,9 +349,7 @@ func (o TestSuiteV2GetModel) MarshalJSON() ([]byte, error) {
 
 func (o TestSuiteV2GetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.RefreshDate.IsSet() {
 		toSerialize["refreshDate"] = o.RefreshDate.Get()
 	}

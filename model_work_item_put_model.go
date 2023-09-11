@@ -23,14 +23,14 @@ type WorkItemPutModel struct {
 	Iterations []IterationPutModel `json:"iterations,omitempty"`
 	AutoTests []AutoTestIdModel `json:"autoTests,omitempty"`
 	Id string `json:"id"`
-	SectionId *string `json:"sectionId,omitempty"`
-	Description *string `json:"description,omitempty"`
+	SectionId string `json:"sectionId"`
+	Description NullableString `json:"description,omitempty"`
 	State WorkItemStates `json:"state"`
 	Priority WorkItemPriorityModel `json:"priority"`
 	Steps []StepPutModel `json:"steps"`
 	PreconditionSteps []StepPutModel `json:"preconditionSteps"`
 	PostconditionSteps []StepPutModel `json:"postconditionSteps"`
-	Duration *int32 `json:"duration,omitempty"`
+	Duration int32 `json:"duration"`
 	Attributes map[string]interface{} `json:"attributes"`
 	Tags []TagShortModel `json:"tags"`
 	Links []LinkPutModel `json:"links"`
@@ -41,15 +41,17 @@ type WorkItemPutModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, attributes map[string]interface{}, tags []TagShortModel, links []LinkPutModel, name string) *WorkItemPutModel {
+func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkPutModel, name string) *WorkItemPutModel {
 	this := WorkItemPutModel{}
 	this.Attachments = attachments
 	this.Id = id
+	this.SectionId = sectionId
 	this.State = state
 	this.Priority = priority
 	this.Steps = steps
 	this.PreconditionSteps = preconditionSteps
 	this.PostconditionSteps = postconditionSteps
+	this.Duration = duration
 	this.Attributes = attributes
 	this.Tags = tags
 	this.Links = links
@@ -179,68 +181,70 @@ func (o *WorkItemPutModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetSectionId returns the SectionId field value if set, zero value otherwise.
+// GetSectionId returns the SectionId field value
 func (o *WorkItemPutModel) GetSectionId() string {
-	if o == nil || IsNil(o.SectionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SectionId
+
+	return o.SectionId
 }
 
-// GetSectionIdOk returns a tuple with the SectionId field value if set, nil otherwise
+// GetSectionIdOk returns a tuple with the SectionId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemPutModel) GetSectionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SectionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SectionId, true
+	return &o.SectionId, true
 }
 
-// HasSectionId returns a boolean if a field has been set.
-func (o *WorkItemPutModel) HasSectionId() bool {
-	if o != nil && !IsNil(o.SectionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSectionId gets a reference to the given string and assigns it to the SectionId field.
+// SetSectionId sets field value
 func (o *WorkItemPutModel) SetSectionId(v string) {
-	o.SectionId = &v
+	o.SectionId = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemPutModel) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemPutModel) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *WorkItemPutModel) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *WorkItemPutModel) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *WorkItemPutModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *WorkItemPutModel) UnsetDescription() {
+	o.Description.Unset()
 }
 
 // GetState returns the State field value
@@ -363,36 +367,28 @@ func (o *WorkItemPutModel) SetPostconditionSteps(v []StepPutModel) {
 	o.PostconditionSteps = v
 }
 
-// GetDuration returns the Duration field value if set, zero value otherwise.
+// GetDuration returns the Duration field value
 func (o *WorkItemPutModel) GetDuration() int32 {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Duration
+
+	return o.Duration
 }
 
-// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
+// GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemPutModel) GetDurationOk() (*int32, bool) {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Duration, true
+	return &o.Duration, true
 }
 
-// HasDuration returns a boolean if a field has been set.
-func (o *WorkItemPutModel) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
-		return true
-	}
-
-	return false
-}
-
-// SetDuration gets a reference to the given int32 and assigns it to the Duration field.
+// SetDuration sets field value
 func (o *WorkItemPutModel) SetDuration(v int32) {
-	o.Duration = &v
+	o.Duration = v
 }
 
 // GetAttributes returns the Attributes field value
@@ -509,20 +505,16 @@ func (o WorkItemPutModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["autoTests"] = o.AutoTests
 	}
 	toSerialize["id"] = o.Id
-	if !IsNil(o.SectionId) {
-		toSerialize["sectionId"] = o.SectionId
-	}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	toSerialize["sectionId"] = o.SectionId
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
 	toSerialize["state"] = o.State
 	toSerialize["priority"] = o.Priority
 	toSerialize["steps"] = o.Steps
 	toSerialize["preconditionSteps"] = o.PreconditionSteps
 	toSerialize["postconditionSteps"] = o.PostconditionSteps
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
-	}
+	toSerialize["duration"] = o.Duration
 	toSerialize["attributes"] = o.Attributes
 	toSerialize["tags"] = o.Tags
 	toSerialize["links"] = o.Links

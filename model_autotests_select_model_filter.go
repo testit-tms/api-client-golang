@@ -49,6 +49,8 @@ type AutotestsSelectModelFilter struct {
 	// Specifies an autotest class name presence status to search for
 	IsEmptyClassName NullableBool `json:"isEmptyClassName,omitempty"`
 	LastTestResultOutcome NullableAutotestResultOutcome `json:"lastTestResultOutcome,omitempty"`
+	// Specifies an autotest external key to search for
+	ExternalKey NullableString `json:"externalKey,omitempty"`
 }
 
 // NewAutotestsSelectModelFilter instantiates a new AutotestsSelectModelFilter object
@@ -737,6 +739,48 @@ func (o *AutotestsSelectModelFilter) UnsetLastTestResultOutcome() {
 	o.LastTestResultOutcome.Unset()
 }
 
+// GetExternalKey returns the ExternalKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestsSelectModelFilter) GetExternalKey() string {
+	if o == nil || IsNil(o.ExternalKey.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalKey.Get()
+}
+
+// GetExternalKeyOk returns a tuple with the ExternalKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestsSelectModelFilter) GetExternalKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalKey.Get(), o.ExternalKey.IsSet()
+}
+
+// HasExternalKey returns a boolean if a field has been set.
+func (o *AutotestsSelectModelFilter) HasExternalKey() bool {
+	if o != nil && o.ExternalKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalKey gets a reference to the given NullableString and assigns it to the ExternalKey field.
+func (o *AutotestsSelectModelFilter) SetExternalKey(v string) {
+	o.ExternalKey.Set(&v)
+}
+// SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+func (o *AutotestsSelectModelFilter) SetExternalKeyNil() {
+	o.ExternalKey.Set(nil)
+}
+
+// UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
+func (o *AutotestsSelectModelFilter) UnsetExternalKey() {
+	o.ExternalKey.Unset()
+}
+
 func (o AutotestsSelectModelFilter) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -797,6 +841,9 @@ func (o AutotestsSelectModelFilter) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LastTestResultOutcome.IsSet() {
 		toSerialize["lastTestResultOutcome"] = o.LastTestResultOutcome.Get()
+	}
+	if o.ExternalKey.IsSet() {
+		toSerialize["externalKey"] = o.ExternalKey.Get()
 	}
 	return toSerialize, nil
 }

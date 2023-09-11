@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the autotest in autotest&#39;s card | [optional] 
 **Labels** | Pointer to [**[]LabelPostModel**](LabelPostModel.md) | Collection of the autotest labels | [optional] 
 **IsFlaky** | Pointer to **NullableBool** | Indicates if the autotest is marked as flaky | [optional] 
+**ExternalKey** | Pointer to **NullableString** | External key of the autotest | [optional] 
 
 ## Methods
 
@@ -519,6 +520,41 @@ HasIsFlaky returns a boolean if a field has been set.
 `func (o *AutoTestPostModel) UnsetIsFlaky()`
 
 UnsetIsFlaky ensures that no value is present for IsFlaky, not even an explicit nil
+### GetExternalKey
+
+`func (o *AutoTestPostModel) GetExternalKey() string`
+
+GetExternalKey returns the ExternalKey field if non-nil, zero value otherwise.
+
+### GetExternalKeyOk
+
+`func (o *AutoTestPostModel) GetExternalKeyOk() (*string, bool)`
+
+GetExternalKeyOk returns a tuple with the ExternalKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalKey
+
+`func (o *AutoTestPostModel) SetExternalKey(v string)`
+
+SetExternalKey sets ExternalKey field to given value.
+
+### HasExternalKey
+
+`func (o *AutoTestPostModel) HasExternalKey() bool`
+
+HasExternalKey returns a boolean if a field has been set.
+
+### SetExternalKeyNil
+
+`func (o *AutoTestPostModel) SetExternalKeyNil(b bool)`
+
+ SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+
+### UnsetExternalKey
+`func (o *AutoTestPostModel) UnsetExternalKey()`
+
+UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

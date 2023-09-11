@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Order** | Pointer to **int32** |  | [optional] 
-**IsReusable** | Pointer to **bool** |  | [optional] [readonly] 
-**TypeId** | Pointer to **interface{}** |  | [optional] [readonly] 
+**Order** | **int32** |  | 
+**IsReusable** | **bool** |  | [readonly] 
+**TypeId** | **interface{}** |  | [readonly] 
 
 ## Methods
 
 ### NewValidateAntiForgeryTokenAttribute
 
-`func NewValidateAntiForgeryTokenAttribute() *ValidateAntiForgeryTokenAttribute`
+`func NewValidateAntiForgeryTokenAttribute(order int32, isReusable bool, typeId interface{}, ) *ValidateAntiForgeryTokenAttribute`
 
 NewValidateAntiForgeryTokenAttribute instantiates a new ValidateAntiForgeryTokenAttribute object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetOrder sets Order field to given value.
 
-### HasOrder
-
-`func (o *ValidateAntiForgeryTokenAttribute) HasOrder() bool`
-
-HasOrder returns a boolean if a field has been set.
 
 ### GetIsReusable
 
@@ -71,11 +66,6 @@ and a boolean to check if the value has been set.
 
 SetIsReusable sets IsReusable field to given value.
 
-### HasIsReusable
-
-`func (o *ValidateAntiForgeryTokenAttribute) HasIsReusable() bool`
-
-HasIsReusable returns a boolean if a field has been set.
 
 ### GetTypeId
 
@@ -96,11 +86,6 @@ and a boolean to check if the value has been set.
 
 SetTypeId sets TypeId field to given value.
 
-### HasTypeId
-
-`func (o *ValidateAntiForgeryTokenAttribute) HasTypeId() bool`
-
-HasTypeId returns a boolean if a field has been set.
 
 ### SetTypeIdNil
 

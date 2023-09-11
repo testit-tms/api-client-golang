@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | **string** | Label name. | 
+**GlobalId** | **int64** | Global ID of the label | 
+**Name** | **string** | Name of the label | 
 
 ## Methods
 
 ### NewLabelShortModel
 
-`func NewLabelShortModel(name string, ) *LabelShortModel`
+`func NewLabelShortModel(globalId int64, name string, ) *LabelShortModel`
 
 NewLabelShortModel instantiates a new LabelShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *LabelShortModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetName
 

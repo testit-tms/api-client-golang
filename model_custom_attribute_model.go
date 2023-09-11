@@ -20,30 +20,35 @@ var _ MappedNullable = &CustomAttributeModel{}
 // CustomAttributeModel struct for CustomAttributeModel
 type CustomAttributeModel struct {
 	// Unique ID of the attribute
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionModel `json:"options,omitempty"`
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Indicates if the attribute is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 	// Name of the attribute
 	Name string `json:"name"`
 	// Indicates if the attribute is enabled
-	IsEnabled *bool `json:"isEnabled,omitempty"`
+	IsEnabled bool `json:"isEnabled"`
 	// Indicates if the attribute value is mandatory to specify
-	IsRequired *bool `json:"isRequired,omitempty"`
+	IsRequired bool `json:"isRequired"`
 	// Indicates if the attribute is available across all projects
-	IsGlobal *bool `json:"isGlobal,omitempty"`
+	IsGlobal bool `json:"isGlobal"`
 }
 
 // NewCustomAttributeModel instantiates a new CustomAttributeModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeModel(type_ CustomAttributeTypesEnum, name string) *CustomAttributeModel {
+func NewCustomAttributeModel(id string, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeModel {
 	this := CustomAttributeModel{}
+	this.Id = id
 	this.Type = type_
+	this.IsDeleted = isDeleted
 	this.Name = name
+	this.IsEnabled = isEnabled
+	this.IsRequired = isRequired
+	this.IsGlobal = isGlobal
 	return &this
 }
 
@@ -55,36 +60,28 @@ func NewCustomAttributeModelWithDefaults() *CustomAttributeModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *CustomAttributeModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *CustomAttributeModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *CustomAttributeModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -144,36 +141,28 @@ func (o *CustomAttributeModel) SetType(v CustomAttributeTypesEnum) {
 	o.Type = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *CustomAttributeModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *CustomAttributeModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *CustomAttributeModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 // GetName returns the Name field value
@@ -200,100 +189,76 @@ func (o *CustomAttributeModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
+// GetIsEnabled returns the IsEnabled field value
 func (o *CustomAttributeModel) GetIsEnabled() bool {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsEnabled
+
+	return o.IsEnabled
 }
 
-// GetIsEnabledOk returns a tuple with the IsEnabled field value if set, nil otherwise
+// GetIsEnabledOk returns a tuple with the IsEnabled field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeModel) GetIsEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsEnabled, true
+	return &o.IsEnabled, true
 }
 
-// HasIsEnabled returns a boolean if a field has been set.
-func (o *CustomAttributeModel) HasIsEnabled() bool {
-	if o != nil && !IsNil(o.IsEnabled) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsEnabled gets a reference to the given bool and assigns it to the IsEnabled field.
+// SetIsEnabled sets field value
 func (o *CustomAttributeModel) SetIsEnabled(v bool) {
-	o.IsEnabled = &v
+	o.IsEnabled = v
 }
 
-// GetIsRequired returns the IsRequired field value if set, zero value otherwise.
+// GetIsRequired returns the IsRequired field value
 func (o *CustomAttributeModel) GetIsRequired() bool {
-	if o == nil || IsNil(o.IsRequired) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsRequired
+
+	return o.IsRequired
 }
 
-// GetIsRequiredOk returns a tuple with the IsRequired field value if set, nil otherwise
+// GetIsRequiredOk returns a tuple with the IsRequired field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeModel) GetIsRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsRequired) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsRequired, true
+	return &o.IsRequired, true
 }
 
-// HasIsRequired returns a boolean if a field has been set.
-func (o *CustomAttributeModel) HasIsRequired() bool {
-	if o != nil && !IsNil(o.IsRequired) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsRequired gets a reference to the given bool and assigns it to the IsRequired field.
+// SetIsRequired sets field value
 func (o *CustomAttributeModel) SetIsRequired(v bool) {
-	o.IsRequired = &v
+	o.IsRequired = v
 }
 
-// GetIsGlobal returns the IsGlobal field value if set, zero value otherwise.
+// GetIsGlobal returns the IsGlobal field value
 func (o *CustomAttributeModel) GetIsGlobal() bool {
-	if o == nil || IsNil(o.IsGlobal) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsGlobal
+
+	return o.IsGlobal
 }
 
-// GetIsGlobalOk returns a tuple with the IsGlobal field value if set, nil otherwise
+// GetIsGlobalOk returns a tuple with the IsGlobal field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeModel) GetIsGlobalOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsGlobal) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsGlobal, true
+	return &o.IsGlobal, true
 }
 
-// HasIsGlobal returns a boolean if a field has been set.
-func (o *CustomAttributeModel) HasIsGlobal() bool {
-	if o != nil && !IsNil(o.IsGlobal) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsGlobal gets a reference to the given bool and assigns it to the IsGlobal field.
+// SetIsGlobal sets field value
 func (o *CustomAttributeModel) SetIsGlobal(v bool) {
-	o.IsGlobal = &v
+	o.IsGlobal = v
 }
 
 func (o CustomAttributeModel) MarshalJSON() ([]byte, error) {
@@ -306,26 +271,16 @@ func (o CustomAttributeModel) MarshalJSON() ([]byte, error) {
 
 func (o CustomAttributeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.Options != nil {
 		toSerialize["options"] = o.Options
 	}
 	toSerialize["type"] = o.Type
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["name"] = o.Name
-	if !IsNil(o.IsEnabled) {
-		toSerialize["isEnabled"] = o.IsEnabled
-	}
-	if !IsNil(o.IsRequired) {
-		toSerialize["isRequired"] = o.IsRequired
-	}
-	if !IsNil(o.IsGlobal) {
-		toSerialize["isGlobal"] = o.IsGlobal
-	}
+	toSerialize["isEnabled"] = o.IsEnabled
+	toSerialize["isRequired"] = o.IsRequired
+	toSerialize["isGlobal"] = o.IsGlobal
 	return toSerialize, nil
 }
 

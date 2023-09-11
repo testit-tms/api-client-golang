@@ -19,16 +19,17 @@ var _ MappedNullable = &AutotestResultReasonSubGetModel{}
 
 // AutotestResultReasonSubGetModel struct for AutotestResultReasonSubGetModel
 type AutotestResultReasonSubGetModel struct {
-	FailureCategory *FailureCategoryModel `json:"failureCategory,omitempty"`
-	Name *string `json:"name,omitempty"`
+	FailureCategory FailureCategoryModel `json:"failureCategory"`
+	Name NullableString `json:"name,omitempty"`
 }
 
 // NewAutotestResultReasonSubGetModel instantiates a new AutotestResultReasonSubGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutotestResultReasonSubGetModel() *AutotestResultReasonSubGetModel {
+func NewAutotestResultReasonSubGetModel(failureCategory FailureCategoryModel) *AutotestResultReasonSubGetModel {
 	this := AutotestResultReasonSubGetModel{}
+	this.FailureCategory = failureCategory
 	return &this
 }
 
@@ -40,68 +41,70 @@ func NewAutotestResultReasonSubGetModelWithDefaults() *AutotestResultReasonSubGe
 	return &this
 }
 
-// GetFailureCategory returns the FailureCategory field value if set, zero value otherwise.
+// GetFailureCategory returns the FailureCategory field value
 func (o *AutotestResultReasonSubGetModel) GetFailureCategory() FailureCategoryModel {
-	if o == nil || IsNil(o.FailureCategory) {
+	if o == nil {
 		var ret FailureCategoryModel
 		return ret
 	}
-	return *o.FailureCategory
+
+	return o.FailureCategory
 }
 
-// GetFailureCategoryOk returns a tuple with the FailureCategory field value if set, nil otherwise
+// GetFailureCategoryOk returns a tuple with the FailureCategory field value
 // and a boolean to check if the value has been set.
 func (o *AutotestResultReasonSubGetModel) GetFailureCategoryOk() (*FailureCategoryModel, bool) {
-	if o == nil || IsNil(o.FailureCategory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FailureCategory, true
+	return &o.FailureCategory, true
 }
 
-// HasFailureCategory returns a boolean if a field has been set.
-func (o *AutotestResultReasonSubGetModel) HasFailureCategory() bool {
-	if o != nil && !IsNil(o.FailureCategory) {
-		return true
-	}
-
-	return false
-}
-
-// SetFailureCategory gets a reference to the given FailureCategoryModel and assigns it to the FailureCategory field.
+// SetFailureCategory sets field value
 func (o *AutotestResultReasonSubGetModel) SetFailureCategory(v FailureCategoryModel) {
-	o.FailureCategory = &v
+	o.FailureCategory = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutotestResultReasonSubGetModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutotestResultReasonSubGetModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *AutotestResultReasonSubGetModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *AutotestResultReasonSubGetModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *AutotestResultReasonSubGetModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *AutotestResultReasonSubGetModel) UnsetName() {
+	o.Name.Unset()
 }
 
 func (o AutotestResultReasonSubGetModel) MarshalJSON() ([]byte, error) {
@@ -114,11 +117,9 @@ func (o AutotestResultReasonSubGetModel) MarshalJSON() ([]byte, error) {
 
 func (o AutotestResultReasonSubGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FailureCategory) {
-		toSerialize["failureCategory"] = o.FailureCategory
-	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	toSerialize["failureCategory"] = o.FailureCategory
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	return toSerialize, nil
 }

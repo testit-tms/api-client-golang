@@ -19,9 +19,9 @@ var _ MappedNullable = &WorkItemChangedAttributeViewModel{}
 
 // WorkItemChangedAttributeViewModel struct for WorkItemChangedAttributeViewModel
 type WorkItemChangedAttributeViewModel struct {
-	Type *string `json:"type,omitempty"`
-	OldAttributeName *string `json:"oldAttributeName,omitempty"`
-	NewAttributeName *string `json:"newAttributeName,omitempty"`
+	Type NullableString `json:"type,omitempty"`
+	OldAttributeName NullableString `json:"oldAttributeName,omitempty"`
+	NewAttributeName NullableString `json:"newAttributeName,omitempty"`
 	OldValue interface{} `json:"oldValue,omitempty"`
 	NewValue interface{} `json:"newValue,omitempty"`
 }
@@ -43,100 +43,130 @@ func NewWorkItemChangedAttributeViewModelWithDefaults() *WorkItemChangedAttribut
 	return &this
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemChangedAttributeViewModel) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemChangedAttributeViewModel) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *WorkItemChangedAttributeViewModel) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *WorkItemChangedAttributeViewModel) SetType(v string) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *WorkItemChangedAttributeViewModel) SetTypeNil() {
+	o.Type.Set(nil)
 }
 
-// GetOldAttributeName returns the OldAttributeName field value if set, zero value otherwise.
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *WorkItemChangedAttributeViewModel) UnsetType() {
+	o.Type.Unset()
+}
+
+// GetOldAttributeName returns the OldAttributeName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemChangedAttributeViewModel) GetOldAttributeName() string {
-	if o == nil || IsNil(o.OldAttributeName) {
+	if o == nil || IsNil(o.OldAttributeName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OldAttributeName
+	return *o.OldAttributeName.Get()
 }
 
 // GetOldAttributeNameOk returns a tuple with the OldAttributeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemChangedAttributeViewModel) GetOldAttributeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.OldAttributeName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldAttributeName, true
+	return o.OldAttributeName.Get(), o.OldAttributeName.IsSet()
 }
 
 // HasOldAttributeName returns a boolean if a field has been set.
 func (o *WorkItemChangedAttributeViewModel) HasOldAttributeName() bool {
-	if o != nil && !IsNil(o.OldAttributeName) {
+	if o != nil && o.OldAttributeName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOldAttributeName gets a reference to the given string and assigns it to the OldAttributeName field.
+// SetOldAttributeName gets a reference to the given NullableString and assigns it to the OldAttributeName field.
 func (o *WorkItemChangedAttributeViewModel) SetOldAttributeName(v string) {
-	o.OldAttributeName = &v
+	o.OldAttributeName.Set(&v)
+}
+// SetOldAttributeNameNil sets the value for OldAttributeName to be an explicit nil
+func (o *WorkItemChangedAttributeViewModel) SetOldAttributeNameNil() {
+	o.OldAttributeName.Set(nil)
 }
 
-// GetNewAttributeName returns the NewAttributeName field value if set, zero value otherwise.
+// UnsetOldAttributeName ensures that no value is present for OldAttributeName, not even an explicit nil
+func (o *WorkItemChangedAttributeViewModel) UnsetOldAttributeName() {
+	o.OldAttributeName.Unset()
+}
+
+// GetNewAttributeName returns the NewAttributeName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemChangedAttributeViewModel) GetNewAttributeName() string {
-	if o == nil || IsNil(o.NewAttributeName) {
+	if o == nil || IsNil(o.NewAttributeName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.NewAttributeName
+	return *o.NewAttributeName.Get()
 }
 
 // GetNewAttributeNameOk returns a tuple with the NewAttributeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemChangedAttributeViewModel) GetNewAttributeNameOk() (*string, bool) {
-	if o == nil || IsNil(o.NewAttributeName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewAttributeName, true
+	return o.NewAttributeName.Get(), o.NewAttributeName.IsSet()
 }
 
 // HasNewAttributeName returns a boolean if a field has been set.
 func (o *WorkItemChangedAttributeViewModel) HasNewAttributeName() bool {
-	if o != nil && !IsNil(o.NewAttributeName) {
+	if o != nil && o.NewAttributeName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNewAttributeName gets a reference to the given string and assigns it to the NewAttributeName field.
+// SetNewAttributeName gets a reference to the given NullableString and assigns it to the NewAttributeName field.
 func (o *WorkItemChangedAttributeViewModel) SetNewAttributeName(v string) {
-	o.NewAttributeName = &v
+	o.NewAttributeName.Set(&v)
+}
+// SetNewAttributeNameNil sets the value for NewAttributeName to be an explicit nil
+func (o *WorkItemChangedAttributeViewModel) SetNewAttributeNameNil() {
+	o.NewAttributeName.Set(nil)
+}
+
+// UnsetNewAttributeName ensures that no value is present for NewAttributeName, not even an explicit nil
+func (o *WorkItemChangedAttributeViewModel) UnsetNewAttributeName() {
+	o.NewAttributeName.Unset()
 }
 
 // GetOldValue returns the OldValue field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -215,14 +245,14 @@ func (o WorkItemChangedAttributeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemChangedAttributeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.OldAttributeName) {
-		toSerialize["oldAttributeName"] = o.OldAttributeName
+	if o.OldAttributeName.IsSet() {
+		toSerialize["oldAttributeName"] = o.OldAttributeName.Get()
 	}
-	if !IsNil(o.NewAttributeName) {
-		toSerialize["newAttributeName"] = o.NewAttributeName
+	if o.NewAttributeName.IsSet() {
+		toSerialize["newAttributeName"] = o.NewAttributeName.Get()
 	}
 	if o.OldValue != nil {
 		toSerialize["oldValue"] = o.OldValue

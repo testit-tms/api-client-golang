@@ -25,21 +25,24 @@ type CustomAttributePostModel struct {
 	// Name of the attribute
 	Name string `json:"name"`
 	// Indicates if the attribute is enabled
-	IsEnabled *bool `json:"isEnabled,omitempty"`
+	IsEnabled bool `json:"isEnabled"`
 	// Indicates if the attribute value is mandatory to specify
-	IsRequired *bool `json:"isRequired,omitempty"`
+	IsRequired bool `json:"isRequired"`
 	// Indicates if the attribute is available across all projects
-	IsGlobal *bool `json:"isGlobal,omitempty"`
+	IsGlobal bool `json:"isGlobal"`
 }
 
 // NewCustomAttributePostModel instantiates a new CustomAttributePostModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributePostModel(type_ CustomAttributeTypesEnum, name string) *CustomAttributePostModel {
+func NewCustomAttributePostModel(type_ CustomAttributeTypesEnum, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributePostModel {
 	this := CustomAttributePostModel{}
 	this.Type = type_
 	this.Name = name
+	this.IsEnabled = isEnabled
+	this.IsRequired = isRequired
+	this.IsGlobal = isGlobal
 	return &this
 }
 
@@ -132,100 +135,76 @@ func (o *CustomAttributePostModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetIsEnabled returns the IsEnabled field value if set, zero value otherwise.
+// GetIsEnabled returns the IsEnabled field value
 func (o *CustomAttributePostModel) GetIsEnabled() bool {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsEnabled
+
+	return o.IsEnabled
 }
 
-// GetIsEnabledOk returns a tuple with the IsEnabled field value if set, nil otherwise
+// GetIsEnabledOk returns a tuple with the IsEnabled field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributePostModel) GetIsEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsEnabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsEnabled, true
+	return &o.IsEnabled, true
 }
 
-// HasIsEnabled returns a boolean if a field has been set.
-func (o *CustomAttributePostModel) HasIsEnabled() bool {
-	if o != nil && !IsNil(o.IsEnabled) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsEnabled gets a reference to the given bool and assigns it to the IsEnabled field.
+// SetIsEnabled sets field value
 func (o *CustomAttributePostModel) SetIsEnabled(v bool) {
-	o.IsEnabled = &v
+	o.IsEnabled = v
 }
 
-// GetIsRequired returns the IsRequired field value if set, zero value otherwise.
+// GetIsRequired returns the IsRequired field value
 func (o *CustomAttributePostModel) GetIsRequired() bool {
-	if o == nil || IsNil(o.IsRequired) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsRequired
+
+	return o.IsRequired
 }
 
-// GetIsRequiredOk returns a tuple with the IsRequired field value if set, nil otherwise
+// GetIsRequiredOk returns a tuple with the IsRequired field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributePostModel) GetIsRequiredOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsRequired) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsRequired, true
+	return &o.IsRequired, true
 }
 
-// HasIsRequired returns a boolean if a field has been set.
-func (o *CustomAttributePostModel) HasIsRequired() bool {
-	if o != nil && !IsNil(o.IsRequired) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsRequired gets a reference to the given bool and assigns it to the IsRequired field.
+// SetIsRequired sets field value
 func (o *CustomAttributePostModel) SetIsRequired(v bool) {
-	o.IsRequired = &v
+	o.IsRequired = v
 }
 
-// GetIsGlobal returns the IsGlobal field value if set, zero value otherwise.
+// GetIsGlobal returns the IsGlobal field value
 func (o *CustomAttributePostModel) GetIsGlobal() bool {
-	if o == nil || IsNil(o.IsGlobal) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsGlobal
+
+	return o.IsGlobal
 }
 
-// GetIsGlobalOk returns a tuple with the IsGlobal field value if set, nil otherwise
+// GetIsGlobalOk returns a tuple with the IsGlobal field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributePostModel) GetIsGlobalOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsGlobal) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsGlobal, true
+	return &o.IsGlobal, true
 }
 
-// HasIsGlobal returns a boolean if a field has been set.
-func (o *CustomAttributePostModel) HasIsGlobal() bool {
-	if o != nil && !IsNil(o.IsGlobal) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsGlobal gets a reference to the given bool and assigns it to the IsGlobal field.
+// SetIsGlobal sets field value
 func (o *CustomAttributePostModel) SetIsGlobal(v bool) {
-	o.IsGlobal = &v
+	o.IsGlobal = v
 }
 
 func (o CustomAttributePostModel) MarshalJSON() ([]byte, error) {
@@ -243,15 +222,9 @@ func (o CustomAttributePostModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["type"] = o.Type
 	toSerialize["name"] = o.Name
-	if !IsNil(o.IsEnabled) {
-		toSerialize["isEnabled"] = o.IsEnabled
-	}
-	if !IsNil(o.IsRequired) {
-		toSerialize["isRequired"] = o.IsRequired
-	}
-	if !IsNil(o.IsGlobal) {
-		toSerialize["isGlobal"] = o.IsGlobal
-	}
+	toSerialize["isEnabled"] = o.IsEnabled
+	toSerialize["isRequired"] = o.IsRequired
+	toSerialize["isGlobal"] = o.IsGlobal
 	return toSerialize, nil
 }
 

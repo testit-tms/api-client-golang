@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TestSuiteId** | Pointer to **string** |  | [optional] 
-**TestSuiteName** | Pointer to **string** |  | [optional] 
-**Value** | Pointer to **int64** |  | [optional] 
+**TestSuiteId** | **string** |  | 
+**TestSuiteName** | Pointer to **NullableString** |  | [optional] 
+**Value** | **int64** |  | 
 
 ## Methods
 
 ### NewTestPlanGroupByTestSuite
 
-`func NewTestPlanGroupByTestSuite() *TestPlanGroupByTestSuite`
+`func NewTestPlanGroupByTestSuite(testSuiteId string, value int64, ) *TestPlanGroupByTestSuite`
 
 NewTestPlanGroupByTestSuite instantiates a new TestPlanGroupByTestSuite object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetTestSuiteId sets TestSuiteId field to given value.
 
-### HasTestSuiteId
-
-`func (o *TestPlanGroupByTestSuite) HasTestSuiteId() bool`
-
-HasTestSuiteId returns a boolean if a field has been set.
 
 ### GetTestSuiteName
 
@@ -77,6 +72,16 @@ SetTestSuiteName sets TestSuiteName field to given value.
 
 HasTestSuiteName returns a boolean if a field has been set.
 
+### SetTestSuiteNameNil
+
+`func (o *TestPlanGroupByTestSuite) SetTestSuiteNameNil(b bool)`
+
+ SetTestSuiteNameNil sets the value for TestSuiteName to be an explicit nil
+
+### UnsetTestSuiteName
+`func (o *TestPlanGroupByTestSuite) UnsetTestSuiteName()`
+
+UnsetTestSuiteName ensures that no value is present for TestSuiteName, not even an explicit nil
 ### GetValue
 
 `func (o *TestPlanGroupByTestSuite) GetValue() int64`
@@ -96,11 +101,6 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-### HasValue
-
-`func (o *TestPlanGroupByTestSuite) HasValue() bool`
-
-HasValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

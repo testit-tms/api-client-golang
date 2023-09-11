@@ -20,46 +20,70 @@ var _ MappedNullable = &WorkItemShortModel{}
 
 // WorkItemShortModel struct for WorkItemShortModel
 type WorkItemShortModel struct {
-	Id *string `json:"id,omitempty"`
-	// used for versioning changes in workitem
-	VersionId *string `json:"versionId,omitempty"`
+	// Work Item internal unique identifier
+	Id string `json:"id"`
+	// Work Item version identifier
+	VersionId string `json:"versionId"`
+	// Work Item name
 	Name string `json:"name"`
-	// Property can have one of these values: CheckLists, SharedSteps, TestCases
+	// Work Item type. Possible values: CheckLists, SharedSteps, TestCases
 	EntityTypeName string `json:"entityTypeName"`
-	// This property is used to link autotest with project
+	// Project unique identifier
 	ProjectId string `json:"projectId"`
-	// This property links workitem with section
+	// Identifier of Section where Work Item is located
 	SectionId string `json:"sectionId"`
-	// Name of the section where work item is located
+	// Section name of Work Item
 	SectionName string `json:"sectionName"`
-	IsAutomated *bool `json:"isAutomated,omitempty"`
-	GlobalId *int64 `json:"globalId,omitempty"`
-	Duration *int32 `json:"duration,omitempty"`
+	// Boolean flag determining whether Work Item is automated
+	IsAutomated bool `json:"isAutomated"`
+	// Work Item global identifier
+	GlobalId int64 `json:"globalId"`
+	// Work Item duration
+	Duration int32 `json:"duration"`
+	// Work Item median duration
+	MedianDuration NullableInt64 `json:"medianDuration,omitempty"`
+	// Work Item attributes
 	Attributes map[string]interface{} `json:"attributes,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	// Unique identifier of user who created Work Item
+	CreatedById string `json:"createdById"`
+	// Unique identifier of user who applied the latest modification of Work Item
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
+	// Date and time of Work Item creation
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
+	// Date and time of the latest modification of Work Item
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	State WorkItemStates `json:"state"`
 	Priority WorkItemPriorityModel `json:"priority"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	// Flag determining whether Work Item is deleted
+	IsDeleted bool `json:"isDeleted"`
+	// Array of tag names of Work Item
 	TagNames []string `json:"tagNames,omitempty"`
+	// Set of iterations related to Work Item
 	Iterations []IterationModel `json:"iterations,omitempty"`
+	// Set of links related to Work Item
+	Links []LinkShortModel `json:"links,omitempty"`
 }
 
 // NewWorkItemShortModel instantiates a new WorkItemShortModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemShortModel(name string, entityTypeName string, projectId string, sectionId string, sectionName string, state WorkItemStates, priority WorkItemPriorityModel) *WorkItemShortModel {
+func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool) *WorkItemShortModel {
 	this := WorkItemShortModel{}
+	this.Id = id
+	this.VersionId = versionId
 	this.Name = name
 	this.EntityTypeName = entityTypeName
 	this.ProjectId = projectId
 	this.SectionId = sectionId
 	this.SectionName = sectionName
+	this.IsAutomated = isAutomated
+	this.GlobalId = globalId
+	this.Duration = duration
+	this.CreatedById = createdById
 	this.State = state
 	this.Priority = priority
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -71,68 +95,52 @@ func NewWorkItemShortModelWithDefaults() *WorkItemShortModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *WorkItemShortModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemShortModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *WorkItemShortModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetVersionId returns the VersionId field value if set, zero value otherwise.
+// GetVersionId returns the VersionId field value
 func (o *WorkItemShortModel) GetVersionId() string {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VersionId
+
+	return o.VersionId
 }
 
-// GetVersionIdOk returns a tuple with the VersionId field value if set, nil otherwise
+// GetVersionIdOk returns a tuple with the VersionId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemShortModel) GetVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.VersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.VersionId, true
+	return &o.VersionId, true
 }
 
-// HasVersionId returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasVersionId() bool {
-	if o != nil && !IsNil(o.VersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetVersionId gets a reference to the given string and assigns it to the VersionId field.
+// SetVersionId sets field value
 func (o *WorkItemShortModel) SetVersionId(v string) {
-	o.VersionId = &v
+	o.VersionId = v
 }
 
 // GetName returns the Name field value
@@ -255,100 +263,118 @@ func (o *WorkItemShortModel) SetSectionName(v string) {
 	o.SectionName = v
 }
 
-// GetIsAutomated returns the IsAutomated field value if set, zero value otherwise.
+// GetIsAutomated returns the IsAutomated field value
 func (o *WorkItemShortModel) GetIsAutomated() bool {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsAutomated
+
+	return o.IsAutomated
 }
 
-// GetIsAutomatedOk returns a tuple with the IsAutomated field value if set, nil otherwise
+// GetIsAutomatedOk returns a tuple with the IsAutomated field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemShortModel) GetIsAutomatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsAutomated, true
+	return &o.IsAutomated, true
 }
 
-// HasIsAutomated returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasIsAutomated() bool {
-	if o != nil && !IsNil(o.IsAutomated) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsAutomated gets a reference to the given bool and assigns it to the IsAutomated field.
+// SetIsAutomated sets field value
 func (o *WorkItemShortModel) SetIsAutomated(v bool) {
-	o.IsAutomated = &v
+	o.IsAutomated = v
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *WorkItemShortModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemShortModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *WorkItemShortModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
-// GetDuration returns the Duration field value if set, zero value otherwise.
+// GetDuration returns the Duration field value
 func (o *WorkItemShortModel) GetDuration() int32 {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Duration
+
+	return o.Duration
 }
 
-// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
+// GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemShortModel) GetDurationOk() (*int32, bool) {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Duration, true
+	return &o.Duration, true
 }
 
-// HasDuration returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
+// SetDuration sets field value
+func (o *WorkItemShortModel) SetDuration(v int32) {
+	o.Duration = v
+}
+
+// GetMedianDuration returns the MedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemShortModel) GetMedianDuration() int64 {
+	if o == nil || IsNil(o.MedianDuration.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.MedianDuration.Get()
+}
+
+// GetMedianDurationOk returns a tuple with the MedianDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemShortModel) GetMedianDurationOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MedianDuration.Get(), o.MedianDuration.IsSet()
+}
+
+// HasMedianDuration returns a boolean if a field has been set.
+func (o *WorkItemShortModel) HasMedianDuration() bool {
+	if o != nil && o.MedianDuration.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDuration gets a reference to the given int32 and assigns it to the Duration field.
-func (o *WorkItemShortModel) SetDuration(v int32) {
-	o.Duration = &v
+// SetMedianDuration gets a reference to the given NullableInt64 and assigns it to the MedianDuration field.
+func (o *WorkItemShortModel) SetMedianDuration(v int64) {
+	o.MedianDuration.Set(&v)
+}
+// SetMedianDurationNil sets the value for MedianDuration to be an explicit nil
+func (o *WorkItemShortModel) SetMedianDurationNil() {
+	o.MedianDuration.Set(nil)
+}
+
+// UnsetMedianDuration ensures that no value is present for MedianDuration, not even an explicit nil
+func (o *WorkItemShortModel) UnsetMedianDuration() {
+	o.MedianDuration.Unset()
 }
 
 // GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -384,36 +410,28 @@ func (o *WorkItemShortModel) SetAttributes(v map[string]interface{}) {
 	o.Attributes = v
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *WorkItemShortModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemShortModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *WorkItemShortModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -590,41 +608,33 @@ func (o *WorkItemShortModel) SetPriority(v WorkItemPriorityModel) {
 	o.Priority = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *WorkItemShortModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemShortModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *WorkItemShortModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
-// GetTagNames returns the TagNames field value if set, zero value otherwise.
+// GetTagNames returns the TagNames field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemShortModel) GetTagNames() []string {
-	if o == nil || IsNil(o.TagNames) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -633,6 +643,7 @@ func (o *WorkItemShortModel) GetTagNames() []string {
 
 // GetTagNamesOk returns a tuple with the TagNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemShortModel) GetTagNamesOk() ([]string, bool) {
 	if o == nil || IsNil(o.TagNames) {
 		return nil, false
@@ -642,7 +653,7 @@ func (o *WorkItemShortModel) GetTagNamesOk() ([]string, bool) {
 
 // HasTagNames returns a boolean if a field has been set.
 func (o *WorkItemShortModel) HasTagNames() bool {
-	if o != nil && !IsNil(o.TagNames) {
+	if o != nil && IsNil(o.TagNames) {
 		return true
 	}
 
@@ -654,9 +665,9 @@ func (o *WorkItemShortModel) SetTagNames(v []string) {
 	o.TagNames = v
 }
 
-// GetIterations returns the Iterations field value if set, zero value otherwise.
+// GetIterations returns the Iterations field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemShortModel) GetIterations() []IterationModel {
-	if o == nil || IsNil(o.Iterations) {
+	if o == nil {
 		var ret []IterationModel
 		return ret
 	}
@@ -665,6 +676,7 @@ func (o *WorkItemShortModel) GetIterations() []IterationModel {
 
 // GetIterationsOk returns a tuple with the Iterations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemShortModel) GetIterationsOk() ([]IterationModel, bool) {
 	if o == nil || IsNil(o.Iterations) {
 		return nil, false
@@ -674,7 +686,7 @@ func (o *WorkItemShortModel) GetIterationsOk() ([]IterationModel, bool) {
 
 // HasIterations returns a boolean if a field has been set.
 func (o *WorkItemShortModel) HasIterations() bool {
-	if o != nil && !IsNil(o.Iterations) {
+	if o != nil && IsNil(o.Iterations) {
 		return true
 	}
 
@@ -684,6 +696,39 @@ func (o *WorkItemShortModel) HasIterations() bool {
 // SetIterations gets a reference to the given []IterationModel and assigns it to the Iterations field.
 func (o *WorkItemShortModel) SetIterations(v []IterationModel) {
 	o.Iterations = v
+}
+
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemShortModel) GetLinks() []LinkShortModel {
+	if o == nil {
+		var ret []LinkShortModel
+		return ret
+	}
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemShortModel) GetLinksOk() ([]LinkShortModel, bool) {
+	if o == nil || IsNil(o.Links) {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *WorkItemShortModel) HasLinks() bool {
+	if o != nil && IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinkShortModel and assigns it to the Links field.
+func (o *WorkItemShortModel) SetLinks(v []LinkShortModel) {
+	o.Links = v
 }
 
 func (o WorkItemShortModel) MarshalJSON() ([]byte, error) {
@@ -696,32 +741,23 @@ func (o WorkItemShortModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.VersionId) {
-		toSerialize["versionId"] = o.VersionId
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["versionId"] = o.VersionId
 	toSerialize["name"] = o.Name
 	toSerialize["entityTypeName"] = o.EntityTypeName
 	toSerialize["projectId"] = o.ProjectId
 	toSerialize["sectionId"] = o.SectionId
 	toSerialize["sectionName"] = o.SectionName
-	if !IsNil(o.IsAutomated) {
-		toSerialize["isAutomated"] = o.IsAutomated
-	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
+	toSerialize["isAutomated"] = o.IsAutomated
+	toSerialize["globalId"] = o.GlobalId
+	toSerialize["duration"] = o.Duration
+	if o.MedianDuration.IsSet() {
+		toSerialize["medianDuration"] = o.MedianDuration.Get()
 	}
 	if o.Attributes != nil {
 		toSerialize["attributes"] = o.Attributes
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
@@ -733,14 +769,15 @@ func (o WorkItemShortModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["state"] = o.State
 	toSerialize["priority"] = o.Priority
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !IsNil(o.TagNames) {
+	toSerialize["isDeleted"] = o.IsDeleted
+	if o.TagNames != nil {
 		toSerialize["tagNames"] = o.TagNames
 	}
-	if !IsNil(o.Iterations) {
+	if o.Iterations != nil {
 		toSerialize["iterations"] = o.Iterations
+	}
+	if o.Links != nil {
+		toSerialize["links"] = o.Links
 	}
 	return toSerialize, nil
 }

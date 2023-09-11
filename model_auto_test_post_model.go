@@ -49,6 +49,8 @@ type AutoTestPostModel struct {
 	Labels []LabelPostModel `json:"labels,omitempty"`
 	// Indicates if the autotest is marked as flaky
 	IsFlaky NullableBool `json:"isFlaky,omitempty"`
+	// External key of the autotest
+	ExternalKey NullableString `json:"externalKey,omitempty"`
 }
 
 // NewAutoTestPostModel instantiates a new AutoTestPostModel object
@@ -593,6 +595,48 @@ func (o *AutoTestPostModel) UnsetIsFlaky() {
 	o.IsFlaky.Unset()
 }
 
+// GetExternalKey returns the ExternalKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestPostModel) GetExternalKey() string {
+	if o == nil || IsNil(o.ExternalKey.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalKey.Get()
+}
+
+// GetExternalKeyOk returns a tuple with the ExternalKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestPostModel) GetExternalKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalKey.Get(), o.ExternalKey.IsSet()
+}
+
+// HasExternalKey returns a boolean if a field has been set.
+func (o *AutoTestPostModel) HasExternalKey() bool {
+	if o != nil && o.ExternalKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalKey gets a reference to the given NullableString and assigns it to the ExternalKey field.
+func (o *AutoTestPostModel) SetExternalKey(v string) {
+	o.ExternalKey.Set(&v)
+}
+// SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+func (o *AutoTestPostModel) SetExternalKeyNil() {
+	o.ExternalKey.Set(nil)
+}
+
+// UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
+func (o *AutoTestPostModel) UnsetExternalKey() {
+	o.ExternalKey.Unset()
+}
+
 func (o AutoTestPostModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -641,6 +685,9 @@ func (o AutoTestPostModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IsFlaky.IsSet() {
 		toSerialize["isFlaky"] = o.IsFlaky.Get()
+	}
+	if o.ExternalKey.IsSet() {
+		toSerialize["externalKey"] = o.ExternalKey.Get()
 	}
 	return toSerialize, nil
 }

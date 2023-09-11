@@ -19,17 +19,19 @@ var _ MappedNullable = &TestPointChangeViewModel{}
 
 // TestPointChangeViewModel struct for TestPointChangeViewModel
 type TestPointChangeViewModel struct {
-	UserId *string `json:"userId,omitempty"`
+	UserId string `json:"userId"`
 	UserName NullableString `json:"userName,omitempty"`
-	TestPointCount *int64 `json:"testPointCount,omitempty"`
+	TestPointCount int64 `json:"testPointCount"`
 }
 
 // NewTestPointChangeViewModel instantiates a new TestPointChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointChangeViewModel() *TestPointChangeViewModel {
+func NewTestPointChangeViewModel(userId string, testPointCount int64) *TestPointChangeViewModel {
 	this := TestPointChangeViewModel{}
+	this.UserId = userId
+	this.TestPointCount = testPointCount
 	return &this
 }
 
@@ -41,36 +43,28 @@ func NewTestPointChangeViewModelWithDefaults() *TestPointChangeViewModel {
 	return &this
 }
 
-// GetUserId returns the UserId field value if set, zero value otherwise.
+// GetUserId returns the UserId field value
 func (o *TestPointChangeViewModel) GetUserId() string {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UserId
+
+	return o.UserId
 }
 
-// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
+// GetUserIdOk returns a tuple with the UserId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointChangeViewModel) GetUserIdOk() (*string, bool) {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserId, true
+	return &o.UserId, true
 }
 
-// HasUserId returns a boolean if a field has been set.
-func (o *TestPointChangeViewModel) HasUserId() bool {
-	if o != nil && !IsNil(o.UserId) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserId gets a reference to the given string and assigns it to the UserId field.
+// SetUserId sets field value
 func (o *TestPointChangeViewModel) SetUserId(v string) {
-	o.UserId = &v
+	o.UserId = v
 }
 
 // GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -115,36 +109,28 @@ func (o *TestPointChangeViewModel) UnsetUserName() {
 	o.UserName.Unset()
 }
 
-// GetTestPointCount returns the TestPointCount field value if set, zero value otherwise.
+// GetTestPointCount returns the TestPointCount field value
 func (o *TestPointChangeViewModel) GetTestPointCount() int64 {
-	if o == nil || IsNil(o.TestPointCount) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.TestPointCount
+
+	return o.TestPointCount
 }
 
-// GetTestPointCountOk returns a tuple with the TestPointCount field value if set, nil otherwise
+// GetTestPointCountOk returns a tuple with the TestPointCount field value
 // and a boolean to check if the value has been set.
 func (o *TestPointChangeViewModel) GetTestPointCountOk() (*int64, bool) {
-	if o == nil || IsNil(o.TestPointCount) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPointCount, true
+	return &o.TestPointCount, true
 }
 
-// HasTestPointCount returns a boolean if a field has been set.
-func (o *TestPointChangeViewModel) HasTestPointCount() bool {
-	if o != nil && !IsNil(o.TestPointCount) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPointCount gets a reference to the given int64 and assigns it to the TestPointCount field.
+// SetTestPointCount sets field value
 func (o *TestPointChangeViewModel) SetTestPointCount(v int64) {
-	o.TestPointCount = &v
+	o.TestPointCount = v
 }
 
 func (o TestPointChangeViewModel) MarshalJSON() ([]byte, error) {
@@ -157,15 +143,11 @@ func (o TestPointChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPointChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.UserId) {
-		toSerialize["userId"] = o.UserId
-	}
+	toSerialize["userId"] = o.UserId
 	if o.UserName.IsSet() {
 		toSerialize["userName"] = o.UserName.Get()
 	}
-	if !IsNil(o.TestPointCount) {
-		toSerialize["testPointCount"] = o.TestPointCount
-	}
+	toSerialize["testPointCount"] = o.TestPointCount
 	return toSerialize, nil
 }
 

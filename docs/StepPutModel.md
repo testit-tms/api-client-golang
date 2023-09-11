@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **Action** | Pointer to **NullableString** |  | [optional] 
 **Expected** | Pointer to **NullableString** |  | [optional] 
 **TestData** | Pointer to **NullableString** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewStepPutModel
 
-`func NewStepPutModel() *StepPutModel`
+`func NewStepPutModel(id string, ) *StepPutModel`
 
 NewStepPutModel instantiates a new StepPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -49,11 +49,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *StepPutModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetAction
 

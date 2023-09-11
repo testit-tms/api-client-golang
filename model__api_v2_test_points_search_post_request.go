@@ -25,6 +25,7 @@ type ApiV2TestPointsSearchPostRequest struct {
 	TestSuiteIds []string `json:"testSuiteIds,omitempty"`
 	// Specifies a test point work item global IDs to search for
 	WorkItemGlobalIds []int64 `json:"workItemGlobalIds,omitempty"`
+	WorkItemMedianDuration NullableTestPointFilterModelWorkItemMedianDuration `json:"workItemMedianDuration,omitempty"`
 	// Specifies a test point statuses to search for
 	Statuses []TestPointStatus `json:"statuses,omitempty"`
 	// Specifies a test point priorities to search for
@@ -172,6 +173,48 @@ func (o *ApiV2TestPointsSearchPostRequest) HasWorkItemGlobalIds() bool {
 // SetWorkItemGlobalIds gets a reference to the given []int64 and assigns it to the WorkItemGlobalIds field.
 func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemGlobalIds(v []int64) {
 	o.WorkItemGlobalIds = v
+}
+
+// GetWorkItemMedianDuration returns the WorkItemMedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestPointsSearchPostRequest) GetWorkItemMedianDuration() TestPointFilterModelWorkItemMedianDuration {
+	if o == nil || IsNil(o.WorkItemMedianDuration.Get()) {
+		var ret TestPointFilterModelWorkItemMedianDuration
+		return ret
+	}
+	return *o.WorkItemMedianDuration.Get()
+}
+
+// GetWorkItemMedianDurationOk returns a tuple with the WorkItemMedianDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestPointsSearchPostRequest) GetWorkItemMedianDurationOk() (*TestPointFilterModelWorkItemMedianDuration, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WorkItemMedianDuration.Get(), o.WorkItemMedianDuration.IsSet()
+}
+
+// HasWorkItemMedianDuration returns a boolean if a field has been set.
+func (o *ApiV2TestPointsSearchPostRequest) HasWorkItemMedianDuration() bool {
+	if o != nil && o.WorkItemMedianDuration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemMedianDuration gets a reference to the given NullableTestPointFilterModelWorkItemMedianDuration and assigns it to the WorkItemMedianDuration field.
+func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemMedianDuration(v TestPointFilterModelWorkItemMedianDuration) {
+	o.WorkItemMedianDuration.Set(&v)
+}
+// SetWorkItemMedianDurationNil sets the value for WorkItemMedianDuration to be an explicit nil
+func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemMedianDurationNil() {
+	o.WorkItemMedianDuration.Set(nil)
+}
+
+// UnsetWorkItemMedianDuration ensures that no value is present for WorkItemMedianDuration, not even an explicit nil
+func (o *ApiV2TestPointsSearchPostRequest) UnsetWorkItemMedianDuration() {
+	o.WorkItemMedianDuration.Unset()
 }
 
 // GetStatuses returns the Statuses field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -849,6 +892,9 @@ func (o ApiV2TestPointsSearchPostRequest) ToMap() (map[string]interface{}, error
 	}
 	if o.WorkItemGlobalIds != nil {
 		toSerialize["workItemGlobalIds"] = o.WorkItemGlobalIds
+	}
+	if o.WorkItemMedianDuration.IsSet() {
+		toSerialize["workItemMedianDuration"] = o.WorkItemMedianDuration.Get()
 	}
 	if o.Statuses != nil {
 		toSerialize["statuses"] = o.Statuses

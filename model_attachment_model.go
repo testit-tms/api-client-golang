@@ -20,15 +20,23 @@ var _ MappedNullable = &AttachmentModel{}
 
 // AttachmentModel struct for AttachmentModel
 type AttachmentModel struct {
-	FileId string `json:"fileId"`
-	Type string `json:"type"`
+	// Unique ID of the attachment file
+	FileId NullableString `json:"fileId,omitempty"`
+	// MIME type of the attachment
+	Type NullableString `json:"type,omitempty"`
+	// Size in bytes of the attachment file
 	Size float32 `json:"size"`
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	// Creation date of the attachment
+	CreatedDate time.Time `json:"createdDate"`
+	// Last modification date of the attachment
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	// Unique ID of the attachment creator
+	CreatedById string `json:"createdById"`
+	// Unique ID of the attachment last editor
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	Name string `json:"name"`
-	// Specifies the GUID of the attachment.
+	// Name of the attachment file
+	Name NullableString `json:"name,omitempty"`
+	// Unique ID of the attachment
 	Id string `json:"id"`
 }
 
@@ -36,12 +44,11 @@ type AttachmentModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttachmentModel(fileId string, type_ string, size float32, name string, id string) *AttachmentModel {
+func NewAttachmentModel(size float32, createdDate time.Time, createdById string, id string) *AttachmentModel {
 	this := AttachmentModel{}
-	this.FileId = fileId
-	this.Type = type_
 	this.Size = size
-	this.Name = name
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
 	this.Id = id
 	return &this
 }
@@ -54,52 +61,88 @@ func NewAttachmentModelWithDefaults() *AttachmentModel {
 	return &this
 }
 
-// GetFileId returns the FileId field value
+// GetFileId returns the FileId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AttachmentModel) GetFileId() string {
-	if o == nil {
+	if o == nil || IsNil(o.FileId.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.FileId
+	return *o.FileId.Get()
 }
 
-// GetFileIdOk returns a tuple with the FileId field value
+// GetFileIdOk returns a tuple with the FileId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentModel) GetFileIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FileId, true
+	return o.FileId.Get(), o.FileId.IsSet()
 }
 
-// SetFileId sets field value
+// HasFileId returns a boolean if a field has been set.
+func (o *AttachmentModel) HasFileId() bool {
+	if o != nil && o.FileId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFileId gets a reference to the given NullableString and assigns it to the FileId field.
 func (o *AttachmentModel) SetFileId(v string) {
-	o.FileId = v
+	o.FileId.Set(&v)
+}
+// SetFileIdNil sets the value for FileId to be an explicit nil
+func (o *AttachmentModel) SetFileIdNil() {
+	o.FileId.Set(nil)
 }
 
-// GetType returns the Type field value
+// UnsetFileId ensures that no value is present for FileId, not even an explicit nil
+func (o *AttachmentModel) UnsetFileId() {
+	o.FileId.Unset()
+}
+
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AttachmentModel) GetType() string {
-	if o == nil {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Type
+	return *o.Type.Get()
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentModel) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// SetType sets field value
+// HasType returns a boolean if a field has been set.
+func (o *AttachmentModel) HasType() bool {
+	if o != nil && o.Type.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *AttachmentModel) SetType(v string) {
-	o.Type = v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *AttachmentModel) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *AttachmentModel) UnsetType() {
+	o.Type.Unset()
 }
 
 // GetSize returns the Size field value
@@ -126,36 +169,28 @@ func (o *AttachmentModel) SetSize(v float32) {
 	o.Size = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *AttachmentModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *AttachmentModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *AttachmentModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *AttachmentModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -200,36 +235,28 @@ func (o *AttachmentModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *AttachmentModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *AttachmentModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *AttachmentModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *AttachmentModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -274,28 +301,46 @@ func (o *AttachmentModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AttachmentModel) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *AttachmentModel) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *AttachmentModel) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *AttachmentModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *AttachmentModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetId returns the Id field value
@@ -332,22 +377,24 @@ func (o AttachmentModel) MarshalJSON() ([]byte, error) {
 
 func (o AttachmentModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["fileId"] = o.FileId
-	toSerialize["type"] = o.Type
-	toSerialize["size"] = o.Size
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
+	if o.FileId.IsSet() {
+		toSerialize["fileId"] = o.FileId.Get()
 	}
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
+	}
+	toSerialize["size"] = o.Size
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }

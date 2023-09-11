@@ -20,26 +20,26 @@ var _ MappedNullable = &TestPointWithLastResultModel{}
 
 // TestPointWithLastResultModel struct for TestPointWithLastResultModel
 type TestPointWithLastResultModel struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	WorkItemName NullableString `json:"workItemName,omitempty"`
-	IsAutomated *bool `json:"isAutomated,omitempty"`
+	IsAutomated bool `json:"isAutomated"`
 	TesterId NullableString `json:"testerId,omitempty"`
-	WorkItemId *string `json:"workItemId,omitempty"`
+	WorkItemId string `json:"workItemId"`
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
-	TestSuiteId *string `json:"testSuiteId,omitempty"`
+	TestSuiteId string `json:"testSuiteId"`
 	LastTestResult NullableLastTestResultModel `json:"lastTestResult,omitempty"`
 	Status NullableString `json:"status,omitempty"`
 	WorkItemGlobalId NullableInt64 `json:"workItemGlobalId,omitempty"`
 	WorkItemEntityTypeName NullableString `json:"workItemEntityTypeName,omitempty"`
-	SectionId *string `json:"sectionId,omitempty"`
+	SectionId string `json:"sectionId"`
 	SectionName NullableString `json:"sectionName,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	Attributes map[string]interface{} `json:"attributes,omitempty"`
 	TagNames []string `json:"tagNames,omitempty"`
-	Duration *int32 `json:"duration,omitempty"`
+	Duration int32 `json:"duration"`
 	Priority WorkItemPriorityModel `json:"priority"`
 	TestSuiteNameBreadCrumbs []string `json:"testSuiteNameBreadCrumbs,omitempty"`
 	GroupCount NullableInt32 `json:"groupCount,omitempty"`
@@ -50,8 +50,15 @@ type TestPointWithLastResultModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointWithLastResultModel(priority WorkItemPriorityModel) *TestPointWithLastResultModel {
+func NewTestPointWithLastResultModel(id string, isAutomated bool, workItemId string, testSuiteId string, sectionId string, createdById string, duration int32, priority WorkItemPriorityModel) *TestPointWithLastResultModel {
 	this := TestPointWithLastResultModel{}
+	this.Id = id
+	this.IsAutomated = isAutomated
+	this.WorkItemId = workItemId
+	this.TestSuiteId = testSuiteId
+	this.SectionId = sectionId
+	this.CreatedById = createdById
+	this.Duration = duration
 	this.Priority = priority
 	return &this
 }
@@ -64,36 +71,28 @@ func NewTestPointWithLastResultModelWithDefaults() *TestPointWithLastResultModel
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestPointWithLastResultModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestPointWithLastResultModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestPointWithLastResultModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestPointWithLastResultModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetWorkItemName returns the WorkItemName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -138,36 +137,28 @@ func (o *TestPointWithLastResultModel) UnsetWorkItemName() {
 	o.WorkItemName.Unset()
 }
 
-// GetIsAutomated returns the IsAutomated field value if set, zero value otherwise.
+// GetIsAutomated returns the IsAutomated field value
 func (o *TestPointWithLastResultModel) GetIsAutomated() bool {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsAutomated
+
+	return o.IsAutomated
 }
 
-// GetIsAutomatedOk returns a tuple with the IsAutomated field value if set, nil otherwise
+// GetIsAutomatedOk returns a tuple with the IsAutomated field value
 // and a boolean to check if the value has been set.
 func (o *TestPointWithLastResultModel) GetIsAutomatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsAutomated, true
+	return &o.IsAutomated, true
 }
 
-// HasIsAutomated returns a boolean if a field has been set.
-func (o *TestPointWithLastResultModel) HasIsAutomated() bool {
-	if o != nil && !IsNil(o.IsAutomated) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsAutomated gets a reference to the given bool and assigns it to the IsAutomated field.
+// SetIsAutomated sets field value
 func (o *TestPointWithLastResultModel) SetIsAutomated(v bool) {
-	o.IsAutomated = &v
+	o.IsAutomated = v
 }
 
 // GetTesterId returns the TesterId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -212,36 +203,28 @@ func (o *TestPointWithLastResultModel) UnsetTesterId() {
 	o.TesterId.Unset()
 }
 
-// GetWorkItemId returns the WorkItemId field value if set, zero value otherwise.
+// GetWorkItemId returns the WorkItemId field value
 func (o *TestPointWithLastResultModel) GetWorkItemId() string {
-	if o == nil || IsNil(o.WorkItemId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WorkItemId
+
+	return o.WorkItemId
 }
 
-// GetWorkItemIdOk returns a tuple with the WorkItemId field value if set, nil otherwise
+// GetWorkItemIdOk returns a tuple with the WorkItemId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointWithLastResultModel) GetWorkItemIdOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkItemId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemId, true
+	return &o.WorkItemId, true
 }
 
-// HasWorkItemId returns a boolean if a field has been set.
-func (o *TestPointWithLastResultModel) HasWorkItemId() bool {
-	if o != nil && !IsNil(o.WorkItemId) {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItemId gets a reference to the given string and assigns it to the WorkItemId field.
+// SetWorkItemId sets field value
 func (o *TestPointWithLastResultModel) SetWorkItemId(v string) {
-	o.WorkItemId = &v
+	o.WorkItemId = v
 }
 
 // GetConfigurationId returns the ConfigurationId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -286,36 +269,28 @@ func (o *TestPointWithLastResultModel) UnsetConfigurationId() {
 	o.ConfigurationId.Unset()
 }
 
-// GetTestSuiteId returns the TestSuiteId field value if set, zero value otherwise.
+// GetTestSuiteId returns the TestSuiteId field value
 func (o *TestPointWithLastResultModel) GetTestSuiteId() string {
-	if o == nil || IsNil(o.TestSuiteId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestSuiteId
+
+	return o.TestSuiteId
 }
 
-// GetTestSuiteIdOk returns a tuple with the TestSuiteId field value if set, nil otherwise
+// GetTestSuiteIdOk returns a tuple with the TestSuiteId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointWithLastResultModel) GetTestSuiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestSuiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestSuiteId, true
+	return &o.TestSuiteId, true
 }
 
-// HasTestSuiteId returns a boolean if a field has been set.
-func (o *TestPointWithLastResultModel) HasTestSuiteId() bool {
-	if o != nil && !IsNil(o.TestSuiteId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestSuiteId gets a reference to the given string and assigns it to the TestSuiteId field.
+// SetTestSuiteId sets field value
 func (o *TestPointWithLastResultModel) SetTestSuiteId(v string) {
-	o.TestSuiteId = &v
+	o.TestSuiteId = v
 }
 
 // GetLastTestResult returns the LastTestResult field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -486,36 +461,28 @@ func (o *TestPointWithLastResultModel) UnsetWorkItemEntityTypeName() {
 	o.WorkItemEntityTypeName.Unset()
 }
 
-// GetSectionId returns the SectionId field value if set, zero value otherwise.
+// GetSectionId returns the SectionId field value
 func (o *TestPointWithLastResultModel) GetSectionId() string {
-	if o == nil || IsNil(o.SectionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.SectionId
+
+	return o.SectionId
 }
 
-// GetSectionIdOk returns a tuple with the SectionId field value if set, nil otherwise
+// GetSectionIdOk returns a tuple with the SectionId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointWithLastResultModel) GetSectionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.SectionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SectionId, true
+	return &o.SectionId, true
 }
 
-// HasSectionId returns a boolean if a field has been set.
-func (o *TestPointWithLastResultModel) HasSectionId() bool {
-	if o != nil && !IsNil(o.SectionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetSectionId gets a reference to the given string and assigns it to the SectionId field.
+// SetSectionId sets field value
 func (o *TestPointWithLastResultModel) SetSectionId(v string) {
-	o.SectionId = &v
+	o.SectionId = v
 }
 
 // GetSectionName returns the SectionName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -644,36 +611,28 @@ func (o *TestPointWithLastResultModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *TestPointWithLastResultModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *TestPointWithLastResultModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *TestPointWithLastResultModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *TestPointWithLastResultModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -784,36 +743,28 @@ func (o *TestPointWithLastResultModel) SetTagNames(v []string) {
 	o.TagNames = v
 }
 
-// GetDuration returns the Duration field value if set, zero value otherwise.
+// GetDuration returns the Duration field value
 func (o *TestPointWithLastResultModel) GetDuration() int32 {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Duration
+
+	return o.Duration
 }
 
-// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
+// GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
 func (o *TestPointWithLastResultModel) GetDurationOk() (*int32, bool) {
-	if o == nil || IsNil(o.Duration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Duration, true
+	return &o.Duration, true
 }
 
-// HasDuration returns a boolean if a field has been set.
-func (o *TestPointWithLastResultModel) HasDuration() bool {
-	if o != nil && !IsNil(o.Duration) {
-		return true
-	}
-
-	return false
-}
-
-// SetDuration gets a reference to the given int32 and assigns it to the Duration field.
+// SetDuration sets field value
 func (o *TestPointWithLastResultModel) SetDuration(v int32) {
-	o.Duration = &v
+	o.Duration = v
 }
 
 // GetPriority returns the Priority field value
@@ -967,27 +918,19 @@ func (o TestPointWithLastResultModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPointWithLastResultModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.WorkItemName.IsSet() {
 		toSerialize["workItemName"] = o.WorkItemName.Get()
 	}
-	if !IsNil(o.IsAutomated) {
-		toSerialize["isAutomated"] = o.IsAutomated
-	}
+	toSerialize["isAutomated"] = o.IsAutomated
 	if o.TesterId.IsSet() {
 		toSerialize["testerId"] = o.TesterId.Get()
 	}
-	if !IsNil(o.WorkItemId) {
-		toSerialize["workItemId"] = o.WorkItemId
-	}
+	toSerialize["workItemId"] = o.WorkItemId
 	if o.ConfigurationId.IsSet() {
 		toSerialize["configurationId"] = o.ConfigurationId.Get()
 	}
-	if !IsNil(o.TestSuiteId) {
-		toSerialize["testSuiteId"] = o.TestSuiteId
-	}
+	toSerialize["testSuiteId"] = o.TestSuiteId
 	if o.LastTestResult.IsSet() {
 		toSerialize["lastTestResult"] = o.LastTestResult.Get()
 	}
@@ -1000,9 +943,7 @@ func (o TestPointWithLastResultModel) ToMap() (map[string]interface{}, error) {
 	if o.WorkItemEntityTypeName.IsSet() {
 		toSerialize["workItemEntityTypeName"] = o.WorkItemEntityTypeName.Get()
 	}
-	if !IsNil(o.SectionId) {
-		toSerialize["sectionId"] = o.SectionId
-	}
+	toSerialize["sectionId"] = o.SectionId
 	if o.SectionName.IsSet() {
 		toSerialize["sectionName"] = o.SectionName.Get()
 	}
@@ -1012,9 +953,7 @@ func (o TestPointWithLastResultModel) ToMap() (map[string]interface{}, error) {
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
@@ -1024,9 +963,7 @@ func (o TestPointWithLastResultModel) ToMap() (map[string]interface{}, error) {
 	if o.TagNames != nil {
 		toSerialize["tagNames"] = o.TagNames
 	}
-	if !IsNil(o.Duration) {
-		toSerialize["duration"] = o.Duration
-	}
+	toSerialize["duration"] = o.Duration
 	toSerialize["priority"] = o.Priority
 	if o.TestSuiteNameBreadCrumbs != nil {
 		toSerialize["testSuiteNameBreadCrumbs"] = o.TestSuiteNameBreadCrumbs

@@ -10,10 +10,10 @@ Name | Type | Description | Notes
 **CompletedOn** | Pointer to **NullableTime** | set when test plan status is completed (status changed to: Completed) | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**GlobalId** | Pointer to **int64** | Used for search Test plan | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
+**GlobalId** | **int64** | Used for search Test plan | 
+**IsDeleted** | **bool** |  | 
 **LockedDate** | Pointer to **NullableTime** |  | [optional] 
 **Id** | **string** |  | 
 **LockedById** | Pointer to **NullableString** |  | [optional] 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewTestPlanWithTestSuiteTreeModel
 
-`func NewTestPlanWithTestSuiteTreeModel(status TestPlanStatusModel, id string, name string, projectId string, ) *TestPlanWithTestSuiteTreeModel`
+`func NewTestPlanWithTestSuiteTreeModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, ) *TestPlanWithTestSuiteTreeModel`
 
 NewTestPlanWithTestSuiteTreeModel instantiates a new TestPlanWithTestSuiteTreeModel object
 This constructor will assign default values to properties that have it defined,
@@ -72,6 +72,16 @@ SetTestSuites sets TestSuites field to given value.
 
 HasTestSuites returns a boolean if a field has been set.
 
+### SetTestSuitesNil
+
+`func (o *TestPlanWithTestSuiteTreeModel) SetTestSuitesNil(b bool)`
+
+ SetTestSuitesNil sets the value for TestSuites to be an explicit nil
+
+### UnsetTestSuites
+`func (o *TestPlanWithTestSuiteTreeModel) UnsetTestSuites()`
+
+UnsetTestSuites ensures that no value is present for TestSuites, not even an explicit nil
 ### GetStatus
 
 `func (o *TestPlanWithTestSuiteTreeModel) GetStatus() TestPlanStatusModel`
@@ -251,11 +261,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *TestPlanWithTestSuiteTreeModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -311,11 +316,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *TestPlanWithTestSuiteTreeModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -336,11 +336,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *TestPlanWithTestSuiteTreeModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetLockedDate
 
@@ -742,6 +737,16 @@ SetAttributes sets Attributes field to given value.
 
 HasAttributes returns a boolean if a field has been set.
 
+### SetAttributesNil
+
+`func (o *TestPlanWithTestSuiteTreeModel) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *TestPlanWithTestSuiteTreeModel) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

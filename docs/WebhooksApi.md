@@ -233,7 +233,7 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
-    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), "Name_example") // ApiV2WebhooksPostRequest |  (optional)
+    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -302,7 +302,7 @@ import (
 )
 
 func main() {
-    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), "Name_example") // ApiV2WebhooksPostRequest |  (optional)
+    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksSpecialVariablesGet
 
-> []string ApiV2WebhooksSpecialVariablesGet(ctx).EventType(eventType).Execute()
+> []string ApiV2WebhooksSpecialVariablesGet(ctx).EventType(eventType).VariablesType(variablesType).Execute()
 
 Get special variables for webhook event type
 
@@ -441,10 +441,11 @@ import (
 
 func main() {
     eventType := openapiclient.WebHookEventType("AutomatedTestRunCreated") // WebHookEventType | Webhook event type (optional)
+    variablesType := openapiclient.WebhookVariablesType("VariablesForUrl") // WebhookVariablesType |  (optional) (default to "VariablesForUrl")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksSpecialVariablesGet(context.Background()).EventType(eventType).Execute()
+    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksSpecialVariablesGet(context.Background()).EventType(eventType).VariablesType(variablesType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksSpecialVariablesGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -466,6 +467,7 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksSpecialVariab
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **eventType** | [**WebHookEventType**](WebHookEventType.md) | Webhook event type | 
+ **variablesType** | [**WebhookVariablesType**](WebhookVariablesType.md) |  | [default to &quot;VariablesForUrl&quot;]
 
 ### Return type
 

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GlobalId** | Pointer to **int64** | Global ID of the autotest | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the autotest is deleted | [optional] 
-**MustBeApproved** | Pointer to **bool** | Indicates if the autotest has unapproved changes from linked work items | [optional] 
-**Id** | Pointer to **string** | Unique ID of the autotest | [optional] 
-**CreatedDate** | Pointer to **time.Time** | Creation date of the autotest | [optional] 
+**GlobalId** | **int64** | Global ID of the autotest | 
+**IsDeleted** | **bool** | Indicates if the autotest is deleted | 
+**MustBeApproved** | **bool** | Indicates if the autotest has unapproved changes from linked work items | 
+**Id** | **string** | Unique ID of the autotest | 
+**CreatedDate** | **time.Time** | Creation date of the autotest | 
 **ModifiedDate** | Pointer to **NullableTime** | Last modification date of the project | [optional] 
-**CreatedById** | Pointer to **string** | Unique ID of the project creator | [optional] 
+**CreatedById** | **string** | Unique ID of the project creator | 
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
 **LastTestRunId** | Pointer to **NullableString** | Unique ID of the autotest last test run | [optional] 
 **LastTestRunName** | Pointer to **NullableString** | Name of the autotest last test run | [optional] 
@@ -30,12 +30,13 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the autotest in autotest&#39;s card | [optional] 
 **Labels** | Pointer to [**[]LabelShortModel**](LabelShortModel.md) | Collection of the autotest labels | [optional] 
 **IsFlaky** | Pointer to **NullableBool** | Indicates if the autotest is marked as flaky | [optional] 
+**ExternalKey** | Pointer to **NullableString** | External key of the autotest | [optional] 
 
 ## Methods
 
 ### NewAutoTestModel
 
-`func NewAutoTestModel(externalId string, projectId string, name string, ) *AutoTestModel`
+`func NewAutoTestModel(globalId int64, isDeleted bool, mustBeApproved bool, id string, createdDate time.Time, createdById string, externalId string, projectId string, name string, ) *AutoTestModel`
 
 NewAutoTestModel instantiates a new AutoTestModel object
 This constructor will assign default values to properties that have it defined,
@@ -69,11 +70,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *AutoTestModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -94,11 +90,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *AutoTestModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetMustBeApproved
 
@@ -119,11 +110,6 @@ and a boolean to check if the value has been set.
 
 SetMustBeApproved sets MustBeApproved field to given value.
 
-### HasMustBeApproved
-
-`func (o *AutoTestModel) HasMustBeApproved() bool`
-
-HasMustBeApproved returns a boolean if a field has been set.
 
 ### GetId
 
@@ -144,11 +130,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AutoTestModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -169,11 +150,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *AutoTestModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -229,11 +205,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *AutoTestModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -855,6 +826,41 @@ HasIsFlaky returns a boolean if a field has been set.
 `func (o *AutoTestModel) UnsetIsFlaky()`
 
 UnsetIsFlaky ensures that no value is present for IsFlaky, not even an explicit nil
+### GetExternalKey
+
+`func (o *AutoTestModel) GetExternalKey() string`
+
+GetExternalKey returns the ExternalKey field if non-nil, zero value otherwise.
+
+### GetExternalKeyOk
+
+`func (o *AutoTestModel) GetExternalKeyOk() (*string, bool)`
+
+GetExternalKeyOk returns a tuple with the ExternalKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalKey
+
+`func (o *AutoTestModel) SetExternalKey(v string)`
+
+SetExternalKey sets ExternalKey field to given value.
+
+### HasExternalKey
+
+`func (o *AutoTestModel) HasExternalKey() bool`
+
+HasExternalKey returns a boolean if a field has been set.
+
+### SetExternalKeyNil
+
+`func (o *AutoTestModel) SetExternalKeyNil(b bool)`
+
+ SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+
+### UnsetExternalKey
+`func (o *AutoTestModel) UnsetExternalKey()`
+
+UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

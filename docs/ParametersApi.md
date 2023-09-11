@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**ApiV2ParametersKeyNameNameExistsGet**](ParametersApi.md#ApiV2ParametersKeyNameNameExistsGet) | **Get** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system
 [**ApiV2ParametersKeyValuesGet**](ParametersApi.md#ApiV2ParametersKeyValuesGet) | **Get** /api/v2/parameters/{key}/values | Get all parameter key values
 [**ApiV2ParametersKeysGet**](ParametersApi.md#ApiV2ParametersKeysGet) | **Get** /api/v2/parameters/keys | Get all parameter keys
+[**ApiV2ParametersSearchGroupsPost**](ParametersApi.md#ApiV2ParametersSearchGroupsPost) | **Post** /api/v2/parameters/search/groups | Search for parameters as group
 [**ApiV2ParametersSearchPost**](ParametersApi.md#ApiV2ParametersSearchPost) | **Post** /api/v2/parameters/search | Search for parameters
 [**CreateParameter**](ParametersApi.md#CreateParameter) | **Post** /api/v2/parameters | Create parameter
 [**DeleteByName**](ParametersApi.md#DeleteByName) | **Delete** /api/v2/parameters/name/{name} | Delete parameter by name
@@ -108,7 +109,7 @@ import (
 )
 
 func main() {
-    parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("Value_example", "Name_example")} // []ParameterPutModel |  (optional)
+    parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -423,6 +424,80 @@ Other parameters are passed through a pointer to a apiApiV2ParametersKeysGetRequ
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ParametersSearchGroupsPost
+
+> []ParameterGroupModel ApiV2ParametersSearchGroupsPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
+
+Search for parameters as group
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2ParametersSearchPostRequest := *openapiclient.NewApiV2ParametersSearchPostRequest() // ApiV2ParametersSearchPostRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ParametersApi.ApiV2ParametersSearchGroupsPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersSearchGroupsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ParametersSearchGroupsPost`: []ParameterGroupModel
+    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersSearchGroupsPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ParametersSearchGroupsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **skip** | **int32** | Amount of items to be skipped (offset) | 
+ **take** | **int32** | Amount of items to be taken (limit) | 
+ **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
+ **searchField** | **string** | Property name for searching | 
+ **searchValue** | **string** | Value for searching | 
+ **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md) |  | 
+
+### Return type
+
+[**[]ParameterGroupModel**](ParameterGroupModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -941,7 +1016,7 @@ import (
 )
 
 func main() {
-    updateParameterRequest := *openapiclient.NewUpdateParameterRequest("Value_example", "Name_example") // UpdateParameterRequest |  (optional)
+    updateParameterRequest := *openapiclient.NewUpdateParameterRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "Value_example", "Name_example") // UpdateParameterRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

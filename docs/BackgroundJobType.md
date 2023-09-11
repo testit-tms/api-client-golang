@@ -25,6 +25,8 @@
 
 * `IMPORT_TEST_RAIL_XML_PROJECT` (value: `"ImportTestRailXmlProject"`)
 
+* `PURGE_PROJECT` (value: `"PurgeProject"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

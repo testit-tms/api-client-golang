@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** |  | [optional] 
-**Value** | Pointer to **int32** |  | [optional] 
+**Status** | Pointer to **NullableString** |  | [optional] 
+**Value** | **int32** |  | 
 
 ## Methods
 
 ### NewTestRunGroupByStatusModel
 
-`func NewTestRunGroupByStatusModel() *TestRunGroupByStatusModel`
+`func NewTestRunGroupByStatusModel(value int32, ) *TestRunGroupByStatusModel`
 
 NewTestRunGroupByStatusModel instantiates a new TestRunGroupByStatusModel object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +51,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *TestRunGroupByStatusModel) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *TestRunGroupByStatusModel) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
 `func (o *TestRunGroupByStatusModel) GetValue() int32`
@@ -70,11 +80,6 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-### HasValue
-
-`func (o *TestRunGroupByStatusModel) HasValue() bool`
-
-HasValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

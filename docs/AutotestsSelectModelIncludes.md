@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IncludeSteps** | Pointer to **bool** | If autotest steps will be included | [optional] 
-**IncludeLinks** | Pointer to **bool** | If autotest links will be included | [optional] 
-**IncludeLabels** | Pointer to **bool** | If autotest labels will be included | [optional] 
+**IncludeSteps** | **bool** | If autotest steps will be included | 
+**IncludeLinks** | **bool** | If autotest links will be included | 
+**IncludeLabels** | **bool** | If autotest labels will be included | 
 
 ## Methods
 
 ### NewAutotestsSelectModelIncludes
 
-`func NewAutotestsSelectModelIncludes() *AutotestsSelectModelIncludes`
+`func NewAutotestsSelectModelIncludes(includeSteps bool, includeLinks bool, includeLabels bool, ) *AutotestsSelectModelIncludes`
 
 NewAutotestsSelectModelIncludes instantiates a new AutotestsSelectModelIncludes object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeSteps sets IncludeSteps field to given value.
 
-### HasIncludeSteps
-
-`func (o *AutotestsSelectModelIncludes) HasIncludeSteps() bool`
-
-HasIncludeSteps returns a boolean if a field has been set.
 
 ### GetIncludeLinks
 
@@ -71,11 +66,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeLinks sets IncludeLinks field to given value.
 
-### HasIncludeLinks
-
-`func (o *AutotestsSelectModelIncludes) HasIncludeLinks() bool`
-
-HasIncludeLinks returns a boolean if a field has been set.
 
 ### GetIncludeLabels
 
@@ -96,11 +86,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeLabels sets IncludeLabels field to given value.
 
-### HasIncludeLabels
-
-`func (o *AutotestsSelectModelIncludes) HasIncludeLabels() bool`
-
-HasIncludeLabels returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -6,22 +6,22 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Parameters** | Pointer to **map[string]string** |  | [optional] 
-**ProjectId** | Pointer to **string** | This property is used to link configuration with project | [optional] 
-**IsDefault** | Pointer to **bool** |  | [optional] 
+**ProjectId** | **string** | This property is used to link configuration with project | 
+**IsDefault** | **bool** |  | 
 **Name** | Pointer to **NullableString** |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**GlobalId** | **int64** |  | 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewTestResultConfiguration
 
-`func NewTestResultConfiguration() *TestResultConfiguration`
+`func NewTestResultConfiguration(projectId string, isDefault bool, createdDate time.Time, createdById string, globalId int64, id string, isDeleted bool, ) *TestResultConfiguration`
 
 NewTestResultConfiguration instantiates a new TestResultConfiguration object
 This constructor will assign default values to properties that have it defined,
@@ -125,11 +125,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *TestResultConfiguration) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetIsDefault
 
@@ -150,11 +145,6 @@ and a boolean to check if the value has been set.
 
 SetIsDefault sets IsDefault field to given value.
 
-### HasIsDefault
-
-`func (o *TestResultConfiguration) HasIsDefault() bool`
-
-HasIsDefault returns a boolean if a field has been set.
 
 ### GetName
 
@@ -210,11 +200,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *TestResultConfiguration) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -270,11 +255,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *TestResultConfiguration) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -330,11 +310,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *TestResultConfiguration) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -355,11 +330,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestResultConfiguration) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -380,11 +350,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *TestResultConfiguration) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

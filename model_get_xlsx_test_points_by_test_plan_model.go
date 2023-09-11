@@ -19,18 +19,18 @@ var _ MappedNullable = &GetXlsxTestPointsByTestPlanModel{}
 
 // GetXlsxTestPointsByTestPlanModel struct for GetXlsxTestPointsByTestPlanModel
 type GetXlsxTestPointsByTestPlanModel struct {
-	IncludeName *bool `json:"includeName,omitempty"`
-	IncludeSection *bool `json:"includeSection,omitempty"`
-	IncludePriority *bool `json:"includePriority,omitempty"`
-	IncludeAutomated *bool `json:"includeAutomated,omitempty"`
-	IncludeStatus *bool `json:"includeStatus,omitempty"`
-	IncludeDuration *bool `json:"includeDuration,omitempty"`
-	IncludeCreationDate *bool `json:"includeCreationDate,omitempty"`
-	IncludeAuthor *bool `json:"includeAuthor,omitempty"`
-	IncludeModificationDate *bool `json:"includeModificationDate,omitempty"`
-	IncludeModifiedBy *bool `json:"includeModifiedBy,omitempty"`
-	IncludeTags *bool `json:"includeTags,omitempty"`
-	IncludeIterations *bool `json:"includeIterations,omitempty"`
+	IncludeName bool `json:"includeName"`
+	IncludeSection bool `json:"includeSection"`
+	IncludePriority bool `json:"includePriority"`
+	IncludeAutomated bool `json:"includeAutomated"`
+	IncludeStatus bool `json:"includeStatus"`
+	IncludeDuration bool `json:"includeDuration"`
+	IncludeCreationDate bool `json:"includeCreationDate"`
+	IncludeAuthor bool `json:"includeAuthor"`
+	IncludeModificationDate bool `json:"includeModificationDate"`
+	IncludeModifiedBy bool `json:"includeModifiedBy"`
+	IncludeTags bool `json:"includeTags"`
+	IncludeIterations bool `json:"includeIterations"`
 	CustomAttributesIds []string `json:"customAttributesIds,omitempty"`
 	ConfigurationIds []string `json:"configurationIds,omitempty"`
 }
@@ -39,8 +39,20 @@ type GetXlsxTestPointsByTestPlanModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetXlsxTestPointsByTestPlanModel() *GetXlsxTestPointsByTestPlanModel {
+func NewGetXlsxTestPointsByTestPlanModel(includeName bool, includeSection bool, includePriority bool, includeAutomated bool, includeStatus bool, includeDuration bool, includeCreationDate bool, includeAuthor bool, includeModificationDate bool, includeModifiedBy bool, includeTags bool, includeIterations bool) *GetXlsxTestPointsByTestPlanModel {
 	this := GetXlsxTestPointsByTestPlanModel{}
+	this.IncludeName = includeName
+	this.IncludeSection = includeSection
+	this.IncludePriority = includePriority
+	this.IncludeAutomated = includeAutomated
+	this.IncludeStatus = includeStatus
+	this.IncludeDuration = includeDuration
+	this.IncludeCreationDate = includeCreationDate
+	this.IncludeAuthor = includeAuthor
+	this.IncludeModificationDate = includeModificationDate
+	this.IncludeModifiedBy = includeModifiedBy
+	this.IncludeTags = includeTags
+	this.IncludeIterations = includeIterations
 	return &this
 }
 
@@ -52,388 +64,292 @@ func NewGetXlsxTestPointsByTestPlanModelWithDefaults() *GetXlsxTestPointsByTestP
 	return &this
 }
 
-// GetIncludeName returns the IncludeName field value if set, zero value otherwise.
+// GetIncludeName returns the IncludeName field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeName() bool {
-	if o == nil || IsNil(o.IncludeName) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeName
+
+	return o.IncludeName
 }
 
-// GetIncludeNameOk returns a tuple with the IncludeName field value if set, nil otherwise
+// GetIncludeNameOk returns a tuple with the IncludeName field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeNameOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeName, true
+	return &o.IncludeName, true
 }
 
-// HasIncludeName returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeName() bool {
-	if o != nil && !IsNil(o.IncludeName) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeName gets a reference to the given bool and assigns it to the IncludeName field.
+// SetIncludeName sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeName(v bool) {
-	o.IncludeName = &v
+	o.IncludeName = v
 }
 
-// GetIncludeSection returns the IncludeSection field value if set, zero value otherwise.
+// GetIncludeSection returns the IncludeSection field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeSection() bool {
-	if o == nil || IsNil(o.IncludeSection) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeSection
+
+	return o.IncludeSection
 }
 
-// GetIncludeSectionOk returns a tuple with the IncludeSection field value if set, nil otherwise
+// GetIncludeSectionOk returns a tuple with the IncludeSection field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeSectionOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeSection) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeSection, true
+	return &o.IncludeSection, true
 }
 
-// HasIncludeSection returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeSection() bool {
-	if o != nil && !IsNil(o.IncludeSection) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeSection gets a reference to the given bool and assigns it to the IncludeSection field.
+// SetIncludeSection sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeSection(v bool) {
-	o.IncludeSection = &v
+	o.IncludeSection = v
 }
 
-// GetIncludePriority returns the IncludePriority field value if set, zero value otherwise.
+// GetIncludePriority returns the IncludePriority field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludePriority() bool {
-	if o == nil || IsNil(o.IncludePriority) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludePriority
+
+	return o.IncludePriority
 }
 
-// GetIncludePriorityOk returns a tuple with the IncludePriority field value if set, nil otherwise
+// GetIncludePriorityOk returns a tuple with the IncludePriority field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludePriorityOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludePriority) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludePriority, true
+	return &o.IncludePriority, true
 }
 
-// HasIncludePriority returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludePriority() bool {
-	if o != nil && !IsNil(o.IncludePriority) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludePriority gets a reference to the given bool and assigns it to the IncludePriority field.
+// SetIncludePriority sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludePriority(v bool) {
-	o.IncludePriority = &v
+	o.IncludePriority = v
 }
 
-// GetIncludeAutomated returns the IncludeAutomated field value if set, zero value otherwise.
+// GetIncludeAutomated returns the IncludeAutomated field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeAutomated() bool {
-	if o == nil || IsNil(o.IncludeAutomated) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeAutomated
+
+	return o.IncludeAutomated
 }
 
-// GetIncludeAutomatedOk returns a tuple with the IncludeAutomated field value if set, nil otherwise
+// GetIncludeAutomatedOk returns a tuple with the IncludeAutomated field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeAutomatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeAutomated) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeAutomated, true
+	return &o.IncludeAutomated, true
 }
 
-// HasIncludeAutomated returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeAutomated() bool {
-	if o != nil && !IsNil(o.IncludeAutomated) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeAutomated gets a reference to the given bool and assigns it to the IncludeAutomated field.
+// SetIncludeAutomated sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeAutomated(v bool) {
-	o.IncludeAutomated = &v
+	o.IncludeAutomated = v
 }
 
-// GetIncludeStatus returns the IncludeStatus field value if set, zero value otherwise.
+// GetIncludeStatus returns the IncludeStatus field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeStatus() bool {
-	if o == nil || IsNil(o.IncludeStatus) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeStatus
+
+	return o.IncludeStatus
 }
 
-// GetIncludeStatusOk returns a tuple with the IncludeStatus field value if set, nil otherwise
+// GetIncludeStatusOk returns a tuple with the IncludeStatus field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeStatusOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeStatus) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeStatus, true
+	return &o.IncludeStatus, true
 }
 
-// HasIncludeStatus returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeStatus() bool {
-	if o != nil && !IsNil(o.IncludeStatus) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeStatus gets a reference to the given bool and assigns it to the IncludeStatus field.
+// SetIncludeStatus sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeStatus(v bool) {
-	o.IncludeStatus = &v
+	o.IncludeStatus = v
 }
 
-// GetIncludeDuration returns the IncludeDuration field value if set, zero value otherwise.
+// GetIncludeDuration returns the IncludeDuration field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeDuration() bool {
-	if o == nil || IsNil(o.IncludeDuration) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeDuration
+
+	return o.IncludeDuration
 }
 
-// GetIncludeDurationOk returns a tuple with the IncludeDuration field value if set, nil otherwise
+// GetIncludeDurationOk returns a tuple with the IncludeDuration field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeDurationOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeDuration) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeDuration, true
+	return &o.IncludeDuration, true
 }
 
-// HasIncludeDuration returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeDuration() bool {
-	if o != nil && !IsNil(o.IncludeDuration) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeDuration gets a reference to the given bool and assigns it to the IncludeDuration field.
+// SetIncludeDuration sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeDuration(v bool) {
-	o.IncludeDuration = &v
+	o.IncludeDuration = v
 }
 
-// GetIncludeCreationDate returns the IncludeCreationDate field value if set, zero value otherwise.
+// GetIncludeCreationDate returns the IncludeCreationDate field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeCreationDate() bool {
-	if o == nil || IsNil(o.IncludeCreationDate) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeCreationDate
+
+	return o.IncludeCreationDate
 }
 
-// GetIncludeCreationDateOk returns a tuple with the IncludeCreationDate field value if set, nil otherwise
+// GetIncludeCreationDateOk returns a tuple with the IncludeCreationDate field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeCreationDateOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeCreationDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeCreationDate, true
+	return &o.IncludeCreationDate, true
 }
 
-// HasIncludeCreationDate returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeCreationDate() bool {
-	if o != nil && !IsNil(o.IncludeCreationDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeCreationDate gets a reference to the given bool and assigns it to the IncludeCreationDate field.
+// SetIncludeCreationDate sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeCreationDate(v bool) {
-	o.IncludeCreationDate = &v
+	o.IncludeCreationDate = v
 }
 
-// GetIncludeAuthor returns the IncludeAuthor field value if set, zero value otherwise.
+// GetIncludeAuthor returns the IncludeAuthor field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeAuthor() bool {
-	if o == nil || IsNil(o.IncludeAuthor) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeAuthor
+
+	return o.IncludeAuthor
 }
 
-// GetIncludeAuthorOk returns a tuple with the IncludeAuthor field value if set, nil otherwise
+// GetIncludeAuthorOk returns a tuple with the IncludeAuthor field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeAuthorOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeAuthor) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeAuthor, true
+	return &o.IncludeAuthor, true
 }
 
-// HasIncludeAuthor returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeAuthor() bool {
-	if o != nil && !IsNil(o.IncludeAuthor) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeAuthor gets a reference to the given bool and assigns it to the IncludeAuthor field.
+// SetIncludeAuthor sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeAuthor(v bool) {
-	o.IncludeAuthor = &v
+	o.IncludeAuthor = v
 }
 
-// GetIncludeModificationDate returns the IncludeModificationDate field value if set, zero value otherwise.
+// GetIncludeModificationDate returns the IncludeModificationDate field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeModificationDate() bool {
-	if o == nil || IsNil(o.IncludeModificationDate) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeModificationDate
+
+	return o.IncludeModificationDate
 }
 
-// GetIncludeModificationDateOk returns a tuple with the IncludeModificationDate field value if set, nil otherwise
+// GetIncludeModificationDateOk returns a tuple with the IncludeModificationDate field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeModificationDateOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeModificationDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeModificationDate, true
+	return &o.IncludeModificationDate, true
 }
 
-// HasIncludeModificationDate returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeModificationDate() bool {
-	if o != nil && !IsNil(o.IncludeModificationDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeModificationDate gets a reference to the given bool and assigns it to the IncludeModificationDate field.
+// SetIncludeModificationDate sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeModificationDate(v bool) {
-	o.IncludeModificationDate = &v
+	o.IncludeModificationDate = v
 }
 
-// GetIncludeModifiedBy returns the IncludeModifiedBy field value if set, zero value otherwise.
+// GetIncludeModifiedBy returns the IncludeModifiedBy field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeModifiedBy() bool {
-	if o == nil || IsNil(o.IncludeModifiedBy) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeModifiedBy
+
+	return o.IncludeModifiedBy
 }
 
-// GetIncludeModifiedByOk returns a tuple with the IncludeModifiedBy field value if set, nil otherwise
+// GetIncludeModifiedByOk returns a tuple with the IncludeModifiedBy field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeModifiedByOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeModifiedBy) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeModifiedBy, true
+	return &o.IncludeModifiedBy, true
 }
 
-// HasIncludeModifiedBy returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeModifiedBy() bool {
-	if o != nil && !IsNil(o.IncludeModifiedBy) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeModifiedBy gets a reference to the given bool and assigns it to the IncludeModifiedBy field.
+// SetIncludeModifiedBy sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeModifiedBy(v bool) {
-	o.IncludeModifiedBy = &v
+	o.IncludeModifiedBy = v
 }
 
-// GetIncludeTags returns the IncludeTags field value if set, zero value otherwise.
+// GetIncludeTags returns the IncludeTags field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeTags() bool {
-	if o == nil || IsNil(o.IncludeTags) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeTags
+
+	return o.IncludeTags
 }
 
-// GetIncludeTagsOk returns a tuple with the IncludeTags field value if set, nil otherwise
+// GetIncludeTagsOk returns a tuple with the IncludeTags field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeTagsOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeTags) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeTags, true
+	return &o.IncludeTags, true
 }
 
-// HasIncludeTags returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeTags() bool {
-	if o != nil && !IsNil(o.IncludeTags) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeTags gets a reference to the given bool and assigns it to the IncludeTags field.
+// SetIncludeTags sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeTags(v bool) {
-	o.IncludeTags = &v
+	o.IncludeTags = v
 }
 
-// GetIncludeIterations returns the IncludeIterations field value if set, zero value otherwise.
+// GetIncludeIterations returns the IncludeIterations field value
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeIterations() bool {
-	if o == nil || IsNil(o.IncludeIterations) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IncludeIterations
+
+	return o.IncludeIterations
 }
 
-// GetIncludeIterationsOk returns a tuple with the IncludeIterations field value if set, nil otherwise
+// GetIncludeIterationsOk returns a tuple with the IncludeIterations field value
 // and a boolean to check if the value has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeIterationsOk() (*bool, bool) {
-	if o == nil || IsNil(o.IncludeIterations) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IncludeIterations, true
+	return &o.IncludeIterations, true
 }
 
-// HasIncludeIterations returns a boolean if a field has been set.
-func (o *GetXlsxTestPointsByTestPlanModel) HasIncludeIterations() bool {
-	if o != nil && !IsNil(o.IncludeIterations) {
-		return true
-	}
-
-	return false
-}
-
-// SetIncludeIterations gets a reference to the given bool and assigns it to the IncludeIterations field.
+// SetIncludeIterations sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeIterations(v bool) {
-	o.IncludeIterations = &v
+	o.IncludeIterations = v
 }
 
 // GetCustomAttributesIds returns the CustomAttributesIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -512,42 +428,18 @@ func (o GetXlsxTestPointsByTestPlanModel) MarshalJSON() ([]byte, error) {
 
 func (o GetXlsxTestPointsByTestPlanModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.IncludeName) {
-		toSerialize["includeName"] = o.IncludeName
-	}
-	if !IsNil(o.IncludeSection) {
-		toSerialize["includeSection"] = o.IncludeSection
-	}
-	if !IsNil(o.IncludePriority) {
-		toSerialize["includePriority"] = o.IncludePriority
-	}
-	if !IsNil(o.IncludeAutomated) {
-		toSerialize["includeAutomated"] = o.IncludeAutomated
-	}
-	if !IsNil(o.IncludeStatus) {
-		toSerialize["includeStatus"] = o.IncludeStatus
-	}
-	if !IsNil(o.IncludeDuration) {
-		toSerialize["includeDuration"] = o.IncludeDuration
-	}
-	if !IsNil(o.IncludeCreationDate) {
-		toSerialize["includeCreationDate"] = o.IncludeCreationDate
-	}
-	if !IsNil(o.IncludeAuthor) {
-		toSerialize["includeAuthor"] = o.IncludeAuthor
-	}
-	if !IsNil(o.IncludeModificationDate) {
-		toSerialize["includeModificationDate"] = o.IncludeModificationDate
-	}
-	if !IsNil(o.IncludeModifiedBy) {
-		toSerialize["includeModifiedBy"] = o.IncludeModifiedBy
-	}
-	if !IsNil(o.IncludeTags) {
-		toSerialize["includeTags"] = o.IncludeTags
-	}
-	if !IsNil(o.IncludeIterations) {
-		toSerialize["includeIterations"] = o.IncludeIterations
-	}
+	toSerialize["includeName"] = o.IncludeName
+	toSerialize["includeSection"] = o.IncludeSection
+	toSerialize["includePriority"] = o.IncludePriority
+	toSerialize["includeAutomated"] = o.IncludeAutomated
+	toSerialize["includeStatus"] = o.IncludeStatus
+	toSerialize["includeDuration"] = o.IncludeDuration
+	toSerialize["includeCreationDate"] = o.IncludeCreationDate
+	toSerialize["includeAuthor"] = o.IncludeAuthor
+	toSerialize["includeModificationDate"] = o.IncludeModificationDate
+	toSerialize["includeModifiedBy"] = o.IncludeModifiedBy
+	toSerialize["includeTags"] = o.IncludeTags
+	toSerialize["includeIterations"] = o.IncludeIterations
 	if o.CustomAttributesIds != nil {
 		toSerialize["customAttributesIds"] = o.CustomAttributesIds
 	}

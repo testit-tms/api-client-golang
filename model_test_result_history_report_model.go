@@ -20,11 +20,11 @@ var _ MappedNullable = &TestResultHistoryReportModel{}
 
 // TestResultHistoryReportModel struct for TestResultHistoryReportModel
 type TestResultHistoryReportModel struct {
-	Id *string `json:"id,omitempty"`
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
-	ModifiedDate *time.Time `json:"modifiedDate,omitempty"`
+	Id string `json:"id"`
+	CreatedDate time.Time `json:"createdDate"`
+	ModifiedDate time.Time `json:"modifiedDate"`
 	// If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result
-	UserId *string `json:"userId,omitempty"`
+	UserId string `json:"userId"`
 	TestRunId NullableString `json:"testRunId,omitempty"`
 	TestRunName NullableString `json:"testRunName,omitempty"`
 	CreatedByUserName NullableString `json:"createdByUserName,omitempty"`
@@ -33,7 +33,7 @@ type TestResultHistoryReportModel struct {
 	TestPlanName NullableString `json:"testPlanName,omitempty"`
 	// If test point related to the test result has configuration, this property will be equal to the test point configuration name. Otherwise, this property will be equal to the test result configuration name
 	ConfigurationName NullableString `json:"configurationName,omitempty"`
-	IsAutomated *bool `json:"isAutomated,omitempty"`
+	IsAutomated bool `json:"isAutomated"`
 	// If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equalsto the worst outcome of the last modified test result.Otherwise, the outcome equals to the outcome of first created test result in the test run
 	Outcome NullableString `json:"outcome,omitempty"`
 	// If any test result related to the test run is linked with autotest, comment will have default valueOtherwise, the comment equals to the comment of first created test result in the test run
@@ -43,7 +43,7 @@ type TestResultHistoryReportModel struct {
 	StartedOn NullableTime `json:"startedOn,omitempty"`
 	CompletedOn NullableTime `json:"completedOn,omitempty"`
 	Duration NullableInt64 `json:"duration,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified test result.Otherwise, the attachments equals to the attachments of first created test result in the test run
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
@@ -58,8 +58,14 @@ type TestResultHistoryReportModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultHistoryReportModel() *TestResultHistoryReportModel {
+func NewTestResultHistoryReportModel(id string, createdDate time.Time, modifiedDate time.Time, userId string, isAutomated bool, createdById string) *TestResultHistoryReportModel {
 	this := TestResultHistoryReportModel{}
+	this.Id = id
+	this.CreatedDate = createdDate
+	this.ModifiedDate = modifiedDate
+	this.UserId = userId
+	this.IsAutomated = isAutomated
+	this.CreatedById = createdById
 	return &this
 }
 
@@ -71,132 +77,100 @@ func NewTestResultHistoryReportModelWithDefaults() *TestResultHistoryReportModel
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestResultHistoryReportModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestResultHistoryReportModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestResultHistoryReportModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestResultHistoryReportModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *TestResultHistoryReportModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *TestResultHistoryReportModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *TestResultHistoryReportModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *TestResultHistoryReportModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise.
+// GetModifiedDate returns the ModifiedDate field value
 func (o *TestResultHistoryReportModel) GetModifiedDate() time.Time {
-	if o == nil || IsNil(o.ModifiedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.ModifiedDate
+
+	return o.ModifiedDate
 }
 
-// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
+// GetModifiedDateOk returns a tuple with the ModifiedDate field value
 // and a boolean to check if the value has been set.
 func (o *TestResultHistoryReportModel) GetModifiedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.ModifiedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ModifiedDate, true
+	return &o.ModifiedDate, true
 }
 
-// HasModifiedDate returns a boolean if a field has been set.
-func (o *TestResultHistoryReportModel) HasModifiedDate() bool {
-	if o != nil && !IsNil(o.ModifiedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetModifiedDate gets a reference to the given time.Time and assigns it to the ModifiedDate field.
+// SetModifiedDate sets field value
 func (o *TestResultHistoryReportModel) SetModifiedDate(v time.Time) {
-	o.ModifiedDate = &v
+	o.ModifiedDate = v
 }
 
-// GetUserId returns the UserId field value if set, zero value otherwise.
+// GetUserId returns the UserId field value
 func (o *TestResultHistoryReportModel) GetUserId() string {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UserId
+
+	return o.UserId
 }
 
-// GetUserIdOk returns a tuple with the UserId field value if set, nil otherwise
+// GetUserIdOk returns a tuple with the UserId field value
 // and a boolean to check if the value has been set.
 func (o *TestResultHistoryReportModel) GetUserIdOk() (*string, bool) {
-	if o == nil || IsNil(o.UserId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.UserId, true
+	return &o.UserId, true
 }
 
-// HasUserId returns a boolean if a field has been set.
-func (o *TestResultHistoryReportModel) HasUserId() bool {
-	if o != nil && !IsNil(o.UserId) {
-		return true
-	}
-
-	return false
-}
-
-// SetUserId gets a reference to the given string and assigns it to the UserId field.
+// SetUserId sets field value
 func (o *TestResultHistoryReportModel) SetUserId(v string) {
-	o.UserId = &v
+	o.UserId = v
 }
 
 // GetTestRunId returns the TestRunId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -493,36 +467,28 @@ func (o *TestResultHistoryReportModel) UnsetConfigurationName() {
 	o.ConfigurationName.Unset()
 }
 
-// GetIsAutomated returns the IsAutomated field value if set, zero value otherwise.
+// GetIsAutomated returns the IsAutomated field value
 func (o *TestResultHistoryReportModel) GetIsAutomated() bool {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsAutomated
+
+	return o.IsAutomated
 }
 
-// GetIsAutomatedOk returns a tuple with the IsAutomated field value if set, nil otherwise
+// GetIsAutomatedOk returns a tuple with the IsAutomated field value
 // and a boolean to check if the value has been set.
 func (o *TestResultHistoryReportModel) GetIsAutomatedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsAutomated) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsAutomated, true
+	return &o.IsAutomated, true
 }
 
-// HasIsAutomated returns a boolean if a field has been set.
-func (o *TestResultHistoryReportModel) HasIsAutomated() bool {
-	if o != nil && !IsNil(o.IsAutomated) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsAutomated gets a reference to the given bool and assigns it to the IsAutomated field.
+// SetIsAutomated sets field value
 func (o *TestResultHistoryReportModel) SetIsAutomated(v bool) {
-	o.IsAutomated = &v
+	o.IsAutomated = v
 }
 
 // GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -768,36 +734,28 @@ func (o *TestResultHistoryReportModel) UnsetDuration() {
 	o.Duration.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *TestResultHistoryReportModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *TestResultHistoryReportModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *TestResultHistoryReportModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *TestResultHistoryReportModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1001,9 +959,9 @@ func (o *TestResultHistoryReportModel) UnsetLaunchSource() {
 	o.LaunchSource.Unset()
 }
 
-// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise.
+// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestResultHistoryReportModel) GetFailureClassIds() []string {
-	if o == nil || IsNil(o.FailureClassIds) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -1012,6 +970,7 @@ func (o *TestResultHistoryReportModel) GetFailureClassIds() []string {
 
 // GetFailureClassIdsOk returns a tuple with the FailureClassIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultHistoryReportModel) GetFailureClassIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.FailureClassIds) {
 		return nil, false
@@ -1021,7 +980,7 @@ func (o *TestResultHistoryReportModel) GetFailureClassIdsOk() ([]string, bool) {
 
 // HasFailureClassIds returns a boolean if a field has been set.
 func (o *TestResultHistoryReportModel) HasFailureClassIds() bool {
-	if o != nil && !IsNil(o.FailureClassIds) {
+	if o != nil && IsNil(o.FailureClassIds) {
 		return true
 	}
 
@@ -1076,18 +1035,10 @@ func (o TestResultHistoryReportModel) MarshalJSON() ([]byte, error) {
 
 func (o TestResultHistoryReportModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
-	if !IsNil(o.ModifiedDate) {
-		toSerialize["modifiedDate"] = o.ModifiedDate
-	}
-	if !IsNil(o.UserId) {
-		toSerialize["userId"] = o.UserId
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["createdDate"] = o.CreatedDate
+	toSerialize["modifiedDate"] = o.ModifiedDate
+	toSerialize["userId"] = o.UserId
 	if o.TestRunId.IsSet() {
 		toSerialize["testRunId"] = o.TestRunId.Get()
 	}
@@ -1109,9 +1060,7 @@ func (o TestResultHistoryReportModel) ToMap() (map[string]interface{}, error) {
 	if o.ConfigurationName.IsSet() {
 		toSerialize["configurationName"] = o.ConfigurationName.Get()
 	}
-	if !IsNil(o.IsAutomated) {
-		toSerialize["isAutomated"] = o.IsAutomated
-	}
+	toSerialize["isAutomated"] = o.IsAutomated
 	if o.Outcome.IsSet() {
 		toSerialize["outcome"] = o.Outcome.Get()
 	}
@@ -1130,9 +1079,7 @@ func (o TestResultHistoryReportModel) ToMap() (map[string]interface{}, error) {
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
@@ -1148,7 +1095,7 @@ func (o TestResultHistoryReportModel) ToMap() (map[string]interface{}, error) {
 	if o.LaunchSource.IsSet() {
 		toSerialize["launchSource"] = o.LaunchSource.Get()
 	}
-	if !IsNil(o.FailureClassIds) {
+	if o.FailureClassIds != nil {
 		toSerialize["failureClassIds"] = o.FailureClassIds
 	}
 	if o.Parameters != nil {
