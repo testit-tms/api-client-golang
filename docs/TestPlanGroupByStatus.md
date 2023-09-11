@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** |  | [optional] 
-**Value** | Pointer to **int64** |  | [optional] 
+**Status** | Pointer to **NullableString** |  | [optional] 
+**Value** | **int64** |  | 
 
 ## Methods
 
 ### NewTestPlanGroupByStatus
 
-`func NewTestPlanGroupByStatus() *TestPlanGroupByStatus`
+`func NewTestPlanGroupByStatus(value int64, ) *TestPlanGroupByStatus`
 
 NewTestPlanGroupByStatus instantiates a new TestPlanGroupByStatus object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +51,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *TestPlanGroupByStatus) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *TestPlanGroupByStatus) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
 `func (o *TestPlanGroupByStatus) GetValue() int64`
@@ -70,11 +80,6 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-### HasValue
-
-`func (o *TestPlanGroupByStatus) HasValue() bool`
-
-HasValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

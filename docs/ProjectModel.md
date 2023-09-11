@@ -4,28 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Unique ID of the project | [optional] 
+**Id** | **string** | Unique ID of the project | 
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
-**Name** | Pointer to **string** | Name of the project | [optional] 
-**IsFavorite** | Pointer to **bool** | Indicates if the project is marked as favorite | [optional] 
+**Name** | Pointer to **NullableString** | Name of the project | [optional] 
+**IsFavorite** | **bool** | Indicates if the project is marked as favorite | 
 **AttributesScheme** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) | Collection of the project attributes | [optional] 
 **TestPlansAttributesScheme** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) | Collection of the project test plans attributes | [optional] 
 **TestCasesCount** | Pointer to **NullableInt32** | Number of test cases in the project | [optional] 
 **SharedStepsCount** | Pointer to **NullableInt32** | Number of shared steps in the project | [optional] 
 **CheckListsCount** | Pointer to **NullableInt32** | Number of checklists in the project | [optional] 
 **AutoTestsCount** | Pointer to **NullableInt32** | Number of autotests in the project | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the project is deleted | [optional] 
-**CreatedDate** | Pointer to **time.Time** | Creation date of the project | [optional] 
+**IsDeleted** | **bool** | Indicates if the project is deleted | 
+**CreatedDate** | **time.Time** | Creation date of the project | 
 **ModifiedDate** | Pointer to **NullableTime** | Last modification date of the project | [optional] 
-**CreatedById** | Pointer to **string** | Unique ID of the project creator | [optional] 
+**CreatedById** | **string** | Unique ID of the project creator | 
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
-**GlobalId** | Pointer to **int64** | Global ID of the project | [optional] 
+**GlobalId** | **int64** | Global ID of the project | 
 
 ## Methods
 
 ### NewProjectModel
 
-`func NewProjectModel() *ProjectModel`
+`func NewProjectModel(id string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, ) *ProjectModel`
 
 NewProjectModel instantiates a new ProjectModel object
 This constructor will assign default values to properties that have it defined,
@@ -59,11 +59,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *ProjectModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -125,6 +120,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ProjectModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ProjectModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsFavorite
 
 `func (o *ProjectModel) GetIsFavorite() bool`
@@ -144,11 +149,6 @@ and a boolean to check if the value has been set.
 
 SetIsFavorite sets IsFavorite field to given value.
 
-### HasIsFavorite
-
-`func (o *ProjectModel) HasIsFavorite() bool`
-
-HasIsFavorite returns a boolean if a field has been set.
 
 ### GetAttributesScheme
 
@@ -379,11 +379,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *ProjectModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -404,11 +399,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *ProjectModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -464,11 +454,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *ProjectModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -524,11 +509,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *ProjectModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

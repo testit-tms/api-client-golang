@@ -4,32 +4,32 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VersionId** | Pointer to **string** | used for versioning changes in workitem | [optional] 
-**MedianDuration** | Pointer to **int64** | used for getting a median duration of all autotests related to this workitem | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
-**ProjectId** | Pointer to **string** |  | [optional] 
+**VersionId** | **string** | used for versioning changes in workitem | 
+**MedianDuration** | **int64** | used for getting a median duration of all autotests related to this workitem | 
+**IsDeleted** | **bool** |  | 
+**ProjectId** | **string** |  | 
 **EntityTypeName** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
-**IsAutomated** | Pointer to **bool** |  | [optional] 
+**IsAutomated** | **bool** |  | 
 **AutoTests** | Pointer to [**[]AutoTestModel**](AutoTestModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
 **SectionPreconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
 **SectionPostconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
-**VersionNumber** | Pointer to **int32** | used for define chronology of workitem state in each version | [optional] 
+**VersionNumber** | **int32** | used for define chronology of workitem state in each version | 
 **Iterations** | Pointer to [**[]IterationModel**](IterationModel.md) |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
+**GlobalId** | **int64** |  | 
 **Id** | **string** |  | 
-**SectionId** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
+**SectionId** | **string** |  | 
+**Description** | Pointer to **NullableString** |  | [optional] 
 **State** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **Steps** | [**[]StepModel**](StepModel.md) |  | 
 **PreconditionSteps** | [**[]StepModel**](StepModel.md) |  | 
 **PostconditionSteps** | [**[]StepModel**](StepModel.md) |  | 
-**Duration** | Pointer to **int32** |  | [optional] 
+**Duration** | **int32** |  | 
 **Attributes** | **map[string]interface{}** |  | 
 **Tags** | [**[]TagShortModel**](TagShortModel.md) |  | 
 **Links** | [**[]LinkModel**](LinkModel.md) |  | 
@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemModel
 
-`func NewWorkItemModel(entityTypeName WorkItemEntityTypes, id string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, attributes map[string]interface{}, tags []TagShortModel, links []LinkModel, name string, ) *WorkItemModel`
+`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkModel, name string, ) *WorkItemModel`
 
 NewWorkItemModel instantiates a new WorkItemModel object
 This constructor will assign default values to properties that have it defined,
@@ -73,11 +73,6 @@ and a boolean to check if the value has been set.
 
 SetVersionId sets VersionId field to given value.
 
-### HasVersionId
-
-`func (o *WorkItemModel) HasVersionId() bool`
-
-HasVersionId returns a boolean if a field has been set.
 
 ### GetMedianDuration
 
@@ -98,11 +93,6 @@ and a boolean to check if the value has been set.
 
 SetMedianDuration sets MedianDuration field to given value.
 
-### HasMedianDuration
-
-`func (o *WorkItemModel) HasMedianDuration() bool`
-
-HasMedianDuration returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -123,11 +113,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *WorkItemModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetProjectId
 
@@ -148,11 +133,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *WorkItemModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetEntityTypeName
 
@@ -193,11 +173,6 @@ and a boolean to check if the value has been set.
 
 SetIsAutomated sets IsAutomated field to given value.
 
-### HasIsAutomated
-
-`func (o *WorkItemModel) HasIsAutomated() bool`
-
-HasIsAutomated returns a boolean if a field has been set.
 
 ### GetAutoTests
 
@@ -358,11 +333,6 @@ and a boolean to check if the value has been set.
 
 SetVersionNumber sets VersionNumber field to given value.
 
-### HasVersionNumber
-
-`func (o *WorkItemModel) HasVersionNumber() bool`
-
-HasVersionNumber returns a boolean if a field has been set.
 
 ### GetIterations
 
@@ -418,11 +388,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *WorkItemModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -478,11 +443,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *WorkItemModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -538,11 +498,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *WorkItemModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -583,11 +538,6 @@ and a boolean to check if the value has been set.
 
 SetSectionId sets SectionId field to given value.
 
-### HasSectionId
-
-`func (o *WorkItemModel) HasSectionId() bool`
-
-HasSectionId returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -614,6 +564,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *WorkItemModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *WorkItemModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetState
 
 `func (o *WorkItemModel) GetState() WorkItemStates`
@@ -733,11 +693,6 @@ and a boolean to check if the value has been set.
 
 SetDuration sets Duration field to given value.
 
-### HasDuration
-
-`func (o *WorkItemModel) HasDuration() bool`
-
-HasDuration returns a boolean if a field has been set.
 
 ### GetAttributes
 

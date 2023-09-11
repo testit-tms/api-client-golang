@@ -19,15 +19,16 @@ var _ MappedNullable = &AutoTestIdModel{}
 
 // AutoTestIdModel struct for AutoTestIdModel
 type AutoTestIdModel struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // NewAutoTestIdModel instantiates a new AutoTestIdModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestIdModel() *AutoTestIdModel {
+func NewAutoTestIdModel(id string) *AutoTestIdModel {
 	this := AutoTestIdModel{}
+	this.Id = id
 	return &this
 }
 
@@ -39,36 +40,28 @@ func NewAutoTestIdModelWithDefaults() *AutoTestIdModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *AutoTestIdModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AutoTestIdModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AutoTestIdModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *AutoTestIdModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 func (o AutoTestIdModel) MarshalJSON() ([]byte, error) {
@@ -81,9 +74,7 @@ func (o AutoTestIdModel) MarshalJSON() ([]byte, error) {
 
 func (o AutoTestIdModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }
 

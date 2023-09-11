@@ -22,20 +22,23 @@ type TestSuiteWithChildrenModel struct {
 	Children []TestSuiteWithChildrenModel `json:"children,omitempty"`
 	TesterId NullableString `json:"testerId,omitempty"`
 	ParentId NullableString `json:"parentId,omitempty"`
-	TestPlanId *string `json:"testPlanId,omitempty"`
-	Name *string `json:"name,omitempty"`
+	TestPlanId string `json:"testPlanId"`
+	Name NullableString `json:"name,omitempty"`
 	// Unique ID of the entity
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Indicates if the entity is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 }
 
 // NewTestSuiteWithChildrenModel instantiates a new TestSuiteWithChildrenModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestSuiteWithChildrenModel() *TestSuiteWithChildrenModel {
+func NewTestSuiteWithChildrenModel(testPlanId string, id string, isDeleted bool) *TestSuiteWithChildrenModel {
 	this := TestSuiteWithChildrenModel{}
+	this.TestPlanId = testPlanId
+	this.Id = id
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -164,132 +167,118 @@ func (o *TestSuiteWithChildrenModel) UnsetParentId() {
 	o.ParentId.Unset()
 }
 
-// GetTestPlanId returns the TestPlanId field value if set, zero value otherwise.
+// GetTestPlanId returns the TestPlanId field value
 func (o *TestSuiteWithChildrenModel) GetTestPlanId() string {
-	if o == nil || IsNil(o.TestPlanId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestPlanId
+
+	return o.TestPlanId
 }
 
-// GetTestPlanIdOk returns a tuple with the TestPlanId field value if set, nil otherwise
+// GetTestPlanIdOk returns a tuple with the TestPlanId field value
 // and a boolean to check if the value has been set.
 func (o *TestSuiteWithChildrenModel) GetTestPlanIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestPlanId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPlanId, true
+	return &o.TestPlanId, true
 }
 
-// HasTestPlanId returns a boolean if a field has been set.
-func (o *TestSuiteWithChildrenModel) HasTestPlanId() bool {
-	if o != nil && !IsNil(o.TestPlanId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlanId gets a reference to the given string and assigns it to the TestPlanId field.
+// SetTestPlanId sets field value
 func (o *TestSuiteWithChildrenModel) SetTestPlanId(v string) {
-	o.TestPlanId = &v
+	o.TestPlanId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestSuiteWithChildrenModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestSuiteWithChildrenModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *TestSuiteWithChildrenModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *TestSuiteWithChildrenModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *TestSuiteWithChildrenModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *TestSuiteWithChildrenModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetId returns the Id field value
 func (o *TestSuiteWithChildrenModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestSuiteWithChildrenModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestSuiteWithChildrenModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestSuiteWithChildrenModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *TestSuiteWithChildrenModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *TestSuiteWithChildrenModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *TestSuiteWithChildrenModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *TestSuiteWithChildrenModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 func (o TestSuiteWithChildrenModel) MarshalJSON() ([]byte, error) {
@@ -311,18 +300,12 @@ func (o TestSuiteWithChildrenModel) ToMap() (map[string]interface{}, error) {
 	if o.ParentId.IsSet() {
 		toSerialize["parentId"] = o.ParentId.Get()
 	}
-	if !IsNil(o.TestPlanId) {
-		toSerialize["testPlanId"] = o.TestPlanId
+	toSerialize["testPlanId"] = o.TestPlanId
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
 }
 

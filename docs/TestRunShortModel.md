@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StateName** | [**TestRunState**](TestRunState.md) |  | 
-**ProjectId** | Pointer to **string** |  | [optional] 
+**ProjectId** | **string** |  | 
 **TestPlanId** | Pointer to **NullableString** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewTestRunShortModel
 
-`func NewTestRunShortModel(stateName TestRunState, ) *TestRunShortModel`
+`func NewTestRunShortModel(stateName TestRunState, projectId string, id string, isDeleted bool, ) *TestRunShortModel`
 
 NewTestRunShortModel instantiates a new TestRunShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -70,11 +70,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *TestRunShortModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetTestPlanId
 
@@ -200,11 +195,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestRunShortModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -225,11 +215,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *TestRunShortModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

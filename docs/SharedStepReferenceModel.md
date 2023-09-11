@@ -4,30 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**EntityTypeName** | Pointer to **string** |  | [optional] 
-**HasThisSharedStepAsStep** | Pointer to **bool** |  | [optional] 
-**HasThisSharedStepAsPrecondition** | Pointer to **bool** |  | [optional] 
-**HasThisSharedStepAsPostcondition** | Pointer to **bool** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**GlobalId** | **int64** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**EntityTypeName** | Pointer to **NullableString** |  | [optional] 
+**HasThisSharedStepAsStep** | **bool** |  | 
+**HasThisSharedStepAsPrecondition** | **bool** |  | 
+**HasThisSharedStepAsPostcondition** | **bool** |  | 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**State** | Pointer to **string** |  | [optional] 
+**State** | Pointer to **NullableString** |  | [optional] 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
-**VersionId** | Pointer to **string** | used for versioning changes in workitem | [optional] 
-**IsAutomated** | Pointer to **bool** |  | [optional] 
-**SectionId** | Pointer to **string** |  | [optional] 
+**IsDeleted** | **bool** |  | 
+**VersionId** | **string** | used for versioning changes in workitem | 
+**IsAutomated** | **bool** |  | 
+**SectionId** | **string** |  | 
 **Tags** | Pointer to [**[]TagShortModel**](TagShortModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewSharedStepReferenceModel
 
-`func NewSharedStepReferenceModel(priority WorkItemPriorityModel, ) *SharedStepReferenceModel`
+`func NewSharedStepReferenceModel(id string, globalId int64, hasThisSharedStepAsStep bool, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, priority WorkItemPriorityModel, isDeleted bool, versionId string, isAutomated bool, sectionId string, ) *SharedStepReferenceModel`
 
 NewSharedStepReferenceModel instantiates a new SharedStepReferenceModel object
 This constructor will assign default values to properties that have it defined,
@@ -61,11 +61,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *SharedStepReferenceModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetGlobalId
 
@@ -86,11 +81,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *SharedStepReferenceModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -117,6 +107,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *SharedStepReferenceModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *SharedStepReferenceModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetEntityTypeName
 
 `func (o *SharedStepReferenceModel) GetEntityTypeName() string`
@@ -142,6 +142,16 @@ SetEntityTypeName sets EntityTypeName field to given value.
 
 HasEntityTypeName returns a boolean if a field has been set.
 
+### SetEntityTypeNameNil
+
+`func (o *SharedStepReferenceModel) SetEntityTypeNameNil(b bool)`
+
+ SetEntityTypeNameNil sets the value for EntityTypeName to be an explicit nil
+
+### UnsetEntityTypeName
+`func (o *SharedStepReferenceModel) UnsetEntityTypeName()`
+
+UnsetEntityTypeName ensures that no value is present for EntityTypeName, not even an explicit nil
 ### GetHasThisSharedStepAsStep
 
 `func (o *SharedStepReferenceModel) GetHasThisSharedStepAsStep() bool`
@@ -161,11 +171,6 @@ and a boolean to check if the value has been set.
 
 SetHasThisSharedStepAsStep sets HasThisSharedStepAsStep field to given value.
 
-### HasHasThisSharedStepAsStep
-
-`func (o *SharedStepReferenceModel) HasHasThisSharedStepAsStep() bool`
-
-HasHasThisSharedStepAsStep returns a boolean if a field has been set.
 
 ### GetHasThisSharedStepAsPrecondition
 
@@ -186,11 +191,6 @@ and a boolean to check if the value has been set.
 
 SetHasThisSharedStepAsPrecondition sets HasThisSharedStepAsPrecondition field to given value.
 
-### HasHasThisSharedStepAsPrecondition
-
-`func (o *SharedStepReferenceModel) HasHasThisSharedStepAsPrecondition() bool`
-
-HasHasThisSharedStepAsPrecondition returns a boolean if a field has been set.
 
 ### GetHasThisSharedStepAsPostcondition
 
@@ -211,11 +211,6 @@ and a boolean to check if the value has been set.
 
 SetHasThisSharedStepAsPostcondition sets HasThisSharedStepAsPostcondition field to given value.
 
-### HasHasThisSharedStepAsPostcondition
-
-`func (o *SharedStepReferenceModel) HasHasThisSharedStepAsPostcondition() bool`
-
-HasHasThisSharedStepAsPostcondition returns a boolean if a field has been set.
 
 ### GetCreatedById
 
@@ -236,11 +231,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *SharedStepReferenceModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -372,6 +362,16 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *SharedStepReferenceModel) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *SharedStepReferenceModel) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetPriority
 
 `func (o *SharedStepReferenceModel) GetPriority() WorkItemPriorityModel`
@@ -411,11 +411,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *SharedStepReferenceModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetVersionId
 
@@ -436,11 +431,6 @@ and a boolean to check if the value has been set.
 
 SetVersionId sets VersionId field to given value.
 
-### HasVersionId
-
-`func (o *SharedStepReferenceModel) HasVersionId() bool`
-
-HasVersionId returns a boolean if a field has been set.
 
 ### GetIsAutomated
 
@@ -461,11 +451,6 @@ and a boolean to check if the value has been set.
 
 SetIsAutomated sets IsAutomated field to given value.
 
-### HasIsAutomated
-
-`func (o *SharedStepReferenceModel) HasIsAutomated() bool`
-
-HasIsAutomated returns a boolean if a field has been set.
 
 ### GetSectionId
 
@@ -486,11 +471,6 @@ and a boolean to check if the value has been set.
 
 SetSectionId sets SectionId field to given value.
 
-### HasSectionId
-
-`func (o *SharedStepReferenceModel) HasSectionId() bool`
-
-HasSectionId returns a boolean if a field has been set.
 
 ### GetTags
 

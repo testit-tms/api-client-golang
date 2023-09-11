@@ -8,6 +8,7 @@
 |---------|------------|
 | 4.2     | 1.0.0      |
 | 4.3     | 1.1.0      |
+| 4.4     | 1.2.0      |
 
 ### Installation
 
@@ -85,8 +86,10 @@ Class | Method | HTTP request | Description
 *AutoTestsApi* | [**LinkAutoTestToWorkItem**](docs/AutoTestsApi.md#linkautotesttoworkitem) | **Post** /api/v2/autoTests/{id}/workItems | Link autotest with work items
 *AutoTestsApi* | [**UpdateAutoTest**](docs/AutoTestsApi.md#updateautotest) | **Put** /api/v2/autoTests | Update autotest
 *AutoTestsApi* | [**UpdateMultiple**](docs/AutoTestsApi.md#updatemultiple) | **Put** /api/v2/autoTests/bulk | Update multiple autotests
-*BackgroundJobsApi* | [**ApiV2BackgroundJobsGet**](docs/BackgroundJobsApi.md#apiv2backgroundjobsget) | **Get** /api/v2/backgroundJobs | Get current user background jobs
+*BackgroundJobsApi* | [**ApiV2BackgroundJobsGet**](docs/BackgroundJobsApi.md#apiv2backgroundjobsget) | **Get** /api/v2/backgroundJobs | 
 *BackgroundJobsApi* | [**ApiV2BackgroundJobsIdCancelPost**](docs/BackgroundJobsApi.md#apiv2backgroundjobsidcancelpost) | **Post** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
+*BackgroundJobsApi* | [**ApiV2BackgroundJobsIdGet**](docs/BackgroundJobsApi.md#apiv2backgroundjobsidget) | **Get** /api/v2/backgroundJobs/{id} | Get background job by ID
+*BackgroundJobsApi* | [**ApiV2BackgroundJobsSearchPost**](docs/BackgroundJobsApi.md#apiv2backgroundjobssearchpost) | **Post** /api/v2/backgroundJobs/search | Search for user background jobs
 *ConfigurationsApi* | [**ApiV2ConfigurationsCreateByParametersPost**](docs/ConfigurationsApi.md#apiv2configurationscreatebyparameterspost) | **Post** /api/v2/configurations/createByParameters | Create Configurations by parameters
 *ConfigurationsApi* | [**ApiV2ConfigurationsDeleteBulkPost**](docs/ConfigurationsApi.md#apiv2configurationsdeletebulkpost) | **Post** /api/v2/configurations/delete/bulk | Delete multiple configurations
 *ConfigurationsApi* | [**ApiV2ConfigurationsIdDelete**](docs/ConfigurationsApi.md#apiv2configurationsiddelete) | **Delete** /api/v2/configurations/{id} | Delete configuration
@@ -123,6 +126,7 @@ Class | Method | HTTP request | Description
 *ParametersApi* | [**ApiV2ParametersKeyNameNameExistsGet**](docs/ParametersApi.md#apiv2parameterskeynamenameexistsget) | **Get** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system
 *ParametersApi* | [**ApiV2ParametersKeyValuesGet**](docs/ParametersApi.md#apiv2parameterskeyvaluesget) | **Get** /api/v2/parameters/{key}/values | Get all parameter key values
 *ParametersApi* | [**ApiV2ParametersKeysGet**](docs/ParametersApi.md#apiv2parameterskeysget) | **Get** /api/v2/parameters/keys | Get all parameter keys
+*ParametersApi* | [**ApiV2ParametersSearchGroupsPost**](docs/ParametersApi.md#apiv2parameterssearchgroupspost) | **Post** /api/v2/parameters/search/groups | Search for parameters as group
 *ParametersApi* | [**ApiV2ParametersSearchPost**](docs/ParametersApi.md#apiv2parameterssearchpost) | **Post** /api/v2/parameters/search | Search for parameters
 *ParametersApi* | [**CreateParameter**](docs/ParametersApi.md#createparameter) | **Post** /api/v2/parameters | Create parameter
 *ParametersApi* | [**DeleteByName**](docs/ParametersApi.md#deletebyname) | **Delete** /api/v2/parameters/name/{name} | Delete parameter by name
@@ -135,10 +139,13 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**ApiV2ProjectsIdAttributesTemplatesSearchPost**](docs/ProjectsApi.md#apiv2projectsidattributestemplatessearchpost) | **Post** /api/v2/projects/{id}/attributes/templates/search | Search for custom attributes templates
 *ProjectsApi* | [**ApiV2ProjectsIdAttributesTemplatesTemplateIdDelete**](docs/ProjectsApi.md#apiv2projectsidattributestemplatestemplateiddelete) | **Delete** /api/v2/projects/{id}/attributes/templates/{templateId} | Delete CustomAttributeTemplate from Project
 *ProjectsApi* | [**ApiV2ProjectsIdAttributesTemplatesTemplateIdPost**](docs/ProjectsApi.md#apiv2projectsidattributestemplatestemplateidpost) | **Post** /api/v2/projects/{id}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project
-*ProjectsApi* | [**ApiV2ProjectsIdFailureClassesGet**](docs/ProjectsApi.md#apiv2projectsidfailureclassesget) | **Get** /api/v2/projects/{id}/failureClasses | Get Project FailureClasses
+*ProjectsApi* | [**ApiV2ProjectsIdDelete**](docs/ProjectsApi.md#apiv2projectsiddelete) | **Delete** /api/v2/projects/{id} | Archive project
+*ProjectsApi* | [**ApiV2ProjectsIdFailureClassesGet**](docs/ProjectsApi.md#apiv2projectsidfailureclassesget) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsApi* | [**ApiV2ProjectsIdFavoritePut**](docs/ProjectsApi.md#apiv2projectsidfavoriteput) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
 *ProjectsApi* | [**ApiV2ProjectsIdFiltersGet**](docs/ProjectsApi.md#apiv2projectsidfiltersget) | **Get** /api/v2/projects/{id}/filters | Get Project filters
 *ProjectsApi* | [**ApiV2ProjectsIdPatch**](docs/ProjectsApi.md#apiv2projectsidpatch) | **Patch** /api/v2/projects/{id} | Patch project
+*ProjectsApi* | [**ApiV2ProjectsIdPurgePost**](docs/ProjectsApi.md#apiv2projectsidpurgepost) | **Post** /api/v2/projects/{id}/purge | Purge archived project
+*ProjectsApi* | [**ApiV2ProjectsIdRestorePost**](docs/ProjectsApi.md#apiv2projectsidrestorepost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansAnalyticsGet**](docs/ProjectsApi.md#apiv2projectsidtestplansanalyticsget) | **Get** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansDeleteBulkPost**](docs/ProjectsApi.md#apiv2projectsidtestplansdeletebulkpost) | **Post** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
 *ProjectsApi* | [**ApiV2ProjectsIdTestPlansNameExistsGet**](docs/ProjectsApi.md#apiv2projectsidtestplansnameexistsget) | **Get** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
@@ -151,6 +158,8 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**ApiV2ProjectsIdWorkItemsSearchPost**](docs/ProjectsApi.md#apiv2projectsidworkitemssearchpost) | **Post** /api/v2/projects/{id}/workItems/search | Search for work items
 *ProjectsApi* | [**ApiV2ProjectsIdWorkItemsTagsGet**](docs/ProjectsApi.md#apiv2projectsidworkitemstagsget) | **Get** /api/v2/projects/{id}/workItems/tags | Get WorkItems Tags
 *ProjectsApi* | [**ApiV2ProjectsNameNameExistsGet**](docs/ProjectsApi.md#apiv2projectsnamenameexistsget) | **Get** /api/v2/projects/name/{name}/exists | 
+*ProjectsApi* | [**ApiV2ProjectsPurgeBulkPost**](docs/ProjectsApi.md#apiv2projectspurgebulkpost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
+*ProjectsApi* | [**ApiV2ProjectsRestoreBulkPost**](docs/ProjectsApi.md#apiv2projectsrestorebulkpost) | **Post** /api/v2/projects/restore/bulk | Restore multiple projects
 *ProjectsApi* | [**ApiV2ProjectsSearchPost**](docs/ProjectsApi.md#apiv2projectssearchpost) | **Post** /api/v2/projects/search | Search for projects
 *ProjectsApi* | [**BackgroundImportProject**](docs/ProjectsApi.md#backgroundimportproject) | **Post** /api/v2/projects/import/json | Import project from JSON file in background job
 *ProjectsApi* | [**BackgroundImportToExistingProject**](docs/ProjectsApi.md#backgroundimporttoexistingproject) | **Post** /api/v2/projects/{id}/import/json | Import project from JSON file into existing project in background job
@@ -161,8 +170,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**CreateProject**](docs/ProjectsApi.md#createproject) | **Post** /api/v2/projects | Create project
 *ProjectsApi* | [**CreateProjectsAttribute**](docs/ProjectsApi.md#createprojectsattribute) | **Post** /api/v2/projects/{id}/attributes | Create project attribute
 *ProjectsApi* | [**DeleteCustomAttributeTestPlanProjectRelations**](docs/ProjectsApi.md#deletecustomattributetestplanprojectrelations) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
-*ProjectsApi* | [**DeleteProject**](docs/ProjectsApi.md#deleteproject) | **Delete** /api/v2/projects/{id} | Delete project
-*ProjectsApi* | [**DeleteProjectAutoTests**](docs/ProjectsApi.md#deleteprojectautotests) | **Delete** /api/v2/projects/{id}/autoTests | Delete project
+*ProjectsApi* | [**DeleteProjectAutoTests**](docs/ProjectsApi.md#deleteprojectautotests) | **Delete** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 *ProjectsApi* | [**DeleteProjectsAttribute**](docs/ProjectsApi.md#deleteprojectsattribute) | **Delete** /api/v2/projects/{id}/attributes/{attributeId} | Delete project attribute
 *ProjectsApi* | [**Export**](docs/ProjectsApi.md#export) | **Post** /api/v2/projects/{id}/export | Export project as JSON file
 *ProjectsApi* | [**ExportProjectJson**](docs/ProjectsApi.md#exportprojectjson) | **Post** /api/v2/projects/{id}/export/json | Export project as JSON file in background job
@@ -182,12 +190,12 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**GetTestRunsByProjectId**](docs/ProjectsApi.md#gettestrunsbyprojectid) | **Get** /api/v2/projects/{id}/testRuns | Get project test runs
 *ProjectsApi* | [**GetWorkItemsByProjectId**](docs/ProjectsApi.md#getworkitemsbyprojectid) | **Get** /api/v2/projects/{id}/workItems | Get project work items
 *ProjectsApi* | [**ImportToExistingProject**](docs/ProjectsApi.md#importtoexistingproject) | **Post** /api/v2/projects/{id}/import | Import project from JSON file into existing project
-*ProjectsApi* | [**RestoreProject**](docs/ProjectsApi.md#restoreproject) | **Post** /api/v2/projects/{id}/restore | Restore project
 *ProjectsApi* | [**SearchAttributesInProject**](docs/ProjectsApi.md#searchattributesinproject) | **Post** /api/v2/projects/{id}/attributes/search | Search for attributes used in the project
 *ProjectsApi* | [**SearchTestPlanAttributesInProject**](docs/ProjectsApi.md#searchtestplanattributesinproject) | **Post** /api/v2/projects/{id}/testPlans/attributes/search | Search for attributes used in the project test plans
 *ProjectsApi* | [**UpdateCustomAttributeTestPlanProjectRelations**](docs/ProjectsApi.md#updatecustomattributetestplanprojectrelations) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
 *ProjectsApi* | [**UpdateProject**](docs/ProjectsApi.md#updateproject) | **Put** /api/v2/projects | Update project
 *ProjectsApi* | [**UpdateProjectsAttribute**](docs/ProjectsApi.md#updateprojectsattribute) | **Put** /api/v2/projects/{id}/attributes | Edit attribute of the project
+*SearchApi* | [**ApiV2SearchGlobalSearchPost**](docs/SearchApi.md#apiv2searchglobalsearchpost) | **Post** /api/v2/search/globalSearch | 
 *SectionsApi* | [**ApiV2SectionsIdPatch**](docs/SectionsApi.md#apiv2sectionsidpatch) | **Patch** /api/v2/sections/{id} | Patch section
 *SectionsApi* | [**CreateSection**](docs/SectionsApi.md#createsection) | **Post** /api/v2/sections | Create section
 *SectionsApi* | [**DeleteSection**](docs/SectionsApi.md#deletesection) | **Delete** /api/v2/sections/{id} | Delete section
@@ -249,6 +257,7 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**ApiV2TestRunsIdTestResultsBulkPut**](docs/TestRunsApi.md#apiv2testrunsidtestresultsbulkput) | **Put** /api/v2/testRuns/{id}/testResults/bulk | Partial edit of multiple test results in the test run
 *TestRunsApi* | [**ApiV2TestRunsIdTestResultsLastModifiedModificationDateGet**](docs/TestRunsApi.md#apiv2testrunsidtestresultslastmodifiedmodificationdateget) | **Get** /api/v2/testRuns/{id}/testResults/lastModified/modificationDate | Get modification date of last test result of the test run
 *TestRunsApi* | [**ApiV2TestRunsSearchPost**](docs/TestRunsApi.md#apiv2testrunssearchpost) | **Post** /api/v2/testRuns/search | Search for test runs
+*TestRunsApi* | [**ApiV2TestRunsUpdateMultiplePost**](docs/TestRunsApi.md#apiv2testrunsupdatemultiplepost) | **Post** /api/v2/testRuns/updateMultiple | Update multiple test runs
 *TestRunsApi* | [**CompleteTestRun**](docs/TestRunsApi.md#completetestrun) | **Post** /api/v2/testRuns/{id}/complete | Complete TestRun
 *TestRunsApi* | [**CreateAndFillByAutoTests**](docs/TestRunsApi.md#createandfillbyautotests) | **Post** /api/v2/testRuns/byAutoTests | Create test runs based on autotests and configurations
 *TestRunsApi* | [**CreateAndFillByConfigurations**](docs/TestRunsApi.md#createandfillbyconfigurations) | **Post** /api/v2/testRuns/byConfigurations | Create test runs picking the needed test points
@@ -270,7 +279,6 @@ Class | Method | HTTP request | Description
 *TestSuitesApi* | [**GetTestPointsById**](docs/TestSuitesApi.md#gettestpointsbyid) | **Get** /api/v2/testSuites/{id}/testPoints | Get TestPoints By Id
 *TestSuitesApi* | [**GetTestResultsById**](docs/TestSuitesApi.md#gettestresultsbyid) | **Get** /api/v2/testSuites/{id}/testResults | Get TestResults By Id
 *TestSuitesApi* | [**GetTestSuiteById**](docs/TestSuitesApi.md#gettestsuitebyid) | **Get** /api/v2/testSuites/{id} | Get TestSuite by Id
-*TestSuitesApi* | [**GetWorkItemsById**](docs/TestSuitesApi.md#getworkitemsbyid) | **Get** /api/v2/testSuites/{id}/workItems | 
 *TestSuitesApi* | [**SearchWorkItems**](docs/TestSuitesApi.md#searchworkitems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
 *TestSuitesApi* | [**SetConfigurationsByTestSuiteId**](docs/TestSuitesApi.md#setconfigurationsbytestsuiteid) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
 *WebhooksApi* | [**ApiV2WebhooksGet**](docs/WebhooksApi.md#apiv2webhooksget) | **Get** /api/v2/webhooks | Get all webhooks
@@ -296,13 +304,13 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**ApiV2WorkItemsMovePost**](docs/WorkItemsApi.md#apiv2workitemsmovepost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
 *WorkItemsApi* | [**ApiV2WorkItemsSearchPost**](docs/WorkItemsApi.md#apiv2workitemssearchpost) | **Post** /api/v2/workItems/search | Search for work items
 *WorkItemsApi* | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](docs/WorkItemsApi.md#apiv2workitemssharedstepidreferencessectionspost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
-*WorkItemsApi* | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](docs/WorkItemsApi.md#apiv2workitemssharedstepidreferencesworkitemspost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in workitems
+*WorkItemsApi* | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](docs/WorkItemsApi.md#apiv2workitemssharedstepidreferencesworkitemspost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
 *WorkItemsApi* | [**ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet**](docs/WorkItemsApi.md#apiv2workitemssharedstepssharedstepidreferencesget) | **Get** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
 *WorkItemsApi* | [**CreateWorkItem**](docs/WorkItemsApi.md#createworkitem) | **Post** /api/v2/workItems | Create Test Case, Checklist or Shared Step
 *WorkItemsApi* | [**DeleteAllWorkItemsFromAutoTest**](docs/WorkItemsApi.md#deleteallworkitemsfromautotest) | **Delete** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
 *WorkItemsApi* | [**DeleteWorkItem**](docs/WorkItemsApi.md#deleteworkitem) | **Delete** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
 *WorkItemsApi* | [**GetAutoTestsForWorkItem**](docs/WorkItemsApi.md#getautotestsforworkitem) | **Get** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
-*WorkItemsApi* | [**GetIterations**](docs/WorkItemsApi.md#getiterations) | **Get** /api/v2/workItems/{id}/iterations | Get iterations by workitem Id or GlobalId
+*WorkItemsApi* | [**GetIterations**](docs/WorkItemsApi.md#getiterations) | **Get** /api/v2/workItems/{id}/iterations | Get iterations by work item Id or GlobalId
 *WorkItemsApi* | [**GetWorkItemById**](docs/WorkItemsApi.md#getworkitembyid) | **Get** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
 *WorkItemsApi* | [**GetWorkItemChronology**](docs/WorkItemsApi.md#getworkitemchronology) | **Get** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
 *WorkItemsApi* | [**GetWorkItemVersions**](docs/WorkItemsApi.md#getworkitemversions) | **Get** /api/v2/workItems/{id}/versions | Get WorkItem versions

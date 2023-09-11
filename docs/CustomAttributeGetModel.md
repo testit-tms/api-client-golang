@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Unique ID of the attribute | [optional] 
+**Id** | **string** | Unique ID of the attribute | 
 **Options** | Pointer to [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options | [optional] 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
-**IsDeleted** | Pointer to **bool** | Indicates if the attribute is deleted | [optional] 
-**Name** | Pointer to **string** | Name of the attribute | [optional] 
-**IsEnabled** | Pointer to **bool** | Indicates if the attribute is enabled | [optional] 
-**IsRequired** | Pointer to **bool** | Indicates if the attribute is mandatory to specify | [optional] 
-**IsGlobal** | Pointer to **bool** | Indicates if the attribute is available across all projects | [optional] 
+**IsDeleted** | **bool** | Indicates if the attribute is deleted | 
+**Name** | Pointer to **NullableString** | Name of the attribute | [optional] 
+**IsEnabled** | **bool** | Indicates if the attribute is enabled | 
+**IsRequired** | **bool** | Indicates if the attribute is mandatory to specify | 
+**IsGlobal** | **bool** | Indicates if the attribute is available across all projects | 
 
 ## Methods
 
 ### NewCustomAttributeGetModel
 
-`func NewCustomAttributeGetModel(type_ CustomAttributeTypesEnum, ) *CustomAttributeGetModel`
+`func NewCustomAttributeGetModel(id string, type_ CustomAttributeTypesEnum, isDeleted bool, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeGetModel`
 
 NewCustomAttributeGetModel instantiates a new CustomAttributeGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -51,11 +51,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *CustomAttributeGetModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetOptions
 
@@ -82,6 +77,16 @@ SetOptions sets Options field to given value.
 
 HasOptions returns a boolean if a field has been set.
 
+### SetOptionsNil
+
+`func (o *CustomAttributeGetModel) SetOptionsNil(b bool)`
+
+ SetOptionsNil sets the value for Options to be an explicit nil
+
+### UnsetOptions
+`func (o *CustomAttributeGetModel) UnsetOptions()`
+
+UnsetOptions ensures that no value is present for Options, not even an explicit nil
 ### GetType
 
 `func (o *CustomAttributeGetModel) GetType() CustomAttributeTypesEnum`
@@ -121,11 +126,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *CustomAttributeGetModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetName
 
@@ -152,6 +152,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *CustomAttributeGetModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CustomAttributeGetModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *CustomAttributeGetModel) GetIsEnabled() bool`
@@ -171,11 +181,6 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
-### HasIsEnabled
-
-`func (o *CustomAttributeGetModel) HasIsEnabled() bool`
-
-HasIsEnabled returns a boolean if a field has been set.
 
 ### GetIsRequired
 
@@ -196,11 +201,6 @@ and a boolean to check if the value has been set.
 
 SetIsRequired sets IsRequired field to given value.
 
-### HasIsRequired
-
-`func (o *CustomAttributeGetModel) HasIsRequired() bool`
-
-HasIsRequired returns a boolean if a field has been set.
 
 ### GetIsGlobal
 
@@ -221,11 +221,6 @@ and a boolean to check if the value has been set.
 
 SetIsGlobal sets IsGlobal field to given value.
 
-### HasIsGlobal
-
-`func (o *CustomAttributeGetModel) HasIsGlobal() bool`
-
-HasIsGlobal returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

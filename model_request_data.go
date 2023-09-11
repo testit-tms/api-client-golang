@@ -20,19 +20,23 @@ var _ MappedNullable = &RequestData{}
 // RequestData struct for RequestData
 type RequestData struct {
 	Uri NullableString `json:"uri,omitempty"`
-	StatusCode *int32 `json:"statusCode,omitempty"`
+	StatusCode int32 `json:"statusCode"`
 	RequestBody NullableString `json:"requestBody,omitempty"`
-	RequestMeta *string `json:"requestMeta,omitempty"`
-	ResponseBody *string `json:"responseBody,omitempty"`
-	ResponseMeta *string `json:"responseMeta,omitempty"`
+	RequestMeta string `json:"requestMeta"`
+	ResponseBody string `json:"responseBody"`
+	ResponseMeta string `json:"responseMeta"`
 }
 
 // NewRequestData instantiates a new RequestData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRequestData() *RequestData {
+func NewRequestData(statusCode int32, requestMeta string, responseBody string, responseMeta string) *RequestData {
 	this := RequestData{}
+	this.StatusCode = statusCode
+	this.RequestMeta = requestMeta
+	this.ResponseBody = responseBody
+	this.ResponseMeta = responseMeta
 	return &this
 }
 
@@ -86,36 +90,28 @@ func (o *RequestData) UnsetUri() {
 	o.Uri.Unset()
 }
 
-// GetStatusCode returns the StatusCode field value if set, zero value otherwise.
+// GetStatusCode returns the StatusCode field value
 func (o *RequestData) GetStatusCode() int32 {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.StatusCode
+
+	return o.StatusCode
 }
 
-// GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
+// GetStatusCodeOk returns a tuple with the StatusCode field value
 // and a boolean to check if the value has been set.
 func (o *RequestData) GetStatusCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.StatusCode) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StatusCode, true
+	return &o.StatusCode, true
 }
 
-// HasStatusCode returns a boolean if a field has been set.
-func (o *RequestData) HasStatusCode() bool {
-	if o != nil && !IsNil(o.StatusCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatusCode gets a reference to the given int32 and assigns it to the StatusCode field.
+// SetStatusCode sets field value
 func (o *RequestData) SetStatusCode(v int32) {
-	o.StatusCode = &v
+	o.StatusCode = v
 }
 
 // GetRequestBody returns the RequestBody field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -160,100 +156,76 @@ func (o *RequestData) UnsetRequestBody() {
 	o.RequestBody.Unset()
 }
 
-// GetRequestMeta returns the RequestMeta field value if set, zero value otherwise.
+// GetRequestMeta returns the RequestMeta field value
 func (o *RequestData) GetRequestMeta() string {
-	if o == nil || IsNil(o.RequestMeta) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RequestMeta
+
+	return o.RequestMeta
 }
 
-// GetRequestMetaOk returns a tuple with the RequestMeta field value if set, nil otherwise
+// GetRequestMetaOk returns a tuple with the RequestMeta field value
 // and a boolean to check if the value has been set.
 func (o *RequestData) GetRequestMetaOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestMeta) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestMeta, true
+	return &o.RequestMeta, true
 }
 
-// HasRequestMeta returns a boolean if a field has been set.
-func (o *RequestData) HasRequestMeta() bool {
-	if o != nil && !IsNil(o.RequestMeta) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestMeta gets a reference to the given string and assigns it to the RequestMeta field.
+// SetRequestMeta sets field value
 func (o *RequestData) SetRequestMeta(v string) {
-	o.RequestMeta = &v
+	o.RequestMeta = v
 }
 
-// GetResponseBody returns the ResponseBody field value if set, zero value otherwise.
+// GetResponseBody returns the ResponseBody field value
 func (o *RequestData) GetResponseBody() string {
-	if o == nil || IsNil(o.ResponseBody) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ResponseBody
+
+	return o.ResponseBody
 }
 
-// GetResponseBodyOk returns a tuple with the ResponseBody field value if set, nil otherwise
+// GetResponseBodyOk returns a tuple with the ResponseBody field value
 // and a boolean to check if the value has been set.
 func (o *RequestData) GetResponseBodyOk() (*string, bool) {
-	if o == nil || IsNil(o.ResponseBody) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResponseBody, true
+	return &o.ResponseBody, true
 }
 
-// HasResponseBody returns a boolean if a field has been set.
-func (o *RequestData) HasResponseBody() bool {
-	if o != nil && !IsNil(o.ResponseBody) {
-		return true
-	}
-
-	return false
-}
-
-// SetResponseBody gets a reference to the given string and assigns it to the ResponseBody field.
+// SetResponseBody sets field value
 func (o *RequestData) SetResponseBody(v string) {
-	o.ResponseBody = &v
+	o.ResponseBody = v
 }
 
-// GetResponseMeta returns the ResponseMeta field value if set, zero value otherwise.
+// GetResponseMeta returns the ResponseMeta field value
 func (o *RequestData) GetResponseMeta() string {
-	if o == nil || IsNil(o.ResponseMeta) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ResponseMeta
+
+	return o.ResponseMeta
 }
 
-// GetResponseMetaOk returns a tuple with the ResponseMeta field value if set, nil otherwise
+// GetResponseMetaOk returns a tuple with the ResponseMeta field value
 // and a boolean to check if the value has been set.
 func (o *RequestData) GetResponseMetaOk() (*string, bool) {
-	if o == nil || IsNil(o.ResponseMeta) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ResponseMeta, true
+	return &o.ResponseMeta, true
 }
 
-// HasResponseMeta returns a boolean if a field has been set.
-func (o *RequestData) HasResponseMeta() bool {
-	if o != nil && !IsNil(o.ResponseMeta) {
-		return true
-	}
-
-	return false
-}
-
-// SetResponseMeta gets a reference to the given string and assigns it to the ResponseMeta field.
+// SetResponseMeta sets field value
 func (o *RequestData) SetResponseMeta(v string) {
-	o.ResponseMeta = &v
+	o.ResponseMeta = v
 }
 
 func (o RequestData) MarshalJSON() ([]byte, error) {
@@ -269,21 +241,13 @@ func (o RequestData) ToMap() (map[string]interface{}, error) {
 	if o.Uri.IsSet() {
 		toSerialize["uri"] = o.Uri.Get()
 	}
-	if !IsNil(o.StatusCode) {
-		toSerialize["statusCode"] = o.StatusCode
-	}
+	toSerialize["statusCode"] = o.StatusCode
 	if o.RequestBody.IsSet() {
 		toSerialize["requestBody"] = o.RequestBody.Get()
 	}
-	if !IsNil(o.RequestMeta) {
-		toSerialize["requestMeta"] = o.RequestMeta
-	}
-	if !IsNil(o.ResponseBody) {
-		toSerialize["responseBody"] = o.ResponseBody
-	}
-	if !IsNil(o.ResponseMeta) {
-		toSerialize["responseMeta"] = o.ResponseMeta
-	}
+	toSerialize["requestMeta"] = o.RequestMeta
+	toSerialize["responseBody"] = o.ResponseBody
+	toSerialize["responseMeta"] = o.ResponseMeta
 	return toSerialize, nil
 }
 

@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
-**IsRead** | Pointer to **bool** |  | [optional] 
-**EntityId** | Pointer to **string** |  | [optional] 
+**IsRead** | **bool** |  | 
+**EntityId** | **string** |  | 
 **NotificationType** | [**NotificationTypeModel**](NotificationTypeModel.md) |  | 
 **ProjectGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **ProjectName** | Pointer to **NullableString** |  | [optional] 
-**TestPlanGlobalId** | Pointer to **int64** |  | [optional] 
-**TestPlanName** | Pointer to **string** |  | [optional] 
+**TestPlanGlobalId** | **int64** |  | 
+**TestPlanName** | Pointer to **NullableString** |  | [optional] 
 **WorkitemGlobalId** | Pointer to **NullableInt64** |  | [optional] 
-**Comment** | Pointer to **string** |  | [optional] 
-**WorkItemName** | Pointer to **string** |  | [optional] 
+**Comment** | Pointer to **NullableString** |  | [optional] 
+**WorkItemName** | Pointer to **NullableString** |  | [optional] 
 **AttributeName** | Pointer to **NullableString** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 
 ## Methods
 
 ### NewNotificationModel
 
-`func NewNotificationModel(notificationType NotificationTypeModel, ) *NotificationModel`
+`func NewNotificationModel(id string, isRead bool, entityId string, notificationType NotificationTypeModel, testPlanGlobalId int64, createdById string, ) *NotificationModel`
 
 NewNotificationModel instantiates a new NotificationModel object
 This constructor will assign default values to properties that have it defined,
@@ -57,11 +57,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *NotificationModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -117,11 +112,6 @@ and a boolean to check if the value has been set.
 
 SetIsRead sets IsRead field to given value.
 
-### HasIsRead
-
-`func (o *NotificationModel) HasIsRead() bool`
-
-HasIsRead returns a boolean if a field has been set.
 
 ### GetEntityId
 
@@ -142,11 +132,6 @@ and a boolean to check if the value has been set.
 
 SetEntityId sets EntityId field to given value.
 
-### HasEntityId
-
-`func (o *NotificationModel) HasEntityId() bool`
-
-HasEntityId returns a boolean if a field has been set.
 
 ### GetNotificationType
 
@@ -257,11 +242,6 @@ and a boolean to check if the value has been set.
 
 SetTestPlanGlobalId sets TestPlanGlobalId field to given value.
 
-### HasTestPlanGlobalId
-
-`func (o *NotificationModel) HasTestPlanGlobalId() bool`
-
-HasTestPlanGlobalId returns a boolean if a field has been set.
 
 ### GetTestPlanName
 
@@ -288,6 +268,16 @@ SetTestPlanName sets TestPlanName field to given value.
 
 HasTestPlanName returns a boolean if a field has been set.
 
+### SetTestPlanNameNil
+
+`func (o *NotificationModel) SetTestPlanNameNil(b bool)`
+
+ SetTestPlanNameNil sets the value for TestPlanName to be an explicit nil
+
+### UnsetTestPlanName
+`func (o *NotificationModel) UnsetTestPlanName()`
+
+UnsetTestPlanName ensures that no value is present for TestPlanName, not even an explicit nil
 ### GetWorkitemGlobalId
 
 `func (o *NotificationModel) GetWorkitemGlobalId() int64`
@@ -348,6 +338,16 @@ SetComment sets Comment field to given value.
 
 HasComment returns a boolean if a field has been set.
 
+### SetCommentNil
+
+`func (o *NotificationModel) SetCommentNil(b bool)`
+
+ SetCommentNil sets the value for Comment to be an explicit nil
+
+### UnsetComment
+`func (o *NotificationModel) UnsetComment()`
+
+UnsetComment ensures that no value is present for Comment, not even an explicit nil
 ### GetWorkItemName
 
 `func (o *NotificationModel) GetWorkItemName() string`
@@ -373,6 +373,16 @@ SetWorkItemName sets WorkItemName field to given value.
 
 HasWorkItemName returns a boolean if a field has been set.
 
+### SetWorkItemNameNil
+
+`func (o *NotificationModel) SetWorkItemNameNil(b bool)`
+
+ SetWorkItemNameNil sets the value for WorkItemName to be an explicit nil
+
+### UnsetWorkItemName
+`func (o *NotificationModel) UnsetWorkItemName()`
+
+UnsetWorkItemName ensures that no value is present for WorkItemName, not even an explicit nil
 ### GetAttributeName
 
 `func (o *NotificationModel) GetAttributeName() string`
@@ -427,11 +437,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *NotificationModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

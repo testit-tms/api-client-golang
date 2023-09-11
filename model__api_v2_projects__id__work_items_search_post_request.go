@@ -19,8 +19,8 @@ var _ MappedNullable = &ApiV2ProjectsIdWorkItemsSearchPostRequest{}
 
 // ApiV2ProjectsIdWorkItemsSearchPostRequest Model containing options to filter work items
 type ApiV2ProjectsIdWorkItemsSearchPostRequest struct {
-	Filter *WorkItemSelectModelFilter `json:"filter,omitempty"`
-	ExtractionModel *WorkItemSelectModelExtractionModel `json:"extractionModel,omitempty"`
+	Filter NullableWorkItemSelectModelFilter `json:"filter,omitempty"`
+	ExtractionModel NullableWorkItemSelectModelExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewApiV2ProjectsIdWorkItemsSearchPostRequest instantiates a new ApiV2ProjectsIdWorkItemsSearchPostRequest object
@@ -40,68 +40,88 @@ func NewApiV2ProjectsIdWorkItemsSearchPostRequestWithDefaults() *ApiV2ProjectsId
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise.
+// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) GetFilter() WorkItemSelectModelFilter {
-	if o == nil || IsNil(o.Filter) {
+	if o == nil || IsNil(o.Filter.Get()) {
 		var ret WorkItemSelectModelFilter
 		return ret
 	}
-	return *o.Filter
+	return *o.Filter.Get()
 }
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) GetFilterOk() (*WorkItemSelectModelFilter, bool) {
-	if o == nil || IsNil(o.Filter) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Filter, true
+	return o.Filter.Get(), o.Filter.IsSet()
 }
 
 // HasFilter returns a boolean if a field has been set.
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) HasFilter() bool {
-	if o != nil && !IsNil(o.Filter) {
+	if o != nil && o.Filter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFilter gets a reference to the given WorkItemSelectModelFilter and assigns it to the Filter field.
+// SetFilter gets a reference to the given NullableWorkItemSelectModelFilter and assigns it to the Filter field.
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) SetFilter(v WorkItemSelectModelFilter) {
-	o.Filter = &v
+	o.Filter.Set(&v)
+}
+// SetFilterNil sets the value for Filter to be an explicit nil
+func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) SetFilterNil() {
+	o.Filter.Set(nil)
 }
 
-// GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise.
+// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
+func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) UnsetFilter() {
+	o.Filter.Unset()
+}
+
+// GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) GetExtractionModel() WorkItemSelectModelExtractionModel {
-	if o == nil || IsNil(o.ExtractionModel) {
+	if o == nil || IsNil(o.ExtractionModel.Get()) {
 		var ret WorkItemSelectModelExtractionModel
 		return ret
 	}
-	return *o.ExtractionModel
+	return *o.ExtractionModel.Get()
 }
 
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) GetExtractionModelOk() (*WorkItemSelectModelExtractionModel, bool) {
-	if o == nil || IsNil(o.ExtractionModel) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExtractionModel, true
+	return o.ExtractionModel.Get(), o.ExtractionModel.IsSet()
 }
 
 // HasExtractionModel returns a boolean if a field has been set.
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) HasExtractionModel() bool {
-	if o != nil && !IsNil(o.ExtractionModel) {
+	if o != nil && o.ExtractionModel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExtractionModel gets a reference to the given WorkItemSelectModelExtractionModel and assigns it to the ExtractionModel field.
+// SetExtractionModel gets a reference to the given NullableWorkItemSelectModelExtractionModel and assigns it to the ExtractionModel field.
 func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) SetExtractionModel(v WorkItemSelectModelExtractionModel) {
-	o.ExtractionModel = &v
+	o.ExtractionModel.Set(&v)
+}
+// SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil
+func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) SetExtractionModelNil() {
+	o.ExtractionModel.Set(nil)
+}
+
+// UnsetExtractionModel ensures that no value is present for ExtractionModel, not even an explicit nil
+func (o *ApiV2ProjectsIdWorkItemsSearchPostRequest) UnsetExtractionModel() {
+	o.ExtractionModel.Unset()
 }
 
 func (o ApiV2ProjectsIdWorkItemsSearchPostRequest) MarshalJSON() ([]byte, error) {
@@ -114,11 +134,11 @@ func (o ApiV2ProjectsIdWorkItemsSearchPostRequest) MarshalJSON() ([]byte, error)
 
 func (o ApiV2ProjectsIdWorkItemsSearchPostRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Filter) {
-		toSerialize["filter"] = o.Filter
+	if o.Filter.IsSet() {
+		toSerialize["filter"] = o.Filter.Get()
 	}
-	if !IsNil(o.ExtractionModel) {
-		toSerialize["extractionModel"] = o.ExtractionModel
+	if o.ExtractionModel.IsSet() {
+		toSerialize["extractionModel"] = o.ExtractionModel.Get()
 	}
 	return toSerialize, nil
 }

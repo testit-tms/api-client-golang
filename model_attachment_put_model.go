@@ -19,7 +19,7 @@ var _ MappedNullable = &AttachmentPutModel{}
 
 // AttachmentPutModel struct for AttachmentPutModel
 type AttachmentPutModel struct {
-	// Specifies the GUID of the attachment.
+	// Unique ID of the attachment
 	Id string `json:"id"`
 }
 

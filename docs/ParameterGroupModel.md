@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Values** | Pointer to **map[string]string** |  | [optional] 
-**ParameterKeyId** | Pointer to **string** |  | [optional] 
+**ParameterKeyId** | **string** |  | 
 
 ## Methods
 
 ### NewParameterGroupModel
 
-`func NewParameterGroupModel() *ParameterGroupModel`
+`func NewParameterGroupModel(parameterKeyId string, ) *ParameterGroupModel`
 
 NewParameterGroupModel instantiates a new ParameterGroupModel object
 This constructor will assign default values to properties that have it defined,
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ParameterGroupModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ParameterGroupModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValues
 
 `func (o *ParameterGroupModel) GetValues() map[string]string`
@@ -77,6 +87,16 @@ SetValues sets Values field to given value.
 
 HasValues returns a boolean if a field has been set.
 
+### SetValuesNil
+
+`func (o *ParameterGroupModel) SetValuesNil(b bool)`
+
+ SetValuesNil sets the value for Values to be an explicit nil
+
+### UnsetValues
+`func (o *ParameterGroupModel) UnsetValues()`
+
+UnsetValues ensures that no value is present for Values, not even an explicit nil
 ### GetParameterKeyId
 
 `func (o *ParameterGroupModel) GetParameterKeyId() string`
@@ -96,11 +116,6 @@ and a boolean to check if the value has been set.
 
 SetParameterKeyId sets ParameterKeyId field to given value.
 
-### HasParameterKeyId
-
-`func (o *ParameterGroupModel) HasParameterKeyId() bool`
-
-HasParameterKeyId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

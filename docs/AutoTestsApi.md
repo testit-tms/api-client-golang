@@ -740,7 +740,7 @@ Name | Type | Description  | Notes
 
 ## GetAllAutoTests
 
-> []AutoTestModel GetAllAutoTests(ctx).ProjectId(projectId).ExternalId(externalId).GlobalId(globalId).Namespace(namespace).IsNamespaceNull(isNamespaceNull).IncludeEmptyNamespaces(includeEmptyNamespaces).ClassName(className).IsClassnameNull(isClassnameNull).IncludeEmptyClassNames(includeEmptyClassNames).IsDeleted(isDeleted).Deleted(deleted).Labels(labels).StabilityMinimal(stabilityMinimal).MinStability(minStability).StabilityMaximal(stabilityMaximal).MaxStability(maxStability).IsFlaky(isFlaky).Flaky(flaky).IncludeSteps(includeSteps).IncludeLabels(includeLabels).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []AutoTestModel GetAllAutoTests(ctx).ProjectId(projectId).ExternalId(externalId).GlobalId(globalId).Namespace(namespace).IsNamespaceNull(isNamespaceNull).IncludeEmptyNamespaces(includeEmptyNamespaces).ClassName(className).IsClassnameNull(isClassnameNull).IncludeEmptyClassNames(includeEmptyClassNames).IsDeleted(isDeleted).Deleted(deleted).Labels(labels).StabilityMinimal(stabilityMinimal).MinStability(minStability).StabilityMaximal(stabilityMaximal).MaxStability(maxStability).IsFlaky(isFlaky).Flaky(flaky).IncludeSteps(includeSteps).IncludeLabels(includeLabels).ExternalKey(externalKey).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 
 
@@ -777,6 +777,7 @@ func main() {
     flaky := true // bool | Is autotest marked as \"Flaky\" (optional)
     includeSteps := true // bool | If result must also include autotest steps (optional)
     includeLabels := true // bool | If result must also include autotest labels (optional)
+    externalKey := "externalKey_example" // string | External key of autotest (optional)
     skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
     take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -785,7 +786,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AutoTestsApi.GetAllAutoTests(context.Background()).ProjectId(projectId).ExternalId(externalId).GlobalId(globalId).Namespace(namespace).IsNamespaceNull(isNamespaceNull).IncludeEmptyNamespaces(includeEmptyNamespaces).ClassName(className).IsClassnameNull(isClassnameNull).IncludeEmptyClassNames(includeEmptyClassNames).IsDeleted(isDeleted).Deleted(deleted).Labels(labels).StabilityMinimal(stabilityMinimal).MinStability(minStability).StabilityMaximal(stabilityMaximal).MaxStability(maxStability).IsFlaky(isFlaky).Flaky(flaky).IncludeSteps(includeSteps).IncludeLabels(includeLabels).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+    resp, r, err := apiClient.AutoTestsApi.GetAllAutoTests(context.Background()).ProjectId(projectId).ExternalId(externalId).GlobalId(globalId).Namespace(namespace).IsNamespaceNull(isNamespaceNull).IncludeEmptyNamespaces(includeEmptyNamespaces).ClassName(className).IsClassnameNull(isClassnameNull).IncludeEmptyClassNames(includeEmptyClassNames).IsDeleted(isDeleted).Deleted(deleted).Labels(labels).StabilityMinimal(stabilityMinimal).MinStability(minStability).StabilityMaximal(stabilityMaximal).MaxStability(maxStability).IsFlaky(isFlaky).Flaky(flaky).IncludeSteps(includeSteps).IncludeLabels(includeLabels).ExternalKey(externalKey).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetAllAutoTests``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -826,6 +827,7 @@ Name | Type | Description  | Notes
  **flaky** | **bool** | Is autotest marked as \&quot;Flaky\&quot; | 
  **includeSteps** | **bool** | If result must also include autotest steps | 
  **includeLabels** | **bool** | If result must also include autotest labels | 
+ **externalKey** | **string** | External key of autotest | 
  **skip** | **int32** | Amount of items to be skipped (offset) | 
  **take** | **int32** | Amount of items to be taken (limit) | 
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
@@ -1323,7 +1325,7 @@ import (
 
 func main() {
     id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("f0d5cbfd-25bc-4069-863f-b2945e748040") // LinkAutoTestToWorkItemRequest |  (optional)
+    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // LinkAutoTestToWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

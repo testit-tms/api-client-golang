@@ -20,23 +20,28 @@ var _ MappedNullable = &TestResultsStatisticsGetModelFailureCategories{}
 // TestResultsStatisticsGetModelFailureCategories Test results counts aggregated by result failure categories
 type TestResultsStatisticsGetModelFailureCategories struct {
 	// Number of test results which outcomes were not analyzed
-	NoAnalytics *int32 `json:"noAnalytics,omitempty"`
+	NoAnalytics int32 `json:"noAnalytics"`
 	// Number of test results which outcomes were not caused by any defect
-	NoDefect *int32 `json:"noDefect,omitempty"`
+	NoDefect int32 `json:"noDefect"`
 	// Number of test results which outcomes were caused by some infrastructure defect
-	InfrastructureDefect *int32 `json:"infrastructureDefect,omitempty"`
+	InfrastructureDefect int32 `json:"infrastructureDefect"`
 	// Number of test results which outcomes were caused by some tested product defect
-	ProductDefect *int32 `json:"productDefect,omitempty"`
+	ProductDefect int32 `json:"productDefect"`
 	// Number of test results which outcomes were caused by test itself
-	TestDefect *int32 `json:"testDefect,omitempty"`
+	TestDefect int32 `json:"testDefect"`
 }
 
 // NewTestResultsStatisticsGetModelFailureCategories instantiates a new TestResultsStatisticsGetModelFailureCategories object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultsStatisticsGetModelFailureCategories() *TestResultsStatisticsGetModelFailureCategories {
+func NewTestResultsStatisticsGetModelFailureCategories(noAnalytics int32, noDefect int32, infrastructureDefect int32, productDefect int32, testDefect int32) *TestResultsStatisticsGetModelFailureCategories {
 	this := TestResultsStatisticsGetModelFailureCategories{}
+	this.NoAnalytics = noAnalytics
+	this.NoDefect = noDefect
+	this.InfrastructureDefect = infrastructureDefect
+	this.ProductDefect = productDefect
+	this.TestDefect = testDefect
 	return &this
 }
 
@@ -48,164 +53,124 @@ func NewTestResultsStatisticsGetModelFailureCategoriesWithDefaults() *TestResult
 	return &this
 }
 
-// GetNoAnalytics returns the NoAnalytics field value if set, zero value otherwise.
+// GetNoAnalytics returns the NoAnalytics field value
 func (o *TestResultsStatisticsGetModelFailureCategories) GetNoAnalytics() int32 {
-	if o == nil || IsNil(o.NoAnalytics) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NoAnalytics
+
+	return o.NoAnalytics
 }
 
-// GetNoAnalyticsOk returns a tuple with the NoAnalytics field value if set, nil otherwise
+// GetNoAnalyticsOk returns a tuple with the NoAnalytics field value
 // and a boolean to check if the value has been set.
 func (o *TestResultsStatisticsGetModelFailureCategories) GetNoAnalyticsOk() (*int32, bool) {
-	if o == nil || IsNil(o.NoAnalytics) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NoAnalytics, true
+	return &o.NoAnalytics, true
 }
 
-// HasNoAnalytics returns a boolean if a field has been set.
-func (o *TestResultsStatisticsGetModelFailureCategories) HasNoAnalytics() bool {
-	if o != nil && !IsNil(o.NoAnalytics) {
-		return true
-	}
-
-	return false
-}
-
-// SetNoAnalytics gets a reference to the given int32 and assigns it to the NoAnalytics field.
+// SetNoAnalytics sets field value
 func (o *TestResultsStatisticsGetModelFailureCategories) SetNoAnalytics(v int32) {
-	o.NoAnalytics = &v
+	o.NoAnalytics = v
 }
 
-// GetNoDefect returns the NoDefect field value if set, zero value otherwise.
+// GetNoDefect returns the NoDefect field value
 func (o *TestResultsStatisticsGetModelFailureCategories) GetNoDefect() int32 {
-	if o == nil || IsNil(o.NoDefect) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NoDefect
+
+	return o.NoDefect
 }
 
-// GetNoDefectOk returns a tuple with the NoDefect field value if set, nil otherwise
+// GetNoDefectOk returns a tuple with the NoDefect field value
 // and a boolean to check if the value has been set.
 func (o *TestResultsStatisticsGetModelFailureCategories) GetNoDefectOk() (*int32, bool) {
-	if o == nil || IsNil(o.NoDefect) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NoDefect, true
+	return &o.NoDefect, true
 }
 
-// HasNoDefect returns a boolean if a field has been set.
-func (o *TestResultsStatisticsGetModelFailureCategories) HasNoDefect() bool {
-	if o != nil && !IsNil(o.NoDefect) {
-		return true
-	}
-
-	return false
-}
-
-// SetNoDefect gets a reference to the given int32 and assigns it to the NoDefect field.
+// SetNoDefect sets field value
 func (o *TestResultsStatisticsGetModelFailureCategories) SetNoDefect(v int32) {
-	o.NoDefect = &v
+	o.NoDefect = v
 }
 
-// GetInfrastructureDefect returns the InfrastructureDefect field value if set, zero value otherwise.
+// GetInfrastructureDefect returns the InfrastructureDefect field value
 func (o *TestResultsStatisticsGetModelFailureCategories) GetInfrastructureDefect() int32 {
-	if o == nil || IsNil(o.InfrastructureDefect) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.InfrastructureDefect
+
+	return o.InfrastructureDefect
 }
 
-// GetInfrastructureDefectOk returns a tuple with the InfrastructureDefect field value if set, nil otherwise
+// GetInfrastructureDefectOk returns a tuple with the InfrastructureDefect field value
 // and a boolean to check if the value has been set.
 func (o *TestResultsStatisticsGetModelFailureCategories) GetInfrastructureDefectOk() (*int32, bool) {
-	if o == nil || IsNil(o.InfrastructureDefect) {
+	if o == nil {
 		return nil, false
 	}
-	return o.InfrastructureDefect, true
+	return &o.InfrastructureDefect, true
 }
 
-// HasInfrastructureDefect returns a boolean if a field has been set.
-func (o *TestResultsStatisticsGetModelFailureCategories) HasInfrastructureDefect() bool {
-	if o != nil && !IsNil(o.InfrastructureDefect) {
-		return true
-	}
-
-	return false
-}
-
-// SetInfrastructureDefect gets a reference to the given int32 and assigns it to the InfrastructureDefect field.
+// SetInfrastructureDefect sets field value
 func (o *TestResultsStatisticsGetModelFailureCategories) SetInfrastructureDefect(v int32) {
-	o.InfrastructureDefect = &v
+	o.InfrastructureDefect = v
 }
 
-// GetProductDefect returns the ProductDefect field value if set, zero value otherwise.
+// GetProductDefect returns the ProductDefect field value
 func (o *TestResultsStatisticsGetModelFailureCategories) GetProductDefect() int32 {
-	if o == nil || IsNil(o.ProductDefect) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.ProductDefect
+
+	return o.ProductDefect
 }
 
-// GetProductDefectOk returns a tuple with the ProductDefect field value if set, nil otherwise
+// GetProductDefectOk returns a tuple with the ProductDefect field value
 // and a boolean to check if the value has been set.
 func (o *TestResultsStatisticsGetModelFailureCategories) GetProductDefectOk() (*int32, bool) {
-	if o == nil || IsNil(o.ProductDefect) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProductDefect, true
+	return &o.ProductDefect, true
 }
 
-// HasProductDefect returns a boolean if a field has been set.
-func (o *TestResultsStatisticsGetModelFailureCategories) HasProductDefect() bool {
-	if o != nil && !IsNil(o.ProductDefect) {
-		return true
-	}
-
-	return false
-}
-
-// SetProductDefect gets a reference to the given int32 and assigns it to the ProductDefect field.
+// SetProductDefect sets field value
 func (o *TestResultsStatisticsGetModelFailureCategories) SetProductDefect(v int32) {
-	o.ProductDefect = &v
+	o.ProductDefect = v
 }
 
-// GetTestDefect returns the TestDefect field value if set, zero value otherwise.
+// GetTestDefect returns the TestDefect field value
 func (o *TestResultsStatisticsGetModelFailureCategories) GetTestDefect() int32 {
-	if o == nil || IsNil(o.TestDefect) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.TestDefect
+
+	return o.TestDefect
 }
 
-// GetTestDefectOk returns a tuple with the TestDefect field value if set, nil otherwise
+// GetTestDefectOk returns a tuple with the TestDefect field value
 // and a boolean to check if the value has been set.
 func (o *TestResultsStatisticsGetModelFailureCategories) GetTestDefectOk() (*int32, bool) {
-	if o == nil || IsNil(o.TestDefect) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestDefect, true
+	return &o.TestDefect, true
 }
 
-// HasTestDefect returns a boolean if a field has been set.
-func (o *TestResultsStatisticsGetModelFailureCategories) HasTestDefect() bool {
-	if o != nil && !IsNil(o.TestDefect) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestDefect gets a reference to the given int32 and assigns it to the TestDefect field.
+// SetTestDefect sets field value
 func (o *TestResultsStatisticsGetModelFailureCategories) SetTestDefect(v int32) {
-	o.TestDefect = &v
+	o.TestDefect = v
 }
 
 func (o TestResultsStatisticsGetModelFailureCategories) MarshalJSON() ([]byte, error) {
@@ -218,21 +183,11 @@ func (o TestResultsStatisticsGetModelFailureCategories) MarshalJSON() ([]byte, e
 
 func (o TestResultsStatisticsGetModelFailureCategories) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.NoAnalytics) {
-		toSerialize["noAnalytics"] = o.NoAnalytics
-	}
-	if !IsNil(o.NoDefect) {
-		toSerialize["noDefect"] = o.NoDefect
-	}
-	if !IsNil(o.InfrastructureDefect) {
-		toSerialize["infrastructureDefect"] = o.InfrastructureDefect
-	}
-	if !IsNil(o.ProductDefect) {
-		toSerialize["productDefect"] = o.ProductDefect
-	}
-	if !IsNil(o.TestDefect) {
-		toSerialize["testDefect"] = o.TestDefect
-	}
+	toSerialize["noAnalytics"] = o.NoAnalytics
+	toSerialize["noDefect"] = o.NoDefect
+	toSerialize["infrastructureDefect"] = o.InfrastructureDefect
+	toSerialize["productDefect"] = o.ProductDefect
+	toSerialize["testDefect"] = o.TestDefect
 	return toSerialize, nil
 }
 

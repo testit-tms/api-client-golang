@@ -21,13 +21,23 @@ var _ MappedNullable = &ApiV2TestRunsSearchPostRequest{}
 type ApiV2TestRunsSearchPostRequest struct {
 	// Specifies a test run project IDs to search for
 	ProjectIds []string `json:"projectIds,omitempty"`
+	// Specifies test run name
+	Name NullableString `json:"name,omitempty"`
 	// Specifies a test run states to search for
 	States []TestRunState `json:"states,omitempty"`
-	CreatedDate NullableTestRunFilterModelCreatedDate `json:"createdDate,omitempty"`
+	StartedDate NullableTestRunFilterModelStartedDate `json:"startedDate,omitempty"`
+	// Specifies a test run creator IDs to search for
+	CreatedByIds []string `json:"createdByIds,omitempty"`
 	// Specifies a test run last editor IDs to search for
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 	// Specifies a test run deleted status to search for
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
+	AutoTestsCount NullableTestRunFilterModelAutoTestsCount `json:"autoTestsCount,omitempty"`
+	// Specifies test results outcomes
+	TestResultsOutcome []TestResultOutcome `json:"testResultsOutcome,omitempty"`
+	// Specifies failure categories
+	FailureCategory []FailureCategoryModel `json:"failureCategory,omitempty"`
+	CompletedDate NullableTestRunFilterModelCompletedDate `json:"completedDate,omitempty"`
 }
 
 // NewApiV2TestRunsSearchPostRequest instantiates a new ApiV2TestRunsSearchPostRequest object
@@ -80,6 +90,48 @@ func (o *ApiV2TestRunsSearchPostRequest) SetProjectIds(v []string) {
 	o.ProjectIds = v
 }
 
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestRunsSearchPostRequest) GetName() string {
+	if o == nil || IsNil(o.Name.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Name.Get()
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestRunsSearchPostRequest) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Name.Get(), o.Name.IsSet()
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *ApiV2TestRunsSearchPostRequest) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
+func (o *ApiV2TestRunsSearchPostRequest) SetName(v string) {
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) UnsetName() {
+	o.Name.Unset()
+}
+
 // GetStates returns the States field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ApiV2TestRunsSearchPostRequest) GetStates() []TestRunState {
 	if o == nil {
@@ -113,46 +165,79 @@ func (o *ApiV2TestRunsSearchPostRequest) SetStates(v []TestRunState) {
 	o.States = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApiV2TestRunsSearchPostRequest) GetCreatedDate() TestRunFilterModelCreatedDate {
-	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret TestRunFilterModelCreatedDate
+// GetStartedDate returns the StartedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestRunsSearchPostRequest) GetStartedDate() TestRunFilterModelStartedDate {
+	if o == nil || IsNil(o.StartedDate.Get()) {
+		var ret TestRunFilterModelStartedDate
 		return ret
 	}
-	return *o.CreatedDate.Get()
+	return *o.StartedDate.Get()
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetStartedDateOk returns a tuple with the StartedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApiV2TestRunsSearchPostRequest) GetCreatedDateOk() (*TestRunFilterModelCreatedDate, bool) {
+func (o *ApiV2TestRunsSearchPostRequest) GetStartedDateOk() (*TestRunFilterModelStartedDate, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
+	return o.StartedDate.Get(), o.StartedDate.IsSet()
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *ApiV2TestRunsSearchPostRequest) HasCreatedDate() bool {
-	if o != nil && o.CreatedDate.IsSet() {
+// HasStartedDate returns a boolean if a field has been set.
+func (o *ApiV2TestRunsSearchPostRequest) HasStartedDate() bool {
+	if o != nil && o.StartedDate.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableTestRunFilterModelCreatedDate and assigns it to the CreatedDate field.
-func (o *ApiV2TestRunsSearchPostRequest) SetCreatedDate(v TestRunFilterModelCreatedDate) {
-	o.CreatedDate.Set(&v)
+// SetStartedDate gets a reference to the given NullableTestRunFilterModelStartedDate and assigns it to the StartedDate field.
+func (o *ApiV2TestRunsSearchPostRequest) SetStartedDate(v TestRunFilterModelStartedDate) {
+	o.StartedDate.Set(&v)
 }
-// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
-func (o *ApiV2TestRunsSearchPostRequest) SetCreatedDateNil() {
-	o.CreatedDate.Set(nil)
+// SetStartedDateNil sets the value for StartedDate to be an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) SetStartedDateNil() {
+	o.StartedDate.Set(nil)
 }
 
-// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
-func (o *ApiV2TestRunsSearchPostRequest) UnsetCreatedDate() {
-	o.CreatedDate.Unset()
+// UnsetStartedDate ensures that no value is present for StartedDate, not even an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) UnsetStartedDate() {
+	o.StartedDate.Unset()
+}
+
+// GetCreatedByIds returns the CreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestRunsSearchPostRequest) GetCreatedByIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.CreatedByIds
+}
+
+// GetCreatedByIdsOk returns a tuple with the CreatedByIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestRunsSearchPostRequest) GetCreatedByIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.CreatedByIds) {
+		return nil, false
+	}
+	return o.CreatedByIds, true
+}
+
+// HasCreatedByIds returns a boolean if a field has been set.
+func (o *ApiV2TestRunsSearchPostRequest) HasCreatedByIds() bool {
+	if o != nil && IsNil(o.CreatedByIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedByIds gets a reference to the given []string and assigns it to the CreatedByIds field.
+func (o *ApiV2TestRunsSearchPostRequest) SetCreatedByIds(v []string) {
+	o.CreatedByIds = v
 }
 
 // GetModifiedByIds returns the ModifiedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -230,6 +315,156 @@ func (o *ApiV2TestRunsSearchPostRequest) UnsetIsDeleted() {
 	o.IsDeleted.Unset()
 }
 
+// GetAutoTestsCount returns the AutoTestsCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestRunsSearchPostRequest) GetAutoTestsCount() TestRunFilterModelAutoTestsCount {
+	if o == nil || IsNil(o.AutoTestsCount.Get()) {
+		var ret TestRunFilterModelAutoTestsCount
+		return ret
+	}
+	return *o.AutoTestsCount.Get()
+}
+
+// GetAutoTestsCountOk returns a tuple with the AutoTestsCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestRunsSearchPostRequest) GetAutoTestsCountOk() (*TestRunFilterModelAutoTestsCount, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoTestsCount.Get(), o.AutoTestsCount.IsSet()
+}
+
+// HasAutoTestsCount returns a boolean if a field has been set.
+func (o *ApiV2TestRunsSearchPostRequest) HasAutoTestsCount() bool {
+	if o != nil && o.AutoTestsCount.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestsCount gets a reference to the given NullableTestRunFilterModelAutoTestsCount and assigns it to the AutoTestsCount field.
+func (o *ApiV2TestRunsSearchPostRequest) SetAutoTestsCount(v TestRunFilterModelAutoTestsCount) {
+	o.AutoTestsCount.Set(&v)
+}
+// SetAutoTestsCountNil sets the value for AutoTestsCount to be an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) SetAutoTestsCountNil() {
+	o.AutoTestsCount.Set(nil)
+}
+
+// UnsetAutoTestsCount ensures that no value is present for AutoTestsCount, not even an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) UnsetAutoTestsCount() {
+	o.AutoTestsCount.Unset()
+}
+
+// GetTestResultsOutcome returns the TestResultsOutcome field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestRunsSearchPostRequest) GetTestResultsOutcome() []TestResultOutcome {
+	if o == nil {
+		var ret []TestResultOutcome
+		return ret
+	}
+	return o.TestResultsOutcome
+}
+
+// GetTestResultsOutcomeOk returns a tuple with the TestResultsOutcome field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestRunsSearchPostRequest) GetTestResultsOutcomeOk() ([]TestResultOutcome, bool) {
+	if o == nil || IsNil(o.TestResultsOutcome) {
+		return nil, false
+	}
+	return o.TestResultsOutcome, true
+}
+
+// HasTestResultsOutcome returns a boolean if a field has been set.
+func (o *ApiV2TestRunsSearchPostRequest) HasTestResultsOutcome() bool {
+	if o != nil && IsNil(o.TestResultsOutcome) {
+		return true
+	}
+
+	return false
+}
+
+// SetTestResultsOutcome gets a reference to the given []TestResultOutcome and assigns it to the TestResultsOutcome field.
+func (o *ApiV2TestRunsSearchPostRequest) SetTestResultsOutcome(v []TestResultOutcome) {
+	o.TestResultsOutcome = v
+}
+
+// GetFailureCategory returns the FailureCategory field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestRunsSearchPostRequest) GetFailureCategory() []FailureCategoryModel {
+	if o == nil {
+		var ret []FailureCategoryModel
+		return ret
+	}
+	return o.FailureCategory
+}
+
+// GetFailureCategoryOk returns a tuple with the FailureCategory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestRunsSearchPostRequest) GetFailureCategoryOk() ([]FailureCategoryModel, bool) {
+	if o == nil || IsNil(o.FailureCategory) {
+		return nil, false
+	}
+	return o.FailureCategory, true
+}
+
+// HasFailureCategory returns a boolean if a field has been set.
+func (o *ApiV2TestRunsSearchPostRequest) HasFailureCategory() bool {
+	if o != nil && IsNil(o.FailureCategory) {
+		return true
+	}
+
+	return false
+}
+
+// SetFailureCategory gets a reference to the given []FailureCategoryModel and assigns it to the FailureCategory field.
+func (o *ApiV2TestRunsSearchPostRequest) SetFailureCategory(v []FailureCategoryModel) {
+	o.FailureCategory = v
+}
+
+// GetCompletedDate returns the CompletedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestRunsSearchPostRequest) GetCompletedDate() TestRunFilterModelCompletedDate {
+	if o == nil || IsNil(o.CompletedDate.Get()) {
+		var ret TestRunFilterModelCompletedDate
+		return ret
+	}
+	return *o.CompletedDate.Get()
+}
+
+// GetCompletedDateOk returns a tuple with the CompletedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestRunsSearchPostRequest) GetCompletedDateOk() (*TestRunFilterModelCompletedDate, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CompletedDate.Get(), o.CompletedDate.IsSet()
+}
+
+// HasCompletedDate returns a boolean if a field has been set.
+func (o *ApiV2TestRunsSearchPostRequest) HasCompletedDate() bool {
+	if o != nil && o.CompletedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedDate gets a reference to the given NullableTestRunFilterModelCompletedDate and assigns it to the CompletedDate field.
+func (o *ApiV2TestRunsSearchPostRequest) SetCompletedDate(v TestRunFilterModelCompletedDate) {
+	o.CompletedDate.Set(&v)
+}
+// SetCompletedDateNil sets the value for CompletedDate to be an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) SetCompletedDateNil() {
+	o.CompletedDate.Set(nil)
+}
+
+// UnsetCompletedDate ensures that no value is present for CompletedDate, not even an explicit nil
+func (o *ApiV2TestRunsSearchPostRequest) UnsetCompletedDate() {
+	o.CompletedDate.Unset()
+}
+
 func (o ApiV2TestRunsSearchPostRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -243,17 +478,35 @@ func (o ApiV2TestRunsSearchPostRequest) ToMap() (map[string]interface{}, error) 
 	if o.ProjectIds != nil {
 		toSerialize["projectIds"] = o.ProjectIds
 	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	if o.States != nil {
 		toSerialize["states"] = o.States
 	}
-	if o.CreatedDate.IsSet() {
-		toSerialize["createdDate"] = o.CreatedDate.Get()
+	if o.StartedDate.IsSet() {
+		toSerialize["startedDate"] = o.StartedDate.Get()
+	}
+	if o.CreatedByIds != nil {
+		toSerialize["createdByIds"] = o.CreatedByIds
 	}
 	if o.ModifiedByIds != nil {
 		toSerialize["modifiedByIds"] = o.ModifiedByIds
 	}
 	if o.IsDeleted.IsSet() {
 		toSerialize["isDeleted"] = o.IsDeleted.Get()
+	}
+	if o.AutoTestsCount.IsSet() {
+		toSerialize["autoTestsCount"] = o.AutoTestsCount.Get()
+	}
+	if o.TestResultsOutcome != nil {
+		toSerialize["testResultsOutcome"] = o.TestResultsOutcome
+	}
+	if o.FailureCategory != nil {
+		toSerialize["failureCategory"] = o.FailureCategory
+	}
+	if o.CompletedDate.IsSet() {
+		toSerialize["completedDate"] = o.CompletedDate.Get()
 	}
 	return toSerialize, nil
 }

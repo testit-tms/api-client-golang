@@ -19,7 +19,7 @@ var _ MappedNullable = &LinkPutModel{}
 
 // LinkPutModel struct for LinkPutModel
 type LinkPutModel struct {
-	Id *string `json:"id,omitempty"`
+	Id NullableString `json:"id,omitempty"`
 	// Link name.
 	Title NullableString `json:"title,omitempty"`
 	// Address can be specified without protocol, but necessarily with the domain.
@@ -27,7 +27,7 @@ type LinkPutModel struct {
 	// Link description.
 	Description NullableString `json:"description,omitempty"`
 	Type NullableLinkType `json:"type,omitempty"`
-	HasInfo *bool `json:"hasInfo,omitempty"`
+	HasInfo NullableBool `json:"hasInfo,omitempty"`
 }
 
 // NewLinkPutModel instantiates a new LinkPutModel object
@@ -48,36 +48,46 @@ func NewLinkPutModelWithDefaults() *LinkPutModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LinkPutModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkPutModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *LinkPutModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
+	if o != nil && o.Id.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *LinkPutModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *LinkPutModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *LinkPutModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -230,36 +240,46 @@ func (o *LinkPutModel) UnsetType() {
 	o.Type.Unset()
 }
 
-// GetHasInfo returns the HasInfo field value if set, zero value otherwise.
+// GetHasInfo returns the HasInfo field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LinkPutModel) GetHasInfo() bool {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil || IsNil(o.HasInfo.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.HasInfo
+	return *o.HasInfo.Get()
 }
 
 // GetHasInfoOk returns a tuple with the HasInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkPutModel) GetHasInfoOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasInfo, true
+	return o.HasInfo.Get(), o.HasInfo.IsSet()
 }
 
 // HasHasInfo returns a boolean if a field has been set.
 func (o *LinkPutModel) HasHasInfo() bool {
-	if o != nil && !IsNil(o.HasInfo) {
+	if o != nil && o.HasInfo.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetHasInfo gets a reference to the given bool and assigns it to the HasInfo field.
+// SetHasInfo gets a reference to the given NullableBool and assigns it to the HasInfo field.
 func (o *LinkPutModel) SetHasInfo(v bool) {
-	o.HasInfo = &v
+	o.HasInfo.Set(&v)
+}
+// SetHasInfoNil sets the value for HasInfo to be an explicit nil
+func (o *LinkPutModel) SetHasInfoNil() {
+	o.HasInfo.Set(nil)
+}
+
+// UnsetHasInfo ensures that no value is present for HasInfo, not even an explicit nil
+func (o *LinkPutModel) UnsetHasInfo() {
+	o.HasInfo.Unset()
 }
 
 func (o LinkPutModel) MarshalJSON() ([]byte, error) {
@@ -272,8 +292,8 @@ func (o LinkPutModel) MarshalJSON() ([]byte, error) {
 
 func (o LinkPutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
@@ -285,8 +305,8 @@ func (o LinkPutModel) ToMap() (map[string]interface{}, error) {
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.HasInfo) {
-		toSerialize["hasInfo"] = o.HasInfo
+	if o.HasInfo.IsSet() {
+		toSerialize["hasInfo"] = o.HasInfo.Get()
 	}
 	return toSerialize, nil
 }

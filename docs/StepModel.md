@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **WorkItem** | Pointer to [**NullableSectionSharedStep**](SectionSharedStep.md) |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **Action** | Pointer to **NullableString** |  | [optional] 
 **Expected** | Pointer to **NullableString** |  | [optional] 
 **TestData** | Pointer to **NullableString** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewStepModel
 
-`func NewStepModel() *StepModel`
+`func NewStepModel(id string, ) *StepModel`
 
 NewStepModel instantiates a new StepModel object
 This constructor will assign default values to properties that have it defined,
@@ -85,11 +85,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *StepModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetAction
 

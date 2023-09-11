@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TestPointCount** | Pointer to **int64** |  | [optional] 
+**TestPointCount** | **int64** |  | 
 
 ## Methods
 
 ### NewTestResultChangeViewModel
 
-`func NewTestResultChangeViewModel() *TestResultChangeViewModel`
+`func NewTestResultChangeViewModel(testPointCount int64, ) *TestResultChangeViewModel`
 
 NewTestResultChangeViewModel instantiates a new TestResultChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetTestPointCount sets TestPointCount field to given value.
 
-### HasTestPointCount
-
-`func (o *TestResultChangeViewModel) HasTestPointCount() bool`
-
-HasTestPointCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

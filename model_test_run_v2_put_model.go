@@ -24,6 +24,8 @@ type TestRunV2PutModel struct {
 	Description NullableString `json:"description,omitempty"`
 	// Once launch source is specified it cannot be updated
 	LaunchSource NullableString `json:"launchSource,omitempty"`
+	Attachments []AttachmentPutModel `json:"attachments,omitempty"`
+	Links []LinkPutModel `json:"links,omitempty"`
 }
 
 // NewTestRunV2PutModel instantiates a new TestRunV2PutModel object
@@ -177,6 +179,72 @@ func (o *TestRunV2PutModel) UnsetLaunchSource() {
 	o.LaunchSource.Unset()
 }
 
+// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunV2PutModel) GetAttachments() []AttachmentPutModel {
+	if o == nil {
+		var ret []AttachmentPutModel
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunV2PutModel) GetAttachmentsOk() ([]AttachmentPutModel, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *TestRunV2PutModel) HasAttachments() bool {
+	if o != nil && IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []AttachmentPutModel and assigns it to the Attachments field.
+func (o *TestRunV2PutModel) SetAttachments(v []AttachmentPutModel) {
+	o.Attachments = v
+}
+
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunV2PutModel) GetLinks() []LinkPutModel {
+	if o == nil {
+		var ret []LinkPutModel
+		return ret
+	}
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunV2PutModel) GetLinksOk() ([]LinkPutModel, bool) {
+	if o == nil || IsNil(o.Links) {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *TestRunV2PutModel) HasLinks() bool {
+	if o != nil && IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinkPutModel and assigns it to the Links field.
+func (o *TestRunV2PutModel) SetLinks(v []LinkPutModel) {
+	o.Links = v
+}
+
 func (o TestRunV2PutModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -194,6 +262,12 @@ func (o TestRunV2PutModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LaunchSource.IsSet() {
 		toSerialize["launchSource"] = o.LaunchSource.Get()
+	}
+	if o.Attachments != nil {
+		toSerialize["attachments"] = o.Attachments
+	}
+	if o.Links != nil {
+		toSerialize["links"] = o.Links
 	}
 	return toSerialize, nil
 }

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserId** | Pointer to **string** |  | [optional] 
+**UserId** | **string** |  | 
 **UserName** | Pointer to **NullableString** |  | [optional] 
-**TestPointCount** | Pointer to **int64** |  | [optional] 
+**TestPointCount** | **int64** |  | 
 
 ## Methods
 
 ### NewTestPointChangeViewModel
 
-`func NewTestPointChangeViewModel() *TestPointChangeViewModel`
+`func NewTestPointChangeViewModel(userId string, testPointCount int64, ) *TestPointChangeViewModel`
 
 NewTestPointChangeViewModel instantiates a new TestPointChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
-### HasUserId
-
-`func (o *TestPointChangeViewModel) HasUserId() bool`
-
-HasUserId returns a boolean if a field has been set.
 
 ### GetUserName
 
@@ -106,11 +101,6 @@ and a boolean to check if the value has been set.
 
 SetTestPointCount sets TestPointCount field to given value.
 
-### HasTestPointCount
-
-`func (o *TestPointChangeViewModel) HasTestPointCount() bool`
-
-HasTestPointCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

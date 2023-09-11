@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**Outcome** | Pointer to **NullableString** |  | [optional] 
 **Traces** | Pointer to **NullableString** |  | [optional] 
-**FailureType** | Pointer to **string** |  | [optional] 
+**FailureType** | Pointer to **NullableString** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
 **TestPoint** | Pointer to [**NullableTestPointPutModel**](TestPointPutModel.md) |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultShortModel
 
-`func NewTestResultShortModel() *TestResultShortModel`
+`func NewTestResultShortModel(id string, ) *TestResultShortModel`
 
 NewTestResultShortModel instantiates a new TestResultShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -52,11 +52,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestResultShortModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetOutcome
 
@@ -83,6 +78,16 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
+### SetOutcomeNil
+
+`func (o *TestResultShortModel) SetOutcomeNil(b bool)`
+
+ SetOutcomeNil sets the value for Outcome to be an explicit nil
+
+### UnsetOutcome
+`func (o *TestResultShortModel) UnsetOutcome()`
+
+UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetTraces
 
 `func (o *TestResultShortModel) GetTraces() string`
@@ -143,6 +148,16 @@ SetFailureType sets FailureType field to given value.
 
 HasFailureType returns a boolean if a field has been set.
 
+### SetFailureTypeNil
+
+`func (o *TestResultShortModel) SetFailureTypeNil(b bool)`
+
+ SetFailureTypeNil sets the value for FailureType to be an explicit nil
+
+### UnsetFailureType
+`func (o *TestResultShortModel) UnsetFailureType()`
+
+UnsetFailureType ensures that no value is present for FailureType, not even an explicit nil
 ### GetMessage
 
 `func (o *TestResultShortModel) GetMessage() string`

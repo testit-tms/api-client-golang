@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TestSuiteId** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
+**TestSuiteId** | **string** |  | 
+**Id** | **string** |  | 
 **TesterId** | Pointer to **NullableString** |  | [optional] 
 **WorkItemId** | Pointer to **NullableString** |  | [optional] 
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
 **Status** | Pointer to **NullableString** | Applies one of these values: Blocked, NoResults, Failed, Passed | [optional] 
 **LastTestResultId** | Pointer to **NullableString** |  | [optional] 
-**IterationId** | Pointer to **string** |  | [optional] 
+**IterationId** | **string** |  | 
 
 ## Methods
 
 ### NewTestPointRelatedToTestResult
 
-`func NewTestPointRelatedToTestResult() *TestPointRelatedToTestResult`
+`func NewTestPointRelatedToTestResult(testSuiteId string, id string, iterationId string, ) *TestPointRelatedToTestResult`
 
 NewTestPointRelatedToTestResult instantiates a new TestPointRelatedToTestResult object
 This constructor will assign default values to properties that have it defined,
@@ -51,11 +51,6 @@ and a boolean to check if the value has been set.
 
 SetTestSuiteId sets TestSuiteId field to given value.
 
-### HasTestSuiteId
-
-`func (o *TestPointRelatedToTestResult) HasTestSuiteId() bool`
-
-HasTestSuiteId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -76,11 +71,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestPointRelatedToTestResult) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetTesterId
 
@@ -276,11 +266,6 @@ and a boolean to check if the value has been set.
 
 SetIterationId sets IterationId field to given value.
 
-### HasIterationId
-
-`func (o *TestPointRelatedToTestResult) HasIterationId() bool`
-
-HasIterationId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

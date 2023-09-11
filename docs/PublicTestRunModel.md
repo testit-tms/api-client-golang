@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TestRunId** | Pointer to **string** |  | [optional] 
+**TestRunId** | **string** |  | 
 **TestPlanId** | Pointer to **NullableString** |  | [optional] 
-**TestPlanGlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**TestPlanGlobalId** | **int64** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **ProductName** | Pointer to **NullableString** |  | [optional] 
 **Build** | Pointer to **NullableString** |  | [optional] 
 **Configurations** | Pointer to [**[]ConfigurationModel**](ConfigurationModel.md) |  | [optional] 
 **AutoTests** | Pointer to [**[]AutoTestModel**](AutoTestModel.md) |  | [optional] 
 **TestPoints** | Pointer to [**[]PublicTestPointModel**](PublicTestPointModel.md) |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewPublicTestRunModel
 
-`func NewPublicTestRunModel() *PublicTestRunModel`
+`func NewPublicTestRunModel(testRunId string, testPlanGlobalId int64, ) *PublicTestRunModel`
 
 NewPublicTestRunModel instantiates a new PublicTestRunModel object
 This constructor will assign default values to properties that have it defined,
@@ -53,11 +53,6 @@ and a boolean to check if the value has been set.
 
 SetTestRunId sets TestRunId field to given value.
 
-### HasTestRunId
-
-`func (o *PublicTestRunModel) HasTestRunId() bool`
-
-HasTestRunId returns a boolean if a field has been set.
 
 ### GetTestPlanId
 
@@ -113,11 +108,6 @@ and a boolean to check if the value has been set.
 
 SetTestPlanGlobalId sets TestPlanGlobalId field to given value.
 
-### HasTestPlanGlobalId
-
-`func (o *PublicTestRunModel) HasTestPlanGlobalId() bool`
-
-HasTestPlanGlobalId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -144,6 +134,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *PublicTestRunModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PublicTestRunModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProductName
 
 `func (o *PublicTestRunModel) GetProductName() string`
@@ -239,6 +239,16 @@ SetConfigurations sets Configurations field to given value.
 
 HasConfigurations returns a boolean if a field has been set.
 
+### SetConfigurationsNil
+
+`func (o *PublicTestRunModel) SetConfigurationsNil(b bool)`
+
+ SetConfigurationsNil sets the value for Configurations to be an explicit nil
+
+### UnsetConfigurations
+`func (o *PublicTestRunModel) UnsetConfigurations()`
+
+UnsetConfigurations ensures that no value is present for Configurations, not even an explicit nil
 ### GetAutoTests
 
 `func (o *PublicTestRunModel) GetAutoTests() []AutoTestModel`
@@ -264,6 +274,16 @@ SetAutoTests sets AutoTests field to given value.
 
 HasAutoTests returns a boolean if a field has been set.
 
+### SetAutoTestsNil
+
+`func (o *PublicTestRunModel) SetAutoTestsNil(b bool)`
+
+ SetAutoTestsNil sets the value for AutoTests to be an explicit nil
+
+### UnsetAutoTests
+`func (o *PublicTestRunModel) UnsetAutoTests()`
+
+UnsetAutoTests ensures that no value is present for AutoTests, not even an explicit nil
 ### GetTestPoints
 
 `func (o *PublicTestRunModel) GetTestPoints() []PublicTestPointModel`
@@ -289,6 +309,16 @@ SetTestPoints sets TestPoints field to given value.
 
 HasTestPoints returns a boolean if a field has been set.
 
+### SetTestPointsNil
+
+`func (o *PublicTestRunModel) SetTestPointsNil(b bool)`
+
+ SetTestPointsNil sets the value for TestPoints to be an explicit nil
+
+### UnsetTestPoints
+`func (o *PublicTestRunModel) UnsetTestPoints()`
+
+UnsetTestPoints ensures that no value is present for TestPoints, not even an explicit nil
 ### GetStatus
 
 `func (o *PublicTestRunModel) GetStatus() string`
@@ -314,6 +344,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *PublicTestRunModel) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *PublicTestRunModel) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FileId** | **string** |  | 
-**Type** | **string** |  | 
-**Size** | **float32** |  | 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
-**ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
-**ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**Name** | **string** |  | 
-**Id** | **string** | Specifies the GUID of the attachment. | 
+**FileId** | Pointer to **NullableString** | Unique ID of the attachment file | [optional] 
+**Type** | Pointer to **NullableString** | MIME type of the attachment | [optional] 
+**Size** | **float32** | Size in bytes of the attachment file | 
+**CreatedDate** | **time.Time** | Creation date of the attachment | 
+**ModifiedDate** | Pointer to **NullableTime** | Last modification date of the attachment | [optional] 
+**CreatedById** | **string** | Unique ID of the attachment creator | 
+**ModifiedById** | Pointer to **NullableString** | Unique ID of the attachment last editor | [optional] 
+**Name** | Pointer to **NullableString** | Name of the attachment file | [optional] 
+**Id** | **string** | Unique ID of the attachment | 
 
 ## Methods
 
 ### NewAttachmentModel
 
-`func NewAttachmentModel(fileId string, type_ string, size float32, name string, id string, ) *AttachmentModel`
+`func NewAttachmentModel(size float32, createdDate time.Time, createdById string, id string, ) *AttachmentModel`
 
 NewAttachmentModel instantiates a new AttachmentModel object
 This constructor will assign default values to properties that have it defined,
@@ -52,7 +52,22 @@ and a boolean to check if the value has been set.
 
 SetFileId sets FileId field to given value.
 
+### HasFileId
 
+`func (o *AttachmentModel) HasFileId() bool`
+
+HasFileId returns a boolean if a field has been set.
+
+### SetFileIdNil
+
+`func (o *AttachmentModel) SetFileIdNil(b bool)`
+
+ SetFileIdNil sets the value for FileId to be an explicit nil
+
+### UnsetFileId
+`func (o *AttachmentModel) UnsetFileId()`
+
+UnsetFileId ensures that no value is present for FileId, not even an explicit nil
 ### GetType
 
 `func (o *AttachmentModel) GetType() string`
@@ -72,7 +87,22 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
 
+`func (o *AttachmentModel) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *AttachmentModel) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *AttachmentModel) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetSize
 
 `func (o *AttachmentModel) GetSize() float32`
@@ -112,11 +142,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *AttachmentModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -172,11 +197,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *AttachmentModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -232,7 +252,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *AttachmentModel) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *AttachmentModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AttachmentModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *AttachmentModel) GetId() string`

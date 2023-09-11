@@ -19,20 +19,22 @@ var _ MappedNullable = &WorkItemLinkChangeViewModel{}
 
 // WorkItemLinkChangeViewModel struct for WorkItemLinkChangeViewModel
 type WorkItemLinkChangeViewModel struct {
-	Description *string `json:"description,omitempty"`
-	Url *string `json:"url,omitempty"`
-	Title *string `json:"title,omitempty"`
-	HasInfo *bool `json:"hasInfo,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Description NullableString `json:"description,omitempty"`
+	Url NullableString `json:"url,omitempty"`
+	Title NullableString `json:"title,omitempty"`
+	HasInfo bool `json:"hasInfo"`
+	Id string `json:"id"`
+	Type NullableString `json:"type,omitempty"`
 }
 
 // NewWorkItemLinkChangeViewModel instantiates a new WorkItemLinkChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemLinkChangeViewModel() *WorkItemLinkChangeViewModel {
+func NewWorkItemLinkChangeViewModel(hasInfo bool, id string) *WorkItemLinkChangeViewModel {
 	this := WorkItemLinkChangeViewModel{}
+	this.HasInfo = hasInfo
+	this.Id = id
 	return &this
 }
 
@@ -44,196 +46,220 @@ func NewWorkItemLinkChangeViewModelWithDefaults() *WorkItemLinkChangeViewModel {
 	return &this
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise.
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemLinkChangeViewModel) GetDescription() string {
-	if o == nil || IsNil(o.Description) {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Description
+	return *o.Description.Get()
 }
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemLinkChangeViewModel) GetDescriptionOk() (*string, bool) {
-	if o == nil || IsNil(o.Description) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Description, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
 // HasDescription returns a boolean if a field has been set.
 func (o *WorkItemLinkChangeViewModel) HasDescription() bool {
-	if o != nil && !IsNil(o.Description) {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDescription gets a reference to the given string and assigns it to the Description field.
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
 func (o *WorkItemLinkChangeViewModel) SetDescription(v string) {
-	o.Description = &v
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *WorkItemLinkChangeViewModel) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *WorkItemLinkChangeViewModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemLinkChangeViewModel) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
+	if o == nil || IsNil(o.Url.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Url
+	return *o.Url.Get()
 }
 
 // GetUrlOk returns a tuple with the Url field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemLinkChangeViewModel) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Url, true
+	return o.Url.Get(), o.Url.IsSet()
 }
 
 // HasUrl returns a boolean if a field has been set.
 func (o *WorkItemLinkChangeViewModel) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
+	if o != nil && o.Url.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given string and assigns it to the Url field.
+// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
 func (o *WorkItemLinkChangeViewModel) SetUrl(v string) {
-	o.Url = &v
+	o.Url.Set(&v)
+}
+// SetUrlNil sets the value for Url to be an explicit nil
+func (o *WorkItemLinkChangeViewModel) SetUrlNil() {
+	o.Url.Set(nil)
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise.
+// UnsetUrl ensures that no value is present for Url, not even an explicit nil
+func (o *WorkItemLinkChangeViewModel) UnsetUrl() {
+	o.Url.Unset()
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemLinkChangeViewModel) GetTitle() string {
-	if o == nil || IsNil(o.Title) {
+	if o == nil || IsNil(o.Title.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Title
+	return *o.Title.Get()
 }
 
 // GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemLinkChangeViewModel) GetTitleOk() (*string, bool) {
-	if o == nil || IsNil(o.Title) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Title, true
+	return o.Title.Get(), o.Title.IsSet()
 }
 
 // HasTitle returns a boolean if a field has been set.
 func (o *WorkItemLinkChangeViewModel) HasTitle() bool {
-	if o != nil && !IsNil(o.Title) {
+	if o != nil && o.Title.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTitle gets a reference to the given string and assigns it to the Title field.
+// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
 func (o *WorkItemLinkChangeViewModel) SetTitle(v string) {
-	o.Title = &v
+	o.Title.Set(&v)
+}
+// SetTitleNil sets the value for Title to be an explicit nil
+func (o *WorkItemLinkChangeViewModel) SetTitleNil() {
+	o.Title.Set(nil)
 }
 
-// GetHasInfo returns the HasInfo field value if set, zero value otherwise.
+// UnsetTitle ensures that no value is present for Title, not even an explicit nil
+func (o *WorkItemLinkChangeViewModel) UnsetTitle() {
+	o.Title.Unset()
+}
+
+// GetHasInfo returns the HasInfo field value
 func (o *WorkItemLinkChangeViewModel) GetHasInfo() bool {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasInfo
+
+	return o.HasInfo
 }
 
-// GetHasInfoOk returns a tuple with the HasInfo field value if set, nil otherwise
+// GetHasInfoOk returns a tuple with the HasInfo field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemLinkChangeViewModel) GetHasInfoOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasInfo, true
+	return &o.HasInfo, true
 }
 
-// HasHasInfo returns a boolean if a field has been set.
-func (o *WorkItemLinkChangeViewModel) HasHasInfo() bool {
-	if o != nil && !IsNil(o.HasInfo) {
-		return true
-	}
-
-	return false
-}
-
-// SetHasInfo gets a reference to the given bool and assigns it to the HasInfo field.
+// SetHasInfo sets field value
 func (o *WorkItemLinkChangeViewModel) SetHasInfo(v bool) {
-	o.HasInfo = &v
+	o.HasInfo = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *WorkItemLinkChangeViewModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemLinkChangeViewModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *WorkItemLinkChangeViewModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *WorkItemLinkChangeViewModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetType returns the Type field value if set, zero value otherwise.
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemLinkChangeViewModel) GetType() string {
-	if o == nil || IsNil(o.Type) {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Type
+	return *o.Type.Get()
 }
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemLinkChangeViewModel) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
 // HasType returns a boolean if a field has been set.
 func (o *WorkItemLinkChangeViewModel) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
+	if o != nil && o.Type.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *WorkItemLinkChangeViewModel) SetType(v string) {
-	o.Type = &v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *WorkItemLinkChangeViewModel) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *WorkItemLinkChangeViewModel) UnsetType() {
+	o.Type.Unset()
 }
 
 func (o WorkItemLinkChangeViewModel) MarshalJSON() ([]byte, error) {
@@ -246,23 +272,19 @@ func (o WorkItemLinkChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemLinkChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Description) {
-		toSerialize["description"] = o.Description
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
+	if o.Url.IsSet() {
+		toSerialize["url"] = o.Url.Get()
 	}
-	if !IsNil(o.Title) {
-		toSerialize["title"] = o.Title
+	if o.Title.IsSet() {
+		toSerialize["title"] = o.Title.Get()
 	}
-	if !IsNil(o.HasInfo) {
-		toSerialize["hasInfo"] = o.HasInfo
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
+	toSerialize["hasInfo"] = o.HasInfo
+	toSerialize["id"] = o.Id
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
 	}
 	return toSerialize, nil
 }

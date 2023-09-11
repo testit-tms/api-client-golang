@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **Text** | Pointer to **NullableString** |  | [optional] 
 **StepId** | **string** |  | 
 **ParentStepId** | Pointer to **NullableString** |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
 **TestResultId** | **string** |  | 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
 ### NewStepCommentModel
 
-`func NewStepCommentModel(stepId string, testResultId string, ) *StepCommentModel`
+`func NewStepCommentModel(id string, stepId string, testResultId string, createdById string, createdDate time.Time, ) *StepCommentModel`
 
 NewStepCommentModel instantiates a new StepCommentModel object
 This constructor will assign default values to properties that have it defined,
@@ -53,11 +53,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *StepCommentModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetText
 
@@ -223,11 +218,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *StepCommentModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -283,11 +273,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *StepCommentModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 

@@ -15,7 +15,6 @@ Method | HTTP request | Description
 [**GetTestPointsById**](TestSuitesApi.md#GetTestPointsById) | **Get** /api/v2/testSuites/{id}/testPoints | Get TestPoints By Id
 [**GetTestResultsById**](TestSuitesApi.md#GetTestResultsById) | **Get** /api/v2/testSuites/{id}/testResults | Get TestResults By Id
 [**GetTestSuiteById**](TestSuitesApi.md#GetTestSuiteById) | **Get** /api/v2/testSuites/{id} | Get TestSuite by Id
-[**GetWorkItemsById**](TestSuitesApi.md#GetWorkItemsById) | **Get** /api/v2/testSuites/{id}/workItems | 
 [**SearchWorkItems**](TestSuitesApi.md#SearchWorkItems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
 [**SetConfigurationsByTestSuiteId**](TestSuitesApi.md#SetConfigurationsByTestSuiteId) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
 
@@ -376,7 +375,7 @@ import (
 )
 
 func main() {
-    apiV2TestSuitesPutRequest := *openapiclient.NewApiV2TestSuitesPutRequest("Id_example", "Name_example") // ApiV2TestSuitesPutRequest |  (optional)
+    apiV2TestSuitesPutRequest := *openapiclient.NewApiV2TestSuitesPutRequest("Id_example", "Name_example", false) // ApiV2TestSuitesPutRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -752,88 +751,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TestSuiteV2GetModel**](TestSuiteV2GetModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetWorkItemsById
-
-> []WorkItemShortModel GetWorkItemsById(ctx, id).IsDeleted(isDeleted).TagNames(tagNames).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-    isDeleted := true // bool |  (optional) (default to false)
-    tagNames := []string{"Inner_example"} // []string |  (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestSuitesApi.GetWorkItemsById(context.Background(), id).IsDeleted(isDeleted).TagNames(tagNames).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.GetWorkItemsById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetWorkItemsById`: []WorkItemShortModel
-    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.GetWorkItemsById`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWorkItemsByIdRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **isDeleted** | **bool** |  | [default to false]
- **tagNames** | **[]string** |  | 
- **skip** | **int32** | Amount of items to be skipped (offset) | 
- **take** | **int32** | Amount of items to be taken (limit) | 
- **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
- **searchField** | **string** | Property name for searching | 
- **searchValue** | **string** | Value for searching | 
-
-### Return type
-
-[**[]WorkItemShortModel**](WorkItemShortModel.md)
 
 ### Authorization
 

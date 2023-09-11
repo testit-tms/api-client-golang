@@ -20,7 +20,7 @@ var _ MappedNullable = &SearchAttributesInProjectRequest{}
 // SearchAttributesInProjectRequest struct for SearchAttributesInProjectRequest
 type SearchAttributesInProjectRequest struct {
 	// Specifies an attribute name to search for
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// Specifies an attribute mandatory status to search for
 	IsRequired NullableBool `json:"isRequired,omitempty"`
 	// Specifies an attribute global status to search for
@@ -48,36 +48,46 @@ func NewSearchAttributesInProjectRequestWithDefaults() *SearchAttributesInProjec
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SearchAttributesInProjectRequest) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchAttributesInProjectRequest) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *SearchAttributesInProjectRequest) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *SearchAttributesInProjectRequest) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *SearchAttributesInProjectRequest) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *SearchAttributesInProjectRequest) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetIsRequired returns the IsRequired field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -164,9 +174,9 @@ func (o *SearchAttributesInProjectRequest) UnsetIsGlobal() {
 	o.IsGlobal.Unset()
 }
 
-// GetTypes returns the Types field value if set, zero value otherwise.
+// GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SearchAttributesInProjectRequest) GetTypes() []CustomAttributeTypesEnum {
-	if o == nil || IsNil(o.Types) {
+	if o == nil {
 		var ret []CustomAttributeTypesEnum
 		return ret
 	}
@@ -175,6 +185,7 @@ func (o *SearchAttributesInProjectRequest) GetTypes() []CustomAttributeTypesEnum
 
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchAttributesInProjectRequest) GetTypesOk() ([]CustomAttributeTypesEnum, bool) {
 	if o == nil || IsNil(o.Types) {
 		return nil, false
@@ -184,7 +195,7 @@ func (o *SearchAttributesInProjectRequest) GetTypesOk() ([]CustomAttributeTypesE
 
 // HasTypes returns a boolean if a field has been set.
 func (o *SearchAttributesInProjectRequest) HasTypes() bool {
-	if o != nil && !IsNil(o.Types) {
+	if o != nil && IsNil(o.Types) {
 		return true
 	}
 
@@ -248,8 +259,8 @@ func (o SearchAttributesInProjectRequest) MarshalJSON() ([]byte, error) {
 
 func (o SearchAttributesInProjectRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
 	if o.IsRequired.IsSet() {
 		toSerialize["isRequired"] = o.IsRequired.Get()
@@ -257,7 +268,7 @@ func (o SearchAttributesInProjectRequest) ToMap() (map[string]interface{}, error
 	if o.IsGlobal.IsSet() {
 		toSerialize["isGlobal"] = o.IsGlobal.Get()
 	}
-	if !IsNil(o.Types) {
+	if o.Types != nil {
 		toSerialize["types"] = o.Types
 	}
 	if o.IsEnabled.IsSet() {

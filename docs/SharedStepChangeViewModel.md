@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**GlobalId** | **int64** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 **Steps** | Pointer to [**[]WorkItemStepChangeViewModel**](WorkItemStepChangeViewModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewSharedStepChangeViewModel
 
-`func NewSharedStepChangeViewModel() *SharedStepChangeViewModel`
+`func NewSharedStepChangeViewModel(id string, globalId int64, ) *SharedStepChangeViewModel`
 
 NewSharedStepChangeViewModel instantiates a new SharedStepChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *SharedStepChangeViewModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetGlobalId
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *SharedStepChangeViewModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -103,6 +93,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *SharedStepChangeViewModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *SharedStepChangeViewModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSteps
 
 `func (o *SharedStepChangeViewModel) GetSteps() []WorkItemStepChangeViewModel`
@@ -128,6 +128,16 @@ SetSteps sets Steps field to given value.
 
 HasSteps returns a boolean if a field has been set.
 
+### SetStepsNil
+
+`func (o *SharedStepChangeViewModel) SetStepsNil(b bool)`
+
+ SetStepsNil sets the value for Steps to be an explicit nil
+
+### UnsetSteps
+`func (o *SharedStepChangeViewModel) UnsetSteps()`
+
+UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

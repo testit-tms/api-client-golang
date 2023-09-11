@@ -20,13 +20,13 @@ var _ MappedNullable = &ParameterModel{}
 
 // ParameterModel struct for ParameterModel
 type ParameterModel struct {
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
-	ParameterKeyId *string `json:"parameterKeyId,omitempty"`
-	Id *string `json:"id,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
+	ParameterKeyId string `json:"parameterKeyId"`
+	Id string `json:"id"`
 	Value string `json:"value"`
 	Name string `json:"name"`
 }
@@ -35,8 +35,13 @@ type ParameterModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewParameterModel(value string, name string) *ParameterModel {
+func NewParameterModel(createdDate time.Time, createdById string, isDeleted bool, parameterKeyId string, id string, value string, name string) *ParameterModel {
 	this := ParameterModel{}
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
+	this.IsDeleted = isDeleted
+	this.ParameterKeyId = parameterKeyId
+	this.Id = id
 	this.Value = value
 	this.Name = name
 	return &this
@@ -50,36 +55,28 @@ func NewParameterModelWithDefaults() *ParameterModel {
 	return &this
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *ParameterModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *ParameterModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *ParameterModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *ParameterModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -124,36 +121,28 @@ func (o *ParameterModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *ParameterModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *ParameterModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *ParameterModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *ParameterModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -198,100 +187,76 @@ func (o *ParameterModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *ParameterModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *ParameterModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *ParameterModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *ParameterModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
-// GetParameterKeyId returns the ParameterKeyId field value if set, zero value otherwise.
+// GetParameterKeyId returns the ParameterKeyId field value
 func (o *ParameterModel) GetParameterKeyId() string {
-	if o == nil || IsNil(o.ParameterKeyId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ParameterKeyId
+
+	return o.ParameterKeyId
 }
 
-// GetParameterKeyIdOk returns a tuple with the ParameterKeyId field value if set, nil otherwise
+// GetParameterKeyIdOk returns a tuple with the ParameterKeyId field value
 // and a boolean to check if the value has been set.
 func (o *ParameterModel) GetParameterKeyIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ParameterKeyId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ParameterKeyId, true
+	return &o.ParameterKeyId, true
 }
 
-// HasParameterKeyId returns a boolean if a field has been set.
-func (o *ParameterModel) HasParameterKeyId() bool {
-	if o != nil && !IsNil(o.ParameterKeyId) {
-		return true
-	}
-
-	return false
-}
-
-// SetParameterKeyId gets a reference to the given string and assigns it to the ParameterKeyId field.
+// SetParameterKeyId sets field value
 func (o *ParameterModel) SetParameterKeyId(v string) {
-	o.ParameterKeyId = &v
+	o.ParameterKeyId = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ParameterModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ParameterModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ParameterModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *ParameterModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetValue returns the Value field value
@@ -352,27 +317,17 @@ func (o ParameterModel) MarshalJSON() ([]byte, error) {
 
 func (o ParameterModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !IsNil(o.ParameterKeyId) {
-		toSerialize["parameterKeyId"] = o.ParameterKeyId
-	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["parameterKeyId"] = o.ParameterKeyId
+	toSerialize["id"] = o.Id
 	toSerialize["value"] = o.Value
 	toSerialize["name"] = o.Name
 	return toSerialize, nil

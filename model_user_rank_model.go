@@ -19,20 +19,26 @@ var _ MappedNullable = &UserRankModel{}
 
 // UserRankModel struct for UserRankModel
 type UserRankModel struct {
-	Score *int32 `json:"score,omitempty"`
-	WorkItemsCreated *int32 `json:"workItemsCreated,omitempty"`
-	PassedTestPoints *int32 `json:"passedTestPoints,omitempty"`
-	FailedTestPoints *int32 `json:"failedTestPoints,omitempty"`
-	SkippedTestPoints *int32 `json:"skippedTestPoints,omitempty"`
-	BlockedTestPoints *int32 `json:"blockedTestPoints,omitempty"`
+	Score int32 `json:"score"`
+	WorkItemsCreated int32 `json:"workItemsCreated"`
+	PassedTestPoints int32 `json:"passedTestPoints"`
+	FailedTestPoints int32 `json:"failedTestPoints"`
+	SkippedTestPoints int32 `json:"skippedTestPoints"`
+	BlockedTestPoints int32 `json:"blockedTestPoints"`
 }
 
 // NewUserRankModel instantiates a new UserRankModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserRankModel() *UserRankModel {
+func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32) *UserRankModel {
 	this := UserRankModel{}
+	this.Score = score
+	this.WorkItemsCreated = workItemsCreated
+	this.PassedTestPoints = passedTestPoints
+	this.FailedTestPoints = failedTestPoints
+	this.SkippedTestPoints = skippedTestPoints
+	this.BlockedTestPoints = blockedTestPoints
 	return &this
 }
 
@@ -44,196 +50,148 @@ func NewUserRankModelWithDefaults() *UserRankModel {
 	return &this
 }
 
-// GetScore returns the Score field value if set, zero value otherwise.
+// GetScore returns the Score field value
 func (o *UserRankModel) GetScore() int32 {
-	if o == nil || IsNil(o.Score) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Score
+
+	return o.Score
 }
 
-// GetScoreOk returns a tuple with the Score field value if set, nil otherwise
+// GetScoreOk returns a tuple with the Score field value
 // and a boolean to check if the value has been set.
 func (o *UserRankModel) GetScoreOk() (*int32, bool) {
-	if o == nil || IsNil(o.Score) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Score, true
+	return &o.Score, true
 }
 
-// HasScore returns a boolean if a field has been set.
-func (o *UserRankModel) HasScore() bool {
-	if o != nil && !IsNil(o.Score) {
-		return true
-	}
-
-	return false
-}
-
-// SetScore gets a reference to the given int32 and assigns it to the Score field.
+// SetScore sets field value
 func (o *UserRankModel) SetScore(v int32) {
-	o.Score = &v
+	o.Score = v
 }
 
-// GetWorkItemsCreated returns the WorkItemsCreated field value if set, zero value otherwise.
+// GetWorkItemsCreated returns the WorkItemsCreated field value
 func (o *UserRankModel) GetWorkItemsCreated() int32 {
-	if o == nil || IsNil(o.WorkItemsCreated) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.WorkItemsCreated
+
+	return o.WorkItemsCreated
 }
 
-// GetWorkItemsCreatedOk returns a tuple with the WorkItemsCreated field value if set, nil otherwise
+// GetWorkItemsCreatedOk returns a tuple with the WorkItemsCreated field value
 // and a boolean to check if the value has been set.
 func (o *UserRankModel) GetWorkItemsCreatedOk() (*int32, bool) {
-	if o == nil || IsNil(o.WorkItemsCreated) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemsCreated, true
+	return &o.WorkItemsCreated, true
 }
 
-// HasWorkItemsCreated returns a boolean if a field has been set.
-func (o *UserRankModel) HasWorkItemsCreated() bool {
-	if o != nil && !IsNil(o.WorkItemsCreated) {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItemsCreated gets a reference to the given int32 and assigns it to the WorkItemsCreated field.
+// SetWorkItemsCreated sets field value
 func (o *UserRankModel) SetWorkItemsCreated(v int32) {
-	o.WorkItemsCreated = &v
+	o.WorkItemsCreated = v
 }
 
-// GetPassedTestPoints returns the PassedTestPoints field value if set, zero value otherwise.
+// GetPassedTestPoints returns the PassedTestPoints field value
 func (o *UserRankModel) GetPassedTestPoints() int32 {
-	if o == nil || IsNil(o.PassedTestPoints) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.PassedTestPoints
+
+	return o.PassedTestPoints
 }
 
-// GetPassedTestPointsOk returns a tuple with the PassedTestPoints field value if set, nil otherwise
+// GetPassedTestPointsOk returns a tuple with the PassedTestPoints field value
 // and a boolean to check if the value has been set.
 func (o *UserRankModel) GetPassedTestPointsOk() (*int32, bool) {
-	if o == nil || IsNil(o.PassedTestPoints) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PassedTestPoints, true
+	return &o.PassedTestPoints, true
 }
 
-// HasPassedTestPoints returns a boolean if a field has been set.
-func (o *UserRankModel) HasPassedTestPoints() bool {
-	if o != nil && !IsNil(o.PassedTestPoints) {
-		return true
-	}
-
-	return false
-}
-
-// SetPassedTestPoints gets a reference to the given int32 and assigns it to the PassedTestPoints field.
+// SetPassedTestPoints sets field value
 func (o *UserRankModel) SetPassedTestPoints(v int32) {
-	o.PassedTestPoints = &v
+	o.PassedTestPoints = v
 }
 
-// GetFailedTestPoints returns the FailedTestPoints field value if set, zero value otherwise.
+// GetFailedTestPoints returns the FailedTestPoints field value
 func (o *UserRankModel) GetFailedTestPoints() int32 {
-	if o == nil || IsNil(o.FailedTestPoints) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.FailedTestPoints
+
+	return o.FailedTestPoints
 }
 
-// GetFailedTestPointsOk returns a tuple with the FailedTestPoints field value if set, nil otherwise
+// GetFailedTestPointsOk returns a tuple with the FailedTestPoints field value
 // and a boolean to check if the value has been set.
 func (o *UserRankModel) GetFailedTestPointsOk() (*int32, bool) {
-	if o == nil || IsNil(o.FailedTestPoints) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FailedTestPoints, true
+	return &o.FailedTestPoints, true
 }
 
-// HasFailedTestPoints returns a boolean if a field has been set.
-func (o *UserRankModel) HasFailedTestPoints() bool {
-	if o != nil && !IsNil(o.FailedTestPoints) {
-		return true
-	}
-
-	return false
-}
-
-// SetFailedTestPoints gets a reference to the given int32 and assigns it to the FailedTestPoints field.
+// SetFailedTestPoints sets field value
 func (o *UserRankModel) SetFailedTestPoints(v int32) {
-	o.FailedTestPoints = &v
+	o.FailedTestPoints = v
 }
 
-// GetSkippedTestPoints returns the SkippedTestPoints field value if set, zero value otherwise.
+// GetSkippedTestPoints returns the SkippedTestPoints field value
 func (o *UserRankModel) GetSkippedTestPoints() int32 {
-	if o == nil || IsNil(o.SkippedTestPoints) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.SkippedTestPoints
+
+	return o.SkippedTestPoints
 }
 
-// GetSkippedTestPointsOk returns a tuple with the SkippedTestPoints field value if set, nil otherwise
+// GetSkippedTestPointsOk returns a tuple with the SkippedTestPoints field value
 // and a boolean to check if the value has been set.
 func (o *UserRankModel) GetSkippedTestPointsOk() (*int32, bool) {
-	if o == nil || IsNil(o.SkippedTestPoints) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SkippedTestPoints, true
+	return &o.SkippedTestPoints, true
 }
 
-// HasSkippedTestPoints returns a boolean if a field has been set.
-func (o *UserRankModel) HasSkippedTestPoints() bool {
-	if o != nil && !IsNil(o.SkippedTestPoints) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkippedTestPoints gets a reference to the given int32 and assigns it to the SkippedTestPoints field.
+// SetSkippedTestPoints sets field value
 func (o *UserRankModel) SetSkippedTestPoints(v int32) {
-	o.SkippedTestPoints = &v
+	o.SkippedTestPoints = v
 }
 
-// GetBlockedTestPoints returns the BlockedTestPoints field value if set, zero value otherwise.
+// GetBlockedTestPoints returns the BlockedTestPoints field value
 func (o *UserRankModel) GetBlockedTestPoints() int32 {
-	if o == nil || IsNil(o.BlockedTestPoints) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.BlockedTestPoints
+
+	return o.BlockedTestPoints
 }
 
-// GetBlockedTestPointsOk returns a tuple with the BlockedTestPoints field value if set, nil otherwise
+// GetBlockedTestPointsOk returns a tuple with the BlockedTestPoints field value
 // and a boolean to check if the value has been set.
 func (o *UserRankModel) GetBlockedTestPointsOk() (*int32, bool) {
-	if o == nil || IsNil(o.BlockedTestPoints) {
+	if o == nil {
 		return nil, false
 	}
-	return o.BlockedTestPoints, true
+	return &o.BlockedTestPoints, true
 }
 
-// HasBlockedTestPoints returns a boolean if a field has been set.
-func (o *UserRankModel) HasBlockedTestPoints() bool {
-	if o != nil && !IsNil(o.BlockedTestPoints) {
-		return true
-	}
-
-	return false
-}
-
-// SetBlockedTestPoints gets a reference to the given int32 and assigns it to the BlockedTestPoints field.
+// SetBlockedTestPoints sets field value
 func (o *UserRankModel) SetBlockedTestPoints(v int32) {
-	o.BlockedTestPoints = &v
+	o.BlockedTestPoints = v
 }
 
 func (o UserRankModel) MarshalJSON() ([]byte, error) {
@@ -246,24 +204,12 @@ func (o UserRankModel) MarshalJSON() ([]byte, error) {
 
 func (o UserRankModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Score) {
-		toSerialize["score"] = o.Score
-	}
-	if !IsNil(o.WorkItemsCreated) {
-		toSerialize["workItemsCreated"] = o.WorkItemsCreated
-	}
-	if !IsNil(o.PassedTestPoints) {
-		toSerialize["passedTestPoints"] = o.PassedTestPoints
-	}
-	if !IsNil(o.FailedTestPoints) {
-		toSerialize["failedTestPoints"] = o.FailedTestPoints
-	}
-	if !IsNil(o.SkippedTestPoints) {
-		toSerialize["skippedTestPoints"] = o.SkippedTestPoints
-	}
-	if !IsNil(o.BlockedTestPoints) {
-		toSerialize["blockedTestPoints"] = o.BlockedTestPoints
-	}
+	toSerialize["score"] = o.Score
+	toSerialize["workItemsCreated"] = o.WorkItemsCreated
+	toSerialize["passedTestPoints"] = o.PassedTestPoints
+	toSerialize["failedTestPoints"] = o.FailedTestPoints
+	toSerialize["skippedTestPoints"] = o.SkippedTestPoints
+	toSerialize["blockedTestPoints"] = o.BlockedTestPoints
 	return toSerialize, nil
 }
 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**GlobalId** | Pointer to **int64** |  | [optional] 
-**ExternalId** | Pointer to **string** |  | [optional] 
-**ProjectId** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**GlobalId** | **int64** |  | 
+**ExternalId** | Pointer to **NullableString** |  | [optional] 
+**ProjectId** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewAutoTestShortModel
 
-`func NewAutoTestShortModel() *AutoTestShortModel`
+`func NewAutoTestShortModel(id string, globalId int64, projectId string, ) *AutoTestShortModel`
 
 NewAutoTestShortModel instantiates a new AutoTestShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,11 +48,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AutoTestShortModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetGlobalId
 
@@ -73,11 +68,6 @@ and a boolean to check if the value has been set.
 
 SetGlobalId sets GlobalId field to given value.
 
-### HasGlobalId
-
-`func (o *AutoTestShortModel) HasGlobalId() bool`
-
-HasGlobalId returns a boolean if a field has been set.
 
 ### GetExternalId
 
@@ -104,6 +94,16 @@ SetExternalId sets ExternalId field to given value.
 
 HasExternalId returns a boolean if a field has been set.
 
+### SetExternalIdNil
+
+`func (o *AutoTestShortModel) SetExternalIdNil(b bool)`
+
+ SetExternalIdNil sets the value for ExternalId to be an explicit nil
+
+### UnsetExternalId
+`func (o *AutoTestShortModel) UnsetExternalId()`
+
+UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetProjectId
 
 `func (o *AutoTestShortModel) GetProjectId() string`
@@ -123,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *AutoTestShortModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -154,6 +149,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AutoTestShortModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AutoTestShortModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,10 +20,10 @@ var _ MappedNullable = &TestPlanChangeModel{}
 
 // TestPlanChangeModel struct for TestPlanChangeModel
 type TestPlanChangeModel struct {
-	Id *string `json:"id,omitempty"`
-	TestPlanId *string `json:"testPlanId,omitempty"`
-	TestPlanChangedFields *TestPlanChangeModelTestPlanChangedFields `json:"testPlanChangedFields,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	Id string `json:"id"`
+	TestPlanId string `json:"testPlanId"`
+	TestPlanChangedFields NullableTestPlanChangedFieldsViewModel `json:"testPlanChangedFields,omitempty"`
+	CreatedById string `json:"createdById"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 }
 
@@ -31,8 +31,11 @@ type TestPlanChangeModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanChangeModel() *TestPlanChangeModel {
+func NewTestPlanChangeModel(id string, testPlanId string, createdById string) *TestPlanChangeModel {
 	this := TestPlanChangeModel{}
+	this.Id = id
+	this.TestPlanId = testPlanId
+	this.CreatedById = createdById
 	return &this
 }
 
@@ -44,132 +47,118 @@ func NewTestPlanChangeModelWithDefaults() *TestPlanChangeModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestPlanChangeModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanChangeModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestPlanChangeModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestPlanChangeModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetTestPlanId returns the TestPlanId field value if set, zero value otherwise.
+// GetTestPlanId returns the TestPlanId field value
 func (o *TestPlanChangeModel) GetTestPlanId() string {
-	if o == nil || IsNil(o.TestPlanId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestPlanId
+
+	return o.TestPlanId
 }
 
-// GetTestPlanIdOk returns a tuple with the TestPlanId field value if set, nil otherwise
+// GetTestPlanIdOk returns a tuple with the TestPlanId field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanChangeModel) GetTestPlanIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestPlanId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPlanId, true
+	return &o.TestPlanId, true
 }
 
-// HasTestPlanId returns a boolean if a field has been set.
-func (o *TestPlanChangeModel) HasTestPlanId() bool {
-	if o != nil && !IsNil(o.TestPlanId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlanId gets a reference to the given string and assigns it to the TestPlanId field.
+// SetTestPlanId sets field value
 func (o *TestPlanChangeModel) SetTestPlanId(v string) {
-	o.TestPlanId = &v
+	o.TestPlanId = v
 }
 
-// GetTestPlanChangedFields returns the TestPlanChangedFields field value if set, zero value otherwise.
-func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangeModelTestPlanChangedFields {
-	if o == nil || IsNil(o.TestPlanChangedFields) {
-		var ret TestPlanChangeModelTestPlanChangedFields
+// GetTestPlanChangedFields returns the TestPlanChangedFields field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangedFieldsViewModel {
+	if o == nil || IsNil(o.TestPlanChangedFields.Get()) {
+		var ret TestPlanChangedFieldsViewModel
 		return ret
 	}
-	return *o.TestPlanChangedFields
+	return *o.TestPlanChangedFields.Get()
 }
 
 // GetTestPlanChangedFieldsOk returns a tuple with the TestPlanChangedFields field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangeModelTestPlanChangedFields, bool) {
-	if o == nil || IsNil(o.TestPlanChangedFields) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangedFieldsViewModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestPlanChangedFields, true
+	return o.TestPlanChangedFields.Get(), o.TestPlanChangedFields.IsSet()
 }
 
 // HasTestPlanChangedFields returns a boolean if a field has been set.
 func (o *TestPlanChangeModel) HasTestPlanChangedFields() bool {
-	if o != nil && !IsNil(o.TestPlanChangedFields) {
+	if o != nil && o.TestPlanChangedFields.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestPlanChangedFields gets a reference to the given TestPlanChangeModelTestPlanChangedFields and assigns it to the TestPlanChangedFields field.
-func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangeModelTestPlanChangedFields) {
-	o.TestPlanChangedFields = &v
+// SetTestPlanChangedFields gets a reference to the given NullableTestPlanChangedFieldsViewModel and assigns it to the TestPlanChangedFields field.
+func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangedFieldsViewModel) {
+	o.TestPlanChangedFields.Set(&v)
+}
+// SetTestPlanChangedFieldsNil sets the value for TestPlanChangedFields to be an explicit nil
+func (o *TestPlanChangeModel) SetTestPlanChangedFieldsNil() {
+	o.TestPlanChangedFields.Set(nil)
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// UnsetTestPlanChangedFields ensures that no value is present for TestPlanChangedFields, not even an explicit nil
+func (o *TestPlanChangeModel) UnsetTestPlanChangedFields() {
+	o.TestPlanChangedFields.Unset()
+}
+
+// GetCreatedById returns the CreatedById field value
 func (o *TestPlanChangeModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanChangeModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *TestPlanChangeModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *TestPlanChangeModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,18 +213,12 @@ func (o TestPlanChangeModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanChangeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	toSerialize["id"] = o.Id
+	toSerialize["testPlanId"] = o.TestPlanId
+	if o.TestPlanChangedFields.IsSet() {
+		toSerialize["testPlanChangedFields"] = o.TestPlanChangedFields.Get()
 	}
-	if !IsNil(o.TestPlanId) {
-		toSerialize["testPlanId"] = o.TestPlanId
-	}
-	if !IsNil(o.TestPlanChangedFields) {
-		toSerialize["testPlanChangedFields"] = o.TestPlanChangedFields
-	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.CreatedDate.IsSet() {
 		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}

@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Uri** | Pointer to **NullableString** |  | [optional] 
-**StatusCode** | Pointer to **int32** |  | [optional] 
+**StatusCode** | **int32** |  | 
 **RequestBody** | Pointer to **NullableString** |  | [optional] 
-**RequestMeta** | Pointer to **string** |  | [optional] 
-**ResponseBody** | Pointer to **string** |  | [optional] 
-**ResponseMeta** | Pointer to **string** |  | [optional] 
+**RequestMeta** | **string** |  | 
+**ResponseBody** | **string** |  | 
+**ResponseMeta** | **string** |  | 
 
 ## Methods
 
 ### NewRequestData
 
-`func NewRequestData() *RequestData`
+`func NewRequestData(statusCode int32, requestMeta string, responseBody string, responseMeta string, ) *RequestData`
 
 NewRequestData instantiates a new RequestData object
 This constructor will assign default values to properties that have it defined,
@@ -84,11 +84,6 @@ and a boolean to check if the value has been set.
 
 SetStatusCode sets StatusCode field to given value.
 
-### HasStatusCode
-
-`func (o *RequestData) HasStatusCode() bool`
-
-HasStatusCode returns a boolean if a field has been set.
 
 ### GetRequestBody
 
@@ -144,11 +139,6 @@ and a boolean to check if the value has been set.
 
 SetRequestMeta sets RequestMeta field to given value.
 
-### HasRequestMeta
-
-`func (o *RequestData) HasRequestMeta() bool`
-
-HasRequestMeta returns a boolean if a field has been set.
 
 ### GetResponseBody
 
@@ -169,11 +159,6 @@ and a boolean to check if the value has been set.
 
 SetResponseBody sets ResponseBody field to given value.
 
-### HasResponseBody
-
-`func (o *RequestData) HasResponseBody() bool`
-
-HasResponseBody returns a boolean if a field has been set.
 
 ### GetResponseMeta
 
@@ -194,11 +179,6 @@ and a boolean to check if the value has been set.
 
 SetResponseMeta sets ResponseMeta field to given value.
 
-### HasResponseMeta
-
-`func (o *RequestData) HasResponseMeta() bool`
-
-HasResponseMeta returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

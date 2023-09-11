@@ -20,24 +20,28 @@ var _ MappedNullable = &TestPointPutModel{}
 // TestPointPutModel struct for TestPointPutModel
 type TestPointPutModel struct {
 	TesterId NullableString `json:"testerId,omitempty"`
-	IterationId *string `json:"iterationId,omitempty"`
+	IterationId string `json:"iterationId"`
 	WorkItemId NullableString `json:"workItemId,omitempty"`
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
-	TestSuiteId *string `json:"testSuiteId,omitempty"`
+	TestSuiteId string `json:"testSuiteId"`
 	Status NullableString `json:"status,omitempty"`
 	LastTestResultId NullableString `json:"lastTestResultId,omitempty"`
 	// Unique ID of the entity
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Indicates if the entity is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 }
 
 // NewTestPointPutModel instantiates a new TestPointPutModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointPutModel() *TestPointPutModel {
+func NewTestPointPutModel(iterationId string, testSuiteId string, id string, isDeleted bool) *TestPointPutModel {
 	this := TestPointPutModel{}
+	this.IterationId = iterationId
+	this.TestSuiteId = testSuiteId
+	this.Id = id
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -91,36 +95,28 @@ func (o *TestPointPutModel) UnsetTesterId() {
 	o.TesterId.Unset()
 }
 
-// GetIterationId returns the IterationId field value if set, zero value otherwise.
+// GetIterationId returns the IterationId field value
 func (o *TestPointPutModel) GetIterationId() string {
-	if o == nil || IsNil(o.IterationId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IterationId
+
+	return o.IterationId
 }
 
-// GetIterationIdOk returns a tuple with the IterationId field value if set, nil otherwise
+// GetIterationIdOk returns a tuple with the IterationId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointPutModel) GetIterationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.IterationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IterationId, true
+	return &o.IterationId, true
 }
 
-// HasIterationId returns a boolean if a field has been set.
-func (o *TestPointPutModel) HasIterationId() bool {
-	if o != nil && !IsNil(o.IterationId) {
-		return true
-	}
-
-	return false
-}
-
-// SetIterationId gets a reference to the given string and assigns it to the IterationId field.
+// SetIterationId sets field value
 func (o *TestPointPutModel) SetIterationId(v string) {
-	o.IterationId = &v
+	o.IterationId = v
 }
 
 // GetWorkItemId returns the WorkItemId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -207,36 +203,28 @@ func (o *TestPointPutModel) UnsetConfigurationId() {
 	o.ConfigurationId.Unset()
 }
 
-// GetTestSuiteId returns the TestSuiteId field value if set, zero value otherwise.
+// GetTestSuiteId returns the TestSuiteId field value
 func (o *TestPointPutModel) GetTestSuiteId() string {
-	if o == nil || IsNil(o.TestSuiteId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestSuiteId
+
+	return o.TestSuiteId
 }
 
-// GetTestSuiteIdOk returns a tuple with the TestSuiteId field value if set, nil otherwise
+// GetTestSuiteIdOk returns a tuple with the TestSuiteId field value
 // and a boolean to check if the value has been set.
 func (o *TestPointPutModel) GetTestSuiteIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestSuiteId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestSuiteId, true
+	return &o.TestSuiteId, true
 }
 
-// HasTestSuiteId returns a boolean if a field has been set.
-func (o *TestPointPutModel) HasTestSuiteId() bool {
-	if o != nil && !IsNil(o.TestSuiteId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestSuiteId gets a reference to the given string and assigns it to the TestSuiteId field.
+// SetTestSuiteId sets field value
 func (o *TestPointPutModel) SetTestSuiteId(v string) {
-	o.TestSuiteId = &v
+	o.TestSuiteId = v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -323,68 +311,52 @@ func (o *TestPointPutModel) UnsetLastTestResultId() {
 	o.LastTestResultId.Unset()
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestPointPutModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestPointPutModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestPointPutModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestPointPutModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *TestPointPutModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *TestPointPutModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *TestPointPutModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *TestPointPutModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 func (o TestPointPutModel) MarshalJSON() ([]byte, error) {
@@ -400,30 +372,22 @@ func (o TestPointPutModel) ToMap() (map[string]interface{}, error) {
 	if o.TesterId.IsSet() {
 		toSerialize["testerId"] = o.TesterId.Get()
 	}
-	if !IsNil(o.IterationId) {
-		toSerialize["iterationId"] = o.IterationId
-	}
+	toSerialize["iterationId"] = o.IterationId
 	if o.WorkItemId.IsSet() {
 		toSerialize["workItemId"] = o.WorkItemId.Get()
 	}
 	if o.ConfigurationId.IsSet() {
 		toSerialize["configurationId"] = o.ConfigurationId.Get()
 	}
-	if !IsNil(o.TestSuiteId) {
-		toSerialize["testSuiteId"] = o.TestSuiteId
-	}
+	toSerialize["testSuiteId"] = o.TestSuiteId
 	if o.Status.IsSet() {
 		toSerialize["status"] = o.Status.Get()
 	}
 	if o.LastTestResultId.IsSet() {
 		toSerialize["lastTestResultId"] = o.LastTestResultId.Get()
 	}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
 }
 

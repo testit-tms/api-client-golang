@@ -20,9 +20,9 @@ var _ MappedNullable = &TestResultV2ShortModel{}
 
 // TestResultV2ShortModel struct for TestResultV2ShortModel
 type TestResultV2ShortModel struct {
-	Id *string `json:"id,omitempty"`
-	ConfigurationId *string `json:"configurationId,omitempty"`
-	WorkItemVersionId *string `json:"workItemVersionId,omitempty"`
+	Id string `json:"id"`
+	ConfigurationId string `json:"configurationId"`
+	WorkItemVersionId string `json:"workItemVersionId"`
 	AutoTestId NullableString `json:"autoTestId,omitempty"`
 	Message NullableString `json:"message,omitempty"`
 	Traces NullableString `json:"traces,omitempty"`
@@ -32,9 +32,9 @@ type TestResultV2ShortModel struct {
 	StoppedByUserId NullableString `json:"stoppedByUserId,omitempty"`
 	TestPointId NullableString `json:"testPointId,omitempty"`
 	TestPoint NullableTestPointRelatedToTestResult `json:"testPoint,omitempty"`
-	TestRunId *string `json:"testRunId,omitempty"`
+	TestRunId string `json:"testRunId"`
 	// Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped
-	Outcome *string `json:"outcome,omitempty"`
+	Outcome NullableString `json:"outcome,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
@@ -46,8 +46,12 @@ type TestResultV2ShortModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultV2ShortModel() *TestResultV2ShortModel {
+func NewTestResultV2ShortModel(id string, configurationId string, workItemVersionId string, testRunId string) *TestResultV2ShortModel {
 	this := TestResultV2ShortModel{}
+	this.Id = id
+	this.ConfigurationId = configurationId
+	this.WorkItemVersionId = workItemVersionId
+	this.TestRunId = testRunId
 	return &this
 }
 
@@ -59,100 +63,76 @@ func NewTestResultV2ShortModelWithDefaults() *TestResultV2ShortModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *TestResultV2ShortModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *TestResultV2ShortModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TestResultV2ShortModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *TestResultV2ShortModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetConfigurationId returns the ConfigurationId field value if set, zero value otherwise.
+// GetConfigurationId returns the ConfigurationId field value
 func (o *TestResultV2ShortModel) GetConfigurationId() string {
-	if o == nil || IsNil(o.ConfigurationId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ConfigurationId
+
+	return o.ConfigurationId
 }
 
-// GetConfigurationIdOk returns a tuple with the ConfigurationId field value if set, nil otherwise
+// GetConfigurationIdOk returns a tuple with the ConfigurationId field value
 // and a boolean to check if the value has been set.
 func (o *TestResultV2ShortModel) GetConfigurationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ConfigurationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConfigurationId, true
+	return &o.ConfigurationId, true
 }
 
-// HasConfigurationId returns a boolean if a field has been set.
-func (o *TestResultV2ShortModel) HasConfigurationId() bool {
-	if o != nil && !IsNil(o.ConfigurationId) {
-		return true
-	}
-
-	return false
-}
-
-// SetConfigurationId gets a reference to the given string and assigns it to the ConfigurationId field.
+// SetConfigurationId sets field value
 func (o *TestResultV2ShortModel) SetConfigurationId(v string) {
-	o.ConfigurationId = &v
+	o.ConfigurationId = v
 }
 
-// GetWorkItemVersionId returns the WorkItemVersionId field value if set, zero value otherwise.
+// GetWorkItemVersionId returns the WorkItemVersionId field value
 func (o *TestResultV2ShortModel) GetWorkItemVersionId() string {
-	if o == nil || IsNil(o.WorkItemVersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WorkItemVersionId
+
+	return o.WorkItemVersionId
 }
 
-// GetWorkItemVersionIdOk returns a tuple with the WorkItemVersionId field value if set, nil otherwise
+// GetWorkItemVersionIdOk returns a tuple with the WorkItemVersionId field value
 // and a boolean to check if the value has been set.
 func (o *TestResultV2ShortModel) GetWorkItemVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkItemVersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemVersionId, true
+	return &o.WorkItemVersionId, true
 }
 
-// HasWorkItemVersionId returns a boolean if a field has been set.
-func (o *TestResultV2ShortModel) HasWorkItemVersionId() bool {
-	if o != nil && !IsNil(o.WorkItemVersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItemVersionId gets a reference to the given string and assigns it to the WorkItemVersionId field.
+// SetWorkItemVersionId sets field value
 func (o *TestResultV2ShortModel) SetWorkItemVersionId(v string) {
-	o.WorkItemVersionId = &v
+	o.WorkItemVersionId = v
 }
 
 // GetAutoTestId returns the AutoTestId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -533,68 +513,70 @@ func (o *TestResultV2ShortModel) UnsetTestPoint() {
 	o.TestPoint.Unset()
 }
 
-// GetTestRunId returns the TestRunId field value if set, zero value otherwise.
+// GetTestRunId returns the TestRunId field value
 func (o *TestResultV2ShortModel) GetTestRunId() string {
-	if o == nil || IsNil(o.TestRunId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestRunId
+
+	return o.TestRunId
 }
 
-// GetTestRunIdOk returns a tuple with the TestRunId field value if set, nil otherwise
+// GetTestRunIdOk returns a tuple with the TestRunId field value
 // and a boolean to check if the value has been set.
 func (o *TestResultV2ShortModel) GetTestRunIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestRunId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestRunId, true
+	return &o.TestRunId, true
 }
 
-// HasTestRunId returns a boolean if a field has been set.
-func (o *TestResultV2ShortModel) HasTestRunId() bool {
-	if o != nil && !IsNil(o.TestRunId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestRunId gets a reference to the given string and assigns it to the TestRunId field.
+// SetTestRunId sets field value
 func (o *TestResultV2ShortModel) SetTestRunId(v string) {
-	o.TestRunId = &v
+	o.TestRunId = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise.
+// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestResultV2ShortModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil || IsNil(o.Outcome.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome
+	return *o.Outcome.Get()
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultV2ShortModel) GetOutcomeOk() (*string, bool) {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Outcome, true
+	return o.Outcome.Get(), o.Outcome.IsSet()
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *TestResultV2ShortModel) HasOutcome() bool {
-	if o != nil && !IsNil(o.Outcome) {
+	if o != nil && o.Outcome.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
 func (o *TestResultV2ShortModel) SetOutcome(v string) {
-	o.Outcome = &v
+	o.Outcome.Set(&v)
+}
+// SetOutcomeNil sets the value for Outcome to be an explicit nil
+func (o *TestResultV2ShortModel) SetOutcomeNil() {
+	o.Outcome.Set(nil)
+}
+
+// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+func (o *TestResultV2ShortModel) UnsetOutcome() {
+	o.Outcome.Unset()
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -781,15 +763,9 @@ func (o TestResultV2ShortModel) MarshalJSON() ([]byte, error) {
 
 func (o TestResultV2ShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.ConfigurationId) {
-		toSerialize["configurationId"] = o.ConfigurationId
-	}
-	if !IsNil(o.WorkItemVersionId) {
-		toSerialize["workItemVersionId"] = o.WorkItemVersionId
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["configurationId"] = o.ConfigurationId
+	toSerialize["workItemVersionId"] = o.WorkItemVersionId
 	if o.AutoTestId.IsSet() {
 		toSerialize["autoTestId"] = o.AutoTestId.Get()
 	}
@@ -817,11 +793,9 @@ func (o TestResultV2ShortModel) ToMap() (map[string]interface{}, error) {
 	if o.TestPoint.IsSet() {
 		toSerialize["testPoint"] = o.TestPoint.Get()
 	}
-	if !IsNil(o.TestRunId) {
-		toSerialize["testRunId"] = o.TestRunId
-	}
-	if !IsNil(o.Outcome) {
-		toSerialize["outcome"] = o.Outcome
+	toSerialize["testRunId"] = o.TestRunId
+	if o.Outcome.IsSet() {
+		toSerialize["outcome"] = o.Outcome.Get()
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()

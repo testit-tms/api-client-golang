@@ -130,6 +130,7 @@ func (a *CustomAttributesApiService) ApiV2CustomAttributesGlobalIdDeleteExecute(
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -254,6 +255,7 @@ func (a *CustomAttributesApiService) ApiV2CustomAttributesGlobalIdPutExecute(r A
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

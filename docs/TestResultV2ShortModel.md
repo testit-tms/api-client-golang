@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**ConfigurationId** | Pointer to **string** |  | [optional] 
-**WorkItemVersionId** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**ConfigurationId** | **string** |  | 
+**WorkItemVersionId** | **string** |  | 
 **AutoTestId** | Pointer to **NullableString** |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
 **Traces** | Pointer to **NullableString** |  | [optional] 
@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **StoppedByUserId** | Pointer to **NullableString** |  | [optional] 
 **TestPointId** | Pointer to **NullableString** |  | [optional] 
 **TestPoint** | Pointer to [**NullableTestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  | [optional] 
-**TestRunId** | Pointer to **string** |  | [optional] 
-**Outcome** | Pointer to **string** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
+**TestRunId** | **string** |  | 
+**Outcome** | Pointer to **NullableString** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultV2ShortModel
 
-`func NewTestResultV2ShortModel() *TestResultV2ShortModel`
+`func NewTestResultV2ShortModel(id string, configurationId string, workItemVersionId string, testRunId string, ) *TestResultV2ShortModel`
 
 NewTestResultV2ShortModel instantiates a new TestResultV2ShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -62,11 +62,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestResultV2ShortModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetConfigurationId
 
@@ -87,11 +82,6 @@ and a boolean to check if the value has been set.
 
 SetConfigurationId sets ConfigurationId field to given value.
 
-### HasConfigurationId
-
-`func (o *TestResultV2ShortModel) HasConfigurationId() bool`
-
-HasConfigurationId returns a boolean if a field has been set.
 
 ### GetWorkItemVersionId
 
@@ -112,11 +102,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemVersionId sets WorkItemVersionId field to given value.
 
-### HasWorkItemVersionId
-
-`func (o *TestResultV2ShortModel) HasWorkItemVersionId() bool`
-
-HasWorkItemVersionId returns a boolean if a field has been set.
 
 ### GetAutoTestId
 
@@ -452,11 +437,6 @@ and a boolean to check if the value has been set.
 
 SetTestRunId sets TestRunId field to given value.
 
-### HasTestRunId
-
-`func (o *TestResultV2ShortModel) HasTestRunId() bool`
-
-HasTestRunId returns a boolean if a field has been set.
 
 ### GetOutcome
 
@@ -483,6 +463,16 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
+### SetOutcomeNil
+
+`func (o *TestResultV2ShortModel) SetOutcomeNil(b bool)`
+
+ SetOutcomeNil sets the value for Outcome to be an explicit nil
+
+### UnsetOutcome
+`func (o *TestResultV2ShortModel) UnsetOutcome()`
+
+UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultV2ShortModel) GetComment() string`

@@ -500,6 +500,7 @@ func (a *WebhooksApiService) ApiV2WebhooksIdPutExecute(r ApiApiV2WebhooksIdPutRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -808,6 +809,7 @@ func (a *WebhooksApiService) ApiV2WebhooksSearchPostExecute(r ApiApiV2WebhooksSe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -828,11 +830,17 @@ type ApiApiV2WebhooksSpecialVariablesGetRequest struct {
 	ctx context.Context
 	ApiService *WebhooksApiService
 	eventType *WebHookEventType
+	variablesType *WebhookVariablesType
 }
 
 // Webhook event type
 func (r ApiApiV2WebhooksSpecialVariablesGetRequest) EventType(eventType WebHookEventType) ApiApiV2WebhooksSpecialVariablesGetRequest {
 	r.eventType = &eventType
+	return r
+}
+
+func (r ApiApiV2WebhooksSpecialVariablesGetRequest) VariablesType(variablesType WebhookVariablesType) ApiApiV2WebhooksSpecialVariablesGetRequest {
+	r.variablesType = &variablesType
 	return r
 }
 
@@ -876,6 +884,9 @@ func (a *WebhooksApiService) ApiV2WebhooksSpecialVariablesGetExecute(r ApiApiV2W
 
 	if r.eventType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "eventType", r.eventType, "")
+	}
+	if r.variablesType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "variablesType", r.variablesType, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1058,6 +1069,7 @@ func (a *WebhooksApiService) ApiV2WebhooksTestPostExecute(r ApiApiV2WebhooksTest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

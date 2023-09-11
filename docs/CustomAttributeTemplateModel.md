@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
+**Id** | **string** |  | 
+**IsDeleted** | **bool** |  | 
 **Name** | **string** | Custom attributes template name | 
 
 ## Methods
 
 ### NewCustomAttributeTemplateModel
 
-`func NewCustomAttributeTemplateModel(name string, ) *CustomAttributeTemplateModel`
+`func NewCustomAttributeTemplateModel(id string, isDeleted bool, name string, ) *CustomAttributeTemplateModel`
 
 NewCustomAttributeTemplateModel instantiates a new CustomAttributeTemplateModel object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *CustomAttributeTemplateModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -71,11 +66,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *CustomAttributeTemplateModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetName
 

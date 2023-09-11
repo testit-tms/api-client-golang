@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**HasThisSharedStepAsPrecondition** | Pointer to **bool** |  | [optional] 
-**HasThisSharedStepAsPostcondition** | Pointer to **bool** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**HasThisSharedStepAsPrecondition** | **bool** |  | 
+**HasThisSharedStepAsPostcondition** | **bool** |  | 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
+**IsDeleted** | **bool** |  | 
 
 ## Methods
 
 ### NewSharedStepReferenceSectionModel
 
-`func NewSharedStepReferenceSectionModel() *SharedStepReferenceSectionModel`
+`func NewSharedStepReferenceSectionModel(id string, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, isDeleted bool, ) *SharedStepReferenceSectionModel`
 
 NewSharedStepReferenceSectionModel instantiates a new SharedStepReferenceSectionModel object
 This constructor will assign default values to properties that have it defined,
@@ -52,11 +52,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *SharedStepReferenceSectionModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -83,6 +78,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *SharedStepReferenceSectionModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *SharedStepReferenceSectionModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetHasThisSharedStepAsPrecondition
 
 `func (o *SharedStepReferenceSectionModel) GetHasThisSharedStepAsPrecondition() bool`
@@ -102,11 +107,6 @@ and a boolean to check if the value has been set.
 
 SetHasThisSharedStepAsPrecondition sets HasThisSharedStepAsPrecondition field to given value.
 
-### HasHasThisSharedStepAsPrecondition
-
-`func (o *SharedStepReferenceSectionModel) HasHasThisSharedStepAsPrecondition() bool`
-
-HasHasThisSharedStepAsPrecondition returns a boolean if a field has been set.
 
 ### GetHasThisSharedStepAsPostcondition
 
@@ -127,11 +127,6 @@ and a boolean to check if the value has been set.
 
 SetHasThisSharedStepAsPostcondition sets HasThisSharedStepAsPostcondition field to given value.
 
-### HasHasThisSharedStepAsPostcondition
-
-`func (o *SharedStepReferenceSectionModel) HasHasThisSharedStepAsPostcondition() bool`
-
-HasHasThisSharedStepAsPostcondition returns a boolean if a field has been set.
 
 ### GetCreatedById
 
@@ -152,11 +147,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *SharedStepReferenceSectionModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -282,11 +272,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *SharedStepReferenceSectionModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

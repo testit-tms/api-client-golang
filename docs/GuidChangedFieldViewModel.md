@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OldValue** | Pointer to **string** |  | [optional] 
-**NewValue** | Pointer to **string** |  | [optional] 
+**OldValue** | **string** |  | 
+**NewValue** | **string** |  | 
 
 ## Methods
 
 ### NewGuidChangedFieldViewModel
 
-`func NewGuidChangedFieldViewModel() *GuidChangedFieldViewModel`
+`func NewGuidChangedFieldViewModel(oldValue string, newValue string, ) *GuidChangedFieldViewModel`
 
 NewGuidChangedFieldViewModel instantiates a new GuidChangedFieldViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetOldValue sets OldValue field to given value.
 
-### HasOldValue
-
-`func (o *GuidChangedFieldViewModel) HasOldValue() bool`
-
-HasOldValue returns a boolean if a field has been set.
 
 ### GetNewValue
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetNewValue sets NewValue field to given value.
 
-### HasNewValue
-
-`func (o *GuidChangedFieldViewModel) HasNewValue() bool`
-
-HasNewValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

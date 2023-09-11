@@ -4,16 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
-**TestRunId** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**CreatedDate** | **time.Time** |  | 
+**CreatedById** | **string** |  | 
+**CreatedByName** | Pointer to **NullableString** |  | [optional] 
+**TestRunId** | **string** |  | 
 **TestRunName** | Pointer to **NullableString** |  | [optional] 
-**ConfigurationId** | Pointer to **string** |  | [optional] 
+**ConfigurationId** | **string** |  | 
+**ConfigurationName** | Pointer to **NullableString** |  | [optional] 
 **Outcome** | [**AutotestResultOutcome**](AutotestResultOutcome.md) |  | 
 **LaunchSource** | Pointer to **NullableString** |  | [optional] 
-**ModifiedDate** | Pointer to **NullableTime** |  | [optional] [readonly] 
-**ModifiedById** | Pointer to **NullableString** |  | [optional] [readonly] 
+**ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
+**ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **TestPlanId** | Pointer to **NullableString** |  | [optional] 
 **TestPlanGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **TestPlanName** | Pointer to **NullableString** |  | [optional] 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewAutotestResultHistoricalGetModel
 
-`func NewAutotestResultHistoricalGetModel(outcome AutotestResultOutcome, ) *AutotestResultHistoricalGetModel`
+`func NewAutotestResultHistoricalGetModel(id string, createdDate time.Time, createdById string, testRunId string, configurationId string, outcome AutotestResultOutcome, ) *AutotestResultHistoricalGetModel`
 
 NewAutotestResultHistoricalGetModel instantiates a new AutotestResultHistoricalGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -57,11 +59,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *AutotestResultHistoricalGetModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -82,11 +79,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *AutotestResultHistoricalGetModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetCreatedById
 
@@ -107,12 +99,42 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
 
-`func (o *AutotestResultHistoricalGetModel) HasCreatedById() bool`
+### GetCreatedByName
 
-HasCreatedById returns a boolean if a field has been set.
+`func (o *AutotestResultHistoricalGetModel) GetCreatedByName() string`
 
+GetCreatedByName returns the CreatedByName field if non-nil, zero value otherwise.
+
+### GetCreatedByNameOk
+
+`func (o *AutotestResultHistoricalGetModel) GetCreatedByNameOk() (*string, bool)`
+
+GetCreatedByNameOk returns a tuple with the CreatedByName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedByName
+
+`func (o *AutotestResultHistoricalGetModel) SetCreatedByName(v string)`
+
+SetCreatedByName sets CreatedByName field to given value.
+
+### HasCreatedByName
+
+`func (o *AutotestResultHistoricalGetModel) HasCreatedByName() bool`
+
+HasCreatedByName returns a boolean if a field has been set.
+
+### SetCreatedByNameNil
+
+`func (o *AutotestResultHistoricalGetModel) SetCreatedByNameNil(b bool)`
+
+ SetCreatedByNameNil sets the value for CreatedByName to be an explicit nil
+
+### UnsetCreatedByName
+`func (o *AutotestResultHistoricalGetModel) UnsetCreatedByName()`
+
+UnsetCreatedByName ensures that no value is present for CreatedByName, not even an explicit nil
 ### GetTestRunId
 
 `func (o *AutotestResultHistoricalGetModel) GetTestRunId() string`
@@ -132,11 +154,6 @@ and a boolean to check if the value has been set.
 
 SetTestRunId sets TestRunId field to given value.
 
-### HasTestRunId
-
-`func (o *AutotestResultHistoricalGetModel) HasTestRunId() bool`
-
-HasTestRunId returns a boolean if a field has been set.
 
 ### GetTestRunName
 
@@ -192,12 +209,42 @@ and a boolean to check if the value has been set.
 
 SetConfigurationId sets ConfigurationId field to given value.
 
-### HasConfigurationId
 
-`func (o *AutotestResultHistoricalGetModel) HasConfigurationId() bool`
+### GetConfigurationName
 
-HasConfigurationId returns a boolean if a field has been set.
+`func (o *AutotestResultHistoricalGetModel) GetConfigurationName() string`
 
+GetConfigurationName returns the ConfigurationName field if non-nil, zero value otherwise.
+
+### GetConfigurationNameOk
+
+`func (o *AutotestResultHistoricalGetModel) GetConfigurationNameOk() (*string, bool)`
+
+GetConfigurationNameOk returns a tuple with the ConfigurationName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigurationName
+
+`func (o *AutotestResultHistoricalGetModel) SetConfigurationName(v string)`
+
+SetConfigurationName sets ConfigurationName field to given value.
+
+### HasConfigurationName
+
+`func (o *AutotestResultHistoricalGetModel) HasConfigurationName() bool`
+
+HasConfigurationName returns a boolean if a field has been set.
+
+### SetConfigurationNameNil
+
+`func (o *AutotestResultHistoricalGetModel) SetConfigurationNameNil(b bool)`
+
+ SetConfigurationNameNil sets the value for ConfigurationName to be an explicit nil
+
+### UnsetConfigurationName
+`func (o *AutotestResultHistoricalGetModel) UnsetConfigurationName()`
+
+UnsetConfigurationName ensures that no value is present for ConfigurationName, not even an explicit nil
 ### GetOutcome
 
 `func (o *AutotestResultHistoricalGetModel) GetOutcome() AutotestResultOutcome`

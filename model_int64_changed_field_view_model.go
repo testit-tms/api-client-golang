@@ -19,16 +19,18 @@ var _ MappedNullable = &Int64ChangedFieldViewModel{}
 
 // Int64ChangedFieldViewModel struct for Int64ChangedFieldViewModel
 type Int64ChangedFieldViewModel struct {
-	OldValue *int64 `json:"oldValue,omitempty"`
-	NewValue *int64 `json:"newValue,omitempty"`
+	OldValue int64 `json:"oldValue"`
+	NewValue int64 `json:"newValue"`
 }
 
 // NewInt64ChangedFieldViewModel instantiates a new Int64ChangedFieldViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInt64ChangedFieldViewModel() *Int64ChangedFieldViewModel {
+func NewInt64ChangedFieldViewModel(oldValue int64, newValue int64) *Int64ChangedFieldViewModel {
 	this := Int64ChangedFieldViewModel{}
+	this.OldValue = oldValue
+	this.NewValue = newValue
 	return &this
 }
 
@@ -40,68 +42,52 @@ func NewInt64ChangedFieldViewModelWithDefaults() *Int64ChangedFieldViewModel {
 	return &this
 }
 
-// GetOldValue returns the OldValue field value if set, zero value otherwise.
+// GetOldValue returns the OldValue field value
 func (o *Int64ChangedFieldViewModel) GetOldValue() int64 {
-	if o == nil || IsNil(o.OldValue) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.OldValue
+
+	return o.OldValue
 }
 
-// GetOldValueOk returns a tuple with the OldValue field value if set, nil otherwise
+// GetOldValueOk returns a tuple with the OldValue field value
 // and a boolean to check if the value has been set.
 func (o *Int64ChangedFieldViewModel) GetOldValueOk() (*int64, bool) {
-	if o == nil || IsNil(o.OldValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.OldValue, true
+	return &o.OldValue, true
 }
 
-// HasOldValue returns a boolean if a field has been set.
-func (o *Int64ChangedFieldViewModel) HasOldValue() bool {
-	if o != nil && !IsNil(o.OldValue) {
-		return true
-	}
-
-	return false
-}
-
-// SetOldValue gets a reference to the given int64 and assigns it to the OldValue field.
+// SetOldValue sets field value
 func (o *Int64ChangedFieldViewModel) SetOldValue(v int64) {
-	o.OldValue = &v
+	o.OldValue = v
 }
 
-// GetNewValue returns the NewValue field value if set, zero value otherwise.
+// GetNewValue returns the NewValue field value
 func (o *Int64ChangedFieldViewModel) GetNewValue() int64 {
-	if o == nil || IsNil(o.NewValue) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.NewValue
+
+	return o.NewValue
 }
 
-// GetNewValueOk returns a tuple with the NewValue field value if set, nil otherwise
+// GetNewValueOk returns a tuple with the NewValue field value
 // and a boolean to check if the value has been set.
 func (o *Int64ChangedFieldViewModel) GetNewValueOk() (*int64, bool) {
-	if o == nil || IsNil(o.NewValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NewValue, true
+	return &o.NewValue, true
 }
 
-// HasNewValue returns a boolean if a field has been set.
-func (o *Int64ChangedFieldViewModel) HasNewValue() bool {
-	if o != nil && !IsNil(o.NewValue) {
-		return true
-	}
-
-	return false
-}
-
-// SetNewValue gets a reference to the given int64 and assigns it to the NewValue field.
+// SetNewValue sets field value
 func (o *Int64ChangedFieldViewModel) SetNewValue(v int64) {
-	o.NewValue = &v
+	o.NewValue = v
 }
 
 func (o Int64ChangedFieldViewModel) MarshalJSON() ([]byte, error) {
@@ -114,12 +100,8 @@ func (o Int64ChangedFieldViewModel) MarshalJSON() ([]byte, error) {
 
 func (o Int64ChangedFieldViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OldValue) {
-		toSerialize["oldValue"] = o.OldValue
-	}
-	if !IsNil(o.NewValue) {
-		toSerialize["newValue"] = o.NewValue
-	}
+	toSerialize["oldValue"] = o.OldValue
+	toSerialize["newValue"] = o.NewValue
 	return toSerialize, nil
 }
 

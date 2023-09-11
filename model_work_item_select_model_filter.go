@@ -51,7 +51,8 @@ type WorkItemSelectModelFilter struct {
 	Types []WorkItemEntityTypes `json:"types,omitempty"`
 	CreatedDate NullableTestPointFilterModelWorkItemCreatedDate `json:"createdDate,omitempty"`
 	ModifiedDate NullableTestPointFilterModelWorkItemModifiedDate `json:"modifiedDate,omitempty"`
-	Duration NullableWorkItemFilterModelDuration `json:"duration,omitempty"`
+	Duration NullableTestSuiteWorkItemsSearchModelDuration `json:"duration,omitempty"`
+	MedianDuration NullableTestSuiteWorkItemsSearchModelMedianDuration `json:"medianDuration,omitempty"`
 	// Is result must consist of only manual/automated work items
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Collection of tags
@@ -684,9 +685,9 @@ func (o *WorkItemSelectModelFilter) UnsetModifiedDate() {
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemSelectModelFilter) GetDuration() WorkItemFilterModelDuration {
+func (o *WorkItemSelectModelFilter) GetDuration() TestSuiteWorkItemsSearchModelDuration {
 	if o == nil || IsNil(o.Duration.Get()) {
-		var ret WorkItemFilterModelDuration
+		var ret TestSuiteWorkItemsSearchModelDuration
 		return ret
 	}
 	return *o.Duration.Get()
@@ -695,7 +696,7 @@ func (o *WorkItemSelectModelFilter) GetDuration() WorkItemFilterModelDuration {
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemSelectModelFilter) GetDurationOk() (*WorkItemFilterModelDuration, bool) {
+func (o *WorkItemSelectModelFilter) GetDurationOk() (*TestSuiteWorkItemsSearchModelDuration, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -711,8 +712,8 @@ func (o *WorkItemSelectModelFilter) HasDuration() bool {
 	return false
 }
 
-// SetDuration gets a reference to the given NullableWorkItemFilterModelDuration and assigns it to the Duration field.
-func (o *WorkItemSelectModelFilter) SetDuration(v WorkItemFilterModelDuration) {
+// SetDuration gets a reference to the given NullableTestSuiteWorkItemsSearchModelDuration and assigns it to the Duration field.
+func (o *WorkItemSelectModelFilter) SetDuration(v TestSuiteWorkItemsSearchModelDuration) {
 	o.Duration.Set(&v)
 }
 // SetDurationNil sets the value for Duration to be an explicit nil
@@ -723,6 +724,48 @@ func (o *WorkItemSelectModelFilter) SetDurationNil() {
 // UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 func (o *WorkItemSelectModelFilter) UnsetDuration() {
 	o.Duration.Unset()
+}
+
+// GetMedianDuration returns the MedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemSelectModelFilter) GetMedianDuration() TestSuiteWorkItemsSearchModelMedianDuration {
+	if o == nil || IsNil(o.MedianDuration.Get()) {
+		var ret TestSuiteWorkItemsSearchModelMedianDuration
+		return ret
+	}
+	return *o.MedianDuration.Get()
+}
+
+// GetMedianDurationOk returns a tuple with the MedianDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemSelectModelFilter) GetMedianDurationOk() (*TestSuiteWorkItemsSearchModelMedianDuration, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MedianDuration.Get(), o.MedianDuration.IsSet()
+}
+
+// HasMedianDuration returns a boolean if a field has been set.
+func (o *WorkItemSelectModelFilter) HasMedianDuration() bool {
+	if o != nil && o.MedianDuration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMedianDuration gets a reference to the given NullableTestSuiteWorkItemsSearchModelMedianDuration and assigns it to the MedianDuration field.
+func (o *WorkItemSelectModelFilter) SetMedianDuration(v TestSuiteWorkItemsSearchModelMedianDuration) {
+	o.MedianDuration.Set(&v)
+}
+// SetMedianDurationNil sets the value for MedianDuration to be an explicit nil
+func (o *WorkItemSelectModelFilter) SetMedianDurationNil() {
+	o.MedianDuration.Set(nil)
+}
+
+// UnsetMedianDuration ensures that no value is present for MedianDuration, not even an explicit nil
+func (o *WorkItemSelectModelFilter) UnsetMedianDuration() {
+	o.MedianDuration.Unset()
 }
 
 // GetIsAutomated returns the IsAutomated field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -896,6 +939,9 @@ func (o WorkItemSelectModelFilter) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
+	}
+	if o.MedianDuration.IsSet() {
+		toSerialize["medianDuration"] = o.MedianDuration.Get()
 	}
 	if o.IsAutomated.IsSet() {
 		toSerialize["isAutomated"] = o.IsAutomated.Get()

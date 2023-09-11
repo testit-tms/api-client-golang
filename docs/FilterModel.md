@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**Data** | Pointer to [**FilterModelData**](FilterModelData.md) |  | [optional] 
-**ProjectId** | Pointer to **string** |  | [optional] 
+**Data** | Pointer to [**NullableWorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  | [optional] 
+**ProjectId** | **string** |  | 
 **FieldsToShow** | Pointer to **interface{}** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewFilterModel
 
-`func NewFilterModel() *FilterModel`
+`func NewFilterModel(createdDate time.Time, createdById string, projectId string, id string, isDeleted bool, ) *FilterModel`
 
 NewFilterModel instantiates a new FilterModel object
 This constructor will assign default values to properties that have it defined,
@@ -53,11 +53,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *FilterModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -113,11 +108,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *FilterModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -156,20 +146,20 @@ HasModifiedById returns a boolean if a field has been set.
 UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
 ### GetData
 
-`func (o *FilterModel) GetData() FilterModelData`
+`func (o *FilterModel) GetData() WorkItemSearchQueryModel`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *FilterModel) GetDataOk() (*FilterModelData, bool)`
+`func (o *FilterModel) GetDataOk() (*WorkItemSearchQueryModel, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *FilterModel) SetData(v FilterModelData)`
+`func (o *FilterModel) SetData(v WorkItemSearchQueryModel)`
 
 SetData sets Data field to given value.
 
@@ -179,6 +169,16 @@ SetData sets Data field to given value.
 
 HasData returns a boolean if a field has been set.
 
+### SetDataNil
+
+`func (o *FilterModel) SetDataNil(b bool)`
+
+ SetDataNil sets the value for Data to be an explicit nil
+
+### UnsetData
+`func (o *FilterModel) UnsetData()`
+
+UnsetData ensures that no value is present for Data, not even an explicit nil
 ### GetProjectId
 
 `func (o *FilterModel) GetProjectId() string`
@@ -198,11 +198,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *FilterModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetFieldsToShow
 
@@ -264,6 +259,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *FilterModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *FilterModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *FilterModel) GetId() string`
@@ -283,11 +288,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *FilterModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -308,11 +308,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *FilterModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

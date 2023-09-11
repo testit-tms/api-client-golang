@@ -408,7 +408,7 @@ import (
 func main() {
     id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
     timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    apiV2TestPlansIdExportTestPointsXlsxPostRequest := *openapiclient.NewApiV2TestPlansIdExportTestPointsXlsxPostRequest() // ApiV2TestPlansIdExportTestPointsXlsxPostRequest |  (optional)
+    apiV2TestPlansIdExportTestPointsXlsxPostRequest := *openapiclient.NewApiV2TestPlansIdExportTestPointsXlsxPostRequest(false, false, false, false, false, false, false, false, false, false, false, false) // ApiV2TestPlansIdExportTestPointsXlsxPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1591,7 +1591,7 @@ import (
 )
 
 func main() {
-    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "f0d5cbfd-25bc-4069-863f-b2945e748040") // CreateTestPlanRequest |  (optional)
+    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // CreateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2135,7 +2135,7 @@ import (
 )
 
 func main() {
-    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("f0d5cbfd-25bc-4069-863f-b2945e748040", "Base test plan", "f0d5cbfd-25bc-4069-863f-b2945e748040") // UpdateTestPlanRequest |  (optional)
+    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "Base test plan", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // UpdateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

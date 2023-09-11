@@ -19,7 +19,7 @@ var _ MappedNullable = &IterationModel{}
 
 // IterationModel struct for IterationModel
 type IterationModel struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	Parameters []ParameterShortModel `json:"parameters,omitempty"`
 }
 
@@ -27,8 +27,9 @@ type IterationModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewIterationModel() *IterationModel {
+func NewIterationModel(id string) *IterationModel {
 	this := IterationModel{}
+	this.Id = id
 	return &this
 }
 
@@ -40,41 +41,33 @@ func NewIterationModelWithDefaults() *IterationModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *IterationModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *IterationModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *IterationModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *IterationModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetParameters returns the Parameters field value if set, zero value otherwise.
+// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IterationModel) GetParameters() []ParameterShortModel {
-	if o == nil || IsNil(o.Parameters) {
+	if o == nil {
 		var ret []ParameterShortModel
 		return ret
 	}
@@ -83,6 +76,7 @@ func (o *IterationModel) GetParameters() []ParameterShortModel {
 
 // GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *IterationModel) GetParametersOk() ([]ParameterShortModel, bool) {
 	if o == nil || IsNil(o.Parameters) {
 		return nil, false
@@ -92,7 +86,7 @@ func (o *IterationModel) GetParametersOk() ([]ParameterShortModel, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *IterationModel) HasParameters() bool {
-	if o != nil && !IsNil(o.Parameters) {
+	if o != nil && IsNil(o.Parameters) {
 		return true
 	}
 
@@ -114,10 +108,8 @@ func (o IterationModel) MarshalJSON() ([]byte, error) {
 
 func (o IterationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.Parameters) {
+	toSerialize["id"] = o.Id
+	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
 	}
 	return toSerialize, nil

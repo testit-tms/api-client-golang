@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StatusCode** | Pointer to **int32** |  | [optional] 
+**StatusCode** | **int32** |  | 
 
 ## Methods
 
 ### NewNoContentResult
 
-`func NewNoContentResult() *NoContentResult`
+`func NewNoContentResult(statusCode int32, ) *NoContentResult`
 
 NewNoContentResult instantiates a new NoContentResult object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetStatusCode sets StatusCode field to given value.
 
-### HasStatusCode
-
-`func (o *NoContentResult) HasStatusCode() bool`
-
-HasStatusCode returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

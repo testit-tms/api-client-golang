@@ -17,7 +17,7 @@ import (
 // checks if the TestSuiteWorkItemsSearchModelDuration type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TestSuiteWorkItemsSearchModelDuration{}
 
-// TestSuiteWorkItemsSearchModelDuration Duration range model
+// TestSuiteWorkItemsSearchModelDuration Specifies a work item duration range to search for
 type TestSuiteWorkItemsSearchModelDuration struct {
 	From NullableInt32 `json:"from,omitempty"`
 	To NullableInt32 `json:"to,omitempty"`

@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Score** | Pointer to **int32** |  | [optional] 
-**WorkItemsCreated** | Pointer to **int32** |  | [optional] 
-**PassedTestPoints** | Pointer to **int32** |  | [optional] 
-**FailedTestPoints** | Pointer to **int32** |  | [optional] 
-**SkippedTestPoints** | Pointer to **int32** |  | [optional] 
-**BlockedTestPoints** | Pointer to **int32** |  | [optional] 
+**Score** | **int32** |  | 
+**WorkItemsCreated** | **int32** |  | 
+**PassedTestPoints** | **int32** |  | 
+**FailedTestPoints** | **int32** |  | 
+**SkippedTestPoints** | **int32** |  | 
+**BlockedTestPoints** | **int32** |  | 
 
 ## Methods
 
 ### NewUserRankModel
 
-`func NewUserRankModel() *UserRankModel`
+`func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, ) *UserRankModel`
 
 NewUserRankModel instantiates a new UserRankModel object
 This constructor will assign default values to properties that have it defined,
@@ -49,11 +49,6 @@ and a boolean to check if the value has been set.
 
 SetScore sets Score field to given value.
 
-### HasScore
-
-`func (o *UserRankModel) HasScore() bool`
-
-HasScore returns a boolean if a field has been set.
 
 ### GetWorkItemsCreated
 
@@ -74,11 +69,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemsCreated sets WorkItemsCreated field to given value.
 
-### HasWorkItemsCreated
-
-`func (o *UserRankModel) HasWorkItemsCreated() bool`
-
-HasWorkItemsCreated returns a boolean if a field has been set.
 
 ### GetPassedTestPoints
 
@@ -99,11 +89,6 @@ and a boolean to check if the value has been set.
 
 SetPassedTestPoints sets PassedTestPoints field to given value.
 
-### HasPassedTestPoints
-
-`func (o *UserRankModel) HasPassedTestPoints() bool`
-
-HasPassedTestPoints returns a boolean if a field has been set.
 
 ### GetFailedTestPoints
 
@@ -124,11 +109,6 @@ and a boolean to check if the value has been set.
 
 SetFailedTestPoints sets FailedTestPoints field to given value.
 
-### HasFailedTestPoints
-
-`func (o *UserRankModel) HasFailedTestPoints() bool`
-
-HasFailedTestPoints returns a boolean if a field has been set.
 
 ### GetSkippedTestPoints
 
@@ -149,11 +129,6 @@ and a boolean to check if the value has been set.
 
 SetSkippedTestPoints sets SkippedTestPoints field to given value.
 
-### HasSkippedTestPoints
-
-`func (o *UserRankModel) HasSkippedTestPoints() bool`
-
-HasSkippedTestPoints returns a boolean if a field has been set.
 
 ### GetBlockedTestPoints
 
@@ -174,11 +149,6 @@ and a boolean to check if the value has been set.
 
 SetBlockedTestPoints sets BlockedTestPoints field to given value.
 
-### HasBlockedTestPoints
-
-`func (o *UserRankModel) HasBlockedTestPoints() bool`
-
-HasBlockedTestPoints returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

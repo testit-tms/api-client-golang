@@ -20,16 +20,18 @@ var _ MappedNullable = &WorkItemIdentifierModel{}
 // WorkItemIdentifierModel struct for WorkItemIdentifierModel
 type WorkItemIdentifierModel struct {
 	// Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format
-	Id *string `json:"id,omitempty"`
-	GlobalId *int64 `json:"globalId,omitempty"`
+	Id string `json:"id"`
+	GlobalId int64 `json:"globalId"`
 }
 
 // NewWorkItemIdentifierModel instantiates a new WorkItemIdentifierModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemIdentifierModel() *WorkItemIdentifierModel {
+func NewWorkItemIdentifierModel(id string, globalId int64) *WorkItemIdentifierModel {
 	this := WorkItemIdentifierModel{}
+	this.Id = id
+	this.GlobalId = globalId
 	return &this
 }
 
@@ -41,68 +43,52 @@ func NewWorkItemIdentifierModelWithDefaults() *WorkItemIdentifierModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *WorkItemIdentifierModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemIdentifierModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *WorkItemIdentifierModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *WorkItemIdentifierModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *WorkItemIdentifierModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *WorkItemIdentifierModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *WorkItemIdentifierModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *WorkItemIdentifierModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
 func (o WorkItemIdentifierModel) MarshalJSON() ([]byte, error) {
@@ -115,12 +101,8 @@ func (o WorkItemIdentifierModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemIdentifierModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["globalId"] = o.GlobalId
 	return toSerialize, nil
 }
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | Pointer to **string** | This property is used to link configuration with project | [optional] 
+**ProjectId** | **string** | This property is used to link configuration with project | 
 **ParameterIds** | **[]string** |  | 
 
 ## Methods
 
 ### NewConfigurationByParametersModel
 
-`func NewConfigurationByParametersModel(parameterIds []string, ) *ConfigurationByParametersModel`
+`func NewConfigurationByParametersModel(projectId string, parameterIds []string, ) *ConfigurationByParametersModel`
 
 NewConfigurationByParametersModel instantiates a new ConfigurationByParametersModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *ConfigurationByParametersModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetParameterIds
 

@@ -5,25 +5,25 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to [**NullableStringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
-**IsDeleted** | Pointer to [**WorkItemChangedFieldsViewModelIsDeleted**](WorkItemChangedFieldsViewModelIsDeleted.md) |  | [optional] 
-**ProjectId** | Pointer to [**WorkItemChangedFieldsViewModelProjectId**](WorkItemChangedFieldsViewModelProjectId.md) |  | [optional] 
-**IsAutomated** | Pointer to [**WorkItemChangedFieldsViewModelIsDeleted**](WorkItemChangedFieldsViewModelIsDeleted.md) |  | [optional] 
-**SectionId** | Pointer to [**WorkItemChangedFieldsViewModelProjectId**](WorkItemChangedFieldsViewModelProjectId.md) |  | [optional] 
+**IsDeleted** | Pointer to [**NullableBooleanChangedFieldViewModel**](BooleanChangedFieldViewModel.md) |  | [optional] 
+**ProjectId** | Pointer to [**NullableGuidChangedFieldViewModel**](GuidChangedFieldViewModel.md) |  | [optional] 
+**IsAutomated** | Pointer to [**NullableBooleanChangedFieldViewModel**](BooleanChangedFieldViewModel.md) |  | [optional] 
+**SectionId** | Pointer to [**NullableGuidChangedFieldViewModel**](GuidChangedFieldViewModel.md) |  | [optional] 
 **Description** | Pointer to [**NullableStringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
-**State** | Pointer to [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  | [optional] 
-**Priority** | Pointer to [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  | [optional] 
-**Duration** | Pointer to [**WorkItemChangedFieldsViewModelDuration**](WorkItemChangedFieldsViewModelDuration.md) |  | [optional] 
+**State** | Pointer to [**NullableStringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  | [optional] 
+**Priority** | Pointer to [**NullableStringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  | [optional] 
+**Duration** | Pointer to [**NullableInt32ChangedFieldViewModel**](Int32ChangedFieldViewModel.md) |  | [optional] 
 **Attributes** | Pointer to [**map[string]WorkItemChangedAttributeViewModel**](WorkItemChangedAttributeViewModel.md) |  | [optional] 
-**Steps** | Pointer to [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  | [optional] 
-**PreconditionSteps** | Pointer to [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  | [optional] 
-**PostconditionSteps** | Pointer to [**WorkItemChangedFieldsViewModelSteps**](WorkItemChangedFieldsViewModelSteps.md) |  | [optional] 
-**AutoTests** | Pointer to [**WorkItemChangedFieldsViewModelAutoTests**](WorkItemChangedFieldsViewModelAutoTests.md) |  | [optional] 
-**Attachments** | Pointer to [**WorkItemChangedFieldsViewModelAttachments**](WorkItemChangedFieldsViewModelAttachments.md) |  | [optional] 
-**Tags** | Pointer to [**WorkItemChangedFieldsViewModelTags**](WorkItemChangedFieldsViewModelTags.md) |  | [optional] 
-**Links** | Pointer to [**WorkItemChangedFieldsViewModelLinks**](WorkItemChangedFieldsViewModelLinks.md) |  | [optional] 
-**GlobalId** | Pointer to [**WorkItemChangedFieldsViewModelGlobalId**](WorkItemChangedFieldsViewModelGlobalId.md) |  | [optional] 
-**VersionNumber** | Pointer to [**WorkItemChangedFieldsViewModelDuration**](WorkItemChangedFieldsViewModelDuration.md) |  | [optional] 
-**EntityTypeName** | Pointer to [**WorkItemChangedFieldsViewModelState**](WorkItemChangedFieldsViewModelState.md) |  | [optional] 
+**Steps** | Pointer to [**NullableWorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel**](WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md) |  | [optional] 
+**PreconditionSteps** | Pointer to [**NullableWorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel**](WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md) |  | [optional] 
+**PostconditionSteps** | Pointer to [**NullableWorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel**](WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md) |  | [optional] 
+**AutoTests** | Pointer to [**NullableAutoTestChangeViewModelArrayChangedFieldViewModel**](AutoTestChangeViewModelArrayChangedFieldViewModel.md) |  | [optional] 
+**Attachments** | Pointer to [**NullableAttachmentChangeViewModelArrayChangedFieldViewModel**](AttachmentChangeViewModelArrayChangedFieldViewModel.md) |  | [optional] 
+**Tags** | Pointer to [**NullableStringArrayChangedFieldViewModel**](StringArrayChangedFieldViewModel.md) |  | [optional] 
+**Links** | Pointer to [**NullableWorkItemLinkChangeViewModelArrayChangedFieldViewModel**](WorkItemLinkChangeViewModelArrayChangedFieldViewModel.md) |  | [optional] 
+**GlobalId** | Pointer to [**NullableInt64ChangedFieldViewModel**](Int64ChangedFieldViewModel.md) |  | [optional] 
+**VersionNumber** | Pointer to [**NullableInt32ChangedFieldViewModel**](Int32ChangedFieldViewModel.md) |  | [optional] 
+**EntityTypeName** | Pointer to [**NullableStringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  | [optional] 
 
 ## Methods
 
@@ -81,20 +81,20 @@ HasName returns a boolean if a field has been set.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsDeleted
 
-`func (o *WorkItemChangedFieldsViewModel) GetIsDeleted() WorkItemChangedFieldsViewModelIsDeleted`
+`func (o *WorkItemChangedFieldsViewModel) GetIsDeleted() BooleanChangedFieldViewModel`
 
 GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
 
 ### GetIsDeletedOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetIsDeletedOk() (*WorkItemChangedFieldsViewModelIsDeleted, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetIsDeletedOk() (*BooleanChangedFieldViewModel, bool)`
 
 GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsDeleted
 
-`func (o *WorkItemChangedFieldsViewModel) SetIsDeleted(v WorkItemChangedFieldsViewModelIsDeleted)`
+`func (o *WorkItemChangedFieldsViewModel) SetIsDeleted(v BooleanChangedFieldViewModel)`
 
 SetIsDeleted sets IsDeleted field to given value.
 
@@ -104,22 +104,32 @@ SetIsDeleted sets IsDeleted field to given value.
 
 HasIsDeleted returns a boolean if a field has been set.
 
+### SetIsDeletedNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetIsDeletedNil(b bool)`
+
+ SetIsDeletedNil sets the value for IsDeleted to be an explicit nil
+
+### UnsetIsDeleted
+`func (o *WorkItemChangedFieldsViewModel) UnsetIsDeleted()`
+
+UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 ### GetProjectId
 
-`func (o *WorkItemChangedFieldsViewModel) GetProjectId() WorkItemChangedFieldsViewModelProjectId`
+`func (o *WorkItemChangedFieldsViewModel) GetProjectId() GuidChangedFieldViewModel`
 
 GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
 
 ### GetProjectIdOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetProjectIdOk() (*WorkItemChangedFieldsViewModelProjectId, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetProjectIdOk() (*GuidChangedFieldViewModel, bool)`
 
 GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectId
 
-`func (o *WorkItemChangedFieldsViewModel) SetProjectId(v WorkItemChangedFieldsViewModelProjectId)`
+`func (o *WorkItemChangedFieldsViewModel) SetProjectId(v GuidChangedFieldViewModel)`
 
 SetProjectId sets ProjectId field to given value.
 
@@ -129,22 +139,32 @@ SetProjectId sets ProjectId field to given value.
 
 HasProjectId returns a boolean if a field has been set.
 
+### SetProjectIdNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetProjectIdNil(b bool)`
+
+ SetProjectIdNil sets the value for ProjectId to be an explicit nil
+
+### UnsetProjectId
+`func (o *WorkItemChangedFieldsViewModel) UnsetProjectId()`
+
+UnsetProjectId ensures that no value is present for ProjectId, not even an explicit nil
 ### GetIsAutomated
 
-`func (o *WorkItemChangedFieldsViewModel) GetIsAutomated() WorkItemChangedFieldsViewModelIsDeleted`
+`func (o *WorkItemChangedFieldsViewModel) GetIsAutomated() BooleanChangedFieldViewModel`
 
 GetIsAutomated returns the IsAutomated field if non-nil, zero value otherwise.
 
 ### GetIsAutomatedOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetIsAutomatedOk() (*WorkItemChangedFieldsViewModelIsDeleted, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetIsAutomatedOk() (*BooleanChangedFieldViewModel, bool)`
 
 GetIsAutomatedOk returns a tuple with the IsAutomated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsAutomated
 
-`func (o *WorkItemChangedFieldsViewModel) SetIsAutomated(v WorkItemChangedFieldsViewModelIsDeleted)`
+`func (o *WorkItemChangedFieldsViewModel) SetIsAutomated(v BooleanChangedFieldViewModel)`
 
 SetIsAutomated sets IsAutomated field to given value.
 
@@ -154,22 +174,32 @@ SetIsAutomated sets IsAutomated field to given value.
 
 HasIsAutomated returns a boolean if a field has been set.
 
+### SetIsAutomatedNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetIsAutomatedNil(b bool)`
+
+ SetIsAutomatedNil sets the value for IsAutomated to be an explicit nil
+
+### UnsetIsAutomated
+`func (o *WorkItemChangedFieldsViewModel) UnsetIsAutomated()`
+
+UnsetIsAutomated ensures that no value is present for IsAutomated, not even an explicit nil
 ### GetSectionId
 
-`func (o *WorkItemChangedFieldsViewModel) GetSectionId() WorkItemChangedFieldsViewModelProjectId`
+`func (o *WorkItemChangedFieldsViewModel) GetSectionId() GuidChangedFieldViewModel`
 
 GetSectionId returns the SectionId field if non-nil, zero value otherwise.
 
 ### GetSectionIdOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetSectionIdOk() (*WorkItemChangedFieldsViewModelProjectId, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetSectionIdOk() (*GuidChangedFieldViewModel, bool)`
 
 GetSectionIdOk returns a tuple with the SectionId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSectionId
 
-`func (o *WorkItemChangedFieldsViewModel) SetSectionId(v WorkItemChangedFieldsViewModelProjectId)`
+`func (o *WorkItemChangedFieldsViewModel) SetSectionId(v GuidChangedFieldViewModel)`
 
 SetSectionId sets SectionId field to given value.
 
@@ -179,6 +209,16 @@ SetSectionId sets SectionId field to given value.
 
 HasSectionId returns a boolean if a field has been set.
 
+### SetSectionIdNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetSectionIdNil(b bool)`
+
+ SetSectionIdNil sets the value for SectionId to be an explicit nil
+
+### UnsetSectionId
+`func (o *WorkItemChangedFieldsViewModel) UnsetSectionId()`
+
+UnsetSectionId ensures that no value is present for SectionId, not even an explicit nil
 ### GetDescription
 
 `func (o *WorkItemChangedFieldsViewModel) GetDescription() StringChangedFieldWithDiffsViewModel`
@@ -216,20 +256,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetState
 
-`func (o *WorkItemChangedFieldsViewModel) GetState() WorkItemChangedFieldsViewModelState`
+`func (o *WorkItemChangedFieldsViewModel) GetState() StringChangedFieldViewModel`
 
 GetState returns the State field if non-nil, zero value otherwise.
 
 ### GetStateOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetStateOk() (*WorkItemChangedFieldsViewModelState, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetStateOk() (*StringChangedFieldViewModel, bool)`
 
 GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetState
 
-`func (o *WorkItemChangedFieldsViewModel) SetState(v WorkItemChangedFieldsViewModelState)`
+`func (o *WorkItemChangedFieldsViewModel) SetState(v StringChangedFieldViewModel)`
 
 SetState sets State field to given value.
 
@@ -239,22 +279,32 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *WorkItemChangedFieldsViewModel) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetPriority
 
-`func (o *WorkItemChangedFieldsViewModel) GetPriority() WorkItemChangedFieldsViewModelState`
+`func (o *WorkItemChangedFieldsViewModel) GetPriority() StringChangedFieldViewModel`
 
 GetPriority returns the Priority field if non-nil, zero value otherwise.
 
 ### GetPriorityOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetPriorityOk() (*WorkItemChangedFieldsViewModelState, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetPriorityOk() (*StringChangedFieldViewModel, bool)`
 
 GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriority
 
-`func (o *WorkItemChangedFieldsViewModel) SetPriority(v WorkItemChangedFieldsViewModelState)`
+`func (o *WorkItemChangedFieldsViewModel) SetPriority(v StringChangedFieldViewModel)`
 
 SetPriority sets Priority field to given value.
 
@@ -264,22 +314,32 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *WorkItemChangedFieldsViewModel) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 ### GetDuration
 
-`func (o *WorkItemChangedFieldsViewModel) GetDuration() WorkItemChangedFieldsViewModelDuration`
+`func (o *WorkItemChangedFieldsViewModel) GetDuration() Int32ChangedFieldViewModel`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetDurationOk() (*WorkItemChangedFieldsViewModelDuration, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetDurationOk() (*Int32ChangedFieldViewModel, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *WorkItemChangedFieldsViewModel) SetDuration(v WorkItemChangedFieldsViewModelDuration)`
+`func (o *WorkItemChangedFieldsViewModel) SetDuration(v Int32ChangedFieldViewModel)`
 
 SetDuration sets Duration field to given value.
 
@@ -289,6 +349,16 @@ SetDuration sets Duration field to given value.
 
 HasDuration returns a boolean if a field has been set.
 
+### SetDurationNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetDurationNil(b bool)`
+
+ SetDurationNil sets the value for Duration to be an explicit nil
+
+### UnsetDuration
+`func (o *WorkItemChangedFieldsViewModel) UnsetDuration()`
+
+UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 ### GetAttributes
 
 `func (o *WorkItemChangedFieldsViewModel) GetAttributes() map[string]WorkItemChangedAttributeViewModel`
@@ -314,22 +384,32 @@ SetAttributes sets Attributes field to given value.
 
 HasAttributes returns a boolean if a field has been set.
 
+### SetAttributesNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *WorkItemChangedFieldsViewModel) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetSteps
 
-`func (o *WorkItemChangedFieldsViewModel) GetSteps() WorkItemChangedFieldsViewModelSteps`
+`func (o *WorkItemChangedFieldsViewModel) GetSteps() WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel`
 
 GetSteps returns the Steps field if non-nil, zero value otherwise.
 
 ### GetStepsOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetStepsOk() (*WorkItemChangedFieldsViewModelSteps, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetStepsOk() (*WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, bool)`
 
 GetStepsOk returns a tuple with the Steps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSteps
 
-`func (o *WorkItemChangedFieldsViewModel) SetSteps(v WorkItemChangedFieldsViewModelSteps)`
+`func (o *WorkItemChangedFieldsViewModel) SetSteps(v WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel)`
 
 SetSteps sets Steps field to given value.
 
@@ -339,22 +419,32 @@ SetSteps sets Steps field to given value.
 
 HasSteps returns a boolean if a field has been set.
 
+### SetStepsNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetStepsNil(b bool)`
+
+ SetStepsNil sets the value for Steps to be an explicit nil
+
+### UnsetSteps
+`func (o *WorkItemChangedFieldsViewModel) UnsetSteps()`
+
+UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 ### GetPreconditionSteps
 
-`func (o *WorkItemChangedFieldsViewModel) GetPreconditionSteps() WorkItemChangedFieldsViewModelSteps`
+`func (o *WorkItemChangedFieldsViewModel) GetPreconditionSteps() WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel`
 
 GetPreconditionSteps returns the PreconditionSteps field if non-nil, zero value otherwise.
 
 ### GetPreconditionStepsOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetPreconditionStepsOk() (*WorkItemChangedFieldsViewModelSteps, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetPreconditionStepsOk() (*WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, bool)`
 
 GetPreconditionStepsOk returns a tuple with the PreconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreconditionSteps
 
-`func (o *WorkItemChangedFieldsViewModel) SetPreconditionSteps(v WorkItemChangedFieldsViewModelSteps)`
+`func (o *WorkItemChangedFieldsViewModel) SetPreconditionSteps(v WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel)`
 
 SetPreconditionSteps sets PreconditionSteps field to given value.
 
@@ -364,22 +454,32 @@ SetPreconditionSteps sets PreconditionSteps field to given value.
 
 HasPreconditionSteps returns a boolean if a field has been set.
 
+### SetPreconditionStepsNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetPreconditionStepsNil(b bool)`
+
+ SetPreconditionStepsNil sets the value for PreconditionSteps to be an explicit nil
+
+### UnsetPreconditionSteps
+`func (o *WorkItemChangedFieldsViewModel) UnsetPreconditionSteps()`
+
+UnsetPreconditionSteps ensures that no value is present for PreconditionSteps, not even an explicit nil
 ### GetPostconditionSteps
 
-`func (o *WorkItemChangedFieldsViewModel) GetPostconditionSteps() WorkItemChangedFieldsViewModelSteps`
+`func (o *WorkItemChangedFieldsViewModel) GetPostconditionSteps() WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel`
 
 GetPostconditionSteps returns the PostconditionSteps field if non-nil, zero value otherwise.
 
 ### GetPostconditionStepsOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetPostconditionStepsOk() (*WorkItemChangedFieldsViewModelSteps, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetPostconditionStepsOk() (*WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, bool)`
 
 GetPostconditionStepsOk returns a tuple with the PostconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPostconditionSteps
 
-`func (o *WorkItemChangedFieldsViewModel) SetPostconditionSteps(v WorkItemChangedFieldsViewModelSteps)`
+`func (o *WorkItemChangedFieldsViewModel) SetPostconditionSteps(v WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel)`
 
 SetPostconditionSteps sets PostconditionSteps field to given value.
 
@@ -389,22 +489,32 @@ SetPostconditionSteps sets PostconditionSteps field to given value.
 
 HasPostconditionSteps returns a boolean if a field has been set.
 
+### SetPostconditionStepsNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetPostconditionStepsNil(b bool)`
+
+ SetPostconditionStepsNil sets the value for PostconditionSteps to be an explicit nil
+
+### UnsetPostconditionSteps
+`func (o *WorkItemChangedFieldsViewModel) UnsetPostconditionSteps()`
+
+UnsetPostconditionSteps ensures that no value is present for PostconditionSteps, not even an explicit nil
 ### GetAutoTests
 
-`func (o *WorkItemChangedFieldsViewModel) GetAutoTests() WorkItemChangedFieldsViewModelAutoTests`
+`func (o *WorkItemChangedFieldsViewModel) GetAutoTests() AutoTestChangeViewModelArrayChangedFieldViewModel`
 
 GetAutoTests returns the AutoTests field if non-nil, zero value otherwise.
 
 ### GetAutoTestsOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetAutoTestsOk() (*WorkItemChangedFieldsViewModelAutoTests, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetAutoTestsOk() (*AutoTestChangeViewModelArrayChangedFieldViewModel, bool)`
 
 GetAutoTestsOk returns a tuple with the AutoTests field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoTests
 
-`func (o *WorkItemChangedFieldsViewModel) SetAutoTests(v WorkItemChangedFieldsViewModelAutoTests)`
+`func (o *WorkItemChangedFieldsViewModel) SetAutoTests(v AutoTestChangeViewModelArrayChangedFieldViewModel)`
 
 SetAutoTests sets AutoTests field to given value.
 
@@ -414,22 +524,32 @@ SetAutoTests sets AutoTests field to given value.
 
 HasAutoTests returns a boolean if a field has been set.
 
+### SetAutoTestsNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetAutoTestsNil(b bool)`
+
+ SetAutoTestsNil sets the value for AutoTests to be an explicit nil
+
+### UnsetAutoTests
+`func (o *WorkItemChangedFieldsViewModel) UnsetAutoTests()`
+
+UnsetAutoTests ensures that no value is present for AutoTests, not even an explicit nil
 ### GetAttachments
 
-`func (o *WorkItemChangedFieldsViewModel) GetAttachments() WorkItemChangedFieldsViewModelAttachments`
+`func (o *WorkItemChangedFieldsViewModel) GetAttachments() AttachmentChangeViewModelArrayChangedFieldViewModel`
 
 GetAttachments returns the Attachments field if non-nil, zero value otherwise.
 
 ### GetAttachmentsOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetAttachmentsOk() (*WorkItemChangedFieldsViewModelAttachments, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetAttachmentsOk() (*AttachmentChangeViewModelArrayChangedFieldViewModel, bool)`
 
 GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachments
 
-`func (o *WorkItemChangedFieldsViewModel) SetAttachments(v WorkItemChangedFieldsViewModelAttachments)`
+`func (o *WorkItemChangedFieldsViewModel) SetAttachments(v AttachmentChangeViewModelArrayChangedFieldViewModel)`
 
 SetAttachments sets Attachments field to given value.
 
@@ -439,22 +559,32 @@ SetAttachments sets Attachments field to given value.
 
 HasAttachments returns a boolean if a field has been set.
 
+### SetAttachmentsNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetAttachmentsNil(b bool)`
+
+ SetAttachmentsNil sets the value for Attachments to be an explicit nil
+
+### UnsetAttachments
+`func (o *WorkItemChangedFieldsViewModel) UnsetAttachments()`
+
+UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 ### GetTags
 
-`func (o *WorkItemChangedFieldsViewModel) GetTags() WorkItemChangedFieldsViewModelTags`
+`func (o *WorkItemChangedFieldsViewModel) GetTags() StringArrayChangedFieldViewModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetTagsOk() (*WorkItemChangedFieldsViewModelTags, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetTagsOk() (*StringArrayChangedFieldViewModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *WorkItemChangedFieldsViewModel) SetTags(v WorkItemChangedFieldsViewModelTags)`
+`func (o *WorkItemChangedFieldsViewModel) SetTags(v StringArrayChangedFieldViewModel)`
 
 SetTags sets Tags field to given value.
 
@@ -464,22 +594,32 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *WorkItemChangedFieldsViewModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetLinks
 
-`func (o *WorkItemChangedFieldsViewModel) GetLinks() WorkItemChangedFieldsViewModelLinks`
+`func (o *WorkItemChangedFieldsViewModel) GetLinks() WorkItemLinkChangeViewModelArrayChangedFieldViewModel`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetLinksOk() (*WorkItemChangedFieldsViewModelLinks, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetLinksOk() (*WorkItemLinkChangeViewModelArrayChangedFieldViewModel, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *WorkItemChangedFieldsViewModel) SetLinks(v WorkItemChangedFieldsViewModelLinks)`
+`func (o *WorkItemChangedFieldsViewModel) SetLinks(v WorkItemLinkChangeViewModelArrayChangedFieldViewModel)`
 
 SetLinks sets Links field to given value.
 
@@ -489,22 +629,32 @@ SetLinks sets Links field to given value.
 
 HasLinks returns a boolean if a field has been set.
 
+### SetLinksNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *WorkItemChangedFieldsViewModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetGlobalId
 
-`func (o *WorkItemChangedFieldsViewModel) GetGlobalId() WorkItemChangedFieldsViewModelGlobalId`
+`func (o *WorkItemChangedFieldsViewModel) GetGlobalId() Int64ChangedFieldViewModel`
 
 GetGlobalId returns the GlobalId field if non-nil, zero value otherwise.
 
 ### GetGlobalIdOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetGlobalIdOk() (*WorkItemChangedFieldsViewModelGlobalId, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetGlobalIdOk() (*Int64ChangedFieldViewModel, bool)`
 
 GetGlobalIdOk returns a tuple with the GlobalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlobalId
 
-`func (o *WorkItemChangedFieldsViewModel) SetGlobalId(v WorkItemChangedFieldsViewModelGlobalId)`
+`func (o *WorkItemChangedFieldsViewModel) SetGlobalId(v Int64ChangedFieldViewModel)`
 
 SetGlobalId sets GlobalId field to given value.
 
@@ -514,22 +664,32 @@ SetGlobalId sets GlobalId field to given value.
 
 HasGlobalId returns a boolean if a field has been set.
 
+### SetGlobalIdNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetGlobalIdNil(b bool)`
+
+ SetGlobalIdNil sets the value for GlobalId to be an explicit nil
+
+### UnsetGlobalId
+`func (o *WorkItemChangedFieldsViewModel) UnsetGlobalId()`
+
+UnsetGlobalId ensures that no value is present for GlobalId, not even an explicit nil
 ### GetVersionNumber
 
-`func (o *WorkItemChangedFieldsViewModel) GetVersionNumber() WorkItemChangedFieldsViewModelDuration`
+`func (o *WorkItemChangedFieldsViewModel) GetVersionNumber() Int32ChangedFieldViewModel`
 
 GetVersionNumber returns the VersionNumber field if non-nil, zero value otherwise.
 
 ### GetVersionNumberOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetVersionNumberOk() (*WorkItemChangedFieldsViewModelDuration, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetVersionNumberOk() (*Int32ChangedFieldViewModel, bool)`
 
 GetVersionNumberOk returns a tuple with the VersionNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVersionNumber
 
-`func (o *WorkItemChangedFieldsViewModel) SetVersionNumber(v WorkItemChangedFieldsViewModelDuration)`
+`func (o *WorkItemChangedFieldsViewModel) SetVersionNumber(v Int32ChangedFieldViewModel)`
 
 SetVersionNumber sets VersionNumber field to given value.
 
@@ -539,22 +699,32 @@ SetVersionNumber sets VersionNumber field to given value.
 
 HasVersionNumber returns a boolean if a field has been set.
 
+### SetVersionNumberNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetVersionNumberNil(b bool)`
+
+ SetVersionNumberNil sets the value for VersionNumber to be an explicit nil
+
+### UnsetVersionNumber
+`func (o *WorkItemChangedFieldsViewModel) UnsetVersionNumber()`
+
+UnsetVersionNumber ensures that no value is present for VersionNumber, not even an explicit nil
 ### GetEntityTypeName
 
-`func (o *WorkItemChangedFieldsViewModel) GetEntityTypeName() WorkItemChangedFieldsViewModelState`
+`func (o *WorkItemChangedFieldsViewModel) GetEntityTypeName() StringChangedFieldViewModel`
 
 GetEntityTypeName returns the EntityTypeName field if non-nil, zero value otherwise.
 
 ### GetEntityTypeNameOk
 
-`func (o *WorkItemChangedFieldsViewModel) GetEntityTypeNameOk() (*WorkItemChangedFieldsViewModelState, bool)`
+`func (o *WorkItemChangedFieldsViewModel) GetEntityTypeNameOk() (*StringChangedFieldViewModel, bool)`
 
 GetEntityTypeNameOk returns a tuple with the EntityTypeName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityTypeName
 
-`func (o *WorkItemChangedFieldsViewModel) SetEntityTypeName(v WorkItemChangedFieldsViewModelState)`
+`func (o *WorkItemChangedFieldsViewModel) SetEntityTypeName(v StringChangedFieldViewModel)`
 
 SetEntityTypeName sets EntityTypeName field to given value.
 
@@ -564,6 +734,16 @@ SetEntityTypeName sets EntityTypeName field to given value.
 
 HasEntityTypeName returns a boolean if a field has been set.
 
+### SetEntityTypeNameNil
+
+`func (o *WorkItemChangedFieldsViewModel) SetEntityTypeNameNil(b bool)`
+
+ SetEntityTypeNameNil sets the value for EntityTypeName to be an explicit nil
+
+### UnsetEntityTypeName
+`func (o *WorkItemChangedFieldsViewModel) UnsetEntityTypeName()`
+
+UnsetEntityTypeName ensures that no value is present for EntityTypeName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,8 +19,8 @@ var _ MappedNullable = &ApiV2TestPlansIdTestPointsTesterUserIdPostRequest{}
 
 // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest struct for ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
 type ApiV2TestPlansIdTestPointsTesterUserIdPostRequest struct {
-	Filter *ApiV2TestPointsSearchPostRequest `json:"filter,omitempty"`
-	ExtractionModel *TestPointSelectModelExtractionModel `json:"extractionModel,omitempty"`
+	Filter NullableTestPointFilterModel `json:"filter,omitempty"`
+	ExtractionModel NullableTestPointsExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewApiV2TestPlansIdTestPointsTesterUserIdPostRequest instantiates a new ApiV2TestPlansIdTestPointsTesterUserIdPostRequest object
@@ -40,68 +40,88 @@ func NewApiV2TestPlansIdTestPointsTesterUserIdPostRequestWithDefaults() *ApiV2Te
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise.
-func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetFilter() ApiV2TestPointsSearchPostRequest {
-	if o == nil || IsNil(o.Filter) {
-		var ret ApiV2TestPointsSearchPostRequest
+// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetFilter() TestPointFilterModel {
+	if o == nil || IsNil(o.Filter.Get()) {
+		var ret TestPointFilterModel
 		return ret
 	}
-	return *o.Filter
+	return *o.Filter.Get()
 }
 
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetFilterOk() (*ApiV2TestPointsSearchPostRequest, bool) {
-	if o == nil || IsNil(o.Filter) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetFilterOk() (*TestPointFilterModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Filter, true
+	return o.Filter.Get(), o.Filter.IsSet()
 }
 
 // HasFilter returns a boolean if a field has been set.
 func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) HasFilter() bool {
-	if o != nil && !IsNil(o.Filter) {
+	if o != nil && o.Filter.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFilter gets a reference to the given ApiV2TestPointsSearchPostRequest and assigns it to the Filter field.
-func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) SetFilter(v ApiV2TestPointsSearchPostRequest) {
-	o.Filter = &v
+// SetFilter gets a reference to the given NullableTestPointFilterModel and assigns it to the Filter field.
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) SetFilter(v TestPointFilterModel) {
+	o.Filter.Set(&v)
+}
+// SetFilterNil sets the value for Filter to be an explicit nil
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) SetFilterNil() {
+	o.Filter.Set(nil)
 }
 
-// GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise.
-func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetExtractionModel() TestPointSelectModelExtractionModel {
-	if o == nil || IsNil(o.ExtractionModel) {
-		var ret TestPointSelectModelExtractionModel
+// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) UnsetFilter() {
+	o.Filter.Unset()
+}
+
+// GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetExtractionModel() TestPointsExtractionModel {
+	if o == nil || IsNil(o.ExtractionModel.Get()) {
+		var ret TestPointsExtractionModel
 		return ret
 	}
-	return *o.ExtractionModel
+	return *o.ExtractionModel.Get()
 }
 
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetExtractionModelOk() (*TestPointSelectModelExtractionModel, bool) {
-	if o == nil || IsNil(o.ExtractionModel) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) GetExtractionModelOk() (*TestPointsExtractionModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ExtractionModel, true
+	return o.ExtractionModel.Get(), o.ExtractionModel.IsSet()
 }
 
 // HasExtractionModel returns a boolean if a field has been set.
 func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) HasExtractionModel() bool {
-	if o != nil && !IsNil(o.ExtractionModel) {
+	if o != nil && o.ExtractionModel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetExtractionModel gets a reference to the given TestPointSelectModelExtractionModel and assigns it to the ExtractionModel field.
-func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) SetExtractionModel(v TestPointSelectModelExtractionModel) {
-	o.ExtractionModel = &v
+// SetExtractionModel gets a reference to the given NullableTestPointsExtractionModel and assigns it to the ExtractionModel field.
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) SetExtractionModel(v TestPointsExtractionModel) {
+	o.ExtractionModel.Set(&v)
+}
+// SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) SetExtractionModelNil() {
+	o.ExtractionModel.Set(nil)
+}
+
+// UnsetExtractionModel ensures that no value is present for ExtractionModel, not even an explicit nil
+func (o *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) UnsetExtractionModel() {
+	o.ExtractionModel.Unset()
 }
 
 func (o ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) MarshalJSON() ([]byte, error) {
@@ -114,11 +134,11 @@ func (o ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) MarshalJSON() ([]byte
 
 func (o ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Filter) {
-		toSerialize["filter"] = o.Filter
+	if o.Filter.IsSet() {
+		toSerialize["filter"] = o.Filter.Get()
 	}
-	if !IsNil(o.ExtractionModel) {
-		toSerialize["extractionModel"] = o.ExtractionModel
+	if o.ExtractionModel.IsSet() {
+		toSerialize["extractionModel"] = o.ExtractionModel.Get()
 	}
 	return toSerialize, nil
 }

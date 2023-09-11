@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **TestPlanIds** | Pointer to **[]string** | Specifies a test point test plan IDS to search for | [optional] 
 **TestSuiteIds** | Pointer to **[]string** | Specifies a test point test suite IDs to search for | [optional] 
 **WorkItemGlobalIds** | Pointer to **[]int64** | Specifies a test point work item global IDs to search for | [optional] 
+**WorkItemMedianDuration** | Pointer to [**NullableTestPointFilterModelWorkItemMedianDuration**](TestPointFilterModelWorkItemMedianDuration.md) |  | [optional] 
 **Statuses** | Pointer to [**[]TestPointStatus**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Specifies a test point automation status to search for | [optional] 
@@ -150,6 +151,41 @@ HasWorkItemGlobalIds returns a boolean if a field has been set.
 `func (o *TestPointFilterModel) UnsetWorkItemGlobalIds()`
 
 UnsetWorkItemGlobalIds ensures that no value is present for WorkItemGlobalIds, not even an explicit nil
+### GetWorkItemMedianDuration
+
+`func (o *TestPointFilterModel) GetWorkItemMedianDuration() TestPointFilterModelWorkItemMedianDuration`
+
+GetWorkItemMedianDuration returns the WorkItemMedianDuration field if non-nil, zero value otherwise.
+
+### GetWorkItemMedianDurationOk
+
+`func (o *TestPointFilterModel) GetWorkItemMedianDurationOk() (*TestPointFilterModelWorkItemMedianDuration, bool)`
+
+GetWorkItemMedianDurationOk returns a tuple with the WorkItemMedianDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemMedianDuration
+
+`func (o *TestPointFilterModel) SetWorkItemMedianDuration(v TestPointFilterModelWorkItemMedianDuration)`
+
+SetWorkItemMedianDuration sets WorkItemMedianDuration field to given value.
+
+### HasWorkItemMedianDuration
+
+`func (o *TestPointFilterModel) HasWorkItemMedianDuration() bool`
+
+HasWorkItemMedianDuration returns a boolean if a field has been set.
+
+### SetWorkItemMedianDurationNil
+
+`func (o *TestPointFilterModel) SetWorkItemMedianDurationNil(b bool)`
+
+ SetWorkItemMedianDurationNil sets the value for WorkItemMedianDuration to be an explicit nil
+
+### UnsetWorkItemMedianDuration
+`func (o *TestPointFilterModel) UnsetWorkItemMedianDuration()`
+
+UnsetWorkItemMedianDuration ensures that no value is present for WorkItemMedianDuration, not even an explicit nil
 ### GetStatuses
 
 `func (o *TestPointFilterModel) GetStatuses() []TestPointStatus`

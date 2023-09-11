@@ -4,33 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of the webhook | [optional] 
+**Name** | Pointer to **NullableString** | Name of the webhook | [optional] 
 **EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
 **Description** | Pointer to **NullableString** | Description of the webhook | [optional] 
-**Url** | Pointer to **string** | Url to which the webhook sends request | [optional] 
+**Url** | Pointer to **NullableString** | Url to which the webhook sends request | [optional] 
 **RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
-**ShouldSendBody** | Pointer to **bool** | Indicates if the webhook sends body | [optional] 
+**ShouldSendBody** | **bool** | Indicates if the webhook sends body | 
 **Headers** | Pointer to **map[string]string** | Collection of headers which the webhook sends | [optional] 
 **QueryParameters** | Pointer to **map[string]string** | Collection of query parameters which the webhook sends | [optional] 
-**IsEnabled** | Pointer to **bool** | Indicates if the webhook is active | [optional] 
-**ShouldSendCustomBody** | Pointer to **bool** | Indicates if the webhook sends custom body | [optional] 
+**IsEnabled** | **bool** | Indicates if the webhook is active | 
+**ShouldSendCustomBody** | **bool** | Indicates if the webhook sends custom body | 
 **CustomBody** | Pointer to **NullableString** | Custom body of the webhook | [optional] 
 **CustomBodyMediaType** | Pointer to **NullableString** | MIME type of body of the webhook | [optional] 
-**ShouldReplaceParameters** | Pointer to **bool** | Indicates if the webhook injects parameters | [optional] 
-**ShouldEscapeParameters** | Pointer to **bool** | Indicates if the webhook escapes invalid characters in parameters | [optional] 
-**CreatedDate** | Pointer to **time.Time** | Creation date of the webhook | [optional] 
-**CreatedById** | Pointer to **string** | Unique ID of user who created the webhook | [optional] 
+**ShouldReplaceParameters** | **bool** | Indicates if the webhook injects parameters | 
+**ShouldEscapeParameters** | **bool** | Indicates if the webhook escapes invalid characters in parameters | 
+**CreatedDate** | **time.Time** | Creation date of the webhook | 
+**CreatedById** | **string** | Unique ID of user who created the webhook | 
 **ModifiedDate** | Pointer to **NullableTime** | Last modification date of the webhook | [optional] 
 **ModifiedById** | Pointer to **NullableString** | Unique ID of user who modified the webhook last time | [optional] 
-**ProjectId** | Pointer to **string** | Unique ID of project where the webhook is located | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**ProjectId** | **string** | Unique ID of project where the webhook is located | 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewWebHookModel
 
-`func NewWebHookModel(eventType WebHookEventTypeModel, requestType RequestTypeModel, ) *WebHookModel`
+`func NewWebHookModel(eventType WebHookEventTypeModel, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, createdDate time.Time, createdById string, projectId string, id string, isDeleted bool, ) *WebHookModel`
 
 NewWebHookModel instantiates a new WebHookModel object
 This constructor will assign default values to properties that have it defined,
@@ -70,6 +70,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *WebHookModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *WebHookModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetEventType
 
 `func (o *WebHookModel) GetEventType() WebHookEventTypeModel`
@@ -150,6 +160,16 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
+### SetUrlNil
+
+`func (o *WebHookModel) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *WebHookModel) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetRequestType
 
 `func (o *WebHookModel) GetRequestType() RequestTypeModel`
@@ -189,11 +209,6 @@ and a boolean to check if the value has been set.
 
 SetShouldSendBody sets ShouldSendBody field to given value.
 
-### HasShouldSendBody
-
-`func (o *WebHookModel) HasShouldSendBody() bool`
-
-HasShouldSendBody returns a boolean if a field has been set.
 
 ### GetHeaders
 
@@ -284,11 +299,6 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
-### HasIsEnabled
-
-`func (o *WebHookModel) HasIsEnabled() bool`
-
-HasIsEnabled returns a boolean if a field has been set.
 
 ### GetShouldSendCustomBody
 
@@ -309,11 +319,6 @@ and a boolean to check if the value has been set.
 
 SetShouldSendCustomBody sets ShouldSendCustomBody field to given value.
 
-### HasShouldSendCustomBody
-
-`func (o *WebHookModel) HasShouldSendCustomBody() bool`
-
-HasShouldSendCustomBody returns a boolean if a field has been set.
 
 ### GetCustomBody
 
@@ -404,11 +409,6 @@ and a boolean to check if the value has been set.
 
 SetShouldReplaceParameters sets ShouldReplaceParameters field to given value.
 
-### HasShouldReplaceParameters
-
-`func (o *WebHookModel) HasShouldReplaceParameters() bool`
-
-HasShouldReplaceParameters returns a boolean if a field has been set.
 
 ### GetShouldEscapeParameters
 
@@ -429,11 +429,6 @@ and a boolean to check if the value has been set.
 
 SetShouldEscapeParameters sets ShouldEscapeParameters field to given value.
 
-### HasShouldEscapeParameters
-
-`func (o *WebHookModel) HasShouldEscapeParameters() bool`
-
-HasShouldEscapeParameters returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -454,11 +449,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *WebHookModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetCreatedById
 
@@ -479,11 +469,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *WebHookModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -574,11 +559,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *WebHookModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetId
 
@@ -599,11 +579,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *WebHookModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -624,11 +599,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *WebHookModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

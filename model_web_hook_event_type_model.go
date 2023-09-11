@@ -35,6 +35,8 @@ const (
 	WEBHOOKEVENTTYPEMODEL_WORK_ITEM_ATTRIBUTE_CHANGED WebHookEventTypeModel = "WorkItemAttributeChanged"
 	WEBHOOKEVENTTYPEMODEL_WORK_ITEM_CHANGED WebHookEventTypeModel = "WorkItemChanged"
 	WEBHOOKEVENTTYPEMODEL_CONFIGURATION_CHANGED WebHookEventTypeModel = "ConfigurationChanged"
+	WEBHOOKEVENTTYPEMODEL_PROJECT_CHANGED WebHookEventTypeModel = "ProjectChanged"
+	WEBHOOKEVENTTYPEMODEL_TEST_PLAN_CHANGED WebHookEventTypeModel = "TestPlanChanged"
 )
 
 // All allowed values of WebHookEventTypeModel enum
@@ -54,6 +56,8 @@ var AllowedWebHookEventTypeModelEnumValues = []WebHookEventTypeModel{
 	"WorkItemAttributeChanged",
 	"WorkItemChanged",
 	"ConfigurationChanged",
+	"ProjectChanged",
+	"TestPlanChanged",
 }
 
 func (v *WebHookEventTypeModel) UnmarshalJSON(src []byte) error {

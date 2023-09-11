@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Parameters** | [**[]ParameterIterationModel**](ParameterIterationModel.md) |  | 
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 
 ## Methods
 
 ### NewIterationPutModel
 
-`func NewIterationPutModel(parameters []ParameterIterationModel, ) *IterationPutModel`
+`func NewIterationPutModel(parameters []ParameterIterationModel, id string, ) *IterationPutModel`
 
 NewIterationPutModel instantiates a new IterationPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -65,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *IterationPutModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

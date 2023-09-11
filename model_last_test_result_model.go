@@ -19,12 +19,12 @@ var _ MappedNullable = &LastTestResultModel{}
 
 // LastTestResultModel struct for LastTestResultModel
 type LastTestResultModel struct {
-	Id *string `json:"id,omitempty"`
-	TestRunId *string `json:"testRunId,omitempty"`
+	Id string `json:"id"`
+	TestRunId string `json:"testRunId"`
 	AutoTestId NullableString `json:"autoTestId,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
-	WorkItemVersionId *string `json:"workItemVersionId,omitempty"`
+	WorkItemVersionId string `json:"workItemVersionId"`
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
 }
 
@@ -32,8 +32,11 @@ type LastTestResultModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLastTestResultModel() *LastTestResultModel {
+func NewLastTestResultModel(id string, testRunId string, workItemVersionId string) *LastTestResultModel {
 	this := LastTestResultModel{}
+	this.Id = id
+	this.TestRunId = testRunId
+	this.WorkItemVersionId = workItemVersionId
 	return &this
 }
 
@@ -45,68 +48,52 @@ func NewLastTestResultModelWithDefaults() *LastTestResultModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *LastTestResultModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *LastTestResultModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *LastTestResultModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *LastTestResultModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetTestRunId returns the TestRunId field value if set, zero value otherwise.
+// GetTestRunId returns the TestRunId field value
 func (o *LastTestResultModel) GetTestRunId() string {
-	if o == nil || IsNil(o.TestRunId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestRunId
+
+	return o.TestRunId
 }
 
-// GetTestRunIdOk returns a tuple with the TestRunId field value if set, nil otherwise
+// GetTestRunIdOk returns a tuple with the TestRunId field value
 // and a boolean to check if the value has been set.
 func (o *LastTestResultModel) GetTestRunIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestRunId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestRunId, true
+	return &o.TestRunId, true
 }
 
-// HasTestRunId returns a boolean if a field has been set.
-func (o *LastTestResultModel) HasTestRunId() bool {
-	if o != nil && !IsNil(o.TestRunId) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestRunId gets a reference to the given string and assigns it to the TestRunId field.
+// SetTestRunId sets field value
 func (o *LastTestResultModel) SetTestRunId(v string) {
-	o.TestRunId = &v
+	o.TestRunId = v
 }
 
 // GetAutoTestId returns the AutoTestId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -226,36 +213,28 @@ func (o *LastTestResultModel) SetLinks(v []LinkModel) {
 	o.Links = v
 }
 
-// GetWorkItemVersionId returns the WorkItemVersionId field value if set, zero value otherwise.
+// GetWorkItemVersionId returns the WorkItemVersionId field value
 func (o *LastTestResultModel) GetWorkItemVersionId() string {
-	if o == nil || IsNil(o.WorkItemVersionId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WorkItemVersionId
+
+	return o.WorkItemVersionId
 }
 
-// GetWorkItemVersionIdOk returns a tuple with the WorkItemVersionId field value if set, nil otherwise
+// GetWorkItemVersionIdOk returns a tuple with the WorkItemVersionId field value
 // and a boolean to check if the value has been set.
 func (o *LastTestResultModel) GetWorkItemVersionIdOk() (*string, bool) {
-	if o == nil || IsNil(o.WorkItemVersionId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemVersionId, true
+	return &o.WorkItemVersionId, true
 }
 
-// HasWorkItemVersionId returns a boolean if a field has been set.
-func (o *LastTestResultModel) HasWorkItemVersionId() bool {
-	if o != nil && !IsNil(o.WorkItemVersionId) {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItemVersionId gets a reference to the given string and assigns it to the WorkItemVersionId field.
+// SetWorkItemVersionId sets field value
 func (o *LastTestResultModel) SetWorkItemVersionId(v string) {
-	o.WorkItemVersionId = &v
+	o.WorkItemVersionId = v
 }
 
 // GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -301,12 +280,8 @@ func (o LastTestResultModel) MarshalJSON() ([]byte, error) {
 
 func (o LastTestResultModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
-	if !IsNil(o.TestRunId) {
-		toSerialize["testRunId"] = o.TestRunId
-	}
+	toSerialize["id"] = o.Id
+	toSerialize["testRunId"] = o.TestRunId
 	if o.AutoTestId.IsSet() {
 		toSerialize["autoTestId"] = o.AutoTestId.Get()
 	}
@@ -316,9 +291,7 @@ func (o LastTestResultModel) ToMap() (map[string]interface{}, error) {
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
 	}
-	if !IsNil(o.WorkItemVersionId) {
-		toSerialize["workItemVersionId"] = o.WorkItemVersionId
-	}
+	toSerialize["workItemVersionId"] = o.WorkItemVersionId
 	if o.Attachments != nil {
 		toSerialize["attachments"] = o.Attachments
 	}

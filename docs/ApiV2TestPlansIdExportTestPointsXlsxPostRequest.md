@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IncludeName** | Pointer to **bool** |  | [optional] 
-**IncludeSection** | Pointer to **bool** |  | [optional] 
-**IncludePriority** | Pointer to **bool** |  | [optional] 
-**IncludeAutomated** | Pointer to **bool** |  | [optional] 
-**IncludeStatus** | Pointer to **bool** |  | [optional] 
-**IncludeDuration** | Pointer to **bool** |  | [optional] 
-**IncludeCreationDate** | Pointer to **bool** |  | [optional] 
-**IncludeAuthor** | Pointer to **bool** |  | [optional] 
-**IncludeModificationDate** | Pointer to **bool** |  | [optional] 
-**IncludeModifiedBy** | Pointer to **bool** |  | [optional] 
-**IncludeTags** | Pointer to **bool** |  | [optional] 
-**IncludeIterations** | Pointer to **bool** |  | [optional] 
+**IncludeName** | **bool** |  | 
+**IncludeSection** | **bool** |  | 
+**IncludePriority** | **bool** |  | 
+**IncludeAutomated** | **bool** |  | 
+**IncludeStatus** | **bool** |  | 
+**IncludeDuration** | **bool** |  | 
+**IncludeCreationDate** | **bool** |  | 
+**IncludeAuthor** | **bool** |  | 
+**IncludeModificationDate** | **bool** |  | 
+**IncludeModifiedBy** | **bool** |  | 
+**IncludeTags** | **bool** |  | 
+**IncludeIterations** | **bool** |  | 
 **CustomAttributesIds** | Pointer to **[]string** |  | [optional] 
 **ConfigurationIds** | Pointer to **[]string** |  | [optional] 
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewApiV2TestPlansIdExportTestPointsXlsxPostRequest
 
-`func NewApiV2TestPlansIdExportTestPointsXlsxPostRequest() *ApiV2TestPlansIdExportTestPointsXlsxPostRequest`
+`func NewApiV2TestPlansIdExportTestPointsXlsxPostRequest(includeName bool, includeSection bool, includePriority bool, includeAutomated bool, includeStatus bool, includeDuration bool, includeCreationDate bool, includeAuthor bool, includeModificationDate bool, includeModifiedBy bool, includeTags bool, includeIterations bool, ) *ApiV2TestPlansIdExportTestPointsXlsxPostRequest`
 
 NewApiV2TestPlansIdExportTestPointsXlsxPostRequest instantiates a new ApiV2TestPlansIdExportTestPointsXlsxPostRequest object
 This constructor will assign default values to properties that have it defined,
@@ -57,11 +57,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeName sets IncludeName field to given value.
 
-### HasIncludeName
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeName() bool`
-
-HasIncludeName returns a boolean if a field has been set.
 
 ### GetIncludeSection
 
@@ -82,11 +77,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeSection sets IncludeSection field to given value.
 
-### HasIncludeSection
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeSection() bool`
-
-HasIncludeSection returns a boolean if a field has been set.
 
 ### GetIncludePriority
 
@@ -107,11 +97,6 @@ and a boolean to check if the value has been set.
 
 SetIncludePriority sets IncludePriority field to given value.
 
-### HasIncludePriority
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludePriority() bool`
-
-HasIncludePriority returns a boolean if a field has been set.
 
 ### GetIncludeAutomated
 
@@ -132,11 +117,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeAutomated sets IncludeAutomated field to given value.
 
-### HasIncludeAutomated
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeAutomated() bool`
-
-HasIncludeAutomated returns a boolean if a field has been set.
 
 ### GetIncludeStatus
 
@@ -157,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeStatus sets IncludeStatus field to given value.
 
-### HasIncludeStatus
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeStatus() bool`
-
-HasIncludeStatus returns a boolean if a field has been set.
 
 ### GetIncludeDuration
 
@@ -182,11 +157,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeDuration sets IncludeDuration field to given value.
 
-### HasIncludeDuration
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeDuration() bool`
-
-HasIncludeDuration returns a boolean if a field has been set.
 
 ### GetIncludeCreationDate
 
@@ -207,11 +177,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeCreationDate sets IncludeCreationDate field to given value.
 
-### HasIncludeCreationDate
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeCreationDate() bool`
-
-HasIncludeCreationDate returns a boolean if a field has been set.
 
 ### GetIncludeAuthor
 
@@ -232,11 +197,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeAuthor sets IncludeAuthor field to given value.
 
-### HasIncludeAuthor
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeAuthor() bool`
-
-HasIncludeAuthor returns a boolean if a field has been set.
 
 ### GetIncludeModificationDate
 
@@ -257,11 +217,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeModificationDate sets IncludeModificationDate field to given value.
 
-### HasIncludeModificationDate
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeModificationDate() bool`
-
-HasIncludeModificationDate returns a boolean if a field has been set.
 
 ### GetIncludeModifiedBy
 
@@ -282,11 +237,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeModifiedBy sets IncludeModifiedBy field to given value.
 
-### HasIncludeModifiedBy
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeModifiedBy() bool`
-
-HasIncludeModifiedBy returns a boolean if a field has been set.
 
 ### GetIncludeTags
 
@@ -307,11 +257,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeTags sets IncludeTags field to given value.
 
-### HasIncludeTags
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeTags() bool`
-
-HasIncludeTags returns a boolean if a field has been set.
 
 ### GetIncludeIterations
 
@@ -332,11 +277,6 @@ and a boolean to check if the value has been set.
 
 SetIncludeIterations sets IncludeIterations field to given value.
 
-### HasIncludeIterations
-
-`func (o *ApiV2TestPlansIdExportTestPointsXlsxPostRequest) HasIncludeIterations() bool`
-
-HasIncludeIterations returns a boolean if a field has been set.
 
 ### GetCustomAttributesIds
 

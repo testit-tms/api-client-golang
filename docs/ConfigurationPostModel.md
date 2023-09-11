@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **Parameters** | **map[string]string** |  | 
 **ProjectId** | **string** | This property is used to link configuration with project | 
-**IsDefault** | Pointer to **bool** |  | [optional] 
+**IsDefault** | **bool** |  | 
 **Name** | **string** |  | 
 
 ## Methods
 
 ### NewConfigurationPostModel
 
-`func NewConfigurationPostModel(parameters map[string]string, projectId string, name string, ) *ConfigurationPostModel`
+`func NewConfigurationPostModel(parameters map[string]string, projectId string, isDefault bool, name string, ) *ConfigurationPostModel`
 
 NewConfigurationPostModel instantiates a new ConfigurationPostModel object
 This constructor will assign default values to properties that have it defined,
@@ -123,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetIsDefault sets IsDefault field to given value.
 
-### HasIsDefault
-
-`func (o *ConfigurationPostModel) HasIsDefault() bool`
-
-HasIsDefault returns a boolean if a field has been set.
 
 ### GetName
 

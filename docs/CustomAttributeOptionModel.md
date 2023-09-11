@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Unique ID of the attribute option | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the attributes option is deleted | [optional] 
+**Id** | **string** | Unique ID of the attribute option | 
+**IsDeleted** | **bool** | Indicates if the attributes option is deleted | 
 **Value** | Pointer to **NullableString** | Value of the attribute option | [optional] 
-**IsDefault** | Pointer to **bool** | Indicates if the attribute option is used by default | [optional] 
+**IsDefault** | **bool** | Indicates if the attribute option is used by default | 
 
 ## Methods
 
 ### NewCustomAttributeOptionModel
 
-`func NewCustomAttributeOptionModel() *CustomAttributeOptionModel`
+`func NewCustomAttributeOptionModel(id string, isDeleted bool, isDefault bool, ) *CustomAttributeOptionModel`
 
 NewCustomAttributeOptionModel instantiates a new CustomAttributeOptionModel object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *CustomAttributeOptionModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *CustomAttributeOptionModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetValue
 
@@ -132,11 +122,6 @@ and a boolean to check if the value has been set.
 
 SetIsDefault sets IsDefault field to given value.
 
-### HasIsDefault
-
-`func (o *CustomAttributeOptionModel) HasIsDefault() bool`
-
-HasIsDefault returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

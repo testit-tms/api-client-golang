@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserId** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
-**Value** | Pointer to **int64** |  | [optional] 
+**Status** | Pointer to **NullableString** |  | [optional] 
+**Value** | **int64** |  | 
 
 ## Methods
 
 ### NewTestPlanGroupByTesterAndStatus
 
-`func NewTestPlanGroupByTesterAndStatus() *TestPlanGroupByTesterAndStatus`
+`func NewTestPlanGroupByTesterAndStatus(value int64, ) *TestPlanGroupByTesterAndStatus`
 
 NewTestPlanGroupByTesterAndStatus instantiates a new TestPlanGroupByTesterAndStatus object
 This constructor will assign default values to properties that have it defined,
@@ -87,6 +87,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *TestPlanGroupByTesterAndStatus) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *TestPlanGroupByTesterAndStatus) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
 `func (o *TestPlanGroupByTesterAndStatus) GetValue() int64`
@@ -106,11 +116,6 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
-### HasValue
-
-`func (o *TestPlanGroupByTesterAndStatus) HasValue() bool`
-
-HasValue returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

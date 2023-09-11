@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
-**ModifiedDate** | Pointer to **time.Time** |  | [optional] 
-**UserId** | Pointer to **string** | If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result | [optional] 
+**Id** | **string** |  | 
+**CreatedDate** | **time.Time** |  | 
+**ModifiedDate** | **time.Time** |  | 
+**UserId** | **string** | If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result | 
 **TestRunId** | Pointer to **NullableString** |  | [optional] 
 **TestRunName** | Pointer to **NullableString** |  | [optional] 
 **CreatedByUserName** | Pointer to **NullableString** |  | [optional] 
@@ -15,14 +15,14 @@ Name | Type | Description | Notes
 **TestPlanGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **TestPlanName** | Pointer to **NullableString** |  | [optional] 
 **ConfigurationName** | Pointer to **NullableString** | If test point related to the test result has configuration, this property will be equal to the test point configuration name. Otherwise, this property will be equal to the test result configuration name | [optional] 
-**IsAutomated** | Pointer to **bool** |  | [optional] 
+**IsAutomated** | **bool** |  | 
 **Outcome** | Pointer to **NullableString** | If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equalsto the worst outcome of the last modified test result.Otherwise, the outcome equals to the outcome of first created test result in the test run | [optional] 
 **Comment** | Pointer to **NullableString** | If any test result related to the test run is linked with autotest, comment will have default valueOtherwise, the comment equals to the comment of first created test result in the test run | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) | If any test result related to the test run is linked with autotest, link will be equal to the links of last modified test result.Otherwise, the links equals to the links of first created test result in the test run | [optional] 
 **StartedOn** | Pointer to **NullableTime** |  | [optional] 
 **CompletedOn** | Pointer to **NullableTime** |  | [optional] 
 **Duration** | Pointer to **NullableInt64** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) | If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified test result.Otherwise, the attachments equals to the attachments of first created test result in the test run | [optional] 
 **WorkItemVersionId** | Pointer to **NullableString** |  | [optional] 
@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultHistoryReportModel
 
-`func NewTestResultHistoryReportModel() *TestResultHistoryReportModel`
+`func NewTestResultHistoryReportModel(id string, createdDate time.Time, modifiedDate time.Time, userId string, isAutomated bool, createdById string, ) *TestResultHistoryReportModel`
 
 NewTestResultHistoryReportModel instantiates a new TestResultHistoryReportModel object
 This constructor will assign default values to properties that have it defined,
@@ -69,11 +69,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestResultHistoryReportModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -94,11 +89,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *TestResultHistoryReportModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -119,11 +109,6 @@ and a boolean to check if the value has been set.
 
 SetModifiedDate sets ModifiedDate field to given value.
 
-### HasModifiedDate
-
-`func (o *TestResultHistoryReportModel) HasModifiedDate() bool`
-
-HasModifiedDate returns a boolean if a field has been set.
 
 ### GetUserId
 
@@ -144,11 +129,6 @@ and a boolean to check if the value has been set.
 
 SetUserId sets UserId field to given value.
 
-### HasUserId
-
-`func (o *TestResultHistoryReportModel) HasUserId() bool`
-
-HasUserId returns a boolean if a field has been set.
 
 ### GetTestRunId
 
@@ -414,11 +394,6 @@ and a boolean to check if the value has been set.
 
 SetIsAutomated sets IsAutomated field to given value.
 
-### HasIsAutomated
-
-`func (o *TestResultHistoryReportModel) HasIsAutomated() bool`
-
-HasIsAutomated returns a boolean if a field has been set.
 
 ### GetOutcome
 
@@ -649,11 +624,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *TestResultHistoryReportModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -855,6 +825,16 @@ SetFailureClassIds sets FailureClassIds field to given value.
 
 HasFailureClassIds returns a boolean if a field has been set.
 
+### SetFailureClassIdsNil
+
+`func (o *TestResultHistoryReportModel) SetFailureClassIdsNil(b bool)`
+
+ SetFailureClassIdsNil sets the value for FailureClassIds to be an explicit nil
+
+### UnsetFailureClassIds
+`func (o *TestResultHistoryReportModel) UnsetFailureClassIds()`
+
+UnsetFailureClassIds ensures that no value is present for FailureClassIds, not even an explicit nil
 ### GetParameters
 
 `func (o *TestResultHistoryReportModel) GetParameters() map[string]string`

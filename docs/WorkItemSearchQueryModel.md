@@ -18,7 +18,8 @@ Name | Type | Description | Notes
 **Types** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
 **CreatedDate** | Pointer to [**NullableTestPointFilterModelWorkItemCreatedDate**](TestPointFilterModelWorkItemCreatedDate.md) |  | [optional] 
 **ModifiedDate** | Pointer to [**NullableTestPointFilterModelWorkItemModifiedDate**](TestPointFilterModelWorkItemModifiedDate.md) |  | [optional] 
-**Duration** | Pointer to [**NullableWorkItemFilterModelDuration**](WorkItemFilterModelDuration.md) |  | [optional] 
+**Duration** | Pointer to [**NullableTestSuiteWorkItemsSearchModelDuration**](TestSuiteWorkItemsSearchModelDuration.md) |  | [optional] 
+**MedianDuration** | Pointer to [**NullableTestSuiteWorkItemsSearchModelMedianDuration**](TestSuiteWorkItemsSearchModelMedianDuration.md) |  | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Is result must consist of only manual/automated work items | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags | [optional] 
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
@@ -534,20 +535,20 @@ HasModifiedDate returns a boolean if a field has been set.
 UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
 ### GetDuration
 
-`func (o *WorkItemSearchQueryModel) GetDuration() WorkItemFilterModelDuration`
+`func (o *WorkItemSearchQueryModel) GetDuration() TestSuiteWorkItemsSearchModelDuration`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *WorkItemSearchQueryModel) GetDurationOk() (*WorkItemFilterModelDuration, bool)`
+`func (o *WorkItemSearchQueryModel) GetDurationOk() (*TestSuiteWorkItemsSearchModelDuration, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *WorkItemSearchQueryModel) SetDuration(v WorkItemFilterModelDuration)`
+`func (o *WorkItemSearchQueryModel) SetDuration(v TestSuiteWorkItemsSearchModelDuration)`
 
 SetDuration sets Duration field to given value.
 
@@ -567,6 +568,41 @@ HasDuration returns a boolean if a field has been set.
 `func (o *WorkItemSearchQueryModel) UnsetDuration()`
 
 UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+### GetMedianDuration
+
+`func (o *WorkItemSearchQueryModel) GetMedianDuration() TestSuiteWorkItemsSearchModelMedianDuration`
+
+GetMedianDuration returns the MedianDuration field if non-nil, zero value otherwise.
+
+### GetMedianDurationOk
+
+`func (o *WorkItemSearchQueryModel) GetMedianDurationOk() (*TestSuiteWorkItemsSearchModelMedianDuration, bool)`
+
+GetMedianDurationOk returns a tuple with the MedianDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMedianDuration
+
+`func (o *WorkItemSearchQueryModel) SetMedianDuration(v TestSuiteWorkItemsSearchModelMedianDuration)`
+
+SetMedianDuration sets MedianDuration field to given value.
+
+### HasMedianDuration
+
+`func (o *WorkItemSearchQueryModel) HasMedianDuration() bool`
+
+HasMedianDuration returns a boolean if a field has been set.
+
+### SetMedianDurationNil
+
+`func (o *WorkItemSearchQueryModel) SetMedianDurationNil(b bool)`
+
+ SetMedianDurationNil sets the value for MedianDuration to be an explicit nil
+
+### UnsetMedianDuration
+`func (o *WorkItemSearchQueryModel) UnsetMedianDuration()`
+
+UnsetMedianDuration ensures that no value is present for MedianDuration, not even an explicit nil
 ### GetIsAutomated
 
 `func (o *WorkItemSearchQueryModel) GetIsAutomated() bool`

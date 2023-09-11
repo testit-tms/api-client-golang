@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
 **WorkItemName** | Pointer to **NullableString** |  | [optional] 
-**IsAutomated** | Pointer to **bool** |  | [optional] 
+**IsAutomated** | **bool** |  | 
 **TesterId** | Pointer to **NullableString** |  | [optional] 
-**WorkItemId** | Pointer to **string** |  | [optional] 
+**WorkItemId** | **string** |  | 
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
-**TestSuiteId** | Pointer to **string** |  | [optional] 
+**TestSuiteId** | **string** |  | 
 **LastTestResult** | Pointer to [**NullableLastTestResultModel**](LastTestResultModel.md) |  | [optional] 
 **Status** | Pointer to **NullableString** |  | [optional] 
 **WorkItemGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **WorkItemEntityTypeName** | Pointer to **NullableString** |  | [optional] 
-**SectionId** | Pointer to **string** |  | [optional] 
+**SectionId** | **string** |  | 
 **SectionName** | Pointer to **NullableString** |  | [optional] 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **Attributes** | Pointer to **map[string]interface{}** |  | [optional] 
 **TagNames** | Pointer to **[]string** |  | [optional] 
-**Duration** | Pointer to **int32** |  | [optional] 
+**Duration** | **int32** |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **TestSuiteNameBreadCrumbs** | Pointer to **[]string** |  | [optional] 
 **GroupCount** | Pointer to **NullableInt32** |  | [optional] 
@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointWithLastResultModel
 
-`func NewTestPointWithLastResultModel(priority WorkItemPriorityModel, ) *TestPointWithLastResultModel`
+`func NewTestPointWithLastResultModel(id string, isAutomated bool, workItemId string, testSuiteId string, sectionId string, createdById string, duration int32, priority WorkItemPriorityModel, ) *TestPointWithLastResultModel`
 
 NewTestPointWithLastResultModel instantiates a new TestPointWithLastResultModel object
 This constructor will assign default values to properties that have it defined,
@@ -67,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestPointWithLastResultModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetWorkItemName
 
@@ -127,11 +122,6 @@ and a boolean to check if the value has been set.
 
 SetIsAutomated sets IsAutomated field to given value.
 
-### HasIsAutomated
-
-`func (o *TestPointWithLastResultModel) HasIsAutomated() bool`
-
-HasIsAutomated returns a boolean if a field has been set.
 
 ### GetTesterId
 
@@ -187,11 +177,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemId sets WorkItemId field to given value.
 
-### HasWorkItemId
-
-`func (o *TestPointWithLastResultModel) HasWorkItemId() bool`
-
-HasWorkItemId returns a boolean if a field has been set.
 
 ### GetConfigurationId
 
@@ -247,11 +232,6 @@ and a boolean to check if the value has been set.
 
 SetTestSuiteId sets TestSuiteId field to given value.
 
-### HasTestSuiteId
-
-`func (o *TestPointWithLastResultModel) HasTestSuiteId() bool`
-
-HasTestSuiteId returns a boolean if a field has been set.
 
 ### GetLastTestResult
 
@@ -412,11 +392,6 @@ and a boolean to check if the value has been set.
 
 SetSectionId sets SectionId field to given value.
 
-### HasSectionId
-
-`func (o *TestPointWithLastResultModel) HasSectionId() bool`
-
-HasSectionId returns a boolean if a field has been set.
 
 ### GetSectionName
 
@@ -542,11 +517,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *TestPointWithLastResultModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -672,11 +642,6 @@ and a boolean to check if the value has been set.
 
 SetDuration sets Duration field to given value.
 
-### HasDuration
-
-`func (o *TestPointWithLastResultModel) HasDuration() bool`
-
-HasDuration returns a boolean if a field has been set.
 
 ### GetPriority
 

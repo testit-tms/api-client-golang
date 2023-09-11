@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **PostconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
-**IsDeleted** | Pointer to **bool** |  | [optional] 
-**Id** | Pointer to **string** |  | [optional] 
-**CreatedDate** | Pointer to **time.Time** |  | [optional] 
+**IsDeleted** | **bool** |  | 
+**Id** | **string** |  | 
+**CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **Name** | **string** |  | 
 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewSectionWithStepsModel
 
-`func NewSectionWithStepsModel(name string, ) *SectionWithStepsModel`
+`func NewSectionWithStepsModel(isDeleted bool, id string, createdDate time.Time, createdById string, name string, ) *SectionWithStepsModel`
 
 NewSectionWithStepsModel instantiates a new SectionWithStepsModel object
 This constructor will assign default values to properties that have it defined,
@@ -194,11 +194,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *SectionWithStepsModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 ### GetId
 
@@ -219,11 +214,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *SectionWithStepsModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
@@ -244,11 +234,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
-
-`func (o *SectionWithStepsModel) HasCreatedDate() bool`
-
-HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
@@ -304,11 +289,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *SectionWithStepsModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 

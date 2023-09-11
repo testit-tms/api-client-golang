@@ -4,29 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WebHookName** | Pointer to **string** |  | [optional] 
+**WebHookName** | Pointer to **NullableString** |  | [optional] 
 **EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
-**WebHookId** | Pointer to **string** |  | [optional] 
+**WebHookId** | **string** |  | 
 **RequestBody** | Pointer to **NullableString** |  | [optional] 
 **RequestMeta** | Pointer to **NullableString** |  | [optional] 
-**ResponseStatusCode** | Pointer to **int32** |  | [optional] 
+**ResponseStatusCode** | **int32** |  | 
 **ResponseBody** | Pointer to **NullableString** |  | [optional] 
 **ResponseMeta** | Pointer to **NullableString** |  | [optional] 
-**ProjectId** | Pointer to **string** |  | [optional] 
-**Url** | Pointer to **string** |  | [optional] 
+**ProjectId** | **string** |  | 
+**Url** | Pointer to **NullableString** |  | [optional] 
 **RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
-**CreatedById** | Pointer to **string** |  | [optional] 
+**CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**Id** | Pointer to **string** | Unique ID of the entity | [optional] 
-**IsDeleted** | Pointer to **bool** | Indicates if the entity is deleted | [optional] 
+**Id** | **string** | Unique ID of the entity | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
 ## Methods
 
 ### NewWebHookLogModel
 
-`func NewWebHookLogModel(eventType WebHookEventTypeModel, requestType RequestTypeModel, ) *WebHookLogModel`
+`func NewWebHookLogModel(eventType WebHookEventTypeModel, webHookId string, responseStatusCode int32, projectId string, requestType RequestTypeModel, createdById string, id string, isDeleted bool, ) *WebHookLogModel`
 
 NewWebHookLogModel instantiates a new WebHookLogModel object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +66,16 @@ SetWebHookName sets WebHookName field to given value.
 
 HasWebHookName returns a boolean if a field has been set.
 
+### SetWebHookNameNil
+
+`func (o *WebHookLogModel) SetWebHookNameNil(b bool)`
+
+ SetWebHookNameNil sets the value for WebHookName to be an explicit nil
+
+### UnsetWebHookName
+`func (o *WebHookLogModel) UnsetWebHookName()`
+
+UnsetWebHookName ensures that no value is present for WebHookName, not even an explicit nil
 ### GetEventType
 
 `func (o *WebHookLogModel) GetEventType() WebHookEventTypeModel`
@@ -105,11 +115,6 @@ and a boolean to check if the value has been set.
 
 SetWebHookId sets WebHookId field to given value.
 
-### HasWebHookId
-
-`func (o *WebHookLogModel) HasWebHookId() bool`
-
-HasWebHookId returns a boolean if a field has been set.
 
 ### GetRequestBody
 
@@ -200,11 +205,6 @@ and a boolean to check if the value has been set.
 
 SetResponseStatusCode sets ResponseStatusCode field to given value.
 
-### HasResponseStatusCode
-
-`func (o *WebHookLogModel) HasResponseStatusCode() bool`
-
-HasResponseStatusCode returns a boolean if a field has been set.
 
 ### GetResponseBody
 
@@ -295,11 +295,6 @@ and a boolean to check if the value has been set.
 
 SetProjectId sets ProjectId field to given value.
 
-### HasProjectId
-
-`func (o *WebHookLogModel) HasProjectId() bool`
-
-HasProjectId returns a boolean if a field has been set.
 
 ### GetUrl
 
@@ -326,6 +321,16 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
+### SetUrlNil
+
+`func (o *WebHookLogModel) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *WebHookLogModel) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetRequestType
 
 `func (o *WebHookLogModel) GetRequestType() RequestTypeModel`
@@ -435,11 +440,6 @@ and a boolean to check if the value has been set.
 
 SetCreatedById sets CreatedById field to given value.
 
-### HasCreatedById
-
-`func (o *WebHookLogModel) HasCreatedById() bool`
-
-HasCreatedById returns a boolean if a field has been set.
 
 ### GetModifiedById
 
@@ -495,11 +495,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *WebHookLogModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetIsDeleted
 
@@ -520,11 +515,6 @@ and a boolean to check if the value has been set.
 
 SetIsDeleted sets IsDeleted field to given value.
 
-### HasIsDeleted
-
-`func (o *WebHookLogModel) HasIsDeleted() bool`
-
-HasIsDeleted returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

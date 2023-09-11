@@ -20,7 +20,7 @@ var _ MappedNullable = &TestPlanWithAnalyticModel{}
 
 // TestPlanWithAnalyticModel struct for TestPlanWithAnalyticModel
 type TestPlanWithAnalyticModel struct {
-	Analytic *TestPlanWithAnalyticModelAnalytic `json:"analytic,omitempty"`
+	Analytic NullableTestPointAnalyticResult `json:"analytic,omitempty"`
 	Status TestPlanStatusModel `json:"status"`
 	// Set when test plan is starter (status changed to: In Progress)
 	StartedOn NullableTime `json:"startedOn,omitempty"`
@@ -28,11 +28,11 @@ type TestPlanWithAnalyticModel struct {
 	CompletedOn NullableTime `json:"completedOn,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Used for search Test plan
-	GlobalId *int64 `json:"globalId,omitempty"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	GlobalId int64 `json:"globalId"`
+	IsDeleted bool `json:"isDeleted"`
 	LockedDate NullableTime `json:"lockedDate,omitempty"`
 	Id string `json:"id"`
 	LockedById NullableString `json:"lockedById,omitempty"`
@@ -54,9 +54,12 @@ type TestPlanWithAnalyticModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanWithAnalyticModel(status TestPlanStatusModel, id string, name string, projectId string) *TestPlanWithAnalyticModel {
+func NewTestPlanWithAnalyticModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string) *TestPlanWithAnalyticModel {
 	this := TestPlanWithAnalyticModel{}
 	this.Status = status
+	this.CreatedById = createdById
+	this.GlobalId = globalId
+	this.IsDeleted = isDeleted
 	this.Id = id
 	this.Name = name
 	this.ProjectId = projectId
@@ -71,36 +74,46 @@ func NewTestPlanWithAnalyticModelWithDefaults() *TestPlanWithAnalyticModel {
 	return &this
 }
 
-// GetAnalytic returns the Analytic field value if set, zero value otherwise.
-func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPlanWithAnalyticModelAnalytic {
-	if o == nil || IsNil(o.Analytic) {
-		var ret TestPlanWithAnalyticModelAnalytic
+// GetAnalytic returns the Analytic field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPointAnalyticResult {
+	if o == nil || IsNil(o.Analytic.Get()) {
+		var ret TestPointAnalyticResult
 		return ret
 	}
-	return *o.Analytic
+	return *o.Analytic.Get()
 }
 
 // GetAnalyticOk returns a tuple with the Analytic field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPlanWithAnalyticModelAnalytic, bool) {
-	if o == nil || IsNil(o.Analytic) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPointAnalyticResult, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Analytic, true
+	return o.Analytic.Get(), o.Analytic.IsSet()
 }
 
 // HasAnalytic returns a boolean if a field has been set.
 func (o *TestPlanWithAnalyticModel) HasAnalytic() bool {
-	if o != nil && !IsNil(o.Analytic) {
+	if o != nil && o.Analytic.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAnalytic gets a reference to the given TestPlanWithAnalyticModelAnalytic and assigns it to the Analytic field.
-func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPlanWithAnalyticModelAnalytic) {
-	o.Analytic = &v
+// SetAnalytic gets a reference to the given NullableTestPointAnalyticResult and assigns it to the Analytic field.
+func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPointAnalyticResult) {
+	o.Analytic.Set(&v)
+}
+// SetAnalyticNil sets the value for Analytic to be an explicit nil
+func (o *TestPlanWithAnalyticModel) SetAnalyticNil() {
+	o.Analytic.Set(nil)
+}
+
+// UnsetAnalytic ensures that no value is present for Analytic, not even an explicit nil
+func (o *TestPlanWithAnalyticModel) UnsetAnalytic() {
+	o.Analytic.Unset()
 }
 
 // GetStatus returns the Status field value
@@ -295,36 +308,28 @@ func (o *TestPlanWithAnalyticModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *TestPlanWithAnalyticModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanWithAnalyticModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *TestPlanWithAnalyticModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *TestPlanWithAnalyticModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -369,68 +374,52 @@ func (o *TestPlanWithAnalyticModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *TestPlanWithAnalyticModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanWithAnalyticModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *TestPlanWithAnalyticModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *TestPlanWithAnalyticModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *TestPlanWithAnalyticModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *TestPlanWithAnalyticModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *TestPlanWithAnalyticModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *TestPlanWithAnalyticModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 // GetLockedDate returns the LockedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -874,9 +863,9 @@ func (o *TestPlanWithAnalyticModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise.
+// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPlanWithAnalyticModel) GetAttributes() map[string]interface{} {
-	if o == nil || IsNil(o.Attributes) {
+	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
@@ -885,6 +874,7 @@ func (o *TestPlanWithAnalyticModel) GetAttributes() map[string]interface{} {
 
 // GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanWithAnalyticModel) GetAttributesOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.Attributes) {
 		return map[string]interface{}{}, false
@@ -894,7 +884,7 @@ func (o *TestPlanWithAnalyticModel) GetAttributesOk() (map[string]interface{}, b
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPlanWithAnalyticModel) HasAttributes() bool {
-	if o != nil && !IsNil(o.Attributes) {
+	if o != nil && IsNil(o.Attributes) {
 		return true
 	}
 
@@ -916,8 +906,8 @@ func (o TestPlanWithAnalyticModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanWithAnalyticModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Analytic) {
-		toSerialize["analytic"] = o.Analytic
+	if o.Analytic.IsSet() {
+		toSerialize["analytic"] = o.Analytic.Get()
 	}
 	toSerialize["status"] = o.Status
 	if o.StartedOn.IsSet() {
@@ -932,18 +922,12 @@ func (o TestPlanWithAnalyticModel) ToMap() (map[string]interface{}, error) {
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["globalId"] = o.GlobalId
+	toSerialize["isDeleted"] = o.IsDeleted
 	if o.LockedDate.IsSet() {
 		toSerialize["lockedDate"] = o.LockedDate.Get()
 	}
@@ -974,7 +958,7 @@ func (o TestPlanWithAnalyticModel) ToMap() (map[string]interface{}, error) {
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if !IsNil(o.Attributes) {
+	if o.Attributes != nil {
 		toSerialize["attributes"] = o.Attributes
 	}
 	return toSerialize, nil

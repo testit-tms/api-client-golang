@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**TestRunId** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**TestRunId** | **string** |  | 
 **AutoTestId** | Pointer to **NullableString** |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
-**WorkItemVersionId** | Pointer to **string** |  | [optional] 
+**WorkItemVersionId** | **string** |  | 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewTestPointShortGetModelLastTestResult
 
-`func NewTestPointShortGetModelLastTestResult() *TestPointShortGetModelLastTestResult`
+`func NewTestPointShortGetModelLastTestResult(id string, testRunId string, workItemVersionId string, ) *TestPointShortGetModelLastTestResult`
 
 NewTestPointShortGetModelLastTestResult instantiates a new TestPointShortGetModelLastTestResult object
 This constructor will assign default values to properties that have it defined,
@@ -50,11 +50,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestPointShortGetModelLastTestResult) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetTestRunId
 
@@ -75,11 +70,6 @@ and a boolean to check if the value has been set.
 
 SetTestRunId sets TestRunId field to given value.
 
-### HasTestRunId
-
-`func (o *TestPointShortGetModelLastTestResult) HasTestRunId() bool`
-
-HasTestRunId returns a boolean if a field has been set.
 
 ### GetAutoTestId
 
@@ -205,11 +195,6 @@ and a boolean to check if the value has been set.
 
 SetWorkItemVersionId sets WorkItemVersionId field to given value.
 
-### HasWorkItemVersionId
-
-`func (o *TestPointShortGetModelLastTestResult) HasWorkItemVersionId() bool`
-
-HasWorkItemVersionId returns a boolean if a field has been set.
 
 ### GetAttachments
 

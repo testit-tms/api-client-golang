@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Children** | Pointer to [**[]TestSuiteV2TreeModel**](TestSuiteV2TreeModel.md) | nested enumeration of children is allowed | [optional] 
-**Id** | Pointer to **string** | Unique ID of the test suite | [optional] 
+**Id** | **string** | Unique ID of the test suite | 
 **RefreshDate** | Pointer to **NullableTime** | Date of the last refresh of the test suite | [optional] 
 **ParentId** | Pointer to **NullableString** | Unique ID of the parent test suite in hierarchy | [optional] 
 **TestPlanId** | **string** | Unique ID of test plan to which the test suite belongs | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewTestSuiteV2TreeModel
 
-`func NewTestSuiteV2TreeModel(testPlanId string, name string, ) *TestSuiteV2TreeModel`
+`func NewTestSuiteV2TreeModel(id string, testPlanId string, name string, ) *TestSuiteV2TreeModel`
 
 NewTestSuiteV2TreeModel instantiates a new TestSuiteV2TreeModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,11 +87,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *TestSuiteV2TreeModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetRefreshDate
 

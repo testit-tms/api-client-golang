@@ -20,23 +20,28 @@ var _ MappedNullable = &TestRunStatisticsStatusesGetModel{}
 // TestRunStatisticsStatusesGetModel struct for TestRunStatisticsStatusesGetModel
 type TestRunStatisticsStatusesGetModel struct {
 	// Number of test results which is running currently
-	InProgress *int32 `json:"inProgress,omitempty"`
+	InProgress int32 `json:"inProgress"`
 	// Number of test results which successfully passed
-	Passed *int32 `json:"passed,omitempty"`
+	Passed int32 `json:"passed"`
 	// Number of test results which failed with an error
-	Failed *int32 `json:"failed,omitempty"`
+	Failed int32 `json:"failed"`
 	// Number of test results which did not run and were skipped
-	Skipped *int32 `json:"skipped,omitempty"`
+	Skipped int32 `json:"skipped"`
 	// Number of test results which cannot be launched
-	Blocked *int32 `json:"blocked,omitempty"`
+	Blocked int32 `json:"blocked"`
 }
 
 // NewTestRunStatisticsStatusesGetModel instantiates a new TestRunStatisticsStatusesGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunStatisticsStatusesGetModel() *TestRunStatisticsStatusesGetModel {
+func NewTestRunStatisticsStatusesGetModel(inProgress int32, passed int32, failed int32, skipped int32, blocked int32) *TestRunStatisticsStatusesGetModel {
 	this := TestRunStatisticsStatusesGetModel{}
+	this.InProgress = inProgress
+	this.Passed = passed
+	this.Failed = failed
+	this.Skipped = skipped
+	this.Blocked = blocked
 	return &this
 }
 
@@ -48,164 +53,124 @@ func NewTestRunStatisticsStatusesGetModelWithDefaults() *TestRunStatisticsStatus
 	return &this
 }
 
-// GetInProgress returns the InProgress field value if set, zero value otherwise.
+// GetInProgress returns the InProgress field value
 func (o *TestRunStatisticsStatusesGetModel) GetInProgress() int32 {
-	if o == nil || IsNil(o.InProgress) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.InProgress
+
+	return o.InProgress
 }
 
-// GetInProgressOk returns a tuple with the InProgress field value if set, nil otherwise
+// GetInProgressOk returns a tuple with the InProgress field value
 // and a boolean to check if the value has been set.
 func (o *TestRunStatisticsStatusesGetModel) GetInProgressOk() (*int32, bool) {
-	if o == nil || IsNil(o.InProgress) {
+	if o == nil {
 		return nil, false
 	}
-	return o.InProgress, true
+	return &o.InProgress, true
 }
 
-// HasInProgress returns a boolean if a field has been set.
-func (o *TestRunStatisticsStatusesGetModel) HasInProgress() bool {
-	if o != nil && !IsNil(o.InProgress) {
-		return true
-	}
-
-	return false
-}
-
-// SetInProgress gets a reference to the given int32 and assigns it to the InProgress field.
+// SetInProgress sets field value
 func (o *TestRunStatisticsStatusesGetModel) SetInProgress(v int32) {
-	o.InProgress = &v
+	o.InProgress = v
 }
 
-// GetPassed returns the Passed field value if set, zero value otherwise.
+// GetPassed returns the Passed field value
 func (o *TestRunStatisticsStatusesGetModel) GetPassed() int32 {
-	if o == nil || IsNil(o.Passed) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Passed
+
+	return o.Passed
 }
 
-// GetPassedOk returns a tuple with the Passed field value if set, nil otherwise
+// GetPassedOk returns a tuple with the Passed field value
 // and a boolean to check if the value has been set.
 func (o *TestRunStatisticsStatusesGetModel) GetPassedOk() (*int32, bool) {
-	if o == nil || IsNil(o.Passed) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Passed, true
+	return &o.Passed, true
 }
 
-// HasPassed returns a boolean if a field has been set.
-func (o *TestRunStatisticsStatusesGetModel) HasPassed() bool {
-	if o != nil && !IsNil(o.Passed) {
-		return true
-	}
-
-	return false
-}
-
-// SetPassed gets a reference to the given int32 and assigns it to the Passed field.
+// SetPassed sets field value
 func (o *TestRunStatisticsStatusesGetModel) SetPassed(v int32) {
-	o.Passed = &v
+	o.Passed = v
 }
 
-// GetFailed returns the Failed field value if set, zero value otherwise.
+// GetFailed returns the Failed field value
 func (o *TestRunStatisticsStatusesGetModel) GetFailed() int32 {
-	if o == nil || IsNil(o.Failed) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Failed
+
+	return o.Failed
 }
 
-// GetFailedOk returns a tuple with the Failed field value if set, nil otherwise
+// GetFailedOk returns a tuple with the Failed field value
 // and a boolean to check if the value has been set.
 func (o *TestRunStatisticsStatusesGetModel) GetFailedOk() (*int32, bool) {
-	if o == nil || IsNil(o.Failed) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Failed, true
+	return &o.Failed, true
 }
 
-// HasFailed returns a boolean if a field has been set.
-func (o *TestRunStatisticsStatusesGetModel) HasFailed() bool {
-	if o != nil && !IsNil(o.Failed) {
-		return true
-	}
-
-	return false
-}
-
-// SetFailed gets a reference to the given int32 and assigns it to the Failed field.
+// SetFailed sets field value
 func (o *TestRunStatisticsStatusesGetModel) SetFailed(v int32) {
-	o.Failed = &v
+	o.Failed = v
 }
 
-// GetSkipped returns the Skipped field value if set, zero value otherwise.
+// GetSkipped returns the Skipped field value
 func (o *TestRunStatisticsStatusesGetModel) GetSkipped() int32 {
-	if o == nil || IsNil(o.Skipped) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Skipped
+
+	return o.Skipped
 }
 
-// GetSkippedOk returns a tuple with the Skipped field value if set, nil otherwise
+// GetSkippedOk returns a tuple with the Skipped field value
 // and a boolean to check if the value has been set.
 func (o *TestRunStatisticsStatusesGetModel) GetSkippedOk() (*int32, bool) {
-	if o == nil || IsNil(o.Skipped) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Skipped, true
+	return &o.Skipped, true
 }
 
-// HasSkipped returns a boolean if a field has been set.
-func (o *TestRunStatisticsStatusesGetModel) HasSkipped() bool {
-	if o != nil && !IsNil(o.Skipped) {
-		return true
-	}
-
-	return false
-}
-
-// SetSkipped gets a reference to the given int32 and assigns it to the Skipped field.
+// SetSkipped sets field value
 func (o *TestRunStatisticsStatusesGetModel) SetSkipped(v int32) {
-	o.Skipped = &v
+	o.Skipped = v
 }
 
-// GetBlocked returns the Blocked field value if set, zero value otherwise.
+// GetBlocked returns the Blocked field value
 func (o *TestRunStatisticsStatusesGetModel) GetBlocked() int32 {
-	if o == nil || IsNil(o.Blocked) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Blocked
+
+	return o.Blocked
 }
 
-// GetBlockedOk returns a tuple with the Blocked field value if set, nil otherwise
+// GetBlockedOk returns a tuple with the Blocked field value
 // and a boolean to check if the value has been set.
 func (o *TestRunStatisticsStatusesGetModel) GetBlockedOk() (*int32, bool) {
-	if o == nil || IsNil(o.Blocked) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Blocked, true
+	return &o.Blocked, true
 }
 
-// HasBlocked returns a boolean if a field has been set.
-func (o *TestRunStatisticsStatusesGetModel) HasBlocked() bool {
-	if o != nil && !IsNil(o.Blocked) {
-		return true
-	}
-
-	return false
-}
-
-// SetBlocked gets a reference to the given int32 and assigns it to the Blocked field.
+// SetBlocked sets field value
 func (o *TestRunStatisticsStatusesGetModel) SetBlocked(v int32) {
-	o.Blocked = &v
+	o.Blocked = v
 }
 
 func (o TestRunStatisticsStatusesGetModel) MarshalJSON() ([]byte, error) {
@@ -218,21 +183,11 @@ func (o TestRunStatisticsStatusesGetModel) MarshalJSON() ([]byte, error) {
 
 func (o TestRunStatisticsStatusesGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.InProgress) {
-		toSerialize["inProgress"] = o.InProgress
-	}
-	if !IsNil(o.Passed) {
-		toSerialize["passed"] = o.Passed
-	}
-	if !IsNil(o.Failed) {
-		toSerialize["failed"] = o.Failed
-	}
-	if !IsNil(o.Skipped) {
-		toSerialize["skipped"] = o.Skipped
-	}
-	if !IsNil(o.Blocked) {
-		toSerialize["blocked"] = o.Blocked
-	}
+	toSerialize["inProgress"] = o.InProgress
+	toSerialize["passed"] = o.Passed
+	toSerialize["failed"] = o.Failed
+	toSerialize["skipped"] = o.Skipped
+	toSerialize["blocked"] = o.Blocked
 	return toSerialize, nil
 }
 

@@ -20,12 +20,14 @@ var _ MappedNullable = &AutotestResultHistoricalGetModel{}
 
 // AutotestResultHistoricalGetModel struct for AutotestResultHistoricalGetModel
 type AutotestResultHistoricalGetModel struct {
-	Id *string `json:"id,omitempty"`
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
-	CreatedById *string `json:"createdById,omitempty"`
-	TestRunId *string `json:"testRunId,omitempty"`
+	Id string `json:"id"`
+	CreatedDate time.Time `json:"createdDate"`
+	CreatedById string `json:"createdById"`
+	CreatedByName NullableString `json:"createdByName,omitempty"`
+	TestRunId string `json:"testRunId"`
 	TestRunName NullableString `json:"testRunName,omitempty"`
-	ConfigurationId *string `json:"configurationId,omitempty"`
+	ConfigurationId string `json:"configurationId"`
+	ConfigurationName NullableString `json:"configurationName,omitempty"`
 	Outcome AutotestResultOutcome `json:"outcome"`
 	LaunchSource NullableString `json:"launchSource,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
@@ -40,8 +42,13 @@ type AutotestResultHistoricalGetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutotestResultHistoricalGetModel(outcome AutotestResultOutcome) *AutotestResultHistoricalGetModel {
+func NewAutotestResultHistoricalGetModel(id string, createdDate time.Time, createdById string, testRunId string, configurationId string, outcome AutotestResultOutcome) *AutotestResultHistoricalGetModel {
 	this := AutotestResultHistoricalGetModel{}
+	this.Id = id
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
+	this.TestRunId = testRunId
+	this.ConfigurationId = configurationId
 	this.Outcome = outcome
 	return &this
 }
@@ -54,132 +61,142 @@ func NewAutotestResultHistoricalGetModelWithDefaults() *AutotestResultHistorical
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *AutotestResultHistoricalGetModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *AutotestResultHistoricalGetModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *AutotestResultHistoricalGetModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *AutotestResultHistoricalGetModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *AutotestResultHistoricalGetModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *AutotestResultHistoricalGetModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *AutotestResultHistoricalGetModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *AutotestResultHistoricalGetModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *AutotestResultHistoricalGetModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
-// GetTestRunId returns the TestRunId field value if set, zero value otherwise.
-func (o *AutotestResultHistoricalGetModel) GetTestRunId() string {
-	if o == nil || IsNil(o.TestRunId) {
+// GetCreatedByName returns the CreatedByName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetCreatedByName() string {
+	if o == nil || IsNil(o.CreatedByName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.TestRunId
+	return *o.CreatedByName.Get()
 }
 
-// GetTestRunIdOk returns a tuple with the TestRunId field value if set, nil otherwise
+// GetCreatedByNameOk returns a tuple with the CreatedByName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutotestResultHistoricalGetModel) GetTestRunIdOk() (*string, bool) {
-	if o == nil || IsNil(o.TestRunId) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetCreatedByNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.TestRunId, true
+	return o.CreatedByName.Get(), o.CreatedByName.IsSet()
 }
 
-// HasTestRunId returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasTestRunId() bool {
-	if o != nil && !IsNil(o.TestRunId) {
+// HasCreatedByName returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasCreatedByName() bool {
+	if o != nil && o.CreatedByName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetTestRunId gets a reference to the given string and assigns it to the TestRunId field.
+// SetCreatedByName gets a reference to the given NullableString and assigns it to the CreatedByName field.
+func (o *AutotestResultHistoricalGetModel) SetCreatedByName(v string) {
+	o.CreatedByName.Set(&v)
+}
+// SetCreatedByNameNil sets the value for CreatedByName to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetCreatedByNameNil() {
+	o.CreatedByName.Set(nil)
+}
+
+// UnsetCreatedByName ensures that no value is present for CreatedByName, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetCreatedByName() {
+	o.CreatedByName.Unset()
+}
+
+// GetTestRunId returns the TestRunId field value
+func (o *AutotestResultHistoricalGetModel) GetTestRunId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TestRunId
+}
+
+// GetTestRunIdOk returns a tuple with the TestRunId field value
+// and a boolean to check if the value has been set.
+func (o *AutotestResultHistoricalGetModel) GetTestRunIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestRunId, true
+}
+
+// SetTestRunId sets field value
 func (o *AutotestResultHistoricalGetModel) SetTestRunId(v string) {
-	o.TestRunId = &v
+	o.TestRunId = v
 }
 
 // GetTestRunName returns the TestRunName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,36 +241,70 @@ func (o *AutotestResultHistoricalGetModel) UnsetTestRunName() {
 	o.TestRunName.Unset()
 }
 
-// GetConfigurationId returns the ConfigurationId field value if set, zero value otherwise.
+// GetConfigurationId returns the ConfigurationId field value
 func (o *AutotestResultHistoricalGetModel) GetConfigurationId() string {
-	if o == nil || IsNil(o.ConfigurationId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ConfigurationId
+
+	return o.ConfigurationId
 }
 
-// GetConfigurationIdOk returns a tuple with the ConfigurationId field value if set, nil otherwise
+// GetConfigurationIdOk returns a tuple with the ConfigurationId field value
 // and a boolean to check if the value has been set.
 func (o *AutotestResultHistoricalGetModel) GetConfigurationIdOk() (*string, bool) {
-	if o == nil || IsNil(o.ConfigurationId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ConfigurationId, true
+	return &o.ConfigurationId, true
 }
 
-// HasConfigurationId returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasConfigurationId() bool {
-	if o != nil && !IsNil(o.ConfigurationId) {
+// SetConfigurationId sets field value
+func (o *AutotestResultHistoricalGetModel) SetConfigurationId(v string) {
+	o.ConfigurationId = v
+}
+
+// GetConfigurationName returns the ConfigurationName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetConfigurationName() string {
+	if o == nil || IsNil(o.ConfigurationName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ConfigurationName.Get()
+}
+
+// GetConfigurationNameOk returns a tuple with the ConfigurationName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetConfigurationNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ConfigurationName.Get(), o.ConfigurationName.IsSet()
+}
+
+// HasConfigurationName returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasConfigurationName() bool {
+	if o != nil && o.ConfigurationName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetConfigurationId gets a reference to the given string and assigns it to the ConfigurationId field.
-func (o *AutotestResultHistoricalGetModel) SetConfigurationId(v string) {
-	o.ConfigurationId = &v
+// SetConfigurationName gets a reference to the given NullableString and assigns it to the ConfigurationName field.
+func (o *AutotestResultHistoricalGetModel) SetConfigurationName(v string) {
+	o.ConfigurationName.Set(&v)
+}
+// SetConfigurationNameNil sets the value for ConfigurationName to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetConfigurationNameNil() {
+	o.ConfigurationName.Set(nil)
+}
+
+// UnsetConfigurationName ensures that no value is present for ConfigurationName, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetConfigurationName() {
+	o.ConfigurationName.Unset()
 }
 
 // GetOutcome returns the Outcome field value
@@ -584,23 +635,19 @@ func (o AutotestResultHistoricalGetModel) MarshalJSON() ([]byte, error) {
 
 func (o AutotestResultHistoricalGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	toSerialize["id"] = o.Id
+	toSerialize["createdDate"] = o.CreatedDate
+	toSerialize["createdById"] = o.CreatedById
+	if o.CreatedByName.IsSet() {
+		toSerialize["createdByName"] = o.CreatedByName.Get()
 	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
-	if !IsNil(o.TestRunId) {
-		toSerialize["testRunId"] = o.TestRunId
-	}
+	toSerialize["testRunId"] = o.TestRunId
 	if o.TestRunName.IsSet() {
 		toSerialize["testRunName"] = o.TestRunName.Get()
 	}
-	if !IsNil(o.ConfigurationId) {
-		toSerialize["configurationId"] = o.ConfigurationId
+	toSerialize["configurationId"] = o.ConfigurationId
+	if o.ConfigurationName.IsSet() {
+		toSerialize["configurationName"] = o.ConfigurationName.Get()
 	}
 	toSerialize["outcome"] = o.Outcome
 	if o.LaunchSource.IsSet() {

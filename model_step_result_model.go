@@ -19,8 +19,8 @@ var _ MappedNullable = &StepResultModel{}
 
 // StepResultModel struct for StepResultModel
 type StepResultModel struct {
-	StepId *string `json:"stepId,omitempty"`
-	Outcome *string `json:"outcome,omitempty"`
+	StepId string `json:"stepId"`
+	Outcome NullableString `json:"outcome,omitempty"`
 	SharedStepVersionId NullableString `json:"sharedStepVersionId,omitempty"`
 	SharedStepResults []SharedStepResultModel `json:"sharedStepResults,omitempty"`
 	Comment NullableStepCommentModel `json:"comment,omitempty"`
@@ -30,8 +30,9 @@ type StepResultModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStepResultModel() *StepResultModel {
+func NewStepResultModel(stepId string) *StepResultModel {
 	this := StepResultModel{}
+	this.StepId = stepId
 	return &this
 }
 
@@ -43,68 +44,70 @@ func NewStepResultModelWithDefaults() *StepResultModel {
 	return &this
 }
 
-// GetStepId returns the StepId field value if set, zero value otherwise.
+// GetStepId returns the StepId field value
 func (o *StepResultModel) GetStepId() string {
-	if o == nil || IsNil(o.StepId) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.StepId
+
+	return o.StepId
 }
 
-// GetStepIdOk returns a tuple with the StepId field value if set, nil otherwise
+// GetStepIdOk returns a tuple with the StepId field value
 // and a boolean to check if the value has been set.
 func (o *StepResultModel) GetStepIdOk() (*string, bool) {
-	if o == nil || IsNil(o.StepId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StepId, true
+	return &o.StepId, true
 }
 
-// HasStepId returns a boolean if a field has been set.
-func (o *StepResultModel) HasStepId() bool {
-	if o != nil && !IsNil(o.StepId) {
-		return true
-	}
-
-	return false
-}
-
-// SetStepId gets a reference to the given string and assigns it to the StepId field.
+// SetStepId sets field value
 func (o *StepResultModel) SetStepId(v string) {
-	o.StepId = &v
+	o.StepId = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise.
+// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *StepResultModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil || IsNil(o.Outcome.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Outcome
+	return *o.Outcome.Get()
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *StepResultModel) GetOutcomeOk() (*string, bool) {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Outcome, true
+	return o.Outcome.Get(), o.Outcome.IsSet()
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *StepResultModel) HasOutcome() bool {
-	if o != nil && !IsNil(o.Outcome) {
+	if o != nil && o.Outcome.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given string and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
 func (o *StepResultModel) SetOutcome(v string) {
-	o.Outcome = &v
+	o.Outcome.Set(&v)
+}
+// SetOutcomeNil sets the value for Outcome to be an explicit nil
+func (o *StepResultModel) SetOutcomeNil() {
+	o.Outcome.Set(nil)
+}
+
+// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+func (o *StepResultModel) UnsetOutcome() {
+	o.Outcome.Unset()
 }
 
 // GetSharedStepVersionId returns the SharedStepVersionId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -234,11 +237,9 @@ func (o StepResultModel) MarshalJSON() ([]byte, error) {
 
 func (o StepResultModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.StepId) {
-		toSerialize["stepId"] = o.StepId
-	}
-	if !IsNil(o.Outcome) {
-		toSerialize["outcome"] = o.Outcome
+	toSerialize["stepId"] = o.StepId
+	if o.Outcome.IsSet() {
+		toSerialize["outcome"] = o.Outcome.Get()
 	}
 	if o.SharedStepVersionId.IsSet() {
 		toSerialize["sharedStepVersionId"] = o.SharedStepVersionId.Get()

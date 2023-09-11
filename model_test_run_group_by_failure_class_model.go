@@ -19,16 +19,17 @@ var _ MappedNullable = &TestRunGroupByFailureClassModel{}
 
 // TestRunGroupByFailureClassModel struct for TestRunGroupByFailureClassModel
 type TestRunGroupByFailureClassModel struct {
-	FailureCategory *string `json:"failureCategory,omitempty"`
-	Value *int32 `json:"value,omitempty"`
+	FailureCategory NullableString `json:"failureCategory,omitempty"`
+	Value int32 `json:"value"`
 }
 
 // NewTestRunGroupByFailureClassModel instantiates a new TestRunGroupByFailureClassModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunGroupByFailureClassModel() *TestRunGroupByFailureClassModel {
+func NewTestRunGroupByFailureClassModel(value int32) *TestRunGroupByFailureClassModel {
 	this := TestRunGroupByFailureClassModel{}
+	this.Value = value
 	return &this
 }
 
@@ -40,68 +41,70 @@ func NewTestRunGroupByFailureClassModelWithDefaults() *TestRunGroupByFailureClas
 	return &this
 }
 
-// GetFailureCategory returns the FailureCategory field value if set, zero value otherwise.
+// GetFailureCategory returns the FailureCategory field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestRunGroupByFailureClassModel) GetFailureCategory() string {
-	if o == nil || IsNil(o.FailureCategory) {
+	if o == nil || IsNil(o.FailureCategory.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.FailureCategory
+	return *o.FailureCategory.Get()
 }
 
 // GetFailureCategoryOk returns a tuple with the FailureCategory field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunGroupByFailureClassModel) GetFailureCategoryOk() (*string, bool) {
-	if o == nil || IsNil(o.FailureCategory) {
+	if o == nil {
 		return nil, false
 	}
-	return o.FailureCategory, true
+	return o.FailureCategory.Get(), o.FailureCategory.IsSet()
 }
 
 // HasFailureCategory returns a boolean if a field has been set.
 func (o *TestRunGroupByFailureClassModel) HasFailureCategory() bool {
-	if o != nil && !IsNil(o.FailureCategory) {
+	if o != nil && o.FailureCategory.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetFailureCategory gets a reference to the given string and assigns it to the FailureCategory field.
+// SetFailureCategory gets a reference to the given NullableString and assigns it to the FailureCategory field.
 func (o *TestRunGroupByFailureClassModel) SetFailureCategory(v string) {
-	o.FailureCategory = &v
+	o.FailureCategory.Set(&v)
+}
+// SetFailureCategoryNil sets the value for FailureCategory to be an explicit nil
+func (o *TestRunGroupByFailureClassModel) SetFailureCategoryNil() {
+	o.FailureCategory.Set(nil)
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// UnsetFailureCategory ensures that no value is present for FailureCategory, not even an explicit nil
+func (o *TestRunGroupByFailureClassModel) UnsetFailureCategory() {
+	o.FailureCategory.Unset()
+}
+
+// GetValue returns the Value field value
 func (o *TestRunGroupByFailureClassModel) GetValue() int32 {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.Value
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *TestRunGroupByFailureClassModel) GetValueOk() (*int32, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *TestRunGroupByFailureClassModel) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given int32 and assigns it to the Value field.
+// SetValue sets field value
 func (o *TestRunGroupByFailureClassModel) SetValue(v int32) {
-	o.Value = &v
+	o.Value = v
 }
 
 func (o TestRunGroupByFailureClassModel) MarshalJSON() ([]byte, error) {
@@ -114,12 +117,10 @@ func (o TestRunGroupByFailureClassModel) MarshalJSON() ([]byte, error) {
 
 func (o TestRunGroupByFailureClassModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FailureCategory) {
-		toSerialize["failureCategory"] = o.FailureCategory
+	if o.FailureCategory.IsSet() {
+		toSerialize["failureCategory"] = o.FailureCategory.Get()
 	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
-	}
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 

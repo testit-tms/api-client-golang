@@ -22,15 +22,16 @@ type CustomAttributeOptionPostModel struct {
 	// Value of the attribute option
 	Value NullableString `json:"value,omitempty"`
 	// Indicates if the attribute option is used by default
-	IsDefault *bool `json:"isDefault,omitempty"`
+	IsDefault bool `json:"isDefault"`
 }
 
 // NewCustomAttributeOptionPostModel instantiates a new CustomAttributeOptionPostModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeOptionPostModel() *CustomAttributeOptionPostModel {
+func NewCustomAttributeOptionPostModel(isDefault bool) *CustomAttributeOptionPostModel {
 	this := CustomAttributeOptionPostModel{}
+	this.IsDefault = isDefault
 	return &this
 }
 
@@ -84,36 +85,28 @@ func (o *CustomAttributeOptionPostModel) UnsetValue() {
 	o.Value.Unset()
 }
 
-// GetIsDefault returns the IsDefault field value if set, zero value otherwise.
+// GetIsDefault returns the IsDefault field value
 func (o *CustomAttributeOptionPostModel) GetIsDefault() bool {
-	if o == nil || IsNil(o.IsDefault) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDefault
+
+	return o.IsDefault
 }
 
-// GetIsDefaultOk returns a tuple with the IsDefault field value if set, nil otherwise
+// GetIsDefaultOk returns a tuple with the IsDefault field value
 // and a boolean to check if the value has been set.
 func (o *CustomAttributeOptionPostModel) GetIsDefaultOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDefault) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDefault, true
+	return &o.IsDefault, true
 }
 
-// HasIsDefault returns a boolean if a field has been set.
-func (o *CustomAttributeOptionPostModel) HasIsDefault() bool {
-	if o != nil && !IsNil(o.IsDefault) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDefault gets a reference to the given bool and assigns it to the IsDefault field.
+// SetIsDefault sets field value
 func (o *CustomAttributeOptionPostModel) SetIsDefault(v bool) {
-	o.IsDefault = &v
+	o.IsDefault = v
 }
 
 func (o CustomAttributeOptionPostModel) MarshalJSON() ([]byte, error) {
@@ -129,9 +122,7 @@ func (o CustomAttributeOptionPostModel) ToMap() (map[string]interface{}, error) 
 	if o.Value.IsSet() {
 		toSerialize["value"] = o.Value.Get()
 	}
-	if !IsNil(o.IsDefault) {
-		toSerialize["isDefault"] = o.IsDefault
-	}
+	toSerialize["isDefault"] = o.IsDefault
 	return toSerialize, nil
 }
 

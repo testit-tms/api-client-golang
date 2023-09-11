@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** | Link name. | [optional] 
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
 **Type** | Pointer to [**NullableLinkType**](LinkType.md) |  | [optional] 
-**HasInfo** | Pointer to **bool** |  | [optional] 
+**HasInfo** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *LinkPutModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *LinkPutModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTitle
 
 `func (o *LinkPutModel) GetTitle() string`
@@ -205,6 +215,16 @@ SetHasInfo sets HasInfo field to given value.
 
 HasHasInfo returns a boolean if a field has been set.
 
+### SetHasInfoNil
+
+`func (o *LinkPutModel) SetHasInfoNil(b bool)`
+
+ SetHasInfoNil sets the value for HasInfo to be an explicit nil
+
+### UnsetHasInfo
+`func (o *LinkPutModel) UnsetHasInfo()`
+
+UnsetHasInfo ensures that no value is present for HasInfo, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

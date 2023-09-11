@@ -21,13 +21,13 @@ var _ MappedNullable = &ProjectModel{}
 // ProjectModel struct for ProjectModel
 type ProjectModel struct {
 	// Unique ID of the project
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Description of the project
 	Description NullableString `json:"description,omitempty"`
 	// Name of the project
-	Name *string `json:"name,omitempty"`
+	Name NullableString `json:"name,omitempty"`
 	// Indicates if the project is marked as favorite
-	IsFavorite *bool `json:"isFavorite,omitempty"`
+	IsFavorite bool `json:"isFavorite"`
 	// Collection of the project attributes
 	AttributesScheme []CustomAttributeModel `json:"attributesScheme,omitempty"`
 	// Collection of the project test plans attributes
@@ -41,25 +41,31 @@ type ProjectModel struct {
 	// Number of autotests in the project
 	AutoTestsCount NullableInt32 `json:"autoTestsCount,omitempty"`
 	// Indicates if the project is deleted
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 	// Creation date of the project
-	CreatedDate *time.Time `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
 	// Last modification date of the project
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	// Unique ID of the project creator
-	CreatedById *string `json:"createdById,omitempty"`
+	CreatedById string `json:"createdById"`
 	// Unique ID of the project last editor
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Global ID of the project
-	GlobalId *int64 `json:"globalId,omitempty"`
+	GlobalId int64 `json:"globalId"`
 }
 
 // NewProjectModel instantiates a new ProjectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectModel() *ProjectModel {
+func NewProjectModel(id string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64) *ProjectModel {
 	this := ProjectModel{}
+	this.Id = id
+	this.IsFavorite = isFavorite
+	this.IsDeleted = isDeleted
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
+	this.GlobalId = globalId
 	return &this
 }
 
@@ -71,36 +77,28 @@ func NewProjectModelWithDefaults() *ProjectModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ProjectModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ProjectModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ProjectModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *ProjectModel) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -145,68 +143,70 @@ func (o *ProjectModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetName returns the Name field value if set, zero value otherwise.
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectModel) GetName() string {
-	if o == nil || IsNil(o.Name) {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Name
+	return *o.Name.Get()
 }
 
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectModel) GetNameOk() (*string, bool) {
-	if o == nil || IsNil(o.Name) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
 // HasName returns a boolean if a field has been set.
 func (o *ProjectModel) HasName() bool {
-	if o != nil && !IsNil(o.Name) {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetName gets a reference to the given string and assigns it to the Name field.
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *ProjectModel) SetName(v string) {
-	o.Name = &v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ProjectModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetIsFavorite returns the IsFavorite field value if set, zero value otherwise.
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ProjectModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetIsFavorite returns the IsFavorite field value
 func (o *ProjectModel) GetIsFavorite() bool {
-	if o == nil || IsNil(o.IsFavorite) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsFavorite
+
+	return o.IsFavorite
 }
 
-// GetIsFavoriteOk returns a tuple with the IsFavorite field value if set, nil otherwise
+// GetIsFavoriteOk returns a tuple with the IsFavorite field value
 // and a boolean to check if the value has been set.
 func (o *ProjectModel) GetIsFavoriteOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsFavorite) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsFavorite, true
+	return &o.IsFavorite, true
 }
 
-// HasIsFavorite returns a boolean if a field has been set.
-func (o *ProjectModel) HasIsFavorite() bool {
-	if o != nil && !IsNil(o.IsFavorite) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsFavorite gets a reference to the given bool and assigns it to the IsFavorite field.
+// SetIsFavorite sets field value
 func (o *ProjectModel) SetIsFavorite(v bool) {
-	o.IsFavorite = &v
+	o.IsFavorite = v
 }
 
 // GetAttributesScheme returns the AttributesScheme field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -443,68 +443,52 @@ func (o *ProjectModel) UnsetAutoTestsCount() {
 	o.AutoTestsCount.Unset()
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *ProjectModel) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *ProjectModel) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *ProjectModel) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *ProjectModel) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise.
+// GetCreatedDate returns the CreatedDate field value
 func (o *ProjectModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
 func (o *ProjectModel) GetCreatedDateOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.CreatedDate) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate, true
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *ProjectModel) HasCreatedDate() bool {
-	if o != nil && !IsNil(o.CreatedDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given time.Time and assigns it to the CreatedDate field.
+// SetCreatedDate sets field value
 func (o *ProjectModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate = &v
+	o.CreatedDate = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -549,36 +533,28 @@ func (o *ProjectModel) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
-// GetCreatedById returns the CreatedById field value if set, zero value otherwise.
+// GetCreatedById returns the CreatedById field value
 func (o *ProjectModel) GetCreatedById() string {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CreatedById
+
+	return o.CreatedById
 }
 
-// GetCreatedByIdOk returns a tuple with the CreatedById field value if set, nil otherwise
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
 func (o *ProjectModel) GetCreatedByIdOk() (*string, bool) {
-	if o == nil || IsNil(o.CreatedById) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CreatedById, true
+	return &o.CreatedById, true
 }
 
-// HasCreatedById returns a boolean if a field has been set.
-func (o *ProjectModel) HasCreatedById() bool {
-	if o != nil && !IsNil(o.CreatedById) {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedById gets a reference to the given string and assigns it to the CreatedById field.
+// SetCreatedById sets field value
 func (o *ProjectModel) SetCreatedById(v string) {
-	o.CreatedById = &v
+	o.CreatedById = v
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -623,36 +599,28 @@ func (o *ProjectModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetGlobalId returns the GlobalId field value if set, zero value otherwise.
+// GetGlobalId returns the GlobalId field value
 func (o *ProjectModel) GetGlobalId() int64 {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		var ret int64
 		return ret
 	}
-	return *o.GlobalId
+
+	return o.GlobalId
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value if set, nil otherwise
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
 func (o *ProjectModel) GetGlobalIdOk() (*int64, bool) {
-	if o == nil || IsNil(o.GlobalId) {
+	if o == nil {
 		return nil, false
 	}
-	return o.GlobalId, true
+	return &o.GlobalId, true
 }
 
-// HasGlobalId returns a boolean if a field has been set.
-func (o *ProjectModel) HasGlobalId() bool {
-	if o != nil && !IsNil(o.GlobalId) {
-		return true
-	}
-
-	return false
-}
-
-// SetGlobalId gets a reference to the given int64 and assigns it to the GlobalId field.
+// SetGlobalId sets field value
 func (o *ProjectModel) SetGlobalId(v int64) {
-	o.GlobalId = &v
+	o.GlobalId = v
 }
 
 func (o ProjectModel) MarshalJSON() ([]byte, error) {
@@ -665,18 +633,14 @@ func (o ProjectModel) MarshalJSON() ([]byte, error) {
 
 func (o ProjectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
-	}
+	toSerialize["id"] = o.Id
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if !IsNil(o.Name) {
-		toSerialize["name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
 	}
-	if !IsNil(o.IsFavorite) {
-		toSerialize["isFavorite"] = o.IsFavorite
-	}
+	toSerialize["isFavorite"] = o.IsFavorite
 	if o.AttributesScheme != nil {
 		toSerialize["attributesScheme"] = o.AttributesScheme
 	}
@@ -695,24 +659,16 @@ func (o ProjectModel) ToMap() (map[string]interface{}, error) {
 	if o.AutoTestsCount.IsSet() {
 		toSerialize["autoTestsCount"] = o.AutoTestsCount.Get()
 	}
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
-	if !IsNil(o.CreatedDate) {
-		toSerialize["createdDate"] = o.CreatedDate
-	}
+	toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
-	if !IsNil(o.CreatedById) {
-		toSerialize["createdById"] = o.CreatedById
-	}
+	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if !IsNil(o.GlobalId) {
-		toSerialize["globalId"] = o.GlobalId
-	}
+	toSerialize["globalId"] = o.GlobalId
 	return toSerialize, nil
 }
 

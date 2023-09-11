@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Value** | Pointer to **NullableString** | Value of the attribute option | [optional] 
-**IsDefault** | Pointer to **bool** | Indicates if the attribute option is used by default | [optional] 
+**IsDefault** | **bool** | Indicates if the attribute option is used by default | 
 
 ## Methods
 
 ### NewCustomAttributeOptionPostModel
 
-`func NewCustomAttributeOptionPostModel() *CustomAttributeOptionPostModel`
+`func NewCustomAttributeOptionPostModel(isDefault bool, ) *CustomAttributeOptionPostModel`
 
 NewCustomAttributeOptionPostModel instantiates a new CustomAttributeOptionPostModel object
 This constructor will assign default values to properties that have it defined,
@@ -80,11 +80,6 @@ and a boolean to check if the value has been set.
 
 SetIsDefault sets IsDefault field to given value.
 
-### HasIsDefault
-
-`func (o *CustomAttributeOptionPostModel) HasIsDefault() bool`
-
-HasIsDefault returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

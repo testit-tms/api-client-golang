@@ -22,7 +22,7 @@ type ApiV2TestSuitesPutRequest struct {
 	Id string `json:"id"`
 	ParentId NullableString `json:"parentId,omitempty"`
 	Name string `json:"name"`
-	IsDeleted *bool `json:"isDeleted,omitempty"`
+	IsDeleted bool `json:"isDeleted"`
 	AutoRefresh NullableBool `json:"autoRefresh,omitempty"`
 }
 
@@ -30,10 +30,11 @@ type ApiV2TestSuitesPutRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2TestSuitesPutRequest(id string, name string) *ApiV2TestSuitesPutRequest {
+func NewApiV2TestSuitesPutRequest(id string, name string, isDeleted bool) *ApiV2TestSuitesPutRequest {
 	this := ApiV2TestSuitesPutRequest{}
 	this.Id = id
 	this.Name = name
+	this.IsDeleted = isDeleted
 	return &this
 }
 
@@ -135,36 +136,28 @@ func (o *ApiV2TestSuitesPutRequest) SetName(v string) {
 	o.Name = v
 }
 
-// GetIsDeleted returns the IsDeleted field value if set, zero value otherwise.
+// GetIsDeleted returns the IsDeleted field value
 func (o *ApiV2TestSuitesPutRequest) GetIsDeleted() bool {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.IsDeleted
+
+	return o.IsDeleted
 }
 
-// GetIsDeletedOk returns a tuple with the IsDeleted field value if set, nil otherwise
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
 // and a boolean to check if the value has been set.
 func (o *ApiV2TestSuitesPutRequest) GetIsDeletedOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsDeleted) {
+	if o == nil {
 		return nil, false
 	}
-	return o.IsDeleted, true
+	return &o.IsDeleted, true
 }
 
-// HasIsDeleted returns a boolean if a field has been set.
-func (o *ApiV2TestSuitesPutRequest) HasIsDeleted() bool {
-	if o != nil && !IsNil(o.IsDeleted) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsDeleted gets a reference to the given bool and assigns it to the IsDeleted field.
+// SetIsDeleted sets field value
 func (o *ApiV2TestSuitesPutRequest) SetIsDeleted(v bool) {
-	o.IsDeleted = &v
+	o.IsDeleted = v
 }
 
 // GetAutoRefresh returns the AutoRefresh field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -224,9 +217,7 @@ func (o ApiV2TestSuitesPutRequest) ToMap() (map[string]interface{}, error) {
 		toSerialize["parentId"] = o.ParentId.Get()
 	}
 	toSerialize["name"] = o.Name
-	if !IsNil(o.IsDeleted) {
-		toSerialize["isDeleted"] = o.IsDeleted
-	}
+	toSerialize["isDeleted"] = o.IsDeleted
 	if o.AutoRefresh.IsSet() {
 		toSerialize["autoRefresh"] = o.AutoRefresh.Get()
 	}

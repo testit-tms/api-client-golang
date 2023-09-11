@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**ParameterKeyId** | Pointer to **string** |  | [optional] 
+**Id** | **string** |  | 
+**ParameterKeyId** | **string** |  | 
 **Value** | **string** |  | 
 **Name** | **string** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewParameterShortModel
 
-`func NewParameterShortModel(value string, name string, ) *ParameterShortModel`
+`func NewParameterShortModel(id string, parameterKeyId string, value string, name string, ) *ParameterShortModel`
 
 NewParameterShortModel instantiates a new ParameterShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -47,11 +47,6 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
-
-`func (o *ParameterShortModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
 
 ### GetParameterKeyId
 
@@ -72,11 +67,6 @@ and a boolean to check if the value has been set.
 
 SetParameterKeyId sets ParameterKeyId field to given value.
 
-### HasParameterKeyId
-
-`func (o *ParameterShortModel) HasParameterKeyId() bool`
-
-HasParameterKeyId returns a boolean if a field has been set.
 
 ### GetValue
 

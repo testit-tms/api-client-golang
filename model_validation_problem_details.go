@@ -19,7 +19,7 @@ var _ MappedNullable = &ValidationProblemDetails{}
 
 // ValidationProblemDetails struct for ValidationProblemDetails
 type ValidationProblemDetails struct {
-	Errors *map[string][]string `json:"errors,omitempty"`
+	Errors map[string][]string `json:"errors"`
 	Type NullableString `json:"type,omitempty"`
 	Title NullableString `json:"title,omitempty"`
 	Status NullableInt32 `json:"status,omitempty"`
@@ -31,8 +31,9 @@ type ValidationProblemDetails struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewValidationProblemDetails() *ValidationProblemDetails {
+func NewValidationProblemDetails(errors map[string][]string) *ValidationProblemDetails {
 	this := ValidationProblemDetails{}
+	this.Errors = errors
 	return &this
 }
 
@@ -44,36 +45,28 @@ func NewValidationProblemDetailsWithDefaults() *ValidationProblemDetails {
 	return &this
 }
 
-// GetErrors returns the Errors field value if set, zero value otherwise.
+// GetErrors returns the Errors field value
 func (o *ValidationProblemDetails) GetErrors() map[string][]string {
-	if o == nil || IsNil(o.Errors) {
+	if o == nil {
 		var ret map[string][]string
 		return ret
 	}
-	return *o.Errors
+
+	return o.Errors
 }
 
-// GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
+// GetErrorsOk returns a tuple with the Errors field value
 // and a boolean to check if the value has been set.
 func (o *ValidationProblemDetails) GetErrorsOk() (*map[string][]string, bool) {
-	if o == nil || IsNil(o.Errors) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Errors, true
+	return &o.Errors, true
 }
 
-// HasErrors returns a boolean if a field has been set.
-func (o *ValidationProblemDetails) HasErrors() bool {
-	if o != nil && !IsNil(o.Errors) {
-		return true
-	}
-
-	return false
-}
-
-// SetErrors gets a reference to the given map[string][]string and assigns it to the Errors field.
+// SetErrors sets field value
 func (o *ValidationProblemDetails) SetErrors(v map[string][]string) {
-	o.Errors = &v
+	o.Errors = v
 }
 
 // GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -296,9 +289,7 @@ func (o ValidationProblemDetails) MarshalJSON() ([]byte, error) {
 
 func (o ValidationProblemDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Errors) {
-		toSerialize["errors"] = o.Errors
-	}
+	toSerialize["errors"] = o.Errors
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
