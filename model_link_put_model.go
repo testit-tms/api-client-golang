@@ -27,16 +27,17 @@ type LinkPutModel struct {
 	// Link description.
 	Description NullableString `json:"description,omitempty"`
 	Type NullableLinkType `json:"type,omitempty"`
-	HasInfo NullableBool `json:"hasInfo,omitempty"`
+	HasInfo bool `json:"hasInfo"`
 }
 
 // NewLinkPutModel instantiates a new LinkPutModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkPutModel(url string) *LinkPutModel {
+func NewLinkPutModel(url string, hasInfo bool) *LinkPutModel {
 	this := LinkPutModel{}
 	this.Url = url
+	this.HasInfo = hasInfo
 	return &this
 }
 
@@ -240,46 +241,28 @@ func (o *LinkPutModel) UnsetType() {
 	o.Type.Unset()
 }
 
-// GetHasInfo returns the HasInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHasInfo returns the HasInfo field value
 func (o *LinkPutModel) GetHasInfo() bool {
-	if o == nil || IsNil(o.HasInfo.Get()) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasInfo.Get()
+
+	return o.HasInfo
 }
 
-// GetHasInfoOk returns a tuple with the HasInfo field value if set, nil otherwise
+// GetHasInfoOk returns a tuple with the HasInfo field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkPutModel) GetHasInfoOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.HasInfo.Get(), o.HasInfo.IsSet()
+	return &o.HasInfo, true
 }
 
-// HasHasInfo returns a boolean if a field has been set.
-func (o *LinkPutModel) HasHasInfo() bool {
-	if o != nil && o.HasInfo.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHasInfo gets a reference to the given NullableBool and assigns it to the HasInfo field.
+// SetHasInfo sets field value
 func (o *LinkPutModel) SetHasInfo(v bool) {
-	o.HasInfo.Set(&v)
-}
-// SetHasInfoNil sets the value for HasInfo to be an explicit nil
-func (o *LinkPutModel) SetHasInfoNil() {
-	o.HasInfo.Set(nil)
-}
-
-// UnsetHasInfo ensures that no value is present for HasInfo, not even an explicit nil
-func (o *LinkPutModel) UnsetHasInfo() {
-	o.HasInfo.Unset()
+	o.HasInfo = v
 }
 
 func (o LinkPutModel) MarshalJSON() ([]byte, error) {
@@ -305,9 +288,7 @@ func (o LinkPutModel) ToMap() (map[string]interface{}, error) {
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
-	if o.HasInfo.IsSet() {
-		toSerialize["hasInfo"] = o.HasInfo.Get()
-	}
+	toSerialize["hasInfo"] = o.HasInfo
 	return toSerialize, nil
 }
 

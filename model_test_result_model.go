@@ -47,7 +47,7 @@ type TestResultModel struct {
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	StepComments []StepCommentModel `json:"stepComments,omitempty"`
-	FailureClassIds []string `json:"failureClassIds,omitempty"`
+	FailureClassIds []string `json:"failureClassIds"`
 	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
@@ -59,7 +59,7 @@ type TestResultModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultModel(configurationId string, testPointId string, testRunId string, workItemVersionId string, id string, createdDate time.Time, createdById string) *TestResultModel {
+func NewTestResultModel(configurationId string, testPointId string, testRunId string, workItemVersionId string, id string, createdDate time.Time, createdById string, failureClassIds []string) *TestResultModel {
 	this := TestResultModel{}
 	this.ConfigurationId = configurationId
 	this.TestPointId = testPointId
@@ -68,6 +68,7 @@ func NewTestResultModel(configurationId string, testPointId string, testRunId st
 	this.Id = id
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
+	this.FailureClassIds = failureClassIds
 	return &this
 }
 
@@ -1033,35 +1034,26 @@ func (o *TestResultModel) SetStepComments(v []StepCommentModel) {
 	o.StepComments = v
 }
 
-// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureClassIds returns the FailureClassIds field value
 func (o *TestResultModel) GetFailureClassIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.FailureClassIds
 }
 
-// GetFailureClassIdsOk returns a tuple with the FailureClassIds field value if set, nil otherwise
+// GetFailureClassIdsOk returns a tuple with the FailureClassIds field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultModel) GetFailureClassIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.FailureClassIds) {
+	if o == nil {
 		return nil, false
 	}
 	return o.FailureClassIds, true
 }
 
-// HasFailureClassIds returns a boolean if a field has been set.
-func (o *TestResultModel) HasFailureClassIds() bool {
-	if o != nil && IsNil(o.FailureClassIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetFailureClassIds gets a reference to the given []string and assigns it to the FailureClassIds field.
+// SetFailureClassIds sets field value
 func (o *TestResultModel) SetFailureClassIds(v []string) {
 	o.FailureClassIds = v
 }
@@ -1326,9 +1318,7 @@ func (o TestResultModel) ToMap() (map[string]interface{}, error) {
 	if o.StepComments != nil {
 		toSerialize["stepComments"] = o.StepComments
 	}
-	if o.FailureClassIds != nil {
-		toSerialize["failureClassIds"] = o.FailureClassIds
-	}
+	toSerialize["failureClassIds"] = o.FailureClassIds
 	if o.Outcome.IsSet() {
 		toSerialize["outcome"] = o.Outcome.Get()
 	}

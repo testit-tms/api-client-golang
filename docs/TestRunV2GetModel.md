@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedByUserName** | Pointer to **NullableString** |  | [optional] 
-**Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
-**Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
+**Attachments** | [**[]AttachmentModel**](AttachmentModel.md) |  | 
+**Links** | [**[]LinkModel**](LinkModel.md) |  | 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewTestRunV2GetModel
 
-`func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, id string, name string, ) *TestRunV2GetModel`
+`func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, id string, name string, ) *TestRunV2GetModel`
 
 NewTestRunV2GetModel instantiates a new TestRunV2GetModel object
 This constructor will assign default values to properties that have it defined,
@@ -385,22 +385,7 @@ and a boolean to check if the value has been set.
 
 SetAttachments sets Attachments field to given value.
 
-### HasAttachments
 
-`func (o *TestRunV2GetModel) HasAttachments() bool`
-
-HasAttachments returns a boolean if a field has been set.
-
-### SetAttachmentsNil
-
-`func (o *TestRunV2GetModel) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *TestRunV2GetModel) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 ### GetLinks
 
 `func (o *TestRunV2GetModel) GetLinks() []LinkModel`
@@ -420,22 +405,7 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
-### HasLinks
 
-`func (o *TestRunV2GetModel) HasLinks() bool`
-
-HasLinks returns a boolean if a field has been set.
-
-### SetLinksNil
-
-`func (o *TestRunV2GetModel) SetLinksNil(b bool)`
-
- SetLinksNil sets the value for Links to be an explicit nil
-
-### UnsetLinks
-`func (o *TestRunV2GetModel) UnsetLinks()`
-
-UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetId
 
 `func (o *TestRunV2GetModel) GetId() string`

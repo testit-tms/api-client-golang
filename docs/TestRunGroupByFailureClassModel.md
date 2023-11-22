@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FailureCategory** | Pointer to **NullableString** |  | [optional] 
+**FailureCategory** | **string** |  | 
 **Value** | **int32** |  | 
 
 ## Methods
 
 ### NewTestRunGroupByFailureClassModel
 
-`func NewTestRunGroupByFailureClassModel(value int32, ) *TestRunGroupByFailureClassModel`
+`func NewTestRunGroupByFailureClassModel(failureCategory string, value int32, ) *TestRunGroupByFailureClassModel`
 
 NewTestRunGroupByFailureClassModel instantiates a new TestRunGroupByFailureClassModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetFailureCategory sets FailureCategory field to given value.
 
-### HasFailureCategory
 
-`func (o *TestRunGroupByFailureClassModel) HasFailureCategory() bool`
-
-HasFailureCategory returns a boolean if a field has been set.
-
-### SetFailureCategoryNil
-
-`func (o *TestRunGroupByFailureClassModel) SetFailureCategoryNil(b bool)`
-
- SetFailureCategoryNil sets the value for FailureCategory to be an explicit nil
-
-### UnsetFailureCategory
-`func (o *TestRunGroupByFailureClassModel) UnsetFailureCategory()`
-
-UnsetFailureCategory ensures that no value is present for FailureCategory, not even an explicit nil
 ### GetValue
 
 `func (o *TestRunGroupByFailureClassModel) GetValue() int32`

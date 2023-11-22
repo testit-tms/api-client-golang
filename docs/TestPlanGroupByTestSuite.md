@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TestSuiteId** | **string** |  | 
-**TestSuiteName** | Pointer to **NullableString** |  | [optional] 
+**TestSuiteName** | **string** |  | 
 **Value** | **int64** |  | 
 
 ## Methods
 
 ### NewTestPlanGroupByTestSuite
 
-`func NewTestPlanGroupByTestSuite(testSuiteId string, value int64, ) *TestPlanGroupByTestSuite`
+`func NewTestPlanGroupByTestSuite(testSuiteId string, testSuiteName string, value int64, ) *TestPlanGroupByTestSuite`
 
 NewTestPlanGroupByTestSuite instantiates a new TestPlanGroupByTestSuite object
 This constructor will assign default values to properties that have it defined,
@@ -66,22 +66,7 @@ and a boolean to check if the value has been set.
 
 SetTestSuiteName sets TestSuiteName field to given value.
 
-### HasTestSuiteName
 
-`func (o *TestPlanGroupByTestSuite) HasTestSuiteName() bool`
-
-HasTestSuiteName returns a boolean if a field has been set.
-
-### SetTestSuiteNameNil
-
-`func (o *TestPlanGroupByTestSuite) SetTestSuiteNameNil(b bool)`
-
- SetTestSuiteNameNil sets the value for TestSuiteName to be an explicit nil
-
-### UnsetTestSuiteName
-`func (o *TestPlanGroupByTestSuite) UnsetTestSuiteName()`
-
-UnsetTestSuiteName ensures that no value is present for TestSuiteName, not even an explicit nil
 ### GetValue
 
 `func (o *TestPlanGroupByTestSuite) GetValue() int64`

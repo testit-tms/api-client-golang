@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ProjectIds** | Pointer to **[]string** | Collection of project identifiers | [optional] 
 **Name** | Pointer to **NullableString** | Name of work item | [optional] 
 **Ids** | Pointer to **[]string** | Specifies a work item unique IDs to search for | [optional] 
 **GlobalIds** | Pointer to **[]int64** | Collection of global (integer) identifiers | [optional] 
 **Attributes** | Pointer to **map[string][]string** | Custom attributes of work item | [optional] 
 **IsDeleted** | Pointer to **NullableBool** | Is result must consist of only actual/deleted work items | [optional] 
-**ProjectIds** | Pointer to **[]string** | Collection of project identifiers | [optional] 
 **SectionIds** | Pointer to **[]string** | Collection of section identifiers | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Collection of identifiers of users who created work item | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Collection of identifiers of users who applied last modification to work item | [optional] 
@@ -43,6 +43,41 @@ NewWorkItemSearchQueryModelWithDefaults instantiates a new WorkItemSearchQueryMo
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetProjectIds
+
+`func (o *WorkItemSearchQueryModel) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *WorkItemSearchQueryModel) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *WorkItemSearchQueryModel) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
+
+### HasProjectIds
+
+`func (o *WorkItemSearchQueryModel) HasProjectIds() bool`
+
+HasProjectIds returns a boolean if a field has been set.
+
+### SetProjectIdsNil
+
+`func (o *WorkItemSearchQueryModel) SetProjectIdsNil(b bool)`
+
+ SetProjectIdsNil sets the value for ProjectIds to be an explicit nil
+
+### UnsetProjectIds
+`func (o *WorkItemSearchQueryModel) UnsetProjectIds()`
+
+UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
 ### GetName
 
 `func (o *WorkItemSearchQueryModel) GetName() string`
@@ -218,41 +253,6 @@ HasIsDeleted returns a boolean if a field has been set.
 `func (o *WorkItemSearchQueryModel) UnsetIsDeleted()`
 
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
-### GetProjectIds
-
-`func (o *WorkItemSearchQueryModel) GetProjectIds() []string`
-
-GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
-
-### GetProjectIdsOk
-
-`func (o *WorkItemSearchQueryModel) GetProjectIdsOk() (*[]string, bool)`
-
-GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProjectIds
-
-`func (o *WorkItemSearchQueryModel) SetProjectIds(v []string)`
-
-SetProjectIds sets ProjectIds field to given value.
-
-### HasProjectIds
-
-`func (o *WorkItemSearchQueryModel) HasProjectIds() bool`
-
-HasProjectIds returns a boolean if a field has been set.
-
-### SetProjectIdsNil
-
-`func (o *WorkItemSearchQueryModel) SetProjectIdsNil(b bool)`
-
- SetProjectIdsNil sets the value for ProjectIds to be an explicit nil
-
-### UnsetProjectIds
-`func (o *WorkItemSearchQueryModel) UnsetProjectIds()`
-
-UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
 ### GetSectionIds
 
 `func (o *WorkItemSearchQueryModel) GetSectionIds() []string`

@@ -24,7 +24,7 @@ type WorkItemChangeModel struct {
 	WorkItemId string `json:"workItemId"`
 	OldVersionId string `json:"oldVersionId"`
 	NewVersionId string `json:"newVersionId"`
-	WorkItemChangedFields NullableWorkItemChangedFieldsViewModel `json:"workItemChangedFields,omitempty"`
+	WorkItemChangedFields WorkItemChangeModelWorkItemChangedFields `json:"workItemChangedFields"`
 	CreatedById string `json:"createdById"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 }
@@ -33,12 +33,13 @@ type WorkItemChangeModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, createdById string) *WorkItemChangeModel {
+func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangeModelWorkItemChangedFields, createdById string) *WorkItemChangeModel {
 	this := WorkItemChangeModel{}
 	this.Id = id
 	this.WorkItemId = workItemId
 	this.OldVersionId = oldVersionId
 	this.NewVersionId = newVersionId
+	this.WorkItemChangedFields = workItemChangedFields
 	this.CreatedById = createdById
 	return &this
 }
@@ -147,46 +148,28 @@ func (o *WorkItemChangeModel) SetNewVersionId(v string) {
 	o.NewVersionId = v
 }
 
-// GetWorkItemChangedFields returns the WorkItemChangedFields field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsViewModel {
-	if o == nil || IsNil(o.WorkItemChangedFields.Get()) {
-		var ret WorkItemChangedFieldsViewModel
+// GetWorkItemChangedFields returns the WorkItemChangedFields field value
+func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangeModelWorkItemChangedFields {
+	if o == nil {
+		var ret WorkItemChangeModelWorkItemChangedFields
 		return ret
 	}
-	return *o.WorkItemChangedFields.Get()
+
+	return o.WorkItemChangedFields
 }
 
-// GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field value if set, nil otherwise
+// GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFieldsViewModel, bool) {
+func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangeModelWorkItemChangedFields, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.WorkItemChangedFields.Get(), o.WorkItemChangedFields.IsSet()
+	return &o.WorkItemChangedFields, true
 }
 
-// HasWorkItemChangedFields returns a boolean if a field has been set.
-func (o *WorkItemChangeModel) HasWorkItemChangedFields() bool {
-	if o != nil && o.WorkItemChangedFields.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItemChangedFields gets a reference to the given NullableWorkItemChangedFieldsViewModel and assigns it to the WorkItemChangedFields field.
-func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangedFieldsViewModel) {
-	o.WorkItemChangedFields.Set(&v)
-}
-// SetWorkItemChangedFieldsNil sets the value for WorkItemChangedFields to be an explicit nil
-func (o *WorkItemChangeModel) SetWorkItemChangedFieldsNil() {
-	o.WorkItemChangedFields.Set(nil)
-}
-
-// UnsetWorkItemChangedFields ensures that no value is present for WorkItemChangedFields, not even an explicit nil
-func (o *WorkItemChangeModel) UnsetWorkItemChangedFields() {
-	o.WorkItemChangedFields.Unset()
+// SetWorkItemChangedFields sets field value
+func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangeModelWorkItemChangedFields) {
+	o.WorkItemChangedFields = v
 }
 
 // GetCreatedById returns the CreatedById field value
@@ -269,9 +252,7 @@ func (o WorkItemChangeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["workItemId"] = o.WorkItemId
 	toSerialize["oldVersionId"] = o.OldVersionId
 	toSerialize["newVersionId"] = o.NewVersionId
-	if o.WorkItemChangedFields.IsSet() {
-		toSerialize["workItemChangedFields"] = o.WorkItemChangedFields.Get()
-	}
+	toSerialize["workItemChangedFields"] = o.WorkItemChangedFields
 	toSerialize["createdById"] = o.CreatedById
 	if o.CreatedDate.IsSet() {
 		toSerialize["createdDate"] = o.CreatedDate.Get()

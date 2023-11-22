@@ -19,16 +19,18 @@ var _ MappedNullable = &LinkSubGetModel{}
 
 // LinkSubGetModel struct for LinkSubGetModel
 type LinkSubGetModel struct {
-	Name NullableString `json:"name,omitempty"`
-	Url NullableString `json:"url,omitempty"`
+	Name string `json:"name"`
+	Url string `json:"url"`
 }
 
 // NewLinkSubGetModel instantiates a new LinkSubGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkSubGetModel() *LinkSubGetModel {
+func NewLinkSubGetModel(name string, url string) *LinkSubGetModel {
 	this := LinkSubGetModel{}
+	this.Name = name
+	this.Url = url
 	return &this
 }
 
@@ -40,88 +42,52 @@ func NewLinkSubGetModelWithDefaults() *LinkSubGetModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *LinkSubGetModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkSubGetModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *LinkSubGetModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *LinkSubGetModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *LinkSubGetModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *LinkSubGetModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value
 func (o *LinkSubGetModel) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+
+	return o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// GetUrlOk returns a tuple with the Url field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkSubGetModel) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return &o.Url, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *LinkSubGetModel) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl sets field value
 func (o *LinkSubGetModel) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *LinkSubGetModel) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *LinkSubGetModel) UnsetUrl() {
-	o.Url.Unset()
+	o.Url = v
 }
 
 func (o LinkSubGetModel) MarshalJSON() ([]byte, error) {
@@ -134,12 +100,8 @@ func (o LinkSubGetModel) MarshalJSON() ([]byte, error) {
 
 func (o LinkSubGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
-	}
+	toSerialize["name"] = o.Name
+	toSerialize["url"] = o.Url
 	return toSerialize, nil
 }
 

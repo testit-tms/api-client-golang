@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **WorkItemId** | **string** |  | 
 **OldVersionId** | **string** |  | 
 **NewVersionId** | **string** |  | 
-**WorkItemChangedFields** | Pointer to [**NullableWorkItemChangedFieldsViewModel**](WorkItemChangedFieldsViewModel.md) |  | [optional] 
+**WorkItemChangedFields** | [**WorkItemChangeModelWorkItemChangedFields**](WorkItemChangeModelWorkItemChangedFields.md) |  | 
 **CreatedById** | **string** |  | 
 **CreatedDate** | Pointer to **NullableTime** |  | [optional] 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemChangeModel
 
-`func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, createdById string, ) *WorkItemChangeModel`
+`func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangeModelWorkItemChangedFields, createdById string, ) *WorkItemChangeModel`
 
 NewWorkItemChangeModel instantiates a new WorkItemChangeModel object
 This constructor will assign default values to properties that have it defined,
@@ -113,39 +113,24 @@ SetNewVersionId sets NewVersionId field to given value.
 
 ### GetWorkItemChangedFields
 
-`func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsViewModel`
+`func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangeModelWorkItemChangedFields`
 
 GetWorkItemChangedFields returns the WorkItemChangedFields field if non-nil, zero value otherwise.
 
 ### GetWorkItemChangedFieldsOk
 
-`func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFieldsViewModel, bool)`
+`func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangeModelWorkItemChangedFields, bool)`
 
 GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItemChangedFields
 
-`func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangedFieldsViewModel)`
+`func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangeModelWorkItemChangedFields)`
 
 SetWorkItemChangedFields sets WorkItemChangedFields field to given value.
 
-### HasWorkItemChangedFields
 
-`func (o *WorkItemChangeModel) HasWorkItemChangedFields() bool`
-
-HasWorkItemChangedFields returns a boolean if a field has been set.
-
-### SetWorkItemChangedFieldsNil
-
-`func (o *WorkItemChangeModel) SetWorkItemChangedFieldsNil(b bool)`
-
- SetWorkItemChangedFieldsNil sets the value for WorkItemChangedFields to be an explicit nil
-
-### UnsetWorkItemChangedFields
-`func (o *WorkItemChangeModel) UnsetWorkItemChangedFields()`
-
-UnsetWorkItemChangedFields ensures that no value is present for WorkItemChangedFields, not even an explicit nil
 ### GetCreatedById
 
 `func (o *WorkItemChangeModel) GetCreatedById() string`

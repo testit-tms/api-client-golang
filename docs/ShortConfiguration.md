@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 
 ## Methods
 
 ### NewShortConfiguration
 
-`func NewShortConfiguration(id string, ) *ShortConfiguration`
+`func NewShortConfiguration(id string, name string, ) *ShortConfiguration`
 
 NewShortConfiguration instantiates a new ShortConfiguration object
 This constructor will assign default values to properties that have it defined,
@@ -65,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *ShortConfiguration) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *ShortConfiguration) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ShortConfiguration) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,7 +20,9 @@ var _ MappedNullable = &ParameterPutModel{}
 // ParameterPutModel struct for ParameterPutModel
 type ParameterPutModel struct {
 	Id string `json:"id"`
+	// Value of the parameter
 	Value string `json:"value"`
+	// Key of the parameter
 	Name string `json:"name"`
 }
 

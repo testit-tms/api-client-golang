@@ -53,7 +53,7 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2AutoTestsFlakyBulkPostRequest := *openapiclient.NewApiV2AutoTestsFlakyBulkPostRequest(false) // ApiV2AutoTestsFlakyBulkPostRequest |  (optional)
+    apiV2AutoTestsFlakyBulkPostRequest := *openapiclient.NewApiV2AutoTestsFlakyBulkPostRequest(*openapiclient.NewFlakyBulkModelAutotestSelect(*openapiclient.NewAutotestSelectModelFilter(), *openapiclient.NewAutotestSelectModelExtractionModel()), false) // ApiV2AutoTestsFlakyBulkPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -418,7 +418,7 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2AutoTestsSearchPostRequest := *openapiclient.NewApiV2AutoTestsSearchPostRequest() // ApiV2AutoTestsSearchPostRequest |  (optional)
+    apiV2AutoTestsSearchPostRequest := *openapiclient.NewApiV2AutoTestsSearchPostRequest(*openapiclient.NewAutotestsSelectModelFilter(), *openapiclient.NewAutotestsSelectModelIncludes(false, false, false)) // ApiV2AutoTestsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1325,7 +1325,7 @@ import (
 
 func main() {
     id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // LinkAutoTestToWorkItemRequest |  (optional)
+    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8") // LinkAutoTestToWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

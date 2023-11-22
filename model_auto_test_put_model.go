@@ -19,8 +19,8 @@ var _ MappedNullable = &AutoTestPutModel{}
 
 // AutoTestPutModel struct for AutoTestPutModel
 type AutoTestPutModel struct {
-	// Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId
-	Id *string `json:"id,omitempty"`
+	// Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId
+	Id NullableString `json:"id,omitempty"`
 	WorkItemIdsForLinkWithAutoTest []string `json:"workItemIdsForLinkWithAutoTest,omitempty"`
 	// External ID of the autotest
 	ExternalId string `json:"externalId"`
@@ -72,36 +72,46 @@ func NewAutoTestPutModelWithDefaults() *AutoTestPutModel {
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutoTestPutModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.Id.Get()
 }
 
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutoTestPutModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
 // HasId returns a boolean if a field has been set.
 func (o *AutoTestPutModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
+	if o != nil && o.Id.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *AutoTestPutModel) SetId(v string) {
-	o.Id = &v
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *AutoTestPutModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *AutoTestPutModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetWorkItemIdsForLinkWithAutoTest returns the WorkItemIdsForLinkWithAutoTest field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -636,8 +646,8 @@ func (o AutoTestPutModel) MarshalJSON() ([]byte, error) {
 
 func (o AutoTestPutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Id) {
-		toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
 	}
 	if o.WorkItemIdsForLinkWithAutoTest != nil {
 		toSerialize["workItemIdsForLinkWithAutoTest"] = o.WorkItemIdsForLinkWithAutoTest

@@ -27,7 +27,9 @@ type ParameterModel struct {
 	IsDeleted bool `json:"isDeleted"`
 	ParameterKeyId string `json:"parameterKeyId"`
 	Id string `json:"id"`
+	// Value of the parameter
 	Value string `json:"value"`
+	// Key of the parameter
 	Name string `json:"name"`
 }
 

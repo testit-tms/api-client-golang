@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**NullableAutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  | [optional] 
-**Includes** | Pointer to [**NullableAutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  | [optional] 
+**Filter** | [**AutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  | 
+**Includes** | [**AutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  | 
 
 ## Methods
 
 ### NewApiV2AutoTestsSearchPostRequest
 
-`func NewApiV2AutoTestsSearchPostRequest() *ApiV2AutoTestsSearchPostRequest`
+`func NewApiV2AutoTestsSearchPostRequest(filter AutotestsSelectModelFilter, includes AutotestsSelectModelIncludes, ) *ApiV2AutoTestsSearchPostRequest`
 
 NewApiV2AutoTestsSearchPostRequest instantiates a new ApiV2AutoTestsSearchPostRequest object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetFilter sets Filter field to given value.
 
-### HasFilter
 
-`func (o *ApiV2AutoTestsSearchPostRequest) HasFilter() bool`
-
-HasFilter returns a boolean if a field has been set.
-
-### SetFilterNil
-
-`func (o *ApiV2AutoTestsSearchPostRequest) SetFilterNil(b bool)`
-
- SetFilterNil sets the value for Filter to be an explicit nil
-
-### UnsetFilter
-`func (o *ApiV2AutoTestsSearchPostRequest) UnsetFilter()`
-
-UnsetFilter ensures that no value is present for Filter, not even an explicit nil
 ### GetIncludes
 
 `func (o *ApiV2AutoTestsSearchPostRequest) GetIncludes() AutotestsSelectModelIncludes`
@@ -80,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetIncludes sets Includes field to given value.
 
-### HasIncludes
 
-`func (o *ApiV2AutoTestsSearchPostRequest) HasIncludes() bool`
-
-HasIncludes returns a boolean if a field has been set.
-
-### SetIncludesNil
-
-`func (o *ApiV2AutoTestsSearchPostRequest) SetIncludesNil(b bool)`
-
- SetIncludesNil sets the value for Includes to be an explicit nil
-
-### UnsetIncludes
-`func (o *ApiV2AutoTestsSearchPostRequest) UnsetIncludes()`
-
-UnsetIncludes ensures that no value is present for Includes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

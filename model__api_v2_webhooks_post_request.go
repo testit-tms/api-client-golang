@@ -30,9 +30,9 @@ type ApiV2WebhooksPostRequest struct {
 	// Indicates if the webhook sends body
 	ShouldSendBody bool `json:"shouldSendBody"`
 	// Collection of the webhook headers
-	Headers map[string]string `json:"headers,omitempty"`
+	Headers map[string]string `json:"headers"`
 	// Collection of the webhook query parameters
-	QueryParameters map[string]string `json:"queryParameters,omitempty"`
+	QueryParameters map[string]string `json:"queryParameters"`
 	// Indicates if the webhook is active
 	IsEnabled bool `json:"isEnabled"`
 	// Indicates if the webhook sends custom body
@@ -51,13 +51,15 @@ type ApiV2WebhooksPostRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2WebhooksPostRequest(projectId string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, name string) *ApiV2WebhooksPostRequest {
+func NewApiV2WebhooksPostRequest(projectId string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, shouldSendBody bool, headers map[string]string, queryParameters map[string]string, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, name string) *ApiV2WebhooksPostRequest {
 	this := ApiV2WebhooksPostRequest{}
 	this.ProjectId = projectId
 	this.EventType = eventType
 	this.Url = url
 	this.RequestType = requestType
 	this.ShouldSendBody = shouldSendBody
+	this.Headers = headers
+	this.QueryParameters = queryParameters
 	this.IsEnabled = isEnabled
 	this.ShouldSendCustomBody = shouldSendCustomBody
 	this.ShouldReplaceParameters = shouldReplaceParameters
@@ -236,68 +238,50 @@ func (o *ApiV2WebhooksPostRequest) SetShouldSendBody(v bool) {
 	o.ShouldSendBody = v
 }
 
-// GetHeaders returns the Headers field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetHeaders returns the Headers field value
 func (o *ApiV2WebhooksPostRequest) GetHeaders() map[string]string {
 	if o == nil {
 		var ret map[string]string
 		return ret
 	}
+
 	return o.Headers
 }
 
-// GetHeadersOk returns a tuple with the Headers field value if set, nil otherwise
+// GetHeadersOk returns a tuple with the Headers field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2WebhooksPostRequest) GetHeadersOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.Headers) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Headers, true
 }
 
-// HasHeaders returns a boolean if a field has been set.
-func (o *ApiV2WebhooksPostRequest) HasHeaders() bool {
-	if o != nil && IsNil(o.Headers) {
-		return true
-	}
-
-	return false
-}
-
-// SetHeaders gets a reference to the given map[string]string and assigns it to the Headers field.
+// SetHeaders sets field value
 func (o *ApiV2WebhooksPostRequest) SetHeaders(v map[string]string) {
 	o.Headers = v
 }
 
-// GetQueryParameters returns the QueryParameters field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetQueryParameters returns the QueryParameters field value
 func (o *ApiV2WebhooksPostRequest) GetQueryParameters() map[string]string {
 	if o == nil {
 		var ret map[string]string
 		return ret
 	}
+
 	return o.QueryParameters
 }
 
-// GetQueryParametersOk returns a tuple with the QueryParameters field value if set, nil otherwise
+// GetQueryParametersOk returns a tuple with the QueryParameters field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2WebhooksPostRequest) GetQueryParametersOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.QueryParameters) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.QueryParameters, true
 }
 
-// HasQueryParameters returns a boolean if a field has been set.
-func (o *ApiV2WebhooksPostRequest) HasQueryParameters() bool {
-	if o != nil && IsNil(o.QueryParameters) {
-		return true
-	}
-
-	return false
-}
-
-// SetQueryParameters gets a reference to the given map[string]string and assigns it to the QueryParameters field.
+// SetQueryParameters sets field value
 func (o *ApiV2WebhooksPostRequest) SetQueryParameters(v map[string]string) {
 	o.QueryParameters = v
 }
@@ -482,12 +466,8 @@ func (o ApiV2WebhooksPostRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["url"] = o.Url
 	toSerialize["requestType"] = o.RequestType
 	toSerialize["shouldSendBody"] = o.ShouldSendBody
-	if o.Headers != nil {
-		toSerialize["headers"] = o.Headers
-	}
-	if o.QueryParameters != nil {
-		toSerialize["queryParameters"] = o.QueryParameters
-	}
+	toSerialize["headers"] = o.Headers
+	toSerialize["queryParameters"] = o.QueryParameters
 	toSerialize["isEnabled"] = o.IsEnabled
 	toSerialize["shouldSendCustomBody"] = o.ShouldSendCustomBody
 	if o.CustomBody.IsSet() {

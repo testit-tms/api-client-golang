@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the test point last editor | [optional] 
 **TesterId** | Pointer to **NullableString** | Unique ID of the test point assigned user | [optional] 
 **Parameters** | Pointer to **map[string]string** | Collection of the test point parameters | [optional] 
-**Attributes** | Pointer to **map[string]interface{}** | Collection of attributes of work item the test point represents | [optional] 
-**Tags** | Pointer to **[]string** | Collection of the test point tags | [optional] 
-**Links** | Pointer to **[]string** | Collection of the test point links | [optional] 
+**Attributes** | **map[string]interface{}** | Collection of attributes of work item the test point represents | 
+**Tags** | **[]string** | Collection of the test point tags | 
+**Links** | **[]string** | Collection of the test point links | 
 **TestSuiteId** | **string** | Unique ID of test suite the test point assigned to | 
 **WorkItemId** | **string** | Unique ID of work item the test point represents | 
 **WorkItemGlobalId** | **int64** | Global ID of work item the test point represents | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Status** | [**TestPointStatus**](TestPointStatus.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **IsAutomated** | **bool** | Indicates if the test point represents an autotest | 
-**Name** | Pointer to **NullableString** | Name of the test point | [optional] 
+**Name** | **string** | Name of the test point | 
 **ConfigurationId** | **string** | Unique ID of the test point configuration | 
 **Duration** | **int32** | Duration of the test point | 
 **SectionId** | **string** | Unique ID of section where work item the test point represents is located | 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointShortGetModel
 
-`func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, testSuiteId string, workItemId string, workItemGlobalId int64, workItemVersionId string, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortGetModel`
+`func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, workItemId string, workItemGlobalId int64, workItemVersionId string, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortGetModel`
 
 NewTestPointShortGetModel instantiates a new TestPointShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -274,22 +274,7 @@ and a boolean to check if the value has been set.
 
 SetAttributes sets Attributes field to given value.
 
-### HasAttributes
 
-`func (o *TestPointShortGetModel) HasAttributes() bool`
-
-HasAttributes returns a boolean if a field has been set.
-
-### SetAttributesNil
-
-`func (o *TestPointShortGetModel) SetAttributesNil(b bool)`
-
- SetAttributesNil sets the value for Attributes to be an explicit nil
-
-### UnsetAttributes
-`func (o *TestPointShortGetModel) UnsetAttributes()`
-
-UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetTags
 
 `func (o *TestPointShortGetModel) GetTags() []string`
@@ -309,22 +294,7 @@ and a boolean to check if the value has been set.
 
 SetTags sets Tags field to given value.
 
-### HasTags
 
-`func (o *TestPointShortGetModel) HasTags() bool`
-
-HasTags returns a boolean if a field has been set.
-
-### SetTagsNil
-
-`func (o *TestPointShortGetModel) SetTagsNil(b bool)`
-
- SetTagsNil sets the value for Tags to be an explicit nil
-
-### UnsetTags
-`func (o *TestPointShortGetModel) UnsetTags()`
-
-UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetLinks
 
 `func (o *TestPointShortGetModel) GetLinks() []string`
@@ -344,22 +314,7 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
-### HasLinks
 
-`func (o *TestPointShortGetModel) HasLinks() bool`
-
-HasLinks returns a boolean if a field has been set.
-
-### SetLinksNil
-
-`func (o *TestPointShortGetModel) SetLinksNil(b bool)`
-
- SetLinksNil sets the value for Links to be an explicit nil
-
-### UnsetLinks
-`func (o *TestPointShortGetModel) UnsetLinks()`
-
-UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetTestSuiteId
 
 `func (o *TestPointShortGetModel) GetTestSuiteId() string`
@@ -554,22 +509,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *TestPointShortGetModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *TestPointShortGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestPointShortGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetConfigurationId
 
 `func (o *TestPointShortGetModel) GetConfigurationId() string`

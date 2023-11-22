@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID of the test run | 
-**Name** | Pointer to **NullableString** | Name of the test run | [optional] 
+**Name** | **string** | Name of the test run | 
 **State** | [**TestRunState**](TestRunState.md) |  | 
 **CreatedDate** | **time.Time** | Date when the test run was created | 
 **StartedDate** | Pointer to **NullableTime** | Date when the test run was started | [optional] 
@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of user who modified the test run last time | [optional] 
 **IsDeleted** | **bool** | Is the test run is deleted | 
 **AutoTestsCount** | **int32** | Number of AutoTests run in the test run | 
-**Statistics** | Pointer to [**NullableTestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  | [optional] 
+**Statistics** | [**TestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  | 
 
 ## Methods
 
 ### NewTestRunShortGetModel
 
-`func NewTestRunShortGetModel(id string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, ) *TestRunShortGetModel`
+`func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestRunShortGetModelStatistics, ) *TestRunShortGetModel`
 
 NewTestRunShortGetModel instantiates a new TestRunShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -74,22 +74,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *TestRunShortGetModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *TestRunShortGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestRunShortGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetState
 
 `func (o *TestRunShortGetModel) GetState() TestRunState`
@@ -314,22 +299,7 @@ and a boolean to check if the value has been set.
 
 SetStatistics sets Statistics field to given value.
 
-### HasStatistics
 
-`func (o *TestRunShortGetModel) HasStatistics() bool`
-
-HasStatistics returns a boolean if a field has been set.
-
-### SetStatisticsNil
-
-`func (o *TestRunShortGetModel) SetStatisticsNil(b bool)`
-
- SetStatisticsNil sets the value for Statistics to be an explicit nil
-
-### UnsetStatistics
-`func (o *TestRunShortGetModel) UnsetStatistics()`
-
-UnsetStatistics ensures that no value is present for Statistics, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

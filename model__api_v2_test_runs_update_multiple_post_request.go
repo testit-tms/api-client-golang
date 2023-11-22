@@ -21,17 +21,19 @@ var _ MappedNullable = &ApiV2TestRunsUpdateMultiplePostRequest{}
 type ApiV2TestRunsUpdateMultiplePostRequest struct {
 	SelectModel TestRunSelectionModel `json:"selectModel"`
 	Description NullableString `json:"description,omitempty"`
-	AttachmentUpdateScheme NullableSetOfAttachmentIds `json:"attachmentUpdateScheme,omitempty"`
-	LinkUpdateScheme NullableSetOfLinks `json:"linkUpdateScheme,omitempty"`
+	AttachmentUpdateScheme SetOfAttachmentIds `json:"attachmentUpdateScheme"`
+	LinkUpdateScheme SetOfLinks `json:"linkUpdateScheme"`
 }
 
 // NewApiV2TestRunsUpdateMultiplePostRequest instantiates a new ApiV2TestRunsUpdateMultiplePostRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2TestRunsUpdateMultiplePostRequest(selectModel TestRunSelectionModel) *ApiV2TestRunsUpdateMultiplePostRequest {
+func NewApiV2TestRunsUpdateMultiplePostRequest(selectModel TestRunSelectionModel, attachmentUpdateScheme SetOfAttachmentIds, linkUpdateScheme SetOfLinks) *ApiV2TestRunsUpdateMultiplePostRequest {
 	this := ApiV2TestRunsUpdateMultiplePostRequest{}
 	this.SelectModel = selectModel
+	this.AttachmentUpdateScheme = attachmentUpdateScheme
+	this.LinkUpdateScheme = linkUpdateScheme
 	return &this
 }
 
@@ -109,88 +111,52 @@ func (o *ApiV2TestRunsUpdateMultiplePostRequest) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetAttachmentUpdateScheme returns the AttachmentUpdateScheme field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachmentUpdateScheme returns the AttachmentUpdateScheme field value
 func (o *ApiV2TestRunsUpdateMultiplePostRequest) GetAttachmentUpdateScheme() SetOfAttachmentIds {
-	if o == nil || IsNil(o.AttachmentUpdateScheme.Get()) {
+	if o == nil {
 		var ret SetOfAttachmentIds
 		return ret
 	}
-	return *o.AttachmentUpdateScheme.Get()
+
+	return o.AttachmentUpdateScheme
 }
 
-// GetAttachmentUpdateSchemeOk returns a tuple with the AttachmentUpdateScheme field value if set, nil otherwise
+// GetAttachmentUpdateSchemeOk returns a tuple with the AttachmentUpdateScheme field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2TestRunsUpdateMultiplePostRequest) GetAttachmentUpdateSchemeOk() (*SetOfAttachmentIds, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AttachmentUpdateScheme.Get(), o.AttachmentUpdateScheme.IsSet()
+	return &o.AttachmentUpdateScheme, true
 }
 
-// HasAttachmentUpdateScheme returns a boolean if a field has been set.
-func (o *ApiV2TestRunsUpdateMultiplePostRequest) HasAttachmentUpdateScheme() bool {
-	if o != nil && o.AttachmentUpdateScheme.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAttachmentUpdateScheme gets a reference to the given NullableSetOfAttachmentIds and assigns it to the AttachmentUpdateScheme field.
+// SetAttachmentUpdateScheme sets field value
 func (o *ApiV2TestRunsUpdateMultiplePostRequest) SetAttachmentUpdateScheme(v SetOfAttachmentIds) {
-	o.AttachmentUpdateScheme.Set(&v)
-}
-// SetAttachmentUpdateSchemeNil sets the value for AttachmentUpdateScheme to be an explicit nil
-func (o *ApiV2TestRunsUpdateMultiplePostRequest) SetAttachmentUpdateSchemeNil() {
-	o.AttachmentUpdateScheme.Set(nil)
+	o.AttachmentUpdateScheme = v
 }
 
-// UnsetAttachmentUpdateScheme ensures that no value is present for AttachmentUpdateScheme, not even an explicit nil
-func (o *ApiV2TestRunsUpdateMultiplePostRequest) UnsetAttachmentUpdateScheme() {
-	o.AttachmentUpdateScheme.Unset()
-}
-
-// GetLinkUpdateScheme returns the LinkUpdateScheme field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLinkUpdateScheme returns the LinkUpdateScheme field value
 func (o *ApiV2TestRunsUpdateMultiplePostRequest) GetLinkUpdateScheme() SetOfLinks {
-	if o == nil || IsNil(o.LinkUpdateScheme.Get()) {
+	if o == nil {
 		var ret SetOfLinks
 		return ret
 	}
-	return *o.LinkUpdateScheme.Get()
+
+	return o.LinkUpdateScheme
 }
 
-// GetLinkUpdateSchemeOk returns a tuple with the LinkUpdateScheme field value if set, nil otherwise
+// GetLinkUpdateSchemeOk returns a tuple with the LinkUpdateScheme field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApiV2TestRunsUpdateMultiplePostRequest) GetLinkUpdateSchemeOk() (*SetOfLinks, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LinkUpdateScheme.Get(), o.LinkUpdateScheme.IsSet()
+	return &o.LinkUpdateScheme, true
 }
 
-// HasLinkUpdateScheme returns a boolean if a field has been set.
-func (o *ApiV2TestRunsUpdateMultiplePostRequest) HasLinkUpdateScheme() bool {
-	if o != nil && o.LinkUpdateScheme.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLinkUpdateScheme gets a reference to the given NullableSetOfLinks and assigns it to the LinkUpdateScheme field.
+// SetLinkUpdateScheme sets field value
 func (o *ApiV2TestRunsUpdateMultiplePostRequest) SetLinkUpdateScheme(v SetOfLinks) {
-	o.LinkUpdateScheme.Set(&v)
-}
-// SetLinkUpdateSchemeNil sets the value for LinkUpdateScheme to be an explicit nil
-func (o *ApiV2TestRunsUpdateMultiplePostRequest) SetLinkUpdateSchemeNil() {
-	o.LinkUpdateScheme.Set(nil)
-}
-
-// UnsetLinkUpdateScheme ensures that no value is present for LinkUpdateScheme, not even an explicit nil
-func (o *ApiV2TestRunsUpdateMultiplePostRequest) UnsetLinkUpdateScheme() {
-	o.LinkUpdateScheme.Unset()
+	o.LinkUpdateScheme = v
 }
 
 func (o ApiV2TestRunsUpdateMultiplePostRequest) MarshalJSON() ([]byte, error) {
@@ -207,12 +173,8 @@ func (o ApiV2TestRunsUpdateMultiplePostRequest) ToMap() (map[string]interface{},
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.AttachmentUpdateScheme.IsSet() {
-		toSerialize["attachmentUpdateScheme"] = o.AttachmentUpdateScheme.Get()
-	}
-	if o.LinkUpdateScheme.IsSet() {
-		toSerialize["linkUpdateScheme"] = o.LinkUpdateScheme.Get()
-	}
+	toSerialize["attachmentUpdateScheme"] = o.AttachmentUpdateScheme
+	toSerialize["linkUpdateScheme"] = o.LinkUpdateScheme
 	return toSerialize, nil
 }
 

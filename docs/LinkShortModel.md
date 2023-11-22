@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Title** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
+**Title** | **string** |  | 
+**Url** | **string** |  | 
 
 ## Methods
 
 ### NewLinkShortModel
 
-`func NewLinkShortModel(id string, ) *LinkShortModel`
+`func NewLinkShortModel(id string, title string, url string, ) *LinkShortModel`
 
 NewLinkShortModel instantiates a new LinkShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -66,22 +66,7 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
-### HasTitle
 
-`func (o *LinkShortModel) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### SetTitleNil
-
-`func (o *LinkShortModel) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *LinkShortModel) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetUrl
 
 `func (o *LinkShortModel) GetUrl() string`
@@ -101,22 +86,7 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
 
-`func (o *LinkShortModel) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
-
-### SetUrlNil
-
-`func (o *LinkShortModel) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *LinkShortModel) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

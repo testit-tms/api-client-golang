@@ -21,12 +21,12 @@ var _ MappedNullable = &WebHookModel{}
 // WebHookModel struct for WebHookModel
 type WebHookModel struct {
 	// Name of the webhook
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 	EventType WebHookEventTypeModel `json:"eventType"`
 	// Description of the webhook
 	Description NullableString `json:"description,omitempty"`
 	// Url to which the webhook sends request
-	Url NullableString `json:"url,omitempty"`
+	Url string `json:"url"`
 	RequestType RequestTypeModel `json:"requestType"`
 	// Indicates if the webhook sends body
 	ShouldSendBody bool `json:"shouldSendBody"`
@@ -66,9 +66,11 @@ type WebHookModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebHookModel(eventType WebHookEventTypeModel, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, createdDate time.Time, createdById string, projectId string, id string, isDeleted bool) *WebHookModel {
+func NewWebHookModel(name string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, createdDate time.Time, createdById string, projectId string, id string, isDeleted bool) *WebHookModel {
 	this := WebHookModel{}
+	this.Name = name
 	this.EventType = eventType
+	this.Url = url
 	this.RequestType = requestType
 	this.ShouldSendBody = shouldSendBody
 	this.IsEnabled = isEnabled
@@ -91,46 +93,28 @@ func NewWebHookModelWithDefaults() *WebHookModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *WebHookModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *WebHookModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *WebHookModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *WebHookModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *WebHookModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 // GetEventType returns the EventType field value
@@ -199,46 +183,28 @@ func (o *WebHookModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value
 func (o *WebHookModel) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+
+	return o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// GetUrlOk returns a tuple with the Url field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookModel) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return &o.Url, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *WebHookModel) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl sets field value
 func (o *WebHookModel) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *WebHookModel) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *WebHookModel) UnsetUrl() {
-	o.Url.Unset()
+	o.Url = v
 }
 
 // GetRequestType returns the RequestType field value
@@ -749,16 +715,12 @@ func (o WebHookModel) MarshalJSON() ([]byte, error) {
 
 func (o WebHookModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
 	toSerialize["eventType"] = o.EventType
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
-	}
+	toSerialize["url"] = o.Url
 	toSerialize["requestType"] = o.RequestType
 	toSerialize["shouldSendBody"] = o.ShouldSendBody
 	if o.Headers != nil {

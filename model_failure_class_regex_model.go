@@ -19,7 +19,7 @@ var _ MappedNullable = &FailureClassRegexModel{}
 
 // FailureClassRegexModel struct for FailureClassRegexModel
 type FailureClassRegexModel struct {
-	RegexText NullableString `json:"regexText,omitempty"`
+	RegexText string `json:"regexText"`
 	FailureClassId NullableString `json:"failureClassId,omitempty"`
 	// Unique ID of the entity
 	Id string `json:"id"`
@@ -31,8 +31,9 @@ type FailureClassRegexModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFailureClassRegexModel(id string, isDeleted bool) *FailureClassRegexModel {
+func NewFailureClassRegexModel(regexText string, id string, isDeleted bool) *FailureClassRegexModel {
 	this := FailureClassRegexModel{}
+	this.RegexText = regexText
 	this.Id = id
 	this.IsDeleted = isDeleted
 	return &this
@@ -46,46 +47,28 @@ func NewFailureClassRegexModelWithDefaults() *FailureClassRegexModel {
 	return &this
 }
 
-// GetRegexText returns the RegexText field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetRegexText returns the RegexText field value
 func (o *FailureClassRegexModel) GetRegexText() string {
-	if o == nil || IsNil(o.RegexText.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RegexText.Get()
+
+	return o.RegexText
 }
 
-// GetRegexTextOk returns a tuple with the RegexText field value if set, nil otherwise
+// GetRegexTextOk returns a tuple with the RegexText field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FailureClassRegexModel) GetRegexTextOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.RegexText.Get(), o.RegexText.IsSet()
+	return &o.RegexText, true
 }
 
-// HasRegexText returns a boolean if a field has been set.
-func (o *FailureClassRegexModel) HasRegexText() bool {
-	if o != nil && o.RegexText.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetRegexText gets a reference to the given NullableString and assigns it to the RegexText field.
+// SetRegexText sets field value
 func (o *FailureClassRegexModel) SetRegexText(v string) {
-	o.RegexText.Set(&v)
-}
-// SetRegexTextNil sets the value for RegexText to be an explicit nil
-func (o *FailureClassRegexModel) SetRegexTextNil() {
-	o.RegexText.Set(nil)
-}
-
-// UnsetRegexText ensures that no value is present for RegexText, not even an explicit nil
-func (o *FailureClassRegexModel) UnsetRegexText() {
-	o.RegexText.Unset()
+	o.RegexText = v
 }
 
 // GetFailureClassId returns the FailureClassId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -188,9 +171,7 @@ func (o FailureClassRegexModel) MarshalJSON() ([]byte, error) {
 
 func (o FailureClassRegexModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.RegexText.IsSet() {
-		toSerialize["regexText"] = o.RegexText.Get()
-	}
+	toSerialize["regexText"] = o.RegexText
 	if o.FailureClassId.IsSet() {
 		toSerialize["failureClassId"] = o.FailureClassId.Get()
 	}

@@ -109,7 +109,7 @@ import (
 )
 
 func main() {
-    parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
+    parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 
 ## GetAllParameters
 
-> ParameterModel GetAllParameters(ctx).IsDeleted(isDeleted).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []ParameterModel GetAllParameters(ctx).IsDeleted(isDeleted).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get all parameters
 
@@ -884,7 +884,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.GetAllParameters``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAllParameters`: ParameterModel
+    // response from `GetAllParameters`: []ParameterModel
     fmt.Fprintf(os.Stdout, "Response from `ParametersApi.GetAllParameters`: %v\n", resp)
 }
 ```
@@ -909,7 +909,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ParameterModel**](ParameterModel.md)
+[**[]ParameterModel**](ParameterModel.md)
 
 ### Authorization
 
@@ -1016,7 +1016,7 @@ import (
 )
 
 func main() {
-    updateParameterRequest := *openapiclient.NewUpdateParameterRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "Value_example", "Name_example") // UpdateParameterRequest |  (optional)
+    updateParameterRequest := *openapiclient.NewUpdateParameterRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "Value_example", "Name_example") // UpdateParameterRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Id** | **string** | Unique ID of project | 
 **IsDeleted** | **bool** | Indicates whether the project is deleted | 
 **GlobalId** | **int64** | Global ID of project | 
-**Name** | Pointer to **NullableString** | Name of project | [optional] 
+**Name** | **string** | Name of project | 
 
 ## Methods
 
 ### NewProjectShortestModel
 
-`func NewProjectShortestModel(id string, isDeleted bool, globalId int64, ) *ProjectShortestModel`
+`func NewProjectShortestModel(id string, isDeleted bool, globalId int64, name string, ) *ProjectShortestModel`
 
 NewProjectShortestModel instantiates a new ProjectShortestModel object
 This constructor will assign default values to properties that have it defined,
@@ -107,22 +107,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *ProjectShortestModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *ProjectShortestModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ProjectShortestModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

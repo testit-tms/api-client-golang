@@ -21,7 +21,7 @@ var _ MappedNullable = &AutoTestChangeViewModel{}
 type AutoTestChangeViewModel struct {
 	Id string `json:"id"`
 	ProjectId string `json:"projectId"`
-	ExternalId NullableString `json:"externalId,omitempty"`
+	ExternalId string `json:"externalId"`
 	GlobalId int64 `json:"globalId"`
 }
 
@@ -29,10 +29,11 @@ type AutoTestChangeViewModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestChangeViewModel(id string, projectId string, globalId int64) *AutoTestChangeViewModel {
+func NewAutoTestChangeViewModel(id string, projectId string, externalId string, globalId int64) *AutoTestChangeViewModel {
 	this := AutoTestChangeViewModel{}
 	this.Id = id
 	this.ProjectId = projectId
+	this.ExternalId = externalId
 	this.GlobalId = globalId
 	return &this
 }
@@ -93,46 +94,28 @@ func (o *AutoTestChangeViewModel) SetProjectId(v string) {
 	o.ProjectId = v
 }
 
-// GetExternalId returns the ExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExternalId returns the ExternalId field value
 func (o *AutoTestChangeViewModel) GetExternalId() string {
-	if o == nil || IsNil(o.ExternalId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ExternalId.Get()
+
+	return o.ExternalId
 }
 
-// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// GetExternalIdOk returns a tuple with the ExternalId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutoTestChangeViewModel) GetExternalIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExternalId.Get(), o.ExternalId.IsSet()
+	return &o.ExternalId, true
 }
 
-// HasExternalId returns a boolean if a field has been set.
-func (o *AutoTestChangeViewModel) HasExternalId() bool {
-	if o != nil && o.ExternalId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExternalId gets a reference to the given NullableString and assigns it to the ExternalId field.
+// SetExternalId sets field value
 func (o *AutoTestChangeViewModel) SetExternalId(v string) {
-	o.ExternalId.Set(&v)
-}
-// SetExternalIdNil sets the value for ExternalId to be an explicit nil
-func (o *AutoTestChangeViewModel) SetExternalIdNil() {
-	o.ExternalId.Set(nil)
-}
-
-// UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
-func (o *AutoTestChangeViewModel) UnsetExternalId() {
-	o.ExternalId.Unset()
+	o.ExternalId = v
 }
 
 // GetGlobalId returns the GlobalId field value
@@ -171,9 +154,7 @@ func (o AutoTestChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["projectId"] = o.ProjectId
-	if o.ExternalId.IsSet() {
-		toSerialize["externalId"] = o.ExternalId.Get()
-	}
+	toSerialize["externalId"] = o.ExternalId
 	toSerialize["globalId"] = o.GlobalId
 	return toSerialize, nil
 }

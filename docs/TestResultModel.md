@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **StepComments** | Pointer to [**[]StepCommentModel**](StepCommentModel.md) |  | [optional] 
-**FailureClassIds** | Pointer to **[]string** |  | [optional] 
+**FailureClassIds** | **[]string** |  | 
 **Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultModel
 
-`func NewTestResultModel(configurationId string, testPointId string, testRunId string, workItemVersionId string, id string, createdDate time.Time, createdById string, ) *TestResultModel`
+`func NewTestResultModel(configurationId string, testPointId string, testRunId string, workItemVersionId string, id string, createdDate time.Time, createdById string, failureClassIds []string, ) *TestResultModel`
 
 NewTestResultModel instantiates a new TestResultModel object
 This constructor will assign default values to properties that have it defined,
@@ -916,22 +916,7 @@ and a boolean to check if the value has been set.
 
 SetFailureClassIds sets FailureClassIds field to given value.
 
-### HasFailureClassIds
 
-`func (o *TestResultModel) HasFailureClassIds() bool`
-
-HasFailureClassIds returns a boolean if a field has been set.
-
-### SetFailureClassIdsNil
-
-`func (o *TestResultModel) SetFailureClassIdsNil(b bool)`
-
- SetFailureClassIdsNil sets the value for FailureClassIds to be an explicit nil
-
-### UnsetFailureClassIds
-`func (o *TestResultModel) UnsetFailureClassIds()`
-
-UnsetFailureClassIds ensures that no value is present for FailureClassIds, not even an explicit nil
 ### GetOutcome
 
 `func (o *TestResultModel) GetOutcome() TestResultOutcome`

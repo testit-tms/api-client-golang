@@ -19,7 +19,7 @@ var _ MappedNullable = &LinkModel{}
 
 // LinkModel struct for LinkModel
 type LinkModel struct {
-	Id string `json:"id"`
+	Id NullableString `json:"id,omitempty"`
 	// Link name.
 	Title NullableString `json:"title,omitempty"`
 	// Address can be specified without protocol, but necessarily with the domain.
@@ -34,9 +34,8 @@ type LinkModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkModel(id string, url string, hasInfo bool) *LinkModel {
+func NewLinkModel(url string, hasInfo bool) *LinkModel {
 	this := LinkModel{}
-	this.Id = id
 	this.Url = url
 	this.HasInfo = hasInfo
 	return &this
@@ -50,28 +49,46 @@ func NewLinkModelWithDefaults() *LinkModel {
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LinkModel) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id.Get()
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *LinkModel) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *LinkModel) SetId(v string) {
-	o.Id = v
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *LinkModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *LinkModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -258,7 +275,9 @@ func (o LinkModel) MarshalJSON() ([]byte, error) {
 
 func (o LinkModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["id"] = o.Id.Get()
+	}
 	if o.Title.IsSet() {
 		toSerialize["title"] = o.Title.Get()
 	}

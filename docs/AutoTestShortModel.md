@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **GlobalId** | **int64** |  | 
-**ExternalId** | Pointer to **NullableString** |  | [optional] 
+**ExternalId** | **string** |  | 
 **ProjectId** | **string** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 
 ## Methods
 
 ### NewAutoTestShortModel
 
-`func NewAutoTestShortModel(id string, globalId int64, projectId string, ) *AutoTestShortModel`
+`func NewAutoTestShortModel(id string, globalId int64, externalId string, projectId string, name string, ) *AutoTestShortModel`
 
 NewAutoTestShortModel instantiates a new AutoTestShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -88,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetExternalId sets ExternalId field to given value.
 
-### HasExternalId
 
-`func (o *AutoTestShortModel) HasExternalId() bool`
-
-HasExternalId returns a boolean if a field has been set.
-
-### SetExternalIdNil
-
-`func (o *AutoTestShortModel) SetExternalIdNil(b bool)`
-
- SetExternalIdNil sets the value for ExternalId to be an explicit nil
-
-### UnsetExternalId
-`func (o *AutoTestShortModel) UnsetExternalId()`
-
-UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetProjectId
 
 `func (o *AutoTestShortModel) GetProjectId() string`
@@ -143,22 +128,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *AutoTestShortModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *AutoTestShortModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *AutoTestShortModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

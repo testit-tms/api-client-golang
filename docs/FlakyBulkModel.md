@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AutotestSelect** | Pointer to [**NullableAutotestSelectModel**](AutotestSelectModel.md) |  | [optional] 
+**AutotestSelect** | [**FlakyBulkModelAutotestSelect**](FlakyBulkModelAutotestSelect.md) |  | 
 **Value** | **bool** | Are autotests flaky | 
 
 ## Methods
 
 ### NewFlakyBulkModel
 
-`func NewFlakyBulkModel(value bool, ) *FlakyBulkModel`
+`func NewFlakyBulkModel(autotestSelect FlakyBulkModelAutotestSelect, value bool, ) *FlakyBulkModel`
 
 NewFlakyBulkModel instantiates a new FlakyBulkModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,39 +28,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAutotestSelect
 
-`func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel`
+`func (o *FlakyBulkModel) GetAutotestSelect() FlakyBulkModelAutotestSelect`
 
 GetAutotestSelect returns the AutotestSelect field if non-nil, zero value otherwise.
 
 ### GetAutotestSelectOk
 
-`func (o *FlakyBulkModel) GetAutotestSelectOk() (*AutotestSelectModel, bool)`
+`func (o *FlakyBulkModel) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool)`
 
 GetAutotestSelectOk returns a tuple with the AutotestSelect field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutotestSelect
 
-`func (o *FlakyBulkModel) SetAutotestSelect(v AutotestSelectModel)`
+`func (o *FlakyBulkModel) SetAutotestSelect(v FlakyBulkModelAutotestSelect)`
 
 SetAutotestSelect sets AutotestSelect field to given value.
 
-### HasAutotestSelect
 
-`func (o *FlakyBulkModel) HasAutotestSelect() bool`
-
-HasAutotestSelect returns a boolean if a field has been set.
-
-### SetAutotestSelectNil
-
-`func (o *FlakyBulkModel) SetAutotestSelectNil(b bool)`
-
- SetAutotestSelectNil sets the value for AutotestSelect to be an explicit nil
-
-### UnsetAutotestSelect
-`func (o *FlakyBulkModel) UnsetAutotestSelect()`
-
-UnsetAutotestSelect ensures that no value is present for AutotestSelect, not even an explicit nil
 ### GetValue
 
 `func (o *FlakyBulkModel) GetValue() bool`

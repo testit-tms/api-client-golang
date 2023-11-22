@@ -4,21 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FileId** | Pointer to **NullableString** | Unique ID of the attachment file | [optional] 
-**Type** | Pointer to **NullableString** | MIME type of the attachment | [optional] 
+**FileId** | **string** | Unique ID of the attachment file | 
+**Type** | **string** | MIME type of the attachment | 
 **Size** | **float32** | Size in bytes of the attachment file | 
 **CreatedDate** | **time.Time** | Creation date of the attachment | 
 **ModifiedDate** | Pointer to **NullableTime** | Last modification date of the attachment | [optional] 
 **CreatedById** | **string** | Unique ID of the attachment creator | 
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the attachment last editor | [optional] 
-**Name** | Pointer to **NullableString** | Name of the attachment file | [optional] 
+**Name** | **string** | Name of the attachment file | 
+**IsTemp** | **bool** | Indicates whether the attachment is temporary (may be automatically deleted) | 
 **Id** | **string** | Unique ID of the attachment | 
 
 ## Methods
 
 ### NewAttachmentModel
 
-`func NewAttachmentModel(size float32, createdDate time.Time, createdById string, id string, ) *AttachmentModel`
+`func NewAttachmentModel(fileId string, type_ string, size float32, createdDate time.Time, createdById string, name string, isTemp bool, id string, ) *AttachmentModel`
 
 NewAttachmentModel instantiates a new AttachmentModel object
 This constructor will assign default values to properties that have it defined,
@@ -52,22 +53,7 @@ and a boolean to check if the value has been set.
 
 SetFileId sets FileId field to given value.
 
-### HasFileId
 
-`func (o *AttachmentModel) HasFileId() bool`
-
-HasFileId returns a boolean if a field has been set.
-
-### SetFileIdNil
-
-`func (o *AttachmentModel) SetFileIdNil(b bool)`
-
- SetFileIdNil sets the value for FileId to be an explicit nil
-
-### UnsetFileId
-`func (o *AttachmentModel) UnsetFileId()`
-
-UnsetFileId ensures that no value is present for FileId, not even an explicit nil
 ### GetType
 
 `func (o *AttachmentModel) GetType() string`
@@ -87,22 +73,7 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *AttachmentModel) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *AttachmentModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *AttachmentModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetSize
 
 `func (o *AttachmentModel) GetSize() float32`
@@ -252,22 +223,27 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *AttachmentModel) HasName() bool`
+### GetIsTemp
 
-HasName returns a boolean if a field has been set.
+`func (o *AttachmentModel) GetIsTemp() bool`
 
-### SetNameNil
+GetIsTemp returns the IsTemp field if non-nil, zero value otherwise.
 
-`func (o *AttachmentModel) SetNameNil(b bool)`
+### GetIsTempOk
 
- SetNameNil sets the value for Name to be an explicit nil
+`func (o *AttachmentModel) GetIsTempOk() (*bool, bool)`
 
-### UnsetName
-`func (o *AttachmentModel) UnsetName()`
+GetIsTempOk returns a tuple with the IsTemp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
 
-UnsetName ensures that no value is present for Name, not even an explicit nil
+### SetIsTemp
+
+`func (o *AttachmentModel) SetIsTemp(v bool)`
+
+SetIsTemp sets IsTemp field to given value.
+
+
 ### GetId
 
 `func (o *AttachmentModel) GetId() string`

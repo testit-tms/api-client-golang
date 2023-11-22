@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
 **Type** | Pointer to [**NullableLinkType**](LinkType.md) |  | [optional] 
-**HasInfo** | Pointer to **bool** |  | [optional] 
+**HasInfo** | **bool** |  | 
 
 ## Methods
 
 ### NewLinkPostModel
 
-`func NewLinkPostModel(url string, ) *LinkPostModel`
+`func NewLinkPostModel(url string, hasInfo bool, ) *LinkPostModel`
 
 NewLinkPostModel instantiates a new LinkPostModel object
 This constructor will assign default values to properties that have it defined,
@@ -173,11 +173,6 @@ and a boolean to check if the value has been set.
 
 SetHasInfo sets HasInfo field to given value.
 
-### HasHasInfo
-
-`func (o *LinkPostModel) HasHasInfo() bool`
-
-HasHasInfo returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -28,14 +28,14 @@ Name | Type | Description | Notes
 **WorkItemVersionId** | Pointer to **NullableString** |  | [optional] 
 **WorkItemVersionNumber** | Pointer to **NullableInt32** |  | [optional] 
 **LaunchSource** | Pointer to **NullableString** |  | [optional] 
-**FailureClassIds** | Pointer to **[]string** |  | [optional] 
+**FailureClassIds** | **[]string** |  | 
 **Parameters** | Pointer to **map[string]string** |  | [optional] 
 
 ## Methods
 
 ### NewTestResultHistoryReportModel
 
-`func NewTestResultHistoryReportModel(id string, createdDate time.Time, modifiedDate time.Time, userId string, isAutomated bool, createdById string, ) *TestResultHistoryReportModel`
+`func NewTestResultHistoryReportModel(id string, createdDate time.Time, modifiedDate time.Time, userId string, isAutomated bool, createdById string, failureClassIds []string, ) *TestResultHistoryReportModel`
 
 NewTestResultHistoryReportModel instantiates a new TestResultHistoryReportModel object
 This constructor will assign default values to properties that have it defined,
@@ -819,22 +819,7 @@ and a boolean to check if the value has been set.
 
 SetFailureClassIds sets FailureClassIds field to given value.
 
-### HasFailureClassIds
 
-`func (o *TestResultHistoryReportModel) HasFailureClassIds() bool`
-
-HasFailureClassIds returns a boolean if a field has been set.
-
-### SetFailureClassIdsNil
-
-`func (o *TestResultHistoryReportModel) SetFailureClassIdsNil(b bool)`
-
- SetFailureClassIdsNil sets the value for FailureClassIds to be an explicit nil
-
-### UnsetFailureClassIds
-`func (o *TestResultHistoryReportModel) UnsetFailureClassIds()`
-
-UnsetFailureClassIds ensures that no value is present for FailureClassIds, not even an explicit nil
 ### GetParameters
 
 `func (o *TestResultHistoryReportModel) GetParameters() map[string]string`

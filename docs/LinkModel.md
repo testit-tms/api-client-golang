@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**Id** | Pointer to **NullableString** |  | [optional] 
 **Title** | Pointer to **NullableString** | Link name. | [optional] 
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewLinkModel
 
-`func NewLinkModel(id string, url string, hasInfo bool, ) *LinkModel`
+`func NewLinkModel(url string, hasInfo bool, ) *LinkModel`
 
 NewLinkModel instantiates a new LinkModel object
 This constructor will assign default values to properties that have it defined,
@@ -49,7 +49,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *LinkModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *LinkModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *LinkModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetTitle
 
 `func (o *LinkModel) GetTitle() string`

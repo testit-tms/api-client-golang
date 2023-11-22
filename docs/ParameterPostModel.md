@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **string** |  | 
-**Name** | **string** |  | 
+**Value** | **string** | Value of the parameter | 
+**Name** | **string** | Key of the parameter | 
 
 ## Methods
 

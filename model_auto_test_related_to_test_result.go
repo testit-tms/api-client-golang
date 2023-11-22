@@ -21,11 +21,11 @@ var _ MappedNullable = &AutoTestRelatedToTestResult{}
 // AutoTestRelatedToTestResult struct for AutoTestRelatedToTestResult
 type AutoTestRelatedToTestResult struct {
 	// This property is used to set autotest identifier from client system
-	ExternalId NullableString `json:"externalId,omitempty"`
+	ExternalId string `json:"externalId"`
 	Links []LinkModel `json:"links,omitempty"`
 	// This property is used to link autotest with project
 	ProjectId string `json:"projectId"`
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 	Namespace NullableString `json:"namespace,omitempty"`
 	Classname NullableString `json:"classname,omitempty"`
 	Steps []AutoTestStepModel `json:"steps,omitempty"`
@@ -47,9 +47,11 @@ type AutoTestRelatedToTestResult struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestRelatedToTestResult(projectId string, globalId int64, createdById string, id string, isDeleted bool) *AutoTestRelatedToTestResult {
+func NewAutoTestRelatedToTestResult(externalId string, projectId string, name string, globalId int64, createdById string, id string, isDeleted bool) *AutoTestRelatedToTestResult {
 	this := AutoTestRelatedToTestResult{}
+	this.ExternalId = externalId
 	this.ProjectId = projectId
+	this.Name = name
 	this.GlobalId = globalId
 	this.CreatedById = createdById
 	this.Id = id
@@ -65,46 +67,28 @@ func NewAutoTestRelatedToTestResultWithDefaults() *AutoTestRelatedToTestResult {
 	return &this
 }
 
-// GetExternalId returns the ExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExternalId returns the ExternalId field value
 func (o *AutoTestRelatedToTestResult) GetExternalId() string {
-	if o == nil || IsNil(o.ExternalId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ExternalId.Get()
+
+	return o.ExternalId
 }
 
-// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// GetExternalIdOk returns a tuple with the ExternalId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutoTestRelatedToTestResult) GetExternalIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExternalId.Get(), o.ExternalId.IsSet()
+	return &o.ExternalId, true
 }
 
-// HasExternalId returns a boolean if a field has been set.
-func (o *AutoTestRelatedToTestResult) HasExternalId() bool {
-	if o != nil && o.ExternalId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExternalId gets a reference to the given NullableString and assigns it to the ExternalId field.
+// SetExternalId sets field value
 func (o *AutoTestRelatedToTestResult) SetExternalId(v string) {
-	o.ExternalId.Set(&v)
-}
-// SetExternalIdNil sets the value for ExternalId to be an explicit nil
-func (o *AutoTestRelatedToTestResult) SetExternalIdNil() {
-	o.ExternalId.Set(nil)
-}
-
-// UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
-func (o *AutoTestRelatedToTestResult) UnsetExternalId() {
-	o.ExternalId.Unset()
+	o.ExternalId = v
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -164,46 +148,28 @@ func (o *AutoTestRelatedToTestResult) SetProjectId(v string) {
 	o.ProjectId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *AutoTestRelatedToTestResult) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutoTestRelatedToTestResult) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *AutoTestRelatedToTestResult) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *AutoTestRelatedToTestResult) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *AutoTestRelatedToTestResult) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *AutoTestRelatedToTestResult) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 // GetNamespace returns the Namespace field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -654,16 +620,12 @@ func (o AutoTestRelatedToTestResult) MarshalJSON() ([]byte, error) {
 
 func (o AutoTestRelatedToTestResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ExternalId.IsSet() {
-		toSerialize["externalId"] = o.ExternalId.Get()
-	}
+	toSerialize["externalId"] = o.ExternalId
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
 	}
 	toSerialize["projectId"] = o.ProjectId
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
 	if o.Namespace.IsSet() {
 		toSerialize["namespace"] = o.Namespace.Get()
 	}

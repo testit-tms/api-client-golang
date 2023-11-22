@@ -20,7 +20,7 @@ var _ MappedNullable = &TestPlanWithAnalyticModel{}
 
 // TestPlanWithAnalyticModel struct for TestPlanWithAnalyticModel
 type TestPlanWithAnalyticModel struct {
-	Analytic NullableTestPointAnalyticResult `json:"analytic,omitempty"`
+	Analytic TestPlanWithAnalyticModelAnalytic `json:"analytic"`
 	Status TestPlanStatusModel `json:"status"`
 	// Set when test plan is starter (status changed to: In Progress)
 	StartedOn NullableTime `json:"startedOn,omitempty"`
@@ -47,15 +47,16 @@ type TestPlanWithAnalyticModel struct {
 	ProjectId string `json:"projectId"`
 	ProductName NullableString `json:"productName,omitempty"`
 	HasAutomaticDurationTimer NullableBool `json:"hasAutomaticDurationTimer,omitempty"`
-	Attributes map[string]interface{} `json:"attributes,omitempty"`
+	Attributes map[string]interface{} `json:"attributes"`
 }
 
 // NewTestPlanWithAnalyticModel instantiates a new TestPlanWithAnalyticModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanWithAnalyticModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string) *TestPlanWithAnalyticModel {
+func NewTestPlanWithAnalyticModel(analytic TestPlanWithAnalyticModelAnalytic, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}) *TestPlanWithAnalyticModel {
 	this := TestPlanWithAnalyticModel{}
+	this.Analytic = analytic
 	this.Status = status
 	this.CreatedById = createdById
 	this.GlobalId = globalId
@@ -63,6 +64,7 @@ func NewTestPlanWithAnalyticModel(status TestPlanStatusModel, createdById string
 	this.Id = id
 	this.Name = name
 	this.ProjectId = projectId
+	this.Attributes = attributes
 	return &this
 }
 
@@ -74,46 +76,28 @@ func NewTestPlanWithAnalyticModelWithDefaults() *TestPlanWithAnalyticModel {
 	return &this
 }
 
-// GetAnalytic returns the Analytic field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPointAnalyticResult {
-	if o == nil || IsNil(o.Analytic.Get()) {
-		var ret TestPointAnalyticResult
+// GetAnalytic returns the Analytic field value
+func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPlanWithAnalyticModelAnalytic {
+	if o == nil {
+		var ret TestPlanWithAnalyticModelAnalytic
 		return ret
 	}
-	return *o.Analytic.Get()
+
+	return o.Analytic
 }
 
-// GetAnalyticOk returns a tuple with the Analytic field value if set, nil otherwise
+// GetAnalyticOk returns a tuple with the Analytic field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPointAnalyticResult, bool) {
+func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPlanWithAnalyticModelAnalytic, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Analytic.Get(), o.Analytic.IsSet()
+	return &o.Analytic, true
 }
 
-// HasAnalytic returns a boolean if a field has been set.
-func (o *TestPlanWithAnalyticModel) HasAnalytic() bool {
-	if o != nil && o.Analytic.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAnalytic gets a reference to the given NullableTestPointAnalyticResult and assigns it to the Analytic field.
-func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPointAnalyticResult) {
-	o.Analytic.Set(&v)
-}
-// SetAnalyticNil sets the value for Analytic to be an explicit nil
-func (o *TestPlanWithAnalyticModel) SetAnalyticNil() {
-	o.Analytic.Set(nil)
-}
-
-// UnsetAnalytic ensures that no value is present for Analytic, not even an explicit nil
-func (o *TestPlanWithAnalyticModel) UnsetAnalytic() {
-	o.Analytic.Unset()
+// SetAnalytic sets field value
+func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPlanWithAnalyticModelAnalytic) {
+	o.Analytic = v
 }
 
 // GetStatus returns the Status field value
@@ -863,35 +847,26 @@ func (o *TestPlanWithAnalyticModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value
 func (o *TestPlanWithAnalyticModel) GetAttributes() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
+
 	return o.Attributes
 }
 
-// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// GetAttributesOk returns a tuple with the Attributes field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanWithAnalyticModel) GetAttributesOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Attributes) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.Attributes, true
 }
 
-// HasAttributes returns a boolean if a field has been set.
-func (o *TestPlanWithAnalyticModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
-		return true
-	}
-
-	return false
-}
-
-// SetAttributes gets a reference to the given map[string]interface{} and assigns it to the Attributes field.
+// SetAttributes sets field value
 func (o *TestPlanWithAnalyticModel) SetAttributes(v map[string]interface{}) {
 	o.Attributes = v
 }
@@ -906,9 +881,7 @@ func (o TestPlanWithAnalyticModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanWithAnalyticModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Analytic.IsSet() {
-		toSerialize["analytic"] = o.Analytic.Get()
-	}
+	toSerialize["analytic"] = o.Analytic
 	toSerialize["status"] = o.Status
 	if o.StartedOn.IsSet() {
 		toSerialize["startedOn"] = o.StartedOn.Get()
@@ -958,9 +931,7 @@ func (o TestPlanWithAnalyticModel) ToMap() (map[string]interface{}, error) {
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if o.Attributes != nil {
-		toSerialize["attributes"] = o.Attributes
-	}
+	toSerialize["attributes"] = o.Attributes
 	return toSerialize, nil
 }
 

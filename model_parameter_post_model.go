@@ -19,7 +19,9 @@ var _ MappedNullable = &ParameterPostModel{}
 
 // ParameterPostModel struct for ParameterPostModel
 type ParameterPostModel struct {
+	// Value of the parameter
 	Value string `json:"value"`
+	// Key of the parameter
 	Name string `json:"name"`
 }
 

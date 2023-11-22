@@ -20,31 +20,40 @@ var _ MappedNullable = &UserWithRankModel{}
 // UserWithRankModel struct for UserWithRankModel
 type UserWithRankModel struct {
 	Id string `json:"id"`
-	FirstName NullableString `json:"firstName,omitempty"`
-	LastName NullableString `json:"lastName,omitempty"`
-	MiddleName NullableString `json:"middleName,omitempty"`
-	UserName NullableString `json:"userName,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	UserType NullableString `json:"userType,omitempty"`
-	AvatarUrl NullableString `json:"avatarUrl,omitempty"`
-	AvatarMetadata NullableString `json:"avatarMetadata,omitempty"`
+	FirstName string `json:"firstName"`
+	LastName string `json:"lastName"`
+	MiddleName string `json:"middleName"`
+	UserName string `json:"userName"`
+	DisplayName string `json:"displayName"`
+	UserType string `json:"userType"`
+	AvatarUrl string `json:"avatarUrl"`
+	AvatarMetadata string `json:"avatarMetadata"`
 	IsDeleted bool `json:"isDeleted"`
 	IsDisabled bool `json:"isDisabled"`
 	ProviderId NullableString `json:"providerId,omitempty"`
 	IsActiveStatusByEntity bool `json:"isActiveStatusByEntity"`
-	UserRank NullableUserRankModel `json:"userRank,omitempty"`
+	UserRank UserWithRankModelUserRank `json:"userRank"`
 }
 
 // NewUserWithRankModel instantiates a new UserWithRankModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserWithRankModel(id string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool) *UserWithRankModel {
+func NewUserWithRankModel(id string, firstName string, lastName string, middleName string, userName string, displayName string, userType string, avatarUrl string, avatarMetadata string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool, userRank UserWithRankModelUserRank) *UserWithRankModel {
 	this := UserWithRankModel{}
 	this.Id = id
+	this.FirstName = firstName
+	this.LastName = lastName
+	this.MiddleName = middleName
+	this.UserName = userName
+	this.DisplayName = displayName
+	this.UserType = userType
+	this.AvatarUrl = avatarUrl
+	this.AvatarMetadata = avatarMetadata
 	this.IsDeleted = isDeleted
 	this.IsDisabled = isDisabled
 	this.IsActiveStatusByEntity = isActiveStatusByEntity
+	this.UserRank = userRank
 	return &this
 }
 
@@ -80,340 +89,196 @@ func (o *UserWithRankModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetFirstName returns the FirstName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFirstName returns the FirstName field value
 func (o *UserWithRankModel) GetFirstName() string {
-	if o == nil || IsNil(o.FirstName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FirstName.Get()
+
+	return o.FirstName
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
+// GetFirstNameOk returns a tuple with the FirstName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetFirstNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.FirstName.Get(), o.FirstName.IsSet()
+	return &o.FirstName, true
 }
 
-// HasFirstName returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasFirstName() bool {
-	if o != nil && o.FirstName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFirstName gets a reference to the given NullableString and assigns it to the FirstName field.
+// SetFirstName sets field value
 func (o *UserWithRankModel) SetFirstName(v string) {
-	o.FirstName.Set(&v)
-}
-// SetFirstNameNil sets the value for FirstName to be an explicit nil
-func (o *UserWithRankModel) SetFirstNameNil() {
-	o.FirstName.Set(nil)
+	o.FirstName = v
 }
 
-// UnsetFirstName ensures that no value is present for FirstName, not even an explicit nil
-func (o *UserWithRankModel) UnsetFirstName() {
-	o.FirstName.Unset()
-}
-
-// GetLastName returns the LastName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastName returns the LastName field value
 func (o *UserWithRankModel) GetLastName() string {
-	if o == nil || IsNil(o.LastName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.LastName.Get()
+
+	return o.LastName
 }
 
-// GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
+// GetLastNameOk returns a tuple with the LastName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetLastNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LastName.Get(), o.LastName.IsSet()
+	return &o.LastName, true
 }
 
-// HasLastName returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasLastName() bool {
-	if o != nil && o.LastName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLastName gets a reference to the given NullableString and assigns it to the LastName field.
+// SetLastName sets field value
 func (o *UserWithRankModel) SetLastName(v string) {
-	o.LastName.Set(&v)
-}
-// SetLastNameNil sets the value for LastName to be an explicit nil
-func (o *UserWithRankModel) SetLastNameNil() {
-	o.LastName.Set(nil)
+	o.LastName = v
 }
 
-// UnsetLastName ensures that no value is present for LastName, not even an explicit nil
-func (o *UserWithRankModel) UnsetLastName() {
-	o.LastName.Unset()
-}
-
-// GetMiddleName returns the MiddleName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMiddleName returns the MiddleName field value
 func (o *UserWithRankModel) GetMiddleName() string {
-	if o == nil || IsNil(o.MiddleName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.MiddleName.Get()
+
+	return o.MiddleName
 }
 
-// GetMiddleNameOk returns a tuple with the MiddleName field value if set, nil otherwise
+// GetMiddleNameOk returns a tuple with the MiddleName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetMiddleNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MiddleName.Get(), o.MiddleName.IsSet()
+	return &o.MiddleName, true
 }
 
-// HasMiddleName returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasMiddleName() bool {
-	if o != nil && o.MiddleName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMiddleName gets a reference to the given NullableString and assigns it to the MiddleName field.
+// SetMiddleName sets field value
 func (o *UserWithRankModel) SetMiddleName(v string) {
-	o.MiddleName.Set(&v)
-}
-// SetMiddleNameNil sets the value for MiddleName to be an explicit nil
-func (o *UserWithRankModel) SetMiddleNameNil() {
-	o.MiddleName.Set(nil)
+	o.MiddleName = v
 }
 
-// UnsetMiddleName ensures that no value is present for MiddleName, not even an explicit nil
-func (o *UserWithRankModel) UnsetMiddleName() {
-	o.MiddleName.Unset()
-}
-
-// GetUserName returns the UserName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserName returns the UserName field value
 func (o *UserWithRankModel) GetUserName() string {
-	if o == nil || IsNil(o.UserName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UserName.Get()
+
+	return o.UserName
 }
 
-// GetUserNameOk returns a tuple with the UserName field value if set, nil otherwise
+// GetUserNameOk returns a tuple with the UserName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetUserNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.UserName.Get(), o.UserName.IsSet()
+	return &o.UserName, true
 }
 
-// HasUserName returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasUserName() bool {
-	if o != nil && o.UserName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUserName gets a reference to the given NullableString and assigns it to the UserName field.
+// SetUserName sets field value
 func (o *UserWithRankModel) SetUserName(v string) {
-	o.UserName.Set(&v)
-}
-// SetUserNameNil sets the value for UserName to be an explicit nil
-func (o *UserWithRankModel) SetUserNameNil() {
-	o.UserName.Set(nil)
+	o.UserName = v
 }
 
-// UnsetUserName ensures that no value is present for UserName, not even an explicit nil
-func (o *UserWithRankModel) UnsetUserName() {
-	o.UserName.Unset()
-}
-
-// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDisplayName returns the DisplayName field value
 func (o *UserWithRankModel) GetDisplayName() string {
-	if o == nil || IsNil(o.DisplayName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.DisplayName.Get()
+
+	return o.DisplayName
 }
 
-// GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
+// GetDisplayNameOk returns a tuple with the DisplayName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetDisplayNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.DisplayName.Get(), o.DisplayName.IsSet()
+	return &o.DisplayName, true
 }
 
-// HasDisplayName returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasDisplayName() bool {
-	if o != nil && o.DisplayName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
+// SetDisplayName sets field value
 func (o *UserWithRankModel) SetDisplayName(v string) {
-	o.DisplayName.Set(&v)
-}
-// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-func (o *UserWithRankModel) SetDisplayNameNil() {
-	o.DisplayName.Set(nil)
+	o.DisplayName = v
 }
 
-// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
-func (o *UserWithRankModel) UnsetDisplayName() {
-	o.DisplayName.Unset()
-}
-
-// GetUserType returns the UserType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUserType returns the UserType field value
 func (o *UserWithRankModel) GetUserType() string {
-	if o == nil || IsNil(o.UserType.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.UserType.Get()
+
+	return o.UserType
 }
 
-// GetUserTypeOk returns a tuple with the UserType field value if set, nil otherwise
+// GetUserTypeOk returns a tuple with the UserType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetUserTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.UserType.Get(), o.UserType.IsSet()
+	return &o.UserType, true
 }
 
-// HasUserType returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasUserType() bool {
-	if o != nil && o.UserType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUserType gets a reference to the given NullableString and assigns it to the UserType field.
+// SetUserType sets field value
 func (o *UserWithRankModel) SetUserType(v string) {
-	o.UserType.Set(&v)
-}
-// SetUserTypeNil sets the value for UserType to be an explicit nil
-func (o *UserWithRankModel) SetUserTypeNil() {
-	o.UserType.Set(nil)
+	o.UserType = v
 }
 
-// UnsetUserType ensures that no value is present for UserType, not even an explicit nil
-func (o *UserWithRankModel) UnsetUserType() {
-	o.UserType.Unset()
-}
-
-// GetAvatarUrl returns the AvatarUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatarUrl returns the AvatarUrl field value
 func (o *UserWithRankModel) GetAvatarUrl() string {
-	if o == nil || IsNil(o.AvatarUrl.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AvatarUrl.Get()
+
+	return o.AvatarUrl
 }
 
-// GetAvatarUrlOk returns a tuple with the AvatarUrl field value if set, nil otherwise
+// GetAvatarUrlOk returns a tuple with the AvatarUrl field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetAvatarUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AvatarUrl.Get(), o.AvatarUrl.IsSet()
+	return &o.AvatarUrl, true
 }
 
-// HasAvatarUrl returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasAvatarUrl() bool {
-	if o != nil && o.AvatarUrl.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAvatarUrl gets a reference to the given NullableString and assigns it to the AvatarUrl field.
+// SetAvatarUrl sets field value
 func (o *UserWithRankModel) SetAvatarUrl(v string) {
-	o.AvatarUrl.Set(&v)
-}
-// SetAvatarUrlNil sets the value for AvatarUrl to be an explicit nil
-func (o *UserWithRankModel) SetAvatarUrlNil() {
-	o.AvatarUrl.Set(nil)
+	o.AvatarUrl = v
 }
 
-// UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
-func (o *UserWithRankModel) UnsetAvatarUrl() {
-	o.AvatarUrl.Unset()
-}
-
-// GetAvatarMetadata returns the AvatarMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAvatarMetadata returns the AvatarMetadata field value
 func (o *UserWithRankModel) GetAvatarMetadata() string {
-	if o == nil || IsNil(o.AvatarMetadata.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AvatarMetadata.Get()
+
+	return o.AvatarMetadata
 }
 
-// GetAvatarMetadataOk returns a tuple with the AvatarMetadata field value if set, nil otherwise
+// GetAvatarMetadataOk returns a tuple with the AvatarMetadata field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UserWithRankModel) GetAvatarMetadataOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AvatarMetadata.Get(), o.AvatarMetadata.IsSet()
+	return &o.AvatarMetadata, true
 }
 
-// HasAvatarMetadata returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasAvatarMetadata() bool {
-	if o != nil && o.AvatarMetadata.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAvatarMetadata gets a reference to the given NullableString and assigns it to the AvatarMetadata field.
+// SetAvatarMetadata sets field value
 func (o *UserWithRankModel) SetAvatarMetadata(v string) {
-	o.AvatarMetadata.Set(&v)
-}
-// SetAvatarMetadataNil sets the value for AvatarMetadata to be an explicit nil
-func (o *UserWithRankModel) SetAvatarMetadataNil() {
-	o.AvatarMetadata.Set(nil)
-}
-
-// UnsetAvatarMetadata ensures that no value is present for AvatarMetadata, not even an explicit nil
-func (o *UserWithRankModel) UnsetAvatarMetadata() {
-	o.AvatarMetadata.Unset()
+	o.AvatarMetadata = v
 }
 
 // GetIsDeleted returns the IsDeleted field value
@@ -530,46 +395,28 @@ func (o *UserWithRankModel) SetIsActiveStatusByEntity(v bool) {
 	o.IsActiveStatusByEntity = v
 }
 
-// GetUserRank returns the UserRank field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UserWithRankModel) GetUserRank() UserRankModel {
-	if o == nil || IsNil(o.UserRank.Get()) {
-		var ret UserRankModel
+// GetUserRank returns the UserRank field value
+func (o *UserWithRankModel) GetUserRank() UserWithRankModelUserRank {
+	if o == nil {
+		var ret UserWithRankModelUserRank
 		return ret
 	}
-	return *o.UserRank.Get()
+
+	return o.UserRank
 }
 
-// GetUserRankOk returns a tuple with the UserRank field value if set, nil otherwise
+// GetUserRankOk returns a tuple with the UserRank field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UserWithRankModel) GetUserRankOk() (*UserRankModel, bool) {
+func (o *UserWithRankModel) GetUserRankOk() (*UserWithRankModelUserRank, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.UserRank.Get(), o.UserRank.IsSet()
+	return &o.UserRank, true
 }
 
-// HasUserRank returns a boolean if a field has been set.
-func (o *UserWithRankModel) HasUserRank() bool {
-	if o != nil && o.UserRank.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUserRank gets a reference to the given NullableUserRankModel and assigns it to the UserRank field.
-func (o *UserWithRankModel) SetUserRank(v UserRankModel) {
-	o.UserRank.Set(&v)
-}
-// SetUserRankNil sets the value for UserRank to be an explicit nil
-func (o *UserWithRankModel) SetUserRankNil() {
-	o.UserRank.Set(nil)
-}
-
-// UnsetUserRank ensures that no value is present for UserRank, not even an explicit nil
-func (o *UserWithRankModel) UnsetUserRank() {
-	o.UserRank.Unset()
+// SetUserRank sets field value
+func (o *UserWithRankModel) SetUserRank(v UserWithRankModelUserRank) {
+	o.UserRank = v
 }
 
 func (o UserWithRankModel) MarshalJSON() ([]byte, error) {
@@ -583,39 +430,21 @@ func (o UserWithRankModel) MarshalJSON() ([]byte, error) {
 func (o UserWithRankModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	if o.FirstName.IsSet() {
-		toSerialize["firstName"] = o.FirstName.Get()
-	}
-	if o.LastName.IsSet() {
-		toSerialize["lastName"] = o.LastName.Get()
-	}
-	if o.MiddleName.IsSet() {
-		toSerialize["middleName"] = o.MiddleName.Get()
-	}
-	if o.UserName.IsSet() {
-		toSerialize["userName"] = o.UserName.Get()
-	}
-	if o.DisplayName.IsSet() {
-		toSerialize["displayName"] = o.DisplayName.Get()
-	}
-	if o.UserType.IsSet() {
-		toSerialize["userType"] = o.UserType.Get()
-	}
-	if o.AvatarUrl.IsSet() {
-		toSerialize["avatarUrl"] = o.AvatarUrl.Get()
-	}
-	if o.AvatarMetadata.IsSet() {
-		toSerialize["avatarMetadata"] = o.AvatarMetadata.Get()
-	}
+	toSerialize["firstName"] = o.FirstName
+	toSerialize["lastName"] = o.LastName
+	toSerialize["middleName"] = o.MiddleName
+	toSerialize["userName"] = o.UserName
+	toSerialize["displayName"] = o.DisplayName
+	toSerialize["userType"] = o.UserType
+	toSerialize["avatarUrl"] = o.AvatarUrl
+	toSerialize["avatarMetadata"] = o.AvatarMetadata
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["isDisabled"] = o.IsDisabled
 	if o.ProviderId.IsSet() {
 		toSerialize["providerId"] = o.ProviderId.Get()
 	}
 	toSerialize["isActiveStatusByEntity"] = o.IsActiveStatusByEntity
-	if o.UserRank.IsSet() {
-		toSerialize["userRank"] = o.UserRank.Get()
-	}
+	toSerialize["userRank"] = o.UserRank
 	return toSerialize, nil
 }
 

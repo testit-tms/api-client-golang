@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VersionId** | **string** |  | 
 **GlobalId** | **int64** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Steps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
+**Name** | **string** |  | 
+**Steps** | [**[]StepModel**](StepModel.md) |  | 
 **IsDeleted** | **bool** |  | 
 
 ## Methods
 
 ### NewSectionSharedStep
 
-`func NewSectionSharedStep(versionId string, globalId int64, isDeleted bool, ) *SectionSharedStep`
+`func NewSectionSharedStep(versionId string, globalId int64, name string, steps []StepModel, isDeleted bool, ) *SectionSharedStep`
 
 NewSectionSharedStep instantiates a new SectionSharedStep object
 This constructor will assign default values to properties that have it defined,
@@ -88,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *SectionSharedStep) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *SectionSharedStep) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SectionSharedStep) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSteps
 
 `func (o *SectionSharedStep) GetSteps() []StepModel`
@@ -123,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetSteps sets Steps field to given value.
 
-### HasSteps
 
-`func (o *SectionSharedStep) HasSteps() bool`
-
-HasSteps returns a boolean if a field has been set.
-
-### SetStepsNil
-
-`func (o *SectionSharedStep) SetStepsNil(b bool)`
-
- SetStepsNil sets the value for Steps to be an explicit nil
-
-### UnsetSteps
-`func (o *SectionSharedStep) UnsetSteps()`
-
-UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *SectionSharedStep) GetIsDeleted() bool`

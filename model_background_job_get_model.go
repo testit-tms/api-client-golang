@@ -26,6 +26,7 @@ type BackgroundJobGetModel struct {
 	State BackgroundJobState `json:"state"`
 	IsDeleted bool `json:"isDeleted"`
 	Progress int64 `json:"progress"`
+	CreatedDate time.Time `json:"createdDate"`
 	StartDate NullableTime `json:"startDate,omitempty"`
 	EndDate NullableTime `json:"endDate,omitempty"`
 	Error NullableString `json:"error,omitempty"`
@@ -36,7 +37,7 @@ type BackgroundJobGetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBackgroundJobGetModel(id string, jobId string, jobType BackgroundJobType, state BackgroundJobState, isDeleted bool, progress int64, attachments []BackgroundJobAttachmentModel) *BackgroundJobGetModel {
+func NewBackgroundJobGetModel(id string, jobId string, jobType BackgroundJobType, state BackgroundJobState, isDeleted bool, progress int64, createdDate time.Time, attachments []BackgroundJobAttachmentModel) *BackgroundJobGetModel {
 	this := BackgroundJobGetModel{}
 	this.Id = id
 	this.JobId = jobId
@@ -44,6 +45,7 @@ func NewBackgroundJobGetModel(id string, jobId string, jobType BackgroundJobType
 	this.State = state
 	this.IsDeleted = isDeleted
 	this.Progress = progress
+	this.CreatedDate = createdDate
 	this.Attachments = attachments
 	return &this
 }
@@ -198,6 +200,30 @@ func (o *BackgroundJobGetModel) GetProgressOk() (*int64, bool) {
 // SetProgress sets field value
 func (o *BackgroundJobGetModel) SetProgress(v int64) {
 	o.Progress = v
+}
+
+// GetCreatedDate returns the CreatedDate field value
+func (o *BackgroundJobGetModel) GetCreatedDate() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CreatedDate
+}
+
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
+// and a boolean to check if the value has been set.
+func (o *BackgroundJobGetModel) GetCreatedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedDate, true
+}
+
+// SetCreatedDate sets field value
+func (o *BackgroundJobGetModel) SetCreatedDate(v time.Time) {
+	o.CreatedDate = v
 }
 
 // GetStartDate returns the StartDate field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -366,6 +392,7 @@ func (o BackgroundJobGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["state"] = o.State
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["progress"] = o.Progress
+	toSerialize["createdDate"] = o.CreatedDate
 	if o.StartDate.IsSet() {
 		toSerialize["startDate"] = o.StartDate.Get()
 	}

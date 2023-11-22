@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | Pointer to **NullableString** |  | [optional] 
-**Expected** | Pointer to **NullableString** |  | [optional] 
-**Comments** | Pointer to **NullableString** |  | [optional] 
-**TestData** | Pointer to **NullableString** |  | [optional] 
+**Action** | **string** |  | 
+**Expected** | **string** |  | 
+**Comments** | **string** |  | 
+**TestData** | **string** |  | 
 **Index** | **int32** |  | 
 **WorkItemId** | Pointer to **NullableString** |  | [optional] 
-**WorkItem** | Pointer to [**NullableSharedStepChangeViewModel**](SharedStepChangeViewModel.md) |  | [optional] 
+**WorkItem** | [**WorkItemStepChangeViewModelWorkItem**](WorkItemStepChangeViewModelWorkItem.md) |  | 
 
 ## Methods
 
 ### NewWorkItemStepChangeViewModel
 
-`func NewWorkItemStepChangeViewModel(index int32, ) *WorkItemStepChangeViewModel`
+`func NewWorkItemStepChangeViewModel(action string, expected string, comments string, testData string, index int32, workItem WorkItemStepChangeViewModelWorkItem, ) *WorkItemStepChangeViewModel`
 
 NewWorkItemStepChangeViewModel instantiates a new WorkItemStepChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -50,22 +50,7 @@ and a boolean to check if the value has been set.
 
 SetAction sets Action field to given value.
 
-### HasAction
 
-`func (o *WorkItemStepChangeViewModel) HasAction() bool`
-
-HasAction returns a boolean if a field has been set.
-
-### SetActionNil
-
-`func (o *WorkItemStepChangeViewModel) SetActionNil(b bool)`
-
- SetActionNil sets the value for Action to be an explicit nil
-
-### UnsetAction
-`func (o *WorkItemStepChangeViewModel) UnsetAction()`
-
-UnsetAction ensures that no value is present for Action, not even an explicit nil
 ### GetExpected
 
 `func (o *WorkItemStepChangeViewModel) GetExpected() string`
@@ -85,22 +70,7 @@ and a boolean to check if the value has been set.
 
 SetExpected sets Expected field to given value.
 
-### HasExpected
 
-`func (o *WorkItemStepChangeViewModel) HasExpected() bool`
-
-HasExpected returns a boolean if a field has been set.
-
-### SetExpectedNil
-
-`func (o *WorkItemStepChangeViewModel) SetExpectedNil(b bool)`
-
- SetExpectedNil sets the value for Expected to be an explicit nil
-
-### UnsetExpected
-`func (o *WorkItemStepChangeViewModel) UnsetExpected()`
-
-UnsetExpected ensures that no value is present for Expected, not even an explicit nil
 ### GetComments
 
 `func (o *WorkItemStepChangeViewModel) GetComments() string`
@@ -120,22 +90,7 @@ and a boolean to check if the value has been set.
 
 SetComments sets Comments field to given value.
 
-### HasComments
 
-`func (o *WorkItemStepChangeViewModel) HasComments() bool`
-
-HasComments returns a boolean if a field has been set.
-
-### SetCommentsNil
-
-`func (o *WorkItemStepChangeViewModel) SetCommentsNil(b bool)`
-
- SetCommentsNil sets the value for Comments to be an explicit nil
-
-### UnsetComments
-`func (o *WorkItemStepChangeViewModel) UnsetComments()`
-
-UnsetComments ensures that no value is present for Comments, not even an explicit nil
 ### GetTestData
 
 `func (o *WorkItemStepChangeViewModel) GetTestData() string`
@@ -155,22 +110,7 @@ and a boolean to check if the value has been set.
 
 SetTestData sets TestData field to given value.
 
-### HasTestData
 
-`func (o *WorkItemStepChangeViewModel) HasTestData() bool`
-
-HasTestData returns a boolean if a field has been set.
-
-### SetTestDataNil
-
-`func (o *WorkItemStepChangeViewModel) SetTestDataNil(b bool)`
-
- SetTestDataNil sets the value for TestData to be an explicit nil
-
-### UnsetTestData
-`func (o *WorkItemStepChangeViewModel) UnsetTestData()`
-
-UnsetTestData ensures that no value is present for TestData, not even an explicit nil
 ### GetIndex
 
 `func (o *WorkItemStepChangeViewModel) GetIndex() int32`
@@ -228,39 +168,24 @@ HasWorkItemId returns a boolean if a field has been set.
 UnsetWorkItemId ensures that no value is present for WorkItemId, not even an explicit nil
 ### GetWorkItem
 
-`func (o *WorkItemStepChangeViewModel) GetWorkItem() SharedStepChangeViewModel`
+`func (o *WorkItemStepChangeViewModel) GetWorkItem() WorkItemStepChangeViewModelWorkItem`
 
 GetWorkItem returns the WorkItem field if non-nil, zero value otherwise.
 
 ### GetWorkItemOk
 
-`func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*SharedStepChangeViewModel, bool)`
+`func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*WorkItemStepChangeViewModelWorkItem, bool)`
 
 GetWorkItemOk returns a tuple with the WorkItem field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItem
 
-`func (o *WorkItemStepChangeViewModel) SetWorkItem(v SharedStepChangeViewModel)`
+`func (o *WorkItemStepChangeViewModel) SetWorkItem(v WorkItemStepChangeViewModelWorkItem)`
 
 SetWorkItem sets WorkItem field to given value.
 
-### HasWorkItem
 
-`func (o *WorkItemStepChangeViewModel) HasWorkItem() bool`
-
-HasWorkItem returns a boolean if a field has been set.
-
-### SetWorkItemNil
-
-`func (o *WorkItemStepChangeViewModel) SetWorkItemNil(b bool)`
-
- SetWorkItemNil sets the value for WorkItem to be an explicit nil
-
-### UnsetWorkItem
-`func (o *WorkItemStepChangeViewModel) UnsetWorkItem()`
-
-UnsetWorkItem ensures that no value is present for WorkItem, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

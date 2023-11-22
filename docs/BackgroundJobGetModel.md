@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **State** | [**BackgroundJobState**](BackgroundJobState.md) |  | 
 **IsDeleted** | **bool** |  | 
 **Progress** | **int64** |  | 
+**CreatedDate** | **time.Time** |  | 
 **StartDate** | Pointer to **NullableTime** |  | [optional] 
 **EndDate** | Pointer to **NullableTime** |  | [optional] 
 **Error** | Pointer to **NullableString** |  | [optional] 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewBackgroundJobGetModel
 
-`func NewBackgroundJobGetModel(id string, jobId string, jobType BackgroundJobType, state BackgroundJobState, isDeleted bool, progress int64, attachments []BackgroundJobAttachmentModel, ) *BackgroundJobGetModel`
+`func NewBackgroundJobGetModel(id string, jobId string, jobType BackgroundJobType, state BackgroundJobState, isDeleted bool, progress int64, createdDate time.Time, attachments []BackgroundJobAttachmentModel, ) *BackgroundJobGetModel`
 
 NewBackgroundJobGetModel instantiates a new BackgroundJobGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -152,6 +153,26 @@ and a boolean to check if the value has been set.
 `func (o *BackgroundJobGetModel) SetProgress(v int64)`
 
 SetProgress sets Progress field to given value.
+
+
+### GetCreatedDate
+
+`func (o *BackgroundJobGetModel) GetCreatedDate() time.Time`
+
+GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
+
+### GetCreatedDateOk
+
+`func (o *BackgroundJobGetModel) GetCreatedDateOk() (*time.Time, bool)`
+
+GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedDate
+
+`func (o *BackgroundJobGetModel) SetCreatedDate(v time.Time)`
+
+SetCreatedDate sets CreatedDate field to given value.
 
 
 ### GetStartDate

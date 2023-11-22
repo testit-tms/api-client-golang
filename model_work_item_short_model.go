@@ -59,16 +59,16 @@ type WorkItemShortModel struct {
 	// Array of tag names of Work Item
 	TagNames []string `json:"tagNames,omitempty"`
 	// Set of iterations related to Work Item
-	Iterations []IterationModel `json:"iterations,omitempty"`
+	Iterations []IterationModel `json:"iterations"`
 	// Set of links related to Work Item
-	Links []LinkShortModel `json:"links,omitempty"`
+	Links []LinkShortModel `json:"links"`
 }
 
 // NewWorkItemShortModel instantiates a new WorkItemShortModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool) *WorkItemShortModel {
+func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel) *WorkItemShortModel {
 	this := WorkItemShortModel{}
 	this.Id = id
 	this.VersionId = versionId
@@ -84,6 +84,8 @@ func NewWorkItemShortModel(id string, versionId string, name string, entityTypeN
 	this.State = state
 	this.Priority = priority
 	this.IsDeleted = isDeleted
+	this.Iterations = iterations
+	this.Links = links
 	return &this
 }
 
@@ -665,68 +667,50 @@ func (o *WorkItemShortModel) SetTagNames(v []string) {
 	o.TagNames = v
 }
 
-// GetIterations returns the Iterations field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIterations returns the Iterations field value
 func (o *WorkItemShortModel) GetIterations() []IterationModel {
 	if o == nil {
 		var ret []IterationModel
 		return ret
 	}
+
 	return o.Iterations
 }
 
-// GetIterationsOk returns a tuple with the Iterations field value if set, nil otherwise
+// GetIterationsOk returns a tuple with the Iterations field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemShortModel) GetIterationsOk() ([]IterationModel, bool) {
-	if o == nil || IsNil(o.Iterations) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Iterations, true
 }
 
-// HasIterations returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasIterations() bool {
-	if o != nil && IsNil(o.Iterations) {
-		return true
-	}
-
-	return false
-}
-
-// SetIterations gets a reference to the given []IterationModel and assigns it to the Iterations field.
+// SetIterations sets field value
 func (o *WorkItemShortModel) SetIterations(v []IterationModel) {
 	o.Iterations = v
 }
 
-// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLinks returns the Links field value
 func (o *WorkItemShortModel) GetLinks() []LinkShortModel {
 	if o == nil {
 		var ret []LinkShortModel
 		return ret
 	}
+
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemShortModel) GetLinksOk() ([]LinkShortModel, bool) {
-	if o == nil || IsNil(o.Links) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// HasLinks returns a boolean if a field has been set.
-func (o *WorkItemShortModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
-		return true
-	}
-
-	return false
-}
-
-// SetLinks gets a reference to the given []LinkShortModel and assigns it to the Links field.
+// SetLinks sets field value
 func (o *WorkItemShortModel) SetLinks(v []LinkShortModel) {
 	o.Links = v
 }
@@ -773,12 +757,8 @@ func (o WorkItemShortModel) ToMap() (map[string]interface{}, error) {
 	if o.TagNames != nil {
 		toSerialize["tagNames"] = o.TagNames
 	}
-	if o.Iterations != nil {
-		toSerialize["iterations"] = o.Iterations
-	}
-	if o.Links != nil {
-		toSerialize["links"] = o.Links
-	}
+	toSerialize["iterations"] = o.Iterations
+	toSerialize["links"] = o.Links
 	return toSerialize, nil
 }
 

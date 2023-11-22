@@ -32,6 +32,8 @@ const (
 	BACKGROUNDJOBTYPE_IMPORT_XLSX_PROJECT BackgroundJobType = "ImportXlsxProject"
 	BACKGROUNDJOBTYPE_IMPORT_TEST_RAIL_XML_PROJECT BackgroundJobType = "ImportTestRailXmlProject"
 	BACKGROUNDJOBTYPE_PURGE_PROJECT BackgroundJobType = "PurgeProject"
+	BACKGROUNDJOBTYPE_EXPORT_PROJECTS BackgroundJobType = "ExportProjects"
+	BACKGROUNDJOBTYPE_IMPORT_PROJECTS BackgroundJobType = "ImportProjects"
 )
 
 // All allowed values of BackgroundJobType enum
@@ -48,6 +50,8 @@ var AllowedBackgroundJobTypeEnumValues = []BackgroundJobType{
 	"ImportXlsxProject",
 	"ImportTestRailXmlProject",
 	"PurgeProject",
+	"ExportProjects",
+	"ImportProjects",
 }
 
 func (v *BackgroundJobType) UnmarshalJSON(src []byte) error {

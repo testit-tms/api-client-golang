@@ -20,13 +20,13 @@ var _ MappedNullable = &SearchAttributesInProjectRequest{}
 // SearchAttributesInProjectRequest struct for SearchAttributesInProjectRequest
 type SearchAttributesInProjectRequest struct {
 	// Specifies an attribute name to search for
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Specifies an attribute mandatory status to search for
 	IsRequired NullableBool `json:"isRequired,omitempty"`
 	// Specifies an attribute global status to search for
 	IsGlobal NullableBool `json:"isGlobal,omitempty"`
 	// Specifies an attribute types to search for
-	Types []CustomAttributeTypesEnum `json:"types,omitempty"`
+	Types []CustomAttributeTypesEnum `json:"types"`
 	// Specifies an attribute enabled status to search for
 	IsEnabled NullableBool `json:"isEnabled,omitempty"`
 }
@@ -35,8 +35,10 @@ type SearchAttributesInProjectRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchAttributesInProjectRequest() *SearchAttributesInProjectRequest {
+func NewSearchAttributesInProjectRequest(name string, types []CustomAttributeTypesEnum) *SearchAttributesInProjectRequest {
 	this := SearchAttributesInProjectRequest{}
+	this.Name = name
+	this.Types = types
 	return &this
 }
 
@@ -48,46 +50,28 @@ func NewSearchAttributesInProjectRequestWithDefaults() *SearchAttributesInProjec
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *SearchAttributesInProjectRequest) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchAttributesInProjectRequest) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *SearchAttributesInProjectRequest) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *SearchAttributesInProjectRequest) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *SearchAttributesInProjectRequest) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *SearchAttributesInProjectRequest) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 // GetIsRequired returns the IsRequired field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -174,35 +158,26 @@ func (o *SearchAttributesInProjectRequest) UnsetIsGlobal() {
 	o.IsGlobal.Unset()
 }
 
-// GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTypes returns the Types field value
 func (o *SearchAttributesInProjectRequest) GetTypes() []CustomAttributeTypesEnum {
 	if o == nil {
 		var ret []CustomAttributeTypesEnum
 		return ret
 	}
+
 	return o.Types
 }
 
-// GetTypesOk returns a tuple with the Types field value if set, nil otherwise
+// GetTypesOk returns a tuple with the Types field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchAttributesInProjectRequest) GetTypesOk() ([]CustomAttributeTypesEnum, bool) {
-	if o == nil || IsNil(o.Types) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Types, true
 }
 
-// HasTypes returns a boolean if a field has been set.
-func (o *SearchAttributesInProjectRequest) HasTypes() bool {
-	if o != nil && IsNil(o.Types) {
-		return true
-	}
-
-	return false
-}
-
-// SetTypes gets a reference to the given []CustomAttributeTypesEnum and assigns it to the Types field.
+// SetTypes sets field value
 func (o *SearchAttributesInProjectRequest) SetTypes(v []CustomAttributeTypesEnum) {
 	o.Types = v
 }
@@ -259,18 +234,14 @@ func (o SearchAttributesInProjectRequest) MarshalJSON() ([]byte, error) {
 
 func (o SearchAttributesInProjectRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
 	if o.IsRequired.IsSet() {
 		toSerialize["isRequired"] = o.IsRequired.Get()
 	}
 	if o.IsGlobal.IsSet() {
 		toSerialize["isGlobal"] = o.IsGlobal.Get()
 	}
-	if o.Types != nil {
-		toSerialize["types"] = o.Types
-	}
+	toSerialize["types"] = o.Types
 	if o.IsEnabled.IsSet() {
 		toSerialize["isEnabled"] = o.IsEnabled.Get()
 	}

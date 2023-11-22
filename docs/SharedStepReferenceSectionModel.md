@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 **HasThisSharedStepAsPrecondition** | **bool** |  | 
 **HasThisSharedStepAsPostcondition** | **bool** |  | 
 **CreatedById** | **string** |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewSharedStepReferenceSectionModel
 
-`func NewSharedStepReferenceSectionModel(id string, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, isDeleted bool, ) *SharedStepReferenceSectionModel`
+`func NewSharedStepReferenceSectionModel(id string, name string, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, isDeleted bool, ) *SharedStepReferenceSectionModel`
 
 NewSharedStepReferenceSectionModel instantiates a new SharedStepReferenceSectionModel object
 This constructor will assign default values to properties that have it defined,
@@ -72,22 +72,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *SharedStepReferenceSectionModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *SharedStepReferenceSectionModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SharedStepReferenceSectionModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetHasThisSharedStepAsPrecondition
 
 `func (o *SharedStepReferenceSectionModel) GetHasThisSharedStepAsPrecondition() bool`

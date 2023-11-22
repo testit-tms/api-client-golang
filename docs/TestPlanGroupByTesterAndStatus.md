@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserId** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to **NullableString** |  | [optional] 
+**Status** | **string** |  | 
 **Value** | **int64** |  | 
 
 ## Methods
 
 ### NewTestPlanGroupByTesterAndStatus
 
-`func NewTestPlanGroupByTesterAndStatus(value int64, ) *TestPlanGroupByTesterAndStatus`
+`func NewTestPlanGroupByTesterAndStatus(status string, value int64, ) *TestPlanGroupByTesterAndStatus`
 
 NewTestPlanGroupByTesterAndStatus instantiates a new TestPlanGroupByTesterAndStatus object
 This constructor will assign default values to properties that have it defined,
@@ -81,22 +81,7 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
 
-`func (o *TestPlanGroupByTesterAndStatus) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
-
-### SetStatusNil
-
-`func (o *TestPlanGroupByTesterAndStatus) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *TestPlanGroupByTesterAndStatus) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
 `func (o *TestPlanGroupByTesterAndStatus) GetValue() int64`

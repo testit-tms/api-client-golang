@@ -21,18 +21,20 @@ var _ MappedNullable = &SharedStepChangeViewModel{}
 type SharedStepChangeViewModel struct {
 	Id string `json:"id"`
 	GlobalId int64 `json:"globalId"`
-	Name NullableString `json:"name,omitempty"`
-	Steps []WorkItemStepChangeViewModel `json:"steps,omitempty"`
+	Name string `json:"name"`
+	Steps []WorkItemStepChangeViewModel `json:"steps"`
 }
 
 // NewSharedStepChangeViewModel instantiates a new SharedStepChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSharedStepChangeViewModel(id string, globalId int64) *SharedStepChangeViewModel {
+func NewSharedStepChangeViewModel(id string, globalId int64, name string, steps []WorkItemStepChangeViewModel) *SharedStepChangeViewModel {
 	this := SharedStepChangeViewModel{}
 	this.Id = id
 	this.GlobalId = globalId
+	this.Name = name
+	this.Steps = steps
 	return &this
 }
 
@@ -92,77 +94,50 @@ func (o *SharedStepChangeViewModel) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *SharedStepChangeViewModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepChangeViewModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *SharedStepChangeViewModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *SharedStepChangeViewModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *SharedStepChangeViewModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *SharedStepChangeViewModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetSteps returns the Steps field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSteps returns the Steps field value
 func (o *SharedStepChangeViewModel) GetSteps() []WorkItemStepChangeViewModel {
 	if o == nil {
 		var ret []WorkItemStepChangeViewModel
 		return ret
 	}
+
 	return o.Steps
 }
 
-// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
+// GetStepsOk returns a tuple with the Steps field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SharedStepChangeViewModel) GetStepsOk() ([]WorkItemStepChangeViewModel, bool) {
-	if o == nil || IsNil(o.Steps) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Steps, true
 }
 
-// HasSteps returns a boolean if a field has been set.
-func (o *SharedStepChangeViewModel) HasSteps() bool {
-	if o != nil && IsNil(o.Steps) {
-		return true
-	}
-
-	return false
-}
-
-// SetSteps gets a reference to the given []WorkItemStepChangeViewModel and assigns it to the Steps field.
+// SetSteps sets field value
 func (o *SharedStepChangeViewModel) SetSteps(v []WorkItemStepChangeViewModel) {
 	o.Steps = v
 }
@@ -179,12 +154,8 @@ func (o SharedStepChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["globalId"] = o.GlobalId
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.Steps != nil {
-		toSerialize["steps"] = o.Steps
-	}
+	toSerialize["name"] = o.Name
+	toSerialize["steps"] = o.Steps
 	return toSerialize, nil
 }
 

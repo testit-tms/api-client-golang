@@ -25,6 +25,8 @@ type WorkItemFilterModel struct {
 	IncludeIds []string `json:"includeIds,omitempty"`
 	// Collection of identifiers of work items which need to be excluded from result regardless of filtering
 	ExcludeIds []string `json:"excludeIds,omitempty"`
+	// Collection of project identifiers
+	ProjectIds []string `json:"projectIds,omitempty"`
 	// Name of work item
 	Name NullableString `json:"name,omitempty"`
 	// Specifies a work item unique IDs to search for
@@ -35,8 +37,6 @@ type WorkItemFilterModel struct {
 	Attributes map[string][]string `json:"attributes,omitempty"`
 	// Is result must consist of only actual/deleted work items
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
-	// Collection of project identifiers
-	ProjectIds []string `json:"projectIds,omitempty"`
 	// Collection of section identifiers
 	SectionIds []string `json:"sectionIds,omitempty"`
 	// Collection of identifiers of users who created work item
@@ -184,6 +184,39 @@ func (o *WorkItemFilterModel) HasExcludeIds() bool {
 // SetExcludeIds gets a reference to the given []string and assigns it to the ExcludeIds field.
 func (o *WorkItemFilterModel) SetExcludeIds(v []string) {
 	o.ExcludeIds = v
+}
+
+// GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemFilterModel) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemFilterModel) GetProjectIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ProjectIds) {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// HasProjectIds returns a boolean if a field has been set.
+func (o *WorkItemFilterModel) HasProjectIds() bool {
+	if o != nil && IsNil(o.ProjectIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
+func (o *WorkItemFilterModel) SetProjectIds(v []string) {
+	o.ProjectIds = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -367,39 +400,6 @@ func (o *WorkItemFilterModel) SetIsDeletedNil() {
 // UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 func (o *WorkItemFilterModel) UnsetIsDeleted() {
 	o.IsDeleted.Unset()
-}
-
-// GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemFilterModel) GetProjectIds() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.ProjectIds
-}
-
-// GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemFilterModel) GetProjectIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.ProjectIds) {
-		return nil, false
-	}
-	return o.ProjectIds, true
-}
-
-// HasProjectIds returns a boolean if a field has been set.
-func (o *WorkItemFilterModel) HasProjectIds() bool {
-	if o != nil && IsNil(o.ProjectIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
-func (o *WorkItemFilterModel) SetProjectIds(v []string) {
-	o.ProjectIds = v
 }
 
 // GetSectionIds returns the SectionIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -895,6 +895,9 @@ func (o WorkItemFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.ExcludeIds != nil {
 		toSerialize["excludeIds"] = o.ExcludeIds
 	}
+	if o.ProjectIds != nil {
+		toSerialize["projectIds"] = o.ProjectIds
+	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
 	}
@@ -909,9 +912,6 @@ func (o WorkItemFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IsDeleted.IsSet() {
 		toSerialize["isDeleted"] = o.IsDeleted.Get()
-	}
-	if o.ProjectIds != nil {
-		toSerialize["projectIds"] = o.ProjectIds
 	}
 	if o.SectionIds != nil {
 		toSerialize["sectionIds"] = o.SectionIds

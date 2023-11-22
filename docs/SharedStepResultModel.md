@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StepId** | **string** |  | 
-**Outcome** | Pointer to **NullableString** |  | [optional] 
+**Outcome** | **string** |  | 
 
 ## Methods
 
 ### NewSharedStepResultModel
 
-`func NewSharedStepResultModel(stepId string, ) *SharedStepResultModel`
+`func NewSharedStepResultModel(stepId string, outcome string, ) *SharedStepResultModel`
 
 NewSharedStepResultModel instantiates a new SharedStepResultModel object
 This constructor will assign default values to properties that have it defined,
@@ -65,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetOutcome sets Outcome field to given value.
 
-### HasOutcome
 
-`func (o *SharedStepResultModel) HasOutcome() bool`
-
-HasOutcome returns a boolean if a field has been set.
-
-### SetOutcomeNil
-
-`func (o *SharedStepResultModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *SharedStepResultModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RegexText** | Pointer to **NullableString** |  | [optional] 
+**RegexText** | **string** |  | 
 **FailureClassId** | Pointer to **NullableString** |  | [optional] 
 **Id** | **string** | Unique ID of the entity | 
 **IsDeleted** | **bool** | Indicates if the entity is deleted | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewFailureClassRegexModel
 
-`func NewFailureClassRegexModel(id string, isDeleted bool, ) *FailureClassRegexModel`
+`func NewFailureClassRegexModel(regexText string, id string, isDeleted bool, ) *FailureClassRegexModel`
 
 NewFailureClassRegexModel instantiates a new FailureClassRegexModel object
 This constructor will assign default values to properties that have it defined,
@@ -47,22 +47,7 @@ and a boolean to check if the value has been set.
 
 SetRegexText sets RegexText field to given value.
 
-### HasRegexText
 
-`func (o *FailureClassRegexModel) HasRegexText() bool`
-
-HasRegexText returns a boolean if a field has been set.
-
-### SetRegexTextNil
-
-`func (o *FailureClassRegexModel) SetRegexTextNil(b bool)`
-
- SetRegexTextNil sets the value for RegexText to be an explicit nil
-
-### UnsetRegexText
-`func (o *FailureClassRegexModel) UnsetRegexText()`
-
-UnsetRegexText ensures that no value is present for RegexText, not even an explicit nil
 ### GetFailureClassId
 
 `func (o *FailureClassRegexModel) GetFailureClassId() string`

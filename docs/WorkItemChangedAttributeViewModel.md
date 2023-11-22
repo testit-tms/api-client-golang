@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **NullableString** |  | [optional] 
-**OldAttributeName** | Pointer to **NullableString** |  | [optional] 
-**NewAttributeName** | Pointer to **NullableString** |  | [optional] 
-**OldValue** | Pointer to **interface{}** |  | [optional] 
-**NewValue** | Pointer to **interface{}** |  | [optional] 
+**Type** | **string** |  | 
+**OldAttributeName** | **string** |  | 
+**NewAttributeName** | **string** |  | 
+**OldValue** | **interface{}** |  | 
+**NewValue** | **interface{}** |  | 
 
 ## Methods
 
 ### NewWorkItemChangedAttributeViewModel
 
-`func NewWorkItemChangedAttributeViewModel() *WorkItemChangedAttributeViewModel`
+`func NewWorkItemChangedAttributeViewModel(type_ string, oldAttributeName string, newAttributeName string, oldValue interface{}, newValue interface{}, ) *WorkItemChangedAttributeViewModel`
 
 NewWorkItemChangedAttributeViewModel instantiates a new WorkItemChangedAttributeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,22 +48,7 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *WorkItemChangedAttributeViewModel) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *WorkItemChangedAttributeViewModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *WorkItemChangedAttributeViewModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetOldAttributeName
 
 `func (o *WorkItemChangedAttributeViewModel) GetOldAttributeName() string`
@@ -83,22 +68,7 @@ and a boolean to check if the value has been set.
 
 SetOldAttributeName sets OldAttributeName field to given value.
 
-### HasOldAttributeName
 
-`func (o *WorkItemChangedAttributeViewModel) HasOldAttributeName() bool`
-
-HasOldAttributeName returns a boolean if a field has been set.
-
-### SetOldAttributeNameNil
-
-`func (o *WorkItemChangedAttributeViewModel) SetOldAttributeNameNil(b bool)`
-
- SetOldAttributeNameNil sets the value for OldAttributeName to be an explicit nil
-
-### UnsetOldAttributeName
-`func (o *WorkItemChangedAttributeViewModel) UnsetOldAttributeName()`
-
-UnsetOldAttributeName ensures that no value is present for OldAttributeName, not even an explicit nil
 ### GetNewAttributeName
 
 `func (o *WorkItemChangedAttributeViewModel) GetNewAttributeName() string`
@@ -118,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetNewAttributeName sets NewAttributeName field to given value.
 
-### HasNewAttributeName
 
-`func (o *WorkItemChangedAttributeViewModel) HasNewAttributeName() bool`
-
-HasNewAttributeName returns a boolean if a field has been set.
-
-### SetNewAttributeNameNil
-
-`func (o *WorkItemChangedAttributeViewModel) SetNewAttributeNameNil(b bool)`
-
- SetNewAttributeNameNil sets the value for NewAttributeName to be an explicit nil
-
-### UnsetNewAttributeName
-`func (o *WorkItemChangedAttributeViewModel) UnsetNewAttributeName()`
-
-UnsetNewAttributeName ensures that no value is present for NewAttributeName, not even an explicit nil
 ### GetOldValue
 
 `func (o *WorkItemChangedAttributeViewModel) GetOldValue() interface{}`
@@ -153,11 +108,6 @@ and a boolean to check if the value has been set.
 
 SetOldValue sets OldValue field to given value.
 
-### HasOldValue
-
-`func (o *WorkItemChangedAttributeViewModel) HasOldValue() bool`
-
-HasOldValue returns a boolean if a field has been set.
 
 ### SetOldValueNil
 
@@ -188,11 +138,6 @@ and a boolean to check if the value has been set.
 
 SetNewValue sets NewValue field to given value.
 
-### HasNewValue
-
-`func (o *WorkItemChangedAttributeViewModel) HasNewValue() bool`
-
-HasNewValue returns a boolean if a field has been set.
 
 ### SetNewValueNil
 

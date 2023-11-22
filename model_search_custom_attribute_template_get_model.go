@@ -21,19 +21,22 @@ var _ MappedNullable = &SearchCustomAttributeTemplateGetModel{}
 type SearchCustomAttributeTemplateGetModel struct {
 	Id string `json:"id"`
 	IsDeleted bool `json:"isDeleted"`
-	Name NullableString `json:"name,omitempty"`
-	ProjectShortestModels []ProjectShortestModel `json:"projectShortestModels,omitempty"`
-	CustomAttributeModels []CustomAttributeModel `json:"customAttributeModels,omitempty"`
+	Name string `json:"name"`
+	ProjectShortestModels []ProjectShortestModel `json:"projectShortestModels"`
+	CustomAttributeModels []CustomAttributeModel `json:"customAttributeModels"`
 }
 
 // NewSearchCustomAttributeTemplateGetModel instantiates a new SearchCustomAttributeTemplateGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchCustomAttributeTemplateGetModel(id string, isDeleted bool) *SearchCustomAttributeTemplateGetModel {
+func NewSearchCustomAttributeTemplateGetModel(id string, isDeleted bool, name string, projectShortestModels []ProjectShortestModel, customAttributeModels []CustomAttributeModel) *SearchCustomAttributeTemplateGetModel {
 	this := SearchCustomAttributeTemplateGetModel{}
 	this.Id = id
 	this.IsDeleted = isDeleted
+	this.Name = name
+	this.ProjectShortestModels = projectShortestModels
+	this.CustomAttributeModels = customAttributeModels
 	return &this
 }
 
@@ -93,110 +96,74 @@ func (o *SearchCustomAttributeTemplateGetModel) SetIsDeleted(v bool) {
 	o.IsDeleted = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *SearchCustomAttributeTemplateGetModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchCustomAttributeTemplateGetModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *SearchCustomAttributeTemplateGetModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *SearchCustomAttributeTemplateGetModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *SearchCustomAttributeTemplateGetModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *SearchCustomAttributeTemplateGetModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetProjectShortestModels returns the ProjectShortestModels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetProjectShortestModels returns the ProjectShortestModels field value
 func (o *SearchCustomAttributeTemplateGetModel) GetProjectShortestModels() []ProjectShortestModel {
 	if o == nil {
 		var ret []ProjectShortestModel
 		return ret
 	}
+
 	return o.ProjectShortestModels
 }
 
-// GetProjectShortestModelsOk returns a tuple with the ProjectShortestModels field value if set, nil otherwise
+// GetProjectShortestModelsOk returns a tuple with the ProjectShortestModels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchCustomAttributeTemplateGetModel) GetProjectShortestModelsOk() ([]ProjectShortestModel, bool) {
-	if o == nil || IsNil(o.ProjectShortestModels) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ProjectShortestModels, true
 }
 
-// HasProjectShortestModels returns a boolean if a field has been set.
-func (o *SearchCustomAttributeTemplateGetModel) HasProjectShortestModels() bool {
-	if o != nil && IsNil(o.ProjectShortestModels) {
-		return true
-	}
-
-	return false
-}
-
-// SetProjectShortestModels gets a reference to the given []ProjectShortestModel and assigns it to the ProjectShortestModels field.
+// SetProjectShortestModels sets field value
 func (o *SearchCustomAttributeTemplateGetModel) SetProjectShortestModels(v []ProjectShortestModel) {
 	o.ProjectShortestModels = v
 }
 
-// GetCustomAttributeModels returns the CustomAttributeModels field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCustomAttributeModels returns the CustomAttributeModels field value
 func (o *SearchCustomAttributeTemplateGetModel) GetCustomAttributeModels() []CustomAttributeModel {
 	if o == nil {
 		var ret []CustomAttributeModel
 		return ret
 	}
+
 	return o.CustomAttributeModels
 }
 
-// GetCustomAttributeModelsOk returns a tuple with the CustomAttributeModels field value if set, nil otherwise
+// GetCustomAttributeModelsOk returns a tuple with the CustomAttributeModels field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SearchCustomAttributeTemplateGetModel) GetCustomAttributeModelsOk() ([]CustomAttributeModel, bool) {
-	if o == nil || IsNil(o.CustomAttributeModels) {
+	if o == nil {
 		return nil, false
 	}
 	return o.CustomAttributeModels, true
 }
 
-// HasCustomAttributeModels returns a boolean if a field has been set.
-func (o *SearchCustomAttributeTemplateGetModel) HasCustomAttributeModels() bool {
-	if o != nil && IsNil(o.CustomAttributeModels) {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomAttributeModels gets a reference to the given []CustomAttributeModel and assigns it to the CustomAttributeModels field.
+// SetCustomAttributeModels sets field value
 func (o *SearchCustomAttributeTemplateGetModel) SetCustomAttributeModels(v []CustomAttributeModel) {
 	o.CustomAttributeModels = v
 }
@@ -213,15 +180,9 @@ func (o SearchCustomAttributeTemplateGetModel) ToMap() (map[string]interface{}, 
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["isDeleted"] = o.IsDeleted
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.ProjectShortestModels != nil {
-		toSerialize["projectShortestModels"] = o.ProjectShortestModels
-	}
-	if o.CustomAttributeModels != nil {
-		toSerialize["customAttributeModels"] = o.CustomAttributeModels
-	}
+	toSerialize["name"] = o.Name
+	toSerialize["projectShortestModels"] = o.ProjectShortestModels
+	toSerialize["customAttributeModels"] = o.CustomAttributeModels
 	return toSerialize, nil
 }
 

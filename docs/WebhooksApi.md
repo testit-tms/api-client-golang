@@ -233,7 +233,7 @@ import (
 
 func main() {
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
-    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
+    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, map[string]string{"key": "Inner_example"}, map[string]string{"key": "Inner_example"}, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -302,7 +302,7 @@ import (
 )
 
 func main() {
-    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
+    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, map[string]string{"key": "Inner_example"}, map[string]string{"key": "Inner_example"}, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

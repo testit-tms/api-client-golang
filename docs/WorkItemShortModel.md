@@ -24,14 +24,14 @@ Name | Type | Description | Notes
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
 **IsDeleted** | **bool** | Flag determining whether Work Item is deleted | 
 **TagNames** | Pointer to **[]string** | Array of tag names of Work Item | [optional] 
-**Iterations** | Pointer to [**[]IterationModel**](IterationModel.md) | Set of iterations related to Work Item | [optional] 
-**Links** | Pointer to [**[]LinkShortModel**](LinkShortModel.md) | Set of links related to Work Item | [optional] 
+**Iterations** | [**[]IterationModel**](IterationModel.md) | Set of iterations related to Work Item | 
+**Links** | [**[]LinkShortModel**](LinkShortModel.md) | Set of links related to Work Item | 
 
 ## Methods
 
 ### NewWorkItemShortModel
 
-`func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, ) *WorkItemShortModel`
+`func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel, ) *WorkItemShortModel`
 
 NewWorkItemShortModel instantiates a new WorkItemShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -555,22 +555,7 @@ and a boolean to check if the value has been set.
 
 SetIterations sets Iterations field to given value.
 
-### HasIterations
 
-`func (o *WorkItemShortModel) HasIterations() bool`
-
-HasIterations returns a boolean if a field has been set.
-
-### SetIterationsNil
-
-`func (o *WorkItemShortModel) SetIterationsNil(b bool)`
-
- SetIterationsNil sets the value for Iterations to be an explicit nil
-
-### UnsetIterations
-`func (o *WorkItemShortModel) UnsetIterations()`
-
-UnsetIterations ensures that no value is present for Iterations, not even an explicit nil
 ### GetLinks
 
 `func (o *WorkItemShortModel) GetLinks() []LinkShortModel`
@@ -590,22 +575,7 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
-### HasLinks
 
-`func (o *WorkItemShortModel) HasLinks() bool`
-
-HasLinks returns a boolean if a field has been set.
-
-### SetLinksNil
-
-`func (o *WorkItemShortModel) SetLinksNil(b bool)`
-
- SetLinksNil sets the value for Links to be an explicit nil
-
-### UnsetLinks
-`func (o *WorkItemShortModel) UnsetLinks()`
-
-UnsetLinks ensures that no value is present for Links, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

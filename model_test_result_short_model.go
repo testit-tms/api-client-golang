@@ -21,9 +21,9 @@ var _ MappedNullable = &TestResultShortModel{}
 // TestResultShortModel struct for TestResultShortModel
 type TestResultShortModel struct {
 	Id string `json:"id"`
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome string `json:"outcome"`
 	Traces NullableString `json:"traces,omitempty"`
-	FailureType NullableString `json:"failureType,omitempty"`
+	FailureType string `json:"failureType"`
 	Message NullableString `json:"message,omitempty"`
 	TestPoint NullableTestPointPutModel `json:"testPoint,omitempty"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
@@ -35,9 +35,11 @@ type TestResultShortModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultShortModel(id string) *TestResultShortModel {
+func NewTestResultShortModel(id string, outcome string, failureType string) *TestResultShortModel {
 	this := TestResultShortModel{}
 	this.Id = id
+	this.Outcome = outcome
+	this.FailureType = failureType
 	return &this
 }
 
@@ -73,46 +75,28 @@ func (o *TestResultShortModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value
 func (o *TestResultShortModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+
+	return o.Outcome
 }
 
-// GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
+// GetOutcomeOk returns a tuple with the Outcome field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortModel) GetOutcomeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return &o.Outcome, true
 }
 
-// HasOutcome returns a boolean if a field has been set.
-func (o *TestResultShortModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome sets field value
 func (o *TestResultShortModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultShortModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultShortModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = v
 }
 
 // GetTraces returns the Traces field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -157,46 +141,28 @@ func (o *TestResultShortModel) UnsetTraces() {
 	o.Traces.Unset()
 }
 
-// GetFailureType returns the FailureType field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureType returns the FailureType field value
 func (o *TestResultShortModel) GetFailureType() string {
-	if o == nil || IsNil(o.FailureType.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FailureType.Get()
+
+	return o.FailureType
 }
 
-// GetFailureTypeOk returns a tuple with the FailureType field value if set, nil otherwise
+// GetFailureTypeOk returns a tuple with the FailureType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortModel) GetFailureTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.FailureType.Get(), o.FailureType.IsSet()
+	return &o.FailureType, true
 }
 
-// HasFailureType returns a boolean if a field has been set.
-func (o *TestResultShortModel) HasFailureType() bool {
-	if o != nil && o.FailureType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFailureType gets a reference to the given NullableString and assigns it to the FailureType field.
+// SetFailureType sets field value
 func (o *TestResultShortModel) SetFailureType(v string) {
-	o.FailureType.Set(&v)
-}
-// SetFailureTypeNil sets the value for FailureType to be an explicit nil
-func (o *TestResultShortModel) SetFailureTypeNil() {
-	o.FailureType.Set(nil)
-}
-
-// UnsetFailureType ensures that no value is present for FailureType, not even an explicit nil
-func (o *TestResultShortModel) UnsetFailureType() {
-	o.FailureType.Unset()
+	o.FailureType = v
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -411,15 +377,11 @@ func (o TestResultShortModel) MarshalJSON() ([]byte, error) {
 func (o TestResultShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
-	}
+	toSerialize["outcome"] = o.Outcome
 	if o.Traces.IsSet() {
 		toSerialize["traces"] = o.Traces.Get()
 	}
-	if o.FailureType.IsSet() {
-		toSerialize["failureType"] = o.FailureType.Get()
-	}
+	toSerialize["failureType"] = o.FailureType
 	if o.Message.IsSet() {
 		toSerialize["message"] = o.Message.Get()
 	}

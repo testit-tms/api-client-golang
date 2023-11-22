@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **ProjectId** | **string** |  | 
-**ExternalId** | Pointer to **NullableString** |  | [optional] 
+**ExternalId** | **string** |  | 
 **GlobalId** | **int64** |  | 
 
 ## Methods
 
 ### NewAutoTestChangeViewModel
 
-`func NewAutoTestChangeViewModel(id string, projectId string, globalId int64, ) *AutoTestChangeViewModel`
+`func NewAutoTestChangeViewModel(id string, projectId string, externalId string, globalId int64, ) *AutoTestChangeViewModel`
 
 NewAutoTestChangeViewModel instantiates a new AutoTestChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,22 +87,7 @@ and a boolean to check if the value has been set.
 
 SetExternalId sets ExternalId field to given value.
 
-### HasExternalId
 
-`func (o *AutoTestChangeViewModel) HasExternalId() bool`
-
-HasExternalId returns a boolean if a field has been set.
-
-### SetExternalIdNil
-
-`func (o *AutoTestChangeViewModel) SetExternalIdNil(b bool)`
-
- SetExternalIdNil sets the value for ExternalId to be an explicit nil
-
-### UnsetExternalId
-`func (o *AutoTestChangeViewModel) UnsetExternalId()`
-
-UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetGlobalId
 
 `func (o *AutoTestChangeViewModel) GetGlobalId() int64`
