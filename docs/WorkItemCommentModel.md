@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Text** | Pointer to **NullableString** |  | [optional] 
-**User** | Pointer to [**NullableUserWithRankModel**](UserWithRankModel.md) |  | [optional] 
+**Text** | **string** |  | 
+**User** | [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  | 
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedDate** | **time.Time** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemCommentModel
 
-`func NewWorkItemCommentModel(id string, createdById string, createdDate time.Time, ) *WorkItemCommentModel`
+`func NewWorkItemCommentModel(id string, text string, user WorkItemCommentModelUser, createdById string, createdDate time.Time, ) *WorkItemCommentModel`
 
 NewWorkItemCommentModel instantiates a new WorkItemCommentModel object
 This constructor will assign default values to properties that have it defined,
@@ -70,57 +70,27 @@ and a boolean to check if the value has been set.
 
 SetText sets Text field to given value.
 
-### HasText
 
-`func (o *WorkItemCommentModel) HasText() bool`
-
-HasText returns a boolean if a field has been set.
-
-### SetTextNil
-
-`func (o *WorkItemCommentModel) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *WorkItemCommentModel) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetUser
 
-`func (o *WorkItemCommentModel) GetUser() UserWithRankModel`
+`func (o *WorkItemCommentModel) GetUser() WorkItemCommentModelUser`
 
 GetUser returns the User field if non-nil, zero value otherwise.
 
 ### GetUserOk
 
-`func (o *WorkItemCommentModel) GetUserOk() (*UserWithRankModel, bool)`
+`func (o *WorkItemCommentModel) GetUserOk() (*WorkItemCommentModelUser, bool)`
 
 GetUserOk returns a tuple with the User field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUser
 
-`func (o *WorkItemCommentModel) SetUser(v UserWithRankModel)`
+`func (o *WorkItemCommentModel) SetUser(v WorkItemCommentModelUser)`
 
 SetUser sets User field to given value.
 
-### HasUser
 
-`func (o *WorkItemCommentModel) HasUser() bool`
-
-HasUser returns a boolean if a field has been set.
-
-### SetUserNil
-
-`func (o *WorkItemCommentModel) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *WorkItemCommentModel) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetCreatedById
 
 `func (o *WorkItemCommentModel) GetCreatedById() string`

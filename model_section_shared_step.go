@@ -21,9 +21,9 @@ var _ MappedNullable = &SectionSharedStep{}
 type SectionSharedStep struct {
 	VersionId string `json:"versionId"`
 	GlobalId int64 `json:"globalId"`
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Deprecated
-	Steps []StepModel `json:"steps,omitempty"`
+	Steps []StepModel `json:"steps"`
 	IsDeleted bool `json:"isDeleted"`
 }
 
@@ -31,10 +31,12 @@ type SectionSharedStep struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSectionSharedStep(versionId string, globalId int64, isDeleted bool) *SectionSharedStep {
+func NewSectionSharedStep(versionId string, globalId int64, name string, steps []StepModel, isDeleted bool) *SectionSharedStep {
 	this := SectionSharedStep{}
 	this.VersionId = versionId
 	this.GlobalId = globalId
+	this.Name = name
+	this.Steps = steps
 	this.IsDeleted = isDeleted
 	return &this
 }
@@ -95,79 +97,52 @@ func (o *SectionSharedStep) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *SectionSharedStep) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SectionSharedStep) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *SectionSharedStep) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *SectionSharedStep) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *SectionSharedStep) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *SectionSharedStep) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetSteps returns the Steps field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSteps returns the Steps field value
 // Deprecated
 func (o *SectionSharedStep) GetSteps() []StepModel {
 	if o == nil {
 		var ret []StepModel
 		return ret
 	}
+
 	return o.Steps
 }
 
-// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
+// GetStepsOk returns a tuple with the Steps field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 // Deprecated
 func (o *SectionSharedStep) GetStepsOk() ([]StepModel, bool) {
-	if o == nil || IsNil(o.Steps) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Steps, true
 }
 
-// HasSteps returns a boolean if a field has been set.
-func (o *SectionSharedStep) HasSteps() bool {
-	if o != nil && IsNil(o.Steps) {
-		return true
-	}
-
-	return false
-}
-
-// SetSteps gets a reference to the given []StepModel and assigns it to the Steps field.
+// SetSteps sets field value
 // Deprecated
 func (o *SectionSharedStep) SetSteps(v []StepModel) {
 	o.Steps = v
@@ -209,12 +184,8 @@ func (o SectionSharedStep) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["versionId"] = o.VersionId
 	toSerialize["globalId"] = o.GlobalId
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.Steps != nil {
-		toSerialize["steps"] = o.Steps
-	}
+	toSerialize["name"] = o.Name
+	toSerialize["steps"] = o.Steps
 	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
 }

@@ -21,7 +21,9 @@ var _ MappedNullable = &ParameterShortModel{}
 type ParameterShortModel struct {
 	Id string `json:"id"`
 	ParameterKeyId string `json:"parameterKeyId"`
+	// Value of the parameter
 	Value string `json:"value"`
+	// Key of the parameter
 	Name string `json:"name"`
 }
 

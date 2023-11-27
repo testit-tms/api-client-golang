@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SelectModel** | [**TestRunSelectionModel**](TestRunSelectionModel.md) |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**AttachmentUpdateScheme** | Pointer to [**NullableSetOfAttachmentIds**](SetOfAttachmentIds.md) |  | [optional] 
-**LinkUpdateScheme** | Pointer to [**NullableSetOfLinks**](SetOfLinks.md) |  | [optional] 
+**AttachmentUpdateScheme** | [**SetOfAttachmentIds**](SetOfAttachmentIds.md) |  | 
+**LinkUpdateScheme** | [**SetOfLinks**](SetOfLinks.md) |  | 
 
 ## Methods
 
 ### NewApiV2TestRunsUpdateMultiplePostRequest
 
-`func NewApiV2TestRunsUpdateMultiplePostRequest(selectModel TestRunSelectionModel, ) *ApiV2TestRunsUpdateMultiplePostRequest`
+`func NewApiV2TestRunsUpdateMultiplePostRequest(selectModel TestRunSelectionModel, attachmentUpdateScheme SetOfAttachmentIds, linkUpdateScheme SetOfLinks, ) *ApiV2TestRunsUpdateMultiplePostRequest`
 
 NewApiV2TestRunsUpdateMultiplePostRequest instantiates a new ApiV2TestRunsUpdateMultiplePostRequest object
 This constructor will assign default values to properties that have it defined,
@@ -102,22 +102,7 @@ and a boolean to check if the value has been set.
 
 SetAttachmentUpdateScheme sets AttachmentUpdateScheme field to given value.
 
-### HasAttachmentUpdateScheme
 
-`func (o *ApiV2TestRunsUpdateMultiplePostRequest) HasAttachmentUpdateScheme() bool`
-
-HasAttachmentUpdateScheme returns a boolean if a field has been set.
-
-### SetAttachmentUpdateSchemeNil
-
-`func (o *ApiV2TestRunsUpdateMultiplePostRequest) SetAttachmentUpdateSchemeNil(b bool)`
-
- SetAttachmentUpdateSchemeNil sets the value for AttachmentUpdateScheme to be an explicit nil
-
-### UnsetAttachmentUpdateScheme
-`func (o *ApiV2TestRunsUpdateMultiplePostRequest) UnsetAttachmentUpdateScheme()`
-
-UnsetAttachmentUpdateScheme ensures that no value is present for AttachmentUpdateScheme, not even an explicit nil
 ### GetLinkUpdateScheme
 
 `func (o *ApiV2TestRunsUpdateMultiplePostRequest) GetLinkUpdateScheme() SetOfLinks`
@@ -137,22 +122,7 @@ and a boolean to check if the value has been set.
 
 SetLinkUpdateScheme sets LinkUpdateScheme field to given value.
 
-### HasLinkUpdateScheme
 
-`func (o *ApiV2TestRunsUpdateMultiplePostRequest) HasLinkUpdateScheme() bool`
-
-HasLinkUpdateScheme returns a boolean if a field has been set.
-
-### SetLinkUpdateSchemeNil
-
-`func (o *ApiV2TestRunsUpdateMultiplePostRequest) SetLinkUpdateSchemeNil(b bool)`
-
- SetLinkUpdateSchemeNil sets the value for LinkUpdateScheme to be an explicit nil
-
-### UnsetLinkUpdateScheme
-`func (o *ApiV2TestRunsUpdateMultiplePostRequest) UnsetLinkUpdateScheme()`
-
-UnsetLinkUpdateScheme ensures that no value is present for LinkUpdateScheme, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

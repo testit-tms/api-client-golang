@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 **ProjectId** | **string** |  | 
 **ProductName** | Pointer to **NullableString** |  | [optional] 
 **HasAutomaticDurationTimer** | Pointer to **NullableBool** |  | [optional] 
-**Attributes** | Pointer to **map[string]interface{}** |  | [optional] 
+**Attributes** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewTestPlanPutModel
 
-`func NewTestPlanPutModel(id string, name string, projectId string, ) *TestPlanPutModel`
+`func NewTestPlanPutModel(id string, name string, projectId string, attributes map[string]interface{}, ) *TestPlanPutModel`
 
 NewTestPlanPutModel instantiates a new TestPlanPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -395,22 +395,7 @@ and a boolean to check if the value has been set.
 
 SetAttributes sets Attributes field to given value.
 
-### HasAttributes
 
-`func (o *TestPlanPutModel) HasAttributes() bool`
-
-HasAttributes returns a boolean if a field has been set.
-
-### SetAttributesNil
-
-`func (o *TestPlanPutModel) SetAttributesNil(b bool)`
-
- SetAttributesNil sets the value for Attributes to be an explicit nil
-
-### UnsetAttributes
-`func (o *TestPlanPutModel) UnsetAttributes()`
-
-UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

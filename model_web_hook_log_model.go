@@ -20,7 +20,7 @@ var _ MappedNullable = &WebHookLogModel{}
 
 // WebHookLogModel struct for WebHookLogModel
 type WebHookLogModel struct {
-	WebHookName NullableString `json:"webHookName,omitempty"`
+	WebHookName string `json:"webHookName"`
 	EventType WebHookEventTypeModel `json:"eventType"`
 	WebHookId string `json:"webHookId"`
 	RequestBody NullableString `json:"requestBody,omitempty"`
@@ -29,7 +29,7 @@ type WebHookLogModel struct {
 	ResponseBody NullableString `json:"responseBody,omitempty"`
 	ResponseMeta NullableString `json:"responseMeta,omitempty"`
 	ProjectId string `json:"projectId"`
-	Url NullableString `json:"url,omitempty"`
+	Url string `json:"url"`
 	RequestType RequestTypeModel `json:"requestType"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
@@ -45,12 +45,14 @@ type WebHookLogModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWebHookLogModel(eventType WebHookEventTypeModel, webHookId string, responseStatusCode int32, projectId string, requestType RequestTypeModel, createdById string, id string, isDeleted bool) *WebHookLogModel {
+func NewWebHookLogModel(webHookName string, eventType WebHookEventTypeModel, webHookId string, responseStatusCode int32, projectId string, url string, requestType RequestTypeModel, createdById string, id string, isDeleted bool) *WebHookLogModel {
 	this := WebHookLogModel{}
+	this.WebHookName = webHookName
 	this.EventType = eventType
 	this.WebHookId = webHookId
 	this.ResponseStatusCode = responseStatusCode
 	this.ProjectId = projectId
+	this.Url = url
 	this.RequestType = requestType
 	this.CreatedById = createdById
 	this.Id = id
@@ -66,46 +68,28 @@ func NewWebHookLogModelWithDefaults() *WebHookLogModel {
 	return &this
 }
 
-// GetWebHookName returns the WebHookName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetWebHookName returns the WebHookName field value
 func (o *WebHookLogModel) GetWebHookName() string {
-	if o == nil || IsNil(o.WebHookName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.WebHookName.Get()
+
+	return o.WebHookName
 }
 
-// GetWebHookNameOk returns a tuple with the WebHookName field value if set, nil otherwise
+// GetWebHookNameOk returns a tuple with the WebHookName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookLogModel) GetWebHookNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.WebHookName.Get(), o.WebHookName.IsSet()
+	return &o.WebHookName, true
 }
 
-// HasWebHookName returns a boolean if a field has been set.
-func (o *WebHookLogModel) HasWebHookName() bool {
-	if o != nil && o.WebHookName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWebHookName gets a reference to the given NullableString and assigns it to the WebHookName field.
+// SetWebHookName sets field value
 func (o *WebHookLogModel) SetWebHookName(v string) {
-	o.WebHookName.Set(&v)
-}
-// SetWebHookNameNil sets the value for WebHookName to be an explicit nil
-func (o *WebHookLogModel) SetWebHookNameNil() {
-	o.WebHookName.Set(nil)
-}
-
-// UnsetWebHookName ensures that no value is present for WebHookName, not even an explicit nil
-func (o *WebHookLogModel) UnsetWebHookName() {
-	o.WebHookName.Unset()
+	o.WebHookName = v
 }
 
 // GetEventType returns the EventType field value
@@ -372,46 +356,28 @@ func (o *WebHookLogModel) SetProjectId(v string) {
 	o.ProjectId = v
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value
 func (o *WebHookLogModel) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+
+	return o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// GetUrlOk returns a tuple with the Url field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WebHookLogModel) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return &o.Url, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *WebHookLogModel) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl sets field value
 func (o *WebHookLogModel) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *WebHookLogModel) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *WebHookLogModel) UnsetUrl() {
-	o.Url.Unset()
+	o.Url = v
 }
 
 // GetRequestType returns the RequestType field value
@@ -646,9 +612,7 @@ func (o WebHookLogModel) MarshalJSON() ([]byte, error) {
 
 func (o WebHookLogModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.WebHookName.IsSet() {
-		toSerialize["webHookName"] = o.WebHookName.Get()
-	}
+	toSerialize["webHookName"] = o.WebHookName
 	toSerialize["eventType"] = o.EventType
 	toSerialize["webHookId"] = o.WebHookId
 	if o.RequestBody.IsSet() {
@@ -665,9 +629,7 @@ func (o WebHookLogModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["responseMeta"] = o.ResponseMeta.Get()
 	}
 	toSerialize["projectId"] = o.ProjectId
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
-	}
+	toSerialize["url"] = o.Url
 	toSerialize["requestType"] = o.RequestType
 	if o.CreatedDate.IsSet() {
 		toSerialize["createdDate"] = o.CreatedDate.Get()

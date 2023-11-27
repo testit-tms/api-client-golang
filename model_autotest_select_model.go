@@ -19,16 +19,18 @@ var _ MappedNullable = &AutotestSelectModel{}
 
 // AutotestSelectModel struct for AutotestSelectModel
 type AutotestSelectModel struct {
-	Filter NullableAutotestFilterModel `json:"filter,omitempty"`
-	ExtractionModel NullableAutotestsExtractionModel `json:"extractionModel,omitempty"`
+	Filter AutotestSelectModelFilter `json:"filter"`
+	ExtractionModel AutotestSelectModelExtractionModel `json:"extractionModel"`
 }
 
 // NewAutotestSelectModel instantiates a new AutotestSelectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutotestSelectModel() *AutotestSelectModel {
+func NewAutotestSelectModel(filter AutotestSelectModelFilter, extractionModel AutotestSelectModelExtractionModel) *AutotestSelectModel {
 	this := AutotestSelectModel{}
+	this.Filter = filter
+	this.ExtractionModel = extractionModel
 	return &this
 }
 
@@ -40,88 +42,52 @@ func NewAutotestSelectModelWithDefaults() *AutotestSelectModel {
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestSelectModel) GetFilter() AutotestFilterModel {
-	if o == nil || IsNil(o.Filter.Get()) {
-		var ret AutotestFilterModel
+// GetFilter returns the Filter field value
+func (o *AutotestSelectModel) GetFilter() AutotestSelectModelFilter {
+	if o == nil {
+		var ret AutotestSelectModelFilter
 		return ret
 	}
-	return *o.Filter.Get()
+
+	return o.Filter
 }
 
-// GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
+// GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestSelectModel) GetFilterOk() (*AutotestFilterModel, bool) {
+func (o *AutotestSelectModel) GetFilterOk() (*AutotestSelectModelFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Filter.Get(), o.Filter.IsSet()
+	return &o.Filter, true
 }
 
-// HasFilter returns a boolean if a field has been set.
-func (o *AutotestSelectModel) HasFilter() bool {
-	if o != nil && o.Filter.IsSet() {
-		return true
-	}
-
-	return false
+// SetFilter sets field value
+func (o *AutotestSelectModel) SetFilter(v AutotestSelectModelFilter) {
+	o.Filter = v
 }
 
-// SetFilter gets a reference to the given NullableAutotestFilterModel and assigns it to the Filter field.
-func (o *AutotestSelectModel) SetFilter(v AutotestFilterModel) {
-	o.Filter.Set(&v)
-}
-// SetFilterNil sets the value for Filter to be an explicit nil
-func (o *AutotestSelectModel) SetFilterNil() {
-	o.Filter.Set(nil)
-}
-
-// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
-func (o *AutotestSelectModel) UnsetFilter() {
-	o.Filter.Unset()
-}
-
-// GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestSelectModel) GetExtractionModel() AutotestsExtractionModel {
-	if o == nil || IsNil(o.ExtractionModel.Get()) {
-		var ret AutotestsExtractionModel
+// GetExtractionModel returns the ExtractionModel field value
+func (o *AutotestSelectModel) GetExtractionModel() AutotestSelectModelExtractionModel {
+	if o == nil {
+		var ret AutotestSelectModelExtractionModel
 		return ret
 	}
-	return *o.ExtractionModel.Get()
+
+	return o.ExtractionModel
 }
 
-// GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
+// GetExtractionModelOk returns a tuple with the ExtractionModel field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestsExtractionModel, bool) {
+func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestSelectModelExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExtractionModel.Get(), o.ExtractionModel.IsSet()
+	return &o.ExtractionModel, true
 }
 
-// HasExtractionModel returns a boolean if a field has been set.
-func (o *AutotestSelectModel) HasExtractionModel() bool {
-	if o != nil && o.ExtractionModel.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExtractionModel gets a reference to the given NullableAutotestsExtractionModel and assigns it to the ExtractionModel field.
-func (o *AutotestSelectModel) SetExtractionModel(v AutotestsExtractionModel) {
-	o.ExtractionModel.Set(&v)
-}
-// SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil
-func (o *AutotestSelectModel) SetExtractionModelNil() {
-	o.ExtractionModel.Set(nil)
-}
-
-// UnsetExtractionModel ensures that no value is present for ExtractionModel, not even an explicit nil
-func (o *AutotestSelectModel) UnsetExtractionModel() {
-	o.ExtractionModel.Unset()
+// SetExtractionModel sets field value
+func (o *AutotestSelectModel) SetExtractionModel(v AutotestSelectModelExtractionModel) {
+	o.ExtractionModel = v
 }
 
 func (o AutotestSelectModel) MarshalJSON() ([]byte, error) {
@@ -134,12 +100,8 @@ func (o AutotestSelectModel) MarshalJSON() ([]byte, error) {
 
 func (o AutotestSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Filter.IsSet() {
-		toSerialize["filter"] = o.Filter.Get()
-	}
-	if o.ExtractionModel.IsSet() {
-		toSerialize["extractionModel"] = o.ExtractionModel.Get()
-	}
+	toSerialize["filter"] = o.Filter
+	toSerialize["extractionModel"] = o.ExtractionModel
 	return toSerialize, nil
 }
 

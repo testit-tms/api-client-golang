@@ -19,16 +19,18 @@ var _ MappedNullable = &TestRunShortGetModelStatistics{}
 
 // TestRunShortGetModelStatistics Statistics of the test run
 type TestRunShortGetModelStatistics struct {
-	Statuses NullableTestResultsStatisticsGetModelStatuses `json:"statuses,omitempty"`
-	FailureCategories NullableTestResultsStatisticsGetModelFailureCategories `json:"failureCategories,omitempty"`
+	Statuses TestResultsStatisticsGetModelStatuses `json:"statuses"`
+	FailureCategories TestResultsStatisticsGetModelFailureCategories `json:"failureCategories"`
 }
 
 // NewTestRunShortGetModelStatistics instantiates a new TestRunShortGetModelStatistics object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunShortGetModelStatistics() *TestRunShortGetModelStatistics {
+func NewTestRunShortGetModelStatistics(statuses TestResultsStatisticsGetModelStatuses, failureCategories TestResultsStatisticsGetModelFailureCategories) *TestRunShortGetModelStatistics {
 	this := TestRunShortGetModelStatistics{}
+	this.Statuses = statuses
+	this.FailureCategories = failureCategories
 	return &this
 }
 
@@ -40,88 +42,52 @@ func NewTestRunShortGetModelStatisticsWithDefaults() *TestRunShortGetModelStatis
 	return &this
 }
 
-// GetStatuses returns the Statuses field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStatuses returns the Statuses field value
 func (o *TestRunShortGetModelStatistics) GetStatuses() TestResultsStatisticsGetModelStatuses {
-	if o == nil || IsNil(o.Statuses.Get()) {
+	if o == nil {
 		var ret TestResultsStatisticsGetModelStatuses
 		return ret
 	}
-	return *o.Statuses.Get()
+
+	return o.Statuses
 }
 
-// GetStatusesOk returns a tuple with the Statuses field value if set, nil otherwise
+// GetStatusesOk returns a tuple with the Statuses field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunShortGetModelStatistics) GetStatusesOk() (*TestResultsStatisticsGetModelStatuses, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Statuses.Get(), o.Statuses.IsSet()
+	return &o.Statuses, true
 }
 
-// HasStatuses returns a boolean if a field has been set.
-func (o *TestRunShortGetModelStatistics) HasStatuses() bool {
-	if o != nil && o.Statuses.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStatuses gets a reference to the given NullableTestResultsStatisticsGetModelStatuses and assigns it to the Statuses field.
+// SetStatuses sets field value
 func (o *TestRunShortGetModelStatistics) SetStatuses(v TestResultsStatisticsGetModelStatuses) {
-	o.Statuses.Set(&v)
-}
-// SetStatusesNil sets the value for Statuses to be an explicit nil
-func (o *TestRunShortGetModelStatistics) SetStatusesNil() {
-	o.Statuses.Set(nil)
+	o.Statuses = v
 }
 
-// UnsetStatuses ensures that no value is present for Statuses, not even an explicit nil
-func (o *TestRunShortGetModelStatistics) UnsetStatuses() {
-	o.Statuses.Unset()
-}
-
-// GetFailureCategories returns the FailureCategories field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureCategories returns the FailureCategories field value
 func (o *TestRunShortGetModelStatistics) GetFailureCategories() TestResultsStatisticsGetModelFailureCategories {
-	if o == nil || IsNil(o.FailureCategories.Get()) {
+	if o == nil {
 		var ret TestResultsStatisticsGetModelFailureCategories
 		return ret
 	}
-	return *o.FailureCategories.Get()
+
+	return o.FailureCategories
 }
 
-// GetFailureCategoriesOk returns a tuple with the FailureCategories field value if set, nil otherwise
+// GetFailureCategoriesOk returns a tuple with the FailureCategories field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunShortGetModelStatistics) GetFailureCategoriesOk() (*TestResultsStatisticsGetModelFailureCategories, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.FailureCategories.Get(), o.FailureCategories.IsSet()
+	return &o.FailureCategories, true
 }
 
-// HasFailureCategories returns a boolean if a field has been set.
-func (o *TestRunShortGetModelStatistics) HasFailureCategories() bool {
-	if o != nil && o.FailureCategories.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFailureCategories gets a reference to the given NullableTestResultsStatisticsGetModelFailureCategories and assigns it to the FailureCategories field.
+// SetFailureCategories sets field value
 func (o *TestRunShortGetModelStatistics) SetFailureCategories(v TestResultsStatisticsGetModelFailureCategories) {
-	o.FailureCategories.Set(&v)
-}
-// SetFailureCategoriesNil sets the value for FailureCategories to be an explicit nil
-func (o *TestRunShortGetModelStatistics) SetFailureCategoriesNil() {
-	o.FailureCategories.Set(nil)
-}
-
-// UnsetFailureCategories ensures that no value is present for FailureCategories, not even an explicit nil
-func (o *TestRunShortGetModelStatistics) UnsetFailureCategories() {
-	o.FailureCategories.Unset()
+	o.FailureCategories = v
 }
 
 func (o TestRunShortGetModelStatistics) MarshalJSON() ([]byte, error) {
@@ -134,12 +100,8 @@ func (o TestRunShortGetModelStatistics) MarshalJSON() ([]byte, error) {
 
 func (o TestRunShortGetModelStatistics) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Statuses.IsSet() {
-		toSerialize["statuses"] = o.Statuses.Get()
-	}
-	if o.FailureCategories.IsSet() {
-		toSerialize["failureCategories"] = o.FailureCategories.Get()
-	}
+	toSerialize["statuses"] = o.Statuses
+	toSerialize["failureCategories"] = o.FailureCategories
 	return toSerialize, nil
 }
 

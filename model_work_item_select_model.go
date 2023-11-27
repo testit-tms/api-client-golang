@@ -19,16 +19,17 @@ var _ MappedNullable = &WorkItemSelectModel{}
 
 // WorkItemSelectModel Model containing options to filter work items
 type WorkItemSelectModel struct {
-	Filter NullableWorkItemSelectModelFilter `json:"filter,omitempty"`
-	ExtractionModel NullableWorkItemSelectModelExtractionModel `json:"extractionModel,omitempty"`
+	Filter WorkItemSelectModelFilter `json:"filter"`
+	ExtractionModel NullableWorkItemLocalSelectModelExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewWorkItemSelectModel instantiates a new WorkItemSelectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemSelectModel() *WorkItemSelectModel {
+func NewWorkItemSelectModel(filter WorkItemSelectModelFilter) *WorkItemSelectModel {
 	this := WorkItemSelectModel{}
+	this.Filter = filter
 	return &this
 }
 
@@ -40,52 +41,34 @@ func NewWorkItemSelectModelWithDefaults() *WorkItemSelectModel {
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFilter returns the Filter field value
 func (o *WorkItemSelectModel) GetFilter() WorkItemSelectModelFilter {
-	if o == nil || IsNil(o.Filter.Get()) {
+	if o == nil {
 		var ret WorkItemSelectModelFilter
 		return ret
 	}
-	return *o.Filter.Get()
+
+	return o.Filter
 }
 
-// GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
+// GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemSelectModel) GetFilterOk() (*WorkItemSelectModelFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Filter.Get(), o.Filter.IsSet()
+	return &o.Filter, true
 }
 
-// HasFilter returns a boolean if a field has been set.
-func (o *WorkItemSelectModel) HasFilter() bool {
-	if o != nil && o.Filter.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFilter gets a reference to the given NullableWorkItemSelectModelFilter and assigns it to the Filter field.
+// SetFilter sets field value
 func (o *WorkItemSelectModel) SetFilter(v WorkItemSelectModelFilter) {
-	o.Filter.Set(&v)
-}
-// SetFilterNil sets the value for Filter to be an explicit nil
-func (o *WorkItemSelectModel) SetFilterNil() {
-	o.Filter.Set(nil)
-}
-
-// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
-func (o *WorkItemSelectModel) UnsetFilter() {
-	o.Filter.Unset()
+	o.Filter = v
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemSelectModel) GetExtractionModel() WorkItemSelectModelExtractionModel {
+func (o *WorkItemSelectModel) GetExtractionModel() WorkItemLocalSelectModelExtractionModel {
 	if o == nil || IsNil(o.ExtractionModel.Get()) {
-		var ret WorkItemSelectModelExtractionModel
+		var ret WorkItemLocalSelectModelExtractionModel
 		return ret
 	}
 	return *o.ExtractionModel.Get()
@@ -94,7 +77,7 @@ func (o *WorkItemSelectModel) GetExtractionModel() WorkItemSelectModelExtraction
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemSelectModelExtractionModel, bool) {
+func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemLocalSelectModelExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,8 +93,8 @@ func (o *WorkItemSelectModel) HasExtractionModel() bool {
 	return false
 }
 
-// SetExtractionModel gets a reference to the given NullableWorkItemSelectModelExtractionModel and assigns it to the ExtractionModel field.
-func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemSelectModelExtractionModel) {
+// SetExtractionModel gets a reference to the given NullableWorkItemLocalSelectModelExtractionModel and assigns it to the ExtractionModel field.
+func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemLocalSelectModelExtractionModel) {
 	o.ExtractionModel.Set(&v)
 }
 // SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil
@@ -134,9 +117,7 @@ func (o WorkItemSelectModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Filter.IsSet() {
-		toSerialize["filter"] = o.Filter.Get()
-	}
+	toSerialize["filter"] = o.Filter
 	if o.ExtractionModel.IsSet() {
 		toSerialize["extractionModel"] = o.ExtractionModel.Get()
 	}

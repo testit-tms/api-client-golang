@@ -65,6 +65,24 @@ type APIClient struct {
 
 	ParametersApi *ParametersApiService
 
+	ProjectAttributeTemplatesApi *ProjectAttributeTemplatesApiService
+
+	ProjectAttributesApi *ProjectAttributesApiService
+
+	ProjectConfigurationsApi *ProjectConfigurationsApiService
+
+	ProjectExportApi *ProjectExportApiService
+
+	ProjectImportApi *ProjectImportApiService
+
+	ProjectSectionsApi *ProjectSectionsApiService
+
+	ProjectTestPlanAttributesApi *ProjectTestPlanAttributesApiService
+
+	ProjectTestPlansApi *ProjectTestPlansApiService
+
+	ProjectWorkItemsApi *ProjectWorkItemsApiService
+
 	ProjectsApi *ProjectsApiService
 
 	SearchApi *SearchApiService
@@ -116,6 +134,15 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CustomAttributesApi = (*CustomAttributesApiService)(&c.common)
 	c.NotificationsApi = (*NotificationsApiService)(&c.common)
 	c.ParametersApi = (*ParametersApiService)(&c.common)
+	c.ProjectAttributeTemplatesApi = (*ProjectAttributeTemplatesApiService)(&c.common)
+	c.ProjectAttributesApi = (*ProjectAttributesApiService)(&c.common)
+	c.ProjectConfigurationsApi = (*ProjectConfigurationsApiService)(&c.common)
+	c.ProjectExportApi = (*ProjectExportApiService)(&c.common)
+	c.ProjectImportApi = (*ProjectImportApiService)(&c.common)
+	c.ProjectSectionsApi = (*ProjectSectionsApiService)(&c.common)
+	c.ProjectTestPlanAttributesApi = (*ProjectTestPlanAttributesApiService)(&c.common)
+	c.ProjectTestPlansApi = (*ProjectTestPlansApiService)(&c.common)
+	c.ProjectWorkItemsApi = (*ProjectWorkItemsApiService)(&c.common)
 	c.ProjectsApi = (*ProjectsApiService)(&c.common)
 	c.SearchApi = (*SearchApiService)(&c.common)
 	c.SectionsApi = (*SectionsApiService)(&c.common)

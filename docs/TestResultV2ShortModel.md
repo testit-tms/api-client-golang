@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **TestPointId** | Pointer to **NullableString** |  | [optional] 
 **TestPoint** | Pointer to [**NullableTestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  | [optional] 
 **TestRunId** | **string** |  | 
-**Outcome** | Pointer to **NullableString** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
+**Outcome** | **string** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultV2ShortModel
 
-`func NewTestResultV2ShortModel(id string, configurationId string, workItemVersionId string, testRunId string, ) *TestResultV2ShortModel`
+`func NewTestResultV2ShortModel(id string, configurationId string, workItemVersionId string, testRunId string, outcome string, ) *TestResultV2ShortModel`
 
 NewTestResultV2ShortModel instantiates a new TestResultV2ShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -457,22 +457,7 @@ and a boolean to check if the value has been set.
 
 SetOutcome sets Outcome field to given value.
 
-### HasOutcome
 
-`func (o *TestResultV2ShortModel) HasOutcome() bool`
-
-HasOutcome returns a boolean if a field has been set.
-
-### SetOutcomeNil
-
-`func (o *TestResultV2ShortModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *TestResultV2ShortModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultV2ShortModel) GetComment() string`

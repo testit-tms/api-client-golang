@@ -26,18 +26,19 @@ type ProjectShortestModel struct {
 	// Global ID of project
 	GlobalId int64 `json:"globalId"`
 	// Name of project
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 }
 
 // NewProjectShortestModel instantiates a new ProjectShortestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectShortestModel(id string, isDeleted bool, globalId int64) *ProjectShortestModel {
+func NewProjectShortestModel(id string, isDeleted bool, globalId int64, name string) *ProjectShortestModel {
 	this := ProjectShortestModel{}
 	this.Id = id
 	this.IsDeleted = isDeleted
 	this.GlobalId = globalId
+	this.Name = name
 	return &this
 }
 
@@ -121,46 +122,28 @@ func (o *ProjectShortestModel) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *ProjectShortestModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectShortestModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ProjectShortestModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *ProjectShortestModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ProjectShortestModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ProjectShortestModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 func (o ProjectShortestModel) MarshalJSON() ([]byte, error) {
@@ -176,9 +159,7 @@ func (o ProjectShortestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["globalId"] = o.GlobalId
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }
 

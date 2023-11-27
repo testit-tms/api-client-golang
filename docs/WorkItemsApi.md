@@ -770,7 +770,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSearchPost
 
-> []WorkItemShortModel ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
+> []WorkItemShortModel ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
 
 Search for work items
 
@@ -792,11 +792,11 @@ func main() {
     orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     searchField := "searchField_example" // string | Property name for searching (optional)
     searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest |  (optional)
+    apiV2ProjectsProjectIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdWorkItemsSearchPostRequest(*openapiclient.NewWorkItemSelectModelFilter()) // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSearchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -822,7 +822,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) |  | 
+ **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -1097,7 +1097,7 @@ import (
 )
 
 func main() {
-    createWorkItemRequest := *openapiclient.NewCreateWorkItemRequest(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example")}, "Basic template", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // CreateWorkItemRequest |  (optional)
+    createWorkItemRequest := *openapiclient.NewCreateWorkItemRequest(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8") // CreateWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1791,7 +1791,7 @@ import (
 )
 
 func main() {
-    updateWorkItemRequest := *openapiclient.NewUpdateWorkItemRequest([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("d5e8b098-d2b8-480f-b49c-13dc4bf70a08")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example")}, "Basic template") // UpdateWorkItemRequest |  (optional)
+    updateWorkItemRequest := *openapiclient.NewUpdateWorkItemRequest([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagShortModel{*openapiclient.NewTagShortModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // UpdateWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

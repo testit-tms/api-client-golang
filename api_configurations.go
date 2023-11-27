@@ -34,18 +34,12 @@ func (r ApiApiV2ConfigurationsCreateByParametersPostRequest) ApiV2Configurations
 	return r
 }
 
-func (r ApiApiV2ConfigurationsCreateByParametersPostRequest) Execute() (*http.Response, error) {
+func (r ApiApiV2ConfigurationsCreateByParametersPostRequest) Execute() ([]string, *http.Response, error) {
 	return r.ApiService.ApiV2ConfigurationsCreateByParametersPostExecute(r)
 }
 
 /*
-ApiV2ConfigurationsCreateByParametersPost Create Configurations by parameters
-
-<br>Use case
-<br>User sets request model (listed in the request example)
-<br>User runs method execution
-<br>System creates configurations
-<br>System returns created configuration ids (listed in the response example)
+ApiV2ConfigurationsCreateByParametersPost Create configurations by parameters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ConfigurationsCreateByParametersPostRequest
@@ -58,16 +52,18 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPost(ctx
 }
 
 // Execute executes the request
-func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExecute(r ApiApiV2ConfigurationsCreateByParametersPostRequest) (*http.Response, error) {
+//  @return []string
+func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExecute(r ApiApiV2ConfigurationsCreateByParametersPostRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsCreateByParametersPost")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/api/v2/configurations/createByParameters"
@@ -111,19 +107,19 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExec
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -131,32 +127,29 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExec
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
+				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiApiV2ConfigurationsDeleteBulkPostRequest struct {
@@ -509,7 +502,6 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPatchExecute(r ApiApiV2C
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -624,7 +616,6 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPurgePostExecute(r ApiAp
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -975,7 +966,6 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsPutExecute(r ApiApiV2Confi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1393,6 +1383,17 @@ func (a *ConfigurationsApiService) CreateConfigurationExecute(r ApiCreateConfigu
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1405,17 +1406,6 @@ func (a *ConfigurationsApiService) CreateConfigurationExecute(r ApiCreateConfigu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

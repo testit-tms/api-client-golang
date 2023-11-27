@@ -390,7 +390,7 @@ import (
 )
 
 func main() {
-    apiV2TestRunsUpdateMultiplePostRequest := *openapiclient.NewApiV2TestRunsUpdateMultiplePostRequest(*openapiclient.NewTestRunSelectionModel()) // ApiV2TestRunsUpdateMultiplePostRequest |  (optional)
+    apiV2TestRunsUpdateMultiplePostRequest := *openapiclient.NewApiV2TestRunsUpdateMultiplePostRequest(*openapiclient.NewTestRunSelectionModel(*openapiclient.NewApiV2TestRunsSearchPostRequest(), *openapiclient.NewTestRunSelectModelExtractionModel()), *openapiclient.NewSetOfAttachmentIds(openapiclient.ActionUpdate("Add")), *openapiclient.NewSetOfLinks(openapiclient.ActionUpdate("Add"))) // ApiV2TestRunsUpdateMultiplePostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -720,7 +720,7 @@ import (
 )
 
 func main() {
-    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // CreateEmptyRequest |  (optional)
+    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8") // CreateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1064,7 +1064,7 @@ import (
 )
 
 func main() {
-    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "First run") // UpdateEmptyRequest |  (optional)
+    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "First run") // UpdateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

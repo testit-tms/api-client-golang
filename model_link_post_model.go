@@ -26,16 +26,17 @@ type LinkPostModel struct {
 	// Link description.
 	Description NullableString `json:"description,omitempty"`
 	Type NullableLinkType `json:"type,omitempty"`
-	HasInfo *bool `json:"hasInfo,omitempty"`
+	HasInfo bool `json:"hasInfo"`
 }
 
 // NewLinkPostModel instantiates a new LinkPostModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkPostModel(url string) *LinkPostModel {
+func NewLinkPostModel(url string, hasInfo bool) *LinkPostModel {
 	this := LinkPostModel{}
 	this.Url = url
+	this.HasInfo = hasInfo
 	return &this
 }
 
@@ -197,36 +198,28 @@ func (o *LinkPostModel) UnsetType() {
 	o.Type.Unset()
 }
 
-// GetHasInfo returns the HasInfo field value if set, zero value otherwise.
+// GetHasInfo returns the HasInfo field value
 func (o *LinkPostModel) GetHasInfo() bool {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.HasInfo
+
+	return o.HasInfo
 }
 
-// GetHasInfoOk returns a tuple with the HasInfo field value if set, nil otherwise
+// GetHasInfoOk returns a tuple with the HasInfo field value
 // and a boolean to check if the value has been set.
 func (o *LinkPostModel) GetHasInfoOk() (*bool, bool) {
-	if o == nil || IsNil(o.HasInfo) {
+	if o == nil {
 		return nil, false
 	}
-	return o.HasInfo, true
+	return &o.HasInfo, true
 }
 
-// HasHasInfo returns a boolean if a field has been set.
-func (o *LinkPostModel) HasHasInfo() bool {
-	if o != nil && !IsNil(o.HasInfo) {
-		return true
-	}
-
-	return false
-}
-
-// SetHasInfo gets a reference to the given bool and assigns it to the HasInfo field.
+// SetHasInfo sets field value
 func (o *LinkPostModel) SetHasInfo(v bool) {
-	o.HasInfo = &v
+	o.HasInfo = v
 }
 
 func (o LinkPostModel) MarshalJSON() ([]byte, error) {
@@ -249,9 +242,7 @@ func (o LinkPostModel) ToMap() (map[string]interface{}, error) {
 	if o.Type.IsSet() {
 		toSerialize["type"] = o.Type.Get()
 	}
-	if !IsNil(o.HasInfo) {
-		toSerialize["hasInfo"] = o.HasInfo
-	}
+	toSerialize["hasInfo"] = o.HasInfo
 	return toSerialize, nil
 }
 

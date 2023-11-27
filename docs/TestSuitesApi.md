@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## AddTestPointsToTestSuite
 
-> AddTestPointsToTestSuite(ctx, id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
+> AddTestPointsToTestSuite(ctx, id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
 
 Add test-points to test suite
 
@@ -40,11 +40,11 @@ import (
 
 func main() {
     id := "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" // string | Test suite internal identifier
-    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
+    apiV2ProjectsProjectIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdWorkItemsSearchPostRequest(*openapiclient.NewWorkItemSelectModelFilter()) // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestSuitesApi.AddTestPointsToTestSuite(context.Background(), id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
+    r, err := apiClient.TestSuitesApi.AddTestPointsToTestSuite(context.Background(), id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.AddTestPointsToTestSuite``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -68,7 +68,7 @@ Other parameters are passed through a pointer to a apiAddTestPointsToTestSuiteRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
+ **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
 
 ### Return type
 

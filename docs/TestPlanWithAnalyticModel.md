@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Analytic** | Pointer to [**NullableTestPointAnalyticResult**](TestPointAnalyticResult.md) |  | [optional] 
+**Analytic** | [**TestPlanWithAnalyticModelAnalytic**](TestPlanWithAnalyticModelAnalytic.md) |  | 
 **Status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | 
 **StartedOn** | Pointer to **NullableTime** | Set when test plan is starter (status changed to: In Progress) | [optional] 
 **CompletedOn** | Pointer to **NullableTime** | set when test plan status is completed (status changed to: Completed) | [optional] 
@@ -26,13 +26,13 @@ Name | Type | Description | Notes
 **ProjectId** | **string** |  | 
 **ProductName** | Pointer to **NullableString** |  | [optional] 
 **HasAutomaticDurationTimer** | Pointer to **NullableBool** |  | [optional] 
-**Attributes** | Pointer to **map[string]interface{}** |  | [optional] 
+**Attributes** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewTestPlanWithAnalyticModel
 
-`func NewTestPlanWithAnalyticModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, ) *TestPlanWithAnalyticModel`
+`func NewTestPlanWithAnalyticModel(analytic TestPlanWithAnalyticModelAnalytic, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}, ) *TestPlanWithAnalyticModel`
 
 NewTestPlanWithAnalyticModel instantiates a new TestPlanWithAnalyticModel object
 This constructor will assign default values to properties that have it defined,
@@ -49,39 +49,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAnalytic
 
-`func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPointAnalyticResult`
+`func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPlanWithAnalyticModelAnalytic`
 
 GetAnalytic returns the Analytic field if non-nil, zero value otherwise.
 
 ### GetAnalyticOk
 
-`func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPointAnalyticResult, bool)`
+`func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPlanWithAnalyticModelAnalytic, bool)`
 
 GetAnalyticOk returns a tuple with the Analytic field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAnalytic
 
-`func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPointAnalyticResult)`
+`func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPlanWithAnalyticModelAnalytic)`
 
 SetAnalytic sets Analytic field to given value.
 
-### HasAnalytic
 
-`func (o *TestPlanWithAnalyticModel) HasAnalytic() bool`
-
-HasAnalytic returns a boolean if a field has been set.
-
-### SetAnalyticNil
-
-`func (o *TestPlanWithAnalyticModel) SetAnalyticNil(b bool)`
-
- SetAnalyticNil sets the value for Analytic to be an explicit nil
-
-### UnsetAnalytic
-`func (o *TestPlanWithAnalyticModel) UnsetAnalytic()`
-
-UnsetAnalytic ensures that no value is present for Analytic, not even an explicit nil
 ### GetStatus
 
 `func (o *TestPlanWithAnalyticModel) GetStatus() TestPlanStatusModel`
@@ -731,22 +716,7 @@ and a boolean to check if the value has been set.
 
 SetAttributes sets Attributes field to given value.
 
-### HasAttributes
 
-`func (o *TestPlanWithAnalyticModel) HasAttributes() bool`
-
-HasAttributes returns a boolean if a field has been set.
-
-### SetAttributesNil
-
-`func (o *TestPlanWithAnalyticModel) SetAttributesNil(b bool)`
-
- SetAttributesNil sets the value for Attributes to be an explicit nil
-
-### UnsetAttributes
-`func (o *TestPlanWithAnalyticModel) UnsetAttributes()`
-
-UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

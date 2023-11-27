@@ -406,6 +406,121 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdGetExecute(r ApiApiV2Bac
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiApiV2BackgroundJobsIdStatusGetRequest struct {
+	ctx context.Context
+	ApiService *BackgroundJobsApiService
+	id string
+}
+
+func (r ApiApiV2BackgroundJobsIdStatusGetRequest) Execute() (*BackgroundJobState, *http.Response, error) {
+	return r.ApiService.ApiV2BackgroundJobsIdStatusGetExecute(r)
+}
+
+/*
+ApiV2BackgroundJobsIdStatusGet Get background job status by job ID
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Unique ID of the background job
+ @return ApiApiV2BackgroundJobsIdStatusGetRequest
+*/
+func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdStatusGet(ctx context.Context, id string) ApiApiV2BackgroundJobsIdStatusGetRequest {
+	return ApiApiV2BackgroundJobsIdStatusGetRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return BackgroundJobState
+func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdStatusGetExecute(r ApiApiV2BackgroundJobsIdStatusGetRequest) (*BackgroundJobState, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *BackgroundJobState
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsApiService.ApiV2BackgroundJobsIdStatusGet")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/backgroundJobs/{id}/status"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiApiV2BackgroundJobsSearchPostRequest struct {
 	ctx context.Context
 	ApiService *BackgroundJobsApiService

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TestSuites** | Pointer to [**[]TestSuiteWithChildrenModel**](TestSuiteWithChildrenModel.md) |  | [optional] 
+**TestSuites** | [**[]TestSuiteWithChildrenModel**](TestSuiteWithChildrenModel.md) |  | 
 **Status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | 
 **StartedOn** | Pointer to **NullableTime** | Set when test plan is starter (status changed to: In Progress) | [optional] 
 **CompletedOn** | Pointer to **NullableTime** | set when test plan status is completed (status changed to: Completed) | [optional] 
@@ -26,13 +26,13 @@ Name | Type | Description | Notes
 **ProjectId** | **string** |  | 
 **ProductName** | Pointer to **NullableString** |  | [optional] 
 **HasAutomaticDurationTimer** | Pointer to **NullableBool** |  | [optional] 
-**Attributes** | Pointer to **map[string]interface{}** |  | [optional] 
+**Attributes** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewTestPlanWithTestSuiteTreeModel
 
-`func NewTestPlanWithTestSuiteTreeModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, ) *TestPlanWithTestSuiteTreeModel`
+`func NewTestPlanWithTestSuiteTreeModel(testSuites []TestSuiteWithChildrenModel, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}, ) *TestPlanWithTestSuiteTreeModel`
 
 NewTestPlanWithTestSuiteTreeModel instantiates a new TestPlanWithTestSuiteTreeModel object
 This constructor will assign default values to properties that have it defined,
@@ -66,22 +66,7 @@ and a boolean to check if the value has been set.
 
 SetTestSuites sets TestSuites field to given value.
 
-### HasTestSuites
 
-`func (o *TestPlanWithTestSuiteTreeModel) HasTestSuites() bool`
-
-HasTestSuites returns a boolean if a field has been set.
-
-### SetTestSuitesNil
-
-`func (o *TestPlanWithTestSuiteTreeModel) SetTestSuitesNil(b bool)`
-
- SetTestSuitesNil sets the value for TestSuites to be an explicit nil
-
-### UnsetTestSuites
-`func (o *TestPlanWithTestSuiteTreeModel) UnsetTestSuites()`
-
-UnsetTestSuites ensures that no value is present for TestSuites, not even an explicit nil
 ### GetStatus
 
 `func (o *TestPlanWithTestSuiteTreeModel) GetStatus() TestPlanStatusModel`
@@ -731,22 +716,7 @@ and a boolean to check if the value has been set.
 
 SetAttributes sets Attributes field to given value.
 
-### HasAttributes
 
-`func (o *TestPlanWithTestSuiteTreeModel) HasAttributes() bool`
-
-HasAttributes returns a boolean if a field has been set.
-
-### SetAttributesNil
-
-`func (o *TestPlanWithTestSuiteTreeModel) SetAttributesNil(b bool)`
-
- SetAttributesNil sets the value for Attributes to be an explicit nil
-
-### UnsetAttributes
-`func (o *TestPlanWithTestSuiteTreeModel) UnsetAttributes()`
-
-UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

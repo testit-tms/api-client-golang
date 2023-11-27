@@ -19,8 +19,8 @@ var _ MappedNullable = &ParameterGroupModel{}
 
 // ParameterGroupModel struct for ParameterGroupModel
 type ParameterGroupModel struct {
-	Name NullableString `json:"name,omitempty"`
-	Values map[string]string `json:"values,omitempty"`
+	Name string `json:"name"`
+	Values map[string]string `json:"values"`
 	ParameterKeyId string `json:"parameterKeyId"`
 }
 
@@ -28,8 +28,10 @@ type ParameterGroupModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewParameterGroupModel(parameterKeyId string) *ParameterGroupModel {
+func NewParameterGroupModel(name string, values map[string]string, parameterKeyId string) *ParameterGroupModel {
 	this := ParameterGroupModel{}
+	this.Name = name
+	this.Values = values
 	this.ParameterKeyId = parameterKeyId
 	return &this
 }
@@ -42,77 +44,50 @@ func NewParameterGroupModelWithDefaults() *ParameterGroupModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *ParameterGroupModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterGroupModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ParameterGroupModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *ParameterGroupModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ParameterGroupModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ParameterGroupModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetValues returns the Values field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetValues returns the Values field value
 func (o *ParameterGroupModel) GetValues() map[string]string {
 	if o == nil {
 		var ret map[string]string
 		return ret
 	}
+
 	return o.Values
 }
 
-// GetValuesOk returns a tuple with the Values field value if set, nil otherwise
+// GetValuesOk returns a tuple with the Values field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ParameterGroupModel) GetValuesOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.Values) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Values, true
 }
 
-// HasValues returns a boolean if a field has been set.
-func (o *ParameterGroupModel) HasValues() bool {
-	if o != nil && IsNil(o.Values) {
-		return true
-	}
-
-	return false
-}
-
-// SetValues gets a reference to the given map[string]string and assigns it to the Values field.
+// SetValues sets field value
 func (o *ParameterGroupModel) SetValues(v map[string]string) {
 	o.Values = v
 }
@@ -151,12 +126,8 @@ func (o ParameterGroupModel) MarshalJSON() ([]byte, error) {
 
 func (o ParameterGroupModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
-	if o.Values != nil {
-		toSerialize["values"] = o.Values
-	}
+	toSerialize["name"] = o.Name
+	toSerialize["values"] = o.Values
 	toSerialize["parameterKeyId"] = o.ParameterKeyId
 	return toSerialize, nil
 }

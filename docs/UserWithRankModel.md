@@ -5,25 +5,25 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**FirstName** | Pointer to **NullableString** |  | [optional] 
-**LastName** | Pointer to **NullableString** |  | [optional] 
-**MiddleName** | Pointer to **NullableString** |  | [optional] 
-**UserName** | Pointer to **NullableString** |  | [optional] 
-**DisplayName** | Pointer to **NullableString** |  | [optional] 
-**UserType** | Pointer to **NullableString** |  | [optional] 
-**AvatarUrl** | Pointer to **NullableString** |  | [optional] 
-**AvatarMetadata** | Pointer to **NullableString** |  | [optional] 
+**FirstName** | **string** |  | 
+**LastName** | **string** |  | 
+**MiddleName** | **string** |  | 
+**UserName** | **string** |  | 
+**DisplayName** | **string** |  | 
+**UserType** | **string** |  | 
+**AvatarUrl** | **string** |  | 
+**AvatarMetadata** | **string** |  | 
 **IsDeleted** | **bool** |  | 
 **IsDisabled** | **bool** |  | 
 **ProviderId** | Pointer to **NullableString** |  | [optional] 
 **IsActiveStatusByEntity** | **bool** |  | 
-**UserRank** | Pointer to [**NullableUserRankModel**](UserRankModel.md) |  | [optional] 
+**UserRank** | [**UserWithRankModelUserRank**](UserWithRankModelUserRank.md) |  | 
 
 ## Methods
 
 ### NewUserWithRankModel
 
-`func NewUserWithRankModel(id string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool, ) *UserWithRankModel`
+`func NewUserWithRankModel(id string, firstName string, lastName string, middleName string, userName string, displayName string, userType string, avatarUrl string, avatarMetadata string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool, userRank UserWithRankModelUserRank, ) *UserWithRankModel`
 
 NewUserWithRankModel instantiates a new UserWithRankModel object
 This constructor will assign default values to properties that have it defined,
@@ -77,22 +77,7 @@ and a boolean to check if the value has been set.
 
 SetFirstName sets FirstName field to given value.
 
-### HasFirstName
 
-`func (o *UserWithRankModel) HasFirstName() bool`
-
-HasFirstName returns a boolean if a field has been set.
-
-### SetFirstNameNil
-
-`func (o *UserWithRankModel) SetFirstNameNil(b bool)`
-
- SetFirstNameNil sets the value for FirstName to be an explicit nil
-
-### UnsetFirstName
-`func (o *UserWithRankModel) UnsetFirstName()`
-
-UnsetFirstName ensures that no value is present for FirstName, not even an explicit nil
 ### GetLastName
 
 `func (o *UserWithRankModel) GetLastName() string`
@@ -112,22 +97,7 @@ and a boolean to check if the value has been set.
 
 SetLastName sets LastName field to given value.
 
-### HasLastName
 
-`func (o *UserWithRankModel) HasLastName() bool`
-
-HasLastName returns a boolean if a field has been set.
-
-### SetLastNameNil
-
-`func (o *UserWithRankModel) SetLastNameNil(b bool)`
-
- SetLastNameNil sets the value for LastName to be an explicit nil
-
-### UnsetLastName
-`func (o *UserWithRankModel) UnsetLastName()`
-
-UnsetLastName ensures that no value is present for LastName, not even an explicit nil
 ### GetMiddleName
 
 `func (o *UserWithRankModel) GetMiddleName() string`
@@ -147,22 +117,7 @@ and a boolean to check if the value has been set.
 
 SetMiddleName sets MiddleName field to given value.
 
-### HasMiddleName
 
-`func (o *UserWithRankModel) HasMiddleName() bool`
-
-HasMiddleName returns a boolean if a field has been set.
-
-### SetMiddleNameNil
-
-`func (o *UserWithRankModel) SetMiddleNameNil(b bool)`
-
- SetMiddleNameNil sets the value for MiddleName to be an explicit nil
-
-### UnsetMiddleName
-`func (o *UserWithRankModel) UnsetMiddleName()`
-
-UnsetMiddleName ensures that no value is present for MiddleName, not even an explicit nil
 ### GetUserName
 
 `func (o *UserWithRankModel) GetUserName() string`
@@ -182,22 +137,7 @@ and a boolean to check if the value has been set.
 
 SetUserName sets UserName field to given value.
 
-### HasUserName
 
-`func (o *UserWithRankModel) HasUserName() bool`
-
-HasUserName returns a boolean if a field has been set.
-
-### SetUserNameNil
-
-`func (o *UserWithRankModel) SetUserNameNil(b bool)`
-
- SetUserNameNil sets the value for UserName to be an explicit nil
-
-### UnsetUserName
-`func (o *UserWithRankModel) UnsetUserName()`
-
-UnsetUserName ensures that no value is present for UserName, not even an explicit nil
 ### GetDisplayName
 
 `func (o *UserWithRankModel) GetDisplayName() string`
@@ -217,22 +157,7 @@ and a boolean to check if the value has been set.
 
 SetDisplayName sets DisplayName field to given value.
 
-### HasDisplayName
 
-`func (o *UserWithRankModel) HasDisplayName() bool`
-
-HasDisplayName returns a boolean if a field has been set.
-
-### SetDisplayNameNil
-
-`func (o *UserWithRankModel) SetDisplayNameNil(b bool)`
-
- SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-
-### UnsetDisplayName
-`func (o *UserWithRankModel) UnsetDisplayName()`
-
-UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetUserType
 
 `func (o *UserWithRankModel) GetUserType() string`
@@ -252,22 +177,7 @@ and a boolean to check if the value has been set.
 
 SetUserType sets UserType field to given value.
 
-### HasUserType
 
-`func (o *UserWithRankModel) HasUserType() bool`
-
-HasUserType returns a boolean if a field has been set.
-
-### SetUserTypeNil
-
-`func (o *UserWithRankModel) SetUserTypeNil(b bool)`
-
- SetUserTypeNil sets the value for UserType to be an explicit nil
-
-### UnsetUserType
-`func (o *UserWithRankModel) UnsetUserType()`
-
-UnsetUserType ensures that no value is present for UserType, not even an explicit nil
 ### GetAvatarUrl
 
 `func (o *UserWithRankModel) GetAvatarUrl() string`
@@ -287,22 +197,7 @@ and a boolean to check if the value has been set.
 
 SetAvatarUrl sets AvatarUrl field to given value.
 
-### HasAvatarUrl
 
-`func (o *UserWithRankModel) HasAvatarUrl() bool`
-
-HasAvatarUrl returns a boolean if a field has been set.
-
-### SetAvatarUrlNil
-
-`func (o *UserWithRankModel) SetAvatarUrlNil(b bool)`
-
- SetAvatarUrlNil sets the value for AvatarUrl to be an explicit nil
-
-### UnsetAvatarUrl
-`func (o *UserWithRankModel) UnsetAvatarUrl()`
-
-UnsetAvatarUrl ensures that no value is present for AvatarUrl, not even an explicit nil
 ### GetAvatarMetadata
 
 `func (o *UserWithRankModel) GetAvatarMetadata() string`
@@ -322,22 +217,7 @@ and a boolean to check if the value has been set.
 
 SetAvatarMetadata sets AvatarMetadata field to given value.
 
-### HasAvatarMetadata
 
-`func (o *UserWithRankModel) HasAvatarMetadata() bool`
-
-HasAvatarMetadata returns a boolean if a field has been set.
-
-### SetAvatarMetadataNil
-
-`func (o *UserWithRankModel) SetAvatarMetadataNil(b bool)`
-
- SetAvatarMetadataNil sets the value for AvatarMetadata to be an explicit nil
-
-### UnsetAvatarMetadata
-`func (o *UserWithRankModel) UnsetAvatarMetadata()`
-
-UnsetAvatarMetadata ensures that no value is present for AvatarMetadata, not even an explicit nil
 ### GetIsDeleted
 
 `func (o *UserWithRankModel) GetIsDeleted() bool`
@@ -435,39 +315,24 @@ SetIsActiveStatusByEntity sets IsActiveStatusByEntity field to given value.
 
 ### GetUserRank
 
-`func (o *UserWithRankModel) GetUserRank() UserRankModel`
+`func (o *UserWithRankModel) GetUserRank() UserWithRankModelUserRank`
 
 GetUserRank returns the UserRank field if non-nil, zero value otherwise.
 
 ### GetUserRankOk
 
-`func (o *UserWithRankModel) GetUserRankOk() (*UserRankModel, bool)`
+`func (o *UserWithRankModel) GetUserRankOk() (*UserWithRankModelUserRank, bool)`
 
 GetUserRankOk returns a tuple with the UserRank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserRank
 
-`func (o *UserWithRankModel) SetUserRank(v UserRankModel)`
+`func (o *UserWithRankModel) SetUserRank(v UserWithRankModelUserRank)`
 
 SetUserRank sets UserRank field to given value.
 
-### HasUserRank
 
-`func (o *UserWithRankModel) HasUserRank() bool`
-
-HasUserRank returns a boolean if a field has been set.
-
-### SetUserRankNil
-
-`func (o *UserWithRankModel) SetUserRankNil(b bool)`
-
- SetUserRankNil sets the value for UserRank to be an explicit nil
-
-### UnsetUserRank
-`func (o *UserWithRankModel) UnsetUserRank()`
-
-UnsetUserRank ensures that no value is present for UserRank, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

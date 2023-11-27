@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** | Specifies an attribute name to search for | [optional] 
+**Name** | **string** | Specifies an attribute name to search for | 
 **IsRequired** | Pointer to **NullableBool** | Specifies an attribute mandatory status to search for | [optional] 
 **IsGlobal** | Pointer to **NullableBool** | Specifies an attribute global status to search for | [optional] 
-**Types** | Pointer to [**[]CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Specifies an attribute types to search for | [optional] 
+**Types** | [**[]CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Specifies an attribute types to search for | 
 **IsEnabled** | Pointer to **NullableBool** | Specifies an attribute enabled status to search for | [optional] 
 
 ## Methods
 
 ### NewProjectAttributesFilterModel
 
-`func NewProjectAttributesFilterModel() *ProjectAttributesFilterModel`
+`func NewProjectAttributesFilterModel(name string, types []CustomAttributeTypesEnum, ) *ProjectAttributesFilterModel`
 
 NewProjectAttributesFilterModel instantiates a new ProjectAttributesFilterModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,22 +48,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *ProjectAttributesFilterModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *ProjectAttributesFilterModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ProjectAttributesFilterModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsRequired
 
 `func (o *ProjectAttributesFilterModel) GetIsRequired() bool`
@@ -153,22 +138,7 @@ and a boolean to check if the value has been set.
 
 SetTypes sets Types field to given value.
 
-### HasTypes
 
-`func (o *ProjectAttributesFilterModel) HasTypes() bool`
-
-HasTypes returns a boolean if a field has been set.
-
-### SetTypesNil
-
-`func (o *ProjectAttributesFilterModel) SetTypesNil(b bool)`
-
- SetTypesNil sets the value for Types to be an explicit nil
-
-### UnsetTypes
-`func (o *ProjectAttributesFilterModel) UnsetTypes()`
-
-UnsetTypes ensures that no value is present for Types, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *ProjectAttributesFilterModel) GetIsEnabled() bool`

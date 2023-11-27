@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AutotestSelect** | Pointer to [**NullableAutotestSelectModel**](AutotestSelectModel.md) |  | [optional] 
+**AutotestSelect** | [**FlakyBulkModelAutotestSelect**](FlakyBulkModelAutotestSelect.md) |  | 
 **Value** | **bool** | Are autotests flaky | 
 
 ## Methods
 
 ### NewApiV2AutoTestsFlakyBulkPostRequest
 
-`func NewApiV2AutoTestsFlakyBulkPostRequest(value bool, ) *ApiV2AutoTestsFlakyBulkPostRequest`
+`func NewApiV2AutoTestsFlakyBulkPostRequest(autotestSelect FlakyBulkModelAutotestSelect, value bool, ) *ApiV2AutoTestsFlakyBulkPostRequest`
 
 NewApiV2AutoTestsFlakyBulkPostRequest instantiates a new ApiV2AutoTestsFlakyBulkPostRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,39 +28,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAutotestSelect
 
-`func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelect() AutotestSelectModel`
+`func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelect() FlakyBulkModelAutotestSelect`
 
 GetAutotestSelect returns the AutotestSelect field if non-nil, zero value otherwise.
 
 ### GetAutotestSelectOk
 
-`func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelectOk() (*AutotestSelectModel, bool)`
+`func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool)`
 
 GetAutotestSelectOk returns a tuple with the AutotestSelect field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutotestSelect
 
-`func (o *ApiV2AutoTestsFlakyBulkPostRequest) SetAutotestSelect(v AutotestSelectModel)`
+`func (o *ApiV2AutoTestsFlakyBulkPostRequest) SetAutotestSelect(v FlakyBulkModelAutotestSelect)`
 
 SetAutotestSelect sets AutotestSelect field to given value.
 
-### HasAutotestSelect
 
-`func (o *ApiV2AutoTestsFlakyBulkPostRequest) HasAutotestSelect() bool`
-
-HasAutotestSelect returns a boolean if a field has been set.
-
-### SetAutotestSelectNil
-
-`func (o *ApiV2AutoTestsFlakyBulkPostRequest) SetAutotestSelectNil(b bool)`
-
- SetAutotestSelectNil sets the value for AutotestSelect to be an explicit nil
-
-### UnsetAutotestSelect
-`func (o *ApiV2AutoTestsFlakyBulkPostRequest) UnsetAutotestSelect()`
-
-UnsetAutotestSelect ensures that no value is present for AutotestSelect, not even an explicit nil
 ### GetValue
 
 `func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetValue() bool`

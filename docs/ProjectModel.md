@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID of the project | 
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
-**Name** | Pointer to **NullableString** | Name of the project | [optional] 
+**Name** | **string** | Name of the project | 
 **IsFavorite** | **bool** | Indicates if the project is marked as favorite | 
 **AttributesScheme** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) | Collection of the project attributes | [optional] 
 **TestPlansAttributesScheme** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) | Collection of the project test plans attributes | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewProjectModel
 
-`func NewProjectModel(id string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, ) *ProjectModel`
+`func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, ) *ProjectModel`
 
 NewProjectModel instantiates a new ProjectModel object
 This constructor will assign default values to properties that have it defined,
@@ -114,22 +114,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *ProjectModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *ProjectModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ProjectModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsFavorite
 
 `func (o *ProjectModel) GetIsFavorite() bool`

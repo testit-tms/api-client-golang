@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Values** | Pointer to **map[string]string** |  | [optional] 
+**Name** | **string** |  | 
+**Values** | **map[string]string** |  | 
 **ParameterKeyId** | **string** |  | 
 
 ## Methods
 
 ### NewParameterGroupModel
 
-`func NewParameterGroupModel(parameterKeyId string, ) *ParameterGroupModel`
+`func NewParameterGroupModel(name string, values map[string]string, parameterKeyId string, ) *ParameterGroupModel`
 
 NewParameterGroupModel instantiates a new ParameterGroupModel object
 This constructor will assign default values to properties that have it defined,
@@ -46,22 +46,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *ParameterGroupModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *ParameterGroupModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ParameterGroupModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValues
 
 `func (o *ParameterGroupModel) GetValues() map[string]string`
@@ -81,22 +66,7 @@ and a boolean to check if the value has been set.
 
 SetValues sets Values field to given value.
 
-### HasValues
 
-`func (o *ParameterGroupModel) HasValues() bool`
-
-HasValues returns a boolean if a field has been set.
-
-### SetValuesNil
-
-`func (o *ParameterGroupModel) SetValuesNil(b bool)`
-
- SetValuesNil sets the value for Values to be an explicit nil
-
-### UnsetValues
-`func (o *ParameterGroupModel) UnsetValues()`
-
-UnsetValues ensures that no value is present for Values, not even an explicit nil
 ### GetParameterKeyId
 
 `func (o *ParameterGroupModel) GetParameterKeyId() string`

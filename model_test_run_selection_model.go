@@ -19,16 +19,18 @@ var _ MappedNullable = &TestRunSelectionModel{}
 
 // TestRunSelectionModel Model containing options to filter test runs
 type TestRunSelectionModel struct {
-	Filter NullableTestRunFilterModel `json:"filter,omitempty"`
-	ExtractionModel NullableTestRunSelectModelExtractionModel `json:"extractionModel,omitempty"`
+	Filter ApiV2TestRunsSearchPostRequest `json:"filter"`
+	ExtractionModel TestRunSelectModelExtractionModel `json:"extractionModel"`
 }
 
 // NewTestRunSelectionModel instantiates a new TestRunSelectionModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunSelectionModel() *TestRunSelectionModel {
+func NewTestRunSelectionModel(filter ApiV2TestRunsSearchPostRequest, extractionModel TestRunSelectModelExtractionModel) *TestRunSelectionModel {
 	this := TestRunSelectionModel{}
+	this.Filter = filter
+	this.ExtractionModel = extractionModel
 	return &this
 }
 
@@ -40,88 +42,52 @@ func NewTestRunSelectionModelWithDefaults() *TestRunSelectionModel {
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunSelectionModel) GetFilter() TestRunFilterModel {
-	if o == nil || IsNil(o.Filter.Get()) {
-		var ret TestRunFilterModel
+// GetFilter returns the Filter field value
+func (o *TestRunSelectionModel) GetFilter() ApiV2TestRunsSearchPostRequest {
+	if o == nil {
+		var ret ApiV2TestRunsSearchPostRequest
 		return ret
 	}
-	return *o.Filter.Get()
+
+	return o.Filter
 }
 
-// GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
+// GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunSelectionModel) GetFilterOk() (*TestRunFilterModel, bool) {
+func (o *TestRunSelectionModel) GetFilterOk() (*ApiV2TestRunsSearchPostRequest, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Filter.Get(), o.Filter.IsSet()
+	return &o.Filter, true
 }
 
-// HasFilter returns a boolean if a field has been set.
-func (o *TestRunSelectionModel) HasFilter() bool {
-	if o != nil && o.Filter.IsSet() {
-		return true
-	}
-
-	return false
+// SetFilter sets field value
+func (o *TestRunSelectionModel) SetFilter(v ApiV2TestRunsSearchPostRequest) {
+	o.Filter = v
 }
 
-// SetFilter gets a reference to the given NullableTestRunFilterModel and assigns it to the Filter field.
-func (o *TestRunSelectionModel) SetFilter(v TestRunFilterModel) {
-	o.Filter.Set(&v)
-}
-// SetFilterNil sets the value for Filter to be an explicit nil
-func (o *TestRunSelectionModel) SetFilterNil() {
-	o.Filter.Set(nil)
-}
-
-// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
-func (o *TestRunSelectionModel) UnsetFilter() {
-	o.Filter.Unset()
-}
-
-// GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExtractionModel returns the ExtractionModel field value
 func (o *TestRunSelectionModel) GetExtractionModel() TestRunSelectModelExtractionModel {
-	if o == nil || IsNil(o.ExtractionModel.Get()) {
+	if o == nil {
 		var ret TestRunSelectModelExtractionModel
 		return ret
 	}
-	return *o.ExtractionModel.Get()
+
+	return o.ExtractionModel
 }
 
-// GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
+// GetExtractionModelOk returns a tuple with the ExtractionModel field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunSelectionModel) GetExtractionModelOk() (*TestRunSelectModelExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ExtractionModel.Get(), o.ExtractionModel.IsSet()
+	return &o.ExtractionModel, true
 }
 
-// HasExtractionModel returns a boolean if a field has been set.
-func (o *TestRunSelectionModel) HasExtractionModel() bool {
-	if o != nil && o.ExtractionModel.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExtractionModel gets a reference to the given NullableTestRunSelectModelExtractionModel and assigns it to the ExtractionModel field.
+// SetExtractionModel sets field value
 func (o *TestRunSelectionModel) SetExtractionModel(v TestRunSelectModelExtractionModel) {
-	o.ExtractionModel.Set(&v)
-}
-// SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil
-func (o *TestRunSelectionModel) SetExtractionModelNil() {
-	o.ExtractionModel.Set(nil)
-}
-
-// UnsetExtractionModel ensures that no value is present for ExtractionModel, not even an explicit nil
-func (o *TestRunSelectionModel) UnsetExtractionModel() {
-	o.ExtractionModel.Unset()
+	o.ExtractionModel = v
 }
 
 func (o TestRunSelectionModel) MarshalJSON() ([]byte, error) {
@@ -134,12 +100,8 @@ func (o TestRunSelectionModel) MarshalJSON() ([]byte, error) {
 
 func (o TestRunSelectionModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Filter.IsSet() {
-		toSerialize["filter"] = o.Filter.Get()
-	}
-	if o.ExtractionModel.IsSet() {
-		toSerialize["extractionModel"] = o.ExtractionModel.Get()
-	}
+	toSerialize["filter"] = o.Filter
+	toSerialize["extractionModel"] = o.ExtractionModel
 	return toSerialize, nil
 }
 

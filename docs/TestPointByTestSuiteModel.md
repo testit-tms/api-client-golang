@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**TesterId** | Pointer to **NullableString** |  | [optional] 
-**WorkItemId** | Pointer to **NullableString** |  | [optional] 
-**ConfigurationId** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to **NullableString** | Applies one of these values: Blocked, NoResults, Failed, Passed | [optional] 
-**LastTestResultId** | Pointer to **NullableString** |  | [optional] 
-**IterationId** | **string** |  | 
+**Id** | **string** | Test point unique internal identifier | 
+**TesterId** | Pointer to **NullableString** | Tester who is responded for the test unique internal identifier | [optional] 
+**WorkItemId** | Pointer to **NullableString** | Workitem to which test point relates unique identifier | [optional] 
+**ConfigurationId** | Pointer to **NullableString** | Configuration to which test point relates unique identifier | [optional] 
+**Status** | Pointer to **NullableString** | Test point status  &lt;br&gt;Applies one of these values: Blocked, NoResults, Failed, Passed | [optional] 
+**LastTestResultId** | Pointer to **NullableString** | Last test result unique identifier | [optional] 
+**IterationId** | **string** | Iteration unique identifier | 
+**WorkItemMedianDuration** | Pointer to **NullableInt64** | Median duration of work item the test point represents | [optional] 
 
 ## Methods
 
@@ -246,6 +247,41 @@ and a boolean to check if the value has been set.
 SetIterationId sets IterationId field to given value.
 
 
+### GetWorkItemMedianDuration
+
+`func (o *TestPointByTestSuiteModel) GetWorkItemMedianDuration() int64`
+
+GetWorkItemMedianDuration returns the WorkItemMedianDuration field if non-nil, zero value otherwise.
+
+### GetWorkItemMedianDurationOk
+
+`func (o *TestPointByTestSuiteModel) GetWorkItemMedianDurationOk() (*int64, bool)`
+
+GetWorkItemMedianDurationOk returns a tuple with the WorkItemMedianDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemMedianDuration
+
+`func (o *TestPointByTestSuiteModel) SetWorkItemMedianDuration(v int64)`
+
+SetWorkItemMedianDuration sets WorkItemMedianDuration field to given value.
+
+### HasWorkItemMedianDuration
+
+`func (o *TestPointByTestSuiteModel) HasWorkItemMedianDuration() bool`
+
+HasWorkItemMedianDuration returns a boolean if a field has been set.
+
+### SetWorkItemMedianDurationNil
+
+`func (o *TestPointByTestSuiteModel) SetWorkItemMedianDurationNil(b bool)`
+
+ SetWorkItemMedianDurationNil sets the value for WorkItemMedianDuration to be an explicit nil
+
+### UnsetWorkItemMedianDuration
+`func (o *TestPointByTestSuiteModel) UnsetWorkItemMedianDuration()`
+
+UnsetWorkItemMedianDuration ensures that no value is present for WorkItemMedianDuration, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

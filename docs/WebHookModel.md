@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** | Name of the webhook | [optional] 
+**Name** | **string** | Name of the webhook | 
 **EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
 **Description** | Pointer to **NullableString** | Description of the webhook | [optional] 
-**Url** | Pointer to **NullableString** | Url to which the webhook sends request | [optional] 
+**Url** | **string** | Url to which the webhook sends request | 
 **RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
 **ShouldSendBody** | **bool** | Indicates if the webhook sends body | 
 **Headers** | Pointer to **map[string]string** | Collection of headers which the webhook sends | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewWebHookModel
 
-`func NewWebHookModel(eventType WebHookEventTypeModel, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, createdDate time.Time, createdById string, projectId string, id string, isDeleted bool, ) *WebHookModel`
+`func NewWebHookModel(name string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, createdDate time.Time, createdById string, projectId string, id string, isDeleted bool, ) *WebHookModel`
 
 NewWebHookModel instantiates a new WebHookModel object
 This constructor will assign default values to properties that have it defined,
@@ -64,22 +64,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *WebHookModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *WebHookModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *WebHookModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetEventType
 
 `func (o *WebHookModel) GetEventType() WebHookEventTypeModel`
@@ -154,22 +139,7 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
 
-`func (o *WebHookModel) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
-
-### SetUrlNil
-
-`func (o *WebHookModel) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *WebHookModel) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetRequestType
 
 `func (o *WebHookModel) GetRequestType() RequestTypeModel`

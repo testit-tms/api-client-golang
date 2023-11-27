@@ -20,7 +20,7 @@ var _ MappedNullable = &TestPlanGroupByTestSuite{}
 // TestPlanGroupByTestSuite struct for TestPlanGroupByTestSuite
 type TestPlanGroupByTestSuite struct {
 	TestSuiteId string `json:"testSuiteId"`
-	TestSuiteName NullableString `json:"testSuiteName,omitempty"`
+	TestSuiteName string `json:"testSuiteName"`
 	Value int64 `json:"value"`
 }
 
@@ -28,9 +28,10 @@ type TestPlanGroupByTestSuite struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanGroupByTestSuite(testSuiteId string, value int64) *TestPlanGroupByTestSuite {
+func NewTestPlanGroupByTestSuite(testSuiteId string, testSuiteName string, value int64) *TestPlanGroupByTestSuite {
 	this := TestPlanGroupByTestSuite{}
 	this.TestSuiteId = testSuiteId
+	this.TestSuiteName = testSuiteName
 	this.Value = value
 	return &this
 }
@@ -67,46 +68,28 @@ func (o *TestPlanGroupByTestSuite) SetTestSuiteId(v string) {
 	o.TestSuiteId = v
 }
 
-// GetTestSuiteName returns the TestSuiteName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTestSuiteName returns the TestSuiteName field value
 func (o *TestPlanGroupByTestSuite) GetTestSuiteName() string {
-	if o == nil || IsNil(o.TestSuiteName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestSuiteName.Get()
+
+	return o.TestSuiteName
 }
 
-// GetTestSuiteNameOk returns a tuple with the TestSuiteName field value if set, nil otherwise
+// GetTestSuiteNameOk returns a tuple with the TestSuiteName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanGroupByTestSuite) GetTestSuiteNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TestSuiteName.Get(), o.TestSuiteName.IsSet()
+	return &o.TestSuiteName, true
 }
 
-// HasTestSuiteName returns a boolean if a field has been set.
-func (o *TestPlanGroupByTestSuite) HasTestSuiteName() bool {
-	if o != nil && o.TestSuiteName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTestSuiteName gets a reference to the given NullableString and assigns it to the TestSuiteName field.
+// SetTestSuiteName sets field value
 func (o *TestPlanGroupByTestSuite) SetTestSuiteName(v string) {
-	o.TestSuiteName.Set(&v)
-}
-// SetTestSuiteNameNil sets the value for TestSuiteName to be an explicit nil
-func (o *TestPlanGroupByTestSuite) SetTestSuiteNameNil() {
-	o.TestSuiteName.Set(nil)
-}
-
-// UnsetTestSuiteName ensures that no value is present for TestSuiteName, not even an explicit nil
-func (o *TestPlanGroupByTestSuite) UnsetTestSuiteName() {
-	o.TestSuiteName.Unset()
+	o.TestSuiteName = v
 }
 
 // GetValue returns the Value field value
@@ -144,9 +127,7 @@ func (o TestPlanGroupByTestSuite) MarshalJSON() ([]byte, error) {
 func (o TestPlanGroupByTestSuite) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["testSuiteId"] = o.TestSuiteId
-	if o.TestSuiteName.IsSet() {
-		toSerialize["testSuiteName"] = o.TestSuiteName.Get()
-	}
+	toSerialize["testSuiteName"] = o.TestSuiteName
 	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }

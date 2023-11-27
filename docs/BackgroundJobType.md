@@ -27,6 +27,10 @@
 
 * `PURGE_PROJECT` (value: `"PurgeProject"`)
 
+* `EXPORT_PROJECTS` (value: `"ExportProjects"`)
+
+* `IMPORT_PROJECTS` (value: `"ImportProjects"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

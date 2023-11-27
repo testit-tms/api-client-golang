@@ -19,22 +19,27 @@ var _ MappedNullable = &WorkItemStepChangeViewModel{}
 
 // WorkItemStepChangeViewModel struct for WorkItemStepChangeViewModel
 type WorkItemStepChangeViewModel struct {
-	Action NullableString `json:"action,omitempty"`
-	Expected NullableString `json:"expected,omitempty"`
-	Comments NullableString `json:"comments,omitempty"`
-	TestData NullableString `json:"testData,omitempty"`
+	Action string `json:"action"`
+	Expected string `json:"expected"`
+	Comments string `json:"comments"`
+	TestData string `json:"testData"`
 	Index int32 `json:"index"`
 	WorkItemId NullableString `json:"workItemId,omitempty"`
-	WorkItem NullableSharedStepChangeViewModel `json:"workItem,omitempty"`
+	WorkItem WorkItemStepChangeViewModelWorkItem `json:"workItem"`
 }
 
 // NewWorkItemStepChangeViewModel instantiates a new WorkItemStepChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemStepChangeViewModel(index int32) *WorkItemStepChangeViewModel {
+func NewWorkItemStepChangeViewModel(action string, expected string, comments string, testData string, index int32, workItem WorkItemStepChangeViewModelWorkItem) *WorkItemStepChangeViewModel {
 	this := WorkItemStepChangeViewModel{}
+	this.Action = action
+	this.Expected = expected
+	this.Comments = comments
+	this.TestData = testData
 	this.Index = index
+	this.WorkItem = workItem
 	return &this
 }
 
@@ -46,172 +51,100 @@ func NewWorkItemStepChangeViewModelWithDefaults() *WorkItemStepChangeViewModel {
 	return &this
 }
 
-// GetAction returns the Action field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAction returns the Action field value
 func (o *WorkItemStepChangeViewModel) GetAction() string {
-	if o == nil || IsNil(o.Action.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Action.Get()
+
+	return o.Action
 }
 
-// GetActionOk returns a tuple with the Action field value if set, nil otherwise
+// GetActionOk returns a tuple with the Action field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetActionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Action.Get(), o.Action.IsSet()
+	return &o.Action, true
 }
 
-// HasAction returns a boolean if a field has been set.
-func (o *WorkItemStepChangeViewModel) HasAction() bool {
-	if o != nil && o.Action.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAction gets a reference to the given NullableString and assigns it to the Action field.
+// SetAction sets field value
 func (o *WorkItemStepChangeViewModel) SetAction(v string) {
-	o.Action.Set(&v)
-}
-// SetActionNil sets the value for Action to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetActionNil() {
-	o.Action.Set(nil)
+	o.Action = v
 }
 
-// UnsetAction ensures that no value is present for Action, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetAction() {
-	o.Action.Unset()
-}
-
-// GetExpected returns the Expected field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetExpected returns the Expected field value
 func (o *WorkItemStepChangeViewModel) GetExpected() string {
-	if o == nil || IsNil(o.Expected.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Expected.Get()
+
+	return o.Expected
 }
 
-// GetExpectedOk returns a tuple with the Expected field value if set, nil otherwise
+// GetExpectedOk returns a tuple with the Expected field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetExpectedOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Expected.Get(), o.Expected.IsSet()
+	return &o.Expected, true
 }
 
-// HasExpected returns a boolean if a field has been set.
-func (o *WorkItemStepChangeViewModel) HasExpected() bool {
-	if o != nil && o.Expected.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExpected gets a reference to the given NullableString and assigns it to the Expected field.
+// SetExpected sets field value
 func (o *WorkItemStepChangeViewModel) SetExpected(v string) {
-	o.Expected.Set(&v)
-}
-// SetExpectedNil sets the value for Expected to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetExpectedNil() {
-	o.Expected.Set(nil)
+	o.Expected = v
 }
 
-// UnsetExpected ensures that no value is present for Expected, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetExpected() {
-	o.Expected.Unset()
-}
-
-// GetComments returns the Comments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetComments returns the Comments field value
 func (o *WorkItemStepChangeViewModel) GetComments() string {
-	if o == nil || IsNil(o.Comments.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Comments.Get()
+
+	return o.Comments
 }
 
-// GetCommentsOk returns a tuple with the Comments field value if set, nil otherwise
+// GetCommentsOk returns a tuple with the Comments field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetCommentsOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Comments.Get(), o.Comments.IsSet()
+	return &o.Comments, true
 }
 
-// HasComments returns a boolean if a field has been set.
-func (o *WorkItemStepChangeViewModel) HasComments() bool {
-	if o != nil && o.Comments.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetComments gets a reference to the given NullableString and assigns it to the Comments field.
+// SetComments sets field value
 func (o *WorkItemStepChangeViewModel) SetComments(v string) {
-	o.Comments.Set(&v)
-}
-// SetCommentsNil sets the value for Comments to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetCommentsNil() {
-	o.Comments.Set(nil)
+	o.Comments = v
 }
 
-// UnsetComments ensures that no value is present for Comments, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetComments() {
-	o.Comments.Unset()
-}
-
-// GetTestData returns the TestData field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTestData returns the TestData field value
 func (o *WorkItemStepChangeViewModel) GetTestData() string {
-	if o == nil || IsNil(o.TestData.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.TestData.Get()
+
+	return o.TestData
 }
 
-// GetTestDataOk returns a tuple with the TestData field value if set, nil otherwise
+// GetTestDataOk returns a tuple with the TestData field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemStepChangeViewModel) GetTestDataOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.TestData.Get(), o.TestData.IsSet()
+	return &o.TestData, true
 }
 
-// HasTestData returns a boolean if a field has been set.
-func (o *WorkItemStepChangeViewModel) HasTestData() bool {
-	if o != nil && o.TestData.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTestData gets a reference to the given NullableString and assigns it to the TestData field.
+// SetTestData sets field value
 func (o *WorkItemStepChangeViewModel) SetTestData(v string) {
-	o.TestData.Set(&v)
-}
-// SetTestDataNil sets the value for TestData to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetTestDataNil() {
-	o.TestData.Set(nil)
-}
-
-// UnsetTestData ensures that no value is present for TestData, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetTestData() {
-	o.TestData.Unset()
+	o.TestData = v
 }
 
 // GetIndex returns the Index field value
@@ -280,46 +213,28 @@ func (o *WorkItemStepChangeViewModel) UnsetWorkItemId() {
 	o.WorkItemId.Unset()
 }
 
-// GetWorkItem returns the WorkItem field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemStepChangeViewModel) GetWorkItem() SharedStepChangeViewModel {
-	if o == nil || IsNil(o.WorkItem.Get()) {
-		var ret SharedStepChangeViewModel
+// GetWorkItem returns the WorkItem field value
+func (o *WorkItemStepChangeViewModel) GetWorkItem() WorkItemStepChangeViewModelWorkItem {
+	if o == nil {
+		var ret WorkItemStepChangeViewModelWorkItem
 		return ret
 	}
-	return *o.WorkItem.Get()
+
+	return o.WorkItem
 }
 
-// GetWorkItemOk returns a tuple with the WorkItem field value if set, nil otherwise
+// GetWorkItemOk returns a tuple with the WorkItem field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*SharedStepChangeViewModel, bool) {
+func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*WorkItemStepChangeViewModelWorkItem, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.WorkItem.Get(), o.WorkItem.IsSet()
+	return &o.WorkItem, true
 }
 
-// HasWorkItem returns a boolean if a field has been set.
-func (o *WorkItemStepChangeViewModel) HasWorkItem() bool {
-	if o != nil && o.WorkItem.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWorkItem gets a reference to the given NullableSharedStepChangeViewModel and assigns it to the WorkItem field.
-func (o *WorkItemStepChangeViewModel) SetWorkItem(v SharedStepChangeViewModel) {
-	o.WorkItem.Set(&v)
-}
-// SetWorkItemNil sets the value for WorkItem to be an explicit nil
-func (o *WorkItemStepChangeViewModel) SetWorkItemNil() {
-	o.WorkItem.Set(nil)
-}
-
-// UnsetWorkItem ensures that no value is present for WorkItem, not even an explicit nil
-func (o *WorkItemStepChangeViewModel) UnsetWorkItem() {
-	o.WorkItem.Unset()
+// SetWorkItem sets field value
+func (o *WorkItemStepChangeViewModel) SetWorkItem(v WorkItemStepChangeViewModelWorkItem) {
+	o.WorkItem = v
 }
 
 func (o WorkItemStepChangeViewModel) MarshalJSON() ([]byte, error) {
@@ -332,25 +247,15 @@ func (o WorkItemStepChangeViewModel) MarshalJSON() ([]byte, error) {
 
 func (o WorkItemStepChangeViewModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Action.IsSet() {
-		toSerialize["action"] = o.Action.Get()
-	}
-	if o.Expected.IsSet() {
-		toSerialize["expected"] = o.Expected.Get()
-	}
-	if o.Comments.IsSet() {
-		toSerialize["comments"] = o.Comments.Get()
-	}
-	if o.TestData.IsSet() {
-		toSerialize["testData"] = o.TestData.Get()
-	}
+	toSerialize["action"] = o.Action
+	toSerialize["expected"] = o.Expected
+	toSerialize["comments"] = o.Comments
+	toSerialize["testData"] = o.TestData
 	toSerialize["index"] = o.Index
 	if o.WorkItemId.IsSet() {
 		toSerialize["workItemId"] = o.WorkItemId.Get()
 	}
-	if o.WorkItem.IsSet() {
-		toSerialize["workItem"] = o.WorkItem.Get()
-	}
+	toSerialize["workItem"] = o.WorkItem
 	return toSerialize, nil
 }
 

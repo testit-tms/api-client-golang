@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ApiV2BackgroundJobsGet**](BackgroundJobsApi.md#ApiV2BackgroundJobsGet) | **Get** /api/v2/backgroundJobs | 
 [**ApiV2BackgroundJobsIdCancelPost**](BackgroundJobsApi.md#ApiV2BackgroundJobsIdCancelPost) | **Post** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
 [**ApiV2BackgroundJobsIdGet**](BackgroundJobsApi.md#ApiV2BackgroundJobsIdGet) | **Get** /api/v2/backgroundJobs/{id} | Get background job by ID
+[**ApiV2BackgroundJobsIdStatusGet**](BackgroundJobsApi.md#ApiV2BackgroundJobsIdStatusGet) | **Get** /api/v2/backgroundJobs/{id}/status | Get background job status by job ID
 [**ApiV2BackgroundJobsSearchPost**](BackgroundJobsApi.md#ApiV2BackgroundJobsSearchPost) | **Post** /api/v2/backgroundJobs/search | Search for user background jobs
 
 
@@ -202,6 +203,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BackgroundJobGetModel**](BackgroundJobGetModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2BackgroundJobsIdStatusGet
+
+> BackgroundJobState ApiV2BackgroundJobsIdStatusGet(ctx, id).Execute()
+
+Get background job status by job ID
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the background job
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.BackgroundJobsApi.ApiV2BackgroundJobsIdStatusGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsApi.ApiV2BackgroundJobsIdStatusGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2BackgroundJobsIdStatusGet`: BackgroundJobState
+    fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsApi.ApiV2BackgroundJobsIdStatusGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique ID of the background job | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2BackgroundJobsIdStatusGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BackgroundJobState**](BackgroundJobState.md)
 
 ### Authorization
 

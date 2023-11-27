@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TesterId** | Pointer to **NullableString** |  | [optional] 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **TestPlanId** | **string** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 **Id** | **string** | Unique ID of the entity | 
 **IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewTestSuiteWithChildrenModel
 
-`func NewTestSuiteWithChildrenModel(testPlanId string, id string, isDeleted bool, ) *TestSuiteWithChildrenModel`
+`func NewTestSuiteWithChildrenModel(testPlanId string, name string, id string, isDeleted bool, ) *TestSuiteWithChildrenModel`
 
 NewTestSuiteWithChildrenModel instantiates a new TestSuiteWithChildrenModel object
 This constructor will assign default values to properties that have it defined,
@@ -175,22 +175,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *TestSuiteWithChildrenModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *TestSuiteWithChildrenModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestSuiteWithChildrenModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *TestSuiteWithChildrenModel) GetId() string`

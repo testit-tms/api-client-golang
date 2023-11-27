@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **Url** | **string** | Request URL of the webhook | 
 **RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
 **ShouldSendBody** | **bool** | Indicates if the webhook sends body | 
-**Headers** | Pointer to **map[string]string** | Collection of the webhook headers | [optional] 
-**QueryParameters** | Pointer to **map[string]string** | Collection of the webhook query parameters | [optional] 
+**Headers** | **map[string]string** | Collection of the webhook headers | 
+**QueryParameters** | **map[string]string** | Collection of the webhook query parameters | 
 **IsEnabled** | **bool** | Indicates if the webhook is active | 
 **ShouldSendCustomBody** | **bool** | Indicates if the webhook sends custom body | 
 **CustomBody** | Pointer to **NullableString** | Custom body of the webhook | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewApiV2WebhooksPostRequest
 
-`func NewApiV2WebhooksPostRequest(projectId string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, shouldSendBody bool, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, name string, ) *ApiV2WebhooksPostRequest`
+`func NewApiV2WebhooksPostRequest(projectId string, eventType WebHookEventTypeModel, url string, requestType RequestTypeModel, shouldSendBody bool, headers map[string]string, queryParameters map[string]string, isEnabled bool, shouldSendCustomBody bool, shouldReplaceParameters bool, shouldEscapeParameters bool, name string, ) *ApiV2WebhooksPostRequest`
 
 NewApiV2WebhooksPostRequest instantiates a new ApiV2WebhooksPostRequest object
 This constructor will assign default values to properties that have it defined,
@@ -192,22 +192,7 @@ and a boolean to check if the value has been set.
 
 SetHeaders sets Headers field to given value.
 
-### HasHeaders
 
-`func (o *ApiV2WebhooksPostRequest) HasHeaders() bool`
-
-HasHeaders returns a boolean if a field has been set.
-
-### SetHeadersNil
-
-`func (o *ApiV2WebhooksPostRequest) SetHeadersNil(b bool)`
-
- SetHeadersNil sets the value for Headers to be an explicit nil
-
-### UnsetHeaders
-`func (o *ApiV2WebhooksPostRequest) UnsetHeaders()`
-
-UnsetHeaders ensures that no value is present for Headers, not even an explicit nil
 ### GetQueryParameters
 
 `func (o *ApiV2WebhooksPostRequest) GetQueryParameters() map[string]string`
@@ -227,22 +212,7 @@ and a boolean to check if the value has been set.
 
 SetQueryParameters sets QueryParameters field to given value.
 
-### HasQueryParameters
 
-`func (o *ApiV2WebhooksPostRequest) HasQueryParameters() bool`
-
-HasQueryParameters returns a boolean if a field has been set.
-
-### SetQueryParametersNil
-
-`func (o *ApiV2WebhooksPostRequest) SetQueryParametersNil(b bool)`
-
- SetQueryParametersNil sets the value for QueryParameters to be an explicit nil
-
-### UnsetQueryParameters
-`func (o *ApiV2WebhooksPostRequest) UnsetQueryParameters()`
-
-UnsetQueryParameters ensures that no value is present for QueryParameters, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *ApiV2WebhooksPostRequest) GetIsEnabled() bool`

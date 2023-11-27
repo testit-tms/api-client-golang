@@ -20,14 +20,22 @@ var _ MappedNullable = &TestPointShortModel{}
 // TestPointShortModel struct for TestPointShortModel
 type TestPointShortModel struct {
 	TestSuiteId string `json:"testSuiteId"`
+	// Test point unique internal identifier
 	Id string `json:"id"`
+	// Tester who is responded for the test unique internal identifier
 	TesterId NullableString `json:"testerId,omitempty"`
+	// Workitem to which test point relates unique identifier
 	WorkItemId NullableString `json:"workItemId,omitempty"`
+	// Configuration to which test point relates unique identifier
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
-	// Applies one of these values: Blocked, NoResults, Failed, Passed
+	// Test point status  <br>Applies one of these values: Blocked, NoResults, Failed, Passed
 	Status NullableString `json:"status,omitempty"`
+	// Last test result unique identifier
 	LastTestResultId NullableString `json:"lastTestResultId,omitempty"`
+	// Iteration unique identifier
 	IterationId string `json:"iterationId"`
+	// Median duration of work item the test point represents
+	WorkItemMedianDuration NullableInt64 `json:"workItemMedianDuration,omitempty"`
 }
 
 // NewTestPointShortModel instantiates a new TestPointShortModel object
@@ -332,6 +340,48 @@ func (o *TestPointShortModel) SetIterationId(v string) {
 	o.IterationId = v
 }
 
+// GetWorkItemMedianDuration returns the WorkItemMedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointShortModel) GetWorkItemMedianDuration() int64 {
+	if o == nil || IsNil(o.WorkItemMedianDuration.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.WorkItemMedianDuration.Get()
+}
+
+// GetWorkItemMedianDurationOk returns a tuple with the WorkItemMedianDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointShortModel) GetWorkItemMedianDurationOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WorkItemMedianDuration.Get(), o.WorkItemMedianDuration.IsSet()
+}
+
+// HasWorkItemMedianDuration returns a boolean if a field has been set.
+func (o *TestPointShortModel) HasWorkItemMedianDuration() bool {
+	if o != nil && o.WorkItemMedianDuration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemMedianDuration gets a reference to the given NullableInt64 and assigns it to the WorkItemMedianDuration field.
+func (o *TestPointShortModel) SetWorkItemMedianDuration(v int64) {
+	o.WorkItemMedianDuration.Set(&v)
+}
+// SetWorkItemMedianDurationNil sets the value for WorkItemMedianDuration to be an explicit nil
+func (o *TestPointShortModel) SetWorkItemMedianDurationNil() {
+	o.WorkItemMedianDuration.Set(nil)
+}
+
+// UnsetWorkItemMedianDuration ensures that no value is present for WorkItemMedianDuration, not even an explicit nil
+func (o *TestPointShortModel) UnsetWorkItemMedianDuration() {
+	o.WorkItemMedianDuration.Unset()
+}
+
 func (o TestPointShortModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -360,6 +410,9 @@ func (o TestPointShortModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["lastTestResultId"] = o.LastTestResultId.Get()
 	}
 	toSerialize["iterationId"] = o.IterationId
+	if o.WorkItemMedianDuration.IsSet() {
+		toSerialize["workItemMedianDuration"] = o.WorkItemMedianDuration.Get()
+	}
 	return toSerialize, nil
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId | [optional] 
+**Id** | Pointer to **NullableString** | Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId | [optional] 
 **WorkItemIdsForLinkWithAutoTest** | Pointer to **[]string** |  | [optional] 
 **ExternalId** | **string** | External ID of the autotest | 
 **Links** | Pointer to [**[]LinkPutModel**](LinkPutModel.md) | Collection of the autotest links | [optional] 
@@ -65,6 +65,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *UpdateAutoTestRequest) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *UpdateAutoTestRequest) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetWorkItemIdsForLinkWithAutoTest
 
 `func (o *UpdateAutoTestRequest) GetWorkItemIdsForLinkWithAutoTest() []string`

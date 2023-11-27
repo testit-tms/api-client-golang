@@ -25,7 +25,7 @@ type ProjectModel struct {
 	// Description of the project
 	Description NullableString `json:"description,omitempty"`
 	// Name of the project
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Indicates if the project is marked as favorite
 	IsFavorite bool `json:"isFavorite"`
 	// Collection of the project attributes
@@ -58,9 +58,10 @@ type ProjectModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectModel(id string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64) *ProjectModel {
+func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64) *ProjectModel {
 	this := ProjectModel{}
 	this.Id = id
+	this.Name = name
 	this.IsFavorite = isFavorite
 	this.IsDeleted = isDeleted
 	this.CreatedDate = createdDate
@@ -143,46 +144,28 @@ func (o *ProjectModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *ProjectModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProjectModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ProjectModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *ProjectModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ProjectModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ProjectModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 // GetIsFavorite returns the IsFavorite field value
@@ -637,9 +620,7 @@ func (o ProjectModel) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
 	toSerialize["isFavorite"] = o.IsFavorite
 	if o.AttributesScheme != nil {
 		toSerialize["attributesScheme"] = o.AttributesScheme

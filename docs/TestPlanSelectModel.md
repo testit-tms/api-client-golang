@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**NullableProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  | [optional] 
+**Filter** | [**ApiV2ProjectsProjectIdTestPlansSearchPostRequest**](ApiV2ProjectsProjectIdTestPlansSearchPostRequest.md) |  | 
 **ExtractionModel** | Pointer to [**NullableTestPlanExtractionModel**](TestPlanExtractionModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewTestPlanSelectModel
 
-`func NewTestPlanSelectModel() *TestPlanSelectModel`
+`func NewTestPlanSelectModel(filter ApiV2ProjectsProjectIdTestPlansSearchPostRequest, ) *TestPlanSelectModel`
 
 NewTestPlanSelectModel instantiates a new TestPlanSelectModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,39 +28,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *TestPlanSelectModel) GetFilter() ProjectTestPlansFilterModel`
+`func (o *TestPlanSelectModel) GetFilter() ApiV2ProjectsProjectIdTestPlansSearchPostRequest`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *TestPlanSelectModel) GetFilterOk() (*ProjectTestPlansFilterModel, bool)`
+`func (o *TestPlanSelectModel) GetFilterOk() (*ApiV2ProjectsProjectIdTestPlansSearchPostRequest, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *TestPlanSelectModel) SetFilter(v ProjectTestPlansFilterModel)`
+`func (o *TestPlanSelectModel) SetFilter(v ApiV2ProjectsProjectIdTestPlansSearchPostRequest)`
 
 SetFilter sets Filter field to given value.
 
-### HasFilter
 
-`func (o *TestPlanSelectModel) HasFilter() bool`
-
-HasFilter returns a boolean if a field has been set.
-
-### SetFilterNil
-
-`func (o *TestPlanSelectModel) SetFilterNil(b bool)`
-
- SetFilterNil sets the value for Filter to be an explicit nil
-
-### UnsetFilter
-`func (o *TestPlanSelectModel) UnsetFilter()`
-
-UnsetFilter ensures that no value is present for Filter, not even an explicit nil
 ### GetExtractionModel
 
 `func (o *TestPlanSelectModel) GetExtractionModel() TestPlanExtractionModel`

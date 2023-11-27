@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiV2AutoTestsFlakyBulkPostRequest{}
 
 // ApiV2AutoTestsFlakyBulkPostRequest struct for ApiV2AutoTestsFlakyBulkPostRequest
 type ApiV2AutoTestsFlakyBulkPostRequest struct {
-	AutotestSelect NullableAutotestSelectModel `json:"autotestSelect,omitempty"`
+	AutotestSelect FlakyBulkModelAutotestSelect `json:"autotestSelect"`
 	// Are autotests flaky
 	Value bool `json:"value"`
 }
@@ -28,8 +28,9 @@ type ApiV2AutoTestsFlakyBulkPostRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApiV2AutoTestsFlakyBulkPostRequest(value bool) *ApiV2AutoTestsFlakyBulkPostRequest {
+func NewApiV2AutoTestsFlakyBulkPostRequest(autotestSelect FlakyBulkModelAutotestSelect, value bool) *ApiV2AutoTestsFlakyBulkPostRequest {
 	this := ApiV2AutoTestsFlakyBulkPostRequest{}
+	this.AutotestSelect = autotestSelect
 	this.Value = value
 	return &this
 }
@@ -42,46 +43,28 @@ func NewApiV2AutoTestsFlakyBulkPostRequestWithDefaults() *ApiV2AutoTestsFlakyBul
 	return &this
 }
 
-// GetAutotestSelect returns the AutotestSelect field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelect() AutotestSelectModel {
-	if o == nil || IsNil(o.AutotestSelect.Get()) {
-		var ret AutotestSelectModel
+// GetAutotestSelect returns the AutotestSelect field value
+func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelect() FlakyBulkModelAutotestSelect {
+	if o == nil {
+		var ret FlakyBulkModelAutotestSelect
 		return ret
 	}
-	return *o.AutotestSelect.Get()
+
+	return o.AutotestSelect
 }
 
-// GetAutotestSelectOk returns a tuple with the AutotestSelect field value if set, nil otherwise
+// GetAutotestSelectOk returns a tuple with the AutotestSelect field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelectOk() (*AutotestSelectModel, bool) {
+func (o *ApiV2AutoTestsFlakyBulkPostRequest) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AutotestSelect.Get(), o.AutotestSelect.IsSet()
+	return &o.AutotestSelect, true
 }
 
-// HasAutotestSelect returns a boolean if a field has been set.
-func (o *ApiV2AutoTestsFlakyBulkPostRequest) HasAutotestSelect() bool {
-	if o != nil && o.AutotestSelect.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAutotestSelect gets a reference to the given NullableAutotestSelectModel and assigns it to the AutotestSelect field.
-func (o *ApiV2AutoTestsFlakyBulkPostRequest) SetAutotestSelect(v AutotestSelectModel) {
-	o.AutotestSelect.Set(&v)
-}
-// SetAutotestSelectNil sets the value for AutotestSelect to be an explicit nil
-func (o *ApiV2AutoTestsFlakyBulkPostRequest) SetAutotestSelectNil() {
-	o.AutotestSelect.Set(nil)
-}
-
-// UnsetAutotestSelect ensures that no value is present for AutotestSelect, not even an explicit nil
-func (o *ApiV2AutoTestsFlakyBulkPostRequest) UnsetAutotestSelect() {
-	o.AutotestSelect.Unset()
+// SetAutotestSelect sets field value
+func (o *ApiV2AutoTestsFlakyBulkPostRequest) SetAutotestSelect(v FlakyBulkModelAutotestSelect) {
+	o.AutotestSelect = v
 }
 
 // GetValue returns the Value field value
@@ -118,9 +101,7 @@ func (o ApiV2AutoTestsFlakyBulkPostRequest) MarshalJSON() ([]byte, error) {
 
 func (o ApiV2AutoTestsFlakyBulkPostRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AutotestSelect.IsSet() {
-		toSerialize["autotestSelect"] = o.AutotestSelect.Get()
-	}
+	toSerialize["autotestSelect"] = o.AutotestSelect
 	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }

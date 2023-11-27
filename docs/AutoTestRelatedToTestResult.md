@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExternalId** | Pointer to **NullableString** | This property is used to set autotest identifier from client system | [optional] 
+**ExternalId** | **string** | This property is used to set autotest identifier from client system | 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **ProjectId** | **string** | This property is used to link autotest with project | 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 **Namespace** | Pointer to **NullableString** |  | [optional] 
 **Classname** | Pointer to **NullableString** |  | [optional] 
 **Steps** | Pointer to [**[]AutoTestStepModel**](AutoTestStepModel.md) |  | [optional] 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewAutoTestRelatedToTestResult
 
-`func NewAutoTestRelatedToTestResult(projectId string, globalId int64, createdById string, id string, isDeleted bool, ) *AutoTestRelatedToTestResult`
+`func NewAutoTestRelatedToTestResult(externalId string, projectId string, name string, globalId int64, createdById string, id string, isDeleted bool, ) *AutoTestRelatedToTestResult`
 
 NewAutoTestRelatedToTestResult instantiates a new AutoTestRelatedToTestResult object
 This constructor will assign default values to properties that have it defined,
@@ -60,22 +60,7 @@ and a boolean to check if the value has been set.
 
 SetExternalId sets ExternalId field to given value.
 
-### HasExternalId
 
-`func (o *AutoTestRelatedToTestResult) HasExternalId() bool`
-
-HasExternalId returns a boolean if a field has been set.
-
-### SetExternalIdNil
-
-`func (o *AutoTestRelatedToTestResult) SetExternalIdNil(b bool)`
-
- SetExternalIdNil sets the value for ExternalId to be an explicit nil
-
-### UnsetExternalId
-`func (o *AutoTestRelatedToTestResult) UnsetExternalId()`
-
-UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetLinks
 
 `func (o *AutoTestRelatedToTestResult) GetLinks() []LinkModel`
@@ -150,22 +135,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *AutoTestRelatedToTestResult) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *AutoTestRelatedToTestResult) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *AutoTestRelatedToTestResult) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamespace
 
 `func (o *AutoTestRelatedToTestResult) GetNamespace() string`

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **NullableString** |  | [optional] 
+**Status** | **string** |  | 
 **Value** | **int32** |  | 
 
 ## Methods
 
 ### NewTestRunGroupByStatusModel
 
-`func NewTestRunGroupByStatusModel(value int32, ) *TestRunGroupByStatusModel`
+`func NewTestRunGroupByStatusModel(status string, value int32, ) *TestRunGroupByStatusModel`
 
 NewTestRunGroupByStatusModel instantiates a new TestRunGroupByStatusModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
 
-`func (o *TestRunGroupByStatusModel) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
-
-### SetStatusNil
-
-`func (o *TestRunGroupByStatusModel) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *TestRunGroupByStatusModel) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetValue
 
 `func (o *TestRunGroupByStatusModel) GetValue() int32`

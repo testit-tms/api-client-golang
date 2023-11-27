@@ -19,7 +19,9 @@ var _ MappedNullable = &CreateParameterRequest{}
 
 // CreateParameterRequest struct for CreateParameterRequest
 type CreateParameterRequest struct {
+	// Value of the parameter
 	Value string `json:"value"`
+	// Key of the parameter
 	Name string `json:"name"`
 }
 

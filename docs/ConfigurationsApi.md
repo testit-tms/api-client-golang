@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2ConfigurationsCreateByParametersPost**](ConfigurationsApi.md#ApiV2ConfigurationsCreateByParametersPost) | **Post** /api/v2/configurations/createByParameters | Create Configurations by parameters
+[**ApiV2ConfigurationsCreateByParametersPost**](ConfigurationsApi.md#ApiV2ConfigurationsCreateByParametersPost) | **Post** /api/v2/configurations/createByParameters | Create configurations by parameters
 [**ApiV2ConfigurationsDeleteBulkPost**](ConfigurationsApi.md#ApiV2ConfigurationsDeleteBulkPost) | **Post** /api/v2/configurations/delete/bulk | Delete multiple configurations
 [**ApiV2ConfigurationsIdDelete**](ConfigurationsApi.md#ApiV2ConfigurationsIdDelete) | **Delete** /api/v2/configurations/{id} | Delete configuration
 [**ApiV2ConfigurationsIdPatch**](ConfigurationsApi.md#ApiV2ConfigurationsIdPatch) | **Patch** /api/v2/configurations/{id} | Patch configuration
@@ -21,11 +21,9 @@ Method | HTTP request | Description
 
 ## ApiV2ConfigurationsCreateByParametersPost
 
-> ApiV2ConfigurationsCreateByParametersPost(ctx).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
+> []string ApiV2ConfigurationsCreateByParametersPost(ctx).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
 
-Create Configurations by parameters
-
-
+Create configurations by parameters
 
 ### Example
 
@@ -40,15 +38,17 @@ import (
 )
 
 func main() {
-    apiV2ConfigurationsCreateByParametersPostRequest := *openapiclient.NewApiV2ConfigurationsCreateByParametersPostRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", []string{"ParameterIds_example"}) // ApiV2ConfigurationsCreateByParametersPostRequest |  (optional)
+    apiV2ConfigurationsCreateByParametersPostRequest := *openapiclient.NewApiV2ConfigurationsCreateByParametersPostRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", []string{"ParameterIds_example"}) // ApiV2ConfigurationsCreateByParametersPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost(context.Background()).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost(context.Background()).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `ApiV2ConfigurationsCreateByParametersPost`: []string
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost`: %v\n", resp)
 }
 ```
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**[]string**
 
 ### Authorization
 
@@ -496,7 +496,7 @@ import (
 )
 
 func main() {
-    apiV2ConfigurationsPutRequest := *openapiclient.NewApiV2ConfigurationsPutRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ApiV2ConfigurationsPutRequest |  (optional)
+    apiV2ConfigurationsPutRequest := *openapiclient.NewApiV2ConfigurationsPutRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ApiV2ConfigurationsPutRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

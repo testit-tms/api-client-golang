@@ -21,9 +21,9 @@ var _ MappedNullable = &AttachmentModel{}
 // AttachmentModel struct for AttachmentModel
 type AttachmentModel struct {
 	// Unique ID of the attachment file
-	FileId NullableString `json:"fileId,omitempty"`
+	FileId string `json:"fileId"`
 	// MIME type of the attachment
-	Type NullableString `json:"type,omitempty"`
+	Type string `json:"type"`
 	// Size in bytes of the attachment file
 	Size float32 `json:"size"`
 	// Creation date of the attachment
@@ -35,7 +35,9 @@ type AttachmentModel struct {
 	// Unique ID of the attachment last editor
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Name of the attachment file
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
+	// Indicates whether the attachment is temporary (may be automatically deleted)
+	IsTemp bool `json:"isTemp"`
 	// Unique ID of the attachment
 	Id string `json:"id"`
 }
@@ -44,11 +46,15 @@ type AttachmentModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttachmentModel(size float32, createdDate time.Time, createdById string, id string) *AttachmentModel {
+func NewAttachmentModel(fileId string, type_ string, size float32, createdDate time.Time, createdById string, name string, isTemp bool, id string) *AttachmentModel {
 	this := AttachmentModel{}
+	this.FileId = fileId
+	this.Type = type_
 	this.Size = size
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
+	this.Name = name
+	this.IsTemp = isTemp
 	this.Id = id
 	return &this
 }
@@ -61,88 +67,52 @@ func NewAttachmentModelWithDefaults() *AttachmentModel {
 	return &this
 }
 
-// GetFileId returns the FileId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFileId returns the FileId field value
 func (o *AttachmentModel) GetFileId() string {
-	if o == nil || IsNil(o.FileId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FileId.Get()
+
+	return o.FileId
 }
 
-// GetFileIdOk returns a tuple with the FileId field value if set, nil otherwise
+// GetFileIdOk returns a tuple with the FileId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentModel) GetFileIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.FileId.Get(), o.FileId.IsSet()
+	return &o.FileId, true
 }
 
-// HasFileId returns a boolean if a field has been set.
-func (o *AttachmentModel) HasFileId() bool {
-	if o != nil && o.FileId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFileId gets a reference to the given NullableString and assigns it to the FileId field.
+// SetFileId sets field value
 func (o *AttachmentModel) SetFileId(v string) {
-	o.FileId.Set(&v)
-}
-// SetFileIdNil sets the value for FileId to be an explicit nil
-func (o *AttachmentModel) SetFileIdNil() {
-	o.FileId.Set(nil)
+	o.FileId = v
 }
 
-// UnsetFileId ensures that no value is present for FileId, not even an explicit nil
-func (o *AttachmentModel) UnsetFileId() {
-	o.FileId.Unset()
-}
-
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value
 func (o *AttachmentModel) GetType() string {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Type.Get()
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentModel) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *AttachmentModel) HasType() bool {
-	if o != nil && o.Type.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given NullableString and assigns it to the Type field.
+// SetType sets field value
 func (o *AttachmentModel) SetType(v string) {
-	o.Type.Set(&v)
-}
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *AttachmentModel) SetTypeNil() {
-	o.Type.Set(nil)
-}
-
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *AttachmentModel) UnsetType() {
-	o.Type.Unset()
+	o.Type = v
 }
 
 // GetSize returns the Size field value
@@ -301,46 +271,52 @@ func (o *AttachmentModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *AttachmentModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AttachmentModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *AttachmentModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
+// SetName sets field value
+func (o *AttachmentModel) SetName(v string) {
+	o.Name = v
+}
+
+// GetIsTemp returns the IsTemp field value
+func (o *AttachmentModel) GetIsTemp() bool {
+	if o == nil {
+		var ret bool
+		return ret
 	}
 
-	return false
+	return o.IsTemp
 }
 
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *AttachmentModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *AttachmentModel) SetNameNil() {
-	o.Name.Set(nil)
+// GetIsTempOk returns a tuple with the IsTemp field value
+// and a boolean to check if the value has been set.
+func (o *AttachmentModel) GetIsTempOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsTemp, true
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *AttachmentModel) UnsetName() {
-	o.Name.Unset()
+// SetIsTemp sets field value
+func (o *AttachmentModel) SetIsTemp(v bool) {
+	o.IsTemp = v
 }
 
 // GetId returns the Id field value
@@ -377,12 +353,8 @@ func (o AttachmentModel) MarshalJSON() ([]byte, error) {
 
 func (o AttachmentModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.FileId.IsSet() {
-		toSerialize["fileId"] = o.FileId.Get()
-	}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
-	}
+	toSerialize["fileId"] = o.FileId
+	toSerialize["type"] = o.Type
 	toSerialize["size"] = o.Size
 	toSerialize["createdDate"] = o.CreatedDate
 	if o.ModifiedDate.IsSet() {
@@ -392,9 +364,8 @@ func (o AttachmentModel) ToMap() (map[string]interface{}, error) {
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
+	toSerialize["isTemp"] = o.IsTemp
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }

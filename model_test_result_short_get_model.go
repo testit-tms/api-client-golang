@@ -23,7 +23,7 @@ type TestResultShortGetModel struct {
 	// Unique ID of the test result
 	Id string `json:"id"`
 	// Name of autotest represented by the test result
-	Name NullableString `json:"name,omitempty"`
+	Name string `json:"name"`
 	// Global ID of autotest represented by the test result
 	AutotestGlobalId int64 `json:"autotestGlobalId"`
 	// Unique ID of test run where the test result is located
@@ -31,11 +31,11 @@ type TestResultShortGetModel struct {
 	// Unique ID of configuration which the test result uses
 	ConfigurationId string `json:"configurationId"`
 	// Name of configuration which the test result uses
-	ConfigurationName NullableString `json:"configurationName,omitempty"`
+	ConfigurationName string `json:"configurationName"`
 	// Outcome of the test result
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome string `json:"outcome"`
 	// Collection of result reasons which the test result have
-	ResultReasons []AutotestResultReasonSubGetModel `json:"resultReasons,omitempty"`
+	ResultReasons []AutotestResultReasonSubGetModel `json:"resultReasons"`
 	// Comment to the test result
 	Comment NullableString `json:"comment,omitempty"`
 	// Date when the test result has been set
@@ -43,22 +43,28 @@ type TestResultShortGetModel struct {
 	// Time which it took to run the test
 	Duration NullableInt64 `json:"duration,omitempty"`
 	// Collection of links attached to the test result
-	Links []LinkSubGetModel `json:"links,omitempty"`
+	Links []LinkSubGetModel `json:"links"`
 	// Collection of files attached to the test result
-	Attachments []AttachmentModel `json:"attachments,omitempty"`
+	Attachments []AttachmentModel `json:"attachments"`
 }
 
 // NewTestResultShortGetModel instantiates a new TestResultShortGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultShortGetModel(id string, autotestGlobalId int64, testRunId string, configurationId string, date time.Time) *TestResultShortGetModel {
+func NewTestResultShortGetModel(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, outcome string, resultReasons []AutotestResultReasonSubGetModel, date time.Time, links []LinkSubGetModel, attachments []AttachmentModel) *TestResultShortGetModel {
 	this := TestResultShortGetModel{}
 	this.Id = id
+	this.Name = name
 	this.AutotestGlobalId = autotestGlobalId
 	this.TestRunId = testRunId
 	this.ConfigurationId = configurationId
+	this.ConfigurationName = configurationName
+	this.Outcome = outcome
+	this.ResultReasons = resultReasons
 	this.Date = date
+	this.Links = links
+	this.Attachments = attachments
 	return &this
 }
 
@@ -94,46 +100,28 @@ func (o *TestResultShortGetModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *TestResultShortGetModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortGetModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *TestResultShortGetModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *TestResultShortGetModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *TestResultShortGetModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *TestResultShortGetModel) UnsetName() {
-	o.Name.Unset()
+	o.Name = v
 }
 
 // GetAutotestGlobalId returns the AutotestGlobalId field value
@@ -208,119 +196,74 @@ func (o *TestResultShortGetModel) SetConfigurationId(v string) {
 	o.ConfigurationId = v
 }
 
-// GetConfigurationName returns the ConfigurationName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetConfigurationName returns the ConfigurationName field value
 func (o *TestResultShortGetModel) GetConfigurationName() string {
-	if o == nil || IsNil(o.ConfigurationName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ConfigurationName.Get()
+
+	return o.ConfigurationName
 }
 
-// GetConfigurationNameOk returns a tuple with the ConfigurationName field value if set, nil otherwise
+// GetConfigurationNameOk returns a tuple with the ConfigurationName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortGetModel) GetConfigurationNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ConfigurationName.Get(), o.ConfigurationName.IsSet()
+	return &o.ConfigurationName, true
 }
 
-// HasConfigurationName returns a boolean if a field has been set.
-func (o *TestResultShortGetModel) HasConfigurationName() bool {
-	if o != nil && o.ConfigurationName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetConfigurationName gets a reference to the given NullableString and assigns it to the ConfigurationName field.
+// SetConfigurationName sets field value
 func (o *TestResultShortGetModel) SetConfigurationName(v string) {
-	o.ConfigurationName.Set(&v)
-}
-// SetConfigurationNameNil sets the value for ConfigurationName to be an explicit nil
-func (o *TestResultShortGetModel) SetConfigurationNameNil() {
-	o.ConfigurationName.Set(nil)
+	o.ConfigurationName = v
 }
 
-// UnsetConfigurationName ensures that no value is present for ConfigurationName, not even an explicit nil
-func (o *TestResultShortGetModel) UnsetConfigurationName() {
-	o.ConfigurationName.Unset()
-}
-
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value
 func (o *TestResultShortGetModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+
+	return o.Outcome
 }
 
-// GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
+// GetOutcomeOk returns a tuple with the Outcome field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortGetModel) GetOutcomeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return &o.Outcome, true
 }
 
-// HasOutcome returns a boolean if a field has been set.
-func (o *TestResultShortGetModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome sets field value
 func (o *TestResultShortGetModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultShortGetModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
+	o.Outcome = v
 }
 
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultShortGetModel) UnsetOutcome() {
-	o.Outcome.Unset()
-}
-
-// GetResultReasons returns the ResultReasons field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetResultReasons returns the ResultReasons field value
 func (o *TestResultShortGetModel) GetResultReasons() []AutotestResultReasonSubGetModel {
 	if o == nil {
 		var ret []AutotestResultReasonSubGetModel
 		return ret
 	}
+
 	return o.ResultReasons
 }
 
-// GetResultReasonsOk returns a tuple with the ResultReasons field value if set, nil otherwise
+// GetResultReasonsOk returns a tuple with the ResultReasons field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortGetModel) GetResultReasonsOk() ([]AutotestResultReasonSubGetModel, bool) {
-	if o == nil || IsNil(o.ResultReasons) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ResultReasons, true
 }
 
-// HasResultReasons returns a boolean if a field has been set.
-func (o *TestResultShortGetModel) HasResultReasons() bool {
-	if o != nil && IsNil(o.ResultReasons) {
-		return true
-	}
-
-	return false
-}
-
-// SetResultReasons gets a reference to the given []AutotestResultReasonSubGetModel and assigns it to the ResultReasons field.
+// SetResultReasons sets field value
 func (o *TestResultShortGetModel) SetResultReasons(v []AutotestResultReasonSubGetModel) {
 	o.ResultReasons = v
 }
@@ -433,68 +376,50 @@ func (o *TestResultShortGetModel) UnsetDuration() {
 	o.Duration.Unset()
 }
 
-// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLinks returns the Links field value
 func (o *TestResultShortGetModel) GetLinks() []LinkSubGetModel {
 	if o == nil {
 		var ret []LinkSubGetModel
 		return ret
 	}
+
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortGetModel) GetLinksOk() ([]LinkSubGetModel, bool) {
-	if o == nil || IsNil(o.Links) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// HasLinks returns a boolean if a field has been set.
-func (o *TestResultShortGetModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
-		return true
-	}
-
-	return false
-}
-
-// SetLinks gets a reference to the given []LinkSubGetModel and assigns it to the Links field.
+// SetLinks sets field value
 func (o *TestResultShortGetModel) SetLinks(v []LinkSubGetModel) {
 	o.Links = v
 }
 
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachments returns the Attachments field value
 func (o *TestResultShortGetModel) GetAttachments() []AttachmentModel {
 	if o == nil {
 		var ret []AttachmentModel
 		return ret
 	}
+
 	return o.Attachments
 }
 
-// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// GetAttachmentsOk returns a tuple with the Attachments field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortGetModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
-	if o == nil || IsNil(o.Attachments) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Attachments, true
 }
 
-// HasAttachments returns a boolean if a field has been set.
-func (o *TestResultShortGetModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
-		return true
-	}
-
-	return false
-}
-
-// SetAttachments gets a reference to the given []AttachmentModel and assigns it to the Attachments field.
+// SetAttachments sets field value
 func (o *TestResultShortGetModel) SetAttachments(v []AttachmentModel) {
 	o.Attachments = v
 }
@@ -510,21 +435,13 @@ func (o TestResultShortGetModel) MarshalJSON() ([]byte, error) {
 func (o TestResultShortGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	if o.Name.IsSet() {
-		toSerialize["name"] = o.Name.Get()
-	}
+	toSerialize["name"] = o.Name
 	toSerialize["autotestGlobalId"] = o.AutotestGlobalId
 	toSerialize["testRunId"] = o.TestRunId
 	toSerialize["configurationId"] = o.ConfigurationId
-	if o.ConfigurationName.IsSet() {
-		toSerialize["configurationName"] = o.ConfigurationName.Get()
-	}
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
-	}
-	if o.ResultReasons != nil {
-		toSerialize["resultReasons"] = o.ResultReasons
-	}
+	toSerialize["configurationName"] = o.ConfigurationName
+	toSerialize["outcome"] = o.Outcome
+	toSerialize["resultReasons"] = o.ResultReasons
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()
 	}
@@ -532,12 +449,8 @@ func (o TestResultShortGetModel) ToMap() (map[string]interface{}, error) {
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
 	}
-	if o.Links != nil {
-		toSerialize["links"] = o.Links
-	}
-	if o.Attachments != nil {
-		toSerialize["attachments"] = o.Attachments
-	}
+	toSerialize["links"] = o.Links
+	toSerialize["attachments"] = o.Attachments
 	return toSerialize, nil
 }
 

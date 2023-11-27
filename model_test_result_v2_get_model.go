@@ -36,7 +36,7 @@ type TestResultV2GetModel struct {
 	TestPoint NullableTestPointRelatedToTestResult `json:"testPoint,omitempty"`
 	TestRunId string `json:"testRunId"`
 	// Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped
-	Outcome NullableString `json:"outcome,omitempty"`
+	Outcome string `json:"outcome"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
@@ -48,12 +48,13 @@ type TestResultV2GetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultV2GetModel(id string, configurationId string, workItemVersionId string, testRunId string) *TestResultV2GetModel {
+func NewTestResultV2GetModel(id string, configurationId string, workItemVersionId string, testRunId string, outcome string) *TestResultV2GetModel {
 	this := TestResultV2GetModel{}
 	this.Id = id
 	this.ConfigurationId = configurationId
 	this.WorkItemVersionId = workItemVersionId
 	this.TestRunId = testRunId
+	this.Outcome = outcome
 	return &this
 }
 
@@ -623,46 +624,28 @@ func (o *TestResultV2GetModel) SetTestRunId(v string) {
 	o.TestRunId = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOutcome returns the Outcome field value
 func (o *TestResultV2GetModel) GetOutcome() string {
-	if o == nil || IsNil(o.Outcome.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Outcome.Get()
+
+	return o.Outcome
 }
 
-// GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
+// GetOutcomeOk returns a tuple with the Outcome field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultV2GetModel) GetOutcomeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Outcome.Get(), o.Outcome.IsSet()
+	return &o.Outcome, true
 }
 
-// HasOutcome returns a boolean if a field has been set.
-func (o *TestResultV2GetModel) HasOutcome() bool {
-	if o != nil && o.Outcome.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOutcome gets a reference to the given NullableString and assigns it to the Outcome field.
+// SetOutcome sets field value
 func (o *TestResultV2GetModel) SetOutcome(v string) {
-	o.Outcome.Set(&v)
-}
-// SetOutcomeNil sets the value for Outcome to be an explicit nil
-func (o *TestResultV2GetModel) SetOutcomeNil() {
-	o.Outcome.Set(nil)
-}
-
-// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
-func (o *TestResultV2GetModel) UnsetOutcome() {
-	o.Outcome.Unset()
+	o.Outcome = v
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -886,9 +869,7 @@ func (o TestResultV2GetModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["testPoint"] = o.TestPoint.Get()
 	}
 	toSerialize["testRunId"] = o.TestRunId
-	if o.Outcome.IsSet() {
-		toSerialize["outcome"] = o.Outcome.Get()
-	}
+	toSerialize["outcome"] = o.Outcome
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()
 	}

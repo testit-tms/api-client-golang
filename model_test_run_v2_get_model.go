@@ -33,8 +33,8 @@ type TestRunV2GetModel struct {
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	CreatedByUserName NullableString `json:"createdByUserName,omitempty"`
-	Attachments []AttachmentModel `json:"attachments,omitempty"`
-	Links []LinkModel `json:"links,omitempty"`
+	Attachments []AttachmentModel `json:"attachments"`
+	Links []LinkModel `json:"links"`
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
@@ -46,12 +46,14 @@ type TestRunV2GetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, id string, name string) *TestRunV2GetModel {
+func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, id string, name string) *TestRunV2GetModel {
 	this := TestRunV2GetModel{}
 	this.StateName = stateName
 	this.ProjectId = projectId
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
+	this.Attachments = attachments
+	this.Links = links
 	this.Id = id
 	this.Name = name
 	return &this
@@ -446,68 +448,50 @@ func (o *TestRunV2GetModel) UnsetCreatedByUserName() {
 	o.CreatedByUserName.Unset()
 }
 
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachments returns the Attachments field value
 func (o *TestRunV2GetModel) GetAttachments() []AttachmentModel {
 	if o == nil {
 		var ret []AttachmentModel
 		return ret
 	}
+
 	return o.Attachments
 }
 
-// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// GetAttachmentsOk returns a tuple with the Attachments field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunV2GetModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
-	if o == nil || IsNil(o.Attachments) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Attachments, true
 }
 
-// HasAttachments returns a boolean if a field has been set.
-func (o *TestRunV2GetModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
-		return true
-	}
-
-	return false
-}
-
-// SetAttachments gets a reference to the given []AttachmentModel and assigns it to the Attachments field.
+// SetAttachments sets field value
 func (o *TestRunV2GetModel) SetAttachments(v []AttachmentModel) {
 	o.Attachments = v
 }
 
-// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLinks returns the Links field value
 func (o *TestRunV2GetModel) GetLinks() []LinkModel {
 	if o == nil {
 		var ret []LinkModel
 		return ret
 	}
+
 	return o.Links
 }
 
-// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunV2GetModel) GetLinksOk() ([]LinkModel, bool) {
-	if o == nil || IsNil(o.Links) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Links, true
 }
 
-// HasLinks returns a boolean if a field has been set.
-func (o *TestRunV2GetModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
-		return true
-	}
-
-	return false
-}
-
-// SetLinks gets a reference to the given []LinkModel and assigns it to the Links field.
+// SetLinks sets field value
 func (o *TestRunV2GetModel) SetLinks(v []LinkModel) {
 	o.Links = v
 }
@@ -679,12 +663,8 @@ func (o TestRunV2GetModel) ToMap() (map[string]interface{}, error) {
 	if o.CreatedByUserName.IsSet() {
 		toSerialize["createdByUserName"] = o.CreatedByUserName.Get()
 	}
-	if o.Attachments != nil {
-		toSerialize["attachments"] = o.Attachments
-	}
-	if o.Links != nil {
-		toSerialize["links"] = o.Links
-	}
+	toSerialize["attachments"] = o.Attachments
+	toSerialize["links"] = o.Links
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	if o.Description.IsSet() {

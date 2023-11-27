@@ -46,14 +46,14 @@ type TestPlanModel struct {
 	ProjectId string `json:"projectId"`
 	ProductName NullableString `json:"productName,omitempty"`
 	HasAutomaticDurationTimer NullableBool `json:"hasAutomaticDurationTimer,omitempty"`
-	Attributes map[string]interface{} `json:"attributes,omitempty"`
+	Attributes map[string]interface{} `json:"attributes"`
 }
 
 // NewTestPlanModel instantiates a new TestPlanModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string) *TestPlanModel {
+func NewTestPlanModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}) *TestPlanModel {
 	this := TestPlanModel{}
 	this.Status = status
 	this.CreatedById = createdById
@@ -62,6 +62,7 @@ func NewTestPlanModel(status TestPlanStatusModel, createdById string, globalId i
 	this.Id = id
 	this.Name = name
 	this.ProjectId = projectId
+	this.Attributes = attributes
 	return &this
 }
 
@@ -820,35 +821,26 @@ func (o *TestPlanModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value
 func (o *TestPlanModel) GetAttributes() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
+
 	return o.Attributes
 }
 
-// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// GetAttributesOk returns a tuple with the Attributes field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanModel) GetAttributesOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Attributes) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.Attributes, true
 }
 
-// HasAttributes returns a boolean if a field has been set.
-func (o *TestPlanModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
-		return true
-	}
-
-	return false
-}
-
-// SetAttributes gets a reference to the given map[string]interface{} and assigns it to the Attributes field.
+// SetAttributes sets field value
 func (o *TestPlanModel) SetAttributes(v map[string]interface{}) {
 	o.Attributes = v
 }
@@ -912,9 +904,7 @@ func (o TestPlanModel) ToMap() (map[string]interface{}, error) {
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if o.Attributes != nil {
-		toSerialize["attributes"] = o.Attributes
-	}
+	toSerialize["attributes"] = o.Attributes
 	return toSerialize, nil
 }
 

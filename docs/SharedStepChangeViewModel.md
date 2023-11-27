@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **GlobalId** | **int64** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**Steps** | Pointer to [**[]WorkItemStepChangeViewModel**](WorkItemStepChangeViewModel.md) |  | [optional] 
+**Name** | **string** |  | 
+**Steps** | [**[]WorkItemStepChangeViewModel**](WorkItemStepChangeViewModel.md) |  | 
 
 ## Methods
 
 ### NewSharedStepChangeViewModel
 
-`func NewSharedStepChangeViewModel(id string, globalId int64, ) *SharedStepChangeViewModel`
+`func NewSharedStepChangeViewModel(id string, globalId int64, name string, steps []WorkItemStepChangeViewModel, ) *SharedStepChangeViewModel`
 
 NewSharedStepChangeViewModel instantiates a new SharedStepChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,22 +87,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *SharedStepChangeViewModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *SharedStepChangeViewModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SharedStepChangeViewModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSteps
 
 `func (o *SharedStepChangeViewModel) GetSteps() []WorkItemStepChangeViewModel`
@@ -122,22 +107,7 @@ and a boolean to check if the value has been set.
 
 SetSteps sets Steps field to given value.
 
-### HasSteps
 
-`func (o *SharedStepChangeViewModel) HasSteps() bool`
-
-HasSteps returns a boolean if a field has been set.
-
-### SetStepsNil
-
-`func (o *SharedStepChangeViewModel) SetStepsNil(b bool)`
-
- SetStepsNil sets the value for Steps to be an explicit nil
-
-### UnsetSteps
-`func (o *SharedStepChangeViewModel) UnsetSteps()`
-
-UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

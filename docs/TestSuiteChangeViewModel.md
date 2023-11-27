@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 **Configurations** | Pointer to [**[]ShortConfiguration**](ShortConfiguration.md) |  | [optional] 
 **WorkItemCount** | **int64** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewTestSuiteChangeViewModel
 
-`func NewTestSuiteChangeViewModel(id string, workItemCount int64, ) *TestSuiteChangeViewModel`
+`func NewTestSuiteChangeViewModel(id string, name string, workItemCount int64, ) *TestSuiteChangeViewModel`
 
 NewTestSuiteChangeViewModel instantiates a new TestSuiteChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -67,22 +67,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *TestSuiteChangeViewModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *TestSuiteChangeViewModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestSuiteChangeViewModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetConfigurations
 
 `func (o *TestSuiteChangeViewModel) GetConfigurations() []ShortConfiguration`

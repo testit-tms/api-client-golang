@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **ProjectId** | **string** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** |  | 
 
 ## Methods
 
 ### NewTestPlanShortModel
 
-`func NewTestPlanShortModel(id string, projectId string, ) *TestPlanShortModel`
+`func NewTestPlanShortModel(id string, projectId string, name string, ) *TestPlanShortModel`
 
 NewTestPlanShortModel instantiates a new TestPlanShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -86,22 +86,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *TestPlanShortModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *TestPlanShortModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *TestPlanShortModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

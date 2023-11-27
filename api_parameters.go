@@ -143,7 +143,6 @@ func (a *ParametersApiService) ApiV2ParametersBulkPostExecute(r ApiApiV2Paramete
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -267,8 +266,8 @@ func (a *ParametersApiService) ApiV2ParametersBulkPutExecute(r ApiApiV2Parameter
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -289,8 +288,8 @@ func (a *ParametersApiService) ApiV2ParametersBulkPutExecute(r ApiApiV2Parameter
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -622,7 +621,6 @@ func (a *ParametersApiService) ApiV2ParametersKeyNameNameExistsGetExecute(r ApiA
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1455,8 +1453,8 @@ func (a *ParametersApiService) DeleteByNameExecute(r ApiDeleteByNameRequest) (*h
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1466,8 +1464,8 @@ func (a *ParametersApiService) DeleteByNameExecute(r ApiDeleteByNameRequest) (*h
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1602,7 +1600,6 @@ func (a *ParametersApiService) DeleteByParameterKeyIdExecute(r ApiDeleteByParame
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1713,8 +1710,8 @@ func (a *ParametersApiService) DeleteParameterExecute(r ApiDeleteParameterReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1724,8 +1721,8 @@ func (a *ParametersApiService) DeleteParameterExecute(r ApiDeleteParameterReques
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1787,7 +1784,7 @@ func (r ApiGetAllParametersRequest) SearchValue(searchValue string) ApiGetAllPar
 	return r
 }
 
-func (r ApiGetAllParametersRequest) Execute() (*ParameterModel, *http.Response, error) {
+func (r ApiGetAllParametersRequest) Execute() ([]ParameterModel, *http.Response, error) {
 	return r.ApiService.GetAllParametersExecute(r)
 }
 
@@ -1812,13 +1809,13 @@ func (a *ParametersApiService) GetAllParameters(ctx context.Context) ApiGetAllPa
 }
 
 // Execute executes the request
-//  @return ParameterModel
-func (a *ParametersApiService) GetAllParametersExecute(r ApiGetAllParametersRequest) (*ParameterModel, *http.Response, error) {
+//  @return []ParameterModel
+func (a *ParametersApiService) GetAllParametersExecute(r ApiGetAllParametersRequest) ([]ParameterModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ParameterModel
+		localVarReturnValue  []ParameterModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersApiService.GetAllParameters")

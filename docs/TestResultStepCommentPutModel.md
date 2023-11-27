@@ -5,16 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Text** | Pointer to **NullableString** |  | [optional] 
+**Text** | **string** |  | 
 **StepId** | **string** |  | 
 **ParentStepId** | Pointer to **NullableString** |  | [optional] 
-**Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | [optional] 
+**Attachments** | [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | 
 
 ## Methods
 
 ### NewTestResultStepCommentPutModel
 
-`func NewTestResultStepCommentPutModel(id string, stepId string, ) *TestResultStepCommentPutModel`
+`func NewTestResultStepCommentPutModel(id string, text string, stepId string, attachments []AttachmentPutModel, ) *TestResultStepCommentPutModel`
 
 NewTestResultStepCommentPutModel instantiates a new TestResultStepCommentPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -68,22 +68,7 @@ and a boolean to check if the value has been set.
 
 SetText sets Text field to given value.
 
-### HasText
 
-`func (o *TestResultStepCommentPutModel) HasText() bool`
-
-HasText returns a boolean if a field has been set.
-
-### SetTextNil
-
-`func (o *TestResultStepCommentPutModel) SetTextNil(b bool)`
-
- SetTextNil sets the value for Text to be an explicit nil
-
-### UnsetText
-`func (o *TestResultStepCommentPutModel) UnsetText()`
-
-UnsetText ensures that no value is present for Text, not even an explicit nil
 ### GetStepId
 
 `func (o *TestResultStepCommentPutModel) GetStepId() string`
@@ -158,22 +143,7 @@ and a boolean to check if the value has been set.
 
 SetAttachments sets Attachments field to given value.
 
-### HasAttachments
 
-`func (o *TestResultStepCommentPutModel) HasAttachments() bool`
-
-HasAttachments returns a boolean if a field has been set.
-
-### SetAttachmentsNil
-
-`func (o *TestResultStepCommentPutModel) SetAttachmentsNil(b bool)`
-
- SetAttachmentsNil sets the value for Attachments to be an explicit nil
-
-### UnsetAttachments
-`func (o *TestResultStepCommentPutModel) UnsetAttachments()`
-
-UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **IsDeleted** | **bool** |  | 
-**Name** | Pointer to **NullableString** |  | [optional] 
-**ProjectShortestModels** | Pointer to [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | [optional] 
-**CustomAttributeModels** | Pointer to [**[]CustomAttributeModel**](CustomAttributeModel.md) |  | [optional] 
+**Name** | **string** |  | 
+**ProjectShortestModels** | [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | 
+**CustomAttributeModels** | [**[]CustomAttributeModel**](CustomAttributeModel.md) |  | 
 
 ## Methods
 
 ### NewSearchCustomAttributeTemplateGetModel
 
-`func NewSearchCustomAttributeTemplateGetModel(id string, isDeleted bool, ) *SearchCustomAttributeTemplateGetModel`
+`func NewSearchCustomAttributeTemplateGetModel(id string, isDeleted bool, name string, projectShortestModels []ProjectShortestModel, customAttributeModels []CustomAttributeModel, ) *SearchCustomAttributeTemplateGetModel`
 
 NewSearchCustomAttributeTemplateGetModel instantiates a new SearchCustomAttributeTemplateGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -88,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *SearchCustomAttributeTemplateGetModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *SearchCustomAttributeTemplateGetModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *SearchCustomAttributeTemplateGetModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetProjectShortestModels
 
 `func (o *SearchCustomAttributeTemplateGetModel) GetProjectShortestModels() []ProjectShortestModel`
@@ -123,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetProjectShortestModels sets ProjectShortestModels field to given value.
 
-### HasProjectShortestModels
 
-`func (o *SearchCustomAttributeTemplateGetModel) HasProjectShortestModels() bool`
-
-HasProjectShortestModels returns a boolean if a field has been set.
-
-### SetProjectShortestModelsNil
-
-`func (o *SearchCustomAttributeTemplateGetModel) SetProjectShortestModelsNil(b bool)`
-
- SetProjectShortestModelsNil sets the value for ProjectShortestModels to be an explicit nil
-
-### UnsetProjectShortestModels
-`func (o *SearchCustomAttributeTemplateGetModel) UnsetProjectShortestModels()`
-
-UnsetProjectShortestModels ensures that no value is present for ProjectShortestModels, not even an explicit nil
 ### GetCustomAttributeModels
 
 `func (o *SearchCustomAttributeTemplateGetModel) GetCustomAttributeModels() []CustomAttributeModel`
@@ -158,22 +128,7 @@ and a boolean to check if the value has been set.
 
 SetCustomAttributeModels sets CustomAttributeModels field to given value.
 
-### HasCustomAttributeModels
 
-`func (o *SearchCustomAttributeTemplateGetModel) HasCustomAttributeModels() bool`
-
-HasCustomAttributeModels returns a boolean if a field has been set.
-
-### SetCustomAttributeModelsNil
-
-`func (o *SearchCustomAttributeTemplateGetModel) SetCustomAttributeModelsNil(b bool)`
-
- SetCustomAttributeModelsNil sets the value for CustomAttributeModels to be an explicit nil
-
-### UnsetCustomAttributeModels
-`func (o *SearchCustomAttributeTemplateGetModel) UnsetCustomAttributeModels()`
-
-UnsetCustomAttributeModels ensures that no value is present for CustomAttributeModels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

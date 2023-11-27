@@ -19,7 +19,7 @@ var _ MappedNullable = &TestPlanSelectModel{}
 
 // TestPlanSelectModel struct for TestPlanSelectModel
 type TestPlanSelectModel struct {
-	Filter NullableProjectTestPlansFilterModel `json:"filter,omitempty"`
+	Filter ApiV2ProjectsProjectIdTestPlansSearchPostRequest `json:"filter"`
 	ExtractionModel NullableTestPlanExtractionModel `json:"extractionModel,omitempty"`
 }
 
@@ -27,8 +27,9 @@ type TestPlanSelectModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanSelectModel() *TestPlanSelectModel {
+func NewTestPlanSelectModel(filter ApiV2ProjectsProjectIdTestPlansSearchPostRequest) *TestPlanSelectModel {
 	this := TestPlanSelectModel{}
+	this.Filter = filter
 	return &this
 }
 
@@ -40,46 +41,28 @@ func NewTestPlanSelectModelWithDefaults() *TestPlanSelectModel {
 	return &this
 }
 
-// GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanSelectModel) GetFilter() ProjectTestPlansFilterModel {
-	if o == nil || IsNil(o.Filter.Get()) {
-		var ret ProjectTestPlansFilterModel
+// GetFilter returns the Filter field value
+func (o *TestPlanSelectModel) GetFilter() ApiV2ProjectsProjectIdTestPlansSearchPostRequest {
+	if o == nil {
+		var ret ApiV2ProjectsProjectIdTestPlansSearchPostRequest
 		return ret
 	}
-	return *o.Filter.Get()
+
+	return o.Filter
 }
 
-// GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
+// GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanSelectModel) GetFilterOk() (*ProjectTestPlansFilterModel, bool) {
+func (o *TestPlanSelectModel) GetFilterOk() (*ApiV2ProjectsProjectIdTestPlansSearchPostRequest, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Filter.Get(), o.Filter.IsSet()
+	return &o.Filter, true
 }
 
-// HasFilter returns a boolean if a field has been set.
-func (o *TestPlanSelectModel) HasFilter() bool {
-	if o != nil && o.Filter.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetFilter gets a reference to the given NullableProjectTestPlansFilterModel and assigns it to the Filter field.
-func (o *TestPlanSelectModel) SetFilter(v ProjectTestPlansFilterModel) {
-	o.Filter.Set(&v)
-}
-// SetFilterNil sets the value for Filter to be an explicit nil
-func (o *TestPlanSelectModel) SetFilterNil() {
-	o.Filter.Set(nil)
-}
-
-// UnsetFilter ensures that no value is present for Filter, not even an explicit nil
-func (o *TestPlanSelectModel) UnsetFilter() {
-	o.Filter.Unset()
+// SetFilter sets field value
+func (o *TestPlanSelectModel) SetFilter(v ApiV2ProjectsProjectIdTestPlansSearchPostRequest) {
+	o.Filter = v
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -134,9 +117,7 @@ func (o TestPlanSelectModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Filter.IsSet() {
-		toSerialize["filter"] = o.Filter.Get()
-	}
+	toSerialize["filter"] = o.Filter
 	if o.ExtractionModel.IsSet() {
 		toSerialize["extractionModel"] = o.ExtractionModel.Get()
 	}

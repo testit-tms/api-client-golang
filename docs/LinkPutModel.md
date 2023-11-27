@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
 **Type** | Pointer to [**NullableLinkType**](LinkType.md) |  | [optional] 
-**HasInfo** | Pointer to **NullableBool** |  | [optional] 
+**HasInfo** | **bool** |  | 
 
 ## Methods
 
 ### NewLinkPutModel
 
-`func NewLinkPutModel(url string, ) *LinkPutModel`
+`func NewLinkPutModel(url string, hasInfo bool, ) *LinkPutModel`
 
 NewLinkPutModel instantiates a new LinkPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -209,22 +209,7 @@ and a boolean to check if the value has been set.
 
 SetHasInfo sets HasInfo field to given value.
 
-### HasHasInfo
 
-`func (o *LinkPutModel) HasHasInfo() bool`
-
-HasHasInfo returns a boolean if a field has been set.
-
-### SetHasInfoNil
-
-`func (o *LinkPutModel) SetHasInfoNil(b bool)`
-
- SetHasInfoNil sets the value for HasInfo to be an explicit nil
-
-### UnsetHasInfo
-`func (o *LinkPutModel) UnsetHasInfo()`
-
-UnsetHasInfo ensures that no value is present for HasInfo, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

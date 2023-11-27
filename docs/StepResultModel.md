@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StepId** | **string** |  | 
-**Outcome** | Pointer to **NullableString** |  | [optional] 
+**Outcome** | **string** |  | 
 **SharedStepVersionId** | Pointer to **NullableString** |  | [optional] 
 **SharedStepResults** | Pointer to [**[]SharedStepResultModel**](SharedStepResultModel.md) |  | [optional] 
 **Comment** | Pointer to [**NullableStepCommentModel**](StepCommentModel.md) |  | [optional] 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewStepResultModel
 
-`func NewStepResultModel(stepId string, ) *StepResultModel`
+`func NewStepResultModel(stepId string, outcome string, ) *StepResultModel`
 
 NewStepResultModel instantiates a new StepResultModel object
 This constructor will assign default values to properties that have it defined,
@@ -68,22 +68,7 @@ and a boolean to check if the value has been set.
 
 SetOutcome sets Outcome field to given value.
 
-### HasOutcome
 
-`func (o *StepResultModel) HasOutcome() bool`
-
-HasOutcome returns a boolean if a field has been set.
-
-### SetOutcomeNil
-
-`func (o *StepResultModel) SetOutcomeNil(b bool)`
-
- SetOutcomeNil sets the value for Outcome to be an explicit nil
-
-### UnsetOutcome
-`func (o *StepResultModel) UnsetOutcome()`
-
-UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetSharedStepVersionId
 
 `func (o *StepResultModel) GetSharedStepVersionId() string`

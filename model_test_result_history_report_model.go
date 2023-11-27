@@ -50,7 +50,7 @@ type TestResultHistoryReportModel struct {
 	WorkItemVersionId NullableString `json:"workItemVersionId,omitempty"`
 	WorkItemVersionNumber NullableInt32 `json:"workItemVersionNumber,omitempty"`
 	LaunchSource NullableString `json:"launchSource,omitempty"`
-	FailureClassIds []string `json:"failureClassIds,omitempty"`
+	FailureClassIds []string `json:"failureClassIds"`
 	Parameters map[string]string `json:"parameters,omitempty"`
 }
 
@@ -58,7 +58,7 @@ type TestResultHistoryReportModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultHistoryReportModel(id string, createdDate time.Time, modifiedDate time.Time, userId string, isAutomated bool, createdById string) *TestResultHistoryReportModel {
+func NewTestResultHistoryReportModel(id string, createdDate time.Time, modifiedDate time.Time, userId string, isAutomated bool, createdById string, failureClassIds []string) *TestResultHistoryReportModel {
 	this := TestResultHistoryReportModel{}
 	this.Id = id
 	this.CreatedDate = createdDate
@@ -66,6 +66,7 @@ func NewTestResultHistoryReportModel(id string, createdDate time.Time, modifiedD
 	this.UserId = userId
 	this.IsAutomated = isAutomated
 	this.CreatedById = createdById
+	this.FailureClassIds = failureClassIds
 	return &this
 }
 
@@ -959,35 +960,26 @@ func (o *TestResultHistoryReportModel) UnsetLaunchSource() {
 	o.LaunchSource.Unset()
 }
 
-// GetFailureClassIds returns the FailureClassIds field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetFailureClassIds returns the FailureClassIds field value
 func (o *TestResultHistoryReportModel) GetFailureClassIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
+
 	return o.FailureClassIds
 }
 
-// GetFailureClassIdsOk returns a tuple with the FailureClassIds field value if set, nil otherwise
+// GetFailureClassIdsOk returns a tuple with the FailureClassIds field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultHistoryReportModel) GetFailureClassIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.FailureClassIds) {
+	if o == nil {
 		return nil, false
 	}
 	return o.FailureClassIds, true
 }
 
-// HasFailureClassIds returns a boolean if a field has been set.
-func (o *TestResultHistoryReportModel) HasFailureClassIds() bool {
-	if o != nil && IsNil(o.FailureClassIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetFailureClassIds gets a reference to the given []string and assigns it to the FailureClassIds field.
+// SetFailureClassIds sets field value
 func (o *TestResultHistoryReportModel) SetFailureClassIds(v []string) {
 	o.FailureClassIds = v
 }
@@ -1095,9 +1087,7 @@ func (o TestResultHistoryReportModel) ToMap() (map[string]interface{}, error) {
 	if o.LaunchSource.IsSet() {
 		toSerialize["launchSource"] = o.LaunchSource.Get()
 	}
-	if o.FailureClassIds != nil {
-		toSerialize["failureClassIds"] = o.FailureClassIds
-	}
+	toSerialize["failureClassIds"] = o.FailureClassIds
 	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
 	}

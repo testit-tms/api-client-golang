@@ -39,7 +39,7 @@ Method | HTTP request | Description
 
 ## AddTestPointsWithSections
 
-> AddTestPointsWithSections(ctx, id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
+> AddTestPointsWithSections(ctx, id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
 
 Add test-points to TestPlan with sections
 
@@ -57,11 +57,11 @@ import (
 
 func main() {
     id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    apiV2ProjectsIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsIdWorkItemsSearchPostRequest() // ApiV2ProjectsIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
+    apiV2ProjectsProjectIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdWorkItemsSearchPostRequest(*openapiclient.NewWorkItemSelectModelFilter()) // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.AddTestPointsWithSections(context.Background(), id).ApiV2ProjectsIdWorkItemsSearchPostRequest(apiV2ProjectsIdWorkItemsSearchPostRequest).Execute()
+    r, err := apiClient.TestPlansApi.AddTestPointsWithSections(context.Background(), id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.AddTestPointsWithSections``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -85,7 +85,7 @@ Other parameters are passed through a pointer to a apiAddTestPointsWithSectionsR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **apiV2ProjectsIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsIdWorkItemsSearchPostRequest**](ApiV2ProjectsIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
+ **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
 
 ### Return type
 
@@ -1591,7 +1591,7 @@ import (
 )
 
 func main() {
-    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // CreateTestPlanRequest |  (optional)
+    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", map[string]interface{}{"key": interface{}(123)}) // CreateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2135,7 +2135,7 @@ import (
 )
 
 func main() {
-    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "Base test plan", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // UpdateTestPlanRequest |  (optional)
+    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "Base test plan", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", map[string]interface{}{"key": interface{}(123)}) // UpdateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

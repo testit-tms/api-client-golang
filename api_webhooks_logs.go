@@ -301,7 +301,6 @@ func (a *WebhooksLogsApiService) ApiV2WebhooksLogsIdDeleteExecute(r ApiApiV2Webh
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}

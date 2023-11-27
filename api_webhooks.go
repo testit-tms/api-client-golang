@@ -500,7 +500,6 @@ func (a *WebhooksApiService) ApiV2WebhooksIdPutExecute(r ApiApiV2WebhooksIdPutRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -809,7 +808,6 @@ func (a *WebhooksApiService) ApiV2WebhooksSearchPostExecute(r ApiApiV2WebhooksSe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1069,7 +1067,6 @@ func (a *WebhooksApiService) ApiV2WebhooksTestPostExecute(r ApiApiV2WebhooksTest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

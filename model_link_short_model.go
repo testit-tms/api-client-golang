@@ -20,17 +20,19 @@ var _ MappedNullable = &LinkShortModel{}
 // LinkShortModel struct for LinkShortModel
 type LinkShortModel struct {
 	Id string `json:"id"`
-	Title NullableString `json:"title,omitempty"`
-	Url NullableString `json:"url,omitempty"`
+	Title string `json:"title"`
+	Url string `json:"url"`
 }
 
 // NewLinkShortModel instantiates a new LinkShortModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkShortModel(id string) *LinkShortModel {
+func NewLinkShortModel(id string, title string, url string) *LinkShortModel {
 	this := LinkShortModel{}
 	this.Id = id
+	this.Title = title
+	this.Url = url
 	return &this
 }
 
@@ -66,88 +68,52 @@ func (o *LinkShortModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTitle returns the Title field value
 func (o *LinkShortModel) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Title.Get()
+
+	return o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkShortModel) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Title.Get(), o.Title.IsSet()
+	return &o.Title, true
 }
 
-// HasTitle returns a boolean if a field has been set.
-func (o *LinkShortModel) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+// SetTitle sets field value
 func (o *LinkShortModel) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *LinkShortModel) SetTitleNil() {
-	o.Title.Set(nil)
+	o.Title = v
 }
 
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *LinkShortModel) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetUrl returns the Url field value
 func (o *LinkShortModel) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Url.Get()
+
+	return o.Url
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// GetUrlOk returns a tuple with the Url field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkShortModel) GetUrlOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Url.Get(), o.Url.IsSet()
+	return &o.Url, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *LinkShortModel) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
+// SetUrl sets field value
 func (o *LinkShortModel) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *LinkShortModel) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *LinkShortModel) UnsetUrl() {
-	o.Url.Unset()
+	o.Url = v
 }
 
 func (o LinkShortModel) MarshalJSON() ([]byte, error) {
@@ -161,12 +127,8 @@ func (o LinkShortModel) MarshalJSON() ([]byte, error) {
 func (o LinkShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	if o.Title.IsSet() {
-		toSerialize["title"] = o.Title.Get()
-	}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
-	}
+	toSerialize["title"] = o.Title
+	toSerialize["url"] = o.Url
 	return toSerialize, nil
 }
 

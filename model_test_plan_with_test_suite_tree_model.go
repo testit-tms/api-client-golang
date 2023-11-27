@@ -20,7 +20,7 @@ var _ MappedNullable = &TestPlanWithTestSuiteTreeModel{}
 
 // TestPlanWithTestSuiteTreeModel struct for TestPlanWithTestSuiteTreeModel
 type TestPlanWithTestSuiteTreeModel struct {
-	TestSuites []TestSuiteWithChildrenModel `json:"testSuites,omitempty"`
+	TestSuites []TestSuiteWithChildrenModel `json:"testSuites"`
 	Status TestPlanStatusModel `json:"status"`
 	// Set when test plan is starter (status changed to: In Progress)
 	StartedOn NullableTime `json:"startedOn,omitempty"`
@@ -47,15 +47,16 @@ type TestPlanWithTestSuiteTreeModel struct {
 	ProjectId string `json:"projectId"`
 	ProductName NullableString `json:"productName,omitempty"`
 	HasAutomaticDurationTimer NullableBool `json:"hasAutomaticDurationTimer,omitempty"`
-	Attributes map[string]interface{} `json:"attributes,omitempty"`
+	Attributes map[string]interface{} `json:"attributes"`
 }
 
 // NewTestPlanWithTestSuiteTreeModel instantiates a new TestPlanWithTestSuiteTreeModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanWithTestSuiteTreeModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string) *TestPlanWithTestSuiteTreeModel {
+func NewTestPlanWithTestSuiteTreeModel(testSuites []TestSuiteWithChildrenModel, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}) *TestPlanWithTestSuiteTreeModel {
 	this := TestPlanWithTestSuiteTreeModel{}
+	this.TestSuites = testSuites
 	this.Status = status
 	this.CreatedById = createdById
 	this.GlobalId = globalId
@@ -63,6 +64,7 @@ func NewTestPlanWithTestSuiteTreeModel(status TestPlanStatusModel, createdById s
 	this.Id = id
 	this.Name = name
 	this.ProjectId = projectId
+	this.Attributes = attributes
 	return &this
 }
 
@@ -74,35 +76,26 @@ func NewTestPlanWithTestSuiteTreeModelWithDefaults() *TestPlanWithTestSuiteTreeM
 	return &this
 }
 
-// GetTestSuites returns the TestSuites field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetTestSuites returns the TestSuites field value
 func (o *TestPlanWithTestSuiteTreeModel) GetTestSuites() []TestSuiteWithChildrenModel {
 	if o == nil {
 		var ret []TestSuiteWithChildrenModel
 		return ret
 	}
+
 	return o.TestSuites
 }
 
-// GetTestSuitesOk returns a tuple with the TestSuites field value if set, nil otherwise
+// GetTestSuitesOk returns a tuple with the TestSuites field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanWithTestSuiteTreeModel) GetTestSuitesOk() ([]TestSuiteWithChildrenModel, bool) {
-	if o == nil || IsNil(o.TestSuites) {
+	if o == nil {
 		return nil, false
 	}
 	return o.TestSuites, true
 }
 
-// HasTestSuites returns a boolean if a field has been set.
-func (o *TestPlanWithTestSuiteTreeModel) HasTestSuites() bool {
-	if o != nil && IsNil(o.TestSuites) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestSuites gets a reference to the given []TestSuiteWithChildrenModel and assigns it to the TestSuites field.
+// SetTestSuites sets field value
 func (o *TestPlanWithTestSuiteTreeModel) SetTestSuites(v []TestSuiteWithChildrenModel) {
 	o.TestSuites = v
 }
@@ -854,35 +847,26 @@ func (o *TestPlanWithTestSuiteTreeModel) UnsetHasAutomaticDurationTimer() {
 	o.HasAutomaticDurationTimer.Unset()
 }
 
-// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttributes returns the Attributes field value
 func (o *TestPlanWithTestSuiteTreeModel) GetAttributes() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
 	}
+
 	return o.Attributes
 }
 
-// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// GetAttributesOk returns a tuple with the Attributes field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPlanWithTestSuiteTreeModel) GetAttributesOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Attributes) {
+	if o == nil {
 		return map[string]interface{}{}, false
 	}
 	return o.Attributes, true
 }
 
-// HasAttributes returns a boolean if a field has been set.
-func (o *TestPlanWithTestSuiteTreeModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
-		return true
-	}
-
-	return false
-}
-
-// SetAttributes gets a reference to the given map[string]interface{} and assigns it to the Attributes field.
+// SetAttributes sets field value
 func (o *TestPlanWithTestSuiteTreeModel) SetAttributes(v map[string]interface{}) {
 	o.Attributes = v
 }
@@ -897,9 +881,7 @@ func (o TestPlanWithTestSuiteTreeModel) MarshalJSON() ([]byte, error) {
 
 func (o TestPlanWithTestSuiteTreeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TestSuites != nil {
-		toSerialize["testSuites"] = o.TestSuites
-	}
+	toSerialize["testSuites"] = o.TestSuites
 	toSerialize["status"] = o.Status
 	if o.StartedOn.IsSet() {
 		toSerialize["startedOn"] = o.StartedOn.Get()
@@ -949,9 +931,7 @@ func (o TestPlanWithTestSuiteTreeModel) ToMap() (map[string]interface{}, error) 
 	if o.HasAutomaticDurationTimer.IsSet() {
 		toSerialize["hasAutomaticDurationTimer"] = o.HasAutomaticDurationTimer.Get()
 	}
-	if o.Attributes != nil {
-		toSerialize["attributes"] = o.Attributes
-	}
+	toSerialize["attributes"] = o.Attributes
 	return toSerialize, nil
 }
 

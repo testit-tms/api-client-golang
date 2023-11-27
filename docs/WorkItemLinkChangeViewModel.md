@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **NullableString** |  | [optional] 
-**Url** | Pointer to **NullableString** |  | [optional] 
-**Title** | Pointer to **NullableString** |  | [optional] 
+**Description** | **string** |  | 
+**Url** | **string** |  | 
+**Title** | **string** |  | 
 **HasInfo** | **bool** |  | 
 **Id** | **string** |  | 
-**Type** | Pointer to **NullableString** |  | [optional] 
+**Type** | **string** |  | 
 
 ## Methods
 
 ### NewWorkItemLinkChangeViewModel
 
-`func NewWorkItemLinkChangeViewModel(hasInfo bool, id string, ) *WorkItemLinkChangeViewModel`
+`func NewWorkItemLinkChangeViewModel(description string, url string, title string, hasInfo bool, id string, type_ string, ) *WorkItemLinkChangeViewModel`
 
 NewWorkItemLinkChangeViewModel instantiates a new WorkItemLinkChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -49,22 +49,7 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
-### HasDescription
 
-`func (o *WorkItemLinkChangeViewModel) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### SetDescriptionNil
-
-`func (o *WorkItemLinkChangeViewModel) SetDescriptionNil(b bool)`
-
- SetDescriptionNil sets the value for Description to be an explicit nil
-
-### UnsetDescription
-`func (o *WorkItemLinkChangeViewModel) UnsetDescription()`
-
-UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetUrl
 
 `func (o *WorkItemLinkChangeViewModel) GetUrl() string`
@@ -84,22 +69,7 @@ and a boolean to check if the value has been set.
 
 SetUrl sets Url field to given value.
 
-### HasUrl
 
-`func (o *WorkItemLinkChangeViewModel) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
-
-### SetUrlNil
-
-`func (o *WorkItemLinkChangeViewModel) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *WorkItemLinkChangeViewModel) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetTitle
 
 `func (o *WorkItemLinkChangeViewModel) GetTitle() string`
@@ -119,22 +89,7 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
-### HasTitle
 
-`func (o *WorkItemLinkChangeViewModel) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### SetTitleNil
-
-`func (o *WorkItemLinkChangeViewModel) SetTitleNil(b bool)`
-
- SetTitleNil sets the value for Title to be an explicit nil
-
-### UnsetTitle
-`func (o *WorkItemLinkChangeViewModel) UnsetTitle()`
-
-UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetHasInfo
 
 `func (o *WorkItemLinkChangeViewModel) GetHasInfo() bool`
@@ -194,22 +149,7 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *WorkItemLinkChangeViewModel) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *WorkItemLinkChangeViewModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *WorkItemLinkChangeViewModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

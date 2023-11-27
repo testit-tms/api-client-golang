@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SelectModel** | [**TestRunSelectionModel**](TestRunSelectionModel.md) |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**AttachmentUpdateScheme** | Pointer to [**NullableSetOfAttachmentIds**](SetOfAttachmentIds.md) |  | [optional] 
-**LinkUpdateScheme** | Pointer to [**NullableSetOfLinks**](SetOfLinks.md) |  | [optional] 
+**AttachmentUpdateScheme** | [**SetOfAttachmentIds**](SetOfAttachmentIds.md) |  | 
+**LinkUpdateScheme** | [**SetOfLinks**](SetOfLinks.md) |  | 
 
 ## Methods
 
 ### NewTestRunUpdateMultipleModel
 
-`func NewTestRunUpdateMultipleModel(selectModel TestRunSelectionModel, ) *TestRunUpdateMultipleModel`
+`func NewTestRunUpdateMultipleModel(selectModel TestRunSelectionModel, attachmentUpdateScheme SetOfAttachmentIds, linkUpdateScheme SetOfLinks, ) *TestRunUpdateMultipleModel`
 
 NewTestRunUpdateMultipleModel instantiates a new TestRunUpdateMultipleModel object
 This constructor will assign default values to properties that have it defined,
@@ -102,22 +102,7 @@ and a boolean to check if the value has been set.
 
 SetAttachmentUpdateScheme sets AttachmentUpdateScheme field to given value.
 
-### HasAttachmentUpdateScheme
 
-`func (o *TestRunUpdateMultipleModel) HasAttachmentUpdateScheme() bool`
-
-HasAttachmentUpdateScheme returns a boolean if a field has been set.
-
-### SetAttachmentUpdateSchemeNil
-
-`func (o *TestRunUpdateMultipleModel) SetAttachmentUpdateSchemeNil(b bool)`
-
- SetAttachmentUpdateSchemeNil sets the value for AttachmentUpdateScheme to be an explicit nil
-
-### UnsetAttachmentUpdateScheme
-`func (o *TestRunUpdateMultipleModel) UnsetAttachmentUpdateScheme()`
-
-UnsetAttachmentUpdateScheme ensures that no value is present for AttachmentUpdateScheme, not even an explicit nil
 ### GetLinkUpdateScheme
 
 `func (o *TestRunUpdateMultipleModel) GetLinkUpdateScheme() SetOfLinks`
@@ -137,22 +122,7 @@ and a boolean to check if the value has been set.
 
 SetLinkUpdateScheme sets LinkUpdateScheme field to given value.
 
-### HasLinkUpdateScheme
 
-`func (o *TestRunUpdateMultipleModel) HasLinkUpdateScheme() bool`
-
-HasLinkUpdateScheme returns a boolean if a field has been set.
-
-### SetLinkUpdateSchemeNil
-
-`func (o *TestRunUpdateMultipleModel) SetLinkUpdateSchemeNil(b bool)`
-
- SetLinkUpdateSchemeNil sets the value for LinkUpdateScheme to be an explicit nil
-
-### UnsetLinkUpdateScheme
-`func (o *TestRunUpdateMultipleModel) UnsetLinkUpdateScheme()`
-
-UnsetLinkUpdateScheme ensures that no value is present for LinkUpdateScheme, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

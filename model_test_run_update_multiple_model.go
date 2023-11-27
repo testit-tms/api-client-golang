@@ -21,17 +21,19 @@ var _ MappedNullable = &TestRunUpdateMultipleModel{}
 type TestRunUpdateMultipleModel struct {
 	SelectModel TestRunSelectionModel `json:"selectModel"`
 	Description NullableString `json:"description,omitempty"`
-	AttachmentUpdateScheme NullableSetOfAttachmentIds `json:"attachmentUpdateScheme,omitempty"`
-	LinkUpdateScheme NullableSetOfLinks `json:"linkUpdateScheme,omitempty"`
+	AttachmentUpdateScheme SetOfAttachmentIds `json:"attachmentUpdateScheme"`
+	LinkUpdateScheme SetOfLinks `json:"linkUpdateScheme"`
 }
 
 // NewTestRunUpdateMultipleModel instantiates a new TestRunUpdateMultipleModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunUpdateMultipleModel(selectModel TestRunSelectionModel) *TestRunUpdateMultipleModel {
+func NewTestRunUpdateMultipleModel(selectModel TestRunSelectionModel, attachmentUpdateScheme SetOfAttachmentIds, linkUpdateScheme SetOfLinks) *TestRunUpdateMultipleModel {
 	this := TestRunUpdateMultipleModel{}
 	this.SelectModel = selectModel
+	this.AttachmentUpdateScheme = attachmentUpdateScheme
+	this.LinkUpdateScheme = linkUpdateScheme
 	return &this
 }
 
@@ -109,88 +111,52 @@ func (o *TestRunUpdateMultipleModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetAttachmentUpdateScheme returns the AttachmentUpdateScheme field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetAttachmentUpdateScheme returns the AttachmentUpdateScheme field value
 func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateScheme() SetOfAttachmentIds {
-	if o == nil || IsNil(o.AttachmentUpdateScheme.Get()) {
+	if o == nil {
 		var ret SetOfAttachmentIds
 		return ret
 	}
-	return *o.AttachmentUpdateScheme.Get()
+
+	return o.AttachmentUpdateScheme
 }
 
-// GetAttachmentUpdateSchemeOk returns a tuple with the AttachmentUpdateScheme field value if set, nil otherwise
+// GetAttachmentUpdateSchemeOk returns a tuple with the AttachmentUpdateScheme field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateSchemeOk() (*SetOfAttachmentIds, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AttachmentUpdateScheme.Get(), o.AttachmentUpdateScheme.IsSet()
+	return &o.AttachmentUpdateScheme, true
 }
 
-// HasAttachmentUpdateScheme returns a boolean if a field has been set.
-func (o *TestRunUpdateMultipleModel) HasAttachmentUpdateScheme() bool {
-	if o != nil && o.AttachmentUpdateScheme.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAttachmentUpdateScheme gets a reference to the given NullableSetOfAttachmentIds and assigns it to the AttachmentUpdateScheme field.
+// SetAttachmentUpdateScheme sets field value
 func (o *TestRunUpdateMultipleModel) SetAttachmentUpdateScheme(v SetOfAttachmentIds) {
-	o.AttachmentUpdateScheme.Set(&v)
-}
-// SetAttachmentUpdateSchemeNil sets the value for AttachmentUpdateScheme to be an explicit nil
-func (o *TestRunUpdateMultipleModel) SetAttachmentUpdateSchemeNil() {
-	o.AttachmentUpdateScheme.Set(nil)
+	o.AttachmentUpdateScheme = v
 }
 
-// UnsetAttachmentUpdateScheme ensures that no value is present for AttachmentUpdateScheme, not even an explicit nil
-func (o *TestRunUpdateMultipleModel) UnsetAttachmentUpdateScheme() {
-	o.AttachmentUpdateScheme.Unset()
-}
-
-// GetLinkUpdateScheme returns the LinkUpdateScheme field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLinkUpdateScheme returns the LinkUpdateScheme field value
 func (o *TestRunUpdateMultipleModel) GetLinkUpdateScheme() SetOfLinks {
-	if o == nil || IsNil(o.LinkUpdateScheme.Get()) {
+	if o == nil {
 		var ret SetOfLinks
 		return ret
 	}
-	return *o.LinkUpdateScheme.Get()
+
+	return o.LinkUpdateScheme
 }
 
-// GetLinkUpdateSchemeOk returns a tuple with the LinkUpdateScheme field value if set, nil otherwise
+// GetLinkUpdateSchemeOk returns a tuple with the LinkUpdateScheme field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestRunUpdateMultipleModel) GetLinkUpdateSchemeOk() (*SetOfLinks, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.LinkUpdateScheme.Get(), o.LinkUpdateScheme.IsSet()
+	return &o.LinkUpdateScheme, true
 }
 
-// HasLinkUpdateScheme returns a boolean if a field has been set.
-func (o *TestRunUpdateMultipleModel) HasLinkUpdateScheme() bool {
-	if o != nil && o.LinkUpdateScheme.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLinkUpdateScheme gets a reference to the given NullableSetOfLinks and assigns it to the LinkUpdateScheme field.
+// SetLinkUpdateScheme sets field value
 func (o *TestRunUpdateMultipleModel) SetLinkUpdateScheme(v SetOfLinks) {
-	o.LinkUpdateScheme.Set(&v)
-}
-// SetLinkUpdateSchemeNil sets the value for LinkUpdateScheme to be an explicit nil
-func (o *TestRunUpdateMultipleModel) SetLinkUpdateSchemeNil() {
-	o.LinkUpdateScheme.Set(nil)
-}
-
-// UnsetLinkUpdateScheme ensures that no value is present for LinkUpdateScheme, not even an explicit nil
-func (o *TestRunUpdateMultipleModel) UnsetLinkUpdateScheme() {
-	o.LinkUpdateScheme.Unset()
+	o.LinkUpdateScheme = v
 }
 
 func (o TestRunUpdateMultipleModel) MarshalJSON() ([]byte, error) {
@@ -207,12 +173,8 @@ func (o TestRunUpdateMultipleModel) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.AttachmentUpdateScheme.IsSet() {
-		toSerialize["attachmentUpdateScheme"] = o.AttachmentUpdateScheme.Get()
-	}
-	if o.LinkUpdateScheme.IsSet() {
-		toSerialize["linkUpdateScheme"] = o.LinkUpdateScheme.Get()
-	}
+	toSerialize["attachmentUpdateScheme"] = o.AttachmentUpdateScheme
+	toSerialize["linkUpdateScheme"] = o.LinkUpdateScheme
 	return toSerialize, nil
 }
 

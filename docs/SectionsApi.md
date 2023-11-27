@@ -106,7 +106,7 @@ import (
 )
 
 func main() {
-    createSectionRequest := *openapiclient.NewCreateSectionRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // CreateSectionRequest |  (optional)
+    createSectionRequest := *openapiclient.NewCreateSectionRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8") // CreateSectionRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -460,7 +460,7 @@ import (
 )
 
 func main() {
-    renameRequest := *openapiclient.NewRenameRequest("d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "New root section") // RenameRequest |  (optional)
+    renameRequest := *openapiclient.NewRenameRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "New root section") // RenameRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -524,7 +524,7 @@ import (
 )
 
 func main() {
-    updateSectionRequest := *openapiclient.NewUpdateSectionRequest("Id_example", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08", "d5e8b098-d2b8-480f-b49c-13dc4bf70a08") // UpdateSectionRequest |  (optional)
+    updateSectionRequest := *openapiclient.NewUpdateSectionRequest("Id_example", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8") // UpdateSectionRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

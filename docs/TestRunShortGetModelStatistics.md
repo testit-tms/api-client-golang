@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Statuses** | Pointer to [**NullableTestResultsStatisticsGetModelStatuses**](TestResultsStatisticsGetModelStatuses.md) |  | [optional] 
-**FailureCategories** | Pointer to [**NullableTestResultsStatisticsGetModelFailureCategories**](TestResultsStatisticsGetModelFailureCategories.md) |  | [optional] 
+**Statuses** | [**TestResultsStatisticsGetModelStatuses**](TestResultsStatisticsGetModelStatuses.md) |  | 
+**FailureCategories** | [**TestResultsStatisticsGetModelFailureCategories**](TestResultsStatisticsGetModelFailureCategories.md) |  | 
 
 ## Methods
 
 ### NewTestRunShortGetModelStatistics
 
-`func NewTestRunShortGetModelStatistics() *TestRunShortGetModelStatistics`
+`func NewTestRunShortGetModelStatistics(statuses TestResultsStatisticsGetModelStatuses, failureCategories TestResultsStatisticsGetModelFailureCategories, ) *TestRunShortGetModelStatistics`
 
 NewTestRunShortGetModelStatistics instantiates a new TestRunShortGetModelStatistics object
 This constructor will assign default values to properties that have it defined,
@@ -45,22 +45,7 @@ and a boolean to check if the value has been set.
 
 SetStatuses sets Statuses field to given value.
 
-### HasStatuses
 
-`func (o *TestRunShortGetModelStatistics) HasStatuses() bool`
-
-HasStatuses returns a boolean if a field has been set.
-
-### SetStatusesNil
-
-`func (o *TestRunShortGetModelStatistics) SetStatusesNil(b bool)`
-
- SetStatusesNil sets the value for Statuses to be an explicit nil
-
-### UnsetStatuses
-`func (o *TestRunShortGetModelStatistics) UnsetStatuses()`
-
-UnsetStatuses ensures that no value is present for Statuses, not even an explicit nil
 ### GetFailureCategories
 
 `func (o *TestRunShortGetModelStatistics) GetFailureCategories() TestResultsStatisticsGetModelFailureCategories`
@@ -80,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetFailureCategories sets FailureCategories field to given value.
 
-### HasFailureCategories
 
-`func (o *TestRunShortGetModelStatistics) HasFailureCategories() bool`
-
-HasFailureCategories returns a boolean if a field has been set.
-
-### SetFailureCategoriesNil
-
-`func (o *TestRunShortGetModelStatistics) SetFailureCategoriesNil(b bool)`
-
- SetFailureCategoriesNil sets the value for FailureCategories to be an explicit nil
-
-### UnsetFailureCategories
-`func (o *TestRunShortGetModelStatistics) UnsetFailureCategories()`
-
-UnsetFailureCategories ensures that no value is present for FailureCategories, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

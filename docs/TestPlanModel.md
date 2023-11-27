@@ -25,13 +25,13 @@ Name | Type | Description | Notes
 **ProjectId** | **string** |  | 
 **ProductName** | Pointer to **NullableString** |  | [optional] 
 **HasAutomaticDurationTimer** | Pointer to **NullableBool** |  | [optional] 
-**Attributes** | Pointer to **map[string]interface{}** |  | [optional] 
+**Attributes** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewTestPlanModel
 
-`func NewTestPlanModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, ) *TestPlanModel`
+`func NewTestPlanModel(status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}, ) *TestPlanModel`
 
 NewTestPlanModel instantiates a new TestPlanModel object
 This constructor will assign default values to properties that have it defined,
@@ -695,22 +695,7 @@ and a boolean to check if the value has been set.
 
 SetAttributes sets Attributes field to given value.
 
-### HasAttributes
 
-`func (o *TestPlanModel) HasAttributes() bool`
-
-HasAttributes returns a boolean if a field has been set.
-
-### SetAttributesNil
-
-`func (o *TestPlanModel) SetAttributesNil(b bool)`
-
- SetAttributesNil sets the value for Attributes to be an explicit nil
-
-### UnsetAttributes
-`func (o *TestPlanModel) UnsetAttributes()`
-
-UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

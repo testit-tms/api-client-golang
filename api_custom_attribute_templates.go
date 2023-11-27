@@ -135,8 +135,8 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -146,8 +146,8 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -826,7 +826,6 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPostE
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -954,7 +953,6 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPutEx
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1130,7 +1128,6 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesSearc
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
