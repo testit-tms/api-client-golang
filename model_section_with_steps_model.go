@@ -20,6 +20,7 @@ var _ MappedNullable = &SectionWithStepsModel{}
 
 // SectionWithStepsModel struct for SectionWithStepsModel
 type SectionWithStepsModel struct {
+	Attachments []AttachmentModel `json:"attachments,omitempty"`
 	PreconditionSteps []StepModel `json:"preconditionSteps,omitempty"`
 	PostconditionSteps []StepModel `json:"postconditionSteps,omitempty"`
 	ProjectId NullableString `json:"projectId,omitempty"`
@@ -53,6 +54,39 @@ func NewSectionWithStepsModel(isDeleted bool, id string, createdDate time.Time, 
 func NewSectionWithStepsModelWithDefaults() *SectionWithStepsModel {
 	this := SectionWithStepsModel{}
 	return &this
+}
+
+// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SectionWithStepsModel) GetAttachments() []AttachmentModel {
+	if o == nil {
+		var ret []AttachmentModel
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SectionWithStepsModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *SectionWithStepsModel) HasAttachments() bool {
+	if o != nil && IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []AttachmentModel and assigns it to the Attachments field.
+func (o *SectionWithStepsModel) SetAttachments(v []AttachmentModel) {
+	o.Attachments = v
 }
 
 // GetPreconditionSteps returns the PreconditionSteps field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -419,6 +453,9 @@ func (o SectionWithStepsModel) MarshalJSON() ([]byte, error) {
 
 func (o SectionWithStepsModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Attachments != nil {
+		toSerialize["attachments"] = o.Attachments
+	}
 	if o.PreconditionSteps != nil {
 		toSerialize["preconditionSteps"] = o.PreconditionSteps
 	}

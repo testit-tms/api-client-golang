@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **Labels** | Pointer to [**[]LabelShortModel**](LabelShortModel.md) |  | [optional] 
+**ExternalKey** | Pointer to **NullableString** |  | [optional] 
 **Id** | **string** | Unique ID of the entity | 
 **IsDeleted** | **bool** | Indicates if the entity is deleted | 
 
@@ -491,6 +492,41 @@ HasLabels returns a boolean if a field has been set.
 `func (o *AutoTestModelV2GetModel) UnsetLabels()`
 
 UnsetLabels ensures that no value is present for Labels, not even an explicit nil
+### GetExternalKey
+
+`func (o *AutoTestModelV2GetModel) GetExternalKey() string`
+
+GetExternalKey returns the ExternalKey field if non-nil, zero value otherwise.
+
+### GetExternalKeyOk
+
+`func (o *AutoTestModelV2GetModel) GetExternalKeyOk() (*string, bool)`
+
+GetExternalKeyOk returns a tuple with the ExternalKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalKey
+
+`func (o *AutoTestModelV2GetModel) SetExternalKey(v string)`
+
+SetExternalKey sets ExternalKey field to given value.
+
+### HasExternalKey
+
+`func (o *AutoTestModelV2GetModel) HasExternalKey() bool`
+
+HasExternalKey returns a boolean if a field has been set.
+
+### SetExternalKeyNil
+
+`func (o *AutoTestModelV2GetModel) SetExternalKeyNil(b bool)`
+
+ SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+
+### UnsetExternalKey
+`func (o *AutoTestModelV2GetModel) UnsetExternalKey()`
+
+UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
 ### GetId
 
 `func (o *AutoTestModelV2GetModel) GetId() string`

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
 **PreconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
 **PostconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
 **ProjectId** | Pointer to **NullableString** |  | [optional] 
@@ -35,6 +36,41 @@ NewSectionWithStepsModelWithDefaults instantiates a new SectionWithStepsModel ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetAttachments
+
+`func (o *SectionWithStepsModel) GetAttachments() []AttachmentModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *SectionWithStepsModel) GetAttachmentsOk() (*[]AttachmentModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *SectionWithStepsModel) SetAttachments(v []AttachmentModel)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *SectionWithStepsModel) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
+
+### SetAttachmentsNil
+
+`func (o *SectionWithStepsModel) SetAttachmentsNil(b bool)`
+
+ SetAttachmentsNil sets the value for Attachments to be an explicit nil
+
+### UnsetAttachments
+`func (o *SectionWithStepsModel) UnsetAttachments()`
+
+UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
 ### GetPreconditionSteps
 
 `func (o *SectionWithStepsModel) GetPreconditionSteps() []StepModel`

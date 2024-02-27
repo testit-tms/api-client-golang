@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **PostconditionSteps** | [**[]StepPutModel**](StepPutModel.md) |  | 
 **Duration** | **int32** |  | 
 **Attributes** | **map[string]interface{}** |  | 
-**Tags** | [**[]TagShortModel**](TagShortModel.md) |  | 
+**Tags** | [**[]TagPutModel**](TagPutModel.md) |  | 
 **Links** | [**[]LinkPutModel**](LinkPutModel.md) |  | 
 **Name** | **string** |  | 
 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemPutModel
 
-`func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkPutModel, name string, ) *WorkItemPutModel`
+`func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagPutModel, links []LinkPutModel, name string, ) *WorkItemPutModel`
 
 NewWorkItemPutModel instantiates a new WorkItemPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -347,20 +347,20 @@ SetAttributes sets Attributes field to given value.
 
 ### GetTags
 
-`func (o *WorkItemPutModel) GetTags() []TagShortModel`
+`func (o *WorkItemPutModel) GetTags() []TagPutModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *WorkItemPutModel) GetTagsOk() (*[]TagShortModel, bool)`
+`func (o *WorkItemPutModel) GetTagsOk() (*[]TagPutModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *WorkItemPutModel) SetTags(v []TagShortModel)`
+`func (o *WorkItemPutModel) SetTags(v []TagPutModel)`
 
 SetTags sets Tags field to given value.
 

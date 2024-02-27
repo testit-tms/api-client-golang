@@ -23,13 +23,13 @@ type WorkItemPostModel struct {
 	Description NullableString `json:"description,omitempty"`
 	State WorkItemStates `json:"state"`
 	Priority WorkItemPriorityModel `json:"priority"`
-	Steps []StepPutModel `json:"steps"`
-	PreconditionSteps []StepPutModel `json:"preconditionSteps"`
-	PostconditionSteps []StepPutModel `json:"postconditionSteps"`
+	Steps []StepPostModel `json:"steps"`
+	PreconditionSteps []StepPostModel `json:"preconditionSteps"`
+	PostconditionSteps []StepPostModel `json:"postconditionSteps"`
 	// Must be 0 for shared steps and greater than 0 for the other types of work items
 	Duration int32 `json:"duration"`
 	Attributes map[string]interface{} `json:"attributes"`
-	Tags []TagShortModel `json:"tags"`
+	Tags []TagPostModel `json:"tags"`
 	Attachments []AttachmentPutModel `json:"attachments,omitempty"`
 	Iterations []IterationPutModel `json:"iterations,omitempty"`
 	Links []LinkPostModel `json:"links"`
@@ -44,7 +44,7 @@ type WorkItemPostModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemPostModel(entityTypeName WorkItemEntityTypes, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkPostModel, name string, projectId string, sectionId string) *WorkItemPostModel {
+func NewWorkItemPostModel(entityTypeName WorkItemEntityTypes, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPostModel, preconditionSteps []StepPostModel, postconditionSteps []StepPostModel, duration int32, attributes map[string]interface{}, tags []TagPostModel, links []LinkPostModel, name string, projectId string, sectionId string) *WorkItemPostModel {
 	this := WorkItemPostModel{}
 	this.EntityTypeName = entityTypeName
 	this.State = state
@@ -185,9 +185,9 @@ func (o *WorkItemPostModel) SetPriority(v WorkItemPriorityModel) {
 }
 
 // GetSteps returns the Steps field value
-func (o *WorkItemPostModel) GetSteps() []StepPutModel {
+func (o *WorkItemPostModel) GetSteps() []StepPostModel {
 	if o == nil {
-		var ret []StepPutModel
+		var ret []StepPostModel
 		return ret
 	}
 
@@ -196,7 +196,7 @@ func (o *WorkItemPostModel) GetSteps() []StepPutModel {
 
 // GetStepsOk returns a tuple with the Steps field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemPostModel) GetStepsOk() ([]StepPutModel, bool) {
+func (o *WorkItemPostModel) GetStepsOk() ([]StepPostModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -204,14 +204,14 @@ func (o *WorkItemPostModel) GetStepsOk() ([]StepPutModel, bool) {
 }
 
 // SetSteps sets field value
-func (o *WorkItemPostModel) SetSteps(v []StepPutModel) {
+func (o *WorkItemPostModel) SetSteps(v []StepPostModel) {
 	o.Steps = v
 }
 
 // GetPreconditionSteps returns the PreconditionSteps field value
-func (o *WorkItemPostModel) GetPreconditionSteps() []StepPutModel {
+func (o *WorkItemPostModel) GetPreconditionSteps() []StepPostModel {
 	if o == nil {
-		var ret []StepPutModel
+		var ret []StepPostModel
 		return ret
 	}
 
@@ -220,7 +220,7 @@ func (o *WorkItemPostModel) GetPreconditionSteps() []StepPutModel {
 
 // GetPreconditionStepsOk returns a tuple with the PreconditionSteps field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemPostModel) GetPreconditionStepsOk() ([]StepPutModel, bool) {
+func (o *WorkItemPostModel) GetPreconditionStepsOk() ([]StepPostModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -228,14 +228,14 @@ func (o *WorkItemPostModel) GetPreconditionStepsOk() ([]StepPutModel, bool) {
 }
 
 // SetPreconditionSteps sets field value
-func (o *WorkItemPostModel) SetPreconditionSteps(v []StepPutModel) {
+func (o *WorkItemPostModel) SetPreconditionSteps(v []StepPostModel) {
 	o.PreconditionSteps = v
 }
 
 // GetPostconditionSteps returns the PostconditionSteps field value
-func (o *WorkItemPostModel) GetPostconditionSteps() []StepPutModel {
+func (o *WorkItemPostModel) GetPostconditionSteps() []StepPostModel {
 	if o == nil {
-		var ret []StepPutModel
+		var ret []StepPostModel
 		return ret
 	}
 
@@ -244,7 +244,7 @@ func (o *WorkItemPostModel) GetPostconditionSteps() []StepPutModel {
 
 // GetPostconditionStepsOk returns a tuple with the PostconditionSteps field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemPostModel) GetPostconditionStepsOk() ([]StepPutModel, bool) {
+func (o *WorkItemPostModel) GetPostconditionStepsOk() ([]StepPostModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -252,7 +252,7 @@ func (o *WorkItemPostModel) GetPostconditionStepsOk() ([]StepPutModel, bool) {
 }
 
 // SetPostconditionSteps sets field value
-func (o *WorkItemPostModel) SetPostconditionSteps(v []StepPutModel) {
+func (o *WorkItemPostModel) SetPostconditionSteps(v []StepPostModel) {
 	o.PostconditionSteps = v
 }
 
@@ -305,9 +305,9 @@ func (o *WorkItemPostModel) SetAttributes(v map[string]interface{}) {
 }
 
 // GetTags returns the Tags field value
-func (o *WorkItemPostModel) GetTags() []TagShortModel {
+func (o *WorkItemPostModel) GetTags() []TagPostModel {
 	if o == nil {
-		var ret []TagShortModel
+		var ret []TagPostModel
 		return ret
 	}
 
@@ -316,7 +316,7 @@ func (o *WorkItemPostModel) GetTags() []TagShortModel {
 
 // GetTagsOk returns a tuple with the Tags field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemPostModel) GetTagsOk() ([]TagShortModel, bool) {
+func (o *WorkItemPostModel) GetTagsOk() ([]TagPostModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -324,7 +324,7 @@ func (o *WorkItemPostModel) GetTagsOk() ([]TagShortModel, bool) {
 }
 
 // SetTags sets field value
-func (o *WorkItemPostModel) SetTags(v []TagShortModel) {
+func (o *WorkItemPostModel) SetTags(v []TagPostModel) {
 	o.Tags = v
 }
 

@@ -38,7 +38,7 @@ import (
 )
 
 func main() {
-    apiV2ConfigurationsCreateByParametersPostRequest := *openapiclient.NewApiV2ConfigurationsCreateByParametersPostRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", []string{"ParameterIds_example"}) // ApiV2ConfigurationsCreateByParametersPostRequest |  (optional)
+    apiV2ConfigurationsCreateByParametersPostRequest := *openapiclient.NewApiV2ConfigurationsCreateByParametersPostRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a", []string{"ParameterIds_example"}) // ApiV2ConfigurationsCreateByParametersPostRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -496,7 +496,7 @@ import (
 )
 
 func main() {
-    apiV2ConfigurationsPutRequest := *openapiclient.NewApiV2ConfigurationsPutRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ApiV2ConfigurationsPutRequest |  (optional)
+    apiV2ConfigurationsPutRequest := *openapiclient.NewApiV2ConfigurationsPutRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ApiV2ConfigurationsPutRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **VersionId** | **string** | used for versioning changes in workitem | 
 **IsAutomated** | **bool** |  | 
 **SectionId** | **string** |  | 
-**Tags** | Pointer to [**[]TagShortModel**](TagShortModel.md) |  | [optional] 
+**Tags** | Pointer to [**[]TagModel**](TagModel.md) |  | [optional] 
 
 ## Methods
 
@@ -429,20 +429,20 @@ SetSectionId sets SectionId field to given value.
 
 ### GetTags
 
-`func (o *SharedStepReferenceModel) GetTags() []TagShortModel`
+`func (o *SharedStepReferenceModel) GetTags() []TagModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *SharedStepReferenceModel) GetTagsOk() (*[]TagShortModel, bool)`
+`func (o *SharedStepReferenceModel) GetTagsOk() (*[]TagModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *SharedStepReferenceModel) SetTags(v []TagShortModel)`
+`func (o *SharedStepReferenceModel) SetTags(v []TagModel)`
 
 SetTags sets Tags field to given value.
 

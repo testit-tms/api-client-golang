@@ -35,7 +35,7 @@ type TestPlanModel struct {
 	LockedDate NullableTime `json:"lockedDate,omitempty"`
 	Id string `json:"id"`
 	LockedById NullableString `json:"lockedById,omitempty"`
-	Tags []TagShortModel `json:"tags,omitempty"`
+	Tags []TagPostModel `json:"tags,omitempty"`
 	Name string `json:"name"`
 	// Used for analytics
 	StartDate NullableTime `json:"startDate,omitempty"`
@@ -489,9 +489,9 @@ func (o *TestPlanModel) UnsetLockedById() {
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanModel) GetTags() []TagShortModel {
+func (o *TestPlanModel) GetTags() []TagPostModel {
 	if o == nil {
-		var ret []TagShortModel
+		var ret []TagPostModel
 		return ret
 	}
 	return o.Tags
@@ -500,7 +500,7 @@ func (o *TestPlanModel) GetTags() []TagShortModel {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanModel) GetTagsOk() ([]TagShortModel, bool) {
+func (o *TestPlanModel) GetTagsOk() ([]TagPostModel, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
@@ -516,8 +516,8 @@ func (o *TestPlanModel) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given []TagShortModel and assigns it to the Tags field.
-func (o *TestPlanModel) SetTags(v []TagShortModel) {
+// SetTags gets a reference to the given []TagPostModel and assigns it to the Tags field.
+func (o *TestPlanModel) SetTags(v []TagPostModel) {
 	o.Tags = v
 }
 

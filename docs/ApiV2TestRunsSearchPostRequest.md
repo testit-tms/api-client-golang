@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ProjectIds** | Pointer to **[]string** | Specifies a test run project IDs to search for | [optional] 
 **Name** | Pointer to **NullableString** | Specifies test run name | [optional] 
 **States** | Pointer to [**[]TestRunState**](TestRunState.md) | Specifies a test run states to search for | [optional] 
+**CreatedDate** | Pointer to [**NullableTestRunFilterModelCreatedDate**](TestRunFilterModelCreatedDate.md) |  | [optional] 
 **StartedDate** | Pointer to [**NullableTestRunFilterModelStartedDate**](TestRunFilterModelStartedDate.md) |  | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies a test run creator IDs to search for | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Specifies a test run last editor IDs to search for | [optional] 
@@ -140,6 +141,41 @@ HasStates returns a boolean if a field has been set.
 `func (o *ApiV2TestRunsSearchPostRequest) UnsetStates()`
 
 UnsetStates ensures that no value is present for States, not even an explicit nil
+### GetCreatedDate
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetCreatedDate() TestRunFilterModelCreatedDate`
+
+GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
+
+### GetCreatedDateOk
+
+`func (o *ApiV2TestRunsSearchPostRequest) GetCreatedDateOk() (*TestRunFilterModelCreatedDate, bool)`
+
+GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedDate
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetCreatedDate(v TestRunFilterModelCreatedDate)`
+
+SetCreatedDate sets CreatedDate field to given value.
+
+### HasCreatedDate
+
+`func (o *ApiV2TestRunsSearchPostRequest) HasCreatedDate() bool`
+
+HasCreatedDate returns a boolean if a field has been set.
+
+### SetCreatedDateNil
+
+`func (o *ApiV2TestRunsSearchPostRequest) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *ApiV2TestRunsSearchPostRequest) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetStartedDate
 
 `func (o *ApiV2TestRunsSearchPostRequest) GetStartedDate() TestRunFilterModelStartedDate`

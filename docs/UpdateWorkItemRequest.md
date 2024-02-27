@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **PostconditionSteps** | [**[]StepPutModel**](StepPutModel.md) |  | 
 **Duration** | **int32** |  | 
 **Attributes** | **map[string]interface{}** |  | 
-**Tags** | [**[]TagShortModel**](TagShortModel.md) |  | 
+**Tags** | [**[]TagPutModel**](TagPutModel.md) |  | 
 **Links** | [**[]LinkPutModel**](LinkPutModel.md) |  | 
 **Name** | **string** |  | 
 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewUpdateWorkItemRequest
 
-`func NewUpdateWorkItemRequest(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkPutModel, name string, ) *UpdateWorkItemRequest`
+`func NewUpdateWorkItemRequest(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagPutModel, links []LinkPutModel, name string, ) *UpdateWorkItemRequest`
 
 NewUpdateWorkItemRequest instantiates a new UpdateWorkItemRequest object
 This constructor will assign default values to properties that have it defined,
@@ -347,20 +347,20 @@ SetAttributes sets Attributes field to given value.
 
 ### GetTags
 
-`func (o *UpdateWorkItemRequest) GetTags() []TagShortModel`
+`func (o *UpdateWorkItemRequest) GetTags() []TagPutModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *UpdateWorkItemRequest) GetTagsOk() (*[]TagShortModel, bool)`
+`func (o *UpdateWorkItemRequest) GetTagsOk() (*[]TagPutModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *UpdateWorkItemRequest) SetTags(v []TagShortModel)`
+`func (o *UpdateWorkItemRequest) SetTags(v []TagPutModel)`
 
 SetTags sets Tags field to given value.
 

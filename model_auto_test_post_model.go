@@ -23,6 +23,8 @@ type AutoTestPostModel struct {
 	WorkItemIdsForLinkWithAutoTest []string `json:"workItemIdsForLinkWithAutoTest,omitempty"`
 	// Creates a test case linked to the autotest.
 	ShouldCreateWorkItem NullableBool `json:"shouldCreateWorkItem,omitempty"`
+	// Key value pair of custom work item attributes
+	Attributes map[string]interface{} `json:"attributes,omitempty"`
 	// External ID of the autotest
 	ExternalId string `json:"externalId"`
 	// Collection of the autotest links
@@ -146,6 +148,39 @@ func (o *AutoTestPostModel) SetShouldCreateWorkItemNil() {
 // UnsetShouldCreateWorkItem ensures that no value is present for ShouldCreateWorkItem, not even an explicit nil
 func (o *AutoTestPostModel) UnsetShouldCreateWorkItem() {
 	o.ShouldCreateWorkItem.Unset()
+}
+
+// GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestPostModel) GetAttributes() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Attributes
+}
+
+// GetAttributesOk returns a tuple with the Attributes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestPostModel) GetAttributesOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Attributes) {
+		return map[string]interface{}{}, false
+	}
+	return o.Attributes, true
+}
+
+// HasAttributes returns a boolean if a field has been set.
+func (o *AutoTestPostModel) HasAttributes() bool {
+	if o != nil && IsNil(o.Attributes) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttributes gets a reference to the given map[string]interface{} and assigns it to the Attributes field.
+func (o *AutoTestPostModel) SetAttributes(v map[string]interface{}) {
+	o.Attributes = v
 }
 
 // GetExternalId returns the ExternalId field value
@@ -652,6 +687,9 @@ func (o AutoTestPostModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ShouldCreateWorkItem.IsSet() {
 		toSerialize["shouldCreateWorkItem"] = o.ShouldCreateWorkItem.Get()
+	}
+	if o.Attributes != nil {
+		toSerialize["attributes"] = o.Attributes
 	}
 	toSerialize["externalId"] = o.ExternalId
 	if o.Links != nil {

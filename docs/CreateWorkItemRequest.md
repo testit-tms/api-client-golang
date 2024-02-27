@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **State** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**Steps** | [**[]StepPutModel**](StepPutModel.md) |  | 
-**PreconditionSteps** | [**[]StepPutModel**](StepPutModel.md) |  | 
-**PostconditionSteps** | [**[]StepPutModel**](StepPutModel.md) |  | 
+**Steps** | [**[]StepPostModel**](StepPostModel.md) |  | 
+**PreconditionSteps** | [**[]StepPostModel**](StepPostModel.md) |  | 
+**PostconditionSteps** | [**[]StepPostModel**](StepPostModel.md) |  | 
 **Duration** | **int32** | Must be 0 for shared steps and greater than 0 for the other types of work items | 
 **Attributes** | **map[string]interface{}** |  | 
-**Tags** | [**[]TagShortModel**](TagShortModel.md) |  | 
+**Tags** | [**[]TagPostModel**](TagPostModel.md) |  | 
 **Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | [optional] 
 **Iterations** | Pointer to [**[]IterationPutModel**](IterationPutModel.md) |  | [optional] 
 **Links** | [**[]LinkPostModel**](LinkPostModel.md) |  | 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewCreateWorkItemRequest
 
-`func NewCreateWorkItemRequest(entityTypeName WorkItemEntityTypes, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkPostModel, name string, projectId string, sectionId string, ) *CreateWorkItemRequest`
+`func NewCreateWorkItemRequest(entityTypeName WorkItemEntityTypes, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPostModel, preconditionSteps []StepPostModel, postconditionSteps []StepPostModel, duration int32, attributes map[string]interface{}, tags []TagPostModel, links []LinkPostModel, name string, projectId string, sectionId string, ) *CreateWorkItemRequest`
 
 NewCreateWorkItemRequest instantiates a new CreateWorkItemRequest object
 This constructor will assign default values to properties that have it defined,
@@ -138,60 +138,60 @@ SetPriority sets Priority field to given value.
 
 ### GetSteps
 
-`func (o *CreateWorkItemRequest) GetSteps() []StepPutModel`
+`func (o *CreateWorkItemRequest) GetSteps() []StepPostModel`
 
 GetSteps returns the Steps field if non-nil, zero value otherwise.
 
 ### GetStepsOk
 
-`func (o *CreateWorkItemRequest) GetStepsOk() (*[]StepPutModel, bool)`
+`func (o *CreateWorkItemRequest) GetStepsOk() (*[]StepPostModel, bool)`
 
 GetStepsOk returns a tuple with the Steps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSteps
 
-`func (o *CreateWorkItemRequest) SetSteps(v []StepPutModel)`
+`func (o *CreateWorkItemRequest) SetSteps(v []StepPostModel)`
 
 SetSteps sets Steps field to given value.
 
 
 ### GetPreconditionSteps
 
-`func (o *CreateWorkItemRequest) GetPreconditionSteps() []StepPutModel`
+`func (o *CreateWorkItemRequest) GetPreconditionSteps() []StepPostModel`
 
 GetPreconditionSteps returns the PreconditionSteps field if non-nil, zero value otherwise.
 
 ### GetPreconditionStepsOk
 
-`func (o *CreateWorkItemRequest) GetPreconditionStepsOk() (*[]StepPutModel, bool)`
+`func (o *CreateWorkItemRequest) GetPreconditionStepsOk() (*[]StepPostModel, bool)`
 
 GetPreconditionStepsOk returns a tuple with the PreconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreconditionSteps
 
-`func (o *CreateWorkItemRequest) SetPreconditionSteps(v []StepPutModel)`
+`func (o *CreateWorkItemRequest) SetPreconditionSteps(v []StepPostModel)`
 
 SetPreconditionSteps sets PreconditionSteps field to given value.
 
 
 ### GetPostconditionSteps
 
-`func (o *CreateWorkItemRequest) GetPostconditionSteps() []StepPutModel`
+`func (o *CreateWorkItemRequest) GetPostconditionSteps() []StepPostModel`
 
 GetPostconditionSteps returns the PostconditionSteps field if non-nil, zero value otherwise.
 
 ### GetPostconditionStepsOk
 
-`func (o *CreateWorkItemRequest) GetPostconditionStepsOk() (*[]StepPutModel, bool)`
+`func (o *CreateWorkItemRequest) GetPostconditionStepsOk() (*[]StepPostModel, bool)`
 
 GetPostconditionStepsOk returns a tuple with the PostconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPostconditionSteps
 
-`func (o *CreateWorkItemRequest) SetPostconditionSteps(v []StepPutModel)`
+`func (o *CreateWorkItemRequest) SetPostconditionSteps(v []StepPostModel)`
 
 SetPostconditionSteps sets PostconditionSteps field to given value.
 
@@ -238,20 +238,20 @@ SetAttributes sets Attributes field to given value.
 
 ### GetTags
 
-`func (o *CreateWorkItemRequest) GetTags() []TagShortModel`
+`func (o *CreateWorkItemRequest) GetTags() []TagPostModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *CreateWorkItemRequest) GetTagsOk() (*[]TagShortModel, bool)`
+`func (o *CreateWorkItemRequest) GetTagsOk() (*[]TagPostModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *CreateWorkItemRequest) SetTags(v []TagShortModel)`
+`func (o *CreateWorkItemRequest) SetTags(v []TagPostModel)`
 
 SetTags sets Tags field to given value.
 

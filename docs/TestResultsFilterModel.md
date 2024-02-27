@@ -5,6 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TestRunIds** | Pointer to **[]string** | Specifies a test result test run IDs to search for | [optional] 
+**AutoTestGlobalIds** | Pointer to **[]int64** | Specifies an autotest global IDs to search results for | [optional] 
+**Name** | Pointer to **NullableString** | Specifies an autotest name to search results for | [optional] 
+**CreatedDate** | Pointer to [**NullableTestResultsFilterModelCreatedDate**](TestResultsFilterModelCreatedDate.md) |  | [optional] 
+**Duration** | Pointer to [**NullableTestResultsFilterModelDuration**](TestResultsFilterModelDuration.md) |  | [optional] 
+**ResultReasons** | Pointer to **[]string** | Specifies result reasons for searching test results | [optional] 
 **ConfigurationIds** | Pointer to **[]string** | Specifies a test result configuration IDs to search for | [optional] 
 **Outcomes** | Pointer to [**[]TestResultOutcome**](TestResultOutcome.md) | Specifies a test result outcomes to search for | [optional] 
 **FailureCategories** | Pointer to [**[]FailureCategoryModel**](FailureCategoryModel.md) | Specifies a test result failure categories to search for | [optional] 
@@ -65,6 +70,181 @@ HasTestRunIds returns a boolean if a field has been set.
 `func (o *TestResultsFilterModel) UnsetTestRunIds()`
 
 UnsetTestRunIds ensures that no value is present for TestRunIds, not even an explicit nil
+### GetAutoTestGlobalIds
+
+`func (o *TestResultsFilterModel) GetAutoTestGlobalIds() []int64`
+
+GetAutoTestGlobalIds returns the AutoTestGlobalIds field if non-nil, zero value otherwise.
+
+### GetAutoTestGlobalIdsOk
+
+`func (o *TestResultsFilterModel) GetAutoTestGlobalIdsOk() (*[]int64, bool)`
+
+GetAutoTestGlobalIdsOk returns a tuple with the AutoTestGlobalIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestGlobalIds
+
+`func (o *TestResultsFilterModel) SetAutoTestGlobalIds(v []int64)`
+
+SetAutoTestGlobalIds sets AutoTestGlobalIds field to given value.
+
+### HasAutoTestGlobalIds
+
+`func (o *TestResultsFilterModel) HasAutoTestGlobalIds() bool`
+
+HasAutoTestGlobalIds returns a boolean if a field has been set.
+
+### SetAutoTestGlobalIdsNil
+
+`func (o *TestResultsFilterModel) SetAutoTestGlobalIdsNil(b bool)`
+
+ SetAutoTestGlobalIdsNil sets the value for AutoTestGlobalIds to be an explicit nil
+
+### UnsetAutoTestGlobalIds
+`func (o *TestResultsFilterModel) UnsetAutoTestGlobalIds()`
+
+UnsetAutoTestGlobalIds ensures that no value is present for AutoTestGlobalIds, not even an explicit nil
+### GetName
+
+`func (o *TestResultsFilterModel) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *TestResultsFilterModel) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *TestResultsFilterModel) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *TestResultsFilterModel) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *TestResultsFilterModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *TestResultsFilterModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
+### GetCreatedDate
+
+`func (o *TestResultsFilterModel) GetCreatedDate() TestResultsFilterModelCreatedDate`
+
+GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
+
+### GetCreatedDateOk
+
+`func (o *TestResultsFilterModel) GetCreatedDateOk() (*TestResultsFilterModelCreatedDate, bool)`
+
+GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedDate
+
+`func (o *TestResultsFilterModel) SetCreatedDate(v TestResultsFilterModelCreatedDate)`
+
+SetCreatedDate sets CreatedDate field to given value.
+
+### HasCreatedDate
+
+`func (o *TestResultsFilterModel) HasCreatedDate() bool`
+
+HasCreatedDate returns a boolean if a field has been set.
+
+### SetCreatedDateNil
+
+`func (o *TestResultsFilterModel) SetCreatedDateNil(b bool)`
+
+ SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+
+### UnsetCreatedDate
+`func (o *TestResultsFilterModel) UnsetCreatedDate()`
+
+UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+### GetDuration
+
+`func (o *TestResultsFilterModel) GetDuration() TestResultsFilterModelDuration`
+
+GetDuration returns the Duration field if non-nil, zero value otherwise.
+
+### GetDurationOk
+
+`func (o *TestResultsFilterModel) GetDurationOk() (*TestResultsFilterModelDuration, bool)`
+
+GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDuration
+
+`func (o *TestResultsFilterModel) SetDuration(v TestResultsFilterModelDuration)`
+
+SetDuration sets Duration field to given value.
+
+### HasDuration
+
+`func (o *TestResultsFilterModel) HasDuration() bool`
+
+HasDuration returns a boolean if a field has been set.
+
+### SetDurationNil
+
+`func (o *TestResultsFilterModel) SetDurationNil(b bool)`
+
+ SetDurationNil sets the value for Duration to be an explicit nil
+
+### UnsetDuration
+`func (o *TestResultsFilterModel) UnsetDuration()`
+
+UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+### GetResultReasons
+
+`func (o *TestResultsFilterModel) GetResultReasons() []string`
+
+GetResultReasons returns the ResultReasons field if non-nil, zero value otherwise.
+
+### GetResultReasonsOk
+
+`func (o *TestResultsFilterModel) GetResultReasonsOk() (*[]string, bool)`
+
+GetResultReasonsOk returns a tuple with the ResultReasons field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResultReasons
+
+`func (o *TestResultsFilterModel) SetResultReasons(v []string)`
+
+SetResultReasons sets ResultReasons field to given value.
+
+### HasResultReasons
+
+`func (o *TestResultsFilterModel) HasResultReasons() bool`
+
+HasResultReasons returns a boolean if a field has been set.
+
+### SetResultReasonsNil
+
+`func (o *TestResultsFilterModel) SetResultReasonsNil(b bool)`
+
+ SetResultReasonsNil sets the value for ResultReasons to be an explicit nil
+
+### UnsetResultReasons
+`func (o *TestResultsFilterModel) UnsetResultReasons()`
+
+UnsetResultReasons ensures that no value is present for ResultReasons, not even an explicit nil
 ### GetConfigurationIds
 
 `func (o *TestResultsFilterModel) GetConfigurationIds() []string`

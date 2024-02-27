@@ -26,6 +26,8 @@ type ApiV2TestPointsSearchPostRequest struct {
 	// Specifies a test point work item global IDs to search for
 	WorkItemGlobalIds []int64 `json:"workItemGlobalIds,omitempty"`
 	WorkItemMedianDuration NullableTestPointFilterModelWorkItemMedianDuration `json:"workItemMedianDuration,omitempty"`
+	// Specifies a test point work item is deleted flag to search for
+	WorkItemIsDeleted NullableBool `json:"workItemIsDeleted,omitempty"`
 	// Specifies a test point statuses to search for
 	Statuses []TestPointStatus `json:"statuses,omitempty"`
 	// Specifies a test point priorities to search for
@@ -215,6 +217,48 @@ func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemMedianDurationNil() {
 // UnsetWorkItemMedianDuration ensures that no value is present for WorkItemMedianDuration, not even an explicit nil
 func (o *ApiV2TestPointsSearchPostRequest) UnsetWorkItemMedianDuration() {
 	o.WorkItemMedianDuration.Unset()
+}
+
+// GetWorkItemIsDeleted returns the WorkItemIsDeleted field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestPointsSearchPostRequest) GetWorkItemIsDeleted() bool {
+	if o == nil || IsNil(o.WorkItemIsDeleted.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.WorkItemIsDeleted.Get()
+}
+
+// GetWorkItemIsDeletedOk returns a tuple with the WorkItemIsDeleted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestPointsSearchPostRequest) GetWorkItemIsDeletedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WorkItemIsDeleted.Get(), o.WorkItemIsDeleted.IsSet()
+}
+
+// HasWorkItemIsDeleted returns a boolean if a field has been set.
+func (o *ApiV2TestPointsSearchPostRequest) HasWorkItemIsDeleted() bool {
+	if o != nil && o.WorkItemIsDeleted.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemIsDeleted gets a reference to the given NullableBool and assigns it to the WorkItemIsDeleted field.
+func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemIsDeleted(v bool) {
+	o.WorkItemIsDeleted.Set(&v)
+}
+// SetWorkItemIsDeletedNil sets the value for WorkItemIsDeleted to be an explicit nil
+func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemIsDeletedNil() {
+	o.WorkItemIsDeleted.Set(nil)
+}
+
+// UnsetWorkItemIsDeleted ensures that no value is present for WorkItemIsDeleted, not even an explicit nil
+func (o *ApiV2TestPointsSearchPostRequest) UnsetWorkItemIsDeleted() {
+	o.WorkItemIsDeleted.Unset()
 }
 
 // GetStatuses returns the Statuses field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -895,6 +939,9 @@ func (o ApiV2TestPointsSearchPostRequest) ToMap() (map[string]interface{}, error
 	}
 	if o.WorkItemMedianDuration.IsSet() {
 		toSerialize["workItemMedianDuration"] = o.WorkItemMedianDuration.Get()
+	}
+	if o.WorkItemIsDeleted.IsSet() {
+		toSerialize["workItemIsDeleted"] = o.WorkItemIsDeleted.Get()
 	}
 	if o.Statuses != nil {
 		toSerialize["statuses"] = o.Statuses

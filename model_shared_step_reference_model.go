@@ -38,7 +38,7 @@ type SharedStepReferenceModel struct {
 	VersionId string `json:"versionId"`
 	IsAutomated bool `json:"isAutomated"`
 	SectionId string `json:"sectionId"`
-	Tags []TagShortModel `json:"tags,omitempty"`
+	Tags []TagModel `json:"tags,omitempty"`
 }
 
 // NewSharedStepReferenceModel instantiates a new SharedStepReferenceModel object
@@ -535,9 +535,9 @@ func (o *SharedStepReferenceModel) SetSectionId(v string) {
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SharedStepReferenceModel) GetTags() []TagShortModel {
+func (o *SharedStepReferenceModel) GetTags() []TagModel {
 	if o == nil {
-		var ret []TagShortModel
+		var ret []TagModel
 		return ret
 	}
 	return o.Tags
@@ -546,7 +546,7 @@ func (o *SharedStepReferenceModel) GetTags() []TagShortModel {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SharedStepReferenceModel) GetTagsOk() ([]TagShortModel, bool) {
+func (o *SharedStepReferenceModel) GetTagsOk() ([]TagModel, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
@@ -562,8 +562,8 @@ func (o *SharedStepReferenceModel) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given []TagShortModel and assigns it to the Tags field.
-func (o *SharedStepReferenceModel) SetTags(v []TagShortModel) {
+// SetTags gets a reference to the given []TagModel and assigns it to the Tags field.
+func (o *SharedStepReferenceModel) SetTags(v []TagModel) {
 	o.Tags = v
 }
 

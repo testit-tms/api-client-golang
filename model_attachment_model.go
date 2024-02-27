@@ -36,8 +36,6 @@ type AttachmentModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Name of the attachment file
 	Name string `json:"name"`
-	// Indicates whether the attachment is temporary (may be automatically deleted)
-	IsTemp bool `json:"isTemp"`
 	// Unique ID of the attachment
 	Id string `json:"id"`
 }
@@ -46,7 +44,7 @@ type AttachmentModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAttachmentModel(fileId string, type_ string, size float32, createdDate time.Time, createdById string, name string, isTemp bool, id string) *AttachmentModel {
+func NewAttachmentModel(fileId string, type_ string, size float32, createdDate time.Time, createdById string, name string, id string) *AttachmentModel {
 	this := AttachmentModel{}
 	this.FileId = fileId
 	this.Type = type_
@@ -54,7 +52,6 @@ func NewAttachmentModel(fileId string, type_ string, size float32, createdDate t
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
 	this.Name = name
-	this.IsTemp = isTemp
 	this.Id = id
 	return &this
 }
@@ -295,30 +292,6 @@ func (o *AttachmentModel) SetName(v string) {
 	o.Name = v
 }
 
-// GetIsTemp returns the IsTemp field value
-func (o *AttachmentModel) GetIsTemp() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.IsTemp
-}
-
-// GetIsTempOk returns a tuple with the IsTemp field value
-// and a boolean to check if the value has been set.
-func (o *AttachmentModel) GetIsTempOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IsTemp, true
-}
-
-// SetIsTemp sets field value
-func (o *AttachmentModel) SetIsTemp(v bool) {
-	o.IsTemp = v
-}
-
 // GetId returns the Id field value
 func (o *AttachmentModel) GetId() string {
 	if o == nil {
@@ -365,7 +338,6 @@ func (o AttachmentModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
 	toSerialize["name"] = o.Name
-	toSerialize["isTemp"] = o.IsTemp
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }

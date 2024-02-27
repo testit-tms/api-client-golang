@@ -25,17 +25,19 @@ type SectionPutModel struct {
 	ParentId NullableString `json:"parentId,omitempty"`
 	PreconditionSteps []StepPutModel `json:"preconditionSteps,omitempty"`
 	PostconditionSteps []StepPutModel `json:"postconditionSteps,omitempty"`
+	Attachments []AttachmentPutModel `json:"attachments"`
 }
 
 // NewSectionPutModel instantiates a new SectionPutModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSectionPutModel(id string, name string, projectId string) *SectionPutModel {
+func NewSectionPutModel(id string, name string, projectId string, attachments []AttachmentPutModel) *SectionPutModel {
 	this := SectionPutModel{}
 	this.Id = id
 	this.Name = name
 	this.ProjectId = projectId
+	this.Attachments = attachments
 	return &this
 }
 
@@ -227,6 +229,30 @@ func (o *SectionPutModel) SetPostconditionSteps(v []StepPutModel) {
 	o.PostconditionSteps = v
 }
 
+// GetAttachments returns the Attachments field value
+func (o *SectionPutModel) GetAttachments() []AttachmentPutModel {
+	if o == nil {
+		var ret []AttachmentPutModel
+		return ret
+	}
+
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value
+// and a boolean to check if the value has been set.
+func (o *SectionPutModel) GetAttachmentsOk() ([]AttachmentPutModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// SetAttachments sets field value
+func (o *SectionPutModel) SetAttachments(v []AttachmentPutModel) {
+	o.Attachments = v
+}
+
 func (o SectionPutModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -249,6 +275,7 @@ func (o SectionPutModel) ToMap() (map[string]interface{}, error) {
 	if o.PostconditionSteps != nil {
 		toSerialize["postconditionSteps"] = o.PostconditionSteps
 	}
+	toSerialize["attachments"] = o.Attachments
 	return toSerialize, nil
 }
 

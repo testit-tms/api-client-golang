@@ -22,18 +22,20 @@ type SectionPostModel struct {
 	Name string `json:"name"`
 	ProjectId string `json:"projectId"`
 	ParentId NullableString `json:"parentId,omitempty"`
-	PreconditionSteps []StepPutModel `json:"preconditionSteps,omitempty"`
-	PostconditionSteps []StepPutModel `json:"postconditionSteps,omitempty"`
+	PreconditionSteps []StepPostModel `json:"preconditionSteps,omitempty"`
+	PostconditionSteps []StepPostModel `json:"postconditionSteps,omitempty"`
+	Attachments []AttachmentPutModel `json:"attachments"`
 }
 
 // NewSectionPostModel instantiates a new SectionPostModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSectionPostModel(name string, projectId string) *SectionPostModel {
+func NewSectionPostModel(name string, projectId string, attachments []AttachmentPutModel) *SectionPostModel {
 	this := SectionPostModel{}
 	this.Name = name
 	this.ProjectId = projectId
+	this.Attachments = attachments
 	return &this
 }
 
@@ -136,9 +138,9 @@ func (o *SectionPostModel) UnsetParentId() {
 }
 
 // GetPreconditionSteps returns the PreconditionSteps field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SectionPostModel) GetPreconditionSteps() []StepPutModel {
+func (o *SectionPostModel) GetPreconditionSteps() []StepPostModel {
 	if o == nil {
-		var ret []StepPutModel
+		var ret []StepPostModel
 		return ret
 	}
 	return o.PreconditionSteps
@@ -147,7 +149,7 @@ func (o *SectionPostModel) GetPreconditionSteps() []StepPutModel {
 // GetPreconditionStepsOk returns a tuple with the PreconditionSteps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SectionPostModel) GetPreconditionStepsOk() ([]StepPutModel, bool) {
+func (o *SectionPostModel) GetPreconditionStepsOk() ([]StepPostModel, bool) {
 	if o == nil || IsNil(o.PreconditionSteps) {
 		return nil, false
 	}
@@ -163,15 +165,15 @@ func (o *SectionPostModel) HasPreconditionSteps() bool {
 	return false
 }
 
-// SetPreconditionSteps gets a reference to the given []StepPutModel and assigns it to the PreconditionSteps field.
-func (o *SectionPostModel) SetPreconditionSteps(v []StepPutModel) {
+// SetPreconditionSteps gets a reference to the given []StepPostModel and assigns it to the PreconditionSteps field.
+func (o *SectionPostModel) SetPreconditionSteps(v []StepPostModel) {
 	o.PreconditionSteps = v
 }
 
 // GetPostconditionSteps returns the PostconditionSteps field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SectionPostModel) GetPostconditionSteps() []StepPutModel {
+func (o *SectionPostModel) GetPostconditionSteps() []StepPostModel {
 	if o == nil {
-		var ret []StepPutModel
+		var ret []StepPostModel
 		return ret
 	}
 	return o.PostconditionSteps
@@ -180,7 +182,7 @@ func (o *SectionPostModel) GetPostconditionSteps() []StepPutModel {
 // GetPostconditionStepsOk returns a tuple with the PostconditionSteps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SectionPostModel) GetPostconditionStepsOk() ([]StepPutModel, bool) {
+func (o *SectionPostModel) GetPostconditionStepsOk() ([]StepPostModel, bool) {
 	if o == nil || IsNil(o.PostconditionSteps) {
 		return nil, false
 	}
@@ -196,9 +198,33 @@ func (o *SectionPostModel) HasPostconditionSteps() bool {
 	return false
 }
 
-// SetPostconditionSteps gets a reference to the given []StepPutModel and assigns it to the PostconditionSteps field.
-func (o *SectionPostModel) SetPostconditionSteps(v []StepPutModel) {
+// SetPostconditionSteps gets a reference to the given []StepPostModel and assigns it to the PostconditionSteps field.
+func (o *SectionPostModel) SetPostconditionSteps(v []StepPostModel) {
 	o.PostconditionSteps = v
+}
+
+// GetAttachments returns the Attachments field value
+func (o *SectionPostModel) GetAttachments() []AttachmentPutModel {
+	if o == nil {
+		var ret []AttachmentPutModel
+		return ret
+	}
+
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value
+// and a boolean to check if the value has been set.
+func (o *SectionPostModel) GetAttachmentsOk() ([]AttachmentPutModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// SetAttachments sets field value
+func (o *SectionPostModel) SetAttachments(v []AttachmentPutModel) {
+	o.Attachments = v
 }
 
 func (o SectionPostModel) MarshalJSON() ([]byte, error) {
@@ -222,6 +248,7 @@ func (o SectionPostModel) ToMap() (map[string]interface{}, error) {
 	if o.PostconditionSteps != nil {
 		toSerialize["postconditionSteps"] = o.PostconditionSteps
 	}
+	toSerialize["attachments"] = o.Attachments
 	return toSerialize, nil
 }
 

@@ -210,7 +210,12 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**Move**](docs/SectionsApi.md#move) | **Post** /api/v2/sections/move | Move section with all work items into another section
 *SectionsApi* | [**Rename**](docs/SectionsApi.md#rename) | **Post** /api/v2/sections/rename | Rename section
 *SectionsApi* | [**UpdateSection**](docs/SectionsApi.md#updatesection) | **Put** /api/v2/sections | Update section
+*TagsApi* | [**ApiV2TagsDelete**](docs/TagsApi.md#apiv2tagsdelete) | **Delete** /api/v2/tags | Delete tags
 *TagsApi* | [**ApiV2TagsGet**](docs/TagsApi.md#apiv2tagsget) | **Get** /api/v2/tags | Get all Tags
+*TagsApi* | [**ApiV2TagsIdDelete**](docs/TagsApi.md#apiv2tagsiddelete) | **Delete** /api/v2/tags/{id} | Delete tag
+*TagsApi* | [**ApiV2TagsPost**](docs/TagsApi.md#apiv2tagspost) | **Post** /api/v2/tags | Create tag
+*TagsApi* | [**ApiV2TagsPut**](docs/TagsApi.md#apiv2tagsput) | **Put** /api/v2/tags | Update tag
+*TagsApi* | [**ApiV2TagsSearchGet**](docs/TagsApi.md#apiv2tagssearchget) | **Get** /api/v2/tags/search | Search tags
 *TagsApi* | [**ApiV2TagsTestPlansTagsGet**](docs/TagsApi.md#apiv2tagstestplanstagsget) | **Get** /api/v2/tags/testPlansTags | Get all Tags that are used in TestPlans
 *TestPlansApi* | [**AddTestPointsWithSections**](docs/TestPlansApi.md#addtestpointswithsections) | **Post** /api/v2/testPlans/{id}/test-points/withSections | Add test-points to TestPlan with sections
 *TestPlansApi* | [**AddWorkItemsWithSections**](docs/TestPlansApi.md#addworkitemswithsections) | **Post** /api/v2/testPlans/{id}/workItems/withSections | Add WorkItems to TestPlan with Sections as TestSuites
