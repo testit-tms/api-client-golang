@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **TestSuiteIds** | Pointer to **[]string** | Specifies a test point test suite IDs to search for | [optional] 
 **WorkItemGlobalIds** | Pointer to **[]int64** | Specifies a test point work item global IDs to search for | [optional] 
 **WorkItemMedianDuration** | Pointer to [**NullableTestPointFilterModelWorkItemMedianDuration**](TestPointFilterModelWorkItemMedianDuration.md) |  | [optional] 
+**WorkItemIsDeleted** | Pointer to **NullableBool** | Specifies a test point work item is deleted flag to search for | [optional] 
 **Statuses** | Pointer to [**[]TestPointStatus**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Specifies a test point automation status to search for | [optional] 
@@ -186,6 +187,41 @@ HasWorkItemMedianDuration returns a boolean if a field has been set.
 `func (o *ApiV2TestPointsSearchPostRequest) UnsetWorkItemMedianDuration()`
 
 UnsetWorkItemMedianDuration ensures that no value is present for WorkItemMedianDuration, not even an explicit nil
+### GetWorkItemIsDeleted
+
+`func (o *ApiV2TestPointsSearchPostRequest) GetWorkItemIsDeleted() bool`
+
+GetWorkItemIsDeleted returns the WorkItemIsDeleted field if non-nil, zero value otherwise.
+
+### GetWorkItemIsDeletedOk
+
+`func (o *ApiV2TestPointsSearchPostRequest) GetWorkItemIsDeletedOk() (*bool, bool)`
+
+GetWorkItemIsDeletedOk returns a tuple with the WorkItemIsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemIsDeleted
+
+`func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemIsDeleted(v bool)`
+
+SetWorkItemIsDeleted sets WorkItemIsDeleted field to given value.
+
+### HasWorkItemIsDeleted
+
+`func (o *ApiV2TestPointsSearchPostRequest) HasWorkItemIsDeleted() bool`
+
+HasWorkItemIsDeleted returns a boolean if a field has been set.
+
+### SetWorkItemIsDeletedNil
+
+`func (o *ApiV2TestPointsSearchPostRequest) SetWorkItemIsDeletedNil(b bool)`
+
+ SetWorkItemIsDeletedNil sets the value for WorkItemIsDeleted to be an explicit nil
+
+### UnsetWorkItemIsDeleted
+`func (o *ApiV2TestPointsSearchPostRequest) UnsetWorkItemIsDeleted()`
+
+UnsetWorkItemIsDeleted ensures that no value is present for WorkItemIsDeleted, not even an explicit nil
 ### GetStatuses
 
 `func (o *ApiV2TestPointsSearchPostRequest) GetStatuses() []TestPointStatus`

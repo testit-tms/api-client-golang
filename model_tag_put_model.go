@@ -14,34 +14,34 @@ import (
 	"encoding/json"
 )
 
-// checks if the TagShortModel type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &TagShortModel{}
+// checks if the TagPutModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &TagPutModel{}
 
-// TagShortModel struct for TagShortModel
-type TagShortModel struct {
+// TagPutModel struct for TagPutModel
+type TagPutModel struct {
 	Name string `json:"name"`
 }
 
-// NewTagShortModel instantiates a new TagShortModel object
+// NewTagPutModel instantiates a new TagPutModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTagShortModel(name string) *TagShortModel {
-	this := TagShortModel{}
+func NewTagPutModel(name string) *TagPutModel {
+	this := TagPutModel{}
 	this.Name = name
 	return &this
 }
 
-// NewTagShortModelWithDefaults instantiates a new TagShortModel object
+// NewTagPutModelWithDefaults instantiates a new TagPutModel object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewTagShortModelWithDefaults() *TagShortModel {
-	this := TagShortModel{}
+func NewTagPutModelWithDefaults() *TagPutModel {
+	this := TagPutModel{}
 	return &this
 }
 
 // GetName returns the Name field value
-func (o *TagShortModel) GetName() string {
+func (o *TagPutModel) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -52,7 +52,7 @@ func (o *TagShortModel) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *TagShortModel) GetNameOk() (*string, bool) {
+func (o *TagPutModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -60,11 +60,11 @@ func (o *TagShortModel) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *TagShortModel) SetName(v string) {
+func (o *TagPutModel) SetName(v string) {
 	o.Name = v
 }
 
-func (o TagShortModel) MarshalJSON() ([]byte, error) {
+func (o TagPutModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -72,44 +72,44 @@ func (o TagShortModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o TagShortModel) ToMap() (map[string]interface{}, error) {
+func (o TagPutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
 }
 
-type NullableTagShortModel struct {
-	value *TagShortModel
+type NullableTagPutModel struct {
+	value *TagPutModel
 	isSet bool
 }
 
-func (v NullableTagShortModel) Get() *TagShortModel {
+func (v NullableTagPutModel) Get() *TagPutModel {
 	return v.value
 }
 
-func (v *NullableTagShortModel) Set(val *TagShortModel) {
+func (v *NullableTagPutModel) Set(val *TagPutModel) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableTagShortModel) IsSet() bool {
+func (v NullableTagPutModel) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableTagShortModel) Unset() {
+func (v *NullableTagPutModel) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableTagShortModel(val *TagShortModel) *NullableTagShortModel {
-	return &NullableTagShortModel{value: val, isSet: true}
+func NewNullableTagPutModel(val *TagPutModel) *NullableTagPutModel {
+	return &NullableTagPutModel{value: val, isSet: true}
 }
 
-func (v NullableTagShortModel) MarshalJSON() ([]byte, error) {
+func (v NullableTagPutModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableTagShortModel) UnmarshalJSON(src []byte) error {
+func (v *NullableTagPutModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

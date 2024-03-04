@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **PostconditionSteps** | [**[]StepModel**](StepModel.md) |  | 
 **Duration** | **int32** |  | 
 **Attributes** | **map[string]interface{}** |  | 
-**Tags** | [**[]TagShortModel**](TagShortModel.md) |  | 
+**Tags** | [**[]TagPutModel**](TagPutModel.md) |  | 
 **Links** | [**[]LinkModel**](LinkModel.md) |  | 
 **Name** | **string** |  | 
 
@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemModel
 
-`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkModel, name string, ) *WorkItemModel`
+`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagPutModel, links []LinkModel, name string, ) *WorkItemModel`
 
 NewWorkItemModel instantiates a new WorkItemModel object
 This constructor will assign default values to properties that have it defined,
@@ -716,20 +716,20 @@ SetAttributes sets Attributes field to given value.
 
 ### GetTags
 
-`func (o *WorkItemModel) GetTags() []TagShortModel`
+`func (o *WorkItemModel) GetTags() []TagPutModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *WorkItemModel) GetTagsOk() (*[]TagShortModel, bool)`
+`func (o *WorkItemModel) GetTagsOk() (*[]TagPutModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *WorkItemModel) SetTags(v []TagShortModel)`
+`func (o *WorkItemModel) SetTags(v []TagPutModel)`
 
 SetTags sets Tags field to given value.
 

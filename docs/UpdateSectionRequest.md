@@ -10,12 +10,13 @@ Name | Type | Description | Notes
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **PreconditionSteps** | Pointer to [**[]StepPutModel**](StepPutModel.md) |  | [optional] 
 **PostconditionSteps** | Pointer to [**[]StepPutModel**](StepPutModel.md) |  | [optional] 
+**Attachments** | [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | 
 
 ## Methods
 
 ### NewUpdateSectionRequest
 
-`func NewUpdateSectionRequest(id string, name string, projectId string, ) *UpdateSectionRequest`
+`func NewUpdateSectionRequest(id string, name string, projectId string, attachments []AttachmentPutModel, ) *UpdateSectionRequest`
 
 NewUpdateSectionRequest instantiates a new UpdateSectionRequest object
 This constructor will assign default values to properties that have it defined,
@@ -195,6 +196,26 @@ HasPostconditionSteps returns a boolean if a field has been set.
 `func (o *UpdateSectionRequest) UnsetPostconditionSteps()`
 
 UnsetPostconditionSteps ensures that no value is present for PostconditionSteps, not even an explicit nil
+### GetAttachments
+
+`func (o *UpdateSectionRequest) GetAttachments() []AttachmentPutModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *UpdateSectionRequest) GetAttachmentsOk() (*[]AttachmentPutModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *UpdateSectionRequest) SetAttachments(v []AttachmentPutModel)`
+
+SetAttachments sets Attachments field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

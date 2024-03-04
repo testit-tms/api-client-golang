@@ -720,7 +720,7 @@ import (
 )
 
 func main() {
-    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8") // CreateEmptyRequest |  (optional)
+    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a") // CreateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1064,7 +1064,7 @@ import (
 )
 
 func main() {
-    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "First run") // UpdateEmptyRequest |  (optional)
+    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a", "First run") // UpdateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

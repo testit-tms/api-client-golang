@@ -1325,7 +1325,7 @@ import (
 
 func main() {
     id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8") // LinkAutoTestToWorkItemRequest |  (optional)
+    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a") // LinkAutoTestToWorkItemRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -20,7 +20,7 @@ var _ MappedNullable = &TestPlanPostModel{}
 
 // TestPlanPostModel struct for TestPlanPostModel
 type TestPlanPostModel struct {
-	Tags []TagShortModel `json:"tags,omitempty"`
+	Tags []TagPostModel `json:"tags,omitempty"`
 	Name string `json:"name"`
 	// Used for analytics
 	StartDate NullableTime `json:"startDate,omitempty"`
@@ -55,9 +55,9 @@ func NewTestPlanPostModelWithDefaults() *TestPlanPostModel {
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanPostModel) GetTags() []TagShortModel {
+func (o *TestPlanPostModel) GetTags() []TagPostModel {
 	if o == nil {
-		var ret []TagShortModel
+		var ret []TagPostModel
 		return ret
 	}
 	return o.Tags
@@ -66,7 +66,7 @@ func (o *TestPlanPostModel) GetTags() []TagShortModel {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanPostModel) GetTagsOk() ([]TagShortModel, bool) {
+func (o *TestPlanPostModel) GetTagsOk() ([]TagPostModel, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
@@ -82,8 +82,8 @@ func (o *TestPlanPostModel) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given []TagShortModel and assigns it to the Tags field.
-func (o *TestPlanPostModel) SetTags(v []TagShortModel) {
+// SetTags gets a reference to the given []TagPostModel and assigns it to the Tags field.
+func (o *TestPlanPostModel) SetTags(v []TagPostModel) {
 	o.Tags = v
 }
 

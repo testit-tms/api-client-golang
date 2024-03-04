@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **LockedById** | Pointer to **NullableString** |  | [optional] 
-**Tags** | Pointer to [**[]TagShortModel**](TagShortModel.md) |  | [optional] 
+**Tags** | Pointer to [**[]TagPostModel**](TagPostModel.md) |  | [optional] 
 **Name** | **string** |  | 
 **StartDate** | Pointer to **NullableTime** | Used for analytics | [optional] 
 **EndDate** | Pointer to **NullableTime** | Used for analytics | [optional] 
@@ -93,20 +93,20 @@ HasLockedById returns a boolean if a field has been set.
 UnsetLockedById ensures that no value is present for LockedById, not even an explicit nil
 ### GetTags
 
-`func (o *TestPlanPutModel) GetTags() []TagShortModel`
+`func (o *TestPlanPutModel) GetTags() []TagPostModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *TestPlanPutModel) GetTagsOk() (*[]TagShortModel, bool)`
+`func (o *TestPlanPutModel) GetTagsOk() (*[]TagPostModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *TestPlanPutModel) SetTags(v []TagShortModel)`
+`func (o *TestPlanPutModel) SetTags(v []TagPostModel)`
 
 SetTags sets Tags field to given value.
 

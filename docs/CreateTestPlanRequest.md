@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tags** | Pointer to [**[]TagShortModel**](TagShortModel.md) |  | [optional] 
+**Tags** | Pointer to [**[]TagPostModel**](TagPostModel.md) |  | [optional] 
 **Name** | **string** |  | 
 **StartDate** | Pointer to **NullableTime** | Used for analytics | [optional] 
 **EndDate** | Pointer to **NullableTime** | Used for analytics | [optional] 
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTags
 
-`func (o *CreateTestPlanRequest) GetTags() []TagShortModel`
+`func (o *CreateTestPlanRequest) GetTags() []TagPostModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *CreateTestPlanRequest) GetTagsOk() (*[]TagShortModel, bool)`
+`func (o *CreateTestPlanRequest) GetTagsOk() (*[]TagPostModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *CreateTestPlanRequest) SetTags(v []TagShortModel)`
+`func (o *CreateTestPlanRequest) SetTags(v []TagPostModel)`
 
 SetTags sets Tags field to given value.
 

@@ -643,7 +643,7 @@ Name | Type | Description  | Notes
 
 ## DownloadAttachment
 
-> DownloadAttachment(ctx, attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
+> *os.File DownloadAttachment(ctx, attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
 
 Get attachment of TestResult
 
@@ -672,11 +672,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestResultsApi.DownloadAttachment(context.Background(), attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
+    resp, r, err := apiClient.TestResultsApi.DownloadAttachment(context.Background(), attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TestResultsApi.DownloadAttachment``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `DownloadAttachment`: *os.File
+    fmt.Fprintf(os.Stdout, "Response from `TestResultsApi.DownloadAttachment`: %v\n", resp)
 }
 ```
 
@@ -706,7 +708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -715,7 +717,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

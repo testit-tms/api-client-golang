@@ -32,7 +32,7 @@ type WorkItemPutModel struct {
 	PostconditionSteps []StepPutModel `json:"postconditionSteps"`
 	Duration int32 `json:"duration"`
 	Attributes map[string]interface{} `json:"attributes"`
-	Tags []TagShortModel `json:"tags"`
+	Tags []TagPutModel `json:"tags"`
 	Links []LinkPutModel `json:"links"`
 	Name string `json:"name"`
 }
@@ -41,7 +41,7 @@ type WorkItemPutModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagShortModel, links []LinkPutModel, name string) *WorkItemPutModel {
+func NewWorkItemPutModel(attachments []AttachmentPutModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepPutModel, preconditionSteps []StepPutModel, postconditionSteps []StepPutModel, duration int32, attributes map[string]interface{}, tags []TagPutModel, links []LinkPutModel, name string) *WorkItemPutModel {
 	this := WorkItemPutModel{}
 	this.Attachments = attachments
 	this.Id = id
@@ -416,9 +416,9 @@ func (o *WorkItemPutModel) SetAttributes(v map[string]interface{}) {
 }
 
 // GetTags returns the Tags field value
-func (o *WorkItemPutModel) GetTags() []TagShortModel {
+func (o *WorkItemPutModel) GetTags() []TagPutModel {
 	if o == nil {
-		var ret []TagShortModel
+		var ret []TagPutModel
 		return ret
 	}
 
@@ -427,7 +427,7 @@ func (o *WorkItemPutModel) GetTags() []TagShortModel {
 
 // GetTagsOk returns a tuple with the Tags field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemPutModel) GetTagsOk() ([]TagShortModel, bool) {
+func (o *WorkItemPutModel) GetTagsOk() ([]TagPutModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -435,7 +435,7 @@ func (o *WorkItemPutModel) GetTagsOk() ([]TagShortModel, bool) {
 }
 
 // SetTags sets field value
-func (o *WorkItemPutModel) SetTags(v []TagShortModel) {
+func (o *WorkItemPutModel) SetTags(v []TagPutModel) {
 	o.Tags = v
 }
 

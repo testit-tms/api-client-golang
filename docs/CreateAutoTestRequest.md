@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **WorkItemIdsForLinkWithAutoTest** | Pointer to **[]string** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
 **ShouldCreateWorkItem** | Pointer to **NullableBool** | Creates a test case linked to the autotest. | [optional] 
+**Attributes** | Pointer to **map[string]interface{}** | Key value pair of custom work item attributes | [optional] 
 **ExternalId** | **string** | External ID of the autotest | 
 **Links** | Pointer to [**[]LinkPostModel**](LinkPostModel.md) | Collection of the autotest links | [optional] 
 **ProjectId** | **string** | Unique ID of the autotest project | 
@@ -110,6 +111,41 @@ HasShouldCreateWorkItem returns a boolean if a field has been set.
 `func (o *CreateAutoTestRequest) UnsetShouldCreateWorkItem()`
 
 UnsetShouldCreateWorkItem ensures that no value is present for ShouldCreateWorkItem, not even an explicit nil
+### GetAttributes
+
+`func (o *CreateAutoTestRequest) GetAttributes() map[string]interface{}`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *CreateAutoTestRequest) GetAttributesOk() (*map[string]interface{}, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *CreateAutoTestRequest) SetAttributes(v map[string]interface{})`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *CreateAutoTestRequest) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
+
+### SetAttributesNil
+
+`func (o *CreateAutoTestRequest) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *CreateAutoTestRequest) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetExternalId
 
 `func (o *CreateAutoTestRequest) GetExternalId() string`

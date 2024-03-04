@@ -37,6 +37,7 @@ type AutoTestRelatedToTestResult struct {
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	Labels []LabelShortModel `json:"labels,omitempty"`
+	ExternalKey NullableString `json:"externalKey,omitempty"`
 	// Unique ID of the entity
 	Id string `json:"id"`
 	// Indicates if the entity is deleted
@@ -562,6 +563,48 @@ func (o *AutoTestRelatedToTestResult) SetLabels(v []LabelShortModel) {
 	o.Labels = v
 }
 
+// GetExternalKey returns the ExternalKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestRelatedToTestResult) GetExternalKey() string {
+	if o == nil || IsNil(o.ExternalKey.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalKey.Get()
+}
+
+// GetExternalKeyOk returns a tuple with the ExternalKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestRelatedToTestResult) GetExternalKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalKey.Get(), o.ExternalKey.IsSet()
+}
+
+// HasExternalKey returns a boolean if a field has been set.
+func (o *AutoTestRelatedToTestResult) HasExternalKey() bool {
+	if o != nil && o.ExternalKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalKey gets a reference to the given NullableString and assigns it to the ExternalKey field.
+func (o *AutoTestRelatedToTestResult) SetExternalKey(v string) {
+	o.ExternalKey.Set(&v)
+}
+// SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+func (o *AutoTestRelatedToTestResult) SetExternalKeyNil() {
+	o.ExternalKey.Set(nil)
+}
+
+// UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
+func (o *AutoTestRelatedToTestResult) UnsetExternalKey() {
+	o.ExternalKey.Unset()
+}
+
 // GetId returns the Id field value
 func (o *AutoTestRelatedToTestResult) GetId() string {
 	if o == nil {
@@ -654,6 +697,9 @@ func (o AutoTestRelatedToTestResult) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
+	}
+	if o.ExternalKey.IsSet() {
+		toSerialize["externalKey"] = o.ExternalKey.Get()
 	}
 	toSerialize["id"] = o.Id
 	toSerialize["isDeleted"] = o.IsDeleted

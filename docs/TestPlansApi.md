@@ -1591,7 +1591,7 @@ import (
 )
 
 func main() {
-    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", map[string]interface{}{"key": interface{}(123)}) // CreateTestPlanRequest |  (optional)
+    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "b21976c2-c9f3-497b-bd88-9e068d01bd4a", map[string]interface{}{"key": interface{}(123)}) // CreateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -2135,7 +2135,7 @@ import (
 )
 
 func main() {
-    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", "Base test plan", "0140e7a3-3a4b-42f9-9ad1-71dd64bc64b8", map[string]interface{}{"key": interface{}(123)}) // UpdateTestPlanRequest |  (optional)
+    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a", "Base test plan", "b21976c2-c9f3-497b-bd88-9e068d01bd4a", map[string]interface{}{"key": interface{}(123)}) // UpdateTestPlanRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

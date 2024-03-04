@@ -12,14 +12,13 @@ Name | Type | Description | Notes
 **CreatedById** | **string** | Unique ID of the attachment creator | 
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the attachment last editor | [optional] 
 **Name** | **string** | Name of the attachment file | 
-**IsTemp** | **bool** | Indicates whether the attachment is temporary (may be automatically deleted) | 
 **Id** | **string** | Unique ID of the attachment | 
 
 ## Methods
 
 ### NewAttachmentModel
 
-`func NewAttachmentModel(fileId string, type_ string, size float32, createdDate time.Time, createdById string, name string, isTemp bool, id string, ) *AttachmentModel`
+`func NewAttachmentModel(fileId string, type_ string, size float32, createdDate time.Time, createdById string, name string, id string, ) *AttachmentModel`
 
 NewAttachmentModel instantiates a new AttachmentModel object
 This constructor will assign default values to properties that have it defined,
@@ -222,26 +221,6 @@ and a boolean to check if the value has been set.
 `func (o *AttachmentModel) SetName(v string)`
 
 SetName sets Name field to given value.
-
-
-### GetIsTemp
-
-`func (o *AttachmentModel) GetIsTemp() bool`
-
-GetIsTemp returns the IsTemp field if non-nil, zero value otherwise.
-
-### GetIsTempOk
-
-`func (o *AttachmentModel) GetIsTempOk() (*bool, bool)`
-
-GetIsTempOk returns a tuple with the IsTemp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsTemp
-
-`func (o *AttachmentModel) SetIsTemp(v bool)`
-
-SetIsTemp sets IsTemp field to given value.
 
 
 ### GetId

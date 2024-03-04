@@ -7,14 +7,15 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **ProjectId** | **string** |  | 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
-**PreconditionSteps** | Pointer to [**[]StepPutModel**](StepPutModel.md) |  | [optional] 
-**PostconditionSteps** | Pointer to [**[]StepPutModel**](StepPutModel.md) |  | [optional] 
+**PreconditionSteps** | Pointer to [**[]StepPostModel**](StepPostModel.md) |  | [optional] 
+**PostconditionSteps** | Pointer to [**[]StepPostModel**](StepPostModel.md) |  | [optional] 
+**Attachments** | [**[]AttachmentPutModel**](AttachmentPutModel.md) |  | 
 
 ## Methods
 
 ### NewCreateSectionRequest
 
-`func NewCreateSectionRequest(name string, projectId string, ) *CreateSectionRequest`
+`func NewCreateSectionRequest(name string, projectId string, attachments []AttachmentPutModel, ) *CreateSectionRequest`
 
 NewCreateSectionRequest instantiates a new CreateSectionRequest object
 This constructor will assign default values to properties that have it defined,
@@ -106,20 +107,20 @@ HasParentId returns a boolean if a field has been set.
 UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 ### GetPreconditionSteps
 
-`func (o *CreateSectionRequest) GetPreconditionSteps() []StepPutModel`
+`func (o *CreateSectionRequest) GetPreconditionSteps() []StepPostModel`
 
 GetPreconditionSteps returns the PreconditionSteps field if non-nil, zero value otherwise.
 
 ### GetPreconditionStepsOk
 
-`func (o *CreateSectionRequest) GetPreconditionStepsOk() (*[]StepPutModel, bool)`
+`func (o *CreateSectionRequest) GetPreconditionStepsOk() (*[]StepPostModel, bool)`
 
 GetPreconditionStepsOk returns a tuple with the PreconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreconditionSteps
 
-`func (o *CreateSectionRequest) SetPreconditionSteps(v []StepPutModel)`
+`func (o *CreateSectionRequest) SetPreconditionSteps(v []StepPostModel)`
 
 SetPreconditionSteps sets PreconditionSteps field to given value.
 
@@ -141,20 +142,20 @@ HasPreconditionSteps returns a boolean if a field has been set.
 UnsetPreconditionSteps ensures that no value is present for PreconditionSteps, not even an explicit nil
 ### GetPostconditionSteps
 
-`func (o *CreateSectionRequest) GetPostconditionSteps() []StepPutModel`
+`func (o *CreateSectionRequest) GetPostconditionSteps() []StepPostModel`
 
 GetPostconditionSteps returns the PostconditionSteps field if non-nil, zero value otherwise.
 
 ### GetPostconditionStepsOk
 
-`func (o *CreateSectionRequest) GetPostconditionStepsOk() (*[]StepPutModel, bool)`
+`func (o *CreateSectionRequest) GetPostconditionStepsOk() (*[]StepPostModel, bool)`
 
 GetPostconditionStepsOk returns a tuple with the PostconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPostconditionSteps
 
-`func (o *CreateSectionRequest) SetPostconditionSteps(v []StepPutModel)`
+`func (o *CreateSectionRequest) SetPostconditionSteps(v []StepPostModel)`
 
 SetPostconditionSteps sets PostconditionSteps field to given value.
 
@@ -174,6 +175,26 @@ HasPostconditionSteps returns a boolean if a field has been set.
 `func (o *CreateSectionRequest) UnsetPostconditionSteps()`
 
 UnsetPostconditionSteps ensures that no value is present for PostconditionSteps, not even an explicit nil
+### GetAttachments
+
+`func (o *CreateSectionRequest) GetAttachments() []AttachmentPutModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *CreateSectionRequest) GetAttachmentsOk() (*[]AttachmentPutModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *CreateSectionRequest) SetAttachments(v []AttachmentPutModel)`
+
+SetAttachments sets Attachments field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
