@@ -15,9 +15,11 @@ Name | Type | Description | Notes
 **Tags** | **[]string** | Collection of the test point tags | 
 **Links** | **[]string** | Collection of the test point links | 
 **TestSuiteId** | **string** | Unique ID of test suite the test point assigned to | 
+**TestSuiteName** | **string** | Name of the test suite | 
 **WorkItemId** | **string** | Unique ID of work item the test point represents | 
 **WorkItemGlobalId** | **int64** | Global ID of work item the test point represents | 
 **WorkItemVersionId** | **string** | Unique ID of work item version the test point represents | 
+**WorkItemVersionNumber** | **int32** | Number of work item version the test point represents | 
 **WorkItemMedianDuration** | Pointer to **NullableInt64** | Median duration of work item the test point represents | [optional] 
 **Status** | [**TestPointStatus**](TestPointStatus.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
@@ -40,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointShortGetModel
 
-`func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, workItemId string, workItemGlobalId int64, workItemVersionId string, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortGetModel`
+`func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortGetModel`
 
 NewTestPointShortGetModel instantiates a new TestPointShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -335,6 +337,26 @@ and a boolean to check if the value has been set.
 SetTestSuiteId sets TestSuiteId field to given value.
 
 
+### GetTestSuiteName
+
+`func (o *TestPointShortGetModel) GetTestSuiteName() string`
+
+GetTestSuiteName returns the TestSuiteName field if non-nil, zero value otherwise.
+
+### GetTestSuiteNameOk
+
+`func (o *TestPointShortGetModel) GetTestSuiteNameOk() (*string, bool)`
+
+GetTestSuiteNameOk returns a tuple with the TestSuiteName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestSuiteName
+
+`func (o *TestPointShortGetModel) SetTestSuiteName(v string)`
+
+SetTestSuiteName sets TestSuiteName field to given value.
+
+
 ### GetWorkItemId
 
 `func (o *TestPointShortGetModel) GetWorkItemId() string`
@@ -393,6 +415,26 @@ and a boolean to check if the value has been set.
 `func (o *TestPointShortGetModel) SetWorkItemVersionId(v string)`
 
 SetWorkItemVersionId sets WorkItemVersionId field to given value.
+
+
+### GetWorkItemVersionNumber
+
+`func (o *TestPointShortGetModel) GetWorkItemVersionNumber() int32`
+
+GetWorkItemVersionNumber returns the WorkItemVersionNumber field if non-nil, zero value otherwise.
+
+### GetWorkItemVersionNumberOk
+
+`func (o *TestPointShortGetModel) GetWorkItemVersionNumberOk() (*int32, bool)`
+
+GetWorkItemVersionNumberOk returns a tuple with the WorkItemVersionNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemVersionNumber
+
+`func (o *TestPointShortGetModel) SetWorkItemVersionNumber(v int32)`
+
+SetWorkItemVersionNumber sets WorkItemVersionNumber field to given value.
 
 
 ### GetWorkItemMedianDuration

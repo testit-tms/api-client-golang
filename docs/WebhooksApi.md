@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksTestPost
 
-> RequestData ApiV2WebhooksTestPost(ctx).ApiV2WebhooksTestPostRequest(apiV2WebhooksTestPostRequest).Execute()
+> WebhookResponse ApiV2WebhooksTestPost(ctx).ApiV2WebhooksTestPostRequest(apiV2WebhooksTestPostRequest).Execute()
 
 Test webhook's url
 
@@ -515,7 +515,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksTestPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ApiV2WebhooksTestPost`: RequestData
+    // response from `ApiV2WebhooksTestPost`: WebhookResponse
     fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksTestPost`: %v\n", resp)
 }
 ```
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RequestData**](RequestData.md)
+[**WebhookResponse**](WebhookResponse.md)
 
 ### Authorization
 

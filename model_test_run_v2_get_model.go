@@ -35,6 +35,8 @@ type TestRunV2GetModel struct {
 	CreatedByUserName NullableString `json:"createdByUserName,omitempty"`
 	Attachments []AttachmentModel `json:"attachments"`
 	Links []LinkModel `json:"links"`
+	CustomParameters map[string]string `json:"customParameters,omitempty"`
+	Webhooks []NamedEntityModel `json:"webhooks"`
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
@@ -46,7 +48,7 @@ type TestRunV2GetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, id string, name string) *TestRunV2GetModel {
+func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, webhooks []NamedEntityModel, id string, name string) *TestRunV2GetModel {
 	this := TestRunV2GetModel{}
 	this.StateName = stateName
 	this.ProjectId = projectId
@@ -54,6 +56,7 @@ func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate 
 	this.CreatedById = createdById
 	this.Attachments = attachments
 	this.Links = links
+	this.Webhooks = webhooks
 	this.Id = id
 	this.Name = name
 	return &this
@@ -496,6 +499,63 @@ func (o *TestRunV2GetModel) SetLinks(v []LinkModel) {
 	o.Links = v
 }
 
+// GetCustomParameters returns the CustomParameters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunV2GetModel) GetCustomParameters() map[string]string {
+	if o == nil {
+		var ret map[string]string
+		return ret
+	}
+	return o.CustomParameters
+}
+
+// GetCustomParametersOk returns a tuple with the CustomParameters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunV2GetModel) GetCustomParametersOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.CustomParameters) {
+		return nil, false
+	}
+	return &o.CustomParameters, true
+}
+
+// HasCustomParameters returns a boolean if a field has been set.
+func (o *TestRunV2GetModel) HasCustomParameters() bool {
+	if o != nil && IsNil(o.CustomParameters) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomParameters gets a reference to the given map[string]string and assigns it to the CustomParameters field.
+func (o *TestRunV2GetModel) SetCustomParameters(v map[string]string) {
+	o.CustomParameters = v
+}
+
+// GetWebhooks returns the Webhooks field value
+func (o *TestRunV2GetModel) GetWebhooks() []NamedEntityModel {
+	if o == nil {
+		var ret []NamedEntityModel
+		return ret
+	}
+
+	return o.Webhooks
+}
+
+// GetWebhooksOk returns a tuple with the Webhooks field value
+// and a boolean to check if the value has been set.
+func (o *TestRunV2GetModel) GetWebhooksOk() ([]NamedEntityModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Webhooks, true
+}
+
+// SetWebhooks sets field value
+func (o *TestRunV2GetModel) SetWebhooks(v []NamedEntityModel) {
+	o.Webhooks = v
+}
+
 // GetId returns the Id field value
 func (o *TestRunV2GetModel) GetId() string {
 	if o == nil {
@@ -665,6 +725,10 @@ func (o TestRunV2GetModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["attachments"] = o.Attachments
 	toSerialize["links"] = o.Links
+	if o.CustomParameters != nil {
+		toSerialize["customParameters"] = o.CustomParameters
+	}
+	toSerialize["webhooks"] = o.Webhooks
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	if o.Description.IsSet() {

@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **CreatedByUserName** | Pointer to **NullableString** |  | [optional] 
 **Attachments** | [**[]AttachmentModel**](AttachmentModel.md) |  | 
 **Links** | [**[]LinkModel**](LinkModel.md) |  | 
+**CustomParameters** | Pointer to **map[string]string** |  | [optional] 
+**Webhooks** | [**[]NamedEntityModel**](NamedEntityModel.md) |  | 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -26,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewTestRunV2GetModel
 
-`func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, id string, name string, ) *TestRunV2GetModel`
+`func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, webhooks []NamedEntityModel, id string, name string, ) *TestRunV2GetModel`
 
 NewTestRunV2GetModel instantiates a new TestRunV2GetModel object
 This constructor will assign default values to properties that have it defined,
@@ -404,6 +406,61 @@ and a boolean to check if the value has been set.
 `func (o *TestRunV2GetModel) SetLinks(v []LinkModel)`
 
 SetLinks sets Links field to given value.
+
+
+### GetCustomParameters
+
+`func (o *TestRunV2GetModel) GetCustomParameters() map[string]string`
+
+GetCustomParameters returns the CustomParameters field if non-nil, zero value otherwise.
+
+### GetCustomParametersOk
+
+`func (o *TestRunV2GetModel) GetCustomParametersOk() (*map[string]string, bool)`
+
+GetCustomParametersOk returns a tuple with the CustomParameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomParameters
+
+`func (o *TestRunV2GetModel) SetCustomParameters(v map[string]string)`
+
+SetCustomParameters sets CustomParameters field to given value.
+
+### HasCustomParameters
+
+`func (o *TestRunV2GetModel) HasCustomParameters() bool`
+
+HasCustomParameters returns a boolean if a field has been set.
+
+### SetCustomParametersNil
+
+`func (o *TestRunV2GetModel) SetCustomParametersNil(b bool)`
+
+ SetCustomParametersNil sets the value for CustomParameters to be an explicit nil
+
+### UnsetCustomParameters
+`func (o *TestRunV2GetModel) UnsetCustomParameters()`
+
+UnsetCustomParameters ensures that no value is present for CustomParameters, not even an explicit nil
+### GetWebhooks
+
+`func (o *TestRunV2GetModel) GetWebhooks() []NamedEntityModel`
+
+GetWebhooks returns the Webhooks field if non-nil, zero value otherwise.
+
+### GetWebhooksOk
+
+`func (o *TestRunV2GetModel) GetWebhooksOk() (*[]NamedEntityModel, bool)`
+
+GetWebhooksOk returns a tuple with the Webhooks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebhooks
+
+`func (o *TestRunV2GetModel) SetWebhooks(v []NamedEntityModel)`
+
+SetWebhooks sets Webhooks field to given value.
 
 
 ### GetId

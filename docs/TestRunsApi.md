@@ -4,10 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2TestRunsDelete**](TestRunsApi.md#ApiV2TestRunsDelete) | **Delete** /api/v2/testRuns | Delete multiple test runs
+[**ApiV2TestRunsIdDelete**](TestRunsApi.md#ApiV2TestRunsIdDelete) | **Delete** /api/v2/testRuns/{id} | Delete test run
+[**ApiV2TestRunsIdPurgePost**](TestRunsApi.md#ApiV2TestRunsIdPurgePost) | **Post** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive
+[**ApiV2TestRunsIdRestorePost**](TestRunsApi.md#ApiV2TestRunsIdRestorePost) | **Post** /api/v2/testRuns/{id}/restore | Restore test run from the archive
 [**ApiV2TestRunsIdStatisticsFilterPost**](TestRunsApi.md#ApiV2TestRunsIdStatisticsFilterPost) | **Post** /api/v2/testRuns/{id}/statistics/filter | Search for the test run test results and build statistics
 [**ApiV2TestRunsIdTestPointsResultsGet**](TestRunsApi.md#ApiV2TestRunsIdTestPointsResultsGet) | **Get** /api/v2/testRuns/{id}/testPoints/results | Get test results from the test run grouped by test points
 [**ApiV2TestRunsIdTestResultsBulkPut**](TestRunsApi.md#ApiV2TestRunsIdTestResultsBulkPut) | **Put** /api/v2/testRuns/{id}/testResults/bulk | Partial edit of multiple test results in the test run
 [**ApiV2TestRunsIdTestResultsLastModifiedModificationDateGet**](TestRunsApi.md#ApiV2TestRunsIdTestResultsLastModifiedModificationDateGet) | **Get** /api/v2/testRuns/{id}/testResults/lastModified/modificationDate | Get modification date of last test result of the test run
+[**ApiV2TestRunsPurgeBulkPost**](TestRunsApi.md#ApiV2TestRunsPurgeBulkPost) | **Post** /api/v2/testRuns/purge/bulk | Permanently delete multiple test runs from archive
+[**ApiV2TestRunsRestoreBulkPost**](TestRunsApi.md#ApiV2TestRunsRestoreBulkPost) | **Post** /api/v2/testRuns/restore/bulk | Restore multiple test runs from the archive
 [**ApiV2TestRunsSearchPost**](TestRunsApi.md#ApiV2TestRunsSearchPost) | **Post** /api/v2/testRuns/search | Search for test runs
 [**ApiV2TestRunsUpdateMultiplePost**](TestRunsApi.md#ApiV2TestRunsUpdateMultiplePost) | **Post** /api/v2/testRuns/updateMultiple | Update multiple test runs
 [**CompleteTestRun**](TestRunsApi.md#CompleteTestRun) | **Post** /api/v2/testRuns/{id}/complete | Complete TestRun
@@ -21,6 +27,276 @@ Method | HTTP request | Description
 [**StopTestRun**](TestRunsApi.md#StopTestRun) | **Post** /api/v2/testRuns/{id}/stop | Stop TestRun
 [**UpdateEmpty**](TestRunsApi.md#UpdateEmpty) | **Put** /api/v2/testRuns | Update empty TestRun
 
+
+
+## ApiV2TestRunsDelete
+
+> int32 ApiV2TestRunsDelete(ctx).ApiV2TestRunsDeleteRequest(apiV2TestRunsDeleteRequest).Execute()
+
+Delete multiple test runs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2TestRunsDeleteRequest := *openapiclient.NewApiV2TestRunsDeleteRequest(*openapiclient.NewApiV2TestRunsSearchPostRequest(), *openapiclient.NewTestRunSelectModelExtractionModel()) // ApiV2TestRunsDeleteRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestRunsApi.ApiV2TestRunsDelete(context.Background()).ApiV2TestRunsDeleteRequest(apiV2TestRunsDeleteRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestRunsApi.ApiV2TestRunsDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestRunsDelete`: int32
+    fmt.Fprintf(os.Stdout, "Response from `TestRunsApi.ApiV2TestRunsDelete`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2TestRunsDeleteRequest** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md) |  | 
+
+### Return type
+
+**int32**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestRunsIdDelete
+
+> ApiV2TestRunsIdDelete(ctx, id).Execute()
+
+Delete test run
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test run internal (UUID) identifier
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestRunsApi.ApiV2TestRunsIdDelete(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestRunsApi.ApiV2TestRunsIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Test run internal (UUID) identifier | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsIdDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestRunsIdPurgePost
+
+> ApiV2TestRunsIdPurgePost(ctx, id).Execute()
+
+Permanently delete test run from archive
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test run internal (UUID) identifier
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestRunsApi.ApiV2TestRunsIdPurgePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestRunsApi.ApiV2TestRunsIdPurgePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Test run internal (UUID) identifier | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsIdPurgePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestRunsIdRestorePost
+
+> ApiV2TestRunsIdRestorePost(ctx, id).Execute()
+
+Restore test run from the archive
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the test run
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestRunsApi.ApiV2TestRunsIdRestorePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestRunsApi.ApiV2TestRunsIdRestorePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Unique ID of the test run | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsIdRestorePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV2TestRunsIdStatisticsFilterPost
@@ -290,6 +566,138 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestRunsPurgeBulkPost
+
+> int32 ApiV2TestRunsPurgeBulkPost(ctx).ApiV2TestRunsDeleteRequest(apiV2TestRunsDeleteRequest).Execute()
+
+Permanently delete multiple test runs from archive
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2TestRunsDeleteRequest := *openapiclient.NewApiV2TestRunsDeleteRequest(*openapiclient.NewApiV2TestRunsSearchPostRequest(), *openapiclient.NewTestRunSelectModelExtractionModel()) // ApiV2TestRunsDeleteRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestRunsApi.ApiV2TestRunsPurgeBulkPost(context.Background()).ApiV2TestRunsDeleteRequest(apiV2TestRunsDeleteRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestRunsApi.ApiV2TestRunsPurgeBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestRunsPurgeBulkPost`: int32
+    fmt.Fprintf(os.Stdout, "Response from `TestRunsApi.ApiV2TestRunsPurgeBulkPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsPurgeBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2TestRunsDeleteRequest** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md) |  | 
+
+### Return type
+
+**int32**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestRunsRestoreBulkPost
+
+> int32 ApiV2TestRunsRestoreBulkPost(ctx).ApiV2TestRunsDeleteRequest(apiV2TestRunsDeleteRequest).Execute()
+
+Restore multiple test runs from the archive
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+    apiV2TestRunsDeleteRequest := *openapiclient.NewApiV2TestRunsDeleteRequest(*openapiclient.NewApiV2TestRunsSearchPostRequest(), *openapiclient.NewTestRunSelectModelExtractionModel()) // ApiV2TestRunsDeleteRequest |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestRunsApi.ApiV2TestRunsRestoreBulkPost(context.Background()).ApiV2TestRunsDeleteRequest(apiV2TestRunsDeleteRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestRunsApi.ApiV2TestRunsRestoreBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestRunsRestoreBulkPost`: int32
+    fmt.Fprintf(os.Stdout, "Response from `TestRunsApi.ApiV2TestRunsRestoreBulkPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsRestoreBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiV2TestRunsDeleteRequest** | [**ApiV2TestRunsDeleteRequest**](ApiV2TestRunsDeleteRequest.md) |  | 
+
+### Return type
+
+**int32**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -720,7 +1128,7 @@ import (
 )
 
 func main() {
-    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a") // CreateEmptyRequest |  (optional)
+    createEmptyRequest := *openapiclient.NewCreateEmptyRequest("20b3442e-1e9e-4fea-b940-4fde3f2f9ff6") // CreateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1064,7 +1472,7 @@ import (
 )
 
 func main() {
-    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("b21976c2-c9f3-497b-bd88-9e068d01bd4a", "First run") // UpdateEmptyRequest |  (optional)
+    updateEmptyRequest := *openapiclient.NewUpdateEmptyRequest("20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", "First run") // UpdateEmptyRequest |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

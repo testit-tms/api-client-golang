@@ -24,6 +24,8 @@ type WorkItemShortModel struct {
 	Id string `json:"id"`
 	// Work Item version identifier
 	VersionId string `json:"versionId"`
+	// Work Item version number
+	VersionNumber int32 `json:"versionNumber"`
 	// Work Item name
 	Name string `json:"name"`
 	// Work Item type. Possible values: CheckLists, SharedSteps, TestCases
@@ -68,10 +70,11 @@ type WorkItemShortModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel) *WorkItemShortModel {
+func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel) *WorkItemShortModel {
 	this := WorkItemShortModel{}
 	this.Id = id
 	this.VersionId = versionId
+	this.VersionNumber = versionNumber
 	this.Name = name
 	this.EntityTypeName = entityTypeName
 	this.ProjectId = projectId
@@ -143,6 +146,30 @@ func (o *WorkItemShortModel) GetVersionIdOk() (*string, bool) {
 // SetVersionId sets field value
 func (o *WorkItemShortModel) SetVersionId(v string) {
 	o.VersionId = v
+}
+
+// GetVersionNumber returns the VersionNumber field value
+func (o *WorkItemShortModel) GetVersionNumber() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.VersionNumber
+}
+
+// GetVersionNumberOk returns a tuple with the VersionNumber field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemShortModel) GetVersionNumberOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VersionNumber, true
+}
+
+// SetVersionNumber sets field value
+func (o *WorkItemShortModel) SetVersionNumber(v int32) {
+	o.VersionNumber = v
 }
 
 // GetName returns the Name field value
@@ -727,6 +754,7 @@ func (o WorkItemShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["versionId"] = o.VersionId
+	toSerialize["versionNumber"] = o.VersionNumber
 	toSerialize["name"] = o.Name
 	toSerialize["entityTypeName"] = o.EntityTypeName
 	toSerialize["projectId"] = o.ProjectId

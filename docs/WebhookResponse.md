@@ -1,4 +1,4 @@
-# RequestData
+# WebhookResponse
 
 ## Properties
 
@@ -13,169 +13,169 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewRequestData
+### NewWebhookResponse
 
-`func NewRequestData(statusCode int32, requestMeta string, responseBody string, responseMeta string, ) *RequestData`
+`func NewWebhookResponse(statusCode int32, requestMeta string, responseBody string, responseMeta string, ) *WebhookResponse`
 
-NewRequestData instantiates a new RequestData object
+NewWebhookResponse instantiates a new WebhookResponse object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewRequestDataWithDefaults
+### NewWebhookResponseWithDefaults
 
-`func NewRequestDataWithDefaults() *RequestData`
+`func NewWebhookResponseWithDefaults() *WebhookResponse`
 
-NewRequestDataWithDefaults instantiates a new RequestData object
+NewWebhookResponseWithDefaults instantiates a new WebhookResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetUri
 
-`func (o *RequestData) GetUri() string`
+`func (o *WebhookResponse) GetUri() string`
 
 GetUri returns the Uri field if non-nil, zero value otherwise.
 
 ### GetUriOk
 
-`func (o *RequestData) GetUriOk() (*string, bool)`
+`func (o *WebhookResponse) GetUriOk() (*string, bool)`
 
 GetUriOk returns a tuple with the Uri field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUri
 
-`func (o *RequestData) SetUri(v string)`
+`func (o *WebhookResponse) SetUri(v string)`
 
 SetUri sets Uri field to given value.
 
 ### HasUri
 
-`func (o *RequestData) HasUri() bool`
+`func (o *WebhookResponse) HasUri() bool`
 
 HasUri returns a boolean if a field has been set.
 
 ### SetUriNil
 
-`func (o *RequestData) SetUriNil(b bool)`
+`func (o *WebhookResponse) SetUriNil(b bool)`
 
  SetUriNil sets the value for Uri to be an explicit nil
 
 ### UnsetUri
-`func (o *RequestData) UnsetUri()`
+`func (o *WebhookResponse) UnsetUri()`
 
 UnsetUri ensures that no value is present for Uri, not even an explicit nil
 ### GetStatusCode
 
-`func (o *RequestData) GetStatusCode() int32`
+`func (o *WebhookResponse) GetStatusCode() int32`
 
 GetStatusCode returns the StatusCode field if non-nil, zero value otherwise.
 
 ### GetStatusCodeOk
 
-`func (o *RequestData) GetStatusCodeOk() (*int32, bool)`
+`func (o *WebhookResponse) GetStatusCodeOk() (*int32, bool)`
 
 GetStatusCodeOk returns a tuple with the StatusCode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatusCode
 
-`func (o *RequestData) SetStatusCode(v int32)`
+`func (o *WebhookResponse) SetStatusCode(v int32)`
 
 SetStatusCode sets StatusCode field to given value.
 
 
 ### GetRequestBody
 
-`func (o *RequestData) GetRequestBody() string`
+`func (o *WebhookResponse) GetRequestBody() string`
 
 GetRequestBody returns the RequestBody field if non-nil, zero value otherwise.
 
 ### GetRequestBodyOk
 
-`func (o *RequestData) GetRequestBodyOk() (*string, bool)`
+`func (o *WebhookResponse) GetRequestBodyOk() (*string, bool)`
 
 GetRequestBodyOk returns a tuple with the RequestBody field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRequestBody
 
-`func (o *RequestData) SetRequestBody(v string)`
+`func (o *WebhookResponse) SetRequestBody(v string)`
 
 SetRequestBody sets RequestBody field to given value.
 
 ### HasRequestBody
 
-`func (o *RequestData) HasRequestBody() bool`
+`func (o *WebhookResponse) HasRequestBody() bool`
 
 HasRequestBody returns a boolean if a field has been set.
 
 ### SetRequestBodyNil
 
-`func (o *RequestData) SetRequestBodyNil(b bool)`
+`func (o *WebhookResponse) SetRequestBodyNil(b bool)`
 
  SetRequestBodyNil sets the value for RequestBody to be an explicit nil
 
 ### UnsetRequestBody
-`func (o *RequestData) UnsetRequestBody()`
+`func (o *WebhookResponse) UnsetRequestBody()`
 
 UnsetRequestBody ensures that no value is present for RequestBody, not even an explicit nil
 ### GetRequestMeta
 
-`func (o *RequestData) GetRequestMeta() string`
+`func (o *WebhookResponse) GetRequestMeta() string`
 
 GetRequestMeta returns the RequestMeta field if non-nil, zero value otherwise.
 
 ### GetRequestMetaOk
 
-`func (o *RequestData) GetRequestMetaOk() (*string, bool)`
+`func (o *WebhookResponse) GetRequestMetaOk() (*string, bool)`
 
 GetRequestMetaOk returns a tuple with the RequestMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRequestMeta
 
-`func (o *RequestData) SetRequestMeta(v string)`
+`func (o *WebhookResponse) SetRequestMeta(v string)`
 
 SetRequestMeta sets RequestMeta field to given value.
 
 
 ### GetResponseBody
 
-`func (o *RequestData) GetResponseBody() string`
+`func (o *WebhookResponse) GetResponseBody() string`
 
 GetResponseBody returns the ResponseBody field if non-nil, zero value otherwise.
 
 ### GetResponseBodyOk
 
-`func (o *RequestData) GetResponseBodyOk() (*string, bool)`
+`func (o *WebhookResponse) GetResponseBodyOk() (*string, bool)`
 
 GetResponseBodyOk returns a tuple with the ResponseBody field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponseBody
 
-`func (o *RequestData) SetResponseBody(v string)`
+`func (o *WebhookResponse) SetResponseBody(v string)`
 
 SetResponseBody sets ResponseBody field to given value.
 
 
 ### GetResponseMeta
 
-`func (o *RequestData) GetResponseMeta() string`
+`func (o *WebhookResponse) GetResponseMeta() string`
 
 GetResponseMeta returns the ResponseMeta field if non-nil, zero value otherwise.
 
 ### GetResponseMetaOk
 
-`func (o *RequestData) GetResponseMetaOk() (*string, bool)`
+`func (o *WebhookResponse) GetResponseMetaOk() (*string, bool)`
 
 GetResponseMetaOk returns a tuple with the ResponseMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResponseMeta
 
-`func (o *RequestData) SetResponseMeta(v string)`
+`func (o *WebhookResponse) SetResponseMeta(v string)`
 
 SetResponseMeta sets ResponseMeta field to given value.
 

@@ -42,12 +42,16 @@ type TestPointShortGetModel struct {
 	Links []string `json:"links"`
 	// Unique ID of test suite the test point assigned to
 	TestSuiteId string `json:"testSuiteId"`
+	// Name of the test suite
+	TestSuiteName string `json:"testSuiteName"`
 	// Unique ID of work item the test point represents
 	WorkItemId string `json:"workItemId"`
 	// Global ID of work item the test point represents
 	WorkItemGlobalId int64 `json:"workItemGlobalId"`
 	// Unique ID of work item version the test point represents
 	WorkItemVersionId string `json:"workItemVersionId"`
+	// Number of work item version the test point represents
+	WorkItemVersionNumber int32 `json:"workItemVersionNumber"`
 	// Median duration of work item the test point represents
 	WorkItemMedianDuration NullableInt64 `json:"workItemMedianDuration,omitempty"`
 	Status TestPointStatus `json:"status"`
@@ -84,7 +88,7 @@ type TestPointShortGetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, workItemId string, workItemGlobalId int64, workItemVersionId string, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time) *TestPointShortGetModel {
+func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time) *TestPointShortGetModel {
 	this := TestPointShortGetModel{}
 	this.Id = id
 	this.CreatedDate = createdDate
@@ -93,9 +97,11 @@ func NewTestPointShortGetModel(id string, createdDate time.Time, createdById str
 	this.Tags = tags
 	this.Links = links
 	this.TestSuiteId = testSuiteId
+	this.TestSuiteName = testSuiteName
 	this.WorkItemId = workItemId
 	this.WorkItemGlobalId = workItemGlobalId
 	this.WorkItemVersionId = workItemVersionId
+	this.WorkItemVersionNumber = workItemVersionNumber
 	this.Status = status
 	this.Priority = priority
 	this.IsAutomated = isAutomated
@@ -447,6 +453,30 @@ func (o *TestPointShortGetModel) SetTestSuiteId(v string) {
 	o.TestSuiteId = v
 }
 
+// GetTestSuiteName returns the TestSuiteName field value
+func (o *TestPointShortGetModel) GetTestSuiteName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TestSuiteName
+}
+
+// GetTestSuiteNameOk returns a tuple with the TestSuiteName field value
+// and a boolean to check if the value has been set.
+func (o *TestPointShortGetModel) GetTestSuiteNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestSuiteName, true
+}
+
+// SetTestSuiteName sets field value
+func (o *TestPointShortGetModel) SetTestSuiteName(v string) {
+	o.TestSuiteName = v
+}
+
 // GetWorkItemId returns the WorkItemId field value
 func (o *TestPointShortGetModel) GetWorkItemId() string {
 	if o == nil {
@@ -517,6 +547,30 @@ func (o *TestPointShortGetModel) GetWorkItemVersionIdOk() (*string, bool) {
 // SetWorkItemVersionId sets field value
 func (o *TestPointShortGetModel) SetWorkItemVersionId(v string) {
 	o.WorkItemVersionId = v
+}
+
+// GetWorkItemVersionNumber returns the WorkItemVersionNumber field value
+func (o *TestPointShortGetModel) GetWorkItemVersionNumber() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.WorkItemVersionNumber
+}
+
+// GetWorkItemVersionNumberOk returns a tuple with the WorkItemVersionNumber field value
+// and a boolean to check if the value has been set.
+func (o *TestPointShortGetModel) GetWorkItemVersionNumberOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkItemVersionNumber, true
+}
+
+// SetWorkItemVersionNumber sets field value
+func (o *TestPointShortGetModel) SetWorkItemVersionNumber(v int32) {
+	o.WorkItemVersionNumber = v
 }
 
 // GetWorkItemMedianDuration returns the WorkItemMedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1028,9 +1082,11 @@ func (o TestPointShortGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["tags"] = o.Tags
 	toSerialize["links"] = o.Links
 	toSerialize["testSuiteId"] = o.TestSuiteId
+	toSerialize["testSuiteName"] = o.TestSuiteName
 	toSerialize["workItemId"] = o.WorkItemId
 	toSerialize["workItemGlobalId"] = o.WorkItemGlobalId
 	toSerialize["workItemVersionId"] = o.WorkItemVersionId
+	toSerialize["workItemVersionNumber"] = o.WorkItemVersionNumber
 	if o.WorkItemMedianDuration.IsSet() {
 		toSerialize["workItemMedianDuration"] = o.WorkItemMedianDuration.Get()
 	}

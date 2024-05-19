@@ -11,6 +11,7 @@
 | 4.4     | 1.2.0      |
 | 4.5     | 1.3.0      |
 | 4.6     | 1.4.0      |
+| 5.0     | 2.0.0      |
 
 ### Installation
 
@@ -264,10 +265,16 @@ Class | Method | HTTP request | Description
 *TestResultsApi* | [**DownloadAttachment**](docs/TestResultsApi.md#downloadattachment) | **Get** /api/v2/testResults/{id}/attachments/{attachmentId} | Get attachment of TestResult
 *TestResultsApi* | [**GetAttachment**](docs/TestResultsApi.md#getattachment) | **Get** /api/v2/testResults/{id}/attachments/{attachmentId}/info | Get Metadata of TestResult&#39;s attachment
 *TestResultsApi* | [**GetAttachments**](docs/TestResultsApi.md#getattachments) | **Get** /api/v2/testResults/{id}/attachments | Get all attachments of TestResult
+*TestRunsApi* | [**ApiV2TestRunsDelete**](docs/TestRunsApi.md#apiv2testrunsdelete) | **Delete** /api/v2/testRuns | Delete multiple test runs
+*TestRunsApi* | [**ApiV2TestRunsIdDelete**](docs/TestRunsApi.md#apiv2testrunsiddelete) | **Delete** /api/v2/testRuns/{id} | Delete test run
+*TestRunsApi* | [**ApiV2TestRunsIdPurgePost**](docs/TestRunsApi.md#apiv2testrunsidpurgepost) | **Post** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive
+*TestRunsApi* | [**ApiV2TestRunsIdRestorePost**](docs/TestRunsApi.md#apiv2testrunsidrestorepost) | **Post** /api/v2/testRuns/{id}/restore | Restore test run from the archive
 *TestRunsApi* | [**ApiV2TestRunsIdStatisticsFilterPost**](docs/TestRunsApi.md#apiv2testrunsidstatisticsfilterpost) | **Post** /api/v2/testRuns/{id}/statistics/filter | Search for the test run test results and build statistics
 *TestRunsApi* | [**ApiV2TestRunsIdTestPointsResultsGet**](docs/TestRunsApi.md#apiv2testrunsidtestpointsresultsget) | **Get** /api/v2/testRuns/{id}/testPoints/results | Get test results from the test run grouped by test points
 *TestRunsApi* | [**ApiV2TestRunsIdTestResultsBulkPut**](docs/TestRunsApi.md#apiv2testrunsidtestresultsbulkput) | **Put** /api/v2/testRuns/{id}/testResults/bulk | Partial edit of multiple test results in the test run
 *TestRunsApi* | [**ApiV2TestRunsIdTestResultsLastModifiedModificationDateGet**](docs/TestRunsApi.md#apiv2testrunsidtestresultslastmodifiedmodificationdateget) | **Get** /api/v2/testRuns/{id}/testResults/lastModified/modificationDate | Get modification date of last test result of the test run
+*TestRunsApi* | [**ApiV2TestRunsPurgeBulkPost**](docs/TestRunsApi.md#apiv2testrunspurgebulkpost) | **Post** /api/v2/testRuns/purge/bulk | Permanently delete multiple test runs from archive
+*TestRunsApi* | [**ApiV2TestRunsRestoreBulkPost**](docs/TestRunsApi.md#apiv2testrunsrestorebulkpost) | **Post** /api/v2/testRuns/restore/bulk | Restore multiple test runs from the archive
 *TestRunsApi* | [**ApiV2TestRunsSearchPost**](docs/TestRunsApi.md#apiv2testrunssearchpost) | **Post** /api/v2/testRuns/search | Search for test runs
 *TestRunsApi* | [**ApiV2TestRunsUpdateMultiplePost**](docs/TestRunsApi.md#apiv2testrunsupdatemultiplepost) | **Post** /api/v2/testRuns/updateMultiple | Update multiple test runs
 *TestRunsApi* | [**CompleteTestRun**](docs/TestRunsApi.md#completetestrun) | **Post** /api/v2/testRuns/{id}/complete | Complete TestRun

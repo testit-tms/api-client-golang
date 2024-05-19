@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **AutoTests** | [**[]AutoTestModel**](AutoTestModel.md) |  | 
 **TestPoints** | [**[]PublicTestPointModel**](PublicTestPointModel.md) |  | 
 **Status** | **string** |  | 
+**CustomParameters** | Pointer to **map[string]string** |  | [optional] 
+**TestRunDescription** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -279,6 +281,76 @@ and a boolean to check if the value has been set.
 SetStatus sets Status field to given value.
 
 
+### GetCustomParameters
+
+`func (o *PublicTestRunModel) GetCustomParameters() map[string]string`
+
+GetCustomParameters returns the CustomParameters field if non-nil, zero value otherwise.
+
+### GetCustomParametersOk
+
+`func (o *PublicTestRunModel) GetCustomParametersOk() (*map[string]string, bool)`
+
+GetCustomParametersOk returns a tuple with the CustomParameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomParameters
+
+`func (o *PublicTestRunModel) SetCustomParameters(v map[string]string)`
+
+SetCustomParameters sets CustomParameters field to given value.
+
+### HasCustomParameters
+
+`func (o *PublicTestRunModel) HasCustomParameters() bool`
+
+HasCustomParameters returns a boolean if a field has been set.
+
+### SetCustomParametersNil
+
+`func (o *PublicTestRunModel) SetCustomParametersNil(b bool)`
+
+ SetCustomParametersNil sets the value for CustomParameters to be an explicit nil
+
+### UnsetCustomParameters
+`func (o *PublicTestRunModel) UnsetCustomParameters()`
+
+UnsetCustomParameters ensures that no value is present for CustomParameters, not even an explicit nil
+### GetTestRunDescription
+
+`func (o *PublicTestRunModel) GetTestRunDescription() string`
+
+GetTestRunDescription returns the TestRunDescription field if non-nil, zero value otherwise.
+
+### GetTestRunDescriptionOk
+
+`func (o *PublicTestRunModel) GetTestRunDescriptionOk() (*string, bool)`
+
+GetTestRunDescriptionOk returns a tuple with the TestRunDescription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestRunDescription
+
+`func (o *PublicTestRunModel) SetTestRunDescription(v string)`
+
+SetTestRunDescription sets TestRunDescription field to given value.
+
+### HasTestRunDescription
+
+`func (o *PublicTestRunModel) HasTestRunDescription() bool`
+
+HasTestRunDescription returns a boolean if a field has been set.
+
+### SetTestRunDescriptionNil
+
+`func (o *PublicTestRunModel) SetTestRunDescriptionNil(b bool)`
+
+ SetTestRunDescriptionNil sets the value for TestRunDescription to be an explicit nil
+
+### UnsetTestRunDescription
+`func (o *PublicTestRunModel) UnsetTestRunDescription()`
+
+UnsetTestRunDescription ensures that no value is present for TestRunDescription, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

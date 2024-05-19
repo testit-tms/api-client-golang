@@ -24,17 +24,19 @@ type PublicTestPointModel struct {
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
 	IterationId string `json:"iterationId"`
 	ParameterModels []ParameterShortModel `json:"parameterModels,omitempty"`
+	Id string `json:"id"`
 }
 
 // NewPublicTestPointModel instantiates a new PublicTestPointModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicTestPointModel(configurationId string, configurationGlobalId int64, iterationId string) *PublicTestPointModel {
+func NewPublicTestPointModel(configurationId string, configurationGlobalId int64, iterationId string, id string) *PublicTestPointModel {
 	this := PublicTestPointModel{}
 	this.ConfigurationId = configurationId
 	this.ConfigurationGlobalId = configurationGlobalId
 	this.IterationId = iterationId
+	this.Id = id
 	return &this
 }
 
@@ -184,6 +186,30 @@ func (o *PublicTestPointModel) SetParameterModels(v []ParameterShortModel) {
 	o.ParameterModels = v
 }
 
+// GetId returns the Id field value
+func (o *PublicTestPointModel) GetId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *PublicTestPointModel) GetIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *PublicTestPointModel) SetId(v string) {
+	o.Id = v
+}
+
 func (o PublicTestPointModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -203,6 +229,7 @@ func (o PublicTestPointModel) ToMap() (map[string]interface{}, error) {
 	if o.ParameterModels != nil {
 		toSerialize["parameterModels"] = o.ParameterModels
 	}
+	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }
 
