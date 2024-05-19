@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID of the attribute | 
-**Options** | Pointer to [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
+**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) |  | 
 **IsDeleted** | **bool** | Indicates if the attribute is deleted | 
 **Name** | **string** | Name of the attribute | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCustomAttributeModel
 
-`func NewCustomAttributeModel(id string, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeModel`
+`func NewCustomAttributeModel(id string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeModel`
 
 NewCustomAttributeModel instantiates a new CustomAttributeModel object
 This constructor will assign default values to properties that have it defined,
@@ -71,22 +71,7 @@ and a boolean to check if the value has been set.
 
 SetOptions sets Options field to given value.
 
-### HasOptions
 
-`func (o *CustomAttributeModel) HasOptions() bool`
-
-HasOptions returns a boolean if a field has been set.
-
-### SetOptionsNil
-
-`func (o *CustomAttributeModel) SetOptionsNil(b bool)`
-
- SetOptionsNil sets the value for Options to be an explicit nil
-
-### UnsetOptions
-`func (o *CustomAttributeModel) UnsetOptions()`
-
-UnsetOptions ensures that no value is present for Options, not even an explicit nil
 ### GetType
 
 `func (o *CustomAttributeModel) GetType() CustomAttributeTypesEnum`

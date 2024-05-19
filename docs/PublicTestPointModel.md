@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 **AutoTestIds** | Pointer to **[]string** |  | [optional] 
 **IterationId** | **string** |  | 
 **ParameterModels** | Pointer to [**[]ParameterShortModel**](ParameterShortModel.md) |  | [optional] 
+**Id** | **string** |  | 
 
 ## Methods
 
 ### NewPublicTestPointModel
 
-`func NewPublicTestPointModel(configurationId string, configurationGlobalId int64, iterationId string, ) *PublicTestPointModel`
+`func NewPublicTestPointModel(configurationId string, configurationGlobalId int64, iterationId string, id string, ) *PublicTestPointModel`
 
 NewPublicTestPointModel instantiates a new PublicTestPointModel object
 This constructor will assign default values to properties that have it defined,
@@ -159,6 +160,26 @@ HasParameterModels returns a boolean if a field has been set.
 `func (o *PublicTestPointModel) UnsetParameterModels()`
 
 UnsetParameterModels ensures that no value is present for ParameterModels, not even an explicit nil
+### GetId
+
+`func (o *PublicTestPointModel) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *PublicTestPointModel) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *PublicTestPointModel) SetId(v string)`
+
+SetId sets Id field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

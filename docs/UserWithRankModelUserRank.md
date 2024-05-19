@@ -10,12 +10,13 @@ Name | Type | Description | Notes
 **FailedTestPoints** | **int32** |  | 
 **SkippedTestPoints** | **int32** |  | 
 **BlockedTestPoints** | **int32** |  | 
+**LevelAvatarEnabled** | **bool** |  | 
 
 ## Methods
 
 ### NewUserWithRankModelUserRank
 
-`func NewUserWithRankModelUserRank(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, ) *UserWithRankModelUserRank`
+`func NewUserWithRankModelUserRank(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, levelAvatarEnabled bool, ) *UserWithRankModelUserRank`
 
 NewUserWithRankModelUserRank instantiates a new UserWithRankModelUserRank object
 This constructor will assign default values to properties that have it defined,
@@ -148,6 +149,26 @@ and a boolean to check if the value has been set.
 `func (o *UserWithRankModelUserRank) SetBlockedTestPoints(v int32)`
 
 SetBlockedTestPoints sets BlockedTestPoints field to given value.
+
+
+### GetLevelAvatarEnabled
+
+`func (o *UserWithRankModelUserRank) GetLevelAvatarEnabled() bool`
+
+GetLevelAvatarEnabled returns the LevelAvatarEnabled field if non-nil, zero value otherwise.
+
+### GetLevelAvatarEnabledOk
+
+`func (o *UserWithRankModelUserRank) GetLevelAvatarEnabledOk() (*bool, bool)`
+
+GetLevelAvatarEnabledOk returns a tuple with the LevelAvatarEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLevelAvatarEnabled
+
+`func (o *UserWithRankModelUserRank) SetLevelAvatarEnabled(v bool)`
+
+SetLevelAvatarEnabled sets LevelAvatarEnabled field to given value.
 
 
 

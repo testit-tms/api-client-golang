@@ -585,7 +585,7 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) IsDeleted(isDeleted bo
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) Execute() ([]TagModel, *http.Response, error) {
+func (r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) Execute() ([]TagShortModel, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r)
 }
 
@@ -610,13 +610,13 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGet(ctx 
 }
 
 // Execute executes the request
-//  @return []TagModel
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) ([]TagModel, *http.Response, error) {
+//  @return []TagShortModel
+func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) ([]TagShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TagModel
+		localVarReturnValue  []TagShortModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsApiService.ApiV2ProjectsProjectIdWorkItemsTagsGet")

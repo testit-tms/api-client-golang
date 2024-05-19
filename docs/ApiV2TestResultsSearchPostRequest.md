@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **AutoTestGlobalIds** | Pointer to **[]int64** | Specifies an autotest global IDs to search results for | [optional] 
 **Name** | Pointer to **NullableString** | Specifies an autotest name to search results for | [optional] 
 **CreatedDate** | Pointer to [**NullableTestResultsFilterModelCreatedDate**](TestResultsFilterModelCreatedDate.md) |  | [optional] 
+**ModifiedDate** | Pointer to [**NullableTestResultsFilterModelModifiedDate**](TestResultsFilterModelModifiedDate.md) |  | [optional] 
+**StartedOn** | Pointer to [**NullableTestResultsFilterModelStartedOn**](TestResultsFilterModelStartedOn.md) |  | [optional] 
+**CompletedOn** | Pointer to [**NullableTestResultsFilterModelCompletedOn**](TestResultsFilterModelCompletedOn.md) |  | [optional] 
 **Duration** | Pointer to [**NullableTestResultsFilterModelDuration**](TestResultsFilterModelDuration.md) |  | [optional] 
 **ResultReasons** | Pointer to **[]string** | Specifies result reasons for searching test results | [optional] 
 **ConfigurationIds** | Pointer to **[]string** | Specifies a test result configuration IDs to search for | [optional] 
@@ -175,6 +178,111 @@ HasCreatedDate returns a boolean if a field has been set.
 `func (o *ApiV2TestResultsSearchPostRequest) UnsetCreatedDate()`
 
 UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+### GetModifiedDate
+
+`func (o *ApiV2TestResultsSearchPostRequest) GetModifiedDate() TestResultsFilterModelModifiedDate`
+
+GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
+
+### GetModifiedDateOk
+
+`func (o *ApiV2TestResultsSearchPostRequest) GetModifiedDateOk() (*TestResultsFilterModelModifiedDate, bool)`
+
+GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedDate
+
+`func (o *ApiV2TestResultsSearchPostRequest) SetModifiedDate(v TestResultsFilterModelModifiedDate)`
+
+SetModifiedDate sets ModifiedDate field to given value.
+
+### HasModifiedDate
+
+`func (o *ApiV2TestResultsSearchPostRequest) HasModifiedDate() bool`
+
+HasModifiedDate returns a boolean if a field has been set.
+
+### SetModifiedDateNil
+
+`func (o *ApiV2TestResultsSearchPostRequest) SetModifiedDateNil(b bool)`
+
+ SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+
+### UnsetModifiedDate
+`func (o *ApiV2TestResultsSearchPostRequest) UnsetModifiedDate()`
+
+UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+### GetStartedOn
+
+`func (o *ApiV2TestResultsSearchPostRequest) GetStartedOn() TestResultsFilterModelStartedOn`
+
+GetStartedOn returns the StartedOn field if non-nil, zero value otherwise.
+
+### GetStartedOnOk
+
+`func (o *ApiV2TestResultsSearchPostRequest) GetStartedOnOk() (*TestResultsFilterModelStartedOn, bool)`
+
+GetStartedOnOk returns a tuple with the StartedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartedOn
+
+`func (o *ApiV2TestResultsSearchPostRequest) SetStartedOn(v TestResultsFilterModelStartedOn)`
+
+SetStartedOn sets StartedOn field to given value.
+
+### HasStartedOn
+
+`func (o *ApiV2TestResultsSearchPostRequest) HasStartedOn() bool`
+
+HasStartedOn returns a boolean if a field has been set.
+
+### SetStartedOnNil
+
+`func (o *ApiV2TestResultsSearchPostRequest) SetStartedOnNil(b bool)`
+
+ SetStartedOnNil sets the value for StartedOn to be an explicit nil
+
+### UnsetStartedOn
+`func (o *ApiV2TestResultsSearchPostRequest) UnsetStartedOn()`
+
+UnsetStartedOn ensures that no value is present for StartedOn, not even an explicit nil
+### GetCompletedOn
+
+`func (o *ApiV2TestResultsSearchPostRequest) GetCompletedOn() TestResultsFilterModelCompletedOn`
+
+GetCompletedOn returns the CompletedOn field if non-nil, zero value otherwise.
+
+### GetCompletedOnOk
+
+`func (o *ApiV2TestResultsSearchPostRequest) GetCompletedOnOk() (*TestResultsFilterModelCompletedOn, bool)`
+
+GetCompletedOnOk returns a tuple with the CompletedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompletedOn
+
+`func (o *ApiV2TestResultsSearchPostRequest) SetCompletedOn(v TestResultsFilterModelCompletedOn)`
+
+SetCompletedOn sets CompletedOn field to given value.
+
+### HasCompletedOn
+
+`func (o *ApiV2TestResultsSearchPostRequest) HasCompletedOn() bool`
+
+HasCompletedOn returns a boolean if a field has been set.
+
+### SetCompletedOnNil
+
+`func (o *ApiV2TestResultsSearchPostRequest) SetCompletedOnNil(b bool)`
+
+ SetCompletedOnNil sets the value for CompletedOn to be an explicit nil
+
+### UnsetCompletedOn
+`func (o *ApiV2TestResultsSearchPostRequest) UnsetCompletedOn()`
+
+UnsetCompletedOn ensures that no value is present for CompletedOn, not even an explicit nil
 ### GetDuration
 
 `func (o *ApiV2TestResultsSearchPostRequest) GetDuration() TestResultsFilterModelDuration`

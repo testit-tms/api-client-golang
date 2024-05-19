@@ -22,7 +22,7 @@ type CustomAttributeModel struct {
 	// Unique ID of the attribute
 	Id string `json:"id"`
 	// Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only
-	Options []CustomAttributeOptionModel `json:"options,omitempty"`
+	Options []CustomAttributeOptionModel `json:"options"`
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Indicates if the attribute is deleted
 	IsDeleted bool `json:"isDeleted"`
@@ -40,9 +40,10 @@ type CustomAttributeModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeModel(id string, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeModel {
+func NewCustomAttributeModel(id string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeModel {
 	this := CustomAttributeModel{}
 	this.Id = id
+	this.Options = options
 	this.Type = type_
 	this.IsDeleted = isDeleted
 	this.Name = name
@@ -84,35 +85,26 @@ func (o *CustomAttributeModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetOptions returns the Options field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetOptions returns the Options field value
 func (o *CustomAttributeModel) GetOptions() []CustomAttributeOptionModel {
 	if o == nil {
 		var ret []CustomAttributeOptionModel
 		return ret
 	}
+
 	return o.Options
 }
 
-// GetOptionsOk returns a tuple with the Options field value if set, nil otherwise
+// GetOptionsOk returns a tuple with the Options field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CustomAttributeModel) GetOptionsOk() ([]CustomAttributeOptionModel, bool) {
-	if o == nil || IsNil(o.Options) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Options, true
 }
 
-// HasOptions returns a boolean if a field has been set.
-func (o *CustomAttributeModel) HasOptions() bool {
-	if o != nil && IsNil(o.Options) {
-		return true
-	}
-
-	return false
-}
-
-// SetOptions gets a reference to the given []CustomAttributeOptionModel and assigns it to the Options field.
+// SetOptions sets field value
 func (o *CustomAttributeModel) SetOptions(v []CustomAttributeOptionModel) {
 	o.Options = v
 }
@@ -272,9 +264,7 @@ func (o CustomAttributeModel) MarshalJSON() ([]byte, error) {
 func (o CustomAttributeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	if o.Options != nil {
-		toSerialize["options"] = o.Options
-	}
+	toSerialize["options"] = o.Options
 	toSerialize["type"] = o.Type
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["name"] = o.Name

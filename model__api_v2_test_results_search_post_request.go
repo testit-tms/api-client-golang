@@ -26,6 +26,9 @@ type ApiV2TestResultsSearchPostRequest struct {
 	// Specifies an autotest name to search results for
 	Name NullableString `json:"name,omitempty"`
 	CreatedDate NullableTestResultsFilterModelCreatedDate `json:"createdDate,omitempty"`
+	ModifiedDate NullableTestResultsFilterModelModifiedDate `json:"modifiedDate,omitempty"`
+	StartedOn NullableTestResultsFilterModelStartedOn `json:"startedOn,omitempty"`
+	CompletedOn NullableTestResultsFilterModelCompletedOn `json:"completedOn,omitempty"`
 	Duration NullableTestResultsFilterModelDuration `json:"duration,omitempty"`
 	// Specifies result reasons for searching test results
 	ResultReasons []string `json:"resultReasons,omitempty"`
@@ -206,6 +209,132 @@ func (o *ApiV2TestResultsSearchPostRequest) SetCreatedDateNil() {
 // UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 func (o *ApiV2TestResultsSearchPostRequest) UnsetCreatedDate() {
 	o.CreatedDate.Unset()
+}
+
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsSearchPostRequest) GetModifiedDate() TestResultsFilterModelModifiedDate {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret TestResultsFilterModelModifiedDate
+		return ret
+	}
+	return *o.ModifiedDate.Get()
+}
+
+// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsSearchPostRequest) GetModifiedDateOk() (*TestResultsFilterModelModifiedDate, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
+}
+
+// HasModifiedDate returns a boolean if a field has been set.
+func (o *ApiV2TestResultsSearchPostRequest) HasModifiedDate() bool {
+	if o != nil && o.ModifiedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedDate gets a reference to the given NullableTestResultsFilterModelModifiedDate and assigns it to the ModifiedDate field.
+func (o *ApiV2TestResultsSearchPostRequest) SetModifiedDate(v TestResultsFilterModelModifiedDate) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *ApiV2TestResultsSearchPostRequest) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *ApiV2TestResultsSearchPostRequest) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
+}
+
+// GetStartedOn returns the StartedOn field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsSearchPostRequest) GetStartedOn() TestResultsFilterModelStartedOn {
+	if o == nil || IsNil(o.StartedOn.Get()) {
+		var ret TestResultsFilterModelStartedOn
+		return ret
+	}
+	return *o.StartedOn.Get()
+}
+
+// GetStartedOnOk returns a tuple with the StartedOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsSearchPostRequest) GetStartedOnOk() (*TestResultsFilterModelStartedOn, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StartedOn.Get(), o.StartedOn.IsSet()
+}
+
+// HasStartedOn returns a boolean if a field has been set.
+func (o *ApiV2TestResultsSearchPostRequest) HasStartedOn() bool {
+	if o != nil && o.StartedOn.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStartedOn gets a reference to the given NullableTestResultsFilterModelStartedOn and assigns it to the StartedOn field.
+func (o *ApiV2TestResultsSearchPostRequest) SetStartedOn(v TestResultsFilterModelStartedOn) {
+	o.StartedOn.Set(&v)
+}
+// SetStartedOnNil sets the value for StartedOn to be an explicit nil
+func (o *ApiV2TestResultsSearchPostRequest) SetStartedOnNil() {
+	o.StartedOn.Set(nil)
+}
+
+// UnsetStartedOn ensures that no value is present for StartedOn, not even an explicit nil
+func (o *ApiV2TestResultsSearchPostRequest) UnsetStartedOn() {
+	o.StartedOn.Unset()
+}
+
+// GetCompletedOn returns the CompletedOn field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApiV2TestResultsSearchPostRequest) GetCompletedOn() TestResultsFilterModelCompletedOn {
+	if o == nil || IsNil(o.CompletedOn.Get()) {
+		var ret TestResultsFilterModelCompletedOn
+		return ret
+	}
+	return *o.CompletedOn.Get()
+}
+
+// GetCompletedOnOk returns a tuple with the CompletedOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApiV2TestResultsSearchPostRequest) GetCompletedOnOk() (*TestResultsFilterModelCompletedOn, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CompletedOn.Get(), o.CompletedOn.IsSet()
+}
+
+// HasCompletedOn returns a boolean if a field has been set.
+func (o *ApiV2TestResultsSearchPostRequest) HasCompletedOn() bool {
+	if o != nil && o.CompletedOn.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedOn gets a reference to the given NullableTestResultsFilterModelCompletedOn and assigns it to the CompletedOn field.
+func (o *ApiV2TestResultsSearchPostRequest) SetCompletedOn(v TestResultsFilterModelCompletedOn) {
+	o.CompletedOn.Set(&v)
+}
+// SetCompletedOnNil sets the value for CompletedOn to be an explicit nil
+func (o *ApiV2TestResultsSearchPostRequest) SetCompletedOnNil() {
+	o.CompletedOn.Set(nil)
+}
+
+// UnsetCompletedOn ensures that no value is present for CompletedOn, not even an explicit nil
+func (o *ApiV2TestResultsSearchPostRequest) UnsetCompletedOn() {
+	o.CompletedOn.Unset()
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -487,6 +616,15 @@ func (o ApiV2TestResultsSearchPostRequest) ToMap() (map[string]interface{}, erro
 	}
 	if o.CreatedDate.IsSet() {
 		toSerialize["createdDate"] = o.CreatedDate.Get()
+	}
+	if o.ModifiedDate.IsSet() {
+		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
+	}
+	if o.StartedOn.IsSet() {
+		toSerialize["startedOn"] = o.StartedOn.Get()
+	}
+	if o.CompletedOn.IsSet() {
+		toSerialize["completedOn"] = o.CompletedOn.Get()
 	}
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()

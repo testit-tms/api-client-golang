@@ -29,6 +29,8 @@ type PublicTestRunModel struct {
 	AutoTests []AutoTestModel `json:"autoTests"`
 	TestPoints []PublicTestPointModel `json:"testPoints"`
 	Status string `json:"status"`
+	CustomParameters map[string]string `json:"customParameters,omitempty"`
+	TestRunDescription NullableString `json:"testRunDescription,omitempty"`
 }
 
 // NewPublicTestRunModel instantiates a new PublicTestRunModel object
@@ -349,6 +351,81 @@ func (o *PublicTestRunModel) SetStatus(v string) {
 	o.Status = v
 }
 
+// GetCustomParameters returns the CustomParameters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PublicTestRunModel) GetCustomParameters() map[string]string {
+	if o == nil {
+		var ret map[string]string
+		return ret
+	}
+	return o.CustomParameters
+}
+
+// GetCustomParametersOk returns a tuple with the CustomParameters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PublicTestRunModel) GetCustomParametersOk() (*map[string]string, bool) {
+	if o == nil || IsNil(o.CustomParameters) {
+		return nil, false
+	}
+	return &o.CustomParameters, true
+}
+
+// HasCustomParameters returns a boolean if a field has been set.
+func (o *PublicTestRunModel) HasCustomParameters() bool {
+	if o != nil && IsNil(o.CustomParameters) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomParameters gets a reference to the given map[string]string and assigns it to the CustomParameters field.
+func (o *PublicTestRunModel) SetCustomParameters(v map[string]string) {
+	o.CustomParameters = v
+}
+
+// GetTestRunDescription returns the TestRunDescription field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PublicTestRunModel) GetTestRunDescription() string {
+	if o == nil || IsNil(o.TestRunDescription.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TestRunDescription.Get()
+}
+
+// GetTestRunDescriptionOk returns a tuple with the TestRunDescription field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PublicTestRunModel) GetTestRunDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TestRunDescription.Get(), o.TestRunDescription.IsSet()
+}
+
+// HasTestRunDescription returns a boolean if a field has been set.
+func (o *PublicTestRunModel) HasTestRunDescription() bool {
+	if o != nil && o.TestRunDescription.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTestRunDescription gets a reference to the given NullableString and assigns it to the TestRunDescription field.
+func (o *PublicTestRunModel) SetTestRunDescription(v string) {
+	o.TestRunDescription.Set(&v)
+}
+// SetTestRunDescriptionNil sets the value for TestRunDescription to be an explicit nil
+func (o *PublicTestRunModel) SetTestRunDescriptionNil() {
+	o.TestRunDescription.Set(nil)
+}
+
+// UnsetTestRunDescription ensures that no value is present for TestRunDescription, not even an explicit nil
+func (o *PublicTestRunModel) UnsetTestRunDescription() {
+	o.TestRunDescription.Unset()
+}
+
 func (o PublicTestRunModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -375,6 +452,12 @@ func (o PublicTestRunModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["autoTests"] = o.AutoTests
 	toSerialize["testPoints"] = o.TestPoints
 	toSerialize["status"] = o.Status
+	if o.CustomParameters != nil {
+		toSerialize["customParameters"] = o.CustomParameters
+	}
+	if o.TestRunDescription.IsSet() {
+		toSerialize["testRunDescription"] = o.TestRunDescription.Get()
+	}
 	return toSerialize, nil
 }
 

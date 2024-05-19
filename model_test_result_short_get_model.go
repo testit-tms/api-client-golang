@@ -38,8 +38,17 @@ type TestResultShortGetModel struct {
 	ResultReasons []AutotestResultReasonSubGetModel `json:"resultReasons"`
 	// Comment to the test result
 	Comment NullableString `json:"comment,omitempty"`
-	// Date when the test result has been set
+	// Date when the test result was completed or started or created
+	// Deprecated
 	Date time.Time `json:"date"`
+	// Date when the test result has been created
+	CreatedDate time.Time `json:"createdDate"`
+	// Date when the test result has been modified
+	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
+	// Date when the test result has been started
+	StartedOn NullableTime `json:"startedOn,omitempty"`
+	// Date when the test result has been completed
+	CompletedOn NullableTime `json:"completedOn,omitempty"`
 	// Time which it took to run the test
 	Duration NullableInt64 `json:"duration,omitempty"`
 	// Collection of links attached to the test result
@@ -52,7 +61,7 @@ type TestResultShortGetModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultShortGetModel(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, outcome string, resultReasons []AutotestResultReasonSubGetModel, date time.Time, links []LinkSubGetModel, attachments []AttachmentModel) *TestResultShortGetModel {
+func NewTestResultShortGetModel(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, outcome string, resultReasons []AutotestResultReasonSubGetModel, date time.Time, createdDate time.Time, links []LinkSubGetModel, attachments []AttachmentModel) *TestResultShortGetModel {
 	this := TestResultShortGetModel{}
 	this.Id = id
 	this.Name = name
@@ -63,6 +72,7 @@ func NewTestResultShortGetModel(id string, name string, autotestGlobalId int64, 
 	this.Outcome = outcome
 	this.ResultReasons = resultReasons
 	this.Date = date
+	this.CreatedDate = createdDate
 	this.Links = links
 	this.Attachments = attachments
 	return &this
@@ -311,6 +321,7 @@ func (o *TestResultShortGetModel) UnsetComment() {
 }
 
 // GetDate returns the Date field value
+// Deprecated
 func (o *TestResultShortGetModel) GetDate() time.Time {
 	if o == nil {
 		var ret time.Time
@@ -322,6 +333,7 @@ func (o *TestResultShortGetModel) GetDate() time.Time {
 
 // GetDateOk returns a tuple with the Date field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *TestResultShortGetModel) GetDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
@@ -330,8 +342,159 @@ func (o *TestResultShortGetModel) GetDateOk() (*time.Time, bool) {
 }
 
 // SetDate sets field value
+// Deprecated
 func (o *TestResultShortGetModel) SetDate(v time.Time) {
 	o.Date = v
+}
+
+// GetCreatedDate returns the CreatedDate field value
+func (o *TestResultShortGetModel) GetCreatedDate() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CreatedDate
+}
+
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
+// and a boolean to check if the value has been set.
+func (o *TestResultShortGetModel) GetCreatedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedDate, true
+}
+
+// SetCreatedDate sets field value
+func (o *TestResultShortGetModel) SetCreatedDate(v time.Time) {
+	o.CreatedDate = v
+}
+
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultShortGetModel) GetModifiedDate() time.Time {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ModifiedDate.Get()
+}
+
+// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultShortGetModel) GetModifiedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
+}
+
+// HasModifiedDate returns a boolean if a field has been set.
+func (o *TestResultShortGetModel) HasModifiedDate() bool {
+	if o != nil && o.ModifiedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedDate gets a reference to the given NullableTime and assigns it to the ModifiedDate field.
+func (o *TestResultShortGetModel) SetModifiedDate(v time.Time) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *TestResultShortGetModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *TestResultShortGetModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
+}
+
+// GetStartedOn returns the StartedOn field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultShortGetModel) GetStartedOn() time.Time {
+	if o == nil || IsNil(o.StartedOn.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.StartedOn.Get()
+}
+
+// GetStartedOnOk returns a tuple with the StartedOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultShortGetModel) GetStartedOnOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StartedOn.Get(), o.StartedOn.IsSet()
+}
+
+// HasStartedOn returns a boolean if a field has been set.
+func (o *TestResultShortGetModel) HasStartedOn() bool {
+	if o != nil && o.StartedOn.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStartedOn gets a reference to the given NullableTime and assigns it to the StartedOn field.
+func (o *TestResultShortGetModel) SetStartedOn(v time.Time) {
+	o.StartedOn.Set(&v)
+}
+// SetStartedOnNil sets the value for StartedOn to be an explicit nil
+func (o *TestResultShortGetModel) SetStartedOnNil() {
+	o.StartedOn.Set(nil)
+}
+
+// UnsetStartedOn ensures that no value is present for StartedOn, not even an explicit nil
+func (o *TestResultShortGetModel) UnsetStartedOn() {
+	o.StartedOn.Unset()
+}
+
+// GetCompletedOn returns the CompletedOn field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultShortGetModel) GetCompletedOn() time.Time {
+	if o == nil || IsNil(o.CompletedOn.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.CompletedOn.Get()
+}
+
+// GetCompletedOnOk returns a tuple with the CompletedOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultShortGetModel) GetCompletedOnOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CompletedOn.Get(), o.CompletedOn.IsSet()
+}
+
+// HasCompletedOn returns a boolean if a field has been set.
+func (o *TestResultShortGetModel) HasCompletedOn() bool {
+	if o != nil && o.CompletedOn.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedOn gets a reference to the given NullableTime and assigns it to the CompletedOn field.
+func (o *TestResultShortGetModel) SetCompletedOn(v time.Time) {
+	o.CompletedOn.Set(&v)
+}
+// SetCompletedOnNil sets the value for CompletedOn to be an explicit nil
+func (o *TestResultShortGetModel) SetCompletedOnNil() {
+	o.CompletedOn.Set(nil)
+}
+
+// UnsetCompletedOn ensures that no value is present for CompletedOn, not even an explicit nil
+func (o *TestResultShortGetModel) UnsetCompletedOn() {
+	o.CompletedOn.Unset()
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -446,6 +609,16 @@ func (o TestResultShortGetModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["comment"] = o.Comment.Get()
 	}
 	toSerialize["date"] = o.Date
+	toSerialize["createdDate"] = o.CreatedDate
+	if o.ModifiedDate.IsSet() {
+		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
+	}
+	if o.StartedOn.IsSet() {
+		toSerialize["startedOn"] = o.StartedOn.Get()
+	}
+	if o.CompletedOn.IsSet() {
+		toSerialize["completedOn"] = o.CompletedOn.Get()
+	}
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
 	}

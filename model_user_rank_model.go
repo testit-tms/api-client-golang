@@ -25,13 +25,14 @@ type UserRankModel struct {
 	FailedTestPoints int32 `json:"failedTestPoints"`
 	SkippedTestPoints int32 `json:"skippedTestPoints"`
 	BlockedTestPoints int32 `json:"blockedTestPoints"`
+	LevelAvatarEnabled bool `json:"levelAvatarEnabled"`
 }
 
 // NewUserRankModel instantiates a new UserRankModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32) *UserRankModel {
+func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, levelAvatarEnabled bool) *UserRankModel {
 	this := UserRankModel{}
 	this.Score = score
 	this.WorkItemsCreated = workItemsCreated
@@ -39,6 +40,7 @@ func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int3
 	this.FailedTestPoints = failedTestPoints
 	this.SkippedTestPoints = skippedTestPoints
 	this.BlockedTestPoints = blockedTestPoints
+	this.LevelAvatarEnabled = levelAvatarEnabled
 	return &this
 }
 
@@ -194,6 +196,30 @@ func (o *UserRankModel) SetBlockedTestPoints(v int32) {
 	o.BlockedTestPoints = v
 }
 
+// GetLevelAvatarEnabled returns the LevelAvatarEnabled field value
+func (o *UserRankModel) GetLevelAvatarEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.LevelAvatarEnabled
+}
+
+// GetLevelAvatarEnabledOk returns a tuple with the LevelAvatarEnabled field value
+// and a boolean to check if the value has been set.
+func (o *UserRankModel) GetLevelAvatarEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LevelAvatarEnabled, true
+}
+
+// SetLevelAvatarEnabled sets field value
+func (o *UserRankModel) SetLevelAvatarEnabled(v bool) {
+	o.LevelAvatarEnabled = v
+}
+
 func (o UserRankModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -210,6 +236,7 @@ func (o UserRankModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["failedTestPoints"] = o.FailedTestPoints
 	toSerialize["skippedTestPoints"] = o.SkippedTestPoints
 	toSerialize["blockedTestPoints"] = o.BlockedTestPoints
+	toSerialize["levelAvatarEnabled"] = o.LevelAvatarEnabled
 	return toSerialize, nil
 }
 

@@ -13,7 +13,11 @@ Name | Type | Description | Notes
 **Outcome** | **string** | Outcome of the test result | 
 **ResultReasons** | [**[]AutotestResultReasonSubGetModel**](AutotestResultReasonSubGetModel.md) | Collection of result reasons which the test result have | 
 **Comment** | Pointer to **NullableString** | Comment to the test result | [optional] 
-**Date** | **time.Time** | Date when the test result has been set | 
+**Date** | **time.Time** | Date when the test result was completed or started or created | 
+**CreatedDate** | **time.Time** | Date when the test result has been created | 
+**ModifiedDate** | Pointer to **NullableTime** | Date when the test result has been modified | [optional] 
+**StartedOn** | Pointer to **NullableTime** | Date when the test result has been started | [optional] 
+**CompletedOn** | Pointer to **NullableTime** | Date when the test result has been completed | [optional] 
 **Duration** | Pointer to **NullableInt64** | Time which it took to run the test | [optional] 
 **Links** | [**[]LinkSubGetModel**](LinkSubGetModel.md) | Collection of links attached to the test result | 
 **Attachments** | [**[]AttachmentModel**](AttachmentModel.md) | Collection of files attached to the test result | 
@@ -22,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultShortGetModel
 
-`func NewTestResultShortGetModel(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, outcome string, resultReasons []AutotestResultReasonSubGetModel, date time.Time, links []LinkSubGetModel, attachments []AttachmentModel, ) *TestResultShortGetModel`
+`func NewTestResultShortGetModel(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, outcome string, resultReasons []AutotestResultReasonSubGetModel, date time.Time, createdDate time.Time, links []LinkSubGetModel, attachments []AttachmentModel, ) *TestResultShortGetModel`
 
 NewTestResultShortGetModel instantiates a new TestResultShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -252,6 +256,131 @@ and a boolean to check if the value has been set.
 SetDate sets Date field to given value.
 
 
+### GetCreatedDate
+
+`func (o *TestResultShortGetModel) GetCreatedDate() time.Time`
+
+GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
+
+### GetCreatedDateOk
+
+`func (o *TestResultShortGetModel) GetCreatedDateOk() (*time.Time, bool)`
+
+GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedDate
+
+`func (o *TestResultShortGetModel) SetCreatedDate(v time.Time)`
+
+SetCreatedDate sets CreatedDate field to given value.
+
+
+### GetModifiedDate
+
+`func (o *TestResultShortGetModel) GetModifiedDate() time.Time`
+
+GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
+
+### GetModifiedDateOk
+
+`func (o *TestResultShortGetModel) GetModifiedDateOk() (*time.Time, bool)`
+
+GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedDate
+
+`func (o *TestResultShortGetModel) SetModifiedDate(v time.Time)`
+
+SetModifiedDate sets ModifiedDate field to given value.
+
+### HasModifiedDate
+
+`func (o *TestResultShortGetModel) HasModifiedDate() bool`
+
+HasModifiedDate returns a boolean if a field has been set.
+
+### SetModifiedDateNil
+
+`func (o *TestResultShortGetModel) SetModifiedDateNil(b bool)`
+
+ SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+
+### UnsetModifiedDate
+`func (o *TestResultShortGetModel) UnsetModifiedDate()`
+
+UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+### GetStartedOn
+
+`func (o *TestResultShortGetModel) GetStartedOn() time.Time`
+
+GetStartedOn returns the StartedOn field if non-nil, zero value otherwise.
+
+### GetStartedOnOk
+
+`func (o *TestResultShortGetModel) GetStartedOnOk() (*time.Time, bool)`
+
+GetStartedOnOk returns a tuple with the StartedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartedOn
+
+`func (o *TestResultShortGetModel) SetStartedOn(v time.Time)`
+
+SetStartedOn sets StartedOn field to given value.
+
+### HasStartedOn
+
+`func (o *TestResultShortGetModel) HasStartedOn() bool`
+
+HasStartedOn returns a boolean if a field has been set.
+
+### SetStartedOnNil
+
+`func (o *TestResultShortGetModel) SetStartedOnNil(b bool)`
+
+ SetStartedOnNil sets the value for StartedOn to be an explicit nil
+
+### UnsetStartedOn
+`func (o *TestResultShortGetModel) UnsetStartedOn()`
+
+UnsetStartedOn ensures that no value is present for StartedOn, not even an explicit nil
+### GetCompletedOn
+
+`func (o *TestResultShortGetModel) GetCompletedOn() time.Time`
+
+GetCompletedOn returns the CompletedOn field if non-nil, zero value otherwise.
+
+### GetCompletedOnOk
+
+`func (o *TestResultShortGetModel) GetCompletedOnOk() (*time.Time, bool)`
+
+GetCompletedOnOk returns a tuple with the CompletedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompletedOn
+
+`func (o *TestResultShortGetModel) SetCompletedOn(v time.Time)`
+
+SetCompletedOn sets CompletedOn field to given value.
+
+### HasCompletedOn
+
+`func (o *TestResultShortGetModel) HasCompletedOn() bool`
+
+HasCompletedOn returns a boolean if a field has been set.
+
+### SetCompletedOnNil
+
+`func (o *TestResultShortGetModel) SetCompletedOnNil(b bool)`
+
+ SetCompletedOnNil sets the value for CompletedOn to be an explicit nil
+
+### UnsetCompletedOn
+`func (o *TestResultShortGetModel) UnsetCompletedOn()`
+
+UnsetCompletedOn ensures that no value is present for CompletedOn, not even an explicit nil
 ### GetDuration
 
 `func (o *TestResultShortGetModel) GetDuration() int64`

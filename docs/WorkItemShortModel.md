@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Work Item internal unique identifier | 
 **VersionId** | **string** | Work Item version identifier | 
+**VersionNumber** | **int32** | Work Item version number | 
 **Name** | **string** | Work Item name | 
 **EntityTypeName** | **string** | Work Item type. Possible values: CheckLists, SharedSteps, TestCases | 
 **ProjectId** | **string** | Project unique identifier | 
@@ -31,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemShortModel
 
-`func NewWorkItemShortModel(id string, versionId string, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel, ) *WorkItemShortModel`
+`func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel, ) *WorkItemShortModel`
 
 NewWorkItemShortModel instantiates a new WorkItemShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -84,6 +85,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemShortModel) SetVersionId(v string)`
 
 SetVersionId sets VersionId field to given value.
+
+
+### GetVersionNumber
+
+`func (o *WorkItemShortModel) GetVersionNumber() int32`
+
+GetVersionNumber returns the VersionNumber field if non-nil, zero value otherwise.
+
+### GetVersionNumberOk
+
+`func (o *WorkItemShortModel) GetVersionNumberOk() (*int32, bool)`
+
+GetVersionNumberOk returns a tuple with the VersionNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionNumber
+
+`func (o *WorkItemShortModel) SetVersionNumber(v int32)`
+
+SetVersionNumber sets VersionNumber field to given value.
 
 
 ### GetName

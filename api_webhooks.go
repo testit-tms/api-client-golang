@@ -965,7 +965,7 @@ func (r ApiApiV2WebhooksTestPostRequest) ApiV2WebhooksTestPostRequest(apiV2Webho
 	return r
 }
 
-func (r ApiApiV2WebhooksTestPostRequest) Execute() (*RequestData, *http.Response, error) {
+func (r ApiApiV2WebhooksTestPostRequest) Execute() (*WebhookResponse, *http.Response, error) {
 	return r.ApiService.ApiV2WebhooksTestPostExecute(r)
 }
 
@@ -983,13 +983,13 @@ func (a *WebhooksApiService) ApiV2WebhooksTestPost(ctx context.Context) ApiApiV2
 }
 
 // Execute executes the request
-//  @return RequestData
-func (a *WebhooksApiService) ApiV2WebhooksTestPostExecute(r ApiApiV2WebhooksTestPostRequest) (*RequestData, *http.Response, error) {
+//  @return WebhookResponse
+func (a *WebhooksApiService) ApiV2WebhooksTestPostExecute(r ApiApiV2WebhooksTestPostRequest) (*WebhookResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RequestData
+		localVarReturnValue  *WebhookResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksApiService.ApiV2WebhooksTestPost")

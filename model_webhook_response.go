@@ -14,11 +14,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the RequestData type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &RequestData{}
+// checks if the WebhookResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WebhookResponse{}
 
-// RequestData struct for RequestData
-type RequestData struct {
+// WebhookResponse struct for WebhookResponse
+type WebhookResponse struct {
 	Uri NullableString `json:"uri,omitempty"`
 	StatusCode int32 `json:"statusCode"`
 	RequestBody NullableString `json:"requestBody,omitempty"`
@@ -27,12 +27,12 @@ type RequestData struct {
 	ResponseMeta string `json:"responseMeta"`
 }
 
-// NewRequestData instantiates a new RequestData object
+// NewWebhookResponse instantiates a new WebhookResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRequestData(statusCode int32, requestMeta string, responseBody string, responseMeta string) *RequestData {
-	this := RequestData{}
+func NewWebhookResponse(statusCode int32, requestMeta string, responseBody string, responseMeta string) *WebhookResponse {
+	this := WebhookResponse{}
 	this.StatusCode = statusCode
 	this.RequestMeta = requestMeta
 	this.ResponseBody = responseBody
@@ -40,16 +40,16 @@ func NewRequestData(statusCode int32, requestMeta string, responseBody string, r
 	return &this
 }
 
-// NewRequestDataWithDefaults instantiates a new RequestData object
+// NewWebhookResponseWithDefaults instantiates a new WebhookResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewRequestDataWithDefaults() *RequestData {
-	this := RequestData{}
+func NewWebhookResponseWithDefaults() *WebhookResponse {
+	this := WebhookResponse{}
 	return &this
 }
 
 // GetUri returns the Uri field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RequestData) GetUri() string {
+func (o *WebhookResponse) GetUri() string {
 	if o == nil || IsNil(o.Uri.Get()) {
 		var ret string
 		return ret
@@ -60,7 +60,7 @@ func (o *RequestData) GetUri() string {
 // GetUriOk returns a tuple with the Uri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RequestData) GetUriOk() (*string, bool) {
+func (o *WebhookResponse) GetUriOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *RequestData) GetUriOk() (*string, bool) {
 }
 
 // HasUri returns a boolean if a field has been set.
-func (o *RequestData) HasUri() bool {
+func (o *WebhookResponse) HasUri() bool {
 	if o != nil && o.Uri.IsSet() {
 		return true
 	}
@@ -77,21 +77,21 @@ func (o *RequestData) HasUri() bool {
 }
 
 // SetUri gets a reference to the given NullableString and assigns it to the Uri field.
-func (o *RequestData) SetUri(v string) {
+func (o *WebhookResponse) SetUri(v string) {
 	o.Uri.Set(&v)
 }
 // SetUriNil sets the value for Uri to be an explicit nil
-func (o *RequestData) SetUriNil() {
+func (o *WebhookResponse) SetUriNil() {
 	o.Uri.Set(nil)
 }
 
 // UnsetUri ensures that no value is present for Uri, not even an explicit nil
-func (o *RequestData) UnsetUri() {
+func (o *WebhookResponse) UnsetUri() {
 	o.Uri.Unset()
 }
 
 // GetStatusCode returns the StatusCode field value
-func (o *RequestData) GetStatusCode() int32 {
+func (o *WebhookResponse) GetStatusCode() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -102,7 +102,7 @@ func (o *RequestData) GetStatusCode() int32 {
 
 // GetStatusCodeOk returns a tuple with the StatusCode field value
 // and a boolean to check if the value has been set.
-func (o *RequestData) GetStatusCodeOk() (*int32, bool) {
+func (o *WebhookResponse) GetStatusCodeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,12 +110,12 @@ func (o *RequestData) GetStatusCodeOk() (*int32, bool) {
 }
 
 // SetStatusCode sets field value
-func (o *RequestData) SetStatusCode(v int32) {
+func (o *WebhookResponse) SetStatusCode(v int32) {
 	o.StatusCode = v
 }
 
 // GetRequestBody returns the RequestBody field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *RequestData) GetRequestBody() string {
+func (o *WebhookResponse) GetRequestBody() string {
 	if o == nil || IsNil(o.RequestBody.Get()) {
 		var ret string
 		return ret
@@ -126,7 +126,7 @@ func (o *RequestData) GetRequestBody() string {
 // GetRequestBodyOk returns a tuple with the RequestBody field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *RequestData) GetRequestBodyOk() (*string, bool) {
+func (o *WebhookResponse) GetRequestBodyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -134,7 +134,7 @@ func (o *RequestData) GetRequestBodyOk() (*string, bool) {
 }
 
 // HasRequestBody returns a boolean if a field has been set.
-func (o *RequestData) HasRequestBody() bool {
+func (o *WebhookResponse) HasRequestBody() bool {
 	if o != nil && o.RequestBody.IsSet() {
 		return true
 	}
@@ -143,21 +143,21 @@ func (o *RequestData) HasRequestBody() bool {
 }
 
 // SetRequestBody gets a reference to the given NullableString and assigns it to the RequestBody field.
-func (o *RequestData) SetRequestBody(v string) {
+func (o *WebhookResponse) SetRequestBody(v string) {
 	o.RequestBody.Set(&v)
 }
 // SetRequestBodyNil sets the value for RequestBody to be an explicit nil
-func (o *RequestData) SetRequestBodyNil() {
+func (o *WebhookResponse) SetRequestBodyNil() {
 	o.RequestBody.Set(nil)
 }
 
 // UnsetRequestBody ensures that no value is present for RequestBody, not even an explicit nil
-func (o *RequestData) UnsetRequestBody() {
+func (o *WebhookResponse) UnsetRequestBody() {
 	o.RequestBody.Unset()
 }
 
 // GetRequestMeta returns the RequestMeta field value
-func (o *RequestData) GetRequestMeta() string {
+func (o *WebhookResponse) GetRequestMeta() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -168,7 +168,7 @@ func (o *RequestData) GetRequestMeta() string {
 
 // GetRequestMetaOk returns a tuple with the RequestMeta field value
 // and a boolean to check if the value has been set.
-func (o *RequestData) GetRequestMetaOk() (*string, bool) {
+func (o *WebhookResponse) GetRequestMetaOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -176,12 +176,12 @@ func (o *RequestData) GetRequestMetaOk() (*string, bool) {
 }
 
 // SetRequestMeta sets field value
-func (o *RequestData) SetRequestMeta(v string) {
+func (o *WebhookResponse) SetRequestMeta(v string) {
 	o.RequestMeta = v
 }
 
 // GetResponseBody returns the ResponseBody field value
-func (o *RequestData) GetResponseBody() string {
+func (o *WebhookResponse) GetResponseBody() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -192,7 +192,7 @@ func (o *RequestData) GetResponseBody() string {
 
 // GetResponseBodyOk returns a tuple with the ResponseBody field value
 // and a boolean to check if the value has been set.
-func (o *RequestData) GetResponseBodyOk() (*string, bool) {
+func (o *WebhookResponse) GetResponseBodyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -200,12 +200,12 @@ func (o *RequestData) GetResponseBodyOk() (*string, bool) {
 }
 
 // SetResponseBody sets field value
-func (o *RequestData) SetResponseBody(v string) {
+func (o *WebhookResponse) SetResponseBody(v string) {
 	o.ResponseBody = v
 }
 
 // GetResponseMeta returns the ResponseMeta field value
-func (o *RequestData) GetResponseMeta() string {
+func (o *WebhookResponse) GetResponseMeta() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -216,7 +216,7 @@ func (o *RequestData) GetResponseMeta() string {
 
 // GetResponseMetaOk returns a tuple with the ResponseMeta field value
 // and a boolean to check if the value has been set.
-func (o *RequestData) GetResponseMetaOk() (*string, bool) {
+func (o *WebhookResponse) GetResponseMetaOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -224,11 +224,11 @@ func (o *RequestData) GetResponseMetaOk() (*string, bool) {
 }
 
 // SetResponseMeta sets field value
-func (o *RequestData) SetResponseMeta(v string) {
+func (o *WebhookResponse) SetResponseMeta(v string) {
 	o.ResponseMeta = v
 }
 
-func (o RequestData) MarshalJSON() ([]byte, error) {
+func (o WebhookResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -236,7 +236,7 @@ func (o RequestData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o RequestData) ToMap() (map[string]interface{}, error) {
+func (o WebhookResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Uri.IsSet() {
 		toSerialize["uri"] = o.Uri.Get()
@@ -251,38 +251,38 @@ func (o RequestData) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableRequestData struct {
-	value *RequestData
+type NullableWebhookResponse struct {
+	value *WebhookResponse
 	isSet bool
 }
 
-func (v NullableRequestData) Get() *RequestData {
+func (v NullableWebhookResponse) Get() *WebhookResponse {
 	return v.value
 }
 
-func (v *NullableRequestData) Set(val *RequestData) {
+func (v *NullableWebhookResponse) Set(val *WebhookResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableRequestData) IsSet() bool {
+func (v NullableWebhookResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableRequestData) Unset() {
+func (v *NullableWebhookResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableRequestData(val *RequestData) *NullableRequestData {
-	return &NullableRequestData{value: val, isSet: true}
+func NewNullableWebhookResponse(val *WebhookResponse) *NullableWebhookResponse {
+	return &NullableWebhookResponse{value: val, isSet: true}
 }
 
-func (v NullableRequestData) MarshalJSON() ([]byte, error) {
+func (v NullableWebhookResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableRequestData) UnmarshalJSON(src []byte) error {
+func (v *NullableWebhookResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

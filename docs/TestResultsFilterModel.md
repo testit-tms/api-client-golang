@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **AutoTestGlobalIds** | Pointer to **[]int64** | Specifies an autotest global IDs to search results for | [optional] 
 **Name** | Pointer to **NullableString** | Specifies an autotest name to search results for | [optional] 
 **CreatedDate** | Pointer to [**NullableTestResultsFilterModelCreatedDate**](TestResultsFilterModelCreatedDate.md) |  | [optional] 
+**ModifiedDate** | Pointer to [**NullableTestResultsFilterModelModifiedDate**](TestResultsFilterModelModifiedDate.md) |  | [optional] 
+**StartedOn** | Pointer to [**NullableTestResultsFilterModelStartedOn**](TestResultsFilterModelStartedOn.md) |  | [optional] 
+**CompletedOn** | Pointer to [**NullableTestResultsFilterModelCompletedOn**](TestResultsFilterModelCompletedOn.md) |  | [optional] 
 **Duration** | Pointer to [**NullableTestResultsFilterModelDuration**](TestResultsFilterModelDuration.md) |  | [optional] 
 **ResultReasons** | Pointer to **[]string** | Specifies result reasons for searching test results | [optional] 
 **ConfigurationIds** | Pointer to **[]string** | Specifies a test result configuration IDs to search for | [optional] 
@@ -175,6 +178,111 @@ HasCreatedDate returns a boolean if a field has been set.
 `func (o *TestResultsFilterModel) UnsetCreatedDate()`
 
 UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+### GetModifiedDate
+
+`func (o *TestResultsFilterModel) GetModifiedDate() TestResultsFilterModelModifiedDate`
+
+GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
+
+### GetModifiedDateOk
+
+`func (o *TestResultsFilterModel) GetModifiedDateOk() (*TestResultsFilterModelModifiedDate, bool)`
+
+GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedDate
+
+`func (o *TestResultsFilterModel) SetModifiedDate(v TestResultsFilterModelModifiedDate)`
+
+SetModifiedDate sets ModifiedDate field to given value.
+
+### HasModifiedDate
+
+`func (o *TestResultsFilterModel) HasModifiedDate() bool`
+
+HasModifiedDate returns a boolean if a field has been set.
+
+### SetModifiedDateNil
+
+`func (o *TestResultsFilterModel) SetModifiedDateNil(b bool)`
+
+ SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+
+### UnsetModifiedDate
+`func (o *TestResultsFilterModel) UnsetModifiedDate()`
+
+UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+### GetStartedOn
+
+`func (o *TestResultsFilterModel) GetStartedOn() TestResultsFilterModelStartedOn`
+
+GetStartedOn returns the StartedOn field if non-nil, zero value otherwise.
+
+### GetStartedOnOk
+
+`func (o *TestResultsFilterModel) GetStartedOnOk() (*TestResultsFilterModelStartedOn, bool)`
+
+GetStartedOnOk returns a tuple with the StartedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartedOn
+
+`func (o *TestResultsFilterModel) SetStartedOn(v TestResultsFilterModelStartedOn)`
+
+SetStartedOn sets StartedOn field to given value.
+
+### HasStartedOn
+
+`func (o *TestResultsFilterModel) HasStartedOn() bool`
+
+HasStartedOn returns a boolean if a field has been set.
+
+### SetStartedOnNil
+
+`func (o *TestResultsFilterModel) SetStartedOnNil(b bool)`
+
+ SetStartedOnNil sets the value for StartedOn to be an explicit nil
+
+### UnsetStartedOn
+`func (o *TestResultsFilterModel) UnsetStartedOn()`
+
+UnsetStartedOn ensures that no value is present for StartedOn, not even an explicit nil
+### GetCompletedOn
+
+`func (o *TestResultsFilterModel) GetCompletedOn() TestResultsFilterModelCompletedOn`
+
+GetCompletedOn returns the CompletedOn field if non-nil, zero value otherwise.
+
+### GetCompletedOnOk
+
+`func (o *TestResultsFilterModel) GetCompletedOnOk() (*TestResultsFilterModelCompletedOn, bool)`
+
+GetCompletedOnOk returns a tuple with the CompletedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompletedOn
+
+`func (o *TestResultsFilterModel) SetCompletedOn(v TestResultsFilterModelCompletedOn)`
+
+SetCompletedOn sets CompletedOn field to given value.
+
+### HasCompletedOn
+
+`func (o *TestResultsFilterModel) HasCompletedOn() bool`
+
+HasCompletedOn returns a boolean if a field has been set.
+
+### SetCompletedOnNil
+
+`func (o *TestResultsFilterModel) SetCompletedOnNil(b bool)`
+
+ SetCompletedOnNil sets the value for CompletedOn to be an explicit nil
+
+### UnsetCompletedOn
+`func (o *TestResultsFilterModel) UnsetCompletedOn()`
+
+UnsetCompletedOn ensures that no value is present for CompletedOn, not even an explicit nil
 ### GetDuration
 
 `func (o *TestResultsFilterModel) GetDuration() TestResultsFilterModelDuration`
