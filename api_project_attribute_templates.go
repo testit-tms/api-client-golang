@@ -20,19 +20,19 @@ import (
 )
 
 
-// ProjectAttributeTemplatesApiService ProjectAttributeTemplatesApi service
-type ProjectAttributeTemplatesApiService service
+// ProjectAttributeTemplatesAPIService ProjectAttributeTemplatesAPI service
+type ProjectAttributeTemplatesAPIService service
 
 type ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributeTemplatesApiService
+	ApiService *ProjectAttributeTemplatesAPIService
 	projectId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest *ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
+	projectCustomAttributesTemplatesFilterModel *ProjectCustomAttributesTemplatesFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -65,8 +65,8 @@ func (r ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest) SearchVal
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest) ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest(apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest) ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest {
-	r.apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest = &apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
+func (r ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest) ProjectCustomAttributesTemplatesFilterModel(projectCustomAttributesTemplatesFilterModel ProjectCustomAttributesTemplatesFilterModel) ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest {
+	r.projectCustomAttributesTemplatesFilterModel = &projectCustomAttributesTemplatesFilterModel
 	return r
 }
 
@@ -81,7 +81,7 @@ ApiV2ProjectsProjectIdAttributesTemplatesSearchPost Search for custom attributes
  @param projectId
  @return ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
 */
-func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTemplatesSearchPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest {
+func (a *ProjectAttributeTemplatesAPIService) ApiV2ProjectsProjectIdAttributesTemplatesSearchPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest {
 	return ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -91,7 +91,7 @@ func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTe
 
 // Execute executes the request
 //  @return []ProjectCustomAttributeTemplateGetModel
-func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTemplatesSearchPostExecute(r ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest) ([]ProjectCustomAttributeTemplateGetModel, *http.Response, error) {
+func (a *ProjectAttributeTemplatesAPIService) ApiV2ProjectsProjectIdAttributesTemplatesSearchPostExecute(r ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest) ([]ProjectCustomAttributeTemplateGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -99,7 +99,7 @@ func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTe
 		localVarReturnValue  []ProjectCustomAttributeTemplateGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributeTemplatesApiService.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributeTemplatesAPIService.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -144,7 +144,7 @@ func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
+	localVarPostBody = r.projectCustomAttributesTemplatesFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -208,7 +208,7 @@ func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTe
 
 type ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributeTemplatesApiService
+	ApiService *ProjectAttributeTemplatesAPIService
 	projectId string
 	templateId string
 }
@@ -231,7 +231,7 @@ ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete Delete CustomAttribute
  @param templateId CustomAttributeTemplate internal (UUID) identifier
  @return ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteRequest
 */
-func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete(ctx context.Context, projectId string, templateId string) ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteRequest {
+func (a *ProjectAttributeTemplatesAPIService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete(ctx context.Context, projectId string, templateId string) ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteRequest {
 	return ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -241,14 +241,14 @@ func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTe
 }
 
 // Execute executes the request
-func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteExecute(r ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteRequest) (*http.Response, error) {
+func (a *ProjectAttributeTemplatesAPIService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteExecute(r ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributeTemplatesApiService.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributeTemplatesAPIService.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -322,7 +322,7 @@ func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTe
 
 type ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributeTemplatesApiService
+	ApiService *ProjectAttributeTemplatesAPIService
 	projectId string
 	templateId string
 }
@@ -345,7 +345,7 @@ ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost Add CustomAttributeTempl
  @param templateId CustomAttributeTemplate internal (UUID) identifier
  @return ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostRequest
 */
-func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost(ctx context.Context, projectId string, templateId string) ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostRequest {
+func (a *ProjectAttributeTemplatesAPIService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost(ctx context.Context, projectId string, templateId string) ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostRequest {
 	return ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -355,14 +355,14 @@ func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTe
 }
 
 // Execute executes the request
-func (a *ProjectAttributeTemplatesApiService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostExecute(r ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostRequest) (*http.Response, error) {
+func (a *ProjectAttributeTemplatesAPIService) ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostExecute(r ApiApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributeTemplatesApiService.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributeTemplatesAPIService.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}

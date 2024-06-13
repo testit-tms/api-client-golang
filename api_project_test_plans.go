@@ -20,12 +20,12 @@ import (
 )
 
 
-// ProjectTestPlansApiService ProjectTestPlansApi service
-type ProjectTestPlansApiService service
+// ProjectTestPlansAPIService ProjectTestPlansAPI service
+type ProjectTestPlansAPIService service
 
 type ApiApiV2ProjectsProjectIdTestPlansAnalyticsGetRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlansApiService
+	ApiService *ProjectTestPlansAPIService
 	projectId string
 	isDeleted *bool
 	mustUpdateCache *bool
@@ -93,7 +93,7 @@ ApiV2ProjectsProjectIdTestPlansAnalyticsGet Get TestPlans analytics
  @param projectId Project internal (UUID) identifier
  @return ApiApiV2ProjectsProjectIdTestPlansAnalyticsGetRequest
 */
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansAnalyticsGet(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansAnalyticsGetRequest {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansAnalyticsGet(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansAnalyticsGetRequest {
 	return ApiApiV2ProjectsProjectIdTestPlansAnalyticsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -103,7 +103,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansAnalyticsGet
 
 // Execute executes the request
 //  @return []TestPlanWithAnalyticModel
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansAnalyticsGetExecute(r ApiApiV2ProjectsProjectIdTestPlansAnalyticsGetRequest) ([]TestPlanWithAnalyticModel, *http.Response, error) {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansAnalyticsGetExecute(r ApiApiV2ProjectsProjectIdTestPlansAnalyticsGetRequest) ([]TestPlanWithAnalyticModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -111,7 +111,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansAnalyticsGet
 		localVarReturnValue  []TestPlanWithAnalyticModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansApiService.ApiV2ProjectsProjectIdTestPlansAnalyticsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansAPIService.ApiV2ProjectsProjectIdTestPlansAnalyticsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -128,6 +128,9 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansAnalyticsGet
 	}
 	if r.mustUpdateCache != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "mustUpdateCache", r.mustUpdateCache, "")
+	} else {
+		var defaultValue bool = false
+		r.mustUpdateCache = &defaultValue
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
@@ -214,13 +217,13 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansAnalyticsGet
 
 type ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlansApiService
+	ApiService *ProjectTestPlansAPIService
 	projectId string
-	apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest *ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+	testPlanSelectModel *TestPlanSelectModel
 }
 
-func (r ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest {
-	r.apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = &apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+func (r ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) TestPlanSelectModel(testPlanSelectModel TestPlanSelectModel) ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest {
+	r.testPlanSelectModel = &testPlanSelectModel
 	return r
 }
 
@@ -235,7 +238,7 @@ ApiV2ProjectsProjectIdTestPlansDeleteBulkPost Delete multiple test plans
  @param projectId Unique or global ID of the project
  @return ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 */
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest {
 	return ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -245,7 +248,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPo
 
 // Execute executes the request
 //  @return []string
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPostExecute(r ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) ([]string, *http.Response, error) {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPostExecute(r ApiApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -253,7 +256,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPo
 		localVarReturnValue  []string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansApiService.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansAPIService.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -283,7 +286,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+	localVarPostBody = r.testPlanSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -347,7 +350,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansDeleteBulkPo
 
 type ApiApiV2ProjectsProjectIdTestPlansNameExistsGetRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlansApiService
+	ApiService *ProjectTestPlansAPIService
 	projectId string
 	name string
 }
@@ -369,7 +372,7 @@ ApiV2ProjectsProjectIdTestPlansNameExistsGet Checks if TestPlan exists with the 
  @param name TestPlan name to check
  @return ApiApiV2ProjectsProjectIdTestPlansNameExistsGetRequest
 */
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansNameExistsGet(ctx context.Context, projectId string, name string) ApiApiV2ProjectsProjectIdTestPlansNameExistsGetRequest {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansNameExistsGet(ctx context.Context, projectId string, name string) ApiApiV2ProjectsProjectIdTestPlansNameExistsGetRequest {
 	return ApiApiV2ProjectsProjectIdTestPlansNameExistsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -380,7 +383,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansNameExistsGe
 
 // Execute executes the request
 //  @return bool
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansNameExistsGetExecute(r ApiApiV2ProjectsProjectIdTestPlansNameExistsGetRequest) (bool, *http.Response, error) {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansNameExistsGetExecute(r ApiApiV2ProjectsProjectIdTestPlansNameExistsGetRequest) (bool, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -388,7 +391,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansNameExistsGe
 		localVarReturnValue  bool
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansApiService.ApiV2ProjectsProjectIdTestPlansNameExistsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansAPIService.ApiV2ProjectsProjectIdTestPlansNameExistsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -471,13 +474,13 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansNameExistsGe
 
 type ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlansApiService
+	ApiService *ProjectTestPlansAPIService
 	projectId string
-	apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest *ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+	testPlanSelectModel *TestPlanSelectModel
 }
 
-func (r ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest) ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest {
-	r.apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = &apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+func (r ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest) TestPlanSelectModel(testPlanSelectModel TestPlanSelectModel) ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest {
+	r.testPlanSelectModel = &testPlanSelectModel
 	return r
 }
 
@@ -492,7 +495,7 @@ ApiV2ProjectsProjectIdTestPlansPurgeBulkPost Permanently delete multiple archive
  @param projectId Unique or global ID of the project
  @return ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest
 */
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansPurgeBulkPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansPurgeBulkPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest {
 	return ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -501,14 +504,14 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansPurgeBulkPos
 }
 
 // Execute executes the request
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansPurgeBulkPostExecute(r ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest) (*http.Response, error) {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansPurgeBulkPostExecute(r ApiApiV2ProjectsProjectIdTestPlansPurgeBulkPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansApiService.ApiV2ProjectsProjectIdTestPlansPurgeBulkPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansAPIService.ApiV2ProjectsProjectIdTestPlansPurgeBulkPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -538,7 +541,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansPurgeBulkPos
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+	localVarPostBody = r.testPlanSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -593,13 +596,13 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansPurgeBulkPos
 
 type ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlansApiService
+	ApiService *ProjectTestPlansAPIService
 	projectId string
-	apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest *ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+	testPlanSelectModel *TestPlanSelectModel
 }
 
-func (r ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest) ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest) ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest {
-	r.apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest = &apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+func (r ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest) TestPlanSelectModel(testPlanSelectModel TestPlanSelectModel) ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest {
+	r.testPlanSelectModel = &testPlanSelectModel
 	return r
 }
 
@@ -614,7 +617,7 @@ ApiV2ProjectsProjectIdTestPlansRestoreBulkPost Restore multiple test plans
  @param projectId Unique or global ID of the project
  @return ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest
 */
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest {
 	return ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -623,14 +626,14 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansRestoreBulkP
 }
 
 // Execute executes the request
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansRestoreBulkPostExecute(r ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest) (*http.Response, error) {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansRestoreBulkPostExecute(r ApiApiV2ProjectsProjectIdTestPlansRestoreBulkPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansApiService.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansAPIService.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -660,7 +663,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansRestoreBulkP
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+	localVarPostBody = r.testPlanSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -715,7 +718,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansRestoreBulkP
 
 type ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlansApiService
+	ApiService *ProjectTestPlansAPIService
 	projectId string
 	mustUpdateCache *bool
 	skip *int32
@@ -723,7 +726,7 @@ type ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2ProjectsProjectIdTestPlansSearchPostRequest *ApiV2ProjectsProjectIdTestPlansSearchPostRequest
+	projectTestPlansFilterModel *ProjectTestPlansFilterModel
 }
 
 func (r ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest) MustUpdateCache(mustUpdateCache bool) ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest {
@@ -761,8 +764,8 @@ func (r ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest) SearchValue(searchV
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest) ApiV2ProjectsProjectIdTestPlansSearchPostRequest(apiV2ProjectsProjectIdTestPlansSearchPostRequest ApiV2ProjectsProjectIdTestPlansSearchPostRequest) ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest {
-	r.apiV2ProjectsProjectIdTestPlansSearchPostRequest = &apiV2ProjectsProjectIdTestPlansSearchPostRequest
+func (r ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest) ProjectTestPlansFilterModel(projectTestPlansFilterModel ProjectTestPlansFilterModel) ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest {
+	r.projectTestPlansFilterModel = &projectTestPlansFilterModel
 	return r
 }
 
@@ -783,7 +786,7 @@ ApiV2ProjectsProjectIdTestPlansSearchPost Get Project TestPlans with analytics
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest
 */
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansSearchPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansSearchPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest {
 	return ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -793,7 +796,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansSearchPost(c
 
 // Execute executes the request
 //  @return []TestPlanWithAnalyticModel
-func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansSearchPostExecute(r ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest) ([]TestPlanWithAnalyticModel, *http.Response, error) {
+func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansSearchPostExecute(r ApiApiV2ProjectsProjectIdTestPlansSearchPostRequest) ([]TestPlanWithAnalyticModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -801,7 +804,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansSearchPostEx
 		localVarReturnValue  []TestPlanWithAnalyticModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansApiService.ApiV2ProjectsProjectIdTestPlansSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlansAPIService.ApiV2ProjectsProjectIdTestPlansSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -815,6 +818,9 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansSearchPostEx
 
 	if r.mustUpdateCache != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "mustUpdateCache", r.mustUpdateCache, "")
+	} else {
+		var defaultValue bool = false
+		r.mustUpdateCache = &defaultValue
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
@@ -849,7 +855,7 @@ func (a *ProjectTestPlansApiService) ApiV2ProjectsProjectIdTestPlansSearchPostEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdTestPlansSearchPostRequest
+	localVarPostBody = r.projectTestPlansFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

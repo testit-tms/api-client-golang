@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ShortConfiguration type satisfies the MappedNullable interface at compile time
@@ -22,6 +24,8 @@ type ShortConfiguration struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 }
+
+type _ShortConfiguration ShortConfiguration
 
 // NewShortConfiguration instantiates a new ShortConfiguration object
 // This constructor will assign default values to properties that have it defined,
@@ -103,6 +107,44 @@ func (o ShortConfiguration) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
+}
+
+func (o *ShortConfiguration) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"name",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varShortConfiguration := _ShortConfiguration{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varShortConfiguration)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ShortConfiguration(varShortConfiguration)
+
+	return err
 }
 
 type NullableShortConfiguration struct {

@@ -1,12 +1,12 @@
-# \ProjectImportApi
+# \ProjectImportAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BackgroundImportToExistingProject**](ProjectImportApi.md#BackgroundImportToExistingProject) | **Post** /api/v2/projects/{projectId}/import/json | Import project from JSON file into existing project in background job
-[**BackgroundImportZipToExistingProject**](ProjectImportApi.md#BackgroundImportZipToExistingProject) | **Post** /api/v2/projects/{projectId}/import/zip | Import project from Zip file into existing project in background job
-[**ImportToExistingProject**](ProjectImportApi.md#ImportToExistingProject) | **Post** /api/v2/projects/{projectId}/import | Import project from JSON file into existing project
+[**BackgroundImportToExistingProject**](ProjectImportAPI.md#BackgroundImportToExistingProject) | **Post** /api/v2/projects/{projectId}/import/json | Import project from JSON file into existing project in background job
+[**BackgroundImportZipToExistingProject**](ProjectImportAPI.md#BackgroundImportZipToExistingProject) | **Post** /api/v2/projects/{projectId}/import/zip | Import project from Zip file into existing project in background job
+[**ImportToExistingProject**](ProjectImportAPI.md#ImportToExistingProject) | **Post** /api/v2/projects/{projectId}/import | Import project from JSON file into existing project
 
 
 
@@ -22,25 +22,25 @@ Import project from JSON file into existing project in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectImportApi.BackgroundImportToExistingProject(context.Background(), projectId).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectImportApi.BackgroundImportToExistingProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BackgroundImportToExistingProject`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectImportApi.BackgroundImportToExistingProject`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectImportAPI.BackgroundImportToExistingProject(context.Background(), projectId).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectImportAPI.BackgroundImportToExistingProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BackgroundImportToExistingProject`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectImportAPI.BackgroundImportToExistingProject`: %v\n", resp)
 }
 ```
 
@@ -92,25 +92,25 @@ Import project from Zip file into existing project in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectImportApi.BackgroundImportZipToExistingProject(context.Background(), projectId).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectImportApi.BackgroundImportZipToExistingProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BackgroundImportZipToExistingProject`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectImportApi.BackgroundImportZipToExistingProject`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectImportAPI.BackgroundImportZipToExistingProject(context.Background(), projectId).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectImportAPI.BackgroundImportZipToExistingProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BackgroundImportZipToExistingProject`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectImportAPI.BackgroundImportZipToExistingProject`: %v\n", resp)
 }
 ```
 
@@ -164,24 +164,24 @@ Import project from JSON file into existing project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    includeAttachments := true // bool |  (optional)
-    file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	includeAttachments := true // bool |  (optional)
+	file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectImportApi.ImportToExistingProject(context.Background(), projectId).IncludeAttachments(includeAttachments).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectImportApi.ImportToExistingProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectImportAPI.ImportToExistingProject(context.Background(), projectId).IncludeAttachments(includeAttachments).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectImportAPI.ImportToExistingProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

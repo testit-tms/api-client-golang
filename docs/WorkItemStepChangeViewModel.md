@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **TestData** | **string** |  | 
 **Index** | **int32** |  | 
 **WorkItemId** | Pointer to **NullableString** |  | [optional] 
-**WorkItem** | [**WorkItemStepChangeViewModelWorkItem**](WorkItemStepChangeViewModelWorkItem.md) |  | 
+**WorkItem** | [**SharedStepChangeViewModel**](SharedStepChangeViewModel.md) |  | 
 
 ## Methods
 
 ### NewWorkItemStepChangeViewModel
 
-`func NewWorkItemStepChangeViewModel(action string, expected string, comments string, testData string, index int32, workItem WorkItemStepChangeViewModelWorkItem, ) *WorkItemStepChangeViewModel`
+`func NewWorkItemStepChangeViewModel(action string, expected string, comments string, testData string, index int32, workItem SharedStepChangeViewModel, ) *WorkItemStepChangeViewModel`
 
 NewWorkItemStepChangeViewModel instantiates a new WorkItemStepChangeViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -168,20 +168,20 @@ HasWorkItemId returns a boolean if a field has been set.
 UnsetWorkItemId ensures that no value is present for WorkItemId, not even an explicit nil
 ### GetWorkItem
 
-`func (o *WorkItemStepChangeViewModel) GetWorkItem() WorkItemStepChangeViewModelWorkItem`
+`func (o *WorkItemStepChangeViewModel) GetWorkItem() SharedStepChangeViewModel`
 
 GetWorkItem returns the WorkItem field if non-nil, zero value otherwise.
 
 ### GetWorkItemOk
 
-`func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*WorkItemStepChangeViewModelWorkItem, bool)`
+`func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*SharedStepChangeViewModel, bool)`
 
 GetWorkItemOk returns a tuple with the WorkItem field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItem
 
-`func (o *WorkItemStepChangeViewModel) SetWorkItem(v WorkItemStepChangeViewModelWorkItem)`
+`func (o *WorkItemStepChangeViewModel) SetWorkItem(v SharedStepChangeViewModel)`
 
 SetWorkItem sets WorkItem field to given value.
 

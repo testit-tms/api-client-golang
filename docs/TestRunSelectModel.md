@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | [**ApiV2TestRunsSearchPostRequest**](ApiV2TestRunsSearchPostRequest.md) |  | 
-**ExtractionModel** | [**TestRunSelectModelExtractionModel**](TestRunSelectModelExtractionModel.md) |  | 
+**Filter** | [**TestRunFilterModel**](TestRunFilterModel.md) |  | 
+**ExtractionModel** | [**TestRunExtractionModel**](TestRunExtractionModel.md) |  | 
 
 ## Methods
 
 ### NewTestRunSelectModel
 
-`func NewTestRunSelectModel(filter ApiV2TestRunsSearchPostRequest, extractionModel TestRunSelectModelExtractionModel, ) *TestRunSelectModel`
+`func NewTestRunSelectModel(filter TestRunFilterModel, extractionModel TestRunExtractionModel, ) *TestRunSelectModel`
 
 NewTestRunSelectModel instantiates a new TestRunSelectModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,40 +28,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *TestRunSelectModel) GetFilter() ApiV2TestRunsSearchPostRequest`
+`func (o *TestRunSelectModel) GetFilter() TestRunFilterModel`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *TestRunSelectModel) GetFilterOk() (*ApiV2TestRunsSearchPostRequest, bool)`
+`func (o *TestRunSelectModel) GetFilterOk() (*TestRunFilterModel, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *TestRunSelectModel) SetFilter(v ApiV2TestRunsSearchPostRequest)`
+`func (o *TestRunSelectModel) SetFilter(v TestRunFilterModel)`
 
 SetFilter sets Filter field to given value.
 
 
 ### GetExtractionModel
 
-`func (o *TestRunSelectModel) GetExtractionModel() TestRunSelectModelExtractionModel`
+`func (o *TestRunSelectModel) GetExtractionModel() TestRunExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *TestRunSelectModel) GetExtractionModelOk() (*TestRunSelectModelExtractionModel, bool)`
+`func (o *TestRunSelectModel) GetExtractionModelOk() (*TestRunExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *TestRunSelectModel) SetExtractionModel(v TestRunSelectModelExtractionModel)`
+`func (o *TestRunSelectModel) SetExtractionModel(v TestRunExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

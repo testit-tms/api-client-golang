@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestPlanWithAnalyticModel type satisfies the MappedNullable interface at compile time
@@ -20,7 +22,7 @@ var _ MappedNullable = &TestPlanWithAnalyticModel{}
 
 // TestPlanWithAnalyticModel struct for TestPlanWithAnalyticModel
 type TestPlanWithAnalyticModel struct {
-	Analytic TestPlanWithAnalyticModelAnalytic `json:"analytic"`
+	Analytic TestPointAnalyticResult `json:"analytic"`
 	Status TestPlanStatusModel `json:"status"`
 	// Set when test plan is starter (status changed to: In Progress)
 	StartedOn NullableTime `json:"startedOn,omitempty"`
@@ -50,11 +52,13 @@ type TestPlanWithAnalyticModel struct {
 	Attributes map[string]interface{} `json:"attributes"`
 }
 
+type _TestPlanWithAnalyticModel TestPlanWithAnalyticModel
+
 // NewTestPlanWithAnalyticModel instantiates a new TestPlanWithAnalyticModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanWithAnalyticModel(analytic TestPlanWithAnalyticModelAnalytic, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}) *TestPlanWithAnalyticModel {
+func NewTestPlanWithAnalyticModel(analytic TestPointAnalyticResult, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}) *TestPlanWithAnalyticModel {
 	this := TestPlanWithAnalyticModel{}
 	this.Analytic = analytic
 	this.Status = status
@@ -77,9 +81,9 @@ func NewTestPlanWithAnalyticModelWithDefaults() *TestPlanWithAnalyticModel {
 }
 
 // GetAnalytic returns the Analytic field value
-func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPlanWithAnalyticModelAnalytic {
+func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPointAnalyticResult {
 	if o == nil {
-		var ret TestPlanWithAnalyticModelAnalytic
+		var ret TestPointAnalyticResult
 		return ret
 	}
 
@@ -88,7 +92,7 @@ func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPlanWithAnalyticModelAnaly
 
 // GetAnalyticOk returns a tuple with the Analytic field value
 // and a boolean to check if the value has been set.
-func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPlanWithAnalyticModelAnalytic, bool) {
+func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPointAnalyticResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,7 +100,7 @@ func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPlanWithAnalyticModelA
 }
 
 // SetAnalytic sets field value
-func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPlanWithAnalyticModelAnalytic) {
+func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPointAnalyticResult) {
 	o.Analytic = v
 }
 
@@ -933,6 +937,51 @@ func (o TestPlanWithAnalyticModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["attributes"] = o.Attributes
 	return toSerialize, nil
+}
+
+func (o *TestPlanWithAnalyticModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"analytic",
+		"status",
+		"createdById",
+		"globalId",
+		"isDeleted",
+		"id",
+		"name",
+		"projectId",
+		"attributes",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestPlanWithAnalyticModel := _TestPlanWithAnalyticModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestPlanWithAnalyticModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestPlanWithAnalyticModel(varTestPlanWithAnalyticModel)
+
+	return err
 }
 
 type NullableTestPlanWithAnalyticModel struct {

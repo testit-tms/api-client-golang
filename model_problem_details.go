@@ -24,7 +24,10 @@ type ProblemDetails struct {
 	Status NullableInt32 `json:"status,omitempty"`
 	Detail NullableString `json:"detail,omitempty"`
 	Instance NullableString `json:"instance,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ProblemDetails ProblemDetails
 
 // NewProblemDetails instantiates a new ProblemDetails object
 // This constructor will assign default values to properties that have it defined,
@@ -278,7 +281,37 @@ func (o ProblemDetails) ToMap() (map[string]interface{}, error) {
 	if o.Instance.IsSet() {
 		toSerialize["instance"] = o.Instance.Get()
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ProblemDetails) UnmarshalJSON(data []byte) (err error) {
+	varProblemDetails := _ProblemDetails{}
+
+	err = json.Unmarshal(data, &varProblemDetails)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProblemDetails(varProblemDetails)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "title")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "detail")
+		delete(additionalProperties, "instance")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableProblemDetails struct {

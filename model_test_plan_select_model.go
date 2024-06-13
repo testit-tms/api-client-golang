@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestPlanSelectModel type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,17 @@ var _ MappedNullable = &TestPlanSelectModel{}
 
 // TestPlanSelectModel struct for TestPlanSelectModel
 type TestPlanSelectModel struct {
-	Filter ApiV2ProjectsProjectIdTestPlansSearchPostRequest `json:"filter"`
+	Filter ProjectTestPlansFilterModel `json:"filter"`
 	ExtractionModel NullableTestPlanExtractionModel `json:"extractionModel,omitempty"`
 }
+
+type _TestPlanSelectModel TestPlanSelectModel
 
 // NewTestPlanSelectModel instantiates a new TestPlanSelectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanSelectModel(filter ApiV2ProjectsProjectIdTestPlansSearchPostRequest) *TestPlanSelectModel {
+func NewTestPlanSelectModel(filter ProjectTestPlansFilterModel) *TestPlanSelectModel {
 	this := TestPlanSelectModel{}
 	this.Filter = filter
 	return &this
@@ -42,9 +46,9 @@ func NewTestPlanSelectModelWithDefaults() *TestPlanSelectModel {
 }
 
 // GetFilter returns the Filter field value
-func (o *TestPlanSelectModel) GetFilter() ApiV2ProjectsProjectIdTestPlansSearchPostRequest {
+func (o *TestPlanSelectModel) GetFilter() ProjectTestPlansFilterModel {
 	if o == nil {
-		var ret ApiV2ProjectsProjectIdTestPlansSearchPostRequest
+		var ret ProjectTestPlansFilterModel
 		return ret
 	}
 
@@ -53,7 +57,7 @@ func (o *TestPlanSelectModel) GetFilter() ApiV2ProjectsProjectIdTestPlansSearchP
 
 // GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-func (o *TestPlanSelectModel) GetFilterOk() (*ApiV2ProjectsProjectIdTestPlansSearchPostRequest, bool) {
+func (o *TestPlanSelectModel) GetFilterOk() (*ProjectTestPlansFilterModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -61,7 +65,7 @@ func (o *TestPlanSelectModel) GetFilterOk() (*ApiV2ProjectsProjectIdTestPlansSea
 }
 
 // SetFilter sets field value
-func (o *TestPlanSelectModel) SetFilter(v ApiV2ProjectsProjectIdTestPlansSearchPostRequest) {
+func (o *TestPlanSelectModel) SetFilter(v ProjectTestPlansFilterModel) {
 	o.Filter = v
 }
 
@@ -122,6 +126,43 @@ func (o TestPlanSelectModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["extractionModel"] = o.ExtractionModel.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *TestPlanSelectModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"filter",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestPlanSelectModel := _TestPlanSelectModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestPlanSelectModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestPlanSelectModel(varTestPlanSelectModel)
+
+	return err
 }
 
 type NullableTestPlanSelectModel struct {

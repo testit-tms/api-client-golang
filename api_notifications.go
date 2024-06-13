@@ -20,12 +20,12 @@ import (
 )
 
 
-// NotificationsApiService NotificationsApi service
-type NotificationsApiService service
+// NotificationsAPIService NotificationsAPI service
+type NotificationsAPIService service
 
 type ApiApiV2NotificationsCountGetRequest struct {
 	ctx context.Context
-	ApiService *NotificationsApiService
+	ApiService *NotificationsAPIService
 	isRead *bool
 }
 
@@ -48,7 +48,7 @@ ApiV2NotificationsCountGet Get unread Notifications total in last 7 days
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsCountGetRequest
 */
-func (a *NotificationsApiService) ApiV2NotificationsCountGet(ctx context.Context) ApiApiV2NotificationsCountGetRequest {
+func (a *NotificationsAPIService) ApiV2NotificationsCountGet(ctx context.Context) ApiApiV2NotificationsCountGetRequest {
 	return ApiApiV2NotificationsCountGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *NotificationsApiService) ApiV2NotificationsCountGet(ctx context.Context
 
 // Execute executes the request
 //  @return int32
-func (a *NotificationsApiService) ApiV2NotificationsCountGetExecute(r ApiApiV2NotificationsCountGetRequest) (int32, *http.Response, error) {
+func (a *NotificationsAPIService) ApiV2NotificationsCountGetExecute(r ApiApiV2NotificationsCountGetRequest) (int32, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *NotificationsApiService) ApiV2NotificationsCountGetExecute(r ApiApiV2No
 		localVarReturnValue  int32
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsCountGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsCountGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -159,7 +159,7 @@ func (a *NotificationsApiService) ApiV2NotificationsCountGetExecute(r ApiApiV2No
 
 type ApiApiV2NotificationsGetRequest struct {
 	ctx context.Context
-	ApiService *NotificationsApiService
+	ApiService *NotificationsAPIService
 	notificationType *NotificationTypeModel
 	skip *int32
 	take *int32
@@ -217,7 +217,7 @@ ApiV2NotificationsGet Get all Notifications for current User
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsGetRequest
 */
-func (a *NotificationsApiService) ApiV2NotificationsGet(ctx context.Context) ApiApiV2NotificationsGetRequest {
+func (a *NotificationsAPIService) ApiV2NotificationsGet(ctx context.Context) ApiApiV2NotificationsGetRequest {
 	return ApiApiV2NotificationsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -226,7 +226,7 @@ func (a *NotificationsApiService) ApiV2NotificationsGet(ctx context.Context) Api
 
 // Execute executes the request
 //  @return []NotificationModel
-func (a *NotificationsApiService) ApiV2NotificationsGetExecute(r ApiApiV2NotificationsGetRequest) ([]NotificationModel, *http.Response, error) {
+func (a *NotificationsAPIService) ApiV2NotificationsGetExecute(r ApiApiV2NotificationsGetRequest) ([]NotificationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -234,7 +234,7 @@ func (a *NotificationsApiService) ApiV2NotificationsGetExecute(r ApiApiV2Notific
 		localVarReturnValue  []NotificationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -354,7 +354,7 @@ func (a *NotificationsApiService) ApiV2NotificationsGetExecute(r ApiApiV2Notific
 
 type ApiApiV2NotificationsIdReadPostRequest struct {
 	ctx context.Context
-	ApiService *NotificationsApiService
+	ApiService *NotificationsAPIService
 	id string
 }
 
@@ -374,7 +374,7 @@ ApiV2NotificationsIdReadPost Set Notification as read
  @param id
  @return ApiApiV2NotificationsIdReadPostRequest
 */
-func (a *NotificationsApiService) ApiV2NotificationsIdReadPost(ctx context.Context, id string) ApiApiV2NotificationsIdReadPostRequest {
+func (a *NotificationsAPIService) ApiV2NotificationsIdReadPost(ctx context.Context, id string) ApiApiV2NotificationsIdReadPostRequest {
 	return ApiApiV2NotificationsIdReadPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -383,14 +383,14 @@ func (a *NotificationsApiService) ApiV2NotificationsIdReadPost(ctx context.Conte
 }
 
 // Execute executes the request
-func (a *NotificationsApiService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2NotificationsIdReadPostRequest) (*http.Response, error) {
+func (a *NotificationsAPIService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2NotificationsIdReadPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsIdReadPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsIdReadPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -484,7 +484,7 @@ func (a *NotificationsApiService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2
 
 type ApiApiV2NotificationsReadPostRequest struct {
 	ctx context.Context
-	ApiService *NotificationsApiService
+	ApiService *NotificationsAPIService
 }
 
 func (r ApiApiV2NotificationsReadPostRequest) Execute() (*http.Response, error) {
@@ -501,7 +501,7 @@ ApiV2NotificationsReadPost Set all Notifications as read
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsReadPostRequest
 */
-func (a *NotificationsApiService) ApiV2NotificationsReadPost(ctx context.Context) ApiApiV2NotificationsReadPostRequest {
+func (a *NotificationsAPIService) ApiV2NotificationsReadPost(ctx context.Context) ApiApiV2NotificationsReadPostRequest {
 	return ApiApiV2NotificationsReadPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -509,14 +509,14 @@ func (a *NotificationsApiService) ApiV2NotificationsReadPost(ctx context.Context
 }
 
 // Execute executes the request
-func (a *NotificationsApiService) ApiV2NotificationsReadPostExecute(r ApiApiV2NotificationsReadPostRequest) (*http.Response, error) {
+func (a *NotificationsAPIService) ApiV2NotificationsReadPostExecute(r ApiApiV2NotificationsReadPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsReadPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsReadPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -598,13 +598,13 @@ func (a *NotificationsApiService) ApiV2NotificationsReadPostExecute(r ApiApiV2No
 
 type ApiApiV2NotificationsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *NotificationsApiService
+	ApiService *NotificationsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2NotificationsSearchPostRequest *ApiV2NotificationsSearchPostRequest
+	notificationQueryFilterModel *NotificationQueryFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -637,8 +637,8 @@ func (r ApiApiV2NotificationsSearchPostRequest) SearchValue(searchValue string) 
 	return r
 }
 
-func (r ApiApiV2NotificationsSearchPostRequest) ApiV2NotificationsSearchPostRequest(apiV2NotificationsSearchPostRequest ApiV2NotificationsSearchPostRequest) ApiApiV2NotificationsSearchPostRequest {
-	r.apiV2NotificationsSearchPostRequest = &apiV2NotificationsSearchPostRequest
+func (r ApiApiV2NotificationsSearchPostRequest) NotificationQueryFilterModel(notificationQueryFilterModel NotificationQueryFilterModel) ApiApiV2NotificationsSearchPostRequest {
+	r.notificationQueryFilterModel = &notificationQueryFilterModel
 	return r
 }
 
@@ -656,7 +656,7 @@ ApiV2NotificationsSearchPost Search Notifications for current User
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsSearchPostRequest
 */
-func (a *NotificationsApiService) ApiV2NotificationsSearchPost(ctx context.Context) ApiApiV2NotificationsSearchPostRequest {
+func (a *NotificationsAPIService) ApiV2NotificationsSearchPost(ctx context.Context) ApiApiV2NotificationsSearchPostRequest {
 	return ApiApiV2NotificationsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -665,7 +665,7 @@ func (a *NotificationsApiService) ApiV2NotificationsSearchPost(ctx context.Conte
 
 // Execute executes the request
 //  @return []NotificationModel
-func (a *NotificationsApiService) ApiV2NotificationsSearchPostExecute(r ApiApiV2NotificationsSearchPostRequest) ([]NotificationModel, *http.Response, error) {
+func (a *NotificationsAPIService) ApiV2NotificationsSearchPostExecute(r ApiApiV2NotificationsSearchPostRequest) ([]NotificationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -673,7 +673,7 @@ func (a *NotificationsApiService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 		localVarReturnValue  []NotificationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -717,7 +717,7 @@ func (a *NotificationsApiService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2NotificationsSearchPostRequest
+	localVarPostBody = r.notificationQueryFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

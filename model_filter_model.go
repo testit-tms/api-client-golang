@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the FilterModel type satisfies the MappedNullable interface at compile time
@@ -24,7 +26,7 @@ type FilterModel struct {
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	Data FilterModelData `json:"data"`
+	Data WorkItemSearchQueryModel `json:"data"`
 	ProjectId string `json:"projectId"`
 	FieldsToShow interface{} `json:"fieldsToShow,omitempty"`
 	Name string `json:"name"`
@@ -34,11 +36,13 @@ type FilterModel struct {
 	IsDeleted bool `json:"isDeleted"`
 }
 
+type _FilterModel FilterModel
+
 // NewFilterModel instantiates a new FilterModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFilterModel(createdDate time.Time, createdById string, data FilterModelData, projectId string, name string, id string, isDeleted bool) *FilterModel {
+func NewFilterModel(createdDate time.Time, createdById string, data WorkItemSearchQueryModel, projectId string, name string, id string, isDeleted bool) *FilterModel {
 	this := FilterModel{}
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
@@ -191,9 +195,9 @@ func (o *FilterModel) UnsetModifiedById() {
 }
 
 // GetData returns the Data field value
-func (o *FilterModel) GetData() FilterModelData {
+func (o *FilterModel) GetData() WorkItemSearchQueryModel {
 	if o == nil {
-		var ret FilterModelData
+		var ret WorkItemSearchQueryModel
 		return ret
 	}
 
@@ -202,7 +206,7 @@ func (o *FilterModel) GetData() FilterModelData {
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *FilterModel) GetDataOk() (*FilterModelData, bool) {
+func (o *FilterModel) GetDataOk() (*WorkItemSearchQueryModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -210,7 +214,7 @@ func (o *FilterModel) GetDataOk() (*FilterModelData, bool) {
 }
 
 // SetData sets field value
-func (o *FilterModel) SetData(v FilterModelData) {
+func (o *FilterModel) SetData(v WorkItemSearchQueryModel) {
 	o.Data = v
 }
 
@@ -370,6 +374,49 @@ func (o FilterModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
+}
+
+func (o *FilterModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"createdDate",
+		"createdById",
+		"data",
+		"projectId",
+		"name",
+		"id",
+		"isDeleted",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varFilterModel := _FilterModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varFilterModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = FilterModel(varFilterModel)
+
+	return err
 }
 
 type NullableFilterModel struct {

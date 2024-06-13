@@ -21,12 +21,12 @@ import (
 )
 
 
-// ProjectImportApiService ProjectImportApi service
-type ProjectImportApiService service
+// ProjectImportAPIService ProjectImportAPI service
+type ProjectImportAPIService service
 
 type ApiBackgroundImportToExistingProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectImportApiService
+	ApiService *ProjectImportAPIService
 	projectId string
 	file *os.File
 }
@@ -48,7 +48,7 @@ BackgroundImportToExistingProject Import project from JSON file into existing pr
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiBackgroundImportToExistingProjectRequest
 */
-func (a *ProjectImportApiService) BackgroundImportToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportToExistingProjectRequest {
+func (a *ProjectImportAPIService) BackgroundImportToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportToExistingProjectRequest {
 	return ApiBackgroundImportToExistingProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -58,7 +58,7 @@ func (a *ProjectImportApiService) BackgroundImportToExistingProject(ctx context.
 
 // Execute executes the request
 //  @return string
-func (a *ProjectImportApiService) BackgroundImportToExistingProjectExecute(r ApiBackgroundImportToExistingProjectRequest) (string, *http.Response, error) {
+func (a *ProjectImportAPIService) BackgroundImportToExistingProjectExecute(r ApiBackgroundImportToExistingProjectRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +66,7 @@ func (a *ProjectImportApiService) BackgroundImportToExistingProjectExecute(r Api
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportApiService.BackgroundImportToExistingProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportAPIService.BackgroundImportToExistingProject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -100,8 +100,6 @@ func (a *ProjectImportApiService) BackgroundImportToExistingProjectExecute(r Api
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
-
-
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {
@@ -165,7 +163,7 @@ func (a *ProjectImportApiService) BackgroundImportToExistingProjectExecute(r Api
 
 type ApiBackgroundImportZipToExistingProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectImportApiService
+	ApiService *ProjectImportAPIService
 	projectId string
 	file *os.File
 }
@@ -187,7 +185,7 @@ BackgroundImportZipToExistingProject Import project from Zip file into existing 
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiBackgroundImportZipToExistingProjectRequest
 */
-func (a *ProjectImportApiService) BackgroundImportZipToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportZipToExistingProjectRequest {
+func (a *ProjectImportAPIService) BackgroundImportZipToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportZipToExistingProjectRequest {
 	return ApiBackgroundImportZipToExistingProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -197,7 +195,7 @@ func (a *ProjectImportApiService) BackgroundImportZipToExistingProject(ctx conte
 
 // Execute executes the request
 //  @return string
-func (a *ProjectImportApiService) BackgroundImportZipToExistingProjectExecute(r ApiBackgroundImportZipToExistingProjectRequest) (string, *http.Response, error) {
+func (a *ProjectImportAPIService) BackgroundImportZipToExistingProjectExecute(r ApiBackgroundImportZipToExistingProjectRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -205,7 +203,7 @@ func (a *ProjectImportApiService) BackgroundImportZipToExistingProjectExecute(r 
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportApiService.BackgroundImportZipToExistingProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportAPIService.BackgroundImportZipToExistingProject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,8 +237,6 @@ func (a *ProjectImportApiService) BackgroundImportZipToExistingProjectExecute(r 
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
-
-
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {
@@ -304,7 +300,7 @@ func (a *ProjectImportApiService) BackgroundImportZipToExistingProjectExecute(r 
 
 type ApiImportToExistingProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectImportApiService
+	ApiService *ProjectImportAPIService
 	projectId string
 	includeAttachments *bool
 	file *os.File
@@ -340,7 +336,7 @@ ImportToExistingProject Import project from JSON file into existing project
 
 Deprecated
 */
-func (a *ProjectImportApiService) ImportToExistingProject(ctx context.Context, projectId string) ApiImportToExistingProjectRequest {
+func (a *ProjectImportAPIService) ImportToExistingProject(ctx context.Context, projectId string) ApiImportToExistingProjectRequest {
 	return ApiImportToExistingProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -350,14 +346,14 @@ func (a *ProjectImportApiService) ImportToExistingProject(ctx context.Context, p
 
 // Execute executes the request
 // Deprecated
-func (a *ProjectImportApiService) ImportToExistingProjectExecute(r ApiImportToExistingProjectRequest) (*http.Response, error) {
+func (a *ProjectImportAPIService) ImportToExistingProjectExecute(r ApiImportToExistingProjectRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportApiService.ImportToExistingProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportAPIService.ImportToExistingProject")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -394,8 +390,6 @@ func (a *ProjectImportApiService) ImportToExistingProjectExecute(r ApiImportToEx
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
-
-
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {

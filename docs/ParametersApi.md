@@ -1,24 +1,24 @@
-# \ParametersApi
+# \ParametersAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2ParametersBulkPost**](ParametersApi.md#ApiV2ParametersBulkPost) | **Post** /api/v2/parameters/bulk | Create multiple parameters
-[**ApiV2ParametersBulkPut**](ParametersApi.md#ApiV2ParametersBulkPut) | **Put** /api/v2/parameters/bulk | Update multiple parameters
-[**ApiV2ParametersGroupsGet**](ParametersApi.md#ApiV2ParametersGroupsGet) | **Get** /api/v2/parameters/groups | Get parameters as group
-[**ApiV2ParametersKeyNameNameExistsGet**](ParametersApi.md#ApiV2ParametersKeyNameNameExistsGet) | **Get** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system
-[**ApiV2ParametersKeyValuesGet**](ParametersApi.md#ApiV2ParametersKeyValuesGet) | **Get** /api/v2/parameters/{key}/values | Get all parameter key values
-[**ApiV2ParametersKeysGet**](ParametersApi.md#ApiV2ParametersKeysGet) | **Get** /api/v2/parameters/keys | Get all parameter keys
-[**ApiV2ParametersSearchGroupsPost**](ParametersApi.md#ApiV2ParametersSearchGroupsPost) | **Post** /api/v2/parameters/search/groups | Search for parameters as group
-[**ApiV2ParametersSearchPost**](ParametersApi.md#ApiV2ParametersSearchPost) | **Post** /api/v2/parameters/search | Search for parameters
-[**CreateParameter**](ParametersApi.md#CreateParameter) | **Post** /api/v2/parameters | Create parameter
-[**DeleteByName**](ParametersApi.md#DeleteByName) | **Delete** /api/v2/parameters/name/{name} | Delete parameter by name
-[**DeleteByParameterKeyId**](ParametersApi.md#DeleteByParameterKeyId) | **Delete** /api/v2/parameters/keyId/{keyId} | Delete parameters by parameter key identifier
-[**DeleteParameter**](ParametersApi.md#DeleteParameter) | **Delete** /api/v2/parameters/{id} | Delete parameter
-[**GetAllParameters**](ParametersApi.md#GetAllParameters) | **Get** /api/v2/parameters | Get all parameters
-[**GetParameterById**](ParametersApi.md#GetParameterById) | **Get** /api/v2/parameters/{id} | Get parameter by ID
-[**UpdateParameter**](ParametersApi.md#UpdateParameter) | **Put** /api/v2/parameters | Update parameter
+[**ApiV2ParametersBulkPost**](ParametersAPI.md#ApiV2ParametersBulkPost) | **Post** /api/v2/parameters/bulk | Create multiple parameters
+[**ApiV2ParametersBulkPut**](ParametersAPI.md#ApiV2ParametersBulkPut) | **Put** /api/v2/parameters/bulk | Update multiple parameters
+[**ApiV2ParametersGroupsGet**](ParametersAPI.md#ApiV2ParametersGroupsGet) | **Get** /api/v2/parameters/groups | Get parameters as group
+[**ApiV2ParametersKeyNameNameExistsGet**](ParametersAPI.md#ApiV2ParametersKeyNameNameExistsGet) | **Get** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system
+[**ApiV2ParametersKeyValuesGet**](ParametersAPI.md#ApiV2ParametersKeyValuesGet) | **Get** /api/v2/parameters/{key}/values | Get all parameter key values
+[**ApiV2ParametersKeysGet**](ParametersAPI.md#ApiV2ParametersKeysGet) | **Get** /api/v2/parameters/keys | Get all parameter keys
+[**ApiV2ParametersSearchGroupsPost**](ParametersAPI.md#ApiV2ParametersSearchGroupsPost) | **Post** /api/v2/parameters/search/groups | Search for parameters as group
+[**ApiV2ParametersSearchPost**](ParametersAPI.md#ApiV2ParametersSearchPost) | **Post** /api/v2/parameters/search | Search for parameters
+[**CreateParameter**](ParametersAPI.md#CreateParameter) | **Post** /api/v2/parameters | Create parameter
+[**DeleteByName**](ParametersAPI.md#DeleteByName) | **Delete** /api/v2/parameters/name/{name} | Delete parameter by name
+[**DeleteByParameterKeyId**](ParametersAPI.md#DeleteByParameterKeyId) | **Delete** /api/v2/parameters/keyId/{keyId} | Delete parameters by parameter key identifier
+[**DeleteParameter**](ParametersAPI.md#DeleteParameter) | **Delete** /api/v2/parameters/{id} | Delete parameter
+[**GetAllParameters**](ParametersAPI.md#GetAllParameters) | **Get** /api/v2/parameters | Get all parameters
+[**GetParameterById**](ParametersAPI.md#GetParameterById) | **Get** /api/v2/parameters/{id} | Get parameter by ID
+[**UpdateParameter**](ParametersAPI.md#UpdateParameter) | **Put** /api/v2/parameters | Update parameter
 
 
 
@@ -36,24 +36,24 @@ Create multiple parameters
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    parameterPostModel := []openapiclient.ParameterPostModel{*openapiclient.NewParameterPostModel("Value_example", "Name_example")} // []ParameterPostModel |  (optional)
+	parameterPostModel := []openapiclient.ParameterPostModel{*openapiclient.NewParameterPostModel("Value_example", "Name_example")} // []ParameterPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersBulkPost(context.Background()).ParameterPostModel(parameterPostModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersBulkPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ParametersBulkPost`: []ParameterModel
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersBulkPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersBulkPost(context.Background()).ParameterPostModel(parameterPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersBulkPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ParametersBulkPost`: []ParameterModel
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.ApiV2ParametersBulkPost`: %v\n", resp)
 }
 ```
 
@@ -102,22 +102,22 @@ Update multiple parameters
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
+	parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ParametersApi.ApiV2ParametersBulkPut(context.Background()).ParameterPutModel(parameterPutModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersBulkPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ParametersAPI.ApiV2ParametersBulkPut(context.Background()).ParameterPutModel(parameterPutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersBulkPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -166,30 +166,30 @@ Get parameters as group
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    isDeleted := true // bool |  (optional)
-    parameterKeyIds := []string{"Inner_example"} // []string |  (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	isDeleted := true // bool |  (optional)
+	parameterKeyIds := []string{"Inner_example"} // []string |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersGroupsGet(context.Background()).IsDeleted(isDeleted).ParameterKeyIds(parameterKeyIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersGroupsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ParametersGroupsGet`: []ParameterGroupModel
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersGroupsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersGroupsGet(context.Background()).IsDeleted(isDeleted).ParameterKeyIds(parameterKeyIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersGroupsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ParametersGroupsGet`: []ParameterGroupModel
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.ApiV2ParametersGroupsGet`: %v\n", resp)
 }
 ```
 
@@ -244,24 +244,24 @@ Check existence parameter key in system
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    name := "name_example" // string | 
+	name := "name_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersKeyNameNameExistsGet(context.Background(), name).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersKeyNameNameExistsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ParametersKeyNameNameExistsGet`: bool
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersKeyNameNameExistsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersKeyNameNameExistsGet(context.Background(), name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersKeyNameNameExistsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ParametersKeyNameNameExistsGet`: bool
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.ApiV2ParametersKeyNameNameExistsGet`: %v\n", resp)
 }
 ```
 
@@ -314,24 +314,24 @@ Get all parameter key values
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    key := "SomeKey" // string | Parameter key (string format)
+	key := "SomeKey" // string | Parameter key (string format)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersKeyValuesGet(context.Background(), key).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersKeyValuesGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ParametersKeyValuesGet`: []string
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersKeyValuesGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersKeyValuesGet(context.Background(), key).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersKeyValuesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ParametersKeyValuesGet`: []string
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.ApiV2ParametersKeyValuesGet`: %v\n", resp)
 }
 ```
 
@@ -384,23 +384,23 @@ Get all parameter keys
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersKeysGet(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersKeysGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ParametersKeysGet`: []string
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersKeysGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersKeysGet(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersKeysGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ParametersKeysGet`: []string
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.ApiV2ParametersKeysGet`: %v\n", resp)
 }
 ```
 
@@ -433,7 +433,7 @@ Other parameters are passed through a pointer to a apiApiV2ParametersKeysGetRequ
 
 ## ApiV2ParametersSearchGroupsPost
 
-> []ParameterGroupModel ApiV2ParametersSearchGroupsPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
+> []ParameterGroupModel ApiV2ParametersSearchGroupsPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ParameterFilterModel(parameterFilterModel).Execute()
 
 Search for parameters as group
 
@@ -443,29 +443,29 @@ Search for parameters as group
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2ParametersSearchPostRequest := *openapiclient.NewApiV2ParametersSearchPostRequest() // ApiV2ParametersSearchPostRequest |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	parameterFilterModel := *openapiclient.NewParameterFilterModel() // ParameterFilterModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersSearchGroupsPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersSearchGroupsPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ParametersSearchGroupsPost`: []ParameterGroupModel
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersSearchGroupsPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersSearchGroupsPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ParameterFilterModel(parameterFilterModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersSearchGroupsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ParametersSearchGroupsPost`: []ParameterGroupModel
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.ApiV2ParametersSearchGroupsPost`: %v\n", resp)
 }
 ```
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md) |  | 
+ **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md) |  | 
 
 ### Return type
 
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ParametersSearchPost
 
-> []ParameterModel ApiV2ParametersSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
+> []ParameterModel ApiV2ParametersSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ParameterFilterModel(parameterFilterModel).Execute()
 
 Search for parameters
 
@@ -517,29 +517,29 @@ Search for parameters
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2ParametersSearchPostRequest := *openapiclient.NewApiV2ParametersSearchPostRequest() // ApiV2ParametersSearchPostRequest |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	parameterFilterModel := *openapiclient.NewParameterFilterModel() // ParameterFilterModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.ApiV2ParametersSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ParametersSearchPostRequest(apiV2ParametersSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.ApiV2ParametersSearchPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ParametersSearchPost`: []ParameterModel
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.ApiV2ParametersSearchPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ParameterFilterModel(parameterFilterModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersSearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ParametersSearchPost`: []ParameterModel
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.ApiV2ParametersSearchPost`: %v\n", resp)
 }
 ```
 
@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2ParametersSearchPostRequest** | [**ApiV2ParametersSearchPostRequest**](ApiV2ParametersSearchPostRequest.md) |  | 
+ **parameterFilterModel** | [**ParameterFilterModel**](ParameterFilterModel.md) |  | 
 
 ### Return type
 
@@ -581,7 +581,7 @@ Name | Type | Description  | Notes
 
 ## CreateParameter
 
-> ParameterModel CreateParameter(ctx).CreateParameterRequest(createParameterRequest).Execute()
+> ParameterModel CreateParameter(ctx).ParameterPostModel(parameterPostModel).Execute()
 
 Create parameter
 
@@ -593,24 +593,24 @@ Create parameter
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    createParameterRequest := *openapiclient.NewCreateParameterRequest("Value_example", "Name_example") // CreateParameterRequest |  (optional)
+	parameterPostModel := *openapiclient.NewParameterPostModel("Value_example", "Name_example") // ParameterPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.CreateParameter(context.Background()).CreateParameterRequest(createParameterRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.CreateParameter``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateParameter`: ParameterModel
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.CreateParameter`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.CreateParameter(context.Background()).ParameterPostModel(parameterPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.CreateParameter``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateParameter`: ParameterModel
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.CreateParameter`: %v\n", resp)
 }
 ```
 
@@ -625,7 +625,7 @@ Other parameters are passed through a pointer to a apiCreateParameterRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createParameterRequest** | [**CreateParameterRequest**](CreateParameterRequest.md) |  | 
+ **parameterPostModel** | [**ParameterPostModel**](ParameterPostModel.md) |  | 
 
 ### Return type
 
@@ -659,22 +659,22 @@ Delete parameter by name
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    name := "name_example" // string | Name of the parameter
+	name := "name_example" // string | Name of the parameter
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ParametersApi.DeleteByName(context.Background(), name).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.DeleteByName``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ParametersAPI.DeleteByName(context.Background(), name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.DeleteByName``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -727,22 +727,22 @@ Delete parameters by parameter key identifier
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    keyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	keyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ParametersApi.DeleteByParameterKeyId(context.Background(), keyId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.DeleteByParameterKeyId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ParametersAPI.DeleteByParameterKeyId(context.Background(), keyId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.DeleteByParameterKeyId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -795,22 +795,22 @@ Delete parameter
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Parameter internal (UUID) identifier
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Parameter internal (UUID) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ParametersApi.DeleteParameter(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.DeleteParameter``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ParametersAPI.DeleteParameter(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.DeleteParameter``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -863,29 +863,29 @@ Get all parameters
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    isDeleted := true // bool | If result must consist of only actual/deleted parameters (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	isDeleted := true // bool | If result must consist of only actual/deleted parameters (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.GetAllParameters(context.Background()).IsDeleted(isDeleted).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.GetAllParameters``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAllParameters`: []ParameterModel
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.GetAllParameters`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.GetAllParameters(context.Background()).IsDeleted(isDeleted).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.GetAllParameters``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAllParameters`: []ParameterModel
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.GetAllParameters`: %v\n", resp)
 }
 ```
 
@@ -939,24 +939,24 @@ Get parameter by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Parameter internal (UUID) identifier
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Parameter internal (UUID) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ParametersApi.GetParameterById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.GetParameterById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetParameterById`: ParameterModel
-    fmt.Fprintf(os.Stdout, "Response from `ParametersApi.GetParameterById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ParametersAPI.GetParameterById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.GetParameterById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetParameterById`: ParameterModel
+	fmt.Fprintf(os.Stdout, "Response from `ParametersAPI.GetParameterById`: %v\n", resp)
 }
 ```
 
@@ -997,7 +997,7 @@ Name | Type | Description  | Notes
 
 ## UpdateParameter
 
-> UpdateParameter(ctx).UpdateParameterRequest(updateParameterRequest).Execute()
+> UpdateParameter(ctx).ParameterPutModel(parameterPutModel).Execute()
 
 Update parameter
 
@@ -1009,22 +1009,22 @@ Update parameter
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    updateParameterRequest := *openapiclient.NewUpdateParameterRequest("20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", "Value_example", "Name_example") // UpdateParameterRequest |  (optional)
+	parameterPutModel := *openapiclient.NewParameterPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "Value_example", "Name_example") // ParameterPutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ParametersApi.UpdateParameter(context.Background()).UpdateParameterRequest(updateParameterRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ParametersApi.UpdateParameter``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ParametersAPI.UpdateParameter(context.Background()).ParameterPutModel(parameterPutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.UpdateParameter``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1039,7 +1039,7 @@ Other parameters are passed through a pointer to a apiUpdateParameterRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateParameterRequest** | [**UpdateParameterRequest**](UpdateParameterRequest.md) |  | 
+ **parameterPutModel** | [**ParameterPutModel**](ParameterPutModel.md) |  | 
 
 ### Return type
 

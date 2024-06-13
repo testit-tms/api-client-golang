@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ParameterGroupModel type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type ParameterGroupModel struct {
 	Values map[string]string `json:"values"`
 	ParameterKeyId string `json:"parameterKeyId"`
 }
+
+type _ParameterGroupModel ParameterGroupModel
 
 // NewParameterGroupModel instantiates a new ParameterGroupModel object
 // This constructor will assign default values to properties that have it defined,
@@ -130,6 +134,45 @@ func (o ParameterGroupModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["values"] = o.Values
 	toSerialize["parameterKeyId"] = o.ParameterKeyId
 	return toSerialize, nil
+}
+
+func (o *ParameterGroupModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"values",
+		"parameterKeyId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varParameterGroupModel := _ParameterGroupModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varParameterGroupModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ParameterGroupModel(varParameterGroupModel)
+
+	return err
 }
 
 type NullableParameterGroupModel struct {

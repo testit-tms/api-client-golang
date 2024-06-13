@@ -20,12 +20,12 @@ import (
 )
 
 
-// BackgroundJobsApiService BackgroundJobsApi service
-type BackgroundJobsApiService service
+// BackgroundJobsAPIService BackgroundJobsAPI service
+type BackgroundJobsAPIService service
 
 type ApiApiV2BackgroundJobsGetRequest struct {
 	ctx context.Context
-	ApiService *BackgroundJobsApiService
+	ApiService *BackgroundJobsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
@@ -75,7 +75,7 @@ ApiV2BackgroundJobsGet Method for ApiV2BackgroundJobsGet
 
 Deprecated
 */
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsGet(ctx context.Context) ApiApiV2BackgroundJobsGetRequest {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsGet(ctx context.Context) ApiApiV2BackgroundJobsGetRequest {
 	return ApiApiV2BackgroundJobsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -85,7 +85,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsGet(ctx context.Context) A
 // Execute executes the request
 //  @return []BackgroundJobGetModel
 // Deprecated
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsGetExecute(r ApiApiV2BackgroundJobsGetRequest) ([]BackgroundJobGetModel, *http.Response, error) {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsGetExecute(r ApiApiV2BackgroundJobsGetRequest) ([]BackgroundJobGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -93,7 +93,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsGetExecute(r ApiApiV2Backg
 		localVarReturnValue  []BackgroundJobGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsApiService.ApiV2BackgroundJobsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsAPIService.ApiV2BackgroundJobsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -189,7 +189,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsGetExecute(r ApiApiV2Backg
 
 type ApiApiV2BackgroundJobsIdCancelPostRequest struct {
 	ctx context.Context
-	ApiService *BackgroundJobsApiService
+	ApiService *BackgroundJobsAPIService
 	id string
 }
 
@@ -204,7 +204,7 @@ ApiV2BackgroundJobsIdCancelPost Cancel current user background job
  @param id
  @return ApiApiV2BackgroundJobsIdCancelPostRequest
 */
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdCancelPost(ctx context.Context, id string) ApiApiV2BackgroundJobsIdCancelPostRequest {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsIdCancelPost(ctx context.Context, id string) ApiApiV2BackgroundJobsIdCancelPostRequest {
 	return ApiApiV2BackgroundJobsIdCancelPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -213,14 +213,14 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdCancelPost(ctx context.C
 }
 
 // Execute executes the request
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdCancelPostExecute(r ApiApiV2BackgroundJobsIdCancelPostRequest) (*http.Response, error) {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsIdCancelPostExecute(r ApiApiV2BackgroundJobsIdCancelPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsApiService.ApiV2BackgroundJobsIdCancelPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsAPIService.ApiV2BackgroundJobsIdCancelPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -293,7 +293,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdCancelPostExecute(r ApiA
 
 type ApiApiV2BackgroundJobsIdGetRequest struct {
 	ctx context.Context
-	ApiService *BackgroundJobsApiService
+	ApiService *BackgroundJobsAPIService
 	id string
 }
 
@@ -308,7 +308,7 @@ ApiV2BackgroundJobsIdGet Get background job by ID
  @param id Unique ID of the background job
  @return ApiApiV2BackgroundJobsIdGetRequest
 */
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdGet(ctx context.Context, id string) ApiApiV2BackgroundJobsIdGetRequest {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsIdGet(ctx context.Context, id string) ApiApiV2BackgroundJobsIdGetRequest {
 	return ApiApiV2BackgroundJobsIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -318,7 +318,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdGet(ctx context.Context,
 
 // Execute executes the request
 //  @return BackgroundJobGetModel
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdGetExecute(r ApiApiV2BackgroundJobsIdGetRequest) (*BackgroundJobGetModel, *http.Response, error) {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsIdGetExecute(r ApiApiV2BackgroundJobsIdGetRequest) (*BackgroundJobGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -326,7 +326,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdGetExecute(r ApiApiV2Bac
 		localVarReturnValue  *BackgroundJobGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsApiService.ApiV2BackgroundJobsIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsAPIService.ApiV2BackgroundJobsIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -408,7 +408,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdGetExecute(r ApiApiV2Bac
 
 type ApiApiV2BackgroundJobsIdStatusGetRequest struct {
 	ctx context.Context
-	ApiService *BackgroundJobsApiService
+	ApiService *BackgroundJobsAPIService
 	id string
 }
 
@@ -423,7 +423,7 @@ ApiV2BackgroundJobsIdStatusGet Get background job status by job ID
  @param id Unique ID of the background job
  @return ApiApiV2BackgroundJobsIdStatusGetRequest
 */
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdStatusGet(ctx context.Context, id string) ApiApiV2BackgroundJobsIdStatusGetRequest {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsIdStatusGet(ctx context.Context, id string) ApiApiV2BackgroundJobsIdStatusGetRequest {
 	return ApiApiV2BackgroundJobsIdStatusGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -433,7 +433,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdStatusGet(ctx context.Co
 
 // Execute executes the request
 //  @return BackgroundJobState
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdStatusGetExecute(r ApiApiV2BackgroundJobsIdStatusGetRequest) (*BackgroundJobState, *http.Response, error) {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsIdStatusGetExecute(r ApiApiV2BackgroundJobsIdStatusGetRequest) (*BackgroundJobState, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -441,7 +441,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdStatusGetExecute(r ApiAp
 		localVarReturnValue  *BackgroundJobState
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsApiService.ApiV2BackgroundJobsIdStatusGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsAPIService.ApiV2BackgroundJobsIdStatusGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -523,13 +523,13 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsIdStatusGetExecute(r ApiAp
 
 type ApiApiV2BackgroundJobsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *BackgroundJobsApiService
+	ApiService *BackgroundJobsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2BackgroundJobsSearchPostRequest *ApiV2BackgroundJobsSearchPostRequest
+	backgroundJobFilterModel *BackgroundJobFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -562,8 +562,8 @@ func (r ApiApiV2BackgroundJobsSearchPostRequest) SearchValue(searchValue string)
 	return r
 }
 
-func (r ApiApiV2BackgroundJobsSearchPostRequest) ApiV2BackgroundJobsSearchPostRequest(apiV2BackgroundJobsSearchPostRequest ApiV2BackgroundJobsSearchPostRequest) ApiApiV2BackgroundJobsSearchPostRequest {
-	r.apiV2BackgroundJobsSearchPostRequest = &apiV2BackgroundJobsSearchPostRequest
+func (r ApiApiV2BackgroundJobsSearchPostRequest) BackgroundJobFilterModel(backgroundJobFilterModel BackgroundJobFilterModel) ApiApiV2BackgroundJobsSearchPostRequest {
+	r.backgroundJobFilterModel = &backgroundJobFilterModel
 	return r
 }
 
@@ -577,7 +577,7 @@ ApiV2BackgroundJobsSearchPost Search for user background jobs
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2BackgroundJobsSearchPostRequest
 */
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsSearchPost(ctx context.Context) ApiApiV2BackgroundJobsSearchPostRequest {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsSearchPost(ctx context.Context) ApiApiV2BackgroundJobsSearchPostRequest {
 	return ApiApiV2BackgroundJobsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -586,7 +586,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsSearchPost(ctx context.Con
 
 // Execute executes the request
 //  @return []BackgroundJobGetModel
-func (a *BackgroundJobsApiService) ApiV2BackgroundJobsSearchPostExecute(r ApiApiV2BackgroundJobsSearchPostRequest) ([]BackgroundJobGetModel, *http.Response, error) {
+func (a *BackgroundJobsAPIService) ApiV2BackgroundJobsSearchPostExecute(r ApiApiV2BackgroundJobsSearchPostRequest) ([]BackgroundJobGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -594,7 +594,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsSearchPostExecute(r ApiApi
 		localVarReturnValue  []BackgroundJobGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsApiService.ApiV2BackgroundJobsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BackgroundJobsAPIService.ApiV2BackgroundJobsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -638,7 +638,7 @@ func (a *BackgroundJobsApiService) ApiV2BackgroundJobsSearchPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2BackgroundJobsSearchPostRequest
+	localVarPostBody = r.backgroundJobFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

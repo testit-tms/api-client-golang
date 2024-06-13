@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Analytic** | [**TestPlanWithAnalyticModelAnalytic**](TestPlanWithAnalyticModelAnalytic.md) |  | 
+**Analytic** | [**TestPointAnalyticResult**](TestPointAnalyticResult.md) |  | 
 **Status** | [**TestPlanStatusModel**](TestPlanStatusModel.md) |  | 
 **StartedOn** | Pointer to **NullableTime** | Set when test plan is starter (status changed to: In Progress) | [optional] 
 **CompletedOn** | Pointer to **NullableTime** | set when test plan status is completed (status changed to: Completed) | [optional] 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewTestPlanWithAnalyticModel
 
-`func NewTestPlanWithAnalyticModel(analytic TestPlanWithAnalyticModelAnalytic, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}, ) *TestPlanWithAnalyticModel`
+`func NewTestPlanWithAnalyticModel(analytic TestPointAnalyticResult, status TestPlanStatusModel, createdById string, globalId int64, isDeleted bool, id string, name string, projectId string, attributes map[string]interface{}, ) *TestPlanWithAnalyticModel`
 
 NewTestPlanWithAnalyticModel instantiates a new TestPlanWithAnalyticModel object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAnalytic
 
-`func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPlanWithAnalyticModelAnalytic`
+`func (o *TestPlanWithAnalyticModel) GetAnalytic() TestPointAnalyticResult`
 
 GetAnalytic returns the Analytic field if non-nil, zero value otherwise.
 
 ### GetAnalyticOk
 
-`func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPlanWithAnalyticModelAnalytic, bool)`
+`func (o *TestPlanWithAnalyticModel) GetAnalyticOk() (*TestPointAnalyticResult, bool)`
 
 GetAnalyticOk returns a tuple with the Analytic field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAnalytic
 
-`func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPlanWithAnalyticModelAnalytic)`
+`func (o *TestPlanWithAnalyticModel) SetAnalytic(v TestPointAnalyticResult)`
 
 SetAnalytic sets Analytic field to given value.
 

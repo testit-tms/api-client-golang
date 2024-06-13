@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestRunUpdateMultipleModel type satisfies the MappedNullable interface at compile time
@@ -19,17 +21,19 @@ var _ MappedNullable = &TestRunUpdateMultipleModel{}
 
 // TestRunUpdateMultipleModel struct for TestRunUpdateMultipleModel
 type TestRunUpdateMultipleModel struct {
-	SelectModel TestRunSelectionModel `json:"selectModel"`
+	SelectModel TestRunSelectModel `json:"selectModel"`
 	Description NullableString `json:"description,omitempty"`
-	AttachmentUpdateScheme SetOfAttachmentIds `json:"attachmentUpdateScheme"`
-	LinkUpdateScheme SetOfLinks `json:"linkUpdateScheme"`
+	AttachmentUpdateScheme UpdateAttachmentShortModel `json:"attachmentUpdateScheme"`
+	LinkUpdateScheme UpdateLinkShortModel `json:"linkUpdateScheme"`
 }
+
+type _TestRunUpdateMultipleModel TestRunUpdateMultipleModel
 
 // NewTestRunUpdateMultipleModel instantiates a new TestRunUpdateMultipleModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunUpdateMultipleModel(selectModel TestRunSelectionModel, attachmentUpdateScheme SetOfAttachmentIds, linkUpdateScheme SetOfLinks) *TestRunUpdateMultipleModel {
+func NewTestRunUpdateMultipleModel(selectModel TestRunSelectModel, attachmentUpdateScheme UpdateAttachmentShortModel, linkUpdateScheme UpdateLinkShortModel) *TestRunUpdateMultipleModel {
 	this := TestRunUpdateMultipleModel{}
 	this.SelectModel = selectModel
 	this.AttachmentUpdateScheme = attachmentUpdateScheme
@@ -46,9 +50,9 @@ func NewTestRunUpdateMultipleModelWithDefaults() *TestRunUpdateMultipleModel {
 }
 
 // GetSelectModel returns the SelectModel field value
-func (o *TestRunUpdateMultipleModel) GetSelectModel() TestRunSelectionModel {
+func (o *TestRunUpdateMultipleModel) GetSelectModel() TestRunSelectModel {
 	if o == nil {
-		var ret TestRunSelectionModel
+		var ret TestRunSelectModel
 		return ret
 	}
 
@@ -57,7 +61,7 @@ func (o *TestRunUpdateMultipleModel) GetSelectModel() TestRunSelectionModel {
 
 // GetSelectModelOk returns a tuple with the SelectModel field value
 // and a boolean to check if the value has been set.
-func (o *TestRunUpdateMultipleModel) GetSelectModelOk() (*TestRunSelectionModel, bool) {
+func (o *TestRunUpdateMultipleModel) GetSelectModelOk() (*TestRunSelectModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +69,7 @@ func (o *TestRunUpdateMultipleModel) GetSelectModelOk() (*TestRunSelectionModel,
 }
 
 // SetSelectModel sets field value
-func (o *TestRunUpdateMultipleModel) SetSelectModel(v TestRunSelectionModel) {
+func (o *TestRunUpdateMultipleModel) SetSelectModel(v TestRunSelectModel) {
 	o.SelectModel = v
 }
 
@@ -112,9 +116,9 @@ func (o *TestRunUpdateMultipleModel) UnsetDescription() {
 }
 
 // GetAttachmentUpdateScheme returns the AttachmentUpdateScheme field value
-func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateScheme() SetOfAttachmentIds {
+func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateScheme() UpdateAttachmentShortModel {
 	if o == nil {
-		var ret SetOfAttachmentIds
+		var ret UpdateAttachmentShortModel
 		return ret
 	}
 
@@ -123,7 +127,7 @@ func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateScheme() SetOfAttachment
 
 // GetAttachmentUpdateSchemeOk returns a tuple with the AttachmentUpdateScheme field value
 // and a boolean to check if the value has been set.
-func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateSchemeOk() (*SetOfAttachmentIds, bool) {
+func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateSchemeOk() (*UpdateAttachmentShortModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -131,14 +135,14 @@ func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateSchemeOk() (*SetOfAttach
 }
 
 // SetAttachmentUpdateScheme sets field value
-func (o *TestRunUpdateMultipleModel) SetAttachmentUpdateScheme(v SetOfAttachmentIds) {
+func (o *TestRunUpdateMultipleModel) SetAttachmentUpdateScheme(v UpdateAttachmentShortModel) {
 	o.AttachmentUpdateScheme = v
 }
 
 // GetLinkUpdateScheme returns the LinkUpdateScheme field value
-func (o *TestRunUpdateMultipleModel) GetLinkUpdateScheme() SetOfLinks {
+func (o *TestRunUpdateMultipleModel) GetLinkUpdateScheme() UpdateLinkShortModel {
 	if o == nil {
-		var ret SetOfLinks
+		var ret UpdateLinkShortModel
 		return ret
 	}
 
@@ -147,7 +151,7 @@ func (o *TestRunUpdateMultipleModel) GetLinkUpdateScheme() SetOfLinks {
 
 // GetLinkUpdateSchemeOk returns a tuple with the LinkUpdateScheme field value
 // and a boolean to check if the value has been set.
-func (o *TestRunUpdateMultipleModel) GetLinkUpdateSchemeOk() (*SetOfLinks, bool) {
+func (o *TestRunUpdateMultipleModel) GetLinkUpdateSchemeOk() (*UpdateLinkShortModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -155,7 +159,7 @@ func (o *TestRunUpdateMultipleModel) GetLinkUpdateSchemeOk() (*SetOfLinks, bool)
 }
 
 // SetLinkUpdateScheme sets field value
-func (o *TestRunUpdateMultipleModel) SetLinkUpdateScheme(v SetOfLinks) {
+func (o *TestRunUpdateMultipleModel) SetLinkUpdateScheme(v UpdateLinkShortModel) {
 	o.LinkUpdateScheme = v
 }
 
@@ -176,6 +180,45 @@ func (o TestRunUpdateMultipleModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["attachmentUpdateScheme"] = o.AttachmentUpdateScheme
 	toSerialize["linkUpdateScheme"] = o.LinkUpdateScheme
 	return toSerialize, nil
+}
+
+func (o *TestRunUpdateMultipleModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"selectModel",
+		"attachmentUpdateScheme",
+		"linkUpdateScheme",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestRunUpdateMultipleModel := _TestRunUpdateMultipleModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestRunUpdateMultipleModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestRunUpdateMultipleModel(varTestRunUpdateMultipleModel)
+
+	return err
 }
 
 type NullableTestRunUpdateMultipleModel struct {

@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WorkItemShortModel type satisfies the MappedNullable interface at compile time
@@ -65,6 +67,8 @@ type WorkItemShortModel struct {
 	// Set of links related to Work Item
 	Links []LinkShortModel `json:"links"`
 }
+
+type _WorkItemShortModel WorkItemShortModel
 
 // NewWorkItemShortModel instantiates a new WorkItemShortModel object
 // This constructor will assign default values to properties that have it defined,
@@ -788,6 +792,59 @@ func (o WorkItemShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["iterations"] = o.Iterations
 	toSerialize["links"] = o.Links
 	return toSerialize, nil
+}
+
+func (o *WorkItemShortModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"versionId",
+		"versionNumber",
+		"name",
+		"entityTypeName",
+		"projectId",
+		"sectionId",
+		"sectionName",
+		"isAutomated",
+		"globalId",
+		"duration",
+		"createdById",
+		"state",
+		"priority",
+		"isDeleted",
+		"iterations",
+		"links",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWorkItemShortModel := _WorkItemShortModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWorkItemShortModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WorkItemShortModel(varWorkItemShortModel)
+
+	return err
 }
 
 type NullableWorkItemShortModel struct {

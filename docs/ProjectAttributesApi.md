@@ -1,21 +1,21 @@
-# \ProjectAttributesApi
+# \ProjectAttributesAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateProjectsAttribute**](ProjectAttributesApi.md#CreateProjectsAttribute) | **Post** /api/v2/projects/{projectId}/attributes | Create project attribute
-[**DeleteProjectsAttribute**](ProjectAttributesApi.md#DeleteProjectsAttribute) | **Delete** /api/v2/projects/{projectId}/attributes/{attributeId} | Delete project attribute
-[**GetAttributeByProjectId**](ProjectAttributesApi.md#GetAttributeByProjectId) | **Get** /api/v2/projects/{projectId}/attributes/{attributeId} | Get project attribute
-[**GetAttributesByProjectId**](ProjectAttributesApi.md#GetAttributesByProjectId) | **Get** /api/v2/projects/{projectId}/attributes | Get project attributes
-[**SearchAttributesInProject**](ProjectAttributesApi.md#SearchAttributesInProject) | **Post** /api/v2/projects/{projectId}/attributes/search | Search for attributes used in the project
-[**UpdateProjectsAttribute**](ProjectAttributesApi.md#UpdateProjectsAttribute) | **Put** /api/v2/projects/{projectId}/attributes | Edit attribute of the project
+[**CreateProjectsAttribute**](ProjectAttributesAPI.md#CreateProjectsAttribute) | **Post** /api/v2/projects/{projectId}/attributes | Create project attribute
+[**DeleteProjectsAttribute**](ProjectAttributesAPI.md#DeleteProjectsAttribute) | **Delete** /api/v2/projects/{projectId}/attributes/{attributeId} | Delete project attribute
+[**GetAttributeByProjectId**](ProjectAttributesAPI.md#GetAttributeByProjectId) | **Get** /api/v2/projects/{projectId}/attributes/{attributeId} | Get project attribute
+[**GetAttributesByProjectId**](ProjectAttributesAPI.md#GetAttributesByProjectId) | **Get** /api/v2/projects/{projectId}/attributes | Get project attributes
+[**SearchAttributesInProject**](ProjectAttributesAPI.md#SearchAttributesInProject) | **Post** /api/v2/projects/{projectId}/attributes/search | Search for attributes used in the project
+[**UpdateProjectsAttribute**](ProjectAttributesAPI.md#UpdateProjectsAttribute) | **Put** /api/v2/projects/{projectId}/attributes | Edit attribute of the project
 
 
 
 ## CreateProjectsAttribute
 
-> CustomAttributeModel CreateProjectsAttribute(ctx, projectId).CreateProjectsAttributeRequest(createProjectsAttributeRequest).Execute()
+> CustomAttributeModel CreateProjectsAttribute(ctx, projectId).CustomAttributePostModel(customAttributePostModel).Execute()
 
 Create project attribute
 
@@ -27,25 +27,25 @@ Create project attribute
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    createProjectsAttributeRequest := *openapiclient.NewCreateProjectsAttributeRequest(openapiclient.CustomAttributeTypesEnum("string"), "Name_example", false, false, false) // CreateProjectsAttributeRequest |  (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	customAttributePostModel := *openapiclient.NewCustomAttributePostModel(openapiclient.CustomAttributeTypesEnum("string"), "Name_example", false, false, false) // CustomAttributePostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectAttributesApi.CreateProjectsAttribute(context.Background(), projectId).CreateProjectsAttributeRequest(createProjectsAttributeRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesApi.CreateProjectsAttribute``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateProjectsAttribute`: CustomAttributeModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesApi.CreateProjectsAttribute`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectAttributesAPI.CreateProjectsAttribute(context.Background(), projectId).CustomAttributePostModel(customAttributePostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesAPI.CreateProjectsAttribute``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateProjectsAttribute`: CustomAttributeModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesAPI.CreateProjectsAttribute`: %v\n", resp)
 }
 ```
 
@@ -65,7 +65,7 @@ Other parameters are passed through a pointer to a apiCreateProjectsAttributeReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **createProjectsAttributeRequest** | [**CreateProjectsAttributeRequest**](CreateProjectsAttributeRequest.md) |  | 
+ **customAttributePostModel** | [**CustomAttributePostModel**](CustomAttributePostModel.md) |  | 
 
 ### Return type
 
@@ -99,23 +99,23 @@ Delete project attribute
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    attributeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project attribute internal (UUID)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	attributeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project attribute internal (UUID)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectAttributesApi.DeleteProjectsAttribute(context.Background(), projectId, attributeId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesApi.DeleteProjectsAttribute``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectAttributesAPI.DeleteProjectsAttribute(context.Background(), projectId, attributeId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesAPI.DeleteProjectsAttribute``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -170,25 +170,25 @@ Get project attribute
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    attributeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project attribute internal (UUID) or global (integer) identifier
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	attributeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project attribute internal (UUID) or global (integer) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectAttributesApi.GetAttributeByProjectId(context.Background(), projectId, attributeId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesApi.GetAttributeByProjectId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAttributeByProjectId`: CustomAttributeModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesApi.GetAttributeByProjectId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectAttributesAPI.GetAttributeByProjectId(context.Background(), projectId, attributeId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesAPI.GetAttributeByProjectId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAttributeByProjectId`: CustomAttributeModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesAPI.GetAttributeByProjectId`: %v\n", resp)
 }
 ```
 
@@ -243,25 +243,25 @@ Get project attributes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional) (default to "NotDeleted")
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional) (default to "NotDeleted")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectAttributesApi.GetAttributesByProjectId(context.Background(), projectId).IsDeleted(isDeleted).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesApi.GetAttributesByProjectId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAttributesByProjectId`: []CustomAttributeModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesApi.GetAttributesByProjectId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectAttributesAPI.GetAttributesByProjectId(context.Background(), projectId).IsDeleted(isDeleted).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesAPI.GetAttributesByProjectId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAttributesByProjectId`: []CustomAttributeModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesAPI.GetAttributesByProjectId`: %v\n", resp)
 }
 ```
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## SearchAttributesInProject
 
-> []CustomAttributeGetModel SearchAttributesInProject(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchAttributesInProjectRequest(searchAttributesInProjectRequest).Execute()
+> []CustomAttributeGetModel SearchAttributesInProject(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
 
 Search for attributes used in the project
 
@@ -313,30 +313,30 @@ Search for attributes used in the project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Unique or global project ID
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    searchAttributesInProjectRequest := *openapiclient.NewSearchAttributesInProjectRequest("Name_example", []openapiclient.CustomAttributeTypesEnum{openapiclient.CustomAttributeTypesEnum("string")}) // SearchAttributesInProjectRequest |  (optional)
+	projectId := "projectId_example" // string | Unique or global project ID
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	projectAttributesFilterModel := *openapiclient.NewProjectAttributesFilterModel("Name_example", []openapiclient.CustomAttributeTypesEnum{openapiclient.CustomAttributeTypesEnum("string")}) // ProjectAttributesFilterModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectAttributesApi.SearchAttributesInProject(context.Background(), projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchAttributesInProjectRequest(searchAttributesInProjectRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesApi.SearchAttributesInProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SearchAttributesInProject`: []CustomAttributeGetModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesApi.SearchAttributesInProject`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectAttributesAPI.SearchAttributesInProject(context.Background(), projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesAPI.SearchAttributesInProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SearchAttributesInProject`: []CustomAttributeGetModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesAPI.SearchAttributesInProject`: %v\n", resp)
 }
 ```
 
@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **searchAttributesInProjectRequest** | [**SearchAttributesInProjectRequest**](SearchAttributesInProjectRequest.md) |  | 
+ **projectAttributesFilterModel** | [**ProjectAttributesFilterModel**](ProjectAttributesFilterModel.md) |  | 
 
 ### Return type
 
@@ -383,7 +383,7 @@ Name | Type | Description  | Notes
 
 ## UpdateProjectsAttribute
 
-> UpdateProjectsAttribute(ctx, projectId).UpdateProjectsAttributeRequest(updateProjectsAttributeRequest).Execute()
+> UpdateProjectsAttribute(ctx, projectId).CustomAttributePutModel(customAttributePutModel).Execute()
 
 Edit attribute of the project
 
@@ -393,23 +393,23 @@ Edit attribute of the project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Unique or global project ID
-    updateProjectsAttributeRequest := *openapiclient.NewUpdateProjectsAttributeRequest("Id_example", openapiclient.CustomAttributeTypesEnum("string"), false, "Name_example", false, false, false) // UpdateProjectsAttributeRequest |  (optional)
+	projectId := "projectId_example" // string | Unique or global project ID
+	customAttributePutModel := *openapiclient.NewCustomAttributePutModel("Id_example", openapiclient.CustomAttributeTypesEnum("string"), false, "Name_example", false, false, false) // CustomAttributePutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectAttributesApi.UpdateProjectsAttribute(context.Background(), projectId).UpdateProjectsAttributeRequest(updateProjectsAttributeRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesApi.UpdateProjectsAttribute``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectAttributesAPI.UpdateProjectsAttribute(context.Background(), projectId).CustomAttributePutModel(customAttributePutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesAPI.UpdateProjectsAttribute``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -429,7 +429,7 @@ Other parameters are passed through a pointer to a apiUpdateProjectsAttributeReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateProjectsAttributeRequest** | [**UpdateProjectsAttributeRequest**](UpdateProjectsAttributeRequest.md) |  | 
+ **customAttributePutModel** | [**CustomAttributePutModel**](CustomAttributePutModel.md) |  | 
 
 ### Return type
 

@@ -21,19 +21,19 @@ import (
 )
 
 
-// ProjectWorkItemsApiService ProjectWorkItemsApi service
-type ProjectWorkItemsApiService service
+// ProjectWorkItemsAPIService ProjectWorkItemsAPI service
+type ProjectWorkItemsAPIService service
 
 type ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectWorkItemsApiService
+	ApiService *ProjectWorkItemsAPIService
 	projectId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest *ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
+	workItemGroupGetModel *WorkItemGroupGetModel
 }
 
 // Amount of items to be skipped (offset)
@@ -66,8 +66,8 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) SearchValue(
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest(apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest {
-	r.apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest = &apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
+func (r ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) WorkItemGroupGetModel(workItemGroupGetModel WorkItemGroupGetModel) ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest {
+	r.workItemGroupGetModel = &workItemGroupGetModel
 	return r
 }
 
@@ -82,7 +82,7 @@ ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost Search for work items and group
  @param projectId Unique or global ID of the project
  @return ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
 */
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest {
 	return ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -92,7 +92,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchGroupe
 
 // Execute executes the request
 //  @return []WorkItemGroupModel
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) ([]WorkItemGroupModel, *http.Response, error) {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest) ([]WorkItemGroupModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -100,7 +100,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchGroupe
 		localVarReturnValue  []WorkItemGroupModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsApiService.ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsAPIService.ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -145,7 +145,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchGroupe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
+	localVarPostBody = r.workItemGroupGetModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -209,14 +209,14 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchGroupe
 
 type ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectWorkItemsApiService
+	ApiService *ProjectWorkItemsAPIService
 	projectId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2ProjectsProjectIdWorkItemsSearchPostRequest *ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	workItemSelectModel *WorkItemSelectModel
 }
 
 // Amount of items to be skipped (offset)
@@ -249,8 +249,8 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest) SearchValue(searc
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest) ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest ApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest {
-	r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest = &apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+func (r ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest {
+	r.workItemSelectModel = &workItemSelectModel
 	return r
 }
 
@@ -265,7 +265,7 @@ ApiV2ProjectsProjectIdWorkItemsSearchIdPost Search for work items and extract ID
  @param projectId Unique or global ID of the project
  @return ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest
 */
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest {
 	return ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -275,7 +275,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost
 
 // Execute executes the request
 //  @return []string
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchIdPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest) ([]string, *http.Response, error) {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchIdPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchIdPostRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -283,7 +283,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost
 		localVarReturnValue  []string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsApiService.ApiV2ProjectsProjectIdWorkItemsSearchIdPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsAPIService.ApiV2ProjectsProjectIdWorkItemsSearchIdPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -328,7 +328,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	localVarPostBody = r.workItemSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -392,14 +392,14 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost
 
 type ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *ProjectWorkItemsApiService
+	ApiService *ProjectWorkItemsAPIService
 	projectId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2ProjectsProjectIdWorkItemsSearchPostRequest *ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	workItemSelectModel *WorkItemSelectModel
 }
 
 // Amount of items to be skipped (offset)
@@ -432,8 +432,8 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) SearchValue(searchV
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest ApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest {
-	r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest = &apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest {
+	r.workItemSelectModel = &workItemSelectModel
 	return r
 }
 
@@ -448,7 +448,7 @@ ApiV2ProjectsProjectIdWorkItemsSearchPost Search for work items
  @param projectId Unique or global ID of the project
  @return ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 */
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest {
 	return ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -458,7 +458,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchPost(c
 
 // Execute executes the request
 //  @return []WorkItemShortModel
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ([]WorkItemShortModel, *http.Response, error) {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ([]WorkItemShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -466,7 +466,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchPostEx
 		localVarReturnValue  []WorkItemShortModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsApiService.ApiV2ProjectsProjectIdWorkItemsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsAPIService.ApiV2ProjectsProjectIdWorkItemsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -511,7 +511,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchPostEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	localVarPostBody = r.workItemSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -575,7 +575,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsSearchPostEx
 
 type ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest struct {
 	ctx context.Context
-	ApiService *ProjectWorkItemsApiService
+	ApiService *ProjectWorkItemsAPIService
 	projectId string
 	isDeleted *bool
 }
@@ -601,7 +601,7 @@ ApiV2ProjectsProjectIdWorkItemsTagsGet Get WorkItems Tags
  @param projectId Project internal (UUID) identifier
  @return ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest
 */
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGet(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsTagsGet(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest {
 	return ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -611,7 +611,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGet(ctx 
 
 // Execute executes the request
 //  @return []TagShortModel
-func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) ([]TagShortModel, *http.Response, error) {
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) ([]TagShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -619,7 +619,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecu
 		localVarReturnValue  []TagShortModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsApiService.ApiV2ProjectsProjectIdWorkItemsTagsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsAPIService.ApiV2ProjectsProjectIdWorkItemsTagsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -704,7 +704,7 @@ func (a *ProjectWorkItemsApiService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecu
 
 type ApiGetWorkItemsByProjectIdRequest struct {
 	ctx context.Context
-	ApiService *ProjectWorkItemsApiService
+	ApiService *ProjectWorkItemsAPIService
 	projectId string
 	isDeleted *bool
 	tagNames *[]string
@@ -786,7 +786,7 @@ GetWorkItemsByProjectId Get project work items
 
 Deprecated
 */
-func (a *ProjectWorkItemsApiService) GetWorkItemsByProjectId(ctx context.Context, projectId string) ApiGetWorkItemsByProjectIdRequest {
+func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectId(ctx context.Context, projectId string) ApiGetWorkItemsByProjectIdRequest {
 	return ApiGetWorkItemsByProjectIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -797,7 +797,7 @@ func (a *ProjectWorkItemsApiService) GetWorkItemsByProjectId(ctx context.Context
 // Execute executes the request
 //  @return []WorkItemShortModel
 // Deprecated
-func (a *ProjectWorkItemsApiService) GetWorkItemsByProjectIdExecute(r ApiGetWorkItemsByProjectIdRequest) ([]WorkItemShortModel, *http.Response, error) {
+func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectIdExecute(r ApiGetWorkItemsByProjectIdRequest) ([]WorkItemShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -805,7 +805,7 @@ func (a *ProjectWorkItemsApiService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 		localVarReturnValue  []WorkItemShortModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsApiService.GetWorkItemsByProjectId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsAPIService.GetWorkItemsByProjectId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -819,13 +819,16 @@ func (a *ProjectWorkItemsApiService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+	} else {
+		var defaultValue bool = false
+		r.isDeleted = &defaultValue
 	}
 	if r.tagNames != nil {
 		t := *r.tagNames
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", t, "multi")
@@ -833,6 +836,9 @@ func (a *ProjectWorkItemsApiService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 	}
 	if r.includeIterations != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", r.includeIterations, "")
+	} else {
+		var defaultValue bool = true
+		r.includeIterations = &defaultValue
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")

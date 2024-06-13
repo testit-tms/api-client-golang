@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ProjectShortestModel type satisfies the MappedNullable interface at compile time
@@ -28,6 +30,8 @@ type ProjectShortestModel struct {
 	// Name of project
 	Name string `json:"name"`
 }
+
+type _ProjectShortestModel ProjectShortestModel
 
 // NewProjectShortestModel instantiates a new ProjectShortestModel object
 // This constructor will assign default values to properties that have it defined,
@@ -161,6 +165,46 @@ func (o ProjectShortestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
+}
+
+func (o *ProjectShortestModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"isDeleted",
+		"globalId",
+		"name",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varProjectShortestModel := _ProjectShortestModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varProjectShortestModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProjectShortestModel(varProjectShortestModel)
+
+	return err
 }
 
 type NullableProjectShortestModel struct {

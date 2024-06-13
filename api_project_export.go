@@ -21,15 +21,15 @@ import (
 )
 
 
-// ProjectExportApiService ProjectExportApi service
-type ProjectExportApiService service
+// ProjectExportAPIService ProjectExportAPI service
+type ProjectExportAPIService service
 
 type ApiExportRequest struct {
 	ctx context.Context
-	ApiService *ProjectExportApiService
+	ApiService *ProjectExportAPIService
 	projectId string
 	includeAttachments *bool
-	exportProjectJsonRequest *ExportProjectJsonRequest
+	projectExportQueryModel *ProjectExportQueryModel
 }
 
 // Enables attachment export.
@@ -38,8 +38,8 @@ func (r ApiExportRequest) IncludeAttachments(includeAttachments bool) ApiExportR
 	return r
 }
 
-func (r ApiExportRequest) ExportProjectJsonRequest(exportProjectJsonRequest ExportProjectJsonRequest) ApiExportRequest {
-	r.exportProjectJsonRequest = &exportProjectJsonRequest
+func (r ApiExportRequest) ProjectExportQueryModel(projectExportQueryModel ProjectExportQueryModel) ApiExportRequest {
+	r.projectExportQueryModel = &projectExportQueryModel
 	return r
 }
 
@@ -72,7 +72,7 @@ Export Export project as JSON file
 
 Deprecated
 */
-func (a *ProjectExportApiService) Export(ctx context.Context, projectId string) ApiExportRequest {
+func (a *ProjectExportAPIService) Export(ctx context.Context, projectId string) ApiExportRequest {
 	return ApiExportRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -83,7 +83,7 @@ func (a *ProjectExportApiService) Export(ctx context.Context, projectId string) 
 // Execute executes the request
 //  @return *os.File
 // Deprecated
-func (a *ProjectExportApiService) ExportExecute(r ApiExportRequest) (*os.File, *http.Response, error) {
+func (a *ProjectExportAPIService) ExportExecute(r ApiExportRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -91,7 +91,7 @@ func (a *ProjectExportApiService) ExportExecute(r ApiExportRequest) (*os.File, *
 		localVarReturnValue  *os.File
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportApiService.Export")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportAPIService.Export")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -105,6 +105,9 @@ func (a *ProjectExportApiService) ExportExecute(r ApiExportRequest) (*os.File, *
 
 	if r.includeAttachments != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeAttachments", r.includeAttachments, "")
+	} else {
+		var defaultValue bool = false
+		r.includeAttachments = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -124,7 +127,7 @@ func (a *ProjectExportApiService) ExportExecute(r ApiExportRequest) (*os.File, *
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.exportProjectJsonRequest
+	localVarPostBody = r.projectExportQueryModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -189,10 +192,10 @@ func (a *ProjectExportApiService) ExportExecute(r ApiExportRequest) (*os.File, *
 
 type ApiExportProjectJsonRequest struct {
 	ctx context.Context
-	ApiService *ProjectExportApiService
+	ApiService *ProjectExportAPIService
 	projectId string
 	timeZoneOffsetInMinutes *int64
-	exportProjectJsonRequest *ExportProjectJsonRequest
+	projectExportQueryModel *ProjectExportQueryModel
 }
 
 func (r ApiExportProjectJsonRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectJsonRequest {
@@ -200,8 +203,8 @@ func (r ApiExportProjectJsonRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMin
 	return r
 }
 
-func (r ApiExportProjectJsonRequest) ExportProjectJsonRequest(exportProjectJsonRequest ExportProjectJsonRequest) ApiExportProjectJsonRequest {
-	r.exportProjectJsonRequest = &exportProjectJsonRequest
+func (r ApiExportProjectJsonRequest) ProjectExportQueryModel(projectExportQueryModel ProjectExportQueryModel) ApiExportProjectJsonRequest {
+	r.projectExportQueryModel = &projectExportQueryModel
 	return r
 }
 
@@ -216,7 +219,7 @@ ExportProjectJson Export project as JSON file in background job
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiExportProjectJsonRequest
 */
-func (a *ProjectExportApiService) ExportProjectJson(ctx context.Context, projectId string) ApiExportProjectJsonRequest {
+func (a *ProjectExportAPIService) ExportProjectJson(ctx context.Context, projectId string) ApiExportProjectJsonRequest {
 	return ApiExportProjectJsonRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -226,7 +229,7 @@ func (a *ProjectExportApiService) ExportProjectJson(ctx context.Context, project
 
 // Execute executes the request
 //  @return string
-func (a *ProjectExportApiService) ExportProjectJsonExecute(r ApiExportProjectJsonRequest) (string, *http.Response, error) {
+func (a *ProjectExportAPIService) ExportProjectJsonExecute(r ApiExportProjectJsonRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -234,7 +237,7 @@ func (a *ProjectExportApiService) ExportProjectJsonExecute(r ApiExportProjectJso
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportApiService.ExportProjectJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportAPIService.ExportProjectJson")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -267,7 +270,7 @@ func (a *ProjectExportApiService) ExportProjectJsonExecute(r ApiExportProjectJso
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.exportProjectJsonRequest
+	localVarPostBody = r.projectExportQueryModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -331,10 +334,10 @@ func (a *ProjectExportApiService) ExportProjectJsonExecute(r ApiExportProjectJso
 
 type ApiExportProjectWithTestPlansJsonRequest struct {
 	ctx context.Context
-	ApiService *ProjectExportApiService
+	ApiService *ProjectExportAPIService
 	projectId string
 	timeZoneOffsetInMinutes *int64
-	exportProjectWithTestPlansJsonRequest *ExportProjectWithTestPlansJsonRequest
+	projectExportWithTestPlansPostModel *ProjectExportWithTestPlansPostModel
 }
 
 func (r ApiExportProjectWithTestPlansJsonRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectWithTestPlansJsonRequest {
@@ -342,8 +345,8 @@ func (r ApiExportProjectWithTestPlansJsonRequest) TimeZoneOffsetInMinutes(timeZo
 	return r
 }
 
-func (r ApiExportProjectWithTestPlansJsonRequest) ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest ExportProjectWithTestPlansJsonRequest) ApiExportProjectWithTestPlansJsonRequest {
-	r.exportProjectWithTestPlansJsonRequest = &exportProjectWithTestPlansJsonRequest
+func (r ApiExportProjectWithTestPlansJsonRequest) ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel ProjectExportWithTestPlansPostModel) ApiExportProjectWithTestPlansJsonRequest {
+	r.projectExportWithTestPlansPostModel = &projectExportWithTestPlansPostModel
 	return r
 }
 
@@ -358,7 +361,7 @@ ExportProjectWithTestPlansJson Export project as JSON file with test plans in ba
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiExportProjectWithTestPlansJsonRequest
 */
-func (a *ProjectExportApiService) ExportProjectWithTestPlansJson(ctx context.Context, projectId string) ApiExportProjectWithTestPlansJsonRequest {
+func (a *ProjectExportAPIService) ExportProjectWithTestPlansJson(ctx context.Context, projectId string) ApiExportProjectWithTestPlansJsonRequest {
 	return ApiExportProjectWithTestPlansJsonRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -368,7 +371,7 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansJson(ctx context.Con
 
 // Execute executes the request
 //  @return string
-func (a *ProjectExportApiService) ExportProjectWithTestPlansJsonExecute(r ApiExportProjectWithTestPlansJsonRequest) (string, *http.Response, error) {
+func (a *ProjectExportAPIService) ExportProjectWithTestPlansJsonExecute(r ApiExportProjectWithTestPlansJsonRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -376,7 +379,7 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansJsonExecute(r ApiExp
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportApiService.ExportProjectWithTestPlansJson")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportAPIService.ExportProjectWithTestPlansJson")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -409,7 +412,7 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansJsonExecute(r ApiExp
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.exportProjectWithTestPlansJsonRequest
+	localVarPostBody = r.projectExportWithTestPlansPostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -473,10 +476,10 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansJsonExecute(r ApiExp
 
 type ApiExportProjectWithTestPlansZipRequest struct {
 	ctx context.Context
-	ApiService *ProjectExportApiService
+	ApiService *ProjectExportAPIService
 	projectId string
 	timeZoneOffsetInMinutes *int64
-	exportProjectWithTestPlansJsonRequest *ExportProjectWithTestPlansJsonRequest
+	projectExportWithTestPlansPostModel *ProjectExportWithTestPlansPostModel
 }
 
 func (r ApiExportProjectWithTestPlansZipRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectWithTestPlansZipRequest {
@@ -484,8 +487,8 @@ func (r ApiExportProjectWithTestPlansZipRequest) TimeZoneOffsetInMinutes(timeZon
 	return r
 }
 
-func (r ApiExportProjectWithTestPlansZipRequest) ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest ExportProjectWithTestPlansJsonRequest) ApiExportProjectWithTestPlansZipRequest {
-	r.exportProjectWithTestPlansJsonRequest = &exportProjectWithTestPlansJsonRequest
+func (r ApiExportProjectWithTestPlansZipRequest) ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel ProjectExportWithTestPlansPostModel) ApiExportProjectWithTestPlansZipRequest {
+	r.projectExportWithTestPlansPostModel = &projectExportWithTestPlansPostModel
 	return r
 }
 
@@ -500,7 +503,7 @@ ExportProjectWithTestPlansZip Export project as Zip file with test plans in back
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiExportProjectWithTestPlansZipRequest
 */
-func (a *ProjectExportApiService) ExportProjectWithTestPlansZip(ctx context.Context, projectId string) ApiExportProjectWithTestPlansZipRequest {
+func (a *ProjectExportAPIService) ExportProjectWithTestPlansZip(ctx context.Context, projectId string) ApiExportProjectWithTestPlansZipRequest {
 	return ApiExportProjectWithTestPlansZipRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -510,7 +513,7 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansZip(ctx context.Cont
 
 // Execute executes the request
 //  @return string
-func (a *ProjectExportApiService) ExportProjectWithTestPlansZipExecute(r ApiExportProjectWithTestPlansZipRequest) (string, *http.Response, error) {
+func (a *ProjectExportAPIService) ExportProjectWithTestPlansZipExecute(r ApiExportProjectWithTestPlansZipRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -518,7 +521,7 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansZipExecute(r ApiExpo
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportApiService.ExportProjectWithTestPlansZip")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportAPIService.ExportProjectWithTestPlansZip")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -551,7 +554,7 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansZipExecute(r ApiExpo
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.exportProjectWithTestPlansJsonRequest
+	localVarPostBody = r.projectExportWithTestPlansPostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -615,10 +618,10 @@ func (a *ProjectExportApiService) ExportProjectWithTestPlansZipExecute(r ApiExpo
 
 type ApiExportProjectZipRequest struct {
 	ctx context.Context
-	ApiService *ProjectExportApiService
+	ApiService *ProjectExportAPIService
 	projectId string
 	timeZoneOffsetInMinutes *int64
-	exportProjectJsonRequest *ExportProjectJsonRequest
+	projectExportQueryModel *ProjectExportQueryModel
 }
 
 func (r ApiExportProjectZipRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiExportProjectZipRequest {
@@ -626,8 +629,8 @@ func (r ApiExportProjectZipRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinu
 	return r
 }
 
-func (r ApiExportProjectZipRequest) ExportProjectJsonRequest(exportProjectJsonRequest ExportProjectJsonRequest) ApiExportProjectZipRequest {
-	r.exportProjectJsonRequest = &exportProjectJsonRequest
+func (r ApiExportProjectZipRequest) ProjectExportQueryModel(projectExportQueryModel ProjectExportQueryModel) ApiExportProjectZipRequest {
+	r.projectExportQueryModel = &projectExportQueryModel
 	return r
 }
 
@@ -642,7 +645,7 @@ ExportProjectZip Export project as Zip file in background job
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiExportProjectZipRequest
 */
-func (a *ProjectExportApiService) ExportProjectZip(ctx context.Context, projectId string) ApiExportProjectZipRequest {
+func (a *ProjectExportAPIService) ExportProjectZip(ctx context.Context, projectId string) ApiExportProjectZipRequest {
 	return ApiExportProjectZipRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -652,7 +655,7 @@ func (a *ProjectExportApiService) ExportProjectZip(ctx context.Context, projectI
 
 // Execute executes the request
 //  @return string
-func (a *ProjectExportApiService) ExportProjectZipExecute(r ApiExportProjectZipRequest) (string, *http.Response, error) {
+func (a *ProjectExportAPIService) ExportProjectZipExecute(r ApiExportProjectZipRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -660,7 +663,7 @@ func (a *ProjectExportApiService) ExportProjectZipExecute(r ApiExportProjectZipR
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportApiService.ExportProjectZip")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectExportAPIService.ExportProjectZip")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -693,7 +696,7 @@ func (a *ProjectExportApiService) ExportProjectZipExecute(r ApiExportProjectZipR
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.exportProjectJsonRequest
+	localVarPostBody = r.projectExportQueryModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | [**WorkItemSelectModelFilter**](WorkItemSelectModelFilter.md) |  | 
+**Filter** | [**WorkItemFilterModel**](WorkItemFilterModel.md) |  | 
 **ExtractionModel** | Pointer to [**NullableWorkItemLocalSelectModelExtractionModel**](WorkItemLocalSelectModelExtractionModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewWorkItemSelectModel
 
-`func NewWorkItemSelectModel(filter WorkItemSelectModelFilter, ) *WorkItemSelectModel`
+`func NewWorkItemSelectModel(filter WorkItemFilterModel, ) *WorkItemSelectModel`
 
 NewWorkItemSelectModel instantiates a new WorkItemSelectModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *WorkItemSelectModel) GetFilter() WorkItemSelectModelFilter`
+`func (o *WorkItemSelectModel) GetFilter() WorkItemFilterModel`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *WorkItemSelectModel) GetFilterOk() (*WorkItemSelectModelFilter, bool)`
+`func (o *WorkItemSelectModel) GetFilterOk() (*WorkItemFilterModel, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *WorkItemSelectModel) SetFilter(v WorkItemSelectModelFilter)`
+`func (o *WorkItemSelectModel) SetFilter(v WorkItemFilterModel)`
 
 SetFilter sets Filter field to given value.
 

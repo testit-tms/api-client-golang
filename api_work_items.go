@@ -23,12 +23,12 @@ import (
 )
 
 
-// WorkItemsApiService WorkItemsApi service
-type WorkItemsApiService service
+// WorkItemsAPIService WorkItemsAPI service
+type WorkItemsAPIService service
 
 type ApiApiV2WorkItemsIdAttachmentsPostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 	file *os.File
 }
@@ -56,7 +56,7 @@ ApiV2WorkItemsIdAttachmentsPost Upload and link attachment to WorkItem
  @param id Work item internal identifier (guid format)
  @return ApiApiV2WorkItemsIdAttachmentsPostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPost(ctx context.Context, id string) ApiApiV2WorkItemsIdAttachmentsPostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdAttachmentsPost(ctx context.Context, id string) ApiApiV2WorkItemsIdAttachmentsPostRequest {
 	return ApiApiV2WorkItemsIdAttachmentsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -66,7 +66,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPost(ctx context.Contex
 
 // Execute executes the request
 //  @return string
-func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPostExecute(r ApiApiV2WorkItemsIdAttachmentsPostRequest) (string, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdAttachmentsPostExecute(r ApiApiV2WorkItemsIdAttachmentsPostRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -74,7 +74,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPostExecute(r ApiApiV2W
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdAttachmentsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdAttachmentsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -108,8 +108,6 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPostExecute(r ApiApiV2W
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
-
-
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {
@@ -227,7 +225,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdAttachmentsPostExecute(r ApiApiV2W
 
 type ApiApiV2WorkItemsIdCheckListTransformToTestCasePostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -247,7 +245,7 @@ ApiV2WorkItemsIdCheckListTransformToTestCasePost Transform CheckList to TestCase
  @param id
  @return ApiApiV2WorkItemsIdCheckListTransformToTestCasePostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdCheckListTransformToTestCasePost(ctx context.Context, id string) ApiApiV2WorkItemsIdCheckListTransformToTestCasePostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdCheckListTransformToTestCasePost(ctx context.Context, id string) ApiApiV2WorkItemsIdCheckListTransformToTestCasePostRequest {
 	return ApiApiV2WorkItemsIdCheckListTransformToTestCasePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -257,7 +255,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdCheckListTransformToTestCasePost(c
 
 // Execute executes the request
 //  @return WorkItemModel
-func (a *WorkItemsApiService) ApiV2WorkItemsIdCheckListTransformToTestCasePostExecute(r ApiApiV2WorkItemsIdCheckListTransformToTestCasePostRequest) (*WorkItemModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdCheckListTransformToTestCasePostExecute(r ApiApiV2WorkItemsIdCheckListTransformToTestCasePostRequest) (*WorkItemModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -265,7 +263,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdCheckListTransformToTestCasePostEx
 		localVarReturnValue  *WorkItemModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdCheckListTransformToTestCasePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdCheckListTransformToTestCasePost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -401,7 +399,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdCheckListTransformToTestCasePostEx
 
 type ApiApiV2WorkItemsIdHistoryGetRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 	skip *int32
 	take *int32
@@ -456,7 +454,7 @@ ApiV2WorkItemsIdHistoryGet Get change history of WorkItem
  @param id
  @return ApiApiV2WorkItemsIdHistoryGetRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdHistoryGet(ctx context.Context, id string) ApiApiV2WorkItemsIdHistoryGetRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdHistoryGet(ctx context.Context, id string) ApiApiV2WorkItemsIdHistoryGetRequest {
 	return ApiApiV2WorkItemsIdHistoryGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -466,7 +464,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdHistoryGet(ctx context.Context, id
 
 // Execute executes the request
 //  @return []WorkItemChangeModel
-func (a *WorkItemsApiService) ApiV2WorkItemsIdHistoryGetExecute(r ApiApiV2WorkItemsIdHistoryGetRequest) ([]WorkItemChangeModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdHistoryGetExecute(r ApiApiV2WorkItemsIdHistoryGetRequest) ([]WorkItemChangeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -474,7 +472,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdHistoryGetExecute(r ApiApiV2WorkIt
 		localVarReturnValue  []WorkItemChangeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdHistoryGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdHistoryGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -582,7 +580,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdHistoryGetExecute(r ApiApiV2WorkIt
 
 type ApiApiV2WorkItemsIdLikeDeleteRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -602,7 +600,7 @@ ApiV2WorkItemsIdLikeDelete Delete like from WorkItem
  @param id
  @return ApiApiV2WorkItemsIdLikeDeleteRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikeDelete(ctx context.Context, id string) ApiApiV2WorkItemsIdLikeDeleteRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikeDelete(ctx context.Context, id string) ApiApiV2WorkItemsIdLikeDeleteRequest {
 	return ApiApiV2WorkItemsIdLikeDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -611,14 +609,14 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikeDelete(ctx context.Context, id
 }
 
 // Execute executes the request
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikeDeleteExecute(r ApiApiV2WorkItemsIdLikeDeleteRequest) (*http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikeDeleteExecute(r ApiApiV2WorkItemsIdLikeDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdLikeDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdLikeDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -702,7 +700,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikeDeleteExecute(r ApiApiV2WorkIt
 
 type ApiApiV2WorkItemsIdLikePostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -722,7 +720,7 @@ ApiV2WorkItemsIdLikePost Set like to WorkItem
  @param id
  @return ApiApiV2WorkItemsIdLikePostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikePost(ctx context.Context, id string) ApiApiV2WorkItemsIdLikePostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikePost(ctx context.Context, id string) ApiApiV2WorkItemsIdLikePostRequest {
 	return ApiApiV2WorkItemsIdLikePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -731,14 +729,14 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikePost(ctx context.Context, id s
 }
 
 // Execute executes the request
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikePostExecute(r ApiApiV2WorkItemsIdLikePostRequest) (*http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikePostExecute(r ApiApiV2WorkItemsIdLikePostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdLikePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdLikePost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -822,7 +820,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikePostExecute(r ApiApiV2WorkItem
 
 type ApiApiV2WorkItemsIdLikesCountGetRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -842,7 +840,7 @@ ApiV2WorkItemsIdLikesCountGet Get likes count of WorkItem
  @param id
  @return ApiApiV2WorkItemsIdLikesCountGetRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesCountGet(ctx context.Context, id string) ApiApiV2WorkItemsIdLikesCountGetRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikesCountGet(ctx context.Context, id string) ApiApiV2WorkItemsIdLikesCountGetRequest {
 	return ApiApiV2WorkItemsIdLikesCountGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -852,7 +850,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesCountGet(ctx context.Context,
 
 // Execute executes the request
 //  @return int32
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesCountGetExecute(r ApiApiV2WorkItemsIdLikesCountGetRequest) (int32, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikesCountGetExecute(r ApiApiV2WorkItemsIdLikesCountGetRequest) (int32, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -860,7 +858,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesCountGetExecute(r ApiApiV2Wor
 		localVarReturnValue  int32
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdLikesCountGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdLikesCountGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -953,7 +951,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesCountGetExecute(r ApiApiV2Wor
 
 type ApiApiV2WorkItemsIdLikesGetRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -973,7 +971,7 @@ ApiV2WorkItemsIdLikesGet Get likes of WorkItem
  @param id
  @return ApiApiV2WorkItemsIdLikesGetRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesGet(ctx context.Context, id string) ApiApiV2WorkItemsIdLikesGetRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikesGet(ctx context.Context, id string) ApiApiV2WorkItemsIdLikesGetRequest {
 	return ApiApiV2WorkItemsIdLikesGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -983,7 +981,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesGet(ctx context.Context, id s
 
 // Execute executes the request
 //  @return []WorkItemLikeModel
-func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesGetExecute(r ApiApiV2WorkItemsIdLikesGetRequest) ([]WorkItemLikeModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdLikesGetExecute(r ApiApiV2WorkItemsIdLikesGetRequest) ([]WorkItemLikeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -991,7 +989,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesGetExecute(r ApiApiV2WorkItem
 		localVarReturnValue  []WorkItemLikeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdLikesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdLikesGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1084,7 +1082,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdLikesGetExecute(r ApiApiV2WorkItem
 
 type ApiApiV2WorkItemsIdTestResultsHistoryGetRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 	from *time.Time
 	to *time.Time
@@ -1202,7 +1200,7 @@ ApiV2WorkItemsIdTestResultsHistoryGet Get test results history of WorkItem
  @param id
  @return ApiApiV2WorkItemsIdTestResultsHistoryGetRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGet(ctx context.Context, id string) ApiApiV2WorkItemsIdTestResultsHistoryGetRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdTestResultsHistoryGet(ctx context.Context, id string) ApiApiV2WorkItemsIdTestResultsHistoryGetRequest {
 	return ApiApiV2WorkItemsIdTestResultsHistoryGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1212,7 +1210,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGet(ctx context.
 
 // Execute executes the request
 //  @return []TestResultHistoryReportModel
-func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) ([]TestResultHistoryReportModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) ([]TestResultHistoryReportModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1220,7 +1218,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 		localVarReturnValue  []TestResultHistoryReportModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdTestResultsHistoryGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdTestResultsHistoryGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1243,7 +1241,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "configurationIds", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "configurationIds", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "configurationIds", t, "multi")
@@ -1254,7 +1252,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "testPlanIds", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "testPlanIds", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "testPlanIds", t, "multi")
@@ -1265,7 +1263,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "userIds", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "userIds", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "userIds", t, "multi")
@@ -1276,7 +1274,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "outcomes", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "outcomes", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "outcomes", t, "multi")
@@ -1293,7 +1291,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "testRunIds", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "testRunIds", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "testRunIds", t, "multi")
@@ -1395,7 +1393,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 
 type ApiApiV2WorkItemsIdVersionVersionIdActualPostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 	versionId string
 }
@@ -1417,7 +1415,7 @@ ApiV2WorkItemsIdVersionVersionIdActualPost Set WorkItem as actual
  @param versionId
  @return ApiApiV2WorkItemsIdVersionVersionIdActualPostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsIdVersionVersionIdActualPost(ctx context.Context, id string, versionId string) ApiApiV2WorkItemsIdVersionVersionIdActualPostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdVersionVersionIdActualPost(ctx context.Context, id string, versionId string) ApiApiV2WorkItemsIdVersionVersionIdActualPostRequest {
 	return ApiApiV2WorkItemsIdVersionVersionIdActualPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1428,7 +1426,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdVersionVersionIdActualPost(ctx con
 
 // Execute executes the request
 //  @return WorkItemModel
-func (a *WorkItemsApiService) ApiV2WorkItemsIdVersionVersionIdActualPostExecute(r ApiApiV2WorkItemsIdVersionVersionIdActualPostRequest) (*WorkItemModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdVersionVersionIdActualPostExecute(r ApiApiV2WorkItemsIdVersionVersionIdActualPostRequest) (*WorkItemModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1436,7 +1434,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdVersionVersionIdActualPostExecute(
 		localVarReturnValue  *WorkItemModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsIdVersionVersionIdActualPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdVersionVersionIdActualPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1530,12 +1528,12 @@ func (a *WorkItemsApiService) ApiV2WorkItemsIdVersionVersionIdActualPostExecute(
 
 type ApiApiV2WorkItemsMovePostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
-	apiV2WorkItemsMovePostRequest *ApiV2WorkItemsMovePostRequest
+	ApiService *WorkItemsAPIService
+	workItemMovePostModel *WorkItemMovePostModel
 }
 
-func (r ApiApiV2WorkItemsMovePostRequest) ApiV2WorkItemsMovePostRequest(apiV2WorkItemsMovePostRequest ApiV2WorkItemsMovePostRequest) ApiApiV2WorkItemsMovePostRequest {
-	r.apiV2WorkItemsMovePostRequest = &apiV2WorkItemsMovePostRequest
+func (r ApiApiV2WorkItemsMovePostRequest) WorkItemMovePostModel(workItemMovePostModel WorkItemMovePostModel) ApiApiV2WorkItemsMovePostRequest {
+	r.workItemMovePostModel = &workItemMovePostModel
 	return r
 }
 
@@ -1554,7 +1552,7 @@ ApiV2WorkItemsMovePost Move WorkItem to another section
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WorkItemsMovePostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsMovePost(ctx context.Context) ApiApiV2WorkItemsMovePostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsMovePost(ctx context.Context) ApiApiV2WorkItemsMovePostRequest {
 	return ApiApiV2WorkItemsMovePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1563,7 +1561,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsMovePost(ctx context.Context) ApiApi
 
 // Execute executes the request
 //  @return WorkItemShortModel
-func (a *WorkItemsApiService) ApiV2WorkItemsMovePostExecute(r ApiApiV2WorkItemsMovePostRequest) (*WorkItemShortModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsMovePostExecute(r ApiApiV2WorkItemsMovePostRequest) (*WorkItemShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1571,7 +1569,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsMovePostExecute(r ApiApiV2WorkItemsM
 		localVarReturnValue  *WorkItemShortModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsMovePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsMovePost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1600,7 +1598,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsMovePostExecute(r ApiApiV2WorkItemsM
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2WorkItemsMovePostRequest
+	localVarPostBody = r.workItemMovePostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1665,13 +1663,13 @@ func (a *WorkItemsApiService) ApiV2WorkItemsMovePostExecute(r ApiApiV2WorkItemsM
 
 type ApiApiV2WorkItemsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2ProjectsProjectIdWorkItemsSearchPostRequest *ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	workItemSelectModel *WorkItemSelectModel
 }
 
 // Amount of items to be skipped (offset)
@@ -1704,8 +1702,8 @@ func (r ApiApiV2WorkItemsSearchPostRequest) SearchValue(searchValue string) ApiA
 	return r
 }
 
-func (r ApiApiV2WorkItemsSearchPostRequest) ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest ApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ApiApiV2WorkItemsSearchPostRequest {
-	r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest = &apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+func (r ApiApiV2WorkItemsSearchPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2WorkItemsSearchPostRequest {
+	r.workItemSelectModel = &workItemSelectModel
 	return r
 }
 
@@ -1719,7 +1717,7 @@ ApiV2WorkItemsSearchPost Search for work items
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WorkItemsSearchPostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsSearchPost(ctx context.Context) ApiApiV2WorkItemsSearchPostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSearchPost(ctx context.Context) ApiApiV2WorkItemsSearchPostRequest {
 	return ApiApiV2WorkItemsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1728,7 +1726,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSearchPost(ctx context.Context) ApiA
 
 // Execute executes the request
 //  @return []WorkItemShortModel
-func (a *WorkItemsApiService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItemsSearchPostRequest) ([]WorkItemShortModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItemsSearchPostRequest) ([]WorkItemShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1736,7 +1734,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItem
 		localVarReturnValue  []WorkItemShortModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1780,7 +1778,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItem
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	localVarPostBody = r.workItemSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1844,14 +1842,14 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItem
 
 type ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	sharedStepId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest *ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+	sharedStepReferenceSectionsQueryFilterModel *SharedStepReferenceSectionsQueryFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -1884,8 +1882,8 @@ func (r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) SearchValue(
 	return r
 }
 
-func (r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest {
-	r.apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest = &apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+func (r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) SharedStepReferenceSectionsQueryFilterModel(sharedStepReferenceSectionsQueryFilterModel SharedStepReferenceSectionsQueryFilterModel) ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest {
+	r.sharedStepReferenceSectionsQueryFilterModel = &sharedStepReferenceSectionsQueryFilterModel
 	return r
 }
 
@@ -1905,7 +1903,7 @@ ApiV2WorkItemsSharedStepIdReferencesSectionsPost Get SharedStep references in se
  @param sharedStepId
  @return ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesSectionsPost(ctx context.Context, sharedStepId string) ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSharedStepIdReferencesSectionsPost(ctx context.Context, sharedStepId string) ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest {
 	return ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1915,7 +1913,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesSectionsPost(c
 
 // Execute executes the request
 //  @return []SharedStepReferenceSectionModel
-func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesSectionsPostExecute(r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) ([]SharedStepReferenceSectionModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSharedStepIdReferencesSectionsPostExecute(r ApiApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest) ([]SharedStepReferenceSectionModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1923,7 +1921,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesSectionsPostEx
 		localVarReturnValue  []SharedStepReferenceSectionModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsSharedStepIdReferencesSectionsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsSharedStepIdReferencesSectionsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1968,7 +1966,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesSectionsPostEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+	localVarPostBody = r.sharedStepReferenceSectionsQueryFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2022,14 +2020,14 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesSectionsPostEx
 
 type ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	sharedStepId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest *ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+	sharedStepReferencesQueryFilterModel *SharedStepReferencesQueryFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -2062,8 +2060,8 @@ func (r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) SearchValue
 	return r
 }
 
-func (r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
-	r.apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest = &apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+func (r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) SharedStepReferencesQueryFilterModel(sharedStepReferencesQueryFilterModel SharedStepReferencesQueryFilterModel) ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
+	r.sharedStepReferencesQueryFilterModel = &sharedStepReferencesQueryFilterModel
 	return r
 }
 
@@ -2083,7 +2081,7 @@ ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost Get SharedStep references in w
  @param sharedStepId
  @return ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(ctx context.Context, sharedStepId string) ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(ctx context.Context, sharedStepId string) ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest {
 	return ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2093,7 +2091,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(
 
 // Execute executes the request
 //  @return []SharedStepReferenceModel
-func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostExecute(r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) ([]SharedStepReferenceModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostExecute(r ApiApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest) ([]SharedStepReferenceModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2101,7 +2099,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostE
 		localVarReturnValue  []SharedStepReferenceModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2146,7 +2144,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+	localVarPostBody = r.sharedStepReferencesQueryFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2200,7 +2198,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostE
 
 type ApiApiV2WorkItemsSharedStepsSharedStepIdReferencesGetRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	sharedStepId string
 }
 
@@ -2222,7 +2220,7 @@ ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet Get SharedStep references
 
 Deprecated
 */
-func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet(ctx context.Context, sharedStepId string) ApiApiV2WorkItemsSharedStepsSharedStepIdReferencesGetRequest {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet(ctx context.Context, sharedStepId string) ApiApiV2WorkItemsSharedStepsSharedStepIdReferencesGetRequest {
 	return ApiApiV2WorkItemsSharedStepsSharedStepIdReferencesGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2233,7 +2231,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet
 // Execute executes the request
 //  @return []SharedStepReferenceModel
 // Deprecated
-func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGetExecute(r ApiApiV2WorkItemsSharedStepsSharedStepIdReferencesGetRequest) ([]SharedStepReferenceModel, *http.Response, error) {
+func (a *WorkItemsAPIService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGetExecute(r ApiApiV2WorkItemsSharedStepsSharedStepIdReferencesGetRequest) ([]SharedStepReferenceModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2241,7 +2239,7 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet
 		localVarReturnValue  []SharedStepReferenceModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2334,12 +2332,12 @@ func (a *WorkItemsApiService) ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet
 
 type ApiCreateWorkItemRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
-	createWorkItemRequest *CreateWorkItemRequest
+	ApiService *WorkItemsAPIService
+	workItemPostModel *WorkItemPostModel
 }
 
-func (r ApiCreateWorkItemRequest) CreateWorkItemRequest(createWorkItemRequest CreateWorkItemRequest) ApiCreateWorkItemRequest {
-	r.createWorkItemRequest = &createWorkItemRequest
+func (r ApiCreateWorkItemRequest) WorkItemPostModel(workItemPostModel WorkItemPostModel) ApiCreateWorkItemRequest {
+	r.workItemPostModel = &workItemPostModel
 	return r
 }
 
@@ -2359,7 +2357,7 @@ CreateWorkItem Create Test Case, Checklist or Shared Step
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateWorkItemRequest
 */
-func (a *WorkItemsApiService) CreateWorkItem(ctx context.Context) ApiCreateWorkItemRequest {
+func (a *WorkItemsAPIService) CreateWorkItem(ctx context.Context) ApiCreateWorkItemRequest {
 	return ApiCreateWorkItemRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2368,7 +2366,7 @@ func (a *WorkItemsApiService) CreateWorkItem(ctx context.Context) ApiCreateWorkI
 
 // Execute executes the request
 //  @return WorkItemModel
-func (a *WorkItemsApiService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) (*WorkItemModel, *http.Response, error) {
+func (a *WorkItemsAPIService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) (*WorkItemModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2376,7 +2374,7 @@ func (a *WorkItemsApiService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) 
 		localVarReturnValue  *WorkItemModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.CreateWorkItem")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.CreateWorkItem")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2405,7 +2403,7 @@ func (a *WorkItemsApiService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createWorkItemRequest
+	localVarPostBody = r.workItemPostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2502,7 +2500,7 @@ func (a *WorkItemsApiService) CreateWorkItemExecute(r ApiCreateWorkItemRequest) 
 
 type ApiDeleteAllWorkItemsFromAutoTestRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -2524,7 +2522,7 @@ DeleteAllWorkItemsFromAutoTest Delete all links AutoTests from WorkItem by Id or
  @param id WorkItem internal (guid format) or  global(integer format) identifier\"
  @return ApiDeleteAllWorkItemsFromAutoTestRequest
 */
-func (a *WorkItemsApiService) DeleteAllWorkItemsFromAutoTest(ctx context.Context, id string) ApiDeleteAllWorkItemsFromAutoTestRequest {
+func (a *WorkItemsAPIService) DeleteAllWorkItemsFromAutoTest(ctx context.Context, id string) ApiDeleteAllWorkItemsFromAutoTestRequest {
 	return ApiDeleteAllWorkItemsFromAutoTestRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2533,14 +2531,14 @@ func (a *WorkItemsApiService) DeleteAllWorkItemsFromAutoTest(ctx context.Context
 }
 
 // Execute executes the request
-func (a *WorkItemsApiService) DeleteAllWorkItemsFromAutoTestExecute(r ApiDeleteAllWorkItemsFromAutoTestRequest) (*http.Response, error) {
+func (a *WorkItemsAPIService) DeleteAllWorkItemsFromAutoTestExecute(r ApiDeleteAllWorkItemsFromAutoTestRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.DeleteAllWorkItemsFromAutoTest")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.DeleteAllWorkItemsFromAutoTest")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2657,7 +2655,7 @@ func (a *WorkItemsApiService) DeleteAllWorkItemsFromAutoTestExecute(r ApiDeleteA
 
 type ApiDeleteWorkItemRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -2678,7 +2676,7 @@ DeleteWorkItem Delete Test Case, Checklist or Shared Step by Id or GlobalId
  @param id WorkItem internal (guid format) or  global(integer format) identifier\"
  @return ApiDeleteWorkItemRequest
 */
-func (a *WorkItemsApiService) DeleteWorkItem(ctx context.Context, id string) ApiDeleteWorkItemRequest {
+func (a *WorkItemsAPIService) DeleteWorkItem(ctx context.Context, id string) ApiDeleteWorkItemRequest {
 	return ApiDeleteWorkItemRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2687,14 +2685,14 @@ func (a *WorkItemsApiService) DeleteWorkItem(ctx context.Context, id string) Api
 }
 
 // Execute executes the request
-func (a *WorkItemsApiService) DeleteWorkItemExecute(r ApiDeleteWorkItemRequest) (*http.Response, error) {
+func (a *WorkItemsAPIService) DeleteWorkItemExecute(r ApiDeleteWorkItemRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.DeleteWorkItem")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.DeleteWorkItem")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2821,7 +2819,7 @@ func (a *WorkItemsApiService) DeleteWorkItemExecute(r ApiDeleteWorkItemRequest) 
 
 type ApiGetAutoTestsForWorkItemRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -2843,7 +2841,7 @@ GetAutoTestsForWorkItem Get all AutoTests linked to WorkItem by Id or GlobalId
  @param id WorkItem internal (guid format) or  global(integer format) identifier\"
  @return ApiGetAutoTestsForWorkItemRequest
 */
-func (a *WorkItemsApiService) GetAutoTestsForWorkItem(ctx context.Context, id string) ApiGetAutoTestsForWorkItemRequest {
+func (a *WorkItemsAPIService) GetAutoTestsForWorkItem(ctx context.Context, id string) ApiGetAutoTestsForWorkItemRequest {
 	return ApiGetAutoTestsForWorkItemRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2853,7 +2851,7 @@ func (a *WorkItemsApiService) GetAutoTestsForWorkItem(ctx context.Context, id st
 
 // Execute executes the request
 //  @return []AutoTestModel
-func (a *WorkItemsApiService) GetAutoTestsForWorkItemExecute(r ApiGetAutoTestsForWorkItemRequest) ([]AutoTestModel, *http.Response, error) {
+func (a *WorkItemsAPIService) GetAutoTestsForWorkItemExecute(r ApiGetAutoTestsForWorkItemRequest) ([]AutoTestModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2861,7 +2859,7 @@ func (a *WorkItemsApiService) GetAutoTestsForWorkItemExecute(r ApiGetAutoTestsFo
 		localVarReturnValue  []AutoTestModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.GetAutoTestsForWorkItem")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.GetAutoTestsForWorkItem")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2986,7 +2984,7 @@ func (a *WorkItemsApiService) GetAutoTestsForWorkItemExecute(r ApiGetAutoTestsFo
 
 type ApiGetIterationsRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 	versionId *string
 	versionNumber *int32
@@ -3015,7 +3013,7 @@ GetIterations Get iterations by work item Id or GlobalId
  @param id WorkItem internal (guid format) or  global(integer format) identifier\"
  @return ApiGetIterationsRequest
 */
-func (a *WorkItemsApiService) GetIterations(ctx context.Context, id string) ApiGetIterationsRequest {
+func (a *WorkItemsAPIService) GetIterations(ctx context.Context, id string) ApiGetIterationsRequest {
 	return ApiGetIterationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3025,7 +3023,7 @@ func (a *WorkItemsApiService) GetIterations(ctx context.Context, id string) ApiG
 
 // Execute executes the request
 //  @return []IterationModel
-func (a *WorkItemsApiService) GetIterationsExecute(r ApiGetIterationsRequest) ([]IterationModel, *http.Response, error) {
+func (a *WorkItemsAPIService) GetIterationsExecute(r ApiGetIterationsRequest) ([]IterationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3033,7 +3031,7 @@ func (a *WorkItemsApiService) GetIterationsExecute(r ApiGetIterationsRequest) ([
 		localVarReturnValue  []IterationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.GetIterations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.GetIterations")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3143,7 +3141,7 @@ func (a *WorkItemsApiService) GetIterationsExecute(r ApiGetIterationsRequest) ([
 
 type ApiGetWorkItemByIdRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 	versionId *string
 	versionNumber *int32
@@ -3183,7 +3181,7 @@ GetWorkItemById Get Test Case, Checklist or Shared Step by Id or GlobalId
  @param id WorkItem internal (guid format) or  global(integer format) identifier\"
  @return ApiGetWorkItemByIdRequest
 */
-func (a *WorkItemsApiService) GetWorkItemById(ctx context.Context, id string) ApiGetWorkItemByIdRequest {
+func (a *WorkItemsAPIService) GetWorkItemById(ctx context.Context, id string) ApiGetWorkItemByIdRequest {
 	return ApiGetWorkItemByIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3193,7 +3191,7 @@ func (a *WorkItemsApiService) GetWorkItemById(ctx context.Context, id string) Ap
 
 // Execute executes the request
 //  @return WorkItemModel
-func (a *WorkItemsApiService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest) (*WorkItemModel, *http.Response, error) {
+func (a *WorkItemsAPIService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest) (*WorkItemModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3201,7 +3199,7 @@ func (a *WorkItemsApiService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest
 		localVarReturnValue  *WorkItemModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.GetWorkItemById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.GetWorkItemById")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3332,7 +3330,7 @@ func (a *WorkItemsApiService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest
 
 type ApiGetWorkItemChronologyRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -3355,7 +3353,7 @@ GetWorkItemChronology Get WorkItem chronology by Id or GlobalId
  @param id
  @return ApiGetWorkItemChronologyRequest
 */
-func (a *WorkItemsApiService) GetWorkItemChronology(ctx context.Context, id string) ApiGetWorkItemChronologyRequest {
+func (a *WorkItemsAPIService) GetWorkItemChronology(ctx context.Context, id string) ApiGetWorkItemChronologyRequest {
 	return ApiGetWorkItemChronologyRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3365,7 +3363,7 @@ func (a *WorkItemsApiService) GetWorkItemChronology(ctx context.Context, id stri
 
 // Execute executes the request
 //  @return []TestResultChronologyModel
-func (a *WorkItemsApiService) GetWorkItemChronologyExecute(r ApiGetWorkItemChronologyRequest) ([]TestResultChronologyModel, *http.Response, error) {
+func (a *WorkItemsAPIService) GetWorkItemChronologyExecute(r ApiGetWorkItemChronologyRequest) ([]TestResultChronologyModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3373,7 +3371,7 @@ func (a *WorkItemsApiService) GetWorkItemChronologyExecute(r ApiGetWorkItemChron
 		localVarReturnValue  []TestResultChronologyModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.GetWorkItemChronology")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.GetWorkItemChronology")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3498,7 +3496,7 @@ func (a *WorkItemsApiService) GetWorkItemChronologyExecute(r ApiGetWorkItemChron
 
 type ApiGetWorkItemVersionsRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 	workItemVersionId *string
 	versionNumber *int32
@@ -3538,7 +3536,7 @@ GetWorkItemVersions Get WorkItem versions
  @param id WorkItem internal (guid format) or  global(integer format) identifier\"
  @return ApiGetWorkItemVersionsRequest
 */
-func (a *WorkItemsApiService) GetWorkItemVersions(ctx context.Context, id string) ApiGetWorkItemVersionsRequest {
+func (a *WorkItemsAPIService) GetWorkItemVersions(ctx context.Context, id string) ApiGetWorkItemVersionsRequest {
 	return ApiGetWorkItemVersionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3548,7 +3546,7 @@ func (a *WorkItemsApiService) GetWorkItemVersions(ctx context.Context, id string
 
 // Execute executes the request
 //  @return []WorkItemVersionModel
-func (a *WorkItemsApiService) GetWorkItemVersionsExecute(r ApiGetWorkItemVersionsRequest) ([]WorkItemVersionModel, *http.Response, error) {
+func (a *WorkItemsAPIService) GetWorkItemVersionsExecute(r ApiGetWorkItemVersionsRequest) ([]WorkItemVersionModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3556,7 +3554,7 @@ func (a *WorkItemsApiService) GetWorkItemVersionsExecute(r ApiGetWorkItemVersion
 		localVarReturnValue  []WorkItemVersionModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.GetWorkItemVersions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.GetWorkItemVersions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3687,7 +3685,7 @@ func (a *WorkItemsApiService) GetWorkItemVersionsExecute(r ApiGetWorkItemVersion
 
 type ApiPurgeWorkItemRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -3702,7 +3700,7 @@ PurgeWorkItem Permanently delete test case, checklist or shared steps from archi
  @param id Unique or global ID of the work item
  @return ApiPurgeWorkItemRequest
 */
-func (a *WorkItemsApiService) PurgeWorkItem(ctx context.Context, id string) ApiPurgeWorkItemRequest {
+func (a *WorkItemsAPIService) PurgeWorkItem(ctx context.Context, id string) ApiPurgeWorkItemRequest {
 	return ApiPurgeWorkItemRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3711,14 +3709,14 @@ func (a *WorkItemsApiService) PurgeWorkItem(ctx context.Context, id string) ApiP
 }
 
 // Execute executes the request
-func (a *WorkItemsApiService) PurgeWorkItemExecute(r ApiPurgeWorkItemRequest) (*http.Response, error) {
+func (a *WorkItemsAPIService) PurgeWorkItemExecute(r ApiPurgeWorkItemRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.PurgeWorkItem")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.PurgeWorkItem")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3845,7 +3843,7 @@ func (a *WorkItemsApiService) PurgeWorkItemExecute(r ApiPurgeWorkItemRequest) (*
 
 type ApiRestoreWorkItemRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
+	ApiService *WorkItemsAPIService
 	id string
 }
 
@@ -3860,7 +3858,7 @@ RestoreWorkItem Restore test case, checklist or shared steps from archive
  @param id Unique or global ID of the work item
  @return ApiRestoreWorkItemRequest
 */
-func (a *WorkItemsApiService) RestoreWorkItem(ctx context.Context, id string) ApiRestoreWorkItemRequest {
+func (a *WorkItemsAPIService) RestoreWorkItem(ctx context.Context, id string) ApiRestoreWorkItemRequest {
 	return ApiRestoreWorkItemRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3869,14 +3867,14 @@ func (a *WorkItemsApiService) RestoreWorkItem(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-func (a *WorkItemsApiService) RestoreWorkItemExecute(r ApiRestoreWorkItemRequest) (*http.Response, error) {
+func (a *WorkItemsAPIService) RestoreWorkItemExecute(r ApiRestoreWorkItemRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.RestoreWorkItem")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.RestoreWorkItem")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3992,12 +3990,12 @@ func (a *WorkItemsApiService) RestoreWorkItemExecute(r ApiRestoreWorkItemRequest
 
 type ApiUpdateWorkItemRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsApiService
-	updateWorkItemRequest *UpdateWorkItemRequest
+	ApiService *WorkItemsAPIService
+	workItemPutModel *WorkItemPutModel
 }
 
-func (r ApiUpdateWorkItemRequest) UpdateWorkItemRequest(updateWorkItemRequest UpdateWorkItemRequest) ApiUpdateWorkItemRequest {
-	r.updateWorkItemRequest = &updateWorkItemRequest
+func (r ApiUpdateWorkItemRequest) WorkItemPutModel(workItemPutModel WorkItemPutModel) ApiUpdateWorkItemRequest {
+	r.workItemPutModel = &workItemPutModel
 	return r
 }
 
@@ -4017,7 +4015,7 @@ UpdateWorkItem Update Test Case, Checklist or Shared Step
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateWorkItemRequest
 */
-func (a *WorkItemsApiService) UpdateWorkItem(ctx context.Context) ApiUpdateWorkItemRequest {
+func (a *WorkItemsAPIService) UpdateWorkItem(ctx context.Context) ApiUpdateWorkItemRequest {
 	return ApiUpdateWorkItemRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4025,14 +4023,14 @@ func (a *WorkItemsApiService) UpdateWorkItem(ctx context.Context) ApiUpdateWorkI
 }
 
 // Execute executes the request
-func (a *WorkItemsApiService) UpdateWorkItemExecute(r ApiUpdateWorkItemRequest) (*http.Response, error) {
+func (a *WorkItemsAPIService) UpdateWorkItemExecute(r ApiUpdateWorkItemRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsApiService.UpdateWorkItem")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.UpdateWorkItem")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4061,7 +4059,7 @@ func (a *WorkItemsApiService) UpdateWorkItemExecute(r ApiUpdateWorkItemRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateWorkItemRequest
+	localVarPostBody = r.workItemPutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

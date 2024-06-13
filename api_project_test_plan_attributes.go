@@ -20,12 +20,12 @@ import (
 )
 
 
-// ProjectTestPlanAttributesApiService ProjectTestPlanAttributesApi service
-type ProjectTestPlanAttributesApiService service
+// ProjectTestPlanAttributesAPIService ProjectTestPlanAttributesAPI service
+type ProjectTestPlanAttributesAPIService service
 
 type ApiCreateCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesApiService
+	ApiService *ProjectTestPlanAttributesAPIService
 	projectId string
 	requestBody *[]string
 }
@@ -52,7 +52,7 @@ CreateCustomAttributeTestPlanProjectRelations Add attributes to project's test p
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiCreateCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesApiService) CreateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiCreateCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiCreateCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiCreateCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -61,14 +61,14 @@ func (a *ProjectTestPlanAttributesApiService) CreateCustomAttributeTestPlanProje
 }
 
 // Execute executes the request
-func (a *ProjectTestPlanAttributesApiService) CreateCustomAttributeTestPlanProjectRelationsExecute(r ApiCreateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
+func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProjectRelationsExecute(r ApiCreateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.CreateCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.CreateCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -154,7 +154,7 @@ func (a *ProjectTestPlanAttributesApiService) CreateCustomAttributeTestPlanProje
 
 type ApiDeleteCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesApiService
+	ApiService *ProjectTestPlanAttributesAPIService
 	projectId string
 	attributeId string
 }
@@ -177,7 +177,7 @@ DeleteCustomAttributeTestPlanProjectRelations Delete attribute from project's te
  @param attributeId
  @return ApiDeleteCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesApiService) DeleteCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string, attributeId string) ApiDeleteCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesAPIService) DeleteCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string, attributeId string) ApiDeleteCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiDeleteCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -187,14 +187,14 @@ func (a *ProjectTestPlanAttributesApiService) DeleteCustomAttributeTestPlanProje
 }
 
 // Execute executes the request
-func (a *ProjectTestPlanAttributesApiService) DeleteCustomAttributeTestPlanProjectRelationsExecute(r ApiDeleteCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
+func (a *ProjectTestPlanAttributesAPIService) DeleteCustomAttributeTestPlanProjectRelationsExecute(r ApiDeleteCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.DeleteCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.DeleteCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -278,7 +278,7 @@ func (a *ProjectTestPlanAttributesApiService) DeleteCustomAttributeTestPlanProje
 
 type ApiGetCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesApiService
+	ApiService *ProjectTestPlanAttributesAPIService
 	projectId string
 }
 
@@ -297,7 +297,7 @@ GetCustomAttributeTestPlanProjectRelations Get project's test plan attributes
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiGetCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesApiService) GetCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiGetCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiGetCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiGetCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -307,7 +307,7 @@ func (a *ProjectTestPlanAttributesApiService) GetCustomAttributeTestPlanProjectR
 
 // Execute executes the request
 //  @return []CustomAttributeModel
-func (a *ProjectTestPlanAttributesApiService) GetCustomAttributeTestPlanProjectRelationsExecute(r ApiGetCustomAttributeTestPlanProjectRelationsRequest) ([]CustomAttributeModel, *http.Response, error) {
+func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectRelationsExecute(r ApiGetCustomAttributeTestPlanProjectRelationsRequest) ([]CustomAttributeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -315,7 +315,7 @@ func (a *ProjectTestPlanAttributesApiService) GetCustomAttributeTestPlanProjectR
 		localVarReturnValue  []CustomAttributeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.GetCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.GetCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -407,14 +407,14 @@ func (a *ProjectTestPlanAttributesApiService) GetCustomAttributeTestPlanProjectR
 
 type ApiSearchTestPlanAttributesInProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesApiService
+	ApiService *ProjectTestPlanAttributesAPIService
 	projectId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	searchAttributesInProjectRequest *SearchAttributesInProjectRequest
+	projectAttributesFilterModel *ProjectAttributesFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -447,8 +447,8 @@ func (r ApiSearchTestPlanAttributesInProjectRequest) SearchValue(searchValue str
 	return r
 }
 
-func (r ApiSearchTestPlanAttributesInProjectRequest) SearchAttributesInProjectRequest(searchAttributesInProjectRequest SearchAttributesInProjectRequest) ApiSearchTestPlanAttributesInProjectRequest {
-	r.searchAttributesInProjectRequest = &searchAttributesInProjectRequest
+func (r ApiSearchTestPlanAttributesInProjectRequest) ProjectAttributesFilterModel(projectAttributesFilterModel ProjectAttributesFilterModel) ApiSearchTestPlanAttributesInProjectRequest {
+	r.projectAttributesFilterModel = &projectAttributesFilterModel
 	return r
 }
 
@@ -463,7 +463,7 @@ SearchTestPlanAttributesInProject Search for attributes used in the project test
  @param projectId Unique or global project ID
  @return ApiSearchTestPlanAttributesInProjectRequest
 */
-func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProject(ctx context.Context, projectId string) ApiSearchTestPlanAttributesInProjectRequest {
+func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProject(ctx context.Context, projectId string) ApiSearchTestPlanAttributesInProjectRequest {
 	return ApiSearchTestPlanAttributesInProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -473,7 +473,7 @@ func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProject(
 
 // Execute executes the request
 //  @return []CustomAttributeGetModel
-func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProjectExecute(r ApiSearchTestPlanAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
+func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectExecute(r ApiSearchTestPlanAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -481,7 +481,7 @@ func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProjectE
 		localVarReturnValue  []CustomAttributeGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.SearchTestPlanAttributesInProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.SearchTestPlanAttributesInProject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -526,7 +526,7 @@ func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProjectE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.searchAttributesInProjectRequest
+	localVarPostBody = r.projectAttributesFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -590,13 +590,13 @@ func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProjectE
 
 type ApiUpdateCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesApiService
+	ApiService *ProjectTestPlanAttributesAPIService
 	projectId string
-	updateCustomAttributeTestPlanProjectRelationsRequest *UpdateCustomAttributeTestPlanProjectRelationsRequest
+	customAttributeTestPlanProjectRelationPutModel *CustomAttributeTestPlanProjectRelationPutModel
 }
 
-func (r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) UpdateCustomAttributeTestPlanProjectRelationsRequest(updateCustomAttributeTestPlanProjectRelationsRequest UpdateCustomAttributeTestPlanProjectRelationsRequest) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
-	r.updateCustomAttributeTestPlanProjectRelationsRequest = &updateCustomAttributeTestPlanProjectRelationsRequest
+func (r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) CustomAttributeTestPlanProjectRelationPutModel(customAttributeTestPlanProjectRelationPutModel CustomAttributeTestPlanProjectRelationPutModel) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
+	r.customAttributeTestPlanProjectRelationPutModel = &customAttributeTestPlanProjectRelationPutModel
 	return r
 }
 
@@ -617,7 +617,7 @@ UpdateCustomAttributeTestPlanProjectRelations Update attribute of project's test
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiUpdateCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesApiService) UpdateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesAPIService) UpdateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiUpdateCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -626,14 +626,14 @@ func (a *ProjectTestPlanAttributesApiService) UpdateCustomAttributeTestPlanProje
 }
 
 // Execute executes the request
-func (a *ProjectTestPlanAttributesApiService) UpdateCustomAttributeTestPlanProjectRelationsExecute(r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
+func (a *ProjectTestPlanAttributesAPIService) UpdateCustomAttributeTestPlanProjectRelationsExecute(r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.UpdateCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.UpdateCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -663,7 +663,7 @@ func (a *ProjectTestPlanAttributesApiService) UpdateCustomAttributeTestPlanProje
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateCustomAttributeTestPlanProjectRelationsRequest
+	localVarPostBody = r.customAttributeTestPlanProjectRelationPutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

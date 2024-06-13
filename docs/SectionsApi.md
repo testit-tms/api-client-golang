@@ -1,17 +1,17 @@
-# \SectionsApi
+# \SectionsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2SectionsIdPatch**](SectionsApi.md#ApiV2SectionsIdPatch) | **Patch** /api/v2/sections/{id} | Patch section
-[**CreateSection**](SectionsApi.md#CreateSection) | **Post** /api/v2/sections | Create section
-[**DeleteSection**](SectionsApi.md#DeleteSection) | **Delete** /api/v2/sections/{id} | Delete section
-[**GetSectionById**](SectionsApi.md#GetSectionById) | **Get** /api/v2/sections/{id} | Get section
-[**GetWorkItemsBySectionId**](SectionsApi.md#GetWorkItemsBySectionId) | **Get** /api/v2/sections/{id}/workItems | Get section work items
-[**Move**](SectionsApi.md#Move) | **Post** /api/v2/sections/move | Move section with all work items into another section
-[**Rename**](SectionsApi.md#Rename) | **Post** /api/v2/sections/rename | Rename section
-[**UpdateSection**](SectionsApi.md#UpdateSection) | **Put** /api/v2/sections | Update section
+[**ApiV2SectionsIdPatch**](SectionsAPI.md#ApiV2SectionsIdPatch) | **Patch** /api/v2/sections/{id} | Patch section
+[**CreateSection**](SectionsAPI.md#CreateSection) | **Post** /api/v2/sections | Create section
+[**DeleteSection**](SectionsAPI.md#DeleteSection) | **Delete** /api/v2/sections/{id} | Delete section
+[**GetSectionById**](SectionsAPI.md#GetSectionById) | **Get** /api/v2/sections/{id} | Get section
+[**GetWorkItemsBySectionId**](SectionsAPI.md#GetWorkItemsBySectionId) | **Get** /api/v2/sections/{id}/workItems | Get section work items
+[**Move**](SectionsAPI.md#Move) | **Post** /api/v2/sections/move | Move section with all work items into another section
+[**Rename**](SectionsAPI.md#Rename) | **Post** /api/v2/sections/rename | Rename section
+[**UpdateSection**](SectionsAPI.md#UpdateSection) | **Put** /api/v2/sections | Update section
 
 
 
@@ -29,23 +29,23 @@ Patch section
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
-    operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.ApiV2SectionsIdPatch(context.Background(), id).Operation(operation).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.ApiV2SectionsIdPatch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SectionsAPI.ApiV2SectionsIdPatch(context.Background(), id).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.ApiV2SectionsIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## CreateSection
 
-> SectionWithStepsModel CreateSection(ctx).CreateSectionRequest(createSectionRequest).Execute()
+> SectionWithStepsModel CreateSection(ctx).SectionPostModel(sectionPostModel).Execute()
 
 Create section
 
@@ -99,24 +99,24 @@ Create section
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    createSectionRequest := *openapiclient.NewCreateSectionRequest("20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", "20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // CreateSectionRequest |  (optional)
+	sectionPostModel := *openapiclient.NewSectionPostModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "82e92d6f-0258-416b-b2b4-039ea76601c7", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // SectionPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SectionsApi.CreateSection(context.Background()).CreateSectionRequest(createSectionRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.CreateSection``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateSection`: SectionWithStepsModel
-    fmt.Fprintf(os.Stdout, "Response from `SectionsApi.CreateSection`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SectionsAPI.CreateSection(context.Background()).SectionPostModel(sectionPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.CreateSection``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateSection`: SectionWithStepsModel
+	fmt.Fprintf(os.Stdout, "Response from `SectionsAPI.CreateSection`: %v\n", resp)
 }
 ```
 
@@ -131,7 +131,7 @@ Other parameters are passed through a pointer to a apiCreateSectionRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createSectionRequest** | [**CreateSectionRequest**](CreateSectionRequest.md) |  | 
+ **sectionPostModel** | [**SectionPostModel**](SectionPostModel.md) |  | 
 
 ### Return type
 
@@ -165,22 +165,22 @@ Delete section
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.DeleteSection(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.DeleteSection``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SectionsAPI.DeleteSection(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.DeleteSection``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -233,25 +233,25 @@ Get section
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
-    isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional) (default to "NotDeleted")
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
+	isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional) (default to "NotDeleted")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SectionsApi.GetSectionById(context.Background(), id).IsDeleted(isDeleted).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.GetSectionById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetSectionById`: SectionWithStepsModel
-    fmt.Fprintf(os.Stdout, "Response from `SectionsApi.GetSectionById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SectionsAPI.GetSectionById(context.Background(), id).IsDeleted(isDeleted).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.GetSectionById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetSectionById`: SectionWithStepsModel
+	fmt.Fprintf(os.Stdout, "Response from `SectionsAPI.GetSectionById`: %v\n", resp)
 }
 ```
 
@@ -305,32 +305,32 @@ Get section work items
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
-    isDeleted := true // bool | Requested section is deleted (optional) (default to false)
-    tagNames := []string{"Inner_example"} // []string | List of work item tags (optional)
-    includeIterations := true // bool |  (optional) (default to true)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Section internal (UUID) identifier
+	isDeleted := true // bool | Requested section is deleted (optional) (default to false)
+	tagNames := []string{"Inner_example"} // []string | List of work item tags (optional)
+	includeIterations := true // bool |  (optional) (default to true)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SectionsApi.GetWorkItemsBySectionId(context.Background(), id).IsDeleted(isDeleted).TagNames(tagNames).IncludeIterations(includeIterations).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.GetWorkItemsBySectionId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetWorkItemsBySectionId`: []WorkItemShortModel
-    fmt.Fprintf(os.Stdout, "Response from `SectionsApi.GetWorkItemsBySectionId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SectionsAPI.GetWorkItemsBySectionId(context.Background(), id).IsDeleted(isDeleted).TagNames(tagNames).IncludeIterations(includeIterations).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.GetWorkItemsBySectionId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetWorkItemsBySectionId`: []WorkItemShortModel
+	fmt.Fprintf(os.Stdout, "Response from `SectionsAPI.GetWorkItemsBySectionId`: %v\n", resp)
 }
 ```
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ## Move
 
-> Move(ctx).MoveRequest(moveRequest).Execute()
+> Move(ctx).SectionMoveModel(sectionMoveModel).Execute()
 
 Move section with all work items into another section
 
@@ -389,22 +389,22 @@ Move section with all work items into another section
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    moveRequest := *openapiclient.NewMoveRequest("Id_example", "OldParentId_example", "ParentId_example") // MoveRequest |  (optional)
+	sectionMoveModel := *openapiclient.NewSectionMoveModel("Id_example", "OldParentId_example", "ParentId_example") // SectionMoveModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.Move(context.Background()).MoveRequest(moveRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.Move``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SectionsAPI.Move(context.Background()).SectionMoveModel(sectionMoveModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.Move``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -419,7 +419,7 @@ Other parameters are passed through a pointer to a apiMoveRequest struct via the
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **moveRequest** | [**MoveRequest**](MoveRequest.md) |  | 
+ **sectionMoveModel** | [**SectionMoveModel**](SectionMoveModel.md) |  | 
 
 ### Return type
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 ## Rename
 
-> Rename(ctx).RenameRequest(renameRequest).Execute()
+> Rename(ctx).SectionRenameModel(sectionRenameModel).Execute()
 
 Rename section
 
@@ -453,22 +453,22 @@ Rename section
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    renameRequest := *openapiclient.NewRenameRequest("20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", "New root section") // RenameRequest |  (optional)
+	sectionRenameModel := *openapiclient.NewSectionRenameModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "New root section") // SectionRenameModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.Rename(context.Background()).RenameRequest(renameRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.Rename``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SectionsAPI.Rename(context.Background()).SectionRenameModel(sectionRenameModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.Rename``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -483,7 +483,7 @@ Other parameters are passed through a pointer to a apiRenameRequest struct via t
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **renameRequest** | [**RenameRequest**](RenameRequest.md) |  | 
+ **sectionRenameModel** | [**SectionRenameModel**](SectionRenameModel.md) |  | 
 
 ### Return type
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 
 ## UpdateSection
 
-> UpdateSection(ctx).UpdateSectionRequest(updateSectionRequest).Execute()
+> UpdateSection(ctx).SectionPutModel(sectionPutModel).Execute()
 
 Update section
 
@@ -517,22 +517,22 @@ Update section
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    updateSectionRequest := *openapiclient.NewUpdateSectionRequest("Id_example", "20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", "20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // UpdateSectionRequest |  (optional)
+	sectionPutModel := *openapiclient.NewSectionPutModel("Id_example", "82e92d6f-0258-416b-b2b4-039ea76601c7", "82e92d6f-0258-416b-b2b4-039ea76601c7", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // SectionPutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SectionsApi.UpdateSection(context.Background()).UpdateSectionRequest(updateSectionRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SectionsApi.UpdateSection``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.SectionsAPI.UpdateSection(context.Background()).SectionPutModel(sectionPutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SectionsAPI.UpdateSection``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -547,7 +547,7 @@ Other parameters are passed through a pointer to a apiUpdateSectionRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateSectionRequest** | [**UpdateSectionRequest**](UpdateSectionRequest.md) |  | 
+ **sectionPutModel** | [**SectionPutModel**](SectionPutModel.md) |  | 
 
 ### Return type
 

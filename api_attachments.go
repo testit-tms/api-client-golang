@@ -21,12 +21,12 @@ import (
 )
 
 
-// AttachmentsApiService AttachmentsApi service
-type AttachmentsApiService service
+// AttachmentsAPIService AttachmentsAPI service
+type AttachmentsAPIService service
 
 type ApiApiV2AttachmentsIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *AttachmentsApiService
+	ApiService *AttachmentsAPIService
 	id string
 }
 
@@ -41,7 +41,7 @@ ApiV2AttachmentsIdDelete Delete attachment file
  @param id
  @return ApiApiV2AttachmentsIdDeleteRequest
 */
-func (a *AttachmentsApiService) ApiV2AttachmentsIdDelete(ctx context.Context, id string) ApiApiV2AttachmentsIdDeleteRequest {
+func (a *AttachmentsAPIService) ApiV2AttachmentsIdDelete(ctx context.Context, id string) ApiApiV2AttachmentsIdDeleteRequest {
 	return ApiApiV2AttachmentsIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -50,14 +50,14 @@ func (a *AttachmentsApiService) ApiV2AttachmentsIdDelete(ctx context.Context, id
 }
 
 // Execute executes the request
-func (a *AttachmentsApiService) ApiV2AttachmentsIdDeleteExecute(r ApiApiV2AttachmentsIdDeleteRequest) (*http.Response, error) {
+func (a *AttachmentsAPIService) ApiV2AttachmentsIdDeleteExecute(r ApiApiV2AttachmentsIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsApiService.ApiV2AttachmentsIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.ApiV2AttachmentsIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -140,7 +140,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsIdDeleteExecute(r ApiApiV2Attach
 
 type ApiApiV2AttachmentsIdGetRequest struct {
 	ctx context.Context
-	ApiService *AttachmentsApiService
+	ApiService *AttachmentsAPIService
 	id string
 	width *int32
 	height *int32
@@ -190,7 +190,7 @@ ApiV2AttachmentsIdGet Download attachment file
  @param id
  @return ApiApiV2AttachmentsIdGetRequest
 */
-func (a *AttachmentsApiService) ApiV2AttachmentsIdGet(ctx context.Context, id string) ApiApiV2AttachmentsIdGetRequest {
+func (a *AttachmentsAPIService) ApiV2AttachmentsIdGet(ctx context.Context, id string) ApiApiV2AttachmentsIdGetRequest {
 	return ApiApiV2AttachmentsIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -200,7 +200,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsIdGet(ctx context.Context, id st
 
 // Execute executes the request
 //  @return *os.File
-func (a *AttachmentsApiService) ApiV2AttachmentsIdGetExecute(r ApiApiV2AttachmentsIdGetRequest) (*os.File, *http.Response, error) {
+func (a *AttachmentsAPIService) ApiV2AttachmentsIdGetExecute(r ApiApiV2AttachmentsIdGetRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -208,7 +208,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsIdGetExecute(r ApiApiV2Attachmen
 		localVarReturnValue  *os.File
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsApiService.ApiV2AttachmentsIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.ApiV2AttachmentsIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -305,7 +305,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsIdGetExecute(r ApiApiV2Attachmen
 
 type ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest struct {
 	ctx context.Context
-	ApiService *AttachmentsApiService
+	ApiService *AttachmentsAPIService
 }
 
 func (r ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest) Execute() (int64, *http.Response, error) {
@@ -318,7 +318,7 @@ ApiV2AttachmentsOccupiedFileStorageSizeGet Get size of attachments storage in by
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest
 */
-func (a *AttachmentsApiService) ApiV2AttachmentsOccupiedFileStorageSizeGet(ctx context.Context) ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest {
+func (a *AttachmentsAPIService) ApiV2AttachmentsOccupiedFileStorageSizeGet(ctx context.Context) ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest {
 	return ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -327,7 +327,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsOccupiedFileStorageSizeGet(ctx c
 
 // Execute executes the request
 //  @return int64
-func (a *AttachmentsApiService) ApiV2AttachmentsOccupiedFileStorageSizeGetExecute(r ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest) (int64, *http.Response, error) {
+func (a *AttachmentsAPIService) ApiV2AttachmentsOccupiedFileStorageSizeGetExecute(r ApiApiV2AttachmentsOccupiedFileStorageSizeGetRequest) (int64, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -335,7 +335,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsOccupiedFileStorageSizeGetExecut
 		localVarReturnValue  int64
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsApiService.ApiV2AttachmentsOccupiedFileStorageSizeGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.ApiV2AttachmentsOccupiedFileStorageSizeGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -416,7 +416,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsOccupiedFileStorageSizeGetExecut
 
 type ApiApiV2AttachmentsPostRequest struct {
 	ctx context.Context
-	ApiService *AttachmentsApiService
+	ApiService *AttachmentsAPIService
 	file *os.File
 }
 
@@ -437,7 +437,7 @@ File size is restricted to 50 MB (52 428 800 bytes)
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2AttachmentsPostRequest
 */
-func (a *AttachmentsApiService) ApiV2AttachmentsPost(ctx context.Context) ApiApiV2AttachmentsPostRequest {
+func (a *AttachmentsAPIService) ApiV2AttachmentsPost(ctx context.Context) ApiApiV2AttachmentsPostRequest {
 	return ApiApiV2AttachmentsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -446,7 +446,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsPost(ctx context.Context) ApiApi
 
 // Execute executes the request
 //  @return AttachmentModel
-func (a *AttachmentsApiService) ApiV2AttachmentsPostExecute(r ApiApiV2AttachmentsPostRequest) (*AttachmentModel, *http.Response, error) {
+func (a *AttachmentsAPIService) ApiV2AttachmentsPostExecute(r ApiApiV2AttachmentsPostRequest) (*AttachmentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -454,7 +454,7 @@ func (a *AttachmentsApiService) ApiV2AttachmentsPostExecute(r ApiApiV2Attachment
 		localVarReturnValue  *AttachmentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsApiService.ApiV2AttachmentsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AttachmentsAPIService.ApiV2AttachmentsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -487,8 +487,6 @@ func (a *AttachmentsApiService) ApiV2AttachmentsPostExecute(r ApiApiV2Attachment
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
-
-
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {

@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the AutoTestModelV2GetModel type satisfies the MappedNullable interface at compile time
@@ -43,6 +45,8 @@ type AutoTestModelV2GetModel struct {
 	// Indicates if the entity is deleted
 	IsDeleted bool `json:"isDeleted"`
 }
+
+type _AutoTestModelV2GetModel AutoTestModelV2GetModel
 
 // NewAutoTestModelV2GetModel instantiates a new AutoTestModelV2GetModel object
 // This constructor will assign default values to properties that have it defined,
@@ -704,6 +708,49 @@ func (o AutoTestModelV2GetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
+}
+
+func (o *AutoTestModelV2GetModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"externalId",
+		"projectId",
+		"name",
+		"globalId",
+		"createdById",
+		"id",
+		"isDeleted",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAutoTestModelV2GetModel := _AutoTestModelV2GetModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAutoTestModelV2GetModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AutoTestModelV2GetModel(varAutoTestModelV2GetModel)
+
+	return err
 }
 
 type NullableAutoTestModelV2GetModel struct {

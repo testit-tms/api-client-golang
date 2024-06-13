@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | [**AutotestSelectModelFilter**](AutotestSelectModelFilter.md) |  | 
-**ExtractionModel** | [**AutotestSelectModelExtractionModel**](AutotestSelectModelExtractionModel.md) |  | 
+**Filter** | [**AutotestFilterModel**](AutotestFilterModel.md) |  | 
+**ExtractionModel** | [**AutotestsExtractionModel**](AutotestsExtractionModel.md) |  | 
 
 ## Methods
 
 ### NewAutotestSelectModel
 
-`func NewAutotestSelectModel(filter AutotestSelectModelFilter, extractionModel AutotestSelectModelExtractionModel, ) *AutotestSelectModel`
+`func NewAutotestSelectModel(filter AutotestFilterModel, extractionModel AutotestsExtractionModel, ) *AutotestSelectModel`
 
 NewAutotestSelectModel instantiates a new AutotestSelectModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,40 +28,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *AutotestSelectModel) GetFilter() AutotestSelectModelFilter`
+`func (o *AutotestSelectModel) GetFilter() AutotestFilterModel`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *AutotestSelectModel) GetFilterOk() (*AutotestSelectModelFilter, bool)`
+`func (o *AutotestSelectModel) GetFilterOk() (*AutotestFilterModel, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *AutotestSelectModel) SetFilter(v AutotestSelectModelFilter)`
+`func (o *AutotestSelectModel) SetFilter(v AutotestFilterModel)`
 
 SetFilter sets Filter field to given value.
 
 
 ### GetExtractionModel
 
-`func (o *AutotestSelectModel) GetExtractionModel() AutotestSelectModelExtractionModel`
+`func (o *AutotestSelectModel) GetExtractionModel() AutotestsExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestSelectModelExtractionModel, bool)`
+`func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestsExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *AutotestSelectModel) SetExtractionModel(v AutotestSelectModelExtractionModel)`
+`func (o *AutotestSelectModel) SetExtractionModel(v AutotestsExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

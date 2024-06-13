@@ -1,14 +1,14 @@
-# \BackgroundJobsApi
+# \BackgroundJobsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2BackgroundJobsGet**](BackgroundJobsApi.md#ApiV2BackgroundJobsGet) | **Get** /api/v2/backgroundJobs | 
-[**ApiV2BackgroundJobsIdCancelPost**](BackgroundJobsApi.md#ApiV2BackgroundJobsIdCancelPost) | **Post** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
-[**ApiV2BackgroundJobsIdGet**](BackgroundJobsApi.md#ApiV2BackgroundJobsIdGet) | **Get** /api/v2/backgroundJobs/{id} | Get background job by ID
-[**ApiV2BackgroundJobsIdStatusGet**](BackgroundJobsApi.md#ApiV2BackgroundJobsIdStatusGet) | **Get** /api/v2/backgroundJobs/{id}/status | Get background job status by job ID
-[**ApiV2BackgroundJobsSearchPost**](BackgroundJobsApi.md#ApiV2BackgroundJobsSearchPost) | **Post** /api/v2/backgroundJobs/search | Search for user background jobs
+[**ApiV2BackgroundJobsGet**](BackgroundJobsAPI.md#ApiV2BackgroundJobsGet) | **Get** /api/v2/backgroundJobs | 
+[**ApiV2BackgroundJobsIdCancelPost**](BackgroundJobsAPI.md#ApiV2BackgroundJobsIdCancelPost) | **Post** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
+[**ApiV2BackgroundJobsIdGet**](BackgroundJobsAPI.md#ApiV2BackgroundJobsIdGet) | **Get** /api/v2/backgroundJobs/{id} | Get background job by ID
+[**ApiV2BackgroundJobsIdStatusGet**](BackgroundJobsAPI.md#ApiV2BackgroundJobsIdStatusGet) | **Get** /api/v2/backgroundJobs/{id}/status | Get background job status by job ID
+[**ApiV2BackgroundJobsSearchPost**](BackgroundJobsAPI.md#ApiV2BackgroundJobsSearchPost) | **Post** /api/v2/backgroundJobs/search | Search for user background jobs
 
 
 
@@ -24,28 +24,28 @@ Method | HTTP request | Description
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BackgroundJobsApi.ApiV2BackgroundJobsGet(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsApi.ApiV2BackgroundJobsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2BackgroundJobsGet`: []BackgroundJobGetModel
-    fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsApi.ApiV2BackgroundJobsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackgroundJobsAPI.ApiV2BackgroundJobsGet(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsAPI.ApiV2BackgroundJobsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2BackgroundJobsGet`: []BackgroundJobGetModel
+	fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsAPI.ApiV2BackgroundJobsGet`: %v\n", resp)
 }
 ```
 
@@ -96,22 +96,22 @@ Cancel current user background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.BackgroundJobsApi.ApiV2BackgroundJobsIdCancelPost(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsApi.ApiV2BackgroundJobsIdCancelPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.BackgroundJobsAPI.ApiV2BackgroundJobsIdCancelPost(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsAPI.ApiV2BackgroundJobsIdCancelPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -162,24 +162,24 @@ Get background job by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the background job
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the background job
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BackgroundJobsApi.ApiV2BackgroundJobsIdGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsApi.ApiV2BackgroundJobsIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2BackgroundJobsIdGet`: BackgroundJobGetModel
-    fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsApi.ApiV2BackgroundJobsIdGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackgroundJobsAPI.ApiV2BackgroundJobsIdGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsAPI.ApiV2BackgroundJobsIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2BackgroundJobsIdGet`: BackgroundJobGetModel
+	fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsAPI.ApiV2BackgroundJobsIdGet`: %v\n", resp)
 }
 ```
 
@@ -230,24 +230,24 @@ Get background job status by job ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the background job
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the background job
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BackgroundJobsApi.ApiV2BackgroundJobsIdStatusGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsApi.ApiV2BackgroundJobsIdStatusGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2BackgroundJobsIdStatusGet`: BackgroundJobState
-    fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsApi.ApiV2BackgroundJobsIdStatusGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackgroundJobsAPI.ApiV2BackgroundJobsIdStatusGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsAPI.ApiV2BackgroundJobsIdStatusGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2BackgroundJobsIdStatusGet`: BackgroundJobState
+	fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsAPI.ApiV2BackgroundJobsIdStatusGet`: %v\n", resp)
 }
 ```
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2BackgroundJobsSearchPost
 
-> []BackgroundJobGetModel ApiV2BackgroundJobsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2BackgroundJobsSearchPostRequest(apiV2BackgroundJobsSearchPostRequest).Execute()
+> []BackgroundJobGetModel ApiV2BackgroundJobsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).BackgroundJobFilterModel(backgroundJobFilterModel).Execute()
 
 Search for user background jobs
 
@@ -298,29 +298,29 @@ Search for user background jobs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2BackgroundJobsSearchPostRequest := *openapiclient.NewApiV2BackgroundJobsSearchPostRequest() // ApiV2BackgroundJobsSearchPostRequest |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	backgroundJobFilterModel := *openapiclient.NewBackgroundJobFilterModel() // BackgroundJobFilterModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BackgroundJobsApi.ApiV2BackgroundJobsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2BackgroundJobsSearchPostRequest(apiV2BackgroundJobsSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsApi.ApiV2BackgroundJobsSearchPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2BackgroundJobsSearchPost`: []BackgroundJobGetModel
-    fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsApi.ApiV2BackgroundJobsSearchPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.BackgroundJobsAPI.ApiV2BackgroundJobsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).BackgroundJobFilterModel(backgroundJobFilterModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsAPI.ApiV2BackgroundJobsSearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2BackgroundJobsSearchPost`: []BackgroundJobGetModel
+	fmt.Fprintf(os.Stdout, "Response from `BackgroundJobsAPI.ApiV2BackgroundJobsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2BackgroundJobsSearchPostRequest** | [**ApiV2BackgroundJobsSearchPostRequest**](ApiV2BackgroundJobsSearchPostRequest.md) |  | 
+ **backgroundJobFilterModel** | [**BackgroundJobFilterModel**](BackgroundJobFilterModel.md) |  | 
 
 ### Return type
 

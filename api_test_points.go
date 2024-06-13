@@ -20,12 +20,12 @@ import (
 )
 
 
-// TestPointsApiService TestPointsApi service
-type TestPointsApiService service
+// TestPointsAPIService TestPointsAPI service
+type TestPointsAPIService service
 
 type ApiApiV2TestPointsIdTestRunsGetRequest struct {
 	ctx context.Context
-	ApiService *TestPointsApiService
+	ApiService *TestPointsAPIService
 	id string
 }
 
@@ -40,7 +40,7 @@ ApiV2TestPointsIdTestRunsGet Get all test runs which use test point
  @param id Test point unique ID
  @return ApiApiV2TestPointsIdTestRunsGetRequest
 */
-func (a *TestPointsApiService) ApiV2TestPointsIdTestRunsGet(ctx context.Context, id string) ApiApiV2TestPointsIdTestRunsGetRequest {
+func (a *TestPointsAPIService) ApiV2TestPointsIdTestRunsGet(ctx context.Context, id string) ApiApiV2TestPointsIdTestRunsGetRequest {
 	return ApiApiV2TestPointsIdTestRunsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -50,7 +50,7 @@ func (a *TestPointsApiService) ApiV2TestPointsIdTestRunsGet(ctx context.Context,
 
 // Execute executes the request
 //  @return []TestRunModel
-func (a *TestPointsApiService) ApiV2TestPointsIdTestRunsGetExecute(r ApiApiV2TestPointsIdTestRunsGetRequest) ([]TestRunModel, *http.Response, error) {
+func (a *TestPointsAPIService) ApiV2TestPointsIdTestRunsGetExecute(r ApiApiV2TestPointsIdTestRunsGetRequest) ([]TestRunModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -58,7 +58,7 @@ func (a *TestPointsApiService) ApiV2TestPointsIdTestRunsGetExecute(r ApiApiV2Tes
 		localVarReturnValue  []TestRunModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsApiService.ApiV2TestPointsIdTestRunsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsAPIService.ApiV2TestPointsIdTestRunsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,7 +150,7 @@ func (a *TestPointsApiService) ApiV2TestPointsIdTestRunsGetExecute(r ApiApiV2Tes
 
 type ApiApiV2TestPointsIdWorkItemGetRequest struct {
 	ctx context.Context
-	ApiService *TestPointsApiService
+	ApiService *TestPointsAPIService
 	id string
 }
 
@@ -165,7 +165,7 @@ ApiV2TestPointsIdWorkItemGet Get work item represented by test point
  @param id Test point unique ID
  @return ApiApiV2TestPointsIdWorkItemGetRequest
 */
-func (a *TestPointsApiService) ApiV2TestPointsIdWorkItemGet(ctx context.Context, id string) ApiApiV2TestPointsIdWorkItemGetRequest {
+func (a *TestPointsAPIService) ApiV2TestPointsIdWorkItemGet(ctx context.Context, id string) ApiApiV2TestPointsIdWorkItemGetRequest {
 	return ApiApiV2TestPointsIdWorkItemGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -175,7 +175,7 @@ func (a *TestPointsApiService) ApiV2TestPointsIdWorkItemGet(ctx context.Context,
 
 // Execute executes the request
 //  @return WorkItemModel
-func (a *TestPointsApiService) ApiV2TestPointsIdWorkItemGetExecute(r ApiApiV2TestPointsIdWorkItemGetRequest) (*WorkItemModel, *http.Response, error) {
+func (a *TestPointsAPIService) ApiV2TestPointsIdWorkItemGetExecute(r ApiApiV2TestPointsIdWorkItemGetRequest) (*WorkItemModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -183,7 +183,7 @@ func (a *TestPointsApiService) ApiV2TestPointsIdWorkItemGetExecute(r ApiApiV2Tes
 		localVarReturnValue  *WorkItemModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsApiService.ApiV2TestPointsIdWorkItemGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsAPIService.ApiV2TestPointsIdWorkItemGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -275,13 +275,13 @@ func (a *TestPointsApiService) ApiV2TestPointsIdWorkItemGetExecute(r ApiApiV2Tes
 
 type ApiApiV2TestPointsSearchIdPostRequest struct {
 	ctx context.Context
-	ApiService *TestPointsApiService
+	ApiService *TestPointsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2TestPointsSearchPostRequest *ApiV2TestPointsSearchPostRequest
+	testPointFilterModel *TestPointFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -314,8 +314,8 @@ func (r ApiApiV2TestPointsSearchIdPostRequest) SearchValue(searchValue string) A
 	return r
 }
 
-func (r ApiApiV2TestPointsSearchIdPostRequest) ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest ApiV2TestPointsSearchPostRequest) ApiApiV2TestPointsSearchIdPostRequest {
-	r.apiV2TestPointsSearchPostRequest = &apiV2TestPointsSearchPostRequest
+func (r ApiApiV2TestPointsSearchIdPostRequest) TestPointFilterModel(testPointFilterModel TestPointFilterModel) ApiApiV2TestPointsSearchIdPostRequest {
+	r.testPointFilterModel = &testPointFilterModel
 	return r
 }
 
@@ -329,7 +329,7 @@ ApiV2TestPointsSearchIdPost Search for test points and extract IDs only
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TestPointsSearchIdPostRequest
 */
-func (a *TestPointsApiService) ApiV2TestPointsSearchIdPost(ctx context.Context) ApiApiV2TestPointsSearchIdPostRequest {
+func (a *TestPointsAPIService) ApiV2TestPointsSearchIdPost(ctx context.Context) ApiApiV2TestPointsSearchIdPostRequest {
 	return ApiApiV2TestPointsSearchIdPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -338,7 +338,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchIdPost(ctx context.Context) 
 
 // Execute executes the request
 //  @return []string
-func (a *TestPointsApiService) ApiV2TestPointsSearchIdPostExecute(r ApiApiV2TestPointsSearchIdPostRequest) ([]string, *http.Response, error) {
+func (a *TestPointsAPIService) ApiV2TestPointsSearchIdPostExecute(r ApiApiV2TestPointsSearchIdPostRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -346,7 +346,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchIdPostExecute(r ApiApiV2Test
 		localVarReturnValue  []string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsApiService.ApiV2TestPointsSearchIdPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsAPIService.ApiV2TestPointsSearchIdPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -390,7 +390,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchIdPostExecute(r ApiApiV2Test
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestPointsSearchPostRequest
+	localVarPostBody = r.testPointFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -454,13 +454,13 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchIdPostExecute(r ApiApiV2Test
 
 type ApiApiV2TestPointsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *TestPointsApiService
+	ApiService *TestPointsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2TestPointsSearchPostRequest *ApiV2TestPointsSearchPostRequest
+	testPointFilterModel *TestPointFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -493,8 +493,8 @@ func (r ApiApiV2TestPointsSearchPostRequest) SearchValue(searchValue string) Api
 	return r
 }
 
-func (r ApiApiV2TestPointsSearchPostRequest) ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest ApiV2TestPointsSearchPostRequest) ApiApiV2TestPointsSearchPostRequest {
-	r.apiV2TestPointsSearchPostRequest = &apiV2TestPointsSearchPostRequest
+func (r ApiApiV2TestPointsSearchPostRequest) TestPointFilterModel(testPointFilterModel TestPointFilterModel) ApiApiV2TestPointsSearchPostRequest {
+	r.testPointFilterModel = &testPointFilterModel
 	return r
 }
 
@@ -508,7 +508,7 @@ ApiV2TestPointsSearchPost Search for test points
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TestPointsSearchPostRequest
 */
-func (a *TestPointsApiService) ApiV2TestPointsSearchPost(ctx context.Context) ApiApiV2TestPointsSearchPostRequest {
+func (a *TestPointsAPIService) ApiV2TestPointsSearchPost(ctx context.Context) ApiApiV2TestPointsSearchPostRequest {
 	return ApiApiV2TestPointsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -517,7 +517,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchPost(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return []TestPointShortGetModel
-func (a *TestPointsApiService) ApiV2TestPointsSearchPostExecute(r ApiApiV2TestPointsSearchPostRequest) ([]TestPointShortGetModel, *http.Response, error) {
+func (a *TestPointsAPIService) ApiV2TestPointsSearchPostExecute(r ApiApiV2TestPointsSearchPostRequest) ([]TestPointShortGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -525,7 +525,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchPostExecute(r ApiApiV2TestPo
 		localVarReturnValue  []TestPointShortGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsApiService.ApiV2TestPointsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPointsAPIService.ApiV2TestPointsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -569,7 +569,7 @@ func (a *TestPointsApiService) ApiV2TestPointsSearchPostExecute(r ApiApiV2TestPo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestPointsSearchPostRequest
+	localVarPostBody = r.testPointFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

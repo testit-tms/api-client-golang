@@ -19,17 +19,17 @@ import (
 )
 
 
-// SearchApiService SearchApi service
-type SearchApiService service
+// SearchAPIService SearchAPI service
+type SearchAPIService service
 
 type ApiApiV2SearchGlobalSearchPostRequest struct {
 	ctx context.Context
-	ApiService *SearchApiService
-	apiV2SearchGlobalSearchPostRequest *ApiV2SearchGlobalSearchPostRequest
+	ApiService *SearchAPIService
+	globalSearchRequest *GlobalSearchRequest
 }
 
-func (r ApiApiV2SearchGlobalSearchPostRequest) ApiV2SearchGlobalSearchPostRequest(apiV2SearchGlobalSearchPostRequest ApiV2SearchGlobalSearchPostRequest) ApiApiV2SearchGlobalSearchPostRequest {
-	r.apiV2SearchGlobalSearchPostRequest = &apiV2SearchGlobalSearchPostRequest
+func (r ApiApiV2SearchGlobalSearchPostRequest) GlobalSearchRequest(globalSearchRequest GlobalSearchRequest) ApiApiV2SearchGlobalSearchPostRequest {
+	r.globalSearchRequest = &globalSearchRequest
 	return r
 }
 
@@ -43,7 +43,7 @@ ApiV2SearchGlobalSearchPost Method for ApiV2SearchGlobalSearchPost
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2SearchGlobalSearchPostRequest
 */
-func (a *SearchApiService) ApiV2SearchGlobalSearchPost(ctx context.Context) ApiApiV2SearchGlobalSearchPostRequest {
+func (a *SearchAPIService) ApiV2SearchGlobalSearchPost(ctx context.Context) ApiApiV2SearchGlobalSearchPostRequest {
 	return ApiApiV2SearchGlobalSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -52,7 +52,7 @@ func (a *SearchApiService) ApiV2SearchGlobalSearchPost(ctx context.Context) ApiA
 
 // Execute executes the request
 //  @return GlobalSearchResponse
-func (a *SearchApiService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGlobalSearchPostRequest) (*GlobalSearchResponse, *http.Response, error) {
+func (a *SearchAPIService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGlobalSearchPostRequest) (*GlobalSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -60,7 +60,7 @@ func (a *SearchApiService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGl
 		localVarReturnValue  *GlobalSearchResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.ApiV2SearchGlobalSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ApiV2SearchGlobalSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -89,7 +89,7 @@ func (a *SearchApiService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGl
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2SearchGlobalSearchPostRequest
+	localVarPostBody = r.globalSearchRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

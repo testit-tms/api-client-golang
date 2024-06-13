@@ -20,12 +20,12 @@ import (
 )
 
 
-// CustomAttributeTemplatesApiService CustomAttributeTemplatesApi service
-type CustomAttributeTemplatesApiService service
+// CustomAttributeTemplatesAPIService CustomAttributeTemplatesAPI service
+type CustomAttributeTemplatesAPIService service
 
 type ApiApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
+	ApiService *CustomAttributeTemplatesAPIService
 	id string
 	requestBody *[]string
 }
@@ -52,7 +52,7 @@ ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost Exclude CustomAttrib
  @param id Attribute template internal (UUID) identifier
  @return ApiApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostRequest {
 	return ApiApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -61,14 +61,14 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 }
 
 // Execute executes the request
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostExecute(r ApiApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostRequest) (*http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostExecute(r ApiApiV2CustomAttributesTemplatesIdCustomAttributesExcludePostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -165,7 +165,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 
 type ApiApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
+	ApiService *CustomAttributeTemplatesAPIService
 	id string
 	requestBody *[]string
 }
@@ -192,7 +192,7 @@ ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost Include CustomAttrib
  @param id Attribute template internal (UUID) identifier
  @return ApiApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostRequest {
 	return ApiApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -201,14 +201,14 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 }
 
 // Execute executes the request
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostExecute(r ApiApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostRequest) (*http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostExecute(r ApiApiV2CustomAttributesTemplatesIdCustomAttributesIncludePostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -305,7 +305,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdCus
 
 type ApiApiV2CustomAttributesTemplatesIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
+	ApiService *CustomAttributeTemplatesAPIService
 	id string
 }
 
@@ -326,7 +326,7 @@ ApiV2CustomAttributesTemplatesIdDelete Delete CustomAttributeTemplate
  @param id Attribute template internal (UUID) identifier
  @return ApiApiV2CustomAttributesTemplatesIdDeleteRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdDelete(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdDeleteRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdDelete(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdDeleteRequest {
 	return ApiApiV2CustomAttributesTemplatesIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -336,7 +336,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdDel
 
 // Execute executes the request
 //  @return NoContentResult
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdDeleteExecute(r ApiApiV2CustomAttributesTemplatesIdDeleteRequest) (*NoContentResult, *http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdDeleteExecute(r ApiApiV2CustomAttributesTemplatesIdDeleteRequest) (*NoContentResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -344,7 +344,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdDel
 		localVarReturnValue  *NoContentResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesIdDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -437,7 +437,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdDel
 
 type ApiApiV2CustomAttributesTemplatesIdGetRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
+	ApiService *CustomAttributeTemplatesAPIService
 	id string
 }
 
@@ -457,7 +457,7 @@ ApiV2CustomAttributesTemplatesIdGet Get CustomAttributeTemplate by ID
  @param id CustomAttributeTemplate internal (UUID) identifier
  @return ApiApiV2CustomAttributesTemplatesIdGetRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdGet(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdGetRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdGet(ctx context.Context, id string) ApiApiV2CustomAttributesTemplatesIdGetRequest {
 	return ApiApiV2CustomAttributesTemplatesIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -467,7 +467,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdGet
 
 // Execute executes the request
 //  @return CustomAttributeTemplateModel
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdGetExecute(r ApiApiV2CustomAttributesTemplatesIdGetRequest) (*CustomAttributeTemplateModel, *http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdGetExecute(r ApiApiV2CustomAttributesTemplatesIdGetRequest) (*CustomAttributeTemplateModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -475,7 +475,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdGet
 		localVarReturnValue  *CustomAttributeTemplateModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -578,7 +578,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesIdGet
 
 type ApiApiV2CustomAttributesTemplatesNameGetRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
+	ApiService *CustomAttributeTemplatesAPIService
 	name string
 }
 
@@ -598,7 +598,7 @@ ApiV2CustomAttributesTemplatesNameGet Get CustomAttributeTemplate by name
  @param name CustomAttributeTemplate name for search
  @return ApiApiV2CustomAttributesTemplatesNameGetRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesNameGet(ctx context.Context, name string) ApiApiV2CustomAttributesTemplatesNameGetRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesNameGet(ctx context.Context, name string) ApiApiV2CustomAttributesTemplatesNameGetRequest {
 	return ApiApiV2CustomAttributesTemplatesNameGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -608,7 +608,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesNameG
 
 // Execute executes the request
 //  @return CustomAttributeTemplateModel
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesNameGetExecute(r ApiApiV2CustomAttributesTemplatesNameGetRequest) (*CustomAttributeTemplateModel, *http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesNameGetExecute(r ApiApiV2CustomAttributesTemplatesNameGetRequest) (*CustomAttributeTemplateModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -616,7 +616,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesNameG
 		localVarReturnValue  *CustomAttributeTemplateModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesNameGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesNameGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -698,12 +698,12 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesNameG
 
 type ApiApiV2CustomAttributesTemplatesPostRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
-	apiV2CustomAttributesTemplatesPostRequest *ApiV2CustomAttributesTemplatesPostRequest
+	ApiService *CustomAttributeTemplatesAPIService
+	customAttributeTemplatePostModel *CustomAttributeTemplatePostModel
 }
 
-func (r ApiApiV2CustomAttributesTemplatesPostRequest) ApiV2CustomAttributesTemplatesPostRequest(apiV2CustomAttributesTemplatesPostRequest ApiV2CustomAttributesTemplatesPostRequest) ApiApiV2CustomAttributesTemplatesPostRequest {
-	r.apiV2CustomAttributesTemplatesPostRequest = &apiV2CustomAttributesTemplatesPostRequest
+func (r ApiApiV2CustomAttributesTemplatesPostRequest) CustomAttributeTemplatePostModel(customAttributeTemplatePostModel CustomAttributeTemplatePostModel) ApiApiV2CustomAttributesTemplatesPostRequest {
+	r.customAttributeTemplatePostModel = &customAttributeTemplatePostModel
 	return r
 }
 
@@ -723,7 +723,7 @@ ApiV2CustomAttributesTemplatesPost Create CustomAttributeTemplate
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2CustomAttributesTemplatesPostRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPost(ctx context.Context) ApiApiV2CustomAttributesTemplatesPostRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesPost(ctx context.Context) ApiApiV2CustomAttributesTemplatesPostRequest {
 	return ApiApiV2CustomAttributesTemplatesPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -732,7 +732,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPost(
 
 // Execute executes the request
 //  @return CustomAttributeTemplateModel
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPostExecute(r ApiApiV2CustomAttributesTemplatesPostRequest) (*CustomAttributeTemplateModel, *http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesPostExecute(r ApiApiV2CustomAttributesTemplatesPostRequest) (*CustomAttributeTemplateModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -740,7 +740,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPostE
 		localVarReturnValue  *CustomAttributeTemplateModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -769,7 +769,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPostE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2CustomAttributesTemplatesPostRequest
+	localVarPostBody = r.customAttributeTemplatePostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -844,12 +844,12 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPostE
 
 type ApiApiV2CustomAttributesTemplatesPutRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
-	apiV2CustomAttributesTemplatesPutRequest *ApiV2CustomAttributesTemplatesPutRequest
+	ApiService *CustomAttributeTemplatesAPIService
+	customAttributeTemplatePutModel *CustomAttributeTemplatePutModel
 }
 
-func (r ApiApiV2CustomAttributesTemplatesPutRequest) ApiV2CustomAttributesTemplatesPutRequest(apiV2CustomAttributesTemplatesPutRequest ApiV2CustomAttributesTemplatesPutRequest) ApiApiV2CustomAttributesTemplatesPutRequest {
-	r.apiV2CustomAttributesTemplatesPutRequest = &apiV2CustomAttributesTemplatesPutRequest
+func (r ApiApiV2CustomAttributesTemplatesPutRequest) CustomAttributeTemplatePutModel(customAttributeTemplatePutModel CustomAttributeTemplatePutModel) ApiApiV2CustomAttributesTemplatesPutRequest {
+	r.customAttributeTemplatePutModel = &customAttributeTemplatePutModel
 	return r
 }
 
@@ -863,7 +863,7 @@ ApiV2CustomAttributesTemplatesPut Update custom attributes template
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2CustomAttributesTemplatesPutRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPut(ctx context.Context) ApiApiV2CustomAttributesTemplatesPutRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesPut(ctx context.Context) ApiApiV2CustomAttributesTemplatesPutRequest {
 	return ApiApiV2CustomAttributesTemplatesPutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -871,14 +871,14 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPut(c
 }
 
 // Execute executes the request
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPutExecute(r ApiApiV2CustomAttributesTemplatesPutRequest) (*http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesPutExecute(r ApiApiV2CustomAttributesTemplatesPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -907,7 +907,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPutEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2CustomAttributesTemplatesPutRequest
+	localVarPostBody = r.customAttributeTemplatePutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -962,13 +962,13 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesPutEx
 
 type ApiApiV2CustomAttributesTemplatesSearchPostRequest struct {
 	ctx context.Context
-	ApiService *CustomAttributeTemplatesApiService
+	ApiService *CustomAttributeTemplatesAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2CustomAttributesTemplatesSearchPostRequest *ApiV2CustomAttributesTemplatesSearchPostRequest
+	customAttributeTemplateSearchQueryModel *CustomAttributeTemplateSearchQueryModel
 }
 
 // Amount of items to be skipped (offset)
@@ -1001,8 +1001,8 @@ func (r ApiApiV2CustomAttributesTemplatesSearchPostRequest) SearchValue(searchVa
 	return r
 }
 
-func (r ApiApiV2CustomAttributesTemplatesSearchPostRequest) ApiV2CustomAttributesTemplatesSearchPostRequest(apiV2CustomAttributesTemplatesSearchPostRequest ApiV2CustomAttributesTemplatesSearchPostRequest) ApiApiV2CustomAttributesTemplatesSearchPostRequest {
-	r.apiV2CustomAttributesTemplatesSearchPostRequest = &apiV2CustomAttributesTemplatesSearchPostRequest
+func (r ApiApiV2CustomAttributesTemplatesSearchPostRequest) CustomAttributeTemplateSearchQueryModel(customAttributeTemplateSearchQueryModel CustomAttributeTemplateSearchQueryModel) ApiApiV2CustomAttributesTemplatesSearchPostRequest {
+	r.customAttributeTemplateSearchQueryModel = &customAttributeTemplateSearchQueryModel
 	return r
 }
 
@@ -1021,7 +1021,7 @@ ApiV2CustomAttributesTemplatesSearchPost Search CustomAttributeTemplates
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2CustomAttributesTemplatesSearchPostRequest
 */
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesSearchPost(ctx context.Context) ApiApiV2CustomAttributesTemplatesSearchPostRequest {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesSearchPost(ctx context.Context) ApiApiV2CustomAttributesTemplatesSearchPostRequest {
 	return ApiApiV2CustomAttributesTemplatesSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1030,7 +1030,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesSearc
 
 // Execute executes the request
 //  @return []SearchCustomAttributeTemplateGetModel
-func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesSearchPostExecute(r ApiApiV2CustomAttributesTemplatesSearchPostRequest) ([]SearchCustomAttributeTemplateGetModel, *http.Response, error) {
+func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesSearchPostExecute(r ApiApiV2CustomAttributesTemplatesSearchPostRequest) ([]SearchCustomAttributeTemplateGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1038,7 +1038,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesSearc
 		localVarReturnValue  []SearchCustomAttributeTemplateGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesApiService.ApiV2CustomAttributesTemplatesSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributeTemplatesAPIService.ApiV2CustomAttributesTemplatesSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1082,7 +1082,7 @@ func (a *CustomAttributeTemplatesApiService) ApiV2CustomAttributesTemplatesSearc
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2CustomAttributesTemplatesSearchPostRequest
+	localVarPostBody = r.customAttributeTemplateSearchQueryModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

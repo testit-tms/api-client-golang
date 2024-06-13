@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the AutotestSelectModel type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,17 @@ var _ MappedNullable = &AutotestSelectModel{}
 
 // AutotestSelectModel struct for AutotestSelectModel
 type AutotestSelectModel struct {
-	Filter AutotestSelectModelFilter `json:"filter"`
-	ExtractionModel AutotestSelectModelExtractionModel `json:"extractionModel"`
+	Filter AutotestFilterModel `json:"filter"`
+	ExtractionModel AutotestsExtractionModel `json:"extractionModel"`
 }
+
+type _AutotestSelectModel AutotestSelectModel
 
 // NewAutotestSelectModel instantiates a new AutotestSelectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutotestSelectModel(filter AutotestSelectModelFilter, extractionModel AutotestSelectModelExtractionModel) *AutotestSelectModel {
+func NewAutotestSelectModel(filter AutotestFilterModel, extractionModel AutotestsExtractionModel) *AutotestSelectModel {
 	this := AutotestSelectModel{}
 	this.Filter = filter
 	this.ExtractionModel = extractionModel
@@ -43,9 +47,9 @@ func NewAutotestSelectModelWithDefaults() *AutotestSelectModel {
 }
 
 // GetFilter returns the Filter field value
-func (o *AutotestSelectModel) GetFilter() AutotestSelectModelFilter {
+func (o *AutotestSelectModel) GetFilter() AutotestFilterModel {
 	if o == nil {
-		var ret AutotestSelectModelFilter
+		var ret AutotestFilterModel
 		return ret
 	}
 
@@ -54,7 +58,7 @@ func (o *AutotestSelectModel) GetFilter() AutotestSelectModelFilter {
 
 // GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-func (o *AutotestSelectModel) GetFilterOk() (*AutotestSelectModelFilter, bool) {
+func (o *AutotestSelectModel) GetFilterOk() (*AutotestFilterModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -62,14 +66,14 @@ func (o *AutotestSelectModel) GetFilterOk() (*AutotestSelectModelFilter, bool) {
 }
 
 // SetFilter sets field value
-func (o *AutotestSelectModel) SetFilter(v AutotestSelectModelFilter) {
+func (o *AutotestSelectModel) SetFilter(v AutotestFilterModel) {
 	o.Filter = v
 }
 
 // GetExtractionModel returns the ExtractionModel field value
-func (o *AutotestSelectModel) GetExtractionModel() AutotestSelectModelExtractionModel {
+func (o *AutotestSelectModel) GetExtractionModel() AutotestsExtractionModel {
 	if o == nil {
-		var ret AutotestSelectModelExtractionModel
+		var ret AutotestsExtractionModel
 		return ret
 	}
 
@@ -78,7 +82,7 @@ func (o *AutotestSelectModel) GetExtractionModel() AutotestSelectModelExtraction
 
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value
 // and a boolean to check if the value has been set.
-func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestSelectModelExtractionModel, bool) {
+func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestsExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -86,7 +90,7 @@ func (o *AutotestSelectModel) GetExtractionModelOk() (*AutotestSelectModelExtrac
 }
 
 // SetExtractionModel sets field value
-func (o *AutotestSelectModel) SetExtractionModel(v AutotestSelectModelExtractionModel) {
+func (o *AutotestSelectModel) SetExtractionModel(v AutotestsExtractionModel) {
 	o.ExtractionModel = v
 }
 
@@ -103,6 +107,44 @@ func (o AutotestSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["filter"] = o.Filter
 	toSerialize["extractionModel"] = o.ExtractionModel
 	return toSerialize, nil
+}
+
+func (o *AutotestSelectModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"filter",
+		"extractionModel",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAutotestSelectModel := _AutotestSelectModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAutotestSelectModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AutotestSelectModel(varAutotestSelectModel)
+
+	return err
 }
 
 type NullableAutotestSelectModel struct {

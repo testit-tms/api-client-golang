@@ -1,45 +1,45 @@
-# \TestPlansApi
+# \TestPlansAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddTestPointsWithSections**](TestPlansApi.md#AddTestPointsWithSections) | **Post** /api/v2/testPlans/{id}/test-points/withSections | Add test-points to TestPlan with sections
-[**AddWorkItemsWithSections**](TestPlansApi.md#AddWorkItemsWithSections) | **Post** /api/v2/testPlans/{id}/workItems/withSections | Add WorkItems to TestPlan with Sections as TestSuites
-[**ApiV2TestPlansIdAnalyticsGet**](TestPlansApi.md#ApiV2TestPlansIdAnalyticsGet) | **Get** /api/v2/testPlans/{id}/analytics | Get analytics by TestPlan
-[**ApiV2TestPlansIdAutobalancePost**](TestPlansApi.md#ApiV2TestPlansIdAutobalancePost) | **Post** /api/v2/testPlans/{id}/autobalance | Distribute test points between the users
-[**ApiV2TestPlansIdConfigurationsGet**](TestPlansApi.md#ApiV2TestPlansIdConfigurationsGet) | **Get** /api/v2/testPlans/{id}/configurations | Get TestPlan configurations
-[**ApiV2TestPlansIdExportTestPointsXlsxPost**](TestPlansApi.md#ApiV2TestPlansIdExportTestPointsXlsxPost) | **Post** /api/v2/testPlans/{id}/export/testPoints/xlsx | Export TestPoints from TestPlan in xls format
-[**ApiV2TestPlansIdExportTestResultHistoryXlsxPost**](TestPlansApi.md#ApiV2TestPlansIdExportTestResultHistoryXlsxPost) | **Post** /api/v2/testPlans/{id}/export/testResultHistory/xlsx | Export TestResults history from TestPlan in xls format
-[**ApiV2TestPlansIdHistoryGet**](TestPlansApi.md#ApiV2TestPlansIdHistoryGet) | **Get** /api/v2/testPlans/{id}/history | Get TestPlan history
-[**ApiV2TestPlansIdLinksGet**](TestPlansApi.md#ApiV2TestPlansIdLinksGet) | **Get** /api/v2/testPlans/{id}/links | Get Links of TestPlan
-[**ApiV2TestPlansIdPatch**](TestPlansApi.md#ApiV2TestPlansIdPatch) | **Patch** /api/v2/testPlans/{id} | Patch test plan
-[**ApiV2TestPlansIdTestPointsLastResultsGet**](TestPlansApi.md#ApiV2TestPlansIdTestPointsLastResultsGet) | **Get** /api/v2/testPlans/{id}/testPoints/lastResults | Get TestPoints with last result from TestPlan
-[**ApiV2TestPlansIdTestPointsResetPost**](TestPlansApi.md#ApiV2TestPlansIdTestPointsResetPost) | **Post** /api/v2/testPlans/{id}/testPoints/reset | Reset TestPoints status of TestPlan
-[**ApiV2TestPlansIdTestPointsTesterDelete**](TestPlansApi.md#ApiV2TestPlansIdTestPointsTesterDelete) | **Delete** /api/v2/testPlans/{id}/testPoints/tester | Unassign users from multiple test points
-[**ApiV2TestPlansIdTestPointsTesterUserIdPost**](TestPlansApi.md#ApiV2TestPlansIdTestPointsTesterUserIdPost) | **Post** /api/v2/testPlans/{id}/testPoints/tester/{userId} | Assign user as a tester to multiple test points
-[**ApiV2TestPlansIdTestRunsGet**](TestPlansApi.md#ApiV2TestPlansIdTestRunsGet) | **Get** /api/v2/testPlans/{id}/testRuns | Get TestRuns of TestPlan
-[**ApiV2TestPlansIdTestRunsSearchPost**](TestPlansApi.md#ApiV2TestPlansIdTestRunsSearchPost) | **Post** /api/v2/testPlans/{id}/testRuns/search | Search TestRuns of TestPlan
-[**ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet**](TestPlansApi.md#ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet) | **Get** /api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate | Get last modification date of test plan&#39;s test results
-[**ApiV2TestPlansIdUnlockRequestPost**](TestPlansApi.md#ApiV2TestPlansIdUnlockRequestPost) | **Post** /api/v2/testPlans/{id}/unlock/request | Send unlock TestPlan notification
-[**ApiV2TestPlansShortsPost**](TestPlansApi.md#ApiV2TestPlansShortsPost) | **Post** /api/v2/testPlans/shorts | Get TestPlans short models by Project identifiers
-[**Clone**](TestPlansApi.md#Clone) | **Post** /api/v2/testPlans/{id}/clone | Clone TestPlan
-[**Complete**](TestPlansApi.md#Complete) | **Post** /api/v2/testPlans/{id}/complete | Complete TestPlan
-[**CreateTestPlan**](TestPlansApi.md#CreateTestPlan) | **Post** /api/v2/testPlans | Create TestPlan
-[**DeleteTestPlan**](TestPlansApi.md#DeleteTestPlan) | **Delete** /api/v2/testPlans/{id} | Delete TestPlan
-[**GetTestPlanById**](TestPlansApi.md#GetTestPlanById) | **Get** /api/v2/testPlans/{id} | Get TestPlan by Id
-[**GetTestSuitesById**](TestPlansApi.md#GetTestSuitesById) | **Get** /api/v2/testPlans/{id}/testSuites | Get TestSuites Tree By Id
-[**Pause**](TestPlansApi.md#Pause) | **Post** /api/v2/testPlans/{id}/pause | Pause TestPlan
-[**PurgeTestPlan**](TestPlansApi.md#PurgeTestPlan) | **Post** /api/v2/testPlans/{id}/purge | Permanently delete test plan from archive
-[**RestoreTestPlan**](TestPlansApi.md#RestoreTestPlan) | **Post** /api/v2/testPlans/{id}/restore | Restore TestPlan
-[**Start**](TestPlansApi.md#Start) | **Post** /api/v2/testPlans/{id}/start | Start TestPlan
-[**UpdateTestPlan**](TestPlansApi.md#UpdateTestPlan) | **Put** /api/v2/testPlans | Update TestPlan
+[**AddTestPointsWithSections**](TestPlansAPI.md#AddTestPointsWithSections) | **Post** /api/v2/testPlans/{id}/test-points/withSections | Add test-points to TestPlan with sections
+[**AddWorkItemsWithSections**](TestPlansAPI.md#AddWorkItemsWithSections) | **Post** /api/v2/testPlans/{id}/workItems/withSections | Add WorkItems to TestPlan with Sections as TestSuites
+[**ApiV2TestPlansIdAnalyticsGet**](TestPlansAPI.md#ApiV2TestPlansIdAnalyticsGet) | **Get** /api/v2/testPlans/{id}/analytics | Get analytics by TestPlan
+[**ApiV2TestPlansIdAutobalancePost**](TestPlansAPI.md#ApiV2TestPlansIdAutobalancePost) | **Post** /api/v2/testPlans/{id}/autobalance | Distribute test points between the users
+[**ApiV2TestPlansIdConfigurationsGet**](TestPlansAPI.md#ApiV2TestPlansIdConfigurationsGet) | **Get** /api/v2/testPlans/{id}/configurations | Get TestPlan configurations
+[**ApiV2TestPlansIdExportTestPointsXlsxPost**](TestPlansAPI.md#ApiV2TestPlansIdExportTestPointsXlsxPost) | **Post** /api/v2/testPlans/{id}/export/testPoints/xlsx | Export TestPoints from TestPlan in xls format
+[**ApiV2TestPlansIdExportTestResultHistoryXlsxPost**](TestPlansAPI.md#ApiV2TestPlansIdExportTestResultHistoryXlsxPost) | **Post** /api/v2/testPlans/{id}/export/testResultHistory/xlsx | Export TestResults history from TestPlan in xls format
+[**ApiV2TestPlansIdHistoryGet**](TestPlansAPI.md#ApiV2TestPlansIdHistoryGet) | **Get** /api/v2/testPlans/{id}/history | Get TestPlan history
+[**ApiV2TestPlansIdLinksGet**](TestPlansAPI.md#ApiV2TestPlansIdLinksGet) | **Get** /api/v2/testPlans/{id}/links | Get Links of TestPlan
+[**ApiV2TestPlansIdPatch**](TestPlansAPI.md#ApiV2TestPlansIdPatch) | **Patch** /api/v2/testPlans/{id} | Patch test plan
+[**ApiV2TestPlansIdTestPointsLastResultsGet**](TestPlansAPI.md#ApiV2TestPlansIdTestPointsLastResultsGet) | **Get** /api/v2/testPlans/{id}/testPoints/lastResults | Get TestPoints with last result from TestPlan
+[**ApiV2TestPlansIdTestPointsResetPost**](TestPlansAPI.md#ApiV2TestPlansIdTestPointsResetPost) | **Post** /api/v2/testPlans/{id}/testPoints/reset | Reset TestPoints status of TestPlan
+[**ApiV2TestPlansIdTestPointsTesterDelete**](TestPlansAPI.md#ApiV2TestPlansIdTestPointsTesterDelete) | **Delete** /api/v2/testPlans/{id}/testPoints/tester | Unassign users from multiple test points
+[**ApiV2TestPlansIdTestPointsTesterUserIdPost**](TestPlansAPI.md#ApiV2TestPlansIdTestPointsTesterUserIdPost) | **Post** /api/v2/testPlans/{id}/testPoints/tester/{userId} | Assign user as a tester to multiple test points
+[**ApiV2TestPlansIdTestRunsGet**](TestPlansAPI.md#ApiV2TestPlansIdTestRunsGet) | **Get** /api/v2/testPlans/{id}/testRuns | Get TestRuns of TestPlan
+[**ApiV2TestPlansIdTestRunsSearchPost**](TestPlansAPI.md#ApiV2TestPlansIdTestRunsSearchPost) | **Post** /api/v2/testPlans/{id}/testRuns/search | Search TestRuns of TestPlan
+[**ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet**](TestPlansAPI.md#ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet) | **Get** /api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate | Get last modification date of test plan&#39;s test results
+[**ApiV2TestPlansIdUnlockRequestPost**](TestPlansAPI.md#ApiV2TestPlansIdUnlockRequestPost) | **Post** /api/v2/testPlans/{id}/unlock/request | Send unlock TestPlan notification
+[**ApiV2TestPlansShortsPost**](TestPlansAPI.md#ApiV2TestPlansShortsPost) | **Post** /api/v2/testPlans/shorts | Get TestPlans short models by Project identifiers
+[**Clone**](TestPlansAPI.md#Clone) | **Post** /api/v2/testPlans/{id}/clone | Clone TestPlan
+[**Complete**](TestPlansAPI.md#Complete) | **Post** /api/v2/testPlans/{id}/complete | Complete TestPlan
+[**CreateTestPlan**](TestPlansAPI.md#CreateTestPlan) | **Post** /api/v2/testPlans | Create TestPlan
+[**DeleteTestPlan**](TestPlansAPI.md#DeleteTestPlan) | **Delete** /api/v2/testPlans/{id} | Delete TestPlan
+[**GetTestPlanById**](TestPlansAPI.md#GetTestPlanById) | **Get** /api/v2/testPlans/{id} | Get TestPlan by Id
+[**GetTestSuitesById**](TestPlansAPI.md#GetTestSuitesById) | **Get** /api/v2/testPlans/{id}/testSuites | Get TestSuites Tree By Id
+[**Pause**](TestPlansAPI.md#Pause) | **Post** /api/v2/testPlans/{id}/pause | Pause TestPlan
+[**PurgeTestPlan**](TestPlansAPI.md#PurgeTestPlan) | **Post** /api/v2/testPlans/{id}/purge | Permanently delete test plan from archive
+[**RestoreTestPlan**](TestPlansAPI.md#RestoreTestPlan) | **Post** /api/v2/testPlans/{id}/restore | Restore TestPlan
+[**Start**](TestPlansAPI.md#Start) | **Post** /api/v2/testPlans/{id}/start | Start TestPlan
+[**UpdateTestPlan**](TestPlansAPI.md#UpdateTestPlan) | **Put** /api/v2/testPlans | Update TestPlan
 
 
 
 ## AddTestPointsWithSections
 
-> AddTestPointsWithSections(ctx, id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
+> AddTestPointsWithSections(ctx, id).WorkItemSelectModel(workItemSelectModel).Execute()
 
 Add test-points to TestPlan with sections
 
@@ -49,23 +49,23 @@ Add test-points to TestPlan with sections
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    apiV2ProjectsProjectIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdWorkItemsSearchPostRequest(*openapiclient.NewWorkItemSelectModelFilter()) // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	workItemSelectModel := *openapiclient.NewWorkItemSelectModel(*openapiclient.NewWorkItemFilterModel()) // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.AddTestPointsWithSections(context.Background(), id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.AddTestPointsWithSections``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.AddTestPointsWithSections(context.Background(), id).WorkItemSelectModel(workItemSelectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.AddTestPointsWithSections``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -85,7 +85,7 @@ Other parameters are passed through a pointer to a apiAddTestPointsWithSectionsR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
+ **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) | Filter object to retrieve work items for test-suite&#39;s project | 
 
 ### Return type
 
@@ -119,23 +119,23 @@ Add WorkItems to TestPlan with Sections as TestSuites
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    requestBody := []string{"Property_example"} // []string |  (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	requestBody := []string{"Property_example"} // []string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.AddWorkItemsWithSections(context.Background(), id).RequestBody(requestBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.AddWorkItemsWithSections``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.AddWorkItemsWithSections(context.Background(), id).RequestBody(requestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.AddWorkItemsWithSections``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -189,24 +189,24 @@ Get analytics by TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdAnalyticsGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdAnalyticsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdAnalyticsGet`: TestPointAnalyticResult
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdAnalyticsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdAnalyticsGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdAnalyticsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdAnalyticsGet`: TestPointAnalyticResult
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdAnalyticsGet`: %v\n", resp)
 }
 ```
 
@@ -257,25 +257,25 @@ Distribute test points between the users
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Test plan unique or global ID
-    testers := []string{"Inner_example"} // []string | Specifies a project user IDs to distribute (optional)
+	id := "id_example" // string | Test plan unique or global ID
+	testers := []string{"Inner_example"} // []string | Specifies a project user IDs to distribute (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdAutobalancePost(context.Background(), id).Testers(testers).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdAutobalancePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdAutobalancePost`: TestPlanWithTestSuiteTreeModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdAutobalancePost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdAutobalancePost(context.Background(), id).Testers(testers).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdAutobalancePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdAutobalancePost`: TestPlanWithTestSuiteTreeModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdAutobalancePost`: %v\n", resp)
 }
 ```
 
@@ -329,24 +329,24 @@ Get TestPlan configurations
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdConfigurationsGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdConfigurationsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdConfigurationsGet`: []ConfigurationModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdConfigurationsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdConfigurationsGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdConfigurationsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdConfigurationsGet`: []ConfigurationModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdConfigurationsGet`: %v\n", resp)
 }
 ```
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdExportTestPointsXlsxPost
 
-> *os.File ApiV2TestPlansIdExportTestPointsXlsxPost(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ApiV2TestPlansIdExportTestPointsXlsxPostRequest(apiV2TestPlansIdExportTestPointsXlsxPostRequest).Execute()
+> *os.File ApiV2TestPlansIdExportTestPointsXlsxPost(ctx, id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).GetXlsxTestPointsByTestPlanModel(getXlsxTestPointsByTestPlanModel).Execute()
 
 Export TestPoints from TestPlan in xls format
 
@@ -399,26 +399,26 @@ Export TestPoints from TestPlan in xls format
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    apiV2TestPlansIdExportTestPointsXlsxPostRequest := *openapiclient.NewApiV2TestPlansIdExportTestPointsXlsxPostRequest(false, false, false, false, false, false, false, false, false, false, false, false) // ApiV2TestPlansIdExportTestPointsXlsxPostRequest |  (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
+	getXlsxTestPointsByTestPlanModel := *openapiclient.NewGetXlsxTestPointsByTestPlanModel(false, false, false, false, false, false, false, false, false, false, false, false) // GetXlsxTestPointsByTestPlanModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdExportTestPointsXlsxPost(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ApiV2TestPlansIdExportTestPointsXlsxPostRequest(apiV2TestPlansIdExportTestPointsXlsxPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdExportTestPointsXlsxPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdExportTestPointsXlsxPost`: *os.File
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdExportTestPointsXlsxPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdExportTestPointsXlsxPost(context.Background(), id).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).GetXlsxTestPointsByTestPlanModel(getXlsxTestPointsByTestPlanModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdExportTestPointsXlsxPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdExportTestPointsXlsxPost`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdExportTestPointsXlsxPost`: %v\n", resp)
 }
 ```
 
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **apiV2TestPlansIdExportTestPointsXlsxPostRequest** | [**ApiV2TestPlansIdExportTestPointsXlsxPostRequest**](ApiV2TestPlansIdExportTestPointsXlsxPostRequest.md) |  | 
+ **getXlsxTestPointsByTestPlanModel** | [**GetXlsxTestPointsByTestPlanModel**](GetXlsxTestPointsByTestPlanModel.md) |  | 
 
 ### Return type
 
@@ -473,28 +473,28 @@ Export TestResults history from TestPlan in xls format
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    mustReturnOnlyLastTestResult := true // bool |  (optional)
-    includeSteps := true // bool |  (optional)
-    includeDeletedTestSuites := true // bool |  (optional)
-    timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	mustReturnOnlyLastTestResult := true // bool |  (optional)
+	includeSteps := true // bool |  (optional)
+	includeDeletedTestSuites := true // bool |  (optional)
+	timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdExportTestResultHistoryXlsxPost(context.Background(), id).MustReturnOnlyLastTestResult(mustReturnOnlyLastTestResult).IncludeSteps(includeSteps).IncludeDeletedTestSuites(includeDeletedTestSuites).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdExportTestResultHistoryXlsxPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdExportTestResultHistoryXlsxPost`: *os.File
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdExportTestResultHistoryXlsxPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdExportTestResultHistoryXlsxPost(context.Background(), id).MustReturnOnlyLastTestResult(mustReturnOnlyLastTestResult).IncludeSteps(includeSteps).IncludeDeletedTestSuites(includeDeletedTestSuites).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdExportTestResultHistoryXlsxPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdExportTestResultHistoryXlsxPost`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdExportTestResultHistoryXlsxPost`: %v\n", resp)
 }
 ```
 
@@ -551,29 +551,29 @@ Get TestPlan history
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdHistoryGet(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdHistoryGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdHistoryGet`: []TestPlanChangeModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdHistoryGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdHistoryGet(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdHistoryGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdHistoryGet`: []TestPlanChangeModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdHistoryGet`: %v\n", resp)
 }
 ```
 
@@ -631,27 +631,27 @@ Get Links of TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    skip := int32(56) // int32 |  (optional)
-    take := int32(56) // int32 |  (optional)
-    orderBy := "orderBy_example" // string |  (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	skip := int32(56) // int32 |  (optional)
+	take := int32(56) // int32 |  (optional)
+	orderBy := "orderBy_example" // string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdLinksGet(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdLinksGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdLinksGet`: []TestPlanLink
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdLinksGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdLinksGet(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdLinksGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdLinksGet`: []TestPlanLink
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdLinksGet`: %v\n", resp)
 }
 ```
 
@@ -707,23 +707,23 @@ Patch test plan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the test plan
-    operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the test plan
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.ApiV2TestPlansIdPatch(context.Background(), id).Operation(operation).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdPatch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdPatch(context.Background(), id).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -777,30 +777,30 @@ Get TestPoints with last result from TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    testerId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	testerId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsLastResultsGet(context.Background(), id).TesterId(testerId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestPointsLastResultsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdTestPointsLastResultsGet`: []TestPointWithLastResultModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdTestPointsLastResultsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestPointsLastResultsGet(context.Background(), id).TesterId(testerId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestPointsLastResultsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdTestPointsLastResultsGet`: []TestPointWithLastResultModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestPointsLastResultsGet`: %v\n", resp)
 }
 ```
 
@@ -859,23 +859,23 @@ Reset TestPoints status of TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    requestBody := []string{"Property_example"} // []string |  (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	requestBody := []string{"Property_example"} // []string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsResetPost(context.Background(), id).RequestBody(requestBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestPointsResetPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestPointsResetPost(context.Background(), id).RequestBody(requestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestPointsResetPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -917,7 +917,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestPointsTesterDelete
 
-> []string ApiV2TestPlansIdTestPointsTesterDelete(ctx, id).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
+> []string ApiV2TestPlansIdTestPointsTesterDelete(ctx, id).TestPointSelectModel(testPointSelectModel).Execute()
 
 Unassign users from multiple test points
 
@@ -927,25 +927,25 @@ Unassign users from multiple test points
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the test plan
-    apiV2TestPlansIdTestPointsTesterUserIdPostRequest := *openapiclient.NewApiV2TestPlansIdTestPointsTesterUserIdPostRequest() // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest |  (optional)
+	id := "id_example" // string | Unique or global ID of the test plan
+	testPointSelectModel := *openapiclient.NewTestPointSelectModel() // TestPointSelectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsTesterDelete(context.Background(), id).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestPointsTesterDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdTestPointsTesterDelete`: []string
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdTestPointsTesterDelete`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestPointsTesterDelete(context.Background(), id).TestPointSelectModel(testPointSelectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestPointsTesterDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdTestPointsTesterDelete`: []string
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestPointsTesterDelete`: %v\n", resp)
 }
 ```
 
@@ -965,7 +965,7 @@ Other parameters are passed through a pointer to a apiApiV2TestPlansIdTestPoints
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md) |  | 
+ **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md) |  | 
 
 ### Return type
 
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestPointsTesterUserIdPost
 
-> []string ApiV2TestPlansIdTestPointsTesterUserIdPost(ctx, id, userId).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
+> []string ApiV2TestPlansIdTestPointsTesterUserIdPost(ctx, id, userId).TestPointSelectModel(testPointSelectModel).Execute()
 
 Assign user as a tester to multiple test points
 
@@ -997,26 +997,26 @@ Assign user as a tester to multiple test points
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the test plan
-    userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the user
-    apiV2TestPlansIdTestPointsTesterUserIdPostRequest := *openapiclient.NewApiV2TestPlansIdTestPointsTesterUserIdPostRequest() // ApiV2TestPlansIdTestPointsTesterUserIdPostRequest |  (optional)
+	id := "id_example" // string | Unique or global ID of the test plan
+	userId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the user
+	testPointSelectModel := *openapiclient.NewTestPointSelectModel() // TestPointSelectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestPointsTesterUserIdPost(context.Background(), id, userId).ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestPointsTesterUserIdPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdTestPointsTesterUserIdPost`: []string
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdTestPointsTesterUserIdPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestPointsTesterUserIdPost(context.Background(), id, userId).TestPointSelectModel(testPointSelectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestPointsTesterUserIdPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdTestPointsTesterUserIdPost`: []string
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestPointsTesterUserIdPost`: %v\n", resp)
 }
 ```
 
@@ -1038,7 +1038,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **apiV2TestPlansIdTestPointsTesterUserIdPostRequest** | [**ApiV2TestPlansIdTestPointsTesterUserIdPostRequest**](ApiV2TestPlansIdTestPointsTesterUserIdPostRequest.md) |  | 
+ **testPointSelectModel** | [**TestPointSelectModel**](TestPointSelectModel.md) |  | 
 
 ### Return type
 
@@ -1072,33 +1072,33 @@ Get TestRuns of TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    notStarted := true // bool |  (optional)
-    inProgress := true // bool |  (optional)
-    stopped := true // bool |  (optional)
-    completed := true // bool |  (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	notStarted := true // bool |  (optional)
+	inProgress := true // bool |  (optional)
+	stopped := true // bool |  (optional)
+	completed := true // bool |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestRunsGet(context.Background(), id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestRunsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdTestRunsGet`: []TestRunModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdTestRunsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestRunsGet(context.Background(), id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestRunsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdTestRunsGet`: []TestRunModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestRunsGet`: %v\n", resp)
 }
 ```
 
@@ -1148,7 +1148,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestRunsSearchPost
 
-> []TestRunModel ApiV2TestPlansIdTestRunsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPlansIdTestRunsSearchPostRequest(apiV2TestPlansIdTestRunsSearchPostRequest).Execute()
+> []TestRunModel ApiV2TestPlansIdTestRunsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunSearchQueryModel(testRunSearchQueryModel).Execute()
 
 Search TestRuns of TestPlan
 
@@ -1160,30 +1160,30 @@ Search TestRuns of TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2TestPlansIdTestRunsSearchPostRequest := *openapiclient.NewApiV2TestPlansIdTestRunsSearchPostRequest() // ApiV2TestPlansIdTestRunsSearchPostRequest |  (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	testRunSearchQueryModel := *openapiclient.NewTestRunSearchQueryModel() // TestRunSearchQueryModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestRunsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPlansIdTestRunsSearchPostRequest(apiV2TestPlansIdTestRunsSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestRunsSearchPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdTestRunsSearchPost`: []TestRunModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdTestRunsSearchPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestRunsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunSearchQueryModel(testRunSearchQueryModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestRunsSearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdTestRunsSearchPost`: []TestRunModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestRunsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -1208,7 +1208,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2TestPlansIdTestRunsSearchPostRequest** | [**ApiV2TestPlansIdTestRunsSearchPostRequest**](ApiV2TestPlansIdTestRunsSearchPostRequest.md) |  | 
+ **testRunSearchQueryModel** | [**TestRunSearchQueryModel**](TestRunSearchQueryModel.md) |  | 
 
 ### Return type
 
@@ -1240,24 +1240,24 @@ Get last modification date of test plan's test results
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Test plan unique or global ID
+	id := "id_example" // string | Test plan unique or global ID
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet`: time.Time
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet`: time.Time
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet`: %v\n", resp)
 }
 ```
 
@@ -1310,22 +1310,22 @@ Send unlock TestPlan notification
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.ApiV2TestPlansIdUnlockRequestPost(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansIdUnlockRequestPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdUnlockRequestPost(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdUnlockRequestPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1378,25 +1378,25 @@ Get TestPlans short models by Project identifiers
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    isDeleted := true // bool |  (optional)
-    requestBody := []string{"Property_example"} // []string |  (optional)
+	isDeleted := true // bool |  (optional)
+	requestBody := []string{"Property_example"} // []string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.ApiV2TestPlansShortsPost(context.Background()).IsDeleted(isDeleted).RequestBody(requestBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.ApiV2TestPlansShortsPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TestPlansShortsPost`: []TestPlanShortModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.ApiV2TestPlansShortsPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansShortsPost(context.Background()).IsDeleted(isDeleted).RequestBody(requestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansShortsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestPlansShortsPost`: []TestPlanShortModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansShortsPost`: %v\n", resp)
 }
 ```
 
@@ -1446,24 +1446,24 @@ Clone TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.Clone(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.Clone``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `Clone`: TestPlanModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.Clone`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.Clone(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.Clone``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Clone`: TestPlanModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.Clone`: %v\n", resp)
 }
 ```
 
@@ -1516,22 +1516,22 @@ Complete TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.Complete(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.Complete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.Complete(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.Complete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1572,7 +1572,7 @@ Name | Type | Description  | Notes
 
 ## CreateTestPlan
 
-> TestPlanModel CreateTestPlan(ctx).CreateTestPlanRequest(createTestPlanRequest).Execute()
+> TestPlanModel CreateTestPlan(ctx).TestPlanPostModel(testPlanPostModel).Execute()
 
 Create TestPlan
 
@@ -1584,24 +1584,24 @@ Create TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    createTestPlanRequest := *openapiclient.NewCreateTestPlanRequest("Base test plan", "20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", map[string]interface{}{"key": interface{}(123)}) // CreateTestPlanRequest |  (optional)
+	testPlanPostModel := *openapiclient.NewTestPlanPostModel("Base test plan", "82e92d6f-0258-416b-b2b4-039ea76601c7", map[string]interface{}{"key": interface{}(123)}) // TestPlanPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.CreateTestPlan(context.Background()).CreateTestPlanRequest(createTestPlanRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.CreateTestPlan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateTestPlan`: TestPlanModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.CreateTestPlan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.CreateTestPlan(context.Background()).TestPlanPostModel(testPlanPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.CreateTestPlan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateTestPlan`: TestPlanModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.CreateTestPlan`: %v\n", resp)
 }
 ```
 
@@ -1616,7 +1616,7 @@ Other parameters are passed through a pointer to a apiCreateTestPlanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createTestPlanRequest** | [**CreateTestPlanRequest**](CreateTestPlanRequest.md) |  | 
+ **testPlanPostModel** | [**TestPlanPostModel**](TestPlanPostModel.md) |  | 
 
 ### Return type
 
@@ -1650,22 +1650,22 @@ Delete TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.DeleteTestPlan(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.DeleteTestPlan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.DeleteTestPlan(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.DeleteTestPlan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1718,24 +1718,24 @@ Get TestPlan by Id
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.GetTestPlanById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.GetTestPlanById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTestPlanById`: TestPlanModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.GetTestPlanById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.GetTestPlanById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.GetTestPlanById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTestPlanById`: TestPlanModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.GetTestPlanById`: %v\n", resp)
 }
 ```
 
@@ -1788,24 +1788,24 @@ Get TestSuites Tree By Id
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TestPlansApi.GetTestSuitesById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.GetTestSuitesById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTestSuitesById`: []TestSuiteV2TreeModel
-    fmt.Fprintf(os.Stdout, "Response from `TestPlansApi.GetTestSuitesById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestPlansAPI.GetTestSuitesById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.GetTestSuitesById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTestSuitesById`: []TestSuiteV2TreeModel
+	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.GetTestSuitesById`: %v\n", resp)
 }
 ```
 
@@ -1858,22 +1858,22 @@ Pause TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.Pause(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.Pause``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.Pause(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.Pause``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1924,22 +1924,22 @@ Permanently delete test plan from archive
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the test plan
+	id := "id_example" // string | Unique or global ID of the test plan
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.PurgeTestPlan(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.PurgeTestPlan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.PurgeTestPlan(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.PurgeTestPlan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1992,22 +1992,22 @@ Restore TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.RestoreTestPlan(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.RestoreTestPlan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.RestoreTestPlan(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.RestoreTestPlan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -2060,22 +2060,22 @@ Start TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test plan internal (guid format) or global (int  format) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.Start(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.Start``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.Start(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.Start``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -2116,7 +2116,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTestPlan
 
-> UpdateTestPlan(ctx).UpdateTestPlanRequest(updateTestPlanRequest).Execute()
+> UpdateTestPlan(ctx).TestPlanPutModel(testPlanPutModel).Execute()
 
 Update TestPlan
 
@@ -2128,22 +2128,22 @@ Update TestPlan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    updateTestPlanRequest := *openapiclient.NewUpdateTestPlanRequest("20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", "Base test plan", "20b3442e-1e9e-4fea-b940-4fde3f2f9ff6", map[string]interface{}{"key": interface{}(123)}) // UpdateTestPlanRequest |  (optional)
+	testPlanPutModel := *openapiclient.NewTestPlanPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "Base test plan", "82e92d6f-0258-416b-b2b4-039ea76601c7", map[string]interface{}{"key": interface{}(123)}) // TestPlanPutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TestPlansApi.UpdateTestPlan(context.Background()).UpdateTestPlanRequest(updateTestPlanRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TestPlansApi.UpdateTestPlan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TestPlansAPI.UpdateTestPlan(context.Background()).TestPlanPutModel(testPlanPutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.UpdateTestPlan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -2158,7 +2158,7 @@ Other parameters are passed through a pointer to a apiUpdateTestPlanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateTestPlanRequest** | [**UpdateTestPlanRequest**](UpdateTestPlanRequest.md) |  | 
+ **testPlanPutModel** | [**TestPlanPutModel**](TestPlanPutModel.md) |  | 
 
 ### Return type
 

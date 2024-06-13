@@ -21,12 +21,12 @@ import (
 )
 
 
-// SectionsApiService SectionsApi service
-type SectionsApiService service
+// SectionsAPIService SectionsAPI service
+type SectionsAPIService service
 
 type ApiApiV2SectionsIdPatchRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
+	ApiService *SectionsAPIService
 	id string
 	operation *[]Operation
 }
@@ -49,7 +49,7 @@ See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: J
  @param id Section internal (UUID) identifier
  @return ApiApiV2SectionsIdPatchRequest
 */
-func (a *SectionsApiService) ApiV2SectionsIdPatch(ctx context.Context, id string) ApiApiV2SectionsIdPatchRequest {
+func (a *SectionsAPIService) ApiV2SectionsIdPatch(ctx context.Context, id string) ApiApiV2SectionsIdPatchRequest {
 	return ApiApiV2SectionsIdPatchRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -58,14 +58,14 @@ func (a *SectionsApiService) ApiV2SectionsIdPatch(ctx context.Context, id string
 }
 
 // Execute executes the request
-func (a *SectionsApiService) ApiV2SectionsIdPatchExecute(r ApiApiV2SectionsIdPatchRequest) (*http.Response, error) {
+func (a *SectionsAPIService) ApiV2SectionsIdPatchExecute(r ApiApiV2SectionsIdPatchRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.ApiV2SectionsIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.ApiV2SectionsIdPatch")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -150,12 +150,12 @@ func (a *SectionsApiService) ApiV2SectionsIdPatchExecute(r ApiApiV2SectionsIdPat
 
 type ApiCreateSectionRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
-	createSectionRequest *CreateSectionRequest
+	ApiService *SectionsAPIService
+	sectionPostModel *SectionPostModel
 }
 
-func (r ApiCreateSectionRequest) CreateSectionRequest(createSectionRequest CreateSectionRequest) ApiCreateSectionRequest {
-	r.createSectionRequest = &createSectionRequest
+func (r ApiCreateSectionRequest) SectionPostModel(sectionPostModel SectionPostModel) ApiCreateSectionRequest {
+	r.sectionPostModel = &sectionPostModel
 	return r
 }
 
@@ -175,7 +175,7 @@ CreateSection Create section
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateSectionRequest
 */
-func (a *SectionsApiService) CreateSection(ctx context.Context) ApiCreateSectionRequest {
+func (a *SectionsAPIService) CreateSection(ctx context.Context) ApiCreateSectionRequest {
 	return ApiCreateSectionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -184,7 +184,7 @@ func (a *SectionsApiService) CreateSection(ctx context.Context) ApiCreateSection
 
 // Execute executes the request
 //  @return SectionWithStepsModel
-func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*SectionWithStepsModel, *http.Response, error) {
+func (a *SectionsAPIService) CreateSectionExecute(r ApiCreateSectionRequest) (*SectionWithStepsModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -192,7 +192,7 @@ func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 		localVarReturnValue  *SectionWithStepsModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.CreateSection")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.CreateSection")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -221,7 +221,7 @@ func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createSectionRequest
+	localVarPostBody = r.sectionPostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -329,7 +329,7 @@ func (a *SectionsApiService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 
 type ApiDeleteSectionRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
+	ApiService *SectionsAPIService
 	id string
 }
 
@@ -353,7 +353,7 @@ DeleteSection Delete section
  @param id Section internal (UUID) identifier
  @return ApiDeleteSectionRequest
 */
-func (a *SectionsApiService) DeleteSection(ctx context.Context, id string) ApiDeleteSectionRequest {
+func (a *SectionsAPIService) DeleteSection(ctx context.Context, id string) ApiDeleteSectionRequest {
 	return ApiDeleteSectionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -362,14 +362,14 @@ func (a *SectionsApiService) DeleteSection(ctx context.Context, id string) ApiDe
 }
 
 // Execute executes the request
-func (a *SectionsApiService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*http.Response, error) {
+func (a *SectionsAPIService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.DeleteSection")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.DeleteSection")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -486,7 +486,7 @@ func (a *SectionsApiService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*h
 
 type ApiGetSectionByIdRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
+	ApiService *SectionsAPIService
 	id string
 	isDeleted *DeletionState
 }
@@ -517,7 +517,7 @@ GetSectionById Get section
  @param id Section internal (UUID) identifier
  @return ApiGetSectionByIdRequest
 */
-func (a *SectionsApiService) GetSectionById(ctx context.Context, id string) ApiGetSectionByIdRequest {
+func (a *SectionsAPIService) GetSectionById(ctx context.Context, id string) ApiGetSectionByIdRequest {
 	return ApiGetSectionByIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -527,7 +527,7 @@ func (a *SectionsApiService) GetSectionById(ctx context.Context, id string) ApiG
 
 // Execute executes the request
 //  @return SectionWithStepsModel
-func (a *SectionsApiService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (*SectionWithStepsModel, *http.Response, error) {
+func (a *SectionsAPIService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (*SectionWithStepsModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -535,7 +535,7 @@ func (a *SectionsApiService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 		localVarReturnValue  *SectionWithStepsModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.GetSectionById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.GetSectionById")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -549,6 +549,9 @@ func (a *SectionsApiService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+	} else {
+		var defaultValue DeletionState = "NotDeleted"
+		r.isDeleted = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -663,7 +666,7 @@ func (a *SectionsApiService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 
 type ApiGetWorkItemsBySectionIdRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
+	ApiService *SectionsAPIService
 	id string
 	isDeleted *bool
 	tagNames *[]string
@@ -746,7 +749,7 @@ GetWorkItemsBySectionId Get section work items
 
 Deprecated
 */
-func (a *SectionsApiService) GetWorkItemsBySectionId(ctx context.Context, id string) ApiGetWorkItemsBySectionIdRequest {
+func (a *SectionsAPIService) GetWorkItemsBySectionId(ctx context.Context, id string) ApiGetWorkItemsBySectionIdRequest {
 	return ApiGetWorkItemsBySectionIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -757,7 +760,7 @@ func (a *SectionsApiService) GetWorkItemsBySectionId(ctx context.Context, id str
 // Execute executes the request
 //  @return []WorkItemShortModel
 // Deprecated
-func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsBySectionIdRequest) ([]WorkItemShortModel, *http.Response, error) {
+func (a *SectionsAPIService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsBySectionIdRequest) ([]WorkItemShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -765,7 +768,7 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 		localVarReturnValue  []WorkItemShortModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.GetWorkItemsBySectionId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.GetWorkItemsBySectionId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -779,13 +782,16 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+	} else {
+		var defaultValue bool = false
+		r.isDeleted = &defaultValue
 	}
 	if r.tagNames != nil {
 		t := *r.tagNames
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", t, "multi")
@@ -793,6 +799,9 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 	}
 	if r.includeIterations != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", r.includeIterations, "")
+	} else {
+		var defaultValue bool = true
+		r.includeIterations = &defaultValue
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
@@ -922,12 +931,12 @@ func (a *SectionsApiService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 
 type ApiMoveRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
-	moveRequest *MoveRequest
+	ApiService *SectionsAPIService
+	sectionMoveModel *SectionMoveModel
 }
 
-func (r ApiMoveRequest) MoveRequest(moveRequest MoveRequest) ApiMoveRequest {
-	r.moveRequest = &moveRequest
+func (r ApiMoveRequest) SectionMoveModel(sectionMoveModel SectionMoveModel) ApiMoveRequest {
+	r.sectionMoveModel = &sectionMoveModel
 	return r
 }
 
@@ -941,7 +950,7 @@ Move Move section with all work items into another section
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiMoveRequest
 */
-func (a *SectionsApiService) Move(ctx context.Context) ApiMoveRequest {
+func (a *SectionsAPIService) Move(ctx context.Context) ApiMoveRequest {
 	return ApiMoveRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -949,14 +958,14 @@ func (a *SectionsApiService) Move(ctx context.Context) ApiMoveRequest {
 }
 
 // Execute executes the request
-func (a *SectionsApiService) MoveExecute(r ApiMoveRequest) (*http.Response, error) {
+func (a *SectionsAPIService) MoveExecute(r ApiMoveRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.Move")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.Move")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -985,7 +994,7 @@ func (a *SectionsApiService) MoveExecute(r ApiMoveRequest) (*http.Response, erro
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.moveRequest
+	localVarPostBody = r.sectionMoveModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1040,12 +1049,12 @@ func (a *SectionsApiService) MoveExecute(r ApiMoveRequest) (*http.Response, erro
 
 type ApiRenameRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
-	renameRequest *RenameRequest
+	ApiService *SectionsAPIService
+	sectionRenameModel *SectionRenameModel
 }
 
-func (r ApiRenameRequest) RenameRequest(renameRequest RenameRequest) ApiRenameRequest {
-	r.renameRequest = &renameRequest
+func (r ApiRenameRequest) SectionRenameModel(sectionRenameModel SectionRenameModel) ApiRenameRequest {
+	r.sectionRenameModel = &sectionRenameModel
 	return r
 }
 
@@ -1066,7 +1075,7 @@ Rename Rename section
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRenameRequest
 */
-func (a *SectionsApiService) Rename(ctx context.Context) ApiRenameRequest {
+func (a *SectionsAPIService) Rename(ctx context.Context) ApiRenameRequest {
 	return ApiRenameRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1074,14 +1083,14 @@ func (a *SectionsApiService) Rename(ctx context.Context) ApiRenameRequest {
 }
 
 // Execute executes the request
-func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, error) {
+func (a *SectionsAPIService) RenameExecute(r ApiRenameRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.Rename")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.Rename")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1110,7 +1119,7 @@ func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.renameRequest
+	localVarPostBody = r.sectionRenameModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1199,12 +1208,12 @@ func (a *SectionsApiService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 
 type ApiUpdateSectionRequest struct {
 	ctx context.Context
-	ApiService *SectionsApiService
-	updateSectionRequest *UpdateSectionRequest
+	ApiService *SectionsAPIService
+	sectionPutModel *SectionPutModel
 }
 
-func (r ApiUpdateSectionRequest) UpdateSectionRequest(updateSectionRequest UpdateSectionRequest) ApiUpdateSectionRequest {
-	r.updateSectionRequest = &updateSectionRequest
+func (r ApiUpdateSectionRequest) SectionPutModel(sectionPutModel SectionPutModel) ApiUpdateSectionRequest {
+	r.sectionPutModel = &sectionPutModel
 	return r
 }
 
@@ -1225,7 +1234,7 @@ UpdateSection Update section
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateSectionRequest
 */
-func (a *SectionsApiService) UpdateSection(ctx context.Context) ApiUpdateSectionRequest {
+func (a *SectionsAPIService) UpdateSection(ctx context.Context) ApiUpdateSectionRequest {
 	return ApiUpdateSectionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1233,14 +1242,14 @@ func (a *SectionsApiService) UpdateSection(ctx context.Context) ApiUpdateSection
 }
 
 // Execute executes the request
-func (a *SectionsApiService) UpdateSectionExecute(r ApiUpdateSectionRequest) (*http.Response, error) {
+func (a *SectionsAPIService) UpdateSectionExecute(r ApiUpdateSectionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsApiService.UpdateSection")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SectionsAPIService.UpdateSection")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1269,7 +1278,7 @@ func (a *SectionsApiService) UpdateSectionExecute(r ApiUpdateSectionRequest) (*h
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateSectionRequest
+	localVarPostBody = r.sectionPutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

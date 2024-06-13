@@ -23,19 +23,19 @@ import (
 )
 
 
-// TestPlansApiService TestPlansApi service
-type TestPlansApiService service
+// TestPlansAPIService TestPlansAPI service
+type TestPlansAPIService service
 
 type ApiAddTestPointsWithSectionsRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
-	apiV2ProjectsProjectIdWorkItemsSearchPostRequest *ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	workItemSelectModel *WorkItemSelectModel
 }
 
 // Filter object to retrieve work items for test-suite&#39;s project
-func (r ApiAddTestPointsWithSectionsRequest) ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest ApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ApiAddTestPointsWithSectionsRequest {
-	r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest = &apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+func (r ApiAddTestPointsWithSectionsRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiAddTestPointsWithSectionsRequest {
+	r.workItemSelectModel = &workItemSelectModel
 	return r
 }
 
@@ -50,7 +50,7 @@ AddTestPointsWithSections Add test-points to TestPlan with sections
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiAddTestPointsWithSectionsRequest
 */
-func (a *TestPlansApiService) AddTestPointsWithSections(ctx context.Context, id string) ApiAddTestPointsWithSectionsRequest {
+func (a *TestPlansAPIService) AddTestPointsWithSections(ctx context.Context, id string) ApiAddTestPointsWithSectionsRequest {
 	return ApiAddTestPointsWithSectionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -59,14 +59,14 @@ func (a *TestPlansApiService) AddTestPointsWithSections(ctx context.Context, id 
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) AddTestPointsWithSectionsExecute(r ApiAddTestPointsWithSectionsRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) AddTestPointsWithSectionsExecute(r ApiAddTestPointsWithSectionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.AddTestPointsWithSections")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.AddTestPointsWithSections")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -96,7 +96,7 @@ func (a *TestPlansApiService) AddTestPointsWithSectionsExecute(r ApiAddTestPoint
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ProjectsProjectIdWorkItemsSearchPostRequest
+	localVarPostBody = r.workItemSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -184,7 +184,7 @@ func (a *TestPlansApiService) AddTestPointsWithSectionsExecute(r ApiAddTestPoint
 
 type ApiAddWorkItemsWithSectionsRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	requestBody *[]string
 }
@@ -212,7 +212,7 @@ AddWorkItemsWithSections Add WorkItems to TestPlan with Sections as TestSuites
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiAddWorkItemsWithSectionsRequest
 */
-func (a *TestPlansApiService) AddWorkItemsWithSections(ctx context.Context, id string) ApiAddWorkItemsWithSectionsRequest {
+func (a *TestPlansAPIService) AddWorkItemsWithSections(ctx context.Context, id string) ApiAddWorkItemsWithSectionsRequest {
 	return ApiAddWorkItemsWithSectionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -221,14 +221,14 @@ func (a *TestPlansApiService) AddWorkItemsWithSections(ctx context.Context, id s
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) AddWorkItemsWithSectionsExecute(r ApiAddWorkItemsWithSectionsRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) AddWorkItemsWithSectionsExecute(r ApiAddWorkItemsWithSectionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.AddWorkItemsWithSections")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.AddWorkItemsWithSections")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -357,7 +357,7 @@ func (a *TestPlansApiService) AddWorkItemsWithSectionsExecute(r ApiAddWorkItemsW
 
 type ApiApiV2TestPlansIdAnalyticsGetRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -377,7 +377,7 @@ ApiV2TestPlansIdAnalyticsGet Get analytics by TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdAnalyticsGetRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdAnalyticsGet(ctx context.Context, id string) ApiApiV2TestPlansIdAnalyticsGetRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdAnalyticsGet(ctx context.Context, id string) ApiApiV2TestPlansIdAnalyticsGetRequest {
 	return ApiApiV2TestPlansIdAnalyticsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -387,7 +387,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdAnalyticsGet(ctx context.Context, 
 
 // Execute executes the request
 //  @return TestPointAnalyticResult
-func (a *TestPlansApiService) ApiV2TestPlansIdAnalyticsGetExecute(r ApiApiV2TestPlansIdAnalyticsGetRequest) (*TestPointAnalyticResult, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdAnalyticsGetExecute(r ApiApiV2TestPlansIdAnalyticsGetRequest) (*TestPointAnalyticResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -395,7 +395,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdAnalyticsGetExecute(r ApiApiV2Test
 		localVarReturnValue  *TestPointAnalyticResult
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdAnalyticsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdAnalyticsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -499,7 +499,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdAnalyticsGetExecute(r ApiApiV2Test
 
 type ApiApiV2TestPlansIdAutobalancePostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	testers *[]string
 }
@@ -521,7 +521,7 @@ ApiV2TestPlansIdAutobalancePost Distribute test points between the users
  @param id Test plan unique or global ID
  @return ApiApiV2TestPlansIdAutobalancePostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdAutobalancePost(ctx context.Context, id string) ApiApiV2TestPlansIdAutobalancePostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdAutobalancePost(ctx context.Context, id string) ApiApiV2TestPlansIdAutobalancePostRequest {
 	return ApiApiV2TestPlansIdAutobalancePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -531,7 +531,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdAutobalancePost(ctx context.Contex
 
 // Execute executes the request
 //  @return TestPlanWithTestSuiteTreeModel
-func (a *TestPlansApiService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2TestPlansIdAutobalancePostRequest) (*TestPlanWithTestSuiteTreeModel, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2TestPlansIdAutobalancePostRequest) (*TestPlanWithTestSuiteTreeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -539,7 +539,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2T
 		localVarReturnValue  *TestPlanWithTestSuiteTreeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdAutobalancePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdAutobalancePost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -556,7 +556,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2T
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "testers", s.Index(i), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "testers", s.Index(i).Interface(), "multi")
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "testers", t, "multi")
@@ -642,7 +642,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2T
 
 type ApiApiV2TestPlansIdConfigurationsGetRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -662,7 +662,7 @@ ApiV2TestPlansIdConfigurationsGet Get TestPlan configurations
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdConfigurationsGetRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdConfigurationsGet(ctx context.Context, id string) ApiApiV2TestPlansIdConfigurationsGetRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdConfigurationsGet(ctx context.Context, id string) ApiApiV2TestPlansIdConfigurationsGetRequest {
 	return ApiApiV2TestPlansIdConfigurationsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -672,7 +672,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdConfigurationsGet(ctx context.Cont
 
 // Execute executes the request
 //  @return []ConfigurationModel
-func (a *TestPlansApiService) ApiV2TestPlansIdConfigurationsGetExecute(r ApiApiV2TestPlansIdConfigurationsGetRequest) ([]ConfigurationModel, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdConfigurationsGetExecute(r ApiApiV2TestPlansIdConfigurationsGetRequest) ([]ConfigurationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -680,7 +680,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdConfigurationsGetExecute(r ApiApiV
 		localVarReturnValue  []ConfigurationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdConfigurationsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdConfigurationsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -805,10 +805,10 @@ func (a *TestPlansApiService) ApiV2TestPlansIdConfigurationsGetExecute(r ApiApiV
 
 type ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	timeZoneOffsetInMinutes *int64
-	apiV2TestPlansIdExportTestPointsXlsxPostRequest *ApiV2TestPlansIdExportTestPointsXlsxPostRequest
+	getXlsxTestPointsByTestPlanModel *GetXlsxTestPointsByTestPlanModel
 }
 
 func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
@@ -816,8 +816,8 @@ func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) TimeZoneOffsetInMinu
 	return r
 }
 
-func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) ApiV2TestPlansIdExportTestPointsXlsxPostRequest(apiV2TestPlansIdExportTestPointsXlsxPostRequest ApiV2TestPlansIdExportTestPointsXlsxPostRequest) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
-	r.apiV2TestPlansIdExportTestPointsXlsxPostRequest = &apiV2TestPlansIdExportTestPointsXlsxPostRequest
+func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) GetXlsxTestPointsByTestPlanModel(getXlsxTestPointsByTestPlanModel GetXlsxTestPointsByTestPlanModel) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
+	r.getXlsxTestPointsByTestPlanModel = &getXlsxTestPointsByTestPlanModel
 	return r
 }
 
@@ -838,7 +838,7 @@ ApiV2TestPlansIdExportTestPointsXlsxPost Export TestPoints from TestPlan in xls 
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdExportTestPointsXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestPointsXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
 	return ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -848,7 +848,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdExportTestPointsXlsxPost(ctx conte
 
 // Execute executes the request
 //  @return *os.File
-func (a *TestPlansApiService) ApiV2TestPlansIdExportTestPointsXlsxPostExecute(r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) (*os.File, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestPointsXlsxPostExecute(r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -856,7 +856,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdExportTestPointsXlsxPostExecute(r 
 		localVarReturnValue  *os.File
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdExportTestPointsXlsxPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdExportTestPointsXlsxPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -889,7 +889,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdExportTestPointsXlsxPostExecute(r 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "")
 	}
 	// body params
-	localVarPostBody = r.apiV2TestPlansIdExportTestPointsXlsxPostRequest
+	localVarPostBody = r.getXlsxTestPointsByTestPlanModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -986,7 +986,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdExportTestPointsXlsxPostExecute(r 
 
 type ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	mustReturnOnlyLastTestResult *bool
 	includeSteps *bool
@@ -1031,7 +1031,7 @@ ApiV2TestPlansIdExportTestResultHistoryXlsxPost Export TestResults history from 
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdExportTestResultHistoryXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestResultHistoryXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest {
 	return ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1041,7 +1041,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdExportTestResultHistoryXlsxPost(ct
 
 // Execute executes the request
 //  @return *os.File
-func (a *TestPlansApiService) ApiV2TestPlansIdExportTestResultHistoryXlsxPostExecute(r ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest) (*os.File, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestResultHistoryXlsxPostExecute(r ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1049,7 +1049,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdExportTestResultHistoryXlsxPostExe
 		localVarReturnValue  *os.File
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdExportTestResultHistoryXlsxPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdExportTestResultHistoryXlsxPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1186,7 +1186,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdExportTestResultHistoryXlsxPostExe
 
 type ApiApiV2TestPlansIdHistoryGetRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	skip *int32
 	take *int32
@@ -1241,7 +1241,7 @@ ApiV2TestPlansIdHistoryGet Get TestPlan history
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdHistoryGetRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdHistoryGet(ctx context.Context, id string) ApiApiV2TestPlansIdHistoryGetRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdHistoryGet(ctx context.Context, id string) ApiApiV2TestPlansIdHistoryGetRequest {
 	return ApiApiV2TestPlansIdHistoryGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1251,7 +1251,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdHistoryGet(ctx context.Context, id
 
 // Execute executes the request
 //  @return []TestPlanChangeModel
-func (a *TestPlansApiService) ApiV2TestPlansIdHistoryGetExecute(r ApiApiV2TestPlansIdHistoryGetRequest) ([]TestPlanChangeModel, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdHistoryGetExecute(r ApiApiV2TestPlansIdHistoryGetRequest) ([]TestPlanChangeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1259,7 +1259,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdHistoryGetExecute(r ApiApiV2TestPl
 		localVarReturnValue  []TestPlanChangeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdHistoryGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdHistoryGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1399,7 +1399,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdHistoryGetExecute(r ApiApiV2TestPl
 
 type ApiApiV2TestPlansIdLinksGetRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	skip *int32
 	take *int32
@@ -1438,7 +1438,7 @@ ApiV2TestPlansIdLinksGet Get Links of TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdLinksGetRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdLinksGet(ctx context.Context, id string) ApiApiV2TestPlansIdLinksGetRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdLinksGet(ctx context.Context, id string) ApiApiV2TestPlansIdLinksGetRequest {
 	return ApiApiV2TestPlansIdLinksGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1448,7 +1448,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdLinksGet(ctx context.Context, id s
 
 // Execute executes the request
 //  @return []TestPlanLink
-func (a *TestPlansApiService) ApiV2TestPlansIdLinksGetExecute(r ApiApiV2TestPlansIdLinksGetRequest) ([]TestPlanLink, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdLinksGetExecute(r ApiApiV2TestPlansIdLinksGetRequest) ([]TestPlanLink, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1456,7 +1456,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdLinksGetExecute(r ApiApiV2TestPlan
 		localVarReturnValue  []TestPlanLink
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdLinksGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdLinksGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1568,7 +1568,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdLinksGetExecute(r ApiApiV2TestPlan
 
 type ApiApiV2TestPlansIdPatchRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	operation *[]Operation
 }
@@ -1591,7 +1591,7 @@ See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: J
  @param id Unique ID of the test plan
  @return ApiApiV2TestPlansIdPatchRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdPatch(ctx context.Context, id string) ApiApiV2TestPlansIdPatchRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdPatch(ctx context.Context, id string) ApiApiV2TestPlansIdPatchRequest {
 	return ApiApiV2TestPlansIdPatchRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1600,14 +1600,14 @@ func (a *TestPlansApiService) ApiV2TestPlansIdPatch(ctx context.Context, id stri
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) ApiV2TestPlansIdPatchExecute(r ApiApiV2TestPlansIdPatchRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdPatchExecute(r ApiApiV2TestPlansIdPatchRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdPatch")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1692,7 +1692,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdPatchExecute(r ApiApiV2TestPlansId
 
 type ApiApiV2TestPlansIdTestPointsLastResultsGetRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	testerId *string
 	skip *int32
@@ -1754,7 +1754,7 @@ ApiV2TestPlansIdTestPointsLastResultsGet Get TestPoints with last result from Te
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestPointsLastResultsGetRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsLastResultsGetRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsLastResultsGetRequest {
 	return ApiApiV2TestPlansIdTestPointsLastResultsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1764,7 +1764,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx conte
 
 // Execute executes the request
 //  @return []TestPointWithLastResultModel
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) ([]TestPointWithLastResultModel, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) ([]TestPointWithLastResultModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1772,7 +1772,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r 
 		localVarReturnValue  []TestPointWithLastResultModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdTestPointsLastResultsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestPointsLastResultsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1915,7 +1915,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r 
 
 type ApiApiV2TestPlansIdTestPointsResetPostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	requestBody *[]string
 }
@@ -1942,7 +1942,7 @@ ApiV2TestPlansIdTestPointsResetPost Reset TestPoints status of TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestPointsResetPostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsResetPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsResetPostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsResetPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsResetPostRequest {
 	return ApiApiV2TestPlansIdTestPointsResetPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1951,14 +1951,14 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsResetPost(ctx context.Co
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsResetPostExecute(r ApiApiV2TestPlansIdTestPointsResetPostRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsResetPostExecute(r ApiApiV2TestPlansIdTestPointsResetPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdTestPointsResetPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestPointsResetPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2055,13 +2055,13 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsResetPostExecute(r ApiAp
 
 type ApiApiV2TestPlansIdTestPointsTesterDeleteRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
-	apiV2TestPlansIdTestPointsTesterUserIdPostRequest *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
+	testPointSelectModel *TestPointSelectModel
 }
 
-func (r ApiApiV2TestPlansIdTestPointsTesterDeleteRequest) ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) ApiApiV2TestPlansIdTestPointsTesterDeleteRequest {
-	r.apiV2TestPlansIdTestPointsTesterUserIdPostRequest = &apiV2TestPlansIdTestPointsTesterUserIdPostRequest
+func (r ApiApiV2TestPlansIdTestPointsTesterDeleteRequest) TestPointSelectModel(testPointSelectModel TestPointSelectModel) ApiApiV2TestPlansIdTestPointsTesterDeleteRequest {
+	r.testPointSelectModel = &testPointSelectModel
 	return r
 }
 
@@ -2076,7 +2076,7 @@ ApiV2TestPlansIdTestPointsTesterDelete Unassign users from multiple test points
  @param id Unique or global ID of the test plan
  @return ApiApiV2TestPlansIdTestPointsTesterDeleteRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterDelete(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsTesterDeleteRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterDelete(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsTesterDeleteRequest {
 	return ApiApiV2TestPlansIdTestPointsTesterDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2086,7 +2086,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterDelete(ctx context
 
 // Execute executes the request
 //  @return []string
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterDeleteExecute(r ApiApiV2TestPlansIdTestPointsTesterDeleteRequest) ([]string, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterDeleteExecute(r ApiApiV2TestPlansIdTestPointsTesterDeleteRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -2094,7 +2094,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterDeleteExecute(r Ap
 		localVarReturnValue  []string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdTestPointsTesterDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestPointsTesterDelete")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2124,7 +2124,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterDeleteExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestPlansIdTestPointsTesterUserIdPostRequest
+	localVarPostBody = r.testPointSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2188,14 +2188,14 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterDeleteExecute(r Ap
 
 type ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	userId string
-	apiV2TestPlansIdTestPointsTesterUserIdPostRequest *ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
+	testPointSelectModel *TestPointSelectModel
 }
 
-func (r ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest) ApiV2TestPlansIdTestPointsTesterUserIdPostRequest(apiV2TestPlansIdTestPointsTesterUserIdPostRequest ApiV2TestPlansIdTestPointsTesterUserIdPostRequest) ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
-	r.apiV2TestPlansIdTestPointsTesterUserIdPostRequest = &apiV2TestPlansIdTestPointsTesterUserIdPostRequest
+func (r ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest) TestPointSelectModel(testPointSelectModel TestPointSelectModel) ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
+	r.testPointSelectModel = &testPointSelectModel
 	return r
 }
 
@@ -2211,7 +2211,7 @@ ApiV2TestPlansIdTestPointsTesterUserIdPost Assign user as a tester to multiple t
  @param userId Unique ID of the user
  @return ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterUserIdPost(ctx context.Context, id string, userId string) ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterUserIdPost(ctx context.Context, id string, userId string) ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest {
 	return ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2222,7 +2222,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterUserIdPost(ctx con
 
 // Execute executes the request
 //  @return []string
-func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterUserIdPostExecute(r ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest) ([]string, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterUserIdPostExecute(r ApiApiV2TestPlansIdTestPointsTesterUserIdPostRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2230,7 +2230,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterUserIdPostExecute(
 		localVarReturnValue  []string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdTestPointsTesterUserIdPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestPointsTesterUserIdPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2261,7 +2261,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterUserIdPostExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestPlansIdTestPointsTesterUserIdPostRequest
+	localVarPostBody = r.testPointSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2325,7 +2325,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestPointsTesterUserIdPostExecute(
 
 type ApiApiV2TestPlansIdTestRunsGetRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	notStarted *bool
 	inProgress *bool
@@ -2405,7 +2405,7 @@ ApiV2TestPlansIdTestRunsGet Get TestRuns of TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestRunsGetRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsGetRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsGetRequest {
 	return ApiApiV2TestPlansIdTestRunsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2415,7 +2415,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsGet(ctx context.Context, i
 
 // Execute executes the request
 //  @return []TestRunModel
-func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestPlansIdTestRunsGetRequest) ([]TestRunModel, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestPlansIdTestRunsGetRequest) ([]TestRunModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2423,7 +2423,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestP
 		localVarReturnValue  []TestRunModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdTestRunsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestRunsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2553,14 +2553,14 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestP
 
 type ApiApiV2TestPlansIdTestRunsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2TestPlansIdTestRunsSearchPostRequest *ApiV2TestPlansIdTestRunsSearchPostRequest
+	testRunSearchQueryModel *TestRunSearchQueryModel
 }
 
 // Amount of items to be skipped (offset)
@@ -2593,8 +2593,8 @@ func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) SearchValue(searchValue st
 	return r
 }
 
-func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) ApiV2TestPlansIdTestRunsSearchPostRequest(apiV2TestPlansIdTestRunsSearchPostRequest ApiV2TestPlansIdTestRunsSearchPostRequest) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
-	r.apiV2TestPlansIdTestRunsSearchPostRequest = &apiV2TestPlansIdTestRunsSearchPostRequest
+func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) TestRunSearchQueryModel(testRunSearchQueryModel TestRunSearchQueryModel) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
+	r.testRunSearchQueryModel = &testRunSearchQueryModel
 	return r
 }
 
@@ -2615,7 +2615,7 @@ ApiV2TestPlansIdTestRunsSearchPost Search TestRuns of TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestRunsSearchPostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsSearchPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
 	return ApiApiV2TestPlansIdTestRunsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2625,7 +2625,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsSearchPost(ctx context.Con
 
 // Execute executes the request
 //  @return []TestRunModel
-func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApiV2TestPlansIdTestRunsSearchPostRequest) ([]TestRunModel, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApiV2TestPlansIdTestRunsSearchPostRequest) ([]TestRunModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2633,7 +2633,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApi
 		localVarReturnValue  []TestRunModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdTestRunsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestRunsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2678,7 +2678,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestPlansIdTestRunsSearchPostRequest
+	localVarPostBody = r.testRunSearchQueryModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2753,7 +2753,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApi
 
 type ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -2768,7 +2768,7 @@ ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet Get last modifica
  @param id Test plan unique or global ID
  @return ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest {
 	return ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2778,7 +2778,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedMod
 
 // Execute executes the request
 //  @return time.Time
-func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetExecute(r ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest) (*time.Time, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetExecute(r ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest) (*time.Time, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2786,7 +2786,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedMod
 		localVarReturnValue  *time.Time
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2878,7 +2878,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedMod
 
 type ApiApiV2TestPlansIdUnlockRequestPostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -2898,7 +2898,7 @@ ApiV2TestPlansIdUnlockRequestPost Send unlock TestPlan notification
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdUnlockRequestPostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansIdUnlockRequestPost(ctx context.Context, id string) ApiApiV2TestPlansIdUnlockRequestPostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansIdUnlockRequestPost(ctx context.Context, id string) ApiApiV2TestPlansIdUnlockRequestPostRequest {
 	return ApiApiV2TestPlansIdUnlockRequestPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2907,14 +2907,14 @@ func (a *TestPlansApiService) ApiV2TestPlansIdUnlockRequestPost(ctx context.Cont
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) ApiV2TestPlansIdUnlockRequestPostExecute(r ApiApiV2TestPlansIdUnlockRequestPostRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansIdUnlockRequestPostExecute(r ApiApiV2TestPlansIdUnlockRequestPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansIdUnlockRequestPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdUnlockRequestPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3030,7 +3030,7 @@ func (a *TestPlansApiService) ApiV2TestPlansIdUnlockRequestPostExecute(r ApiApiV
 
 type ApiApiV2TestPlansShortsPostRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	isDeleted *bool
 	requestBody *[]string
 }
@@ -3060,7 +3060,7 @@ ApiV2TestPlansShortsPost Get TestPlans short models by Project identifiers
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TestPlansShortsPostRequest
 */
-func (a *TestPlansApiService) ApiV2TestPlansShortsPost(ctx context.Context) ApiApiV2TestPlansShortsPostRequest {
+func (a *TestPlansAPIService) ApiV2TestPlansShortsPost(ctx context.Context) ApiApiV2TestPlansShortsPostRequest {
 	return ApiApiV2TestPlansShortsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3069,7 +3069,7 @@ func (a *TestPlansApiService) ApiV2TestPlansShortsPost(ctx context.Context) ApiA
 
 // Execute executes the request
 //  @return []TestPlanShortModel
-func (a *TestPlansApiService) ApiV2TestPlansShortsPostExecute(r ApiApiV2TestPlansShortsPostRequest) ([]TestPlanShortModel, *http.Response, error) {
+func (a *TestPlansAPIService) ApiV2TestPlansShortsPostExecute(r ApiApiV2TestPlansShortsPostRequest) ([]TestPlanShortModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3077,7 +3077,7 @@ func (a *TestPlansApiService) ApiV2TestPlansShortsPostExecute(r ApiApiV2TestPlan
 		localVarReturnValue  []TestPlanShortModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.ApiV2TestPlansShortsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansShortsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3185,7 +3185,7 @@ func (a *TestPlansApiService) ApiV2TestPlansShortsPostExecute(r ApiApiV2TestPlan
 
 type ApiCloneRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -3206,7 +3206,7 @@ Clone Clone TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiCloneRequest
 */
-func (a *TestPlansApiService) Clone(ctx context.Context, id string) ApiCloneRequest {
+func (a *TestPlansAPIService) Clone(ctx context.Context, id string) ApiCloneRequest {
 	return ApiCloneRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3216,7 +3216,7 @@ func (a *TestPlansApiService) Clone(ctx context.Context, id string) ApiCloneRequ
 
 // Execute executes the request
 //  @return TestPlanModel
-func (a *TestPlansApiService) CloneExecute(r ApiCloneRequest) (*TestPlanModel, *http.Response, error) {
+func (a *TestPlansAPIService) CloneExecute(r ApiCloneRequest) (*TestPlanModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3224,7 +3224,7 @@ func (a *TestPlansApiService) CloneExecute(r ApiCloneRequest) (*TestPlanModel, *
 		localVarReturnValue  *TestPlanModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.Clone")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.Clone")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3317,7 +3317,7 @@ func (a *TestPlansApiService) CloneExecute(r ApiCloneRequest) (*TestPlanModel, *
 
 type ApiCompleteRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -3338,7 +3338,7 @@ Complete Complete TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiCompleteRequest
 */
-func (a *TestPlansApiService) Complete(ctx context.Context, id string) ApiCompleteRequest {
+func (a *TestPlansAPIService) Complete(ctx context.Context, id string) ApiCompleteRequest {
 	return ApiCompleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3347,14 +3347,14 @@ func (a *TestPlansApiService) Complete(ctx context.Context, id string) ApiComple
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) CompleteExecute(r ApiCompleteRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) CompleteExecute(r ApiCompleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.Complete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.Complete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3470,12 +3470,12 @@ func (a *TestPlansApiService) CompleteExecute(r ApiCompleteRequest) (*http.Respo
 
 type ApiCreateTestPlanRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
-	createTestPlanRequest *CreateTestPlanRequest
+	ApiService *TestPlansAPIService
+	testPlanPostModel *TestPlanPostModel
 }
 
-func (r ApiCreateTestPlanRequest) CreateTestPlanRequest(createTestPlanRequest CreateTestPlanRequest) ApiCreateTestPlanRequest {
-	r.createTestPlanRequest = &createTestPlanRequest
+func (r ApiCreateTestPlanRequest) TestPlanPostModel(testPlanPostModel TestPlanPostModel) ApiCreateTestPlanRequest {
+	r.testPlanPostModel = &testPlanPostModel
 	return r
 }
 
@@ -3495,7 +3495,7 @@ CreateTestPlan Create TestPlan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateTestPlanRequest
 */
-func (a *TestPlansApiService) CreateTestPlan(ctx context.Context) ApiCreateTestPlanRequest {
+func (a *TestPlansAPIService) CreateTestPlan(ctx context.Context) ApiCreateTestPlanRequest {
 	return ApiCreateTestPlanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3504,7 +3504,7 @@ func (a *TestPlansApiService) CreateTestPlan(ctx context.Context) ApiCreateTestP
 
 // Execute executes the request
 //  @return TestPlanModel
-func (a *TestPlansApiService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) (*TestPlanModel, *http.Response, error) {
+func (a *TestPlansAPIService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) (*TestPlanModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3512,7 +3512,7 @@ func (a *TestPlansApiService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) 
 		localVarReturnValue  *TestPlanModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.CreateTestPlan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.CreateTestPlan")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3541,7 +3541,7 @@ func (a *TestPlansApiService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createTestPlanRequest
+	localVarPostBody = r.testPlanPostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3638,7 +3638,7 @@ func (a *TestPlansApiService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) 
 
 type ApiDeleteTestPlanRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -3659,7 +3659,7 @@ DeleteTestPlan Delete TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiDeleteTestPlanRequest
 */
-func (a *TestPlansApiService) DeleteTestPlan(ctx context.Context, id string) ApiDeleteTestPlanRequest {
+func (a *TestPlansAPIService) DeleteTestPlan(ctx context.Context, id string) ApiDeleteTestPlanRequest {
 	return ApiDeleteTestPlanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3668,14 +3668,14 @@ func (a *TestPlansApiService) DeleteTestPlan(ctx context.Context, id string) Api
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) DeleteTestPlanExecute(r ApiDeleteTestPlanRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) DeleteTestPlanExecute(r ApiDeleteTestPlanRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.DeleteTestPlan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.DeleteTestPlan")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3780,7 +3780,7 @@ func (a *TestPlansApiService) DeleteTestPlanExecute(r ApiDeleteTestPlanRequest) 
 
 type ApiGetTestPlanByIdRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -3801,7 +3801,7 @@ GetTestPlanById Get TestPlan by Id
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiGetTestPlanByIdRequest
 */
-func (a *TestPlansApiService) GetTestPlanById(ctx context.Context, id string) ApiGetTestPlanByIdRequest {
+func (a *TestPlansAPIService) GetTestPlanById(ctx context.Context, id string) ApiGetTestPlanByIdRequest {
 	return ApiGetTestPlanByIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3811,7 +3811,7 @@ func (a *TestPlansApiService) GetTestPlanById(ctx context.Context, id string) Ap
 
 // Execute executes the request
 //  @return TestPlanModel
-func (a *TestPlansApiService) GetTestPlanByIdExecute(r ApiGetTestPlanByIdRequest) (*TestPlanModel, *http.Response, error) {
+func (a *TestPlansAPIService) GetTestPlanByIdExecute(r ApiGetTestPlanByIdRequest) (*TestPlanModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3819,7 +3819,7 @@ func (a *TestPlansApiService) GetTestPlanByIdExecute(r ApiGetTestPlanByIdRequest
 		localVarReturnValue  *TestPlanModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.GetTestPlanById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.GetTestPlanById")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -3933,7 +3933,7 @@ func (a *TestPlansApiService) GetTestPlanByIdExecute(r ApiGetTestPlanByIdRequest
 
 type ApiGetTestSuitesByIdRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -3954,7 +3954,7 @@ GetTestSuitesById Get TestSuites Tree By Id
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiGetTestSuitesByIdRequest
 */
-func (a *TestPlansApiService) GetTestSuitesById(ctx context.Context, id string) ApiGetTestSuitesByIdRequest {
+func (a *TestPlansAPIService) GetTestSuitesById(ctx context.Context, id string) ApiGetTestSuitesByIdRequest {
 	return ApiGetTestSuitesByIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -3964,7 +3964,7 @@ func (a *TestPlansApiService) GetTestSuitesById(ctx context.Context, id string) 
 
 // Execute executes the request
 //  @return []TestSuiteV2TreeModel
-func (a *TestPlansApiService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdRequest) ([]TestSuiteV2TreeModel, *http.Response, error) {
+func (a *TestPlansAPIService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdRequest) ([]TestSuiteV2TreeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3972,7 +3972,7 @@ func (a *TestPlansApiService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdReq
 		localVarReturnValue  []TestSuiteV2TreeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.GetTestSuitesById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.GetTestSuitesById")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4086,7 +4086,7 @@ func (a *TestPlansApiService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdReq
 
 type ApiPauseRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -4107,7 +4107,7 @@ Pause Pause TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiPauseRequest
 */
-func (a *TestPlansApiService) Pause(ctx context.Context, id string) ApiPauseRequest {
+func (a *TestPlansAPIService) Pause(ctx context.Context, id string) ApiPauseRequest {
 	return ApiPauseRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4116,14 +4116,14 @@ func (a *TestPlansApiService) Pause(ctx context.Context, id string) ApiPauseRequ
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) PauseExecute(r ApiPauseRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) PauseExecute(r ApiPauseRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.Pause")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.Pause")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4239,7 +4239,7 @@ func (a *TestPlansApiService) PauseExecute(r ApiPauseRequest) (*http.Response, e
 
 type ApiPurgeTestPlanRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -4254,7 +4254,7 @@ PurgeTestPlan Permanently delete test plan from archive
  @param id Unique or global ID of the test plan
  @return ApiPurgeTestPlanRequest
 */
-func (a *TestPlansApiService) PurgeTestPlan(ctx context.Context, id string) ApiPurgeTestPlanRequest {
+func (a *TestPlansAPIService) PurgeTestPlan(ctx context.Context, id string) ApiPurgeTestPlanRequest {
 	return ApiPurgeTestPlanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4263,14 +4263,14 @@ func (a *TestPlansApiService) PurgeTestPlan(ctx context.Context, id string) ApiP
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) PurgeTestPlanExecute(r ApiPurgeTestPlanRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) PurgeTestPlanExecute(r ApiPurgeTestPlanRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.PurgeTestPlan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.PurgeTestPlan")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4353,7 +4353,7 @@ func (a *TestPlansApiService) PurgeTestPlanExecute(r ApiPurgeTestPlanRequest) (*
 
 type ApiRestoreTestPlanRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -4374,7 +4374,7 @@ RestoreTestPlan Restore TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiRestoreTestPlanRequest
 */
-func (a *TestPlansApiService) RestoreTestPlan(ctx context.Context, id string) ApiRestoreTestPlanRequest {
+func (a *TestPlansAPIService) RestoreTestPlan(ctx context.Context, id string) ApiRestoreTestPlanRequest {
 	return ApiRestoreTestPlanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4383,14 +4383,14 @@ func (a *TestPlansApiService) RestoreTestPlan(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) RestoreTestPlanExecute(r ApiRestoreTestPlanRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) RestoreTestPlanExecute(r ApiRestoreTestPlanRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.RestoreTestPlan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.RestoreTestPlan")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4495,7 +4495,7 @@ func (a *TestPlansApiService) RestoreTestPlanExecute(r ApiRestoreTestPlanRequest
 
 type ApiStartRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
+	ApiService *TestPlansAPIService
 	id string
 }
 
@@ -4516,7 +4516,7 @@ Start Start TestPlan
  @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiStartRequest
 */
-func (a *TestPlansApiService) Start(ctx context.Context, id string) ApiStartRequest {
+func (a *TestPlansAPIService) Start(ctx context.Context, id string) ApiStartRequest {
 	return ApiStartRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4525,14 +4525,14 @@ func (a *TestPlansApiService) Start(ctx context.Context, id string) ApiStartRequ
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) StartExecute(r ApiStartRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) StartExecute(r ApiStartRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.Start")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.Start")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4637,12 +4637,12 @@ func (a *TestPlansApiService) StartExecute(r ApiStartRequest) (*http.Response, e
 
 type ApiUpdateTestPlanRequest struct {
 	ctx context.Context
-	ApiService *TestPlansApiService
-	updateTestPlanRequest *UpdateTestPlanRequest
+	ApiService *TestPlansAPIService
+	testPlanPutModel *TestPlanPutModel
 }
 
-func (r ApiUpdateTestPlanRequest) UpdateTestPlanRequest(updateTestPlanRequest UpdateTestPlanRequest) ApiUpdateTestPlanRequest {
-	r.updateTestPlanRequest = &updateTestPlanRequest
+func (r ApiUpdateTestPlanRequest) TestPlanPutModel(testPlanPutModel TestPlanPutModel) ApiUpdateTestPlanRequest {
+	r.testPlanPutModel = &testPlanPutModel
 	return r
 }
 
@@ -4662,7 +4662,7 @@ UpdateTestPlan Update TestPlan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateTestPlanRequest
 */
-func (a *TestPlansApiService) UpdateTestPlan(ctx context.Context) ApiUpdateTestPlanRequest {
+func (a *TestPlansAPIService) UpdateTestPlan(ctx context.Context) ApiUpdateTestPlanRequest {
 	return ApiUpdateTestPlanRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -4670,14 +4670,14 @@ func (a *TestPlansApiService) UpdateTestPlan(ctx context.Context) ApiUpdateTestP
 }
 
 // Execute executes the request
-func (a *TestPlansApiService) UpdateTestPlanExecute(r ApiUpdateTestPlanRequest) (*http.Response, error) {
+func (a *TestPlansAPIService) UpdateTestPlanExecute(r ApiUpdateTestPlanRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansApiService.UpdateTestPlan")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.UpdateTestPlan")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -4706,7 +4706,7 @@ func (a *TestPlansApiService) UpdateTestPlanExecute(r ApiUpdateTestPlanRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateTestPlanRequest
+	localVarPostBody = r.testPlanPutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

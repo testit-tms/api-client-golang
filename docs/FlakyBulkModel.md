@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AutotestSelect** | [**FlakyBulkModelAutotestSelect**](FlakyBulkModelAutotestSelect.md) |  | 
+**AutotestSelect** | [**AutotestSelectModel**](AutotestSelectModel.md) |  | 
 **Value** | **bool** | Are autotests flaky | 
 
 ## Methods
 
 ### NewFlakyBulkModel
 
-`func NewFlakyBulkModel(autotestSelect FlakyBulkModelAutotestSelect, value bool, ) *FlakyBulkModel`
+`func NewFlakyBulkModel(autotestSelect AutotestSelectModel, value bool, ) *FlakyBulkModel`
 
 NewFlakyBulkModel instantiates a new FlakyBulkModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAutotestSelect
 
-`func (o *FlakyBulkModel) GetAutotestSelect() FlakyBulkModelAutotestSelect`
+`func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel`
 
 GetAutotestSelect returns the AutotestSelect field if non-nil, zero value otherwise.
 
 ### GetAutotestSelectOk
 
-`func (o *FlakyBulkModel) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool)`
+`func (o *FlakyBulkModel) GetAutotestSelectOk() (*AutotestSelectModel, bool)`
 
 GetAutotestSelectOk returns a tuple with the AutotestSelect field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutotestSelect
 
-`func (o *FlakyBulkModel) SetAutotestSelect(v FlakyBulkModelAutotestSelect)`
+`func (o *FlakyBulkModel) SetAutotestSelect(v AutotestSelectModel)`
 
 SetAutotestSelect sets AutotestSelect field to given value.
 
