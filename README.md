@@ -11,12 +11,12 @@
 | 4.4     | 1.2.0      |
 | 4.5     | 1.3.0      |
 | 4.6     | 1.4.0      |
-| 5.0     | 2.0.2      |
+| 5.0     | 2.0.3      |
 
 ### Installation
 
 ```sh
-go get github.com/testit-tms/api-client-golang
+go get github.com/testit-tms/api-client-golang/v2
 ```
 
 ## Examples
@@ -28,7 +28,7 @@ import (
 	"context"
 	"fmt"
 
-	tmsclient "github.com/testit-tms/api-client-golang"
+	tmsclient "github.com/testit-tms/api-client-golang/v2"
 )
 
 const (
