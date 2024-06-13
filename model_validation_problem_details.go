@@ -12,6 +12,7 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // checks if the ValidationProblemDetails type satisfies the MappedNullable interface at compile time
@@ -25,7 +26,10 @@ type ValidationProblemDetails struct {
 	Status NullableInt32 `json:"status,omitempty"`
 	Detail NullableString `json:"detail,omitempty"`
 	Instance NullableString `json:"instance,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ValidationProblemDetails ValidationProblemDetails
 
 // NewValidationProblemDetails instantiates a new ValidationProblemDetails object
 // This constructor will assign default values to properties that have it defined,
@@ -305,7 +309,59 @@ func (o ValidationProblemDetails) ToMap() (map[string]interface{}, error) {
 	if o.Instance.IsSet() {
 		toSerialize["instance"] = o.Instance.Get()
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
+}
+
+func (o *ValidationProblemDetails) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"errors",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varValidationProblemDetails := _ValidationProblemDetails{}
+
+	err = json.Unmarshal(data, &varValidationProblemDetails)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ValidationProblemDetails(varValidationProblemDetails)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "errors")
+		delete(additionalProperties, "type")
+		delete(additionalProperties, "title")
+		delete(additionalProperties, "status")
+		delete(additionalProperties, "detail")
+		delete(additionalProperties, "instance")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
 }
 
 type NullableValidationProblemDetails struct {

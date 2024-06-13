@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the AttachmentModel type satisfies the MappedNullable interface at compile time
@@ -39,6 +41,8 @@ type AttachmentModel struct {
 	// Unique ID of the attachment
 	Id string `json:"id"`
 }
+
+type _AttachmentModel AttachmentModel
 
 // NewAttachmentModel instantiates a new AttachmentModel object
 // This constructor will assign default values to properties that have it defined,
@@ -340,6 +344,49 @@ func (o AttachmentModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
+}
+
+func (o *AttachmentModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"fileId",
+		"type",
+		"size",
+		"createdDate",
+		"createdById",
+		"name",
+		"id",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varAttachmentModel := _AttachmentModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varAttachmentModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AttachmentModel(varAttachmentModel)
+
+	return err
 }
 
 type NullableAttachmentModel struct {

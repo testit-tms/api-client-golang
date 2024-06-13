@@ -14,13 +14,13 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of user who modified the test run last time | [optional] 
 **IsDeleted** | **bool** | Is the test run is deleted | 
 **AutoTestsCount** | **int32** | Number of AutoTests run in the test run | 
-**Statistics** | [**TestRunShortGetModelStatistics**](TestRunShortGetModelStatistics.md) |  | 
+**Statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  | 
 
 ## Methods
 
 ### NewTestRunShortGetModel
 
-`func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestRunShortGetModelStatistics, ) *TestRunShortGetModel`
+`func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsGetModel, ) *TestRunShortGetModel`
 
 NewTestRunShortGetModel instantiates a new TestRunShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -282,20 +282,20 @@ SetAutoTestsCount sets AutoTestsCount field to given value.
 
 ### GetStatistics
 
-`func (o *TestRunShortGetModel) GetStatistics() TestRunShortGetModelStatistics`
+`func (o *TestRunShortGetModel) GetStatistics() TestResultsStatisticsGetModel`
 
 GetStatistics returns the Statistics field if non-nil, zero value otherwise.
 
 ### GetStatisticsOk
 
-`func (o *TestRunShortGetModel) GetStatisticsOk() (*TestRunShortGetModelStatistics, bool)`
+`func (o *TestRunShortGetModel) GetStatisticsOk() (*TestResultsStatisticsGetModel, bool)`
 
 GetStatisticsOk returns a tuple with the Statistics field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatistics
 
-`func (o *TestRunShortGetModel) SetStatistics(v TestRunShortGetModelStatistics)`
+`func (o *TestRunShortGetModel) SetStatistics(v TestResultsStatisticsGetModel)`
 
 SetStatistics sets Statistics field to given value.
 

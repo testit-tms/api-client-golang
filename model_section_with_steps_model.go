@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the SectionWithStepsModel type satisfies the MappedNullable interface at compile time
@@ -33,6 +35,8 @@ type SectionWithStepsModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	Name string `json:"name"`
 }
+
+type _SectionWithStepsModel SectionWithStepsModel
 
 // NewSectionWithStepsModel instantiates a new SectionWithStepsModel object
 // This constructor will assign default values to properties that have it defined,
@@ -480,6 +484,47 @@ func (o SectionWithStepsModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["name"] = o.Name
 	return toSerialize, nil
+}
+
+func (o *SectionWithStepsModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"isDeleted",
+		"id",
+		"createdDate",
+		"createdById",
+		"name",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varSectionWithStepsModel := _SectionWithStepsModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varSectionWithStepsModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = SectionWithStepsModel(varSectionWithStepsModel)
+
+	return err
 }
 
 type NullableSectionWithStepsModel struct {

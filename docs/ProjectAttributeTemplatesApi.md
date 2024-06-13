@@ -1,18 +1,18 @@
-# \ProjectAttributeTemplatesApi
+# \ProjectAttributeTemplatesAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2ProjectsProjectIdAttributesTemplatesSearchPost**](ProjectAttributeTemplatesApi.md#ApiV2ProjectsProjectIdAttributesTemplatesSearchPost) | **Post** /api/v2/projects/{projectId}/attributes/templates/search | Search for custom attributes templates
-[**ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete**](ProjectAttributeTemplatesApi.md#ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete) | **Delete** /api/v2/projects/{projectId}/attributes/templates/{templateId} | Delete CustomAttributeTemplate from Project
-[**ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost**](ProjectAttributeTemplatesApi.md#ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost) | **Post** /api/v2/projects/{projectId}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project
+[**ApiV2ProjectsProjectIdAttributesTemplatesSearchPost**](ProjectAttributeTemplatesAPI.md#ApiV2ProjectsProjectIdAttributesTemplatesSearchPost) | **Post** /api/v2/projects/{projectId}/attributes/templates/search | Search for custom attributes templates
+[**ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete**](ProjectAttributeTemplatesAPI.md#ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete) | **Delete** /api/v2/projects/{projectId}/attributes/templates/{templateId} | Delete CustomAttributeTemplate from Project
+[**ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost**](ProjectAttributeTemplatesAPI.md#ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost) | **Post** /api/v2/projects/{projectId}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project
 
 
 
 ## ApiV2ProjectsProjectIdAttributesTemplatesSearchPost
 
-> []ProjectCustomAttributeTemplateGetModel ApiV2ProjectsProjectIdAttributesTemplatesSearchPost(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest(apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest).Execute()
+> []ProjectCustomAttributeTemplateGetModel ApiV2ProjectsProjectIdAttributesTemplatesSearchPost(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectCustomAttributesTemplatesFilterModel(projectCustomAttributesTemplatesFilterModel).Execute()
 
 Search for custom attributes templates
 
@@ -22,30 +22,30 @@ Search for custom attributes templates
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | 
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest() // ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest |  (optional)
+	projectId := "projectId_example" // string | 
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	projectCustomAttributesTemplatesFilterModel := *openapiclient.NewProjectCustomAttributesTemplatesFilterModel() // ProjectCustomAttributesTemplatesFilterModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectAttributeTemplatesApi.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost(context.Background(), projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest(apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributeTemplatesApi.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsProjectIdAttributesTemplatesSearchPost`: []ProjectCustomAttributeTemplateGetModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectAttributeTemplatesApi.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectAttributeTemplatesAPI.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost(context.Background(), projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectCustomAttributesTemplatesFilterModel(projectCustomAttributesTemplatesFilterModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributeTemplatesAPI.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsProjectIdAttributesTemplatesSearchPost`: []ProjectCustomAttributeTemplateGetModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectAttributeTemplatesAPI.ApiV2ProjectsProjectIdAttributesTemplatesSearchPost`: %v\n", resp)
 }
 ```
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest** | [**ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest**](ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest.md) |  | 
+ **projectCustomAttributesTemplatesFilterModel** | [**ProjectCustomAttributesTemplatesFilterModel**](ProjectCustomAttributesTemplatesFilterModel.md) |  | 
 
 ### Return type
 
@@ -104,23 +104,23 @@ Delete CustomAttributeTemplate from Project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    templateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | CustomAttributeTemplate internal (UUID) identifier
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	templateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | CustomAttributeTemplate internal (UUID) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectAttributeTemplatesApi.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete(context.Background(), projectId, templateId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributeTemplatesApi.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectAttributeTemplatesAPI.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete(context.Background(), projectId, templateId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributeTemplatesAPI.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -175,23 +175,23 @@ Add CustomAttributeTemplate to Project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    templateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | CustomAttributeTemplate internal (UUID) identifier
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	templateId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | CustomAttributeTemplate internal (UUID) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectAttributeTemplatesApi.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost(context.Background(), projectId, templateId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributeTemplatesApi.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectAttributeTemplatesAPI.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost(context.Background(), projectId, templateId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributeTemplatesAPI.ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

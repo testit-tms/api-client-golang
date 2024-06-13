@@ -21,12 +21,12 @@ import (
 )
 
 
-// TestResultsApiService TestResultsApi service
-type TestResultsApiService service
+// TestResultsAPIService TestResultsAPI service
+type TestResultsAPIService service
 
 type ApiApiV2TestResultsIdAggregatedGetRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 }
 
@@ -41,7 +41,7 @@ ApiV2TestResultsIdAggregatedGet Get test result by ID aggregated with previous r
  @param id Test result unique ID
  @return ApiApiV2TestResultsIdAggregatedGetRequest
 */
-func (a *TestResultsApiService) ApiV2TestResultsIdAggregatedGet(ctx context.Context, id string) ApiApiV2TestResultsIdAggregatedGetRequest {
+func (a *TestResultsAPIService) ApiV2TestResultsIdAggregatedGet(ctx context.Context, id string) ApiApiV2TestResultsIdAggregatedGetRequest {
 	return ApiApiV2TestResultsIdAggregatedGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -51,7 +51,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAggregatedGet(ctx context.Cont
 
 // Execute executes the request
 //  @return TestResultModel
-func (a *TestResultsApiService) ApiV2TestResultsIdAggregatedGetExecute(r ApiApiV2TestResultsIdAggregatedGetRequest) (*TestResultModel, *http.Response, error) {
+func (a *TestResultsAPIService) ApiV2TestResultsIdAggregatedGetExecute(r ApiApiV2TestResultsIdAggregatedGetRequest) (*TestResultModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -59,7 +59,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAggregatedGetExecute(r ApiApiV
 		localVarReturnValue  *TestResultModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.ApiV2TestResultsIdAggregatedGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdAggregatedGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -151,7 +151,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAggregatedGetExecute(r ApiApiV
 
 type ApiApiV2TestResultsIdAttachmentsAttachmentIdPutRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 	attachmentId string
 }
@@ -168,7 +168,7 @@ ApiV2TestResultsIdAttachmentsAttachmentIdPut Attach file to the test result
  @param attachmentId Attachment unique ID
  @return ApiApiV2TestResultsIdAttachmentsAttachmentIdPutRequest
 */
-func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsAttachmentIdPut(ctx context.Context, id string, attachmentId string) ApiApiV2TestResultsIdAttachmentsAttachmentIdPutRequest {
+func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsAttachmentIdPut(ctx context.Context, id string, attachmentId string) ApiApiV2TestResultsIdAttachmentsAttachmentIdPutRequest {
 	return ApiApiV2TestResultsIdAttachmentsAttachmentIdPutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -178,14 +178,14 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsAttachmentIdPut(ctx
 }
 
 // Execute executes the request
-func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsAttachmentIdPutExecute(r ApiApiV2TestResultsIdAttachmentsAttachmentIdPutRequest) (*http.Response, error) {
+func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsAttachmentIdPutExecute(r ApiApiV2TestResultsIdAttachmentsAttachmentIdPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.ApiV2TestResultsIdAttachmentsAttachmentIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdAttachmentsAttachmentIdPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -269,7 +269,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsAttachmentIdPutExec
 
 type ApiApiV2TestResultsIdAttachmentsInfoGetRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 }
 
@@ -284,7 +284,7 @@ ApiV2TestResultsIdAttachmentsInfoGet Get test result attachments meta-informatio
  @param id Test result unique ID
  @return ApiApiV2TestResultsIdAttachmentsInfoGetRequest
 */
-func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsInfoGet(ctx context.Context, id string) ApiApiV2TestResultsIdAttachmentsInfoGetRequest {
+func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsInfoGet(ctx context.Context, id string) ApiApiV2TestResultsIdAttachmentsInfoGetRequest {
 	return ApiApiV2TestResultsIdAttachmentsInfoGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -294,7 +294,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsInfoGet(ctx context
 
 // Execute executes the request
 //  @return []AttachmentModel
-func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsInfoGetExecute(r ApiApiV2TestResultsIdAttachmentsInfoGetRequest) ([]AttachmentModel, *http.Response, error) {
+func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsInfoGetExecute(r ApiApiV2TestResultsIdAttachmentsInfoGetRequest) ([]AttachmentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -302,7 +302,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsInfoGetExecute(r Ap
 		localVarReturnValue  []AttachmentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.ApiV2TestResultsIdAttachmentsInfoGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdAttachmentsInfoGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -394,7 +394,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdAttachmentsInfoGetExecute(r Ap
 
 type ApiApiV2TestResultsIdGetRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 }
 
@@ -409,7 +409,7 @@ ApiV2TestResultsIdGet Get test result by ID
  @param id Test result unique ID
  @return ApiApiV2TestResultsIdGetRequest
 */
-func (a *TestResultsApiService) ApiV2TestResultsIdGet(ctx context.Context, id string) ApiApiV2TestResultsIdGetRequest {
+func (a *TestResultsAPIService) ApiV2TestResultsIdGet(ctx context.Context, id string) ApiApiV2TestResultsIdGetRequest {
 	return ApiApiV2TestResultsIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -419,7 +419,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdGet(ctx context.Context, id st
 
 // Execute executes the request
 //  @return TestResultModel
-func (a *TestResultsApiService) ApiV2TestResultsIdGetExecute(r ApiApiV2TestResultsIdGetRequest) (*TestResultModel, *http.Response, error) {
+func (a *TestResultsAPIService) ApiV2TestResultsIdGetExecute(r ApiApiV2TestResultsIdGetRequest) (*TestResultModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -427,7 +427,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdGetExecute(r ApiApiV2TestResul
 		localVarReturnValue  *TestResultModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.ApiV2TestResultsIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -519,13 +519,13 @@ func (a *TestResultsApiService) ApiV2TestResultsIdGetExecute(r ApiApiV2TestResul
 
 type ApiApiV2TestResultsIdPutRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
-	apiV2TestResultsIdPutRequest *ApiV2TestResultsIdPutRequest
+	testResultUpdateModel *TestResultUpdateModel
 }
 
-func (r ApiApiV2TestResultsIdPutRequest) ApiV2TestResultsIdPutRequest(apiV2TestResultsIdPutRequest ApiV2TestResultsIdPutRequest) ApiApiV2TestResultsIdPutRequest {
-	r.apiV2TestResultsIdPutRequest = &apiV2TestResultsIdPutRequest
+func (r ApiApiV2TestResultsIdPutRequest) TestResultUpdateModel(testResultUpdateModel TestResultUpdateModel) ApiApiV2TestResultsIdPutRequest {
+	r.testResultUpdateModel = &testResultUpdateModel
 	return r
 }
 
@@ -540,7 +540,7 @@ ApiV2TestResultsIdPut Edit test result by ID
  @param id Test result unique ID
  @return ApiApiV2TestResultsIdPutRequest
 */
-func (a *TestResultsApiService) ApiV2TestResultsIdPut(ctx context.Context, id string) ApiApiV2TestResultsIdPutRequest {
+func (a *TestResultsAPIService) ApiV2TestResultsIdPut(ctx context.Context, id string) ApiApiV2TestResultsIdPutRequest {
 	return ApiApiV2TestResultsIdPutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -549,14 +549,14 @@ func (a *TestResultsApiService) ApiV2TestResultsIdPut(ctx context.Context, id st
 }
 
 // Execute executes the request
-func (a *TestResultsApiService) ApiV2TestResultsIdPutExecute(r ApiApiV2TestResultsIdPutRequest) (*http.Response, error) {
+func (a *TestResultsAPIService) ApiV2TestResultsIdPutExecute(r ApiApiV2TestResultsIdPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.ApiV2TestResultsIdPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -586,7 +586,7 @@ func (a *TestResultsApiService) ApiV2TestResultsIdPutExecute(r ApiApiV2TestResul
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestResultsIdPutRequest
+	localVarPostBody = r.testResultUpdateModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -641,13 +641,13 @@ func (a *TestResultsApiService) ApiV2TestResultsIdPutExecute(r ApiApiV2TestResul
 
 type ApiApiV2TestResultsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2TestResultsSearchPostRequest *ApiV2TestResultsSearchPostRequest
+	testResultsFilterModel *TestResultsFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -680,8 +680,8 @@ func (r ApiApiV2TestResultsSearchPostRequest) SearchValue(searchValue string) Ap
 	return r
 }
 
-func (r ApiApiV2TestResultsSearchPostRequest) ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest ApiV2TestResultsSearchPostRequest) ApiApiV2TestResultsSearchPostRequest {
-	r.apiV2TestResultsSearchPostRequest = &apiV2TestResultsSearchPostRequest
+func (r ApiApiV2TestResultsSearchPostRequest) TestResultsFilterModel(testResultsFilterModel TestResultsFilterModel) ApiApiV2TestResultsSearchPostRequest {
+	r.testResultsFilterModel = &testResultsFilterModel
 	return r
 }
 
@@ -695,7 +695,7 @@ ApiV2TestResultsSearchPost Search for test results
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TestResultsSearchPostRequest
 */
-func (a *TestResultsApiService) ApiV2TestResultsSearchPost(ctx context.Context) ApiApiV2TestResultsSearchPostRequest {
+func (a *TestResultsAPIService) ApiV2TestResultsSearchPost(ctx context.Context) ApiApiV2TestResultsSearchPostRequest {
 	return ApiApiV2TestResultsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -704,7 +704,7 @@ func (a *TestResultsApiService) ApiV2TestResultsSearchPost(ctx context.Context) 
 
 // Execute executes the request
 //  @return []TestResultShortGetModel
-func (a *TestResultsApiService) ApiV2TestResultsSearchPostExecute(r ApiApiV2TestResultsSearchPostRequest) ([]TestResultShortGetModel, *http.Response, error) {
+func (a *TestResultsAPIService) ApiV2TestResultsSearchPostExecute(r ApiApiV2TestResultsSearchPostRequest) ([]TestResultShortGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -712,7 +712,7 @@ func (a *TestResultsApiService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 		localVarReturnValue  []TestResultShortGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.ApiV2TestResultsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -756,7 +756,7 @@ func (a *TestResultsApiService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestResultsSearchPostRequest
+	localVarPostBody = r.testResultsFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -820,12 +820,12 @@ func (a *TestResultsApiService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 
 type ApiApiV2TestResultsStatisticsFilterPostRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
-	apiV2TestResultsSearchPostRequest *ApiV2TestResultsSearchPostRequest
+	ApiService *TestResultsAPIService
+	testResultsFilterModel *TestResultsFilterModel
 }
 
-func (r ApiApiV2TestResultsStatisticsFilterPostRequest) ApiV2TestResultsSearchPostRequest(apiV2TestResultsSearchPostRequest ApiV2TestResultsSearchPostRequest) ApiApiV2TestResultsStatisticsFilterPostRequest {
-	r.apiV2TestResultsSearchPostRequest = &apiV2TestResultsSearchPostRequest
+func (r ApiApiV2TestResultsStatisticsFilterPostRequest) TestResultsFilterModel(testResultsFilterModel TestResultsFilterModel) ApiApiV2TestResultsStatisticsFilterPostRequest {
+	r.testResultsFilterModel = &testResultsFilterModel
 	return r
 }
 
@@ -839,7 +839,7 @@ ApiV2TestResultsStatisticsFilterPost Search for test results and extract statist
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TestResultsStatisticsFilterPostRequest
 */
-func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPost(ctx context.Context) ApiApiV2TestResultsStatisticsFilterPostRequest {
+func (a *TestResultsAPIService) ApiV2TestResultsStatisticsFilterPost(ctx context.Context) ApiApiV2TestResultsStatisticsFilterPostRequest {
 	return ApiApiV2TestResultsStatisticsFilterPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -848,7 +848,7 @@ func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPost(ctx context
 
 // Execute executes the request
 //  @return TestResultsStatisticsGetModel
-func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPostExecute(r ApiApiV2TestResultsStatisticsFilterPostRequest) (*TestResultsStatisticsGetModel, *http.Response, error) {
+func (a *TestResultsAPIService) ApiV2TestResultsStatisticsFilterPostExecute(r ApiApiV2TestResultsStatisticsFilterPostRequest) (*TestResultsStatisticsGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -856,7 +856,7 @@ func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPostExecute(r Ap
 		localVarReturnValue  *TestResultsStatisticsGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.ApiV2TestResultsStatisticsFilterPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsStatisticsFilterPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -885,7 +885,7 @@ func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2TestResultsSearchPostRequest
+	localVarPostBody = r.testResultsFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -949,7 +949,7 @@ func (a *TestResultsApiService) ApiV2TestResultsStatisticsFilterPostExecute(r Ap
 
 type ApiCreateAttachmentRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 	file *os.File
 }
@@ -977,7 +977,7 @@ CreateAttachment Upload and link attachment to TestResult
  @param id Test result internal identifier (guid format)
  @return ApiCreateAttachmentRequest
 */
-func (a *TestResultsApiService) CreateAttachment(ctx context.Context, id string) ApiCreateAttachmentRequest {
+func (a *TestResultsAPIService) CreateAttachment(ctx context.Context, id string) ApiCreateAttachmentRequest {
 	return ApiCreateAttachmentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -987,7 +987,7 @@ func (a *TestResultsApiService) CreateAttachment(ctx context.Context, id string)
 
 // Execute executes the request
 //  @return string
-func (a *TestResultsApiService) CreateAttachmentExecute(r ApiCreateAttachmentRequest) (string, *http.Response, error) {
+func (a *TestResultsAPIService) CreateAttachmentExecute(r ApiCreateAttachmentRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -995,7 +995,7 @@ func (a *TestResultsApiService) CreateAttachmentExecute(r ApiCreateAttachmentReq
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.CreateAttachment")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.CreateAttachment")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1029,8 +1029,6 @@ func (a *TestResultsApiService) CreateAttachmentExecute(r ApiCreateAttachmentReq
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
-
-
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {
@@ -1148,7 +1146,7 @@ func (a *TestResultsApiService) CreateAttachmentExecute(r ApiCreateAttachmentReq
 
 type ApiDeleteAttachmentRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 	attachmentId string
 }
@@ -1172,7 +1170,7 @@ DeleteAttachment Remove attachment and unlink from TestResult
  @param attachmentId Attachment internal identifier (guid format)
  @return ApiDeleteAttachmentRequest
 */
-func (a *TestResultsApiService) DeleteAttachment(ctx context.Context, id string, attachmentId string) ApiDeleteAttachmentRequest {
+func (a *TestResultsAPIService) DeleteAttachment(ctx context.Context, id string, attachmentId string) ApiDeleteAttachmentRequest {
 	return ApiDeleteAttachmentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1182,14 +1180,14 @@ func (a *TestResultsApiService) DeleteAttachment(ctx context.Context, id string,
 }
 
 // Execute executes the request
-func (a *TestResultsApiService) DeleteAttachmentExecute(r ApiDeleteAttachmentRequest) (*http.Response, error) {
+func (a *TestResultsAPIService) DeleteAttachmentExecute(r ApiDeleteAttachmentRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.DeleteAttachment")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.DeleteAttachment")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1295,7 +1293,7 @@ func (a *TestResultsApiService) DeleteAttachmentExecute(r ApiDeleteAttachmentReq
 
 type ApiDownloadAttachmentRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	attachmentId string
 	id string
 	width *int32
@@ -1359,7 +1357,7 @@ DownloadAttachment Get attachment of TestResult
  @param id Test result internal identifier (guid format)
  @return ApiDownloadAttachmentRequest
 */
-func (a *TestResultsApiService) DownloadAttachment(ctx context.Context, attachmentId string, id string) ApiDownloadAttachmentRequest {
+func (a *TestResultsAPIService) DownloadAttachment(ctx context.Context, attachmentId string, id string) ApiDownloadAttachmentRequest {
 	return ApiDownloadAttachmentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1370,7 +1368,7 @@ func (a *TestResultsApiService) DownloadAttachment(ctx context.Context, attachme
 
 // Execute executes the request
 //  @return *os.File
-func (a *TestResultsApiService) DownloadAttachmentExecute(r ApiDownloadAttachmentRequest) (*os.File, *http.Response, error) {
+func (a *TestResultsAPIService) DownloadAttachmentExecute(r ApiDownloadAttachmentRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1378,7 +1376,7 @@ func (a *TestResultsApiService) DownloadAttachmentExecute(r ApiDownloadAttachmen
 		localVarReturnValue  *os.File
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.DownloadAttachment")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.DownloadAttachment")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1519,7 +1517,7 @@ func (a *TestResultsApiService) DownloadAttachmentExecute(r ApiDownloadAttachmen
 
 type ApiGetAttachmentRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 	attachmentId string
 }
@@ -1542,7 +1540,7 @@ GetAttachment Get Metadata of TestResult's attachment
  @param attachmentId Attachment internal identifier (guid format)
  @return ApiGetAttachmentRequest
 */
-func (a *TestResultsApiService) GetAttachment(ctx context.Context, id string, attachmentId string) ApiGetAttachmentRequest {
+func (a *TestResultsAPIService) GetAttachment(ctx context.Context, id string, attachmentId string) ApiGetAttachmentRequest {
 	return ApiGetAttachmentRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1553,7 +1551,7 @@ func (a *TestResultsApiService) GetAttachment(ctx context.Context, id string, at
 
 // Execute executes the request
 //  @return AttachmentModel
-func (a *TestResultsApiService) GetAttachmentExecute(r ApiGetAttachmentRequest) (*AttachmentModel, *http.Response, error) {
+func (a *TestResultsAPIService) GetAttachmentExecute(r ApiGetAttachmentRequest) (*AttachmentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1561,7 +1559,7 @@ func (a *TestResultsApiService) GetAttachmentExecute(r ApiGetAttachmentRequest) 
 		localVarReturnValue  *AttachmentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.GetAttachment")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.GetAttachment")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1687,7 +1685,7 @@ func (a *TestResultsApiService) GetAttachmentExecute(r ApiGetAttachmentRequest) 
 
 type ApiGetAttachmentsRequest struct {
 	ctx context.Context
-	ApiService *TestResultsApiService
+	ApiService *TestResultsAPIService
 	id string
 }
 
@@ -1708,7 +1706,7 @@ GetAttachments Get all attachments of TestResult
  @param id Test result internal identifier (guid format)
  @return ApiGetAttachmentsRequest
 */
-func (a *TestResultsApiService) GetAttachments(ctx context.Context, id string) ApiGetAttachmentsRequest {
+func (a *TestResultsAPIService) GetAttachments(ctx context.Context, id string) ApiGetAttachmentsRequest {
 	return ApiGetAttachmentsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1718,7 +1716,7 @@ func (a *TestResultsApiService) GetAttachments(ctx context.Context, id string) A
 
 // Execute executes the request
 //  @return []AttachmentModel
-func (a *TestResultsApiService) GetAttachmentsExecute(r ApiGetAttachmentsRequest) ([]AttachmentModel, *http.Response, error) {
+func (a *TestResultsAPIService) GetAttachmentsExecute(r ApiGetAttachmentsRequest) ([]AttachmentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1726,7 +1724,7 @@ func (a *TestResultsApiService) GetAttachmentsExecute(r ApiGetAttachmentsRequest
 		localVarReturnValue  []AttachmentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsApiService.GetAttachments")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.GetAttachments")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

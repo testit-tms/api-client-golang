@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the GlobalSearchItemResult type satisfies the MappedNullable interface at compile time
@@ -25,6 +27,8 @@ type GlobalSearchItemResult struct {
 	Name string `json:"name"`
 	ProjectGlobalId int64 `json:"projectGlobalId"`
 }
+
+type _GlobalSearchItemResult GlobalSearchItemResult
 
 // NewGlobalSearchItemResult instantiates a new GlobalSearchItemResult object
 // This constructor will assign default values to properties that have it defined,
@@ -203,6 +207,46 @@ func (o GlobalSearchItemResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["projectGlobalId"] = o.ProjectGlobalId
 	return toSerialize, nil
+}
+
+func (o *GlobalSearchItemResult) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"resourceType",
+		"resourceId",
+		"name",
+		"projectGlobalId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varGlobalSearchItemResult := _GlobalSearchItemResult{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varGlobalSearchItemResult)
+
+	if err != nil {
+		return err
+	}
+
+	*o = GlobalSearchItemResult(varGlobalSearchItemResult)
+
+	return err
 }
 
 type NullableGlobalSearchItemResult struct {

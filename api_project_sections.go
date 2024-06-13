@@ -20,12 +20,12 @@ import (
 )
 
 
-// ProjectSectionsApiService ProjectSectionsApi service
-type ProjectSectionsApiService service
+// ProjectSectionsAPIService ProjectSectionsAPI service
+type ProjectSectionsAPIService service
 
 type ApiGetSectionsByProjectIdRequest struct {
 	ctx context.Context
-	ApiService *ProjectSectionsApiService
+	ApiService *ProjectSectionsAPIService
 	projectId string
 	skip *int32
 	take *int32
@@ -81,7 +81,7 @@ GetSectionsByProjectId Get project sections
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiGetSectionsByProjectIdRequest
 */
-func (a *ProjectSectionsApiService) GetSectionsByProjectId(ctx context.Context, projectId string) ApiGetSectionsByProjectIdRequest {
+func (a *ProjectSectionsAPIService) GetSectionsByProjectId(ctx context.Context, projectId string) ApiGetSectionsByProjectIdRequest {
 	return ApiGetSectionsByProjectIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -91,7 +91,7 @@ func (a *ProjectSectionsApiService) GetSectionsByProjectId(ctx context.Context, 
 
 // Execute executes the request
 //  @return []SectionModel
-func (a *ProjectSectionsApiService) GetSectionsByProjectIdExecute(r ApiGetSectionsByProjectIdRequest) ([]SectionModel, *http.Response, error) {
+func (a *ProjectSectionsAPIService) GetSectionsByProjectIdExecute(r ApiGetSectionsByProjectIdRequest) ([]SectionModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -99,7 +99,7 @@ func (a *ProjectSectionsApiService) GetSectionsByProjectIdExecute(r ApiGetSectio
 		localVarReturnValue  []SectionModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectSectionsApiService.GetSectionsByProjectId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectSectionsAPIService.GetSectionsByProjectId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

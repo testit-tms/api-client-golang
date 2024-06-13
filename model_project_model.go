@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ProjectModel type satisfies the MappedNullable interface at compile time
@@ -53,6 +55,8 @@ type ProjectModel struct {
 	// Global ID of the project
 	GlobalId int64 `json:"globalId"`
 }
+
+type _ProjectModel ProjectModel
 
 // NewProjectModel instantiates a new ProjectModel object
 // This constructor will assign default values to properties that have it defined,
@@ -651,6 +655,49 @@ func (o ProjectModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["globalId"] = o.GlobalId
 	return toSerialize, nil
+}
+
+func (o *ProjectModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"name",
+		"isFavorite",
+		"isDeleted",
+		"createdDate",
+		"createdById",
+		"globalId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varProjectModel := _ProjectModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varProjectModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ProjectModel(varProjectModel)
+
+	return err
 }
 
 type NullableProjectModel struct {

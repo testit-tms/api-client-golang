@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestPlanPostModel type satisfies the MappedNullable interface at compile time
@@ -33,6 +35,8 @@ type TestPlanPostModel struct {
 	HasAutomaticDurationTimer NullableBool `json:"hasAutomaticDurationTimer,omitempty"`
 	Attributes map[string]interface{} `json:"attributes"`
 }
+
+type _TestPlanPostModel TestPlanPostModel
 
 // NewTestPlanPostModel instantiates a new TestPlanPostModel object
 // This constructor will assign default values to properties that have it defined,
@@ -446,6 +450,45 @@ func (o TestPlanPostModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["attributes"] = o.Attributes
 	return toSerialize, nil
+}
+
+func (o *TestPlanPostModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"name",
+		"projectId",
+		"attributes",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestPlanPostModel := _TestPlanPostModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestPlanPostModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestPlanPostModel(varTestPlanPostModel)
+
+	return err
 }
 
 type NullableTestPlanPostModel struct {

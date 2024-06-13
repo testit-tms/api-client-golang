@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WorkItemVersionModel type satisfies the MappedNullable interface at compile time
@@ -27,6 +29,8 @@ type WorkItemVersionModel struct {
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 }
+
+type _WorkItemVersionModel WorkItemVersionModel
 
 // NewWorkItemVersionModel instantiates a new WorkItemVersionModel object
 // This constructor will assign default values to properties that have it defined,
@@ -198,6 +202,44 @@ func (o WorkItemVersionModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *WorkItemVersionModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"versionId",
+		"versionNumber",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWorkItemVersionModel := _WorkItemVersionModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWorkItemVersionModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WorkItemVersionModel(varWorkItemVersionModel)
+
+	return err
 }
 
 type NullableWorkItemVersionModel struct {

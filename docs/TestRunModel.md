@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AutoTestsCount** | **int32** |  | 
 **TestSuiteIds** | Pointer to **[]string** |  | [optional] 
 **IsAutomated** | **bool** |  | 
-**Analytic** | [**TestRunModelAnalytic**](TestRunModelAnalytic.md) |  | 
+**Analytic** | [**TestRunAnalyticResultModel**](TestRunAnalyticResultModel.md) |  | 
 **TestResults** | Pointer to [**[]TestResultModel**](TestResultModel.md) |  | [optional] 
 **TestPlan** | Pointer to [**NullableTestPlanModel**](TestPlanModel.md) |  | [optional] 
 **CreatedDate** | **time.Time** |  | 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewTestRunModel
 
-`func NewTestRunModel(autoTestsCount int32, isAutomated bool, analytic TestRunModelAnalytic, createdDate time.Time, createdById string, build string, description string, stateName TestRunState, projectId string, name string, launchSource string, id string, isDeleted bool, ) *TestRunModel`
+`func NewTestRunModel(autoTestsCount int32, isAutomated bool, analytic TestRunAnalyticResultModel, createdDate time.Time, createdById string, build string, description string, stateName TestRunState, projectId string, name string, launchSource string, id string, isDeleted bool, ) *TestRunModel`
 
 NewTestRunModel instantiates a new TestRunModel object
 This constructor will assign default values to properties that have it defined,
@@ -161,20 +161,20 @@ SetIsAutomated sets IsAutomated field to given value.
 
 ### GetAnalytic
 
-`func (o *TestRunModel) GetAnalytic() TestRunModelAnalytic`
+`func (o *TestRunModel) GetAnalytic() TestRunAnalyticResultModel`
 
 GetAnalytic returns the Analytic field if non-nil, zero value otherwise.
 
 ### GetAnalyticOk
 
-`func (o *TestRunModel) GetAnalyticOk() (*TestRunModelAnalytic, bool)`
+`func (o *TestRunModel) GetAnalyticOk() (*TestRunAnalyticResultModel, bool)`
 
 GetAnalyticOk returns a tuple with the Analytic field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAnalytic
 
-`func (o *TestRunModel) SetAnalytic(v TestRunModelAnalytic)`
+`func (o *TestRunModel) SetAnalytic(v TestRunAnalyticResultModel)`
 
 SetAnalytic sets Analytic field to given value.
 

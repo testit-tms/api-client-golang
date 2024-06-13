@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the WorkItemCommentModel type satisfies the MappedNullable interface at compile time
@@ -22,18 +24,20 @@ var _ MappedNullable = &WorkItemCommentModel{}
 type WorkItemCommentModel struct {
 	Id string `json:"id"`
 	Text string `json:"text"`
-	User WorkItemCommentModelUser `json:"user"`
+	User UserWithRankModel `json:"user"`
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	CreatedDate time.Time `json:"createdDate"`
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 }
 
+type _WorkItemCommentModel WorkItemCommentModel
+
 // NewWorkItemCommentModel instantiates a new WorkItemCommentModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemCommentModel(id string, text string, user WorkItemCommentModelUser, createdById string, createdDate time.Time) *WorkItemCommentModel {
+func NewWorkItemCommentModel(id string, text string, user UserWithRankModel, createdById string, createdDate time.Time) *WorkItemCommentModel {
 	this := WorkItemCommentModel{}
 	this.Id = id
 	this.Text = text
@@ -100,9 +104,9 @@ func (o *WorkItemCommentModel) SetText(v string) {
 }
 
 // GetUser returns the User field value
-func (o *WorkItemCommentModel) GetUser() WorkItemCommentModelUser {
+func (o *WorkItemCommentModel) GetUser() UserWithRankModel {
 	if o == nil {
-		var ret WorkItemCommentModelUser
+		var ret UserWithRankModel
 		return ret
 	}
 
@@ -111,7 +115,7 @@ func (o *WorkItemCommentModel) GetUser() WorkItemCommentModelUser {
 
 // GetUserOk returns a tuple with the User field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemCommentModel) GetUserOk() (*WorkItemCommentModelUser, bool) {
+func (o *WorkItemCommentModel) GetUserOk() (*UserWithRankModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -119,7 +123,7 @@ func (o *WorkItemCommentModel) GetUserOk() (*WorkItemCommentModelUser, bool) {
 }
 
 // SetUser sets field value
-func (o *WorkItemCommentModel) SetUser(v WorkItemCommentModelUser) {
+func (o *WorkItemCommentModel) SetUser(v UserWithRankModel) {
 	o.User = v
 }
 
@@ -277,6 +281,47 @@ func (o WorkItemCommentModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
 	return toSerialize, nil
+}
+
+func (o *WorkItemCommentModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"text",
+		"user",
+		"createdById",
+		"createdDate",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varWorkItemCommentModel := _WorkItemCommentModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varWorkItemCommentModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = WorkItemCommentModel(varWorkItemCommentModel)
+
+	return err
 }
 
 type NullableWorkItemCommentModel struct {

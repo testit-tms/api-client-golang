@@ -20,18 +20,18 @@ import (
 )
 
 
-// ProjectAttributesApiService ProjectAttributesApi service
-type ProjectAttributesApiService service
+// ProjectAttributesAPIService ProjectAttributesAPI service
+type ProjectAttributesAPIService service
 
 type ApiCreateProjectsAttributeRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributesApiService
+	ApiService *ProjectAttributesAPIService
 	projectId string
-	createProjectsAttributeRequest *CreateProjectsAttributeRequest
+	customAttributePostModel *CustomAttributePostModel
 }
 
-func (r ApiCreateProjectsAttributeRequest) CreateProjectsAttributeRequest(createProjectsAttributeRequest CreateProjectsAttributeRequest) ApiCreateProjectsAttributeRequest {
-	r.createProjectsAttributeRequest = &createProjectsAttributeRequest
+func (r ApiCreateProjectsAttributeRequest) CustomAttributePostModel(customAttributePostModel CustomAttributePostModel) ApiCreateProjectsAttributeRequest {
+	r.customAttributePostModel = &customAttributePostModel
 	return r
 }
 
@@ -52,7 +52,7 @@ CreateProjectsAttribute Create project attribute
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiCreateProjectsAttributeRequest
 */
-func (a *ProjectAttributesApiService) CreateProjectsAttribute(ctx context.Context, projectId string) ApiCreateProjectsAttributeRequest {
+func (a *ProjectAttributesAPIService) CreateProjectsAttribute(ctx context.Context, projectId string) ApiCreateProjectsAttributeRequest {
 	return ApiCreateProjectsAttributeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -62,7 +62,7 @@ func (a *ProjectAttributesApiService) CreateProjectsAttribute(ctx context.Contex
 
 // Execute executes the request
 //  @return CustomAttributeModel
-func (a *ProjectAttributesApiService) CreateProjectsAttributeExecute(r ApiCreateProjectsAttributeRequest) (*CustomAttributeModel, *http.Response, error) {
+func (a *ProjectAttributesAPIService) CreateProjectsAttributeExecute(r ApiCreateProjectsAttributeRequest) (*CustomAttributeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -70,7 +70,7 @@ func (a *ProjectAttributesApiService) CreateProjectsAttributeExecute(r ApiCreate
 		localVarReturnValue  *CustomAttributeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesApiService.CreateProjectsAttribute")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesAPIService.CreateProjectsAttribute")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -100,7 +100,7 @@ func (a *ProjectAttributesApiService) CreateProjectsAttributeExecute(r ApiCreate
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createProjectsAttributeRequest
+	localVarPostBody = r.customAttributePostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -165,7 +165,7 @@ func (a *ProjectAttributesApiService) CreateProjectsAttributeExecute(r ApiCreate
 
 type ApiDeleteProjectsAttributeRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributesApiService
+	ApiService *ProjectAttributesAPIService
 	projectId string
 	attributeId string
 }
@@ -190,7 +190,7 @@ DeleteProjectsAttribute Delete project attribute
  @param attributeId Project attribute internal (UUID)
  @return ApiDeleteProjectsAttributeRequest
 */
-func (a *ProjectAttributesApiService) DeleteProjectsAttribute(ctx context.Context, projectId string, attributeId string) ApiDeleteProjectsAttributeRequest {
+func (a *ProjectAttributesAPIService) DeleteProjectsAttribute(ctx context.Context, projectId string, attributeId string) ApiDeleteProjectsAttributeRequest {
 	return ApiDeleteProjectsAttributeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -200,14 +200,14 @@ func (a *ProjectAttributesApiService) DeleteProjectsAttribute(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *ProjectAttributesApiService) DeleteProjectsAttributeExecute(r ApiDeleteProjectsAttributeRequest) (*http.Response, error) {
+func (a *ProjectAttributesAPIService) DeleteProjectsAttributeExecute(r ApiDeleteProjectsAttributeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesApiService.DeleteProjectsAttribute")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesAPIService.DeleteProjectsAttribute")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -292,7 +292,7 @@ func (a *ProjectAttributesApiService) DeleteProjectsAttributeExecute(r ApiDelete
 
 type ApiGetAttributeByProjectIdRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributesApiService
+	ApiService *ProjectAttributesAPIService
 	projectId string
 	attributeId string
 }
@@ -317,7 +317,7 @@ GetAttributeByProjectId Get project attribute
  @param attributeId Project attribute internal (UUID) or global (integer) identifier
  @return ApiGetAttributeByProjectIdRequest
 */
-func (a *ProjectAttributesApiService) GetAttributeByProjectId(ctx context.Context, projectId string, attributeId string) ApiGetAttributeByProjectIdRequest {
+func (a *ProjectAttributesAPIService) GetAttributeByProjectId(ctx context.Context, projectId string, attributeId string) ApiGetAttributeByProjectIdRequest {
 	return ApiGetAttributeByProjectIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -328,7 +328,7 @@ func (a *ProjectAttributesApiService) GetAttributeByProjectId(ctx context.Contex
 
 // Execute executes the request
 //  @return CustomAttributeModel
-func (a *ProjectAttributesApiService) GetAttributeByProjectIdExecute(r ApiGetAttributeByProjectIdRequest) (*CustomAttributeModel, *http.Response, error) {
+func (a *ProjectAttributesAPIService) GetAttributeByProjectIdExecute(r ApiGetAttributeByProjectIdRequest) (*CustomAttributeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -336,7 +336,7 @@ func (a *ProjectAttributesApiService) GetAttributeByProjectIdExecute(r ApiGetAtt
 		localVarReturnValue  *CustomAttributeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesApiService.GetAttributeByProjectId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesAPIService.GetAttributeByProjectId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -430,7 +430,7 @@ func (a *ProjectAttributesApiService) GetAttributeByProjectIdExecute(r ApiGetAtt
 
 type ApiGetAttributesByProjectIdRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributesApiService
+	ApiService *ProjectAttributesAPIService
 	projectId string
 	isDeleted *DeletionState
 }
@@ -461,7 +461,7 @@ GetAttributesByProjectId Get project attributes
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiGetAttributesByProjectIdRequest
 */
-func (a *ProjectAttributesApiService) GetAttributesByProjectId(ctx context.Context, projectId string) ApiGetAttributesByProjectIdRequest {
+func (a *ProjectAttributesAPIService) GetAttributesByProjectId(ctx context.Context, projectId string) ApiGetAttributesByProjectIdRequest {
 	return ApiGetAttributesByProjectIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -471,7 +471,7 @@ func (a *ProjectAttributesApiService) GetAttributesByProjectId(ctx context.Conte
 
 // Execute executes the request
 //  @return []CustomAttributeModel
-func (a *ProjectAttributesApiService) GetAttributesByProjectIdExecute(r ApiGetAttributesByProjectIdRequest) ([]CustomAttributeModel, *http.Response, error) {
+func (a *ProjectAttributesAPIService) GetAttributesByProjectIdExecute(r ApiGetAttributesByProjectIdRequest) ([]CustomAttributeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -479,7 +479,7 @@ func (a *ProjectAttributesApiService) GetAttributesByProjectIdExecute(r ApiGetAt
 		localVarReturnValue  []CustomAttributeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesApiService.GetAttributesByProjectId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesAPIService.GetAttributesByProjectId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -493,6 +493,9 @@ func (a *ProjectAttributesApiService) GetAttributesByProjectIdExecute(r ApiGetAt
 
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+	} else {
+		var defaultValue DeletionState = "NotDeleted"
+		r.isDeleted = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -574,14 +577,14 @@ func (a *ProjectAttributesApiService) GetAttributesByProjectIdExecute(r ApiGetAt
 
 type ApiSearchAttributesInProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributesApiService
+	ApiService *ProjectAttributesAPIService
 	projectId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	searchAttributesInProjectRequest *SearchAttributesInProjectRequest
+	projectAttributesFilterModel *ProjectAttributesFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -614,8 +617,8 @@ func (r ApiSearchAttributesInProjectRequest) SearchValue(searchValue string) Api
 	return r
 }
 
-func (r ApiSearchAttributesInProjectRequest) SearchAttributesInProjectRequest(searchAttributesInProjectRequest SearchAttributesInProjectRequest) ApiSearchAttributesInProjectRequest {
-	r.searchAttributesInProjectRequest = &searchAttributesInProjectRequest
+func (r ApiSearchAttributesInProjectRequest) ProjectAttributesFilterModel(projectAttributesFilterModel ProjectAttributesFilterModel) ApiSearchAttributesInProjectRequest {
+	r.projectAttributesFilterModel = &projectAttributesFilterModel
 	return r
 }
 
@@ -630,7 +633,7 @@ SearchAttributesInProject Search for attributes used in the project
  @param projectId Unique or global project ID
  @return ApiSearchAttributesInProjectRequest
 */
-func (a *ProjectAttributesApiService) SearchAttributesInProject(ctx context.Context, projectId string) ApiSearchAttributesInProjectRequest {
+func (a *ProjectAttributesAPIService) SearchAttributesInProject(ctx context.Context, projectId string) ApiSearchAttributesInProjectRequest {
 	return ApiSearchAttributesInProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -640,7 +643,7 @@ func (a *ProjectAttributesApiService) SearchAttributesInProject(ctx context.Cont
 
 // Execute executes the request
 //  @return []CustomAttributeGetModel
-func (a *ProjectAttributesApiService) SearchAttributesInProjectExecute(r ApiSearchAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
+func (a *ProjectAttributesAPIService) SearchAttributesInProjectExecute(r ApiSearchAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -648,7 +651,7 @@ func (a *ProjectAttributesApiService) SearchAttributesInProjectExecute(r ApiSear
 		localVarReturnValue  []CustomAttributeGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesApiService.SearchAttributesInProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesAPIService.SearchAttributesInProject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -693,7 +696,7 @@ func (a *ProjectAttributesApiService) SearchAttributesInProjectExecute(r ApiSear
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.searchAttributesInProjectRequest
+	localVarPostBody = r.projectAttributesFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -757,13 +760,13 @@ func (a *ProjectAttributesApiService) SearchAttributesInProjectExecute(r ApiSear
 
 type ApiUpdateProjectsAttributeRequest struct {
 	ctx context.Context
-	ApiService *ProjectAttributesApiService
+	ApiService *ProjectAttributesAPIService
 	projectId string
-	updateProjectsAttributeRequest *UpdateProjectsAttributeRequest
+	customAttributePutModel *CustomAttributePutModel
 }
 
-func (r ApiUpdateProjectsAttributeRequest) UpdateProjectsAttributeRequest(updateProjectsAttributeRequest UpdateProjectsAttributeRequest) ApiUpdateProjectsAttributeRequest {
-	r.updateProjectsAttributeRequest = &updateProjectsAttributeRequest
+func (r ApiUpdateProjectsAttributeRequest) CustomAttributePutModel(customAttributePutModel CustomAttributePutModel) ApiUpdateProjectsAttributeRequest {
+	r.customAttributePutModel = &customAttributePutModel
 	return r
 }
 
@@ -778,7 +781,7 @@ UpdateProjectsAttribute Edit attribute of the project
  @param projectId Unique or global project ID
  @return ApiUpdateProjectsAttributeRequest
 */
-func (a *ProjectAttributesApiService) UpdateProjectsAttribute(ctx context.Context, projectId string) ApiUpdateProjectsAttributeRequest {
+func (a *ProjectAttributesAPIService) UpdateProjectsAttribute(ctx context.Context, projectId string) ApiUpdateProjectsAttributeRequest {
 	return ApiUpdateProjectsAttributeRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -787,14 +790,14 @@ func (a *ProjectAttributesApiService) UpdateProjectsAttribute(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *ProjectAttributesApiService) UpdateProjectsAttributeExecute(r ApiUpdateProjectsAttributeRequest) (*http.Response, error) {
+func (a *ProjectAttributesAPIService) UpdateProjectsAttributeExecute(r ApiUpdateProjectsAttributeRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesApiService.UpdateProjectsAttribute")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesAPIService.UpdateProjectsAttribute")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -824,7 +827,7 @@ func (a *ProjectAttributesApiService) UpdateProjectsAttributeExecute(r ApiUpdate
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.updateProjectsAttributeRequest
+	localVarPostBody = r.customAttributePutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

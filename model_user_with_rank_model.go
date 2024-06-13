@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the UserWithRankModel type satisfies the MappedNullable interface at compile time
@@ -32,14 +34,16 @@ type UserWithRankModel struct {
 	IsDisabled bool `json:"isDisabled"`
 	ProviderId NullableString `json:"providerId,omitempty"`
 	IsActiveStatusByEntity bool `json:"isActiveStatusByEntity"`
-	UserRank UserWithRankModelUserRank `json:"userRank"`
+	UserRank UserRankModel `json:"userRank"`
 }
+
+type _UserWithRankModel UserWithRankModel
 
 // NewUserWithRankModel instantiates a new UserWithRankModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserWithRankModel(id string, firstName string, lastName string, middleName string, userName string, displayName string, userType string, avatarUrl string, avatarMetadata string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool, userRank UserWithRankModelUserRank) *UserWithRankModel {
+func NewUserWithRankModel(id string, firstName string, lastName string, middleName string, userName string, displayName string, userType string, avatarUrl string, avatarMetadata string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool, userRank UserRankModel) *UserWithRankModel {
 	this := UserWithRankModel{}
 	this.Id = id
 	this.FirstName = firstName
@@ -396,9 +400,9 @@ func (o *UserWithRankModel) SetIsActiveStatusByEntity(v bool) {
 }
 
 // GetUserRank returns the UserRank field value
-func (o *UserWithRankModel) GetUserRank() UserWithRankModelUserRank {
+func (o *UserWithRankModel) GetUserRank() UserRankModel {
 	if o == nil {
-		var ret UserWithRankModelUserRank
+		var ret UserRankModel
 		return ret
 	}
 
@@ -407,7 +411,7 @@ func (o *UserWithRankModel) GetUserRank() UserWithRankModelUserRank {
 
 // GetUserRankOk returns a tuple with the UserRank field value
 // and a boolean to check if the value has been set.
-func (o *UserWithRankModel) GetUserRankOk() (*UserWithRankModelUserRank, bool) {
+func (o *UserWithRankModel) GetUserRankOk() (*UserRankModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -415,7 +419,7 @@ func (o *UserWithRankModel) GetUserRankOk() (*UserWithRankModelUserRank, bool) {
 }
 
 // SetUserRank sets field value
-func (o *UserWithRankModel) SetUserRank(v UserWithRankModelUserRank) {
+func (o *UserWithRankModel) SetUserRank(v UserRankModel) {
 	o.UserRank = v
 }
 
@@ -446,6 +450,55 @@ func (o UserWithRankModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["isActiveStatusByEntity"] = o.IsActiveStatusByEntity
 	toSerialize["userRank"] = o.UserRank
 	return toSerialize, nil
+}
+
+func (o *UserWithRankModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"firstName",
+		"lastName",
+		"middleName",
+		"userName",
+		"displayName",
+		"userType",
+		"avatarUrl",
+		"avatarMetadata",
+		"isDeleted",
+		"isDisabled",
+		"isActiveStatusByEntity",
+		"userRank",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varUserWithRankModel := _UserWithRankModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varUserWithRankModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = UserWithRankModel(varUserWithRankModel)
+
+	return err
 }
 
 type NullableUserWithRankModel struct {

@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestRunSelectModel type satisfies the MappedNullable interface at compile time
@@ -19,15 +21,17 @@ var _ MappedNullable = &TestRunSelectModel{}
 
 // TestRunSelectModel Model containing options to filter test runs
 type TestRunSelectModel struct {
-	Filter ApiV2TestRunsSearchPostRequest `json:"filter"`
-	ExtractionModel TestRunSelectModelExtractionModel `json:"extractionModel"`
+	Filter TestRunFilterModel `json:"filter"`
+	ExtractionModel TestRunExtractionModel `json:"extractionModel"`
 }
+
+type _TestRunSelectModel TestRunSelectModel
 
 // NewTestRunSelectModel instantiates a new TestRunSelectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunSelectModel(filter ApiV2TestRunsSearchPostRequest, extractionModel TestRunSelectModelExtractionModel) *TestRunSelectModel {
+func NewTestRunSelectModel(filter TestRunFilterModel, extractionModel TestRunExtractionModel) *TestRunSelectModel {
 	this := TestRunSelectModel{}
 	this.Filter = filter
 	this.ExtractionModel = extractionModel
@@ -43,9 +47,9 @@ func NewTestRunSelectModelWithDefaults() *TestRunSelectModel {
 }
 
 // GetFilter returns the Filter field value
-func (o *TestRunSelectModel) GetFilter() ApiV2TestRunsSearchPostRequest {
+func (o *TestRunSelectModel) GetFilter() TestRunFilterModel {
 	if o == nil {
-		var ret ApiV2TestRunsSearchPostRequest
+		var ret TestRunFilterModel
 		return ret
 	}
 
@@ -54,7 +58,7 @@ func (o *TestRunSelectModel) GetFilter() ApiV2TestRunsSearchPostRequest {
 
 // GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-func (o *TestRunSelectModel) GetFilterOk() (*ApiV2TestRunsSearchPostRequest, bool) {
+func (o *TestRunSelectModel) GetFilterOk() (*TestRunFilterModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -62,14 +66,14 @@ func (o *TestRunSelectModel) GetFilterOk() (*ApiV2TestRunsSearchPostRequest, boo
 }
 
 // SetFilter sets field value
-func (o *TestRunSelectModel) SetFilter(v ApiV2TestRunsSearchPostRequest) {
+func (o *TestRunSelectModel) SetFilter(v TestRunFilterModel) {
 	o.Filter = v
 }
 
 // GetExtractionModel returns the ExtractionModel field value
-func (o *TestRunSelectModel) GetExtractionModel() TestRunSelectModelExtractionModel {
+func (o *TestRunSelectModel) GetExtractionModel() TestRunExtractionModel {
 	if o == nil {
-		var ret TestRunSelectModelExtractionModel
+		var ret TestRunExtractionModel
 		return ret
 	}
 
@@ -78,7 +82,7 @@ func (o *TestRunSelectModel) GetExtractionModel() TestRunSelectModelExtractionMo
 
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value
 // and a boolean to check if the value has been set.
-func (o *TestRunSelectModel) GetExtractionModelOk() (*TestRunSelectModelExtractionModel, bool) {
+func (o *TestRunSelectModel) GetExtractionModelOk() (*TestRunExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -86,7 +90,7 @@ func (o *TestRunSelectModel) GetExtractionModelOk() (*TestRunSelectModelExtracti
 }
 
 // SetExtractionModel sets field value
-func (o *TestRunSelectModel) SetExtractionModel(v TestRunSelectModelExtractionModel) {
+func (o *TestRunSelectModel) SetExtractionModel(v TestRunExtractionModel) {
 	o.ExtractionModel = v
 }
 
@@ -103,6 +107,44 @@ func (o TestRunSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["filter"] = o.Filter
 	toSerialize["extractionModel"] = o.ExtractionModel
 	return toSerialize, nil
+}
+
+func (o *TestRunSelectModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"filter",
+		"extractionModel",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestRunSelectModel := _TestRunSelectModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestRunSelectModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestRunSelectModel(varTestRunSelectModel)
+
+	return err
 }
 
 type NullableTestRunSelectModel struct {

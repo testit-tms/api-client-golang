@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestPointChangeViewModel type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type TestPointChangeViewModel struct {
 	UserName NullableString `json:"userName,omitempty"`
 	TestPointCount int64 `json:"testPointCount"`
 }
+
+type _TestPointChangeViewModel TestPointChangeViewModel
 
 // NewTestPointChangeViewModel instantiates a new TestPointChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
@@ -149,6 +153,44 @@ func (o TestPointChangeViewModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["testPointCount"] = o.TestPointCount
 	return toSerialize, nil
+}
+
+func (o *TestPointChangeViewModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"userId",
+		"testPointCount",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestPointChangeViewModel := _TestPointChangeViewModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestPointChangeViewModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestPointChangeViewModel(varTestPointChangeViewModel)
+
+	return err
 }
 
 type NullableTestPointChangeViewModel struct {

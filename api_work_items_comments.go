@@ -20,12 +20,12 @@ import (
 )
 
 
-// WorkItemsCommentsApiService WorkItemsCommentsApi service
-type WorkItemsCommentsApiService service
+// WorkItemsCommentsAPIService WorkItemsCommentsAPI service
+type WorkItemsCommentsAPIService service
 
 type ApiApiV2WorkItemsCommentsCommentIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsApiService
+	ApiService *WorkItemsCommentsAPIService
 	commentId string
 }
 
@@ -46,7 +46,7 @@ ApiV2WorkItemsCommentsCommentIdDelete Delete WorkItem comment
  @param commentId Comment internal (guid format) identifier
  @return ApiApiV2WorkItemsCommentsCommentIdDeleteRequest
 */
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDelete(ctx context.Context, commentId string) ApiApiV2WorkItemsCommentsCommentIdDeleteRequest {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDelete(ctx context.Context, commentId string) ApiApiV2WorkItemsCommentsCommentIdDeleteRequest {
 	return ApiApiV2WorkItemsCommentsCommentIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,14 +55,14 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDelete(ctx 
 }
 
 // Execute executes the request
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDeleteExecute(r ApiApiV2WorkItemsCommentsCommentIdDeleteRequest) (*http.Response, error) {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDeleteExecute(r ApiApiV2WorkItemsCommentsCommentIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsCommentsCommentIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsCommentsCommentIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -168,12 +168,12 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDeleteExecu
 
 type ApiApiV2WorkItemsCommentsPostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsApiService
-	apiV2WorkItemsCommentsPostRequest *ApiV2WorkItemsCommentsPostRequest
+	ApiService *WorkItemsCommentsAPIService
+	workItemCommentPostModel *WorkItemCommentPostModel
 }
 
-func (r ApiApiV2WorkItemsCommentsPostRequest) ApiV2WorkItemsCommentsPostRequest(apiV2WorkItemsCommentsPostRequest ApiV2WorkItemsCommentsPostRequest) ApiApiV2WorkItemsCommentsPostRequest {
-	r.apiV2WorkItemsCommentsPostRequest = &apiV2WorkItemsCommentsPostRequest
+func (r ApiApiV2WorkItemsCommentsPostRequest) WorkItemCommentPostModel(workItemCommentPostModel WorkItemCommentPostModel) ApiApiV2WorkItemsCommentsPostRequest {
+	r.workItemCommentPostModel = &workItemCommentPostModel
 	return r
 }
 
@@ -193,7 +193,7 @@ ApiV2WorkItemsCommentsPost Create WorkItem comment
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WorkItemsCommentsPostRequest
 */
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPost(ctx context.Context) ApiApiV2WorkItemsCommentsPostRequest {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPost(ctx context.Context) ApiApiV2WorkItemsCommentsPostRequest {
 	return ApiApiV2WorkItemsCommentsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -202,7 +202,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPost(ctx context.Con
 
 // Execute executes the request
 //  @return WorkItemCommentModel
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApiV2WorkItemsCommentsPostRequest) (*WorkItemCommentModel, *http.Response, error) {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPostExecute(r ApiApiV2WorkItemsCommentsPostRequest) (*WorkItemCommentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -210,7 +210,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 		localVarReturnValue  *WorkItemCommentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsCommentsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsCommentsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,7 +239,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2WorkItemsCommentsPostRequest
+	localVarPostBody = r.workItemCommentPostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -336,12 +336,12 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 
 type ApiApiV2WorkItemsCommentsPutRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsApiService
-	apiV2WorkItemsCommentsPutRequest *ApiV2WorkItemsCommentsPutRequest
+	ApiService *WorkItemsCommentsAPIService
+	workItemCommentPutModel *WorkItemCommentPutModel
 }
 
-func (r ApiApiV2WorkItemsCommentsPutRequest) ApiV2WorkItemsCommentsPutRequest(apiV2WorkItemsCommentsPutRequest ApiV2WorkItemsCommentsPutRequest) ApiApiV2WorkItemsCommentsPutRequest {
-	r.apiV2WorkItemsCommentsPutRequest = &apiV2WorkItemsCommentsPutRequest
+func (r ApiApiV2WorkItemsCommentsPutRequest) WorkItemCommentPutModel(workItemCommentPutModel WorkItemCommentPutModel) ApiApiV2WorkItemsCommentsPutRequest {
+	r.workItemCommentPutModel = &workItemCommentPutModel
 	return r
 }
 
@@ -355,7 +355,7 @@ ApiV2WorkItemsCommentsPut Update work item comment
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WorkItemsCommentsPutRequest
 */
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPut(ctx context.Context) ApiApiV2WorkItemsCommentsPutRequest {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPut(ctx context.Context) ApiApiV2WorkItemsCommentsPutRequest {
 	return ApiApiV2WorkItemsCommentsPutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -363,14 +363,14 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPut(ctx context.Cont
 }
 
 // Execute executes the request
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV2WorkItemsCommentsPutRequest) (*http.Response, error) {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV2WorkItemsCommentsPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsCommentsPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsCommentsPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -399,7 +399,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2WorkItemsCommentsPutRequest
+	localVarPostBody = r.workItemCommentPutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -454,7 +454,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 
 type ApiApiV2WorkItemsIdCommentsGetRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsApiService
+	ApiService *WorkItemsCommentsAPIService
 	id string
 }
 
@@ -469,7 +469,7 @@ ApiV2WorkItemsIdCommentsGet Get work item comments
  @param id Unique or global ID of the work item
  @return ApiApiV2WorkItemsIdCommentsGetRequest
 */
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsIdCommentsGet(ctx context.Context, id string) ApiApiV2WorkItemsIdCommentsGetRequest {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGet(ctx context.Context, id string) ApiApiV2WorkItemsIdCommentsGetRequest {
 	return ApiApiV2WorkItemsIdCommentsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -479,7 +479,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsIdCommentsGet(ctx context.Co
 
 // Execute executes the request
 //  @return []WorkItemCommentModel
-func (a *WorkItemsCommentsApiService) ApiV2WorkItemsIdCommentsGetExecute(r ApiApiV2WorkItemsIdCommentsGetRequest) ([]WorkItemCommentModel, *http.Response, error) {
+func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGetExecute(r ApiApiV2WorkItemsIdCommentsGetRequest) ([]WorkItemCommentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -487,7 +487,7 @@ func (a *WorkItemsCommentsApiService) ApiV2WorkItemsIdCommentsGetExecute(r ApiAp
 		localVarReturnValue  []WorkItemCommentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsIdCommentsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsIdCommentsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

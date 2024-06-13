@@ -1,17 +1,17 @@
-# \WebhooksApi
+# \WebhooksAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2WebhooksGet**](WebhooksApi.md#ApiV2WebhooksGet) | **Get** /api/v2/webhooks | Get all webhooks
-[**ApiV2WebhooksIdDelete**](WebhooksApi.md#ApiV2WebhooksIdDelete) | **Delete** /api/v2/webhooks/{id} | Delete webhook by ID
-[**ApiV2WebhooksIdGet**](WebhooksApi.md#ApiV2WebhooksIdGet) | **Get** /api/v2/webhooks/{id} | Get webhook by ID
-[**ApiV2WebhooksIdPut**](WebhooksApi.md#ApiV2WebhooksIdPut) | **Put** /api/v2/webhooks/{id} | Edit webhook by ID
-[**ApiV2WebhooksPost**](WebhooksApi.md#ApiV2WebhooksPost) | **Post** /api/v2/webhooks | Create webhook
-[**ApiV2WebhooksSearchPost**](WebhooksApi.md#ApiV2WebhooksSearchPost) | **Post** /api/v2/webhooks/search | Search for webhooks
-[**ApiV2WebhooksSpecialVariablesGet**](WebhooksApi.md#ApiV2WebhooksSpecialVariablesGet) | **Get** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
-[**ApiV2WebhooksTestPost**](WebhooksApi.md#ApiV2WebhooksTestPost) | **Post** /api/v2/webhooks/test | Test webhook&#39;s url
+[**ApiV2WebhooksGet**](WebhooksAPI.md#ApiV2WebhooksGet) | **Get** /api/v2/webhooks | Get all webhooks
+[**ApiV2WebhooksIdDelete**](WebhooksAPI.md#ApiV2WebhooksIdDelete) | **Delete** /api/v2/webhooks/{id} | Delete webhook by ID
+[**ApiV2WebhooksIdGet**](WebhooksAPI.md#ApiV2WebhooksIdGet) | **Get** /api/v2/webhooks/{id} | Get webhook by ID
+[**ApiV2WebhooksIdPut**](WebhooksAPI.md#ApiV2WebhooksIdPut) | **Put** /api/v2/webhooks/{id} | Edit webhook by ID
+[**ApiV2WebhooksPost**](WebhooksAPI.md#ApiV2WebhooksPost) | **Post** /api/v2/webhooks | Create webhook
+[**ApiV2WebhooksSearchPost**](WebhooksAPI.md#ApiV2WebhooksSearchPost) | **Post** /api/v2/webhooks/search | Search for webhooks
+[**ApiV2WebhooksSpecialVariablesGet**](WebhooksAPI.md#ApiV2WebhooksSpecialVariablesGet) | **Get** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
+[**ApiV2WebhooksTestPost**](WebhooksAPI.md#ApiV2WebhooksTestPost) | **Post** /api/v2/webhooks/test | Test webhook&#39;s url
 
 
 
@@ -27,24 +27,24 @@ Get all webhooks
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project unique ID (optional)
+	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project unique ID (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksGet(context.Background()).ProjectId(projectId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2WebhooksGet`: []WebHookModel
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksGet(context.Background()).ProjectId(projectId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksGet`: []WebHookModel
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksGet`: %v\n", resp)
 }
 ```
 
@@ -91,22 +91,22 @@ Delete webhook by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.WebhooksApi.ApiV2WebhooksIdDelete(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.WebhooksAPI.ApiV2WebhooksIdDelete(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -157,24 +157,24 @@ Get webhook by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksIdGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2WebhooksIdGet`: WebHookModel
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksIdGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksIdGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksIdGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksIdGet`: WebHookModel
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksIdGet`: %v\n", resp)
 }
 ```
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksIdPut
 
-> WebHookModel ApiV2WebhooksIdPut(ctx, id).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
+> WebHookModel ApiV2WebhooksIdPut(ctx, id).WebHookPostModel(webHookPostModel).Execute()
 
 Edit webhook by ID
 
@@ -225,25 +225,25 @@ Edit webhook by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
-    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, map[string]string{"key": "Inner_example"}, map[string]string{"key": "Inner_example"}, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Webhook unique ID
+	webHookPostModel := *openapiclient.NewWebHookPostModel("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, map[string]string{"key": "Inner_example"}, map[string]string{"key": "Inner_example"}, false, false, false, false, "Name_example") // WebHookPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksIdPut(context.Background(), id).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksIdPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2WebhooksIdPut`: WebHookModel
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksIdPut`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksIdPut(context.Background(), id).WebHookPostModel(webHookPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksIdPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksIdPut`: WebHookModel
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksIdPut`: %v\n", resp)
 }
 ```
 
@@ -263,7 +263,7 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksIdPutRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md) |  | 
+ **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md) |  | 
 
 ### Return type
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksPost
 
-> WebHookModel ApiV2WebhooksPost(ctx).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
+> WebHookModel ApiV2WebhooksPost(ctx).WebHookPostModel(webHookPostModel).Execute()
 
 Create webhook
 
@@ -295,24 +295,24 @@ Create webhook
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    apiV2WebhooksPostRequest := *openapiclient.NewApiV2WebhooksPostRequest("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, map[string]string{"key": "Inner_example"}, map[string]string{"key": "Inner_example"}, false, false, false, false, "Name_example") // ApiV2WebhooksPostRequest |  (optional)
+	webHookPostModel := *openapiclient.NewWebHookPostModel("ProjectId_example", openapiclient.WebHookEventTypeModel("AutomatedTestRunCreated"), "Url_example", openapiclient.RequestTypeModel("Post"), false, map[string]string{"key": "Inner_example"}, map[string]string{"key": "Inner_example"}, false, false, false, false, "Name_example") // WebHookPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksPost(context.Background()).ApiV2WebhooksPostRequest(apiV2WebhooksPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2WebhooksPost`: WebHookModel
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksPost(context.Background()).WebHookPostModel(webHookPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksPost`: WebHookModel
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksPost`: %v\n", resp)
 }
 ```
 
@@ -327,7 +327,7 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksPostRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiV2WebhooksPostRequest** | [**ApiV2WebhooksPostRequest**](ApiV2WebhooksPostRequest.md) |  | 
+ **webHookPostModel** | [**WebHookPostModel**](WebHookPostModel.md) |  | 
 
 ### Return type
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksSearchPost
 
-> []WebHookModel ApiV2WebhooksSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WebhooksSearchPostRequest(apiV2WebhooksSearchPostRequest).Execute()
+> []WebHookModel ApiV2WebhooksSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWebhooksQueryModel(searchWebhooksQueryModel).Execute()
 
 Search for webhooks
 
@@ -359,29 +359,29 @@ Search for webhooks
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2WebhooksSearchPostRequest := *openapiclient.NewApiV2WebhooksSearchPostRequest() // ApiV2WebhooksSearchPostRequest |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	searchWebhooksQueryModel := *openapiclient.NewSearchWebhooksQueryModel() // SearchWebhooksQueryModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WebhooksSearchPostRequest(apiV2WebhooksSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksSearchPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2WebhooksSearchPost`: []WebHookModel
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksSearchPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWebhooksQueryModel(searchWebhooksQueryModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksSearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksSearchPost`: []WebHookModel
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksSearchPost`: %v\n", resp)
 }
 ```
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2WebhooksSearchPostRequest** | [**ApiV2WebhooksSearchPostRequest**](ApiV2WebhooksSearchPostRequest.md) |  | 
+ **searchWebhooksQueryModel** | [**SearchWebhooksQueryModel**](SearchWebhooksQueryModel.md) |  | 
 
 ### Return type
 
@@ -433,25 +433,25 @@ Get special variables for webhook event type
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    eventType := openapiclient.WebHookEventType("AutomatedTestRunCreated") // WebHookEventType | Webhook event type (optional)
-    variablesType := openapiclient.WebhookVariablesType("VariablesForUrl") // WebhookVariablesType |  (optional) (default to "VariablesForUrl")
+	eventType := openapiclient.WebHookEventType("AutomatedTestRunCreated") // WebHookEventType | Webhook event type (optional)
+	variablesType := openapiclient.WebhookVariablesType("VariablesForUrl") // WebhookVariablesType |  (optional) (default to "VariablesForUrl")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksSpecialVariablesGet(context.Background()).EventType(eventType).VariablesType(variablesType).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksSpecialVariablesGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2WebhooksSpecialVariablesGet`: []string
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksSpecialVariablesGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksSpecialVariablesGet(context.Background()).EventType(eventType).VariablesType(variablesType).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksSpecialVariablesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksSpecialVariablesGet`: []string
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksSpecialVariablesGet`: %v\n", resp)
 }
 ```
 
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksTestPost
 
-> WebhookResponse ApiV2WebhooksTestPost(ctx).ApiV2WebhooksTestPostRequest(apiV2WebhooksTestPostRequest).Execute()
+> WebhookResponse ApiV2WebhooksTestPost(ctx).WebHookTestModel(webHookTestModel).Execute()
 
 Test webhook's url
 
@@ -499,24 +499,24 @@ Test webhook's url
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    apiV2WebhooksTestPostRequest := *openapiclient.NewApiV2WebhooksTestPostRequest(openapiclient.RequestTypeModel("Post"), "Url_example") // ApiV2WebhooksTestPostRequest |  (optional)
+	webHookTestModel := *openapiclient.NewWebHookTestModel(openapiclient.RequestTypeModel("Post"), "Url_example") // WebHookTestModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.WebhooksApi.ApiV2WebhooksTestPost(context.Background()).ApiV2WebhooksTestPostRequest(apiV2WebhooksTestPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `WebhooksApi.ApiV2WebhooksTestPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2WebhooksTestPost`: WebhookResponse
-    fmt.Fprintf(os.Stdout, "Response from `WebhooksApi.ApiV2WebhooksTestPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksTestPost(context.Background()).WebHookTestModel(webHookTestModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksTestPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksTestPost`: WebhookResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksTestPost`: %v\n", resp)
 }
 ```
 
@@ -531,7 +531,7 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksTestPostReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiV2WebhooksTestPostRequest** | [**ApiV2WebhooksTestPostRequest**](ApiV2WebhooksTestPostRequest.md) |  | 
+ **webHookTestModel** | [**WebHookTestModel**](WebHookTestModel.md) |  | 
 
 ### Return type
 

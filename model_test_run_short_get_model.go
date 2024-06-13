@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestRunShortGetModel type satisfies the MappedNullable interface at compile time
@@ -39,14 +41,16 @@ type TestRunShortGetModel struct {
 	IsDeleted bool `json:"isDeleted"`
 	// Number of AutoTests run in the test run
 	AutoTestsCount int32 `json:"autoTestsCount"`
-	Statistics TestRunShortGetModelStatistics `json:"statistics"`
+	Statistics TestResultsStatisticsGetModel `json:"statistics"`
 }
+
+type _TestRunShortGetModel TestRunShortGetModel
 
 // NewTestRunShortGetModel instantiates a new TestRunShortGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestRunShortGetModelStatistics) *TestRunShortGetModel {
+func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsGetModel) *TestRunShortGetModel {
 	this := TestRunShortGetModel{}
 	this.Id = id
 	this.Name = name
@@ -362,9 +366,9 @@ func (o *TestRunShortGetModel) SetAutoTestsCount(v int32) {
 }
 
 // GetStatistics returns the Statistics field value
-func (o *TestRunShortGetModel) GetStatistics() TestRunShortGetModelStatistics {
+func (o *TestRunShortGetModel) GetStatistics() TestResultsStatisticsGetModel {
 	if o == nil {
-		var ret TestRunShortGetModelStatistics
+		var ret TestResultsStatisticsGetModel
 		return ret
 	}
 
@@ -373,7 +377,7 @@ func (o *TestRunShortGetModel) GetStatistics() TestRunShortGetModelStatistics {
 
 // GetStatisticsOk returns a tuple with the Statistics field value
 // and a boolean to check if the value has been set.
-func (o *TestRunShortGetModel) GetStatisticsOk() (*TestRunShortGetModelStatistics, bool) {
+func (o *TestRunShortGetModel) GetStatisticsOk() (*TestResultsStatisticsGetModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -381,7 +385,7 @@ func (o *TestRunShortGetModel) GetStatisticsOk() (*TestRunShortGetModelStatistic
 }
 
 // SetStatistics sets field value
-func (o *TestRunShortGetModel) SetStatistics(v TestRunShortGetModelStatistics) {
+func (o *TestRunShortGetModel) SetStatistics(v TestResultsStatisticsGetModel) {
 	o.Statistics = v
 }
 
@@ -413,6 +417,50 @@ func (o TestRunShortGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["autoTestsCount"] = o.AutoTestsCount
 	toSerialize["statistics"] = o.Statistics
 	return toSerialize, nil
+}
+
+func (o *TestRunShortGetModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"name",
+		"state",
+		"createdDate",
+		"createdById",
+		"isDeleted",
+		"autoTestsCount",
+		"statistics",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestRunShortGetModel := _TestRunShortGetModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestRunShortGetModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestRunShortGetModel(varTestRunShortGetModel)
+
+	return err
 }
 
 type NullableTestRunShortGetModel struct {

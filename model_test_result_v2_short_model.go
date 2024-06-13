@@ -13,6 +13,8 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
+	"bytes"
+	"fmt"
 )
 
 // checks if the TestResultV2ShortModel type satisfies the MappedNullable interface at compile time
@@ -41,6 +43,8 @@ type TestResultV2ShortModel struct {
 	Parameters map[string]string `json:"parameters,omitempty"`
 	Properties map[string]string `json:"properties,omitempty"`
 }
+
+type _TestResultV2ShortModel TestResultV2ShortModel
 
 // NewTestResultV2ShortModel instantiates a new TestResultV2ShortModel object
 // This constructor will assign default values to properties that have it defined,
@@ -794,6 +798,47 @@ func (o TestResultV2ShortModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["properties"] = o.Properties
 	}
 	return toSerialize, nil
+}
+
+func (o *TestResultV2ShortModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"id",
+		"configurationId",
+		"workItemVersionId",
+		"testRunId",
+		"outcome",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varTestResultV2ShortModel := _TestResultV2ShortModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varTestResultV2ShortModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = TestResultV2ShortModel(varTestResultV2ShortModel)
+
+	return err
 }
 
 type NullableTestResultV2ShortModel struct {

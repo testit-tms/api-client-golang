@@ -20,12 +20,12 @@ import (
 )
 
 
-// ProjectConfigurationsApiService ProjectConfigurationsApi service
-type ProjectConfigurationsApiService service
+// ProjectConfigurationsAPIService ProjectConfigurationsAPI service
+type ProjectConfigurationsAPIService service
 
 type ApiGetConfigurationsByProjectIdRequest struct {
 	ctx context.Context
-	ApiService *ProjectConfigurationsApiService
+	ApiService *ProjectConfigurationsAPIService
 	projectId string
 }
 
@@ -47,7 +47,7 @@ GetConfigurationsByProjectId Get project configurations
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiGetConfigurationsByProjectIdRequest
 */
-func (a *ProjectConfigurationsApiService) GetConfigurationsByProjectId(ctx context.Context, projectId string) ApiGetConfigurationsByProjectIdRequest {
+func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectId(ctx context.Context, projectId string) ApiGetConfigurationsByProjectIdRequest {
 	return ApiGetConfigurationsByProjectIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +57,7 @@ func (a *ProjectConfigurationsApiService) GetConfigurationsByProjectId(ctx conte
 
 // Execute executes the request
 //  @return []ConfigurationModel
-func (a *ProjectConfigurationsApiService) GetConfigurationsByProjectIdExecute(r ApiGetConfigurationsByProjectIdRequest) ([]ConfigurationModel, *http.Response, error) {
+func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectIdExecute(r ApiGetConfigurationsByProjectIdRequest) ([]ConfigurationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +65,7 @@ func (a *ProjectConfigurationsApiService) GetConfigurationsByProjectIdExecute(r 
 		localVarReturnValue  []ConfigurationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectConfigurationsApiService.GetConfigurationsByProjectId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectConfigurationsAPIService.GetConfigurationsByProjectId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

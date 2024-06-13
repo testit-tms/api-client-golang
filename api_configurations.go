@@ -20,17 +20,17 @@ import (
 )
 
 
-// ConfigurationsApiService ConfigurationsApi service
-type ConfigurationsApiService service
+// ConfigurationsAPIService ConfigurationsAPI service
+type ConfigurationsAPIService service
 
 type ApiApiV2ConfigurationsCreateByParametersPostRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
-	apiV2ConfigurationsCreateByParametersPostRequest *ApiV2ConfigurationsCreateByParametersPostRequest
+	ApiService *ConfigurationsAPIService
+	configurationByParametersModel *ConfigurationByParametersModel
 }
 
-func (r ApiApiV2ConfigurationsCreateByParametersPostRequest) ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest ApiV2ConfigurationsCreateByParametersPostRequest) ApiApiV2ConfigurationsCreateByParametersPostRequest {
-	r.apiV2ConfigurationsCreateByParametersPostRequest = &apiV2ConfigurationsCreateByParametersPostRequest
+func (r ApiApiV2ConfigurationsCreateByParametersPostRequest) ConfigurationByParametersModel(configurationByParametersModel ConfigurationByParametersModel) ApiApiV2ConfigurationsCreateByParametersPostRequest {
+	r.configurationByParametersModel = &configurationByParametersModel
 	return r
 }
 
@@ -44,7 +44,7 @@ ApiV2ConfigurationsCreateByParametersPost Create configurations by parameters
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ConfigurationsCreateByParametersPostRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPost(ctx context.Context) ApiApiV2ConfigurationsCreateByParametersPostRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsCreateByParametersPost(ctx context.Context) ApiApiV2ConfigurationsCreateByParametersPostRequest {
 	return ApiApiV2ConfigurationsCreateByParametersPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -53,7 +53,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPost(ctx
 
 // Execute executes the request
 //  @return []string
-func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExecute(r ApiApiV2ConfigurationsCreateByParametersPostRequest) ([]string, *http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsCreateByParametersPostExecute(r ApiApiV2ConfigurationsCreateByParametersPostRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -61,7 +61,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExec
 		localVarReturnValue  []string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsCreateByParametersPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsCreateByParametersPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -90,7 +90,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ConfigurationsCreateByParametersPostRequest
+	localVarPostBody = r.configurationByParametersModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -154,12 +154,12 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsCreateByParametersPostExec
 
 type ApiApiV2ConfigurationsDeleteBulkPostRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
-	apiV2ConfigurationsPurgeBulkPostRequest *ApiV2ConfigurationsPurgeBulkPostRequest
+	ApiService *ConfigurationsAPIService
+	configurationSelectModel *ConfigurationSelectModel
 }
 
-func (r ApiApiV2ConfigurationsDeleteBulkPostRequest) ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest ApiV2ConfigurationsPurgeBulkPostRequest) ApiApiV2ConfigurationsDeleteBulkPostRequest {
-	r.apiV2ConfigurationsPurgeBulkPostRequest = &apiV2ConfigurationsPurgeBulkPostRequest
+func (r ApiApiV2ConfigurationsDeleteBulkPostRequest) ConfigurationSelectModel(configurationSelectModel ConfigurationSelectModel) ApiApiV2ConfigurationsDeleteBulkPostRequest {
+	r.configurationSelectModel = &configurationSelectModel
 	return r
 }
 
@@ -173,7 +173,7 @@ ApiV2ConfigurationsDeleteBulkPost Delete multiple configurations
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ConfigurationsDeleteBulkPostRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsDeleteBulkPost(ctx context.Context) ApiApiV2ConfigurationsDeleteBulkPostRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsDeleteBulkPost(ctx context.Context) ApiApiV2ConfigurationsDeleteBulkPostRequest {
 	return ApiApiV2ConfigurationsDeleteBulkPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -182,7 +182,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsDeleteBulkPost(ctx context
 
 // Execute executes the request
 //  @return int32
-func (a *ConfigurationsApiService) ApiV2ConfigurationsDeleteBulkPostExecute(r ApiApiV2ConfigurationsDeleteBulkPostRequest) (int32, *http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsDeleteBulkPostExecute(r ApiApiV2ConfigurationsDeleteBulkPostRequest) (int32, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -190,7 +190,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsDeleteBulkPostExecute(r Ap
 		localVarReturnValue  int32
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsDeleteBulkPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsDeleteBulkPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -219,7 +219,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsDeleteBulkPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ConfigurationsPurgeBulkPostRequest
+	localVarPostBody = r.configurationSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -273,7 +273,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsDeleteBulkPostExecute(r Ap
 
 type ApiApiV2ConfigurationsIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
+	ApiService *ConfigurationsAPIService
 	id string
 }
 
@@ -288,7 +288,7 @@ ApiV2ConfigurationsIdDelete Delete configuration
  @param id Unique or global ID of the configuration
  @return ApiApiV2ConfigurationsIdDeleteRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdDelete(ctx context.Context, id string) ApiApiV2ConfigurationsIdDeleteRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdDelete(ctx context.Context, id string) ApiApiV2ConfigurationsIdDeleteRequest {
 	return ApiApiV2ConfigurationsIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -297,14 +297,14 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdDelete(ctx context.Conte
 }
 
 // Execute executes the request
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdDeleteExecute(r ApiApiV2ConfigurationsIdDeleteRequest) (*http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdDeleteExecute(r ApiApiV2ConfigurationsIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -387,7 +387,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdDeleteExecute(r ApiApiV2
 
 type ApiApiV2ConfigurationsIdPatchRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
+	ApiService *ConfigurationsAPIService
 	id string
 	operation *[]Operation
 }
@@ -410,7 +410,7 @@ See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: J
  @param id Unique ID of the configuration
  @return ApiApiV2ConfigurationsIdPatchRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPatch(ctx context.Context, id string) ApiApiV2ConfigurationsIdPatchRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdPatch(ctx context.Context, id string) ApiApiV2ConfigurationsIdPatchRequest {
 	return ApiApiV2ConfigurationsIdPatchRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -419,14 +419,14 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPatch(ctx context.Contex
 }
 
 // Execute executes the request
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPatchExecute(r ApiApiV2ConfigurationsIdPatchRequest) (*http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdPatchExecute(r ApiApiV2ConfigurationsIdPatchRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsIdPatch")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsIdPatch")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -511,7 +511,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPatchExecute(r ApiApiV2C
 
 type ApiApiV2ConfigurationsIdPurgePostRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
+	ApiService *ConfigurationsAPIService
 	id string
 }
 
@@ -526,7 +526,7 @@ ApiV2ConfigurationsIdPurgePost Permanently delete configuration from archive
  @param id Unique or global ID of the configuration
  @return ApiApiV2ConfigurationsIdPurgePostRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPurgePost(ctx context.Context, id string) ApiApiV2ConfigurationsIdPurgePostRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdPurgePost(ctx context.Context, id string) ApiApiV2ConfigurationsIdPurgePostRequest {
 	return ApiApiV2ConfigurationsIdPurgePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -535,14 +535,14 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPurgePost(ctx context.Co
 }
 
 // Execute executes the request
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPurgePostExecute(r ApiApiV2ConfigurationsIdPurgePostRequest) (*http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdPurgePostExecute(r ApiApiV2ConfigurationsIdPurgePostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsIdPurgePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsIdPurgePost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -625,7 +625,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdPurgePostExecute(r ApiAp
 
 type ApiApiV2ConfigurationsIdRestorePostRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
+	ApiService *ConfigurationsAPIService
 	id string
 }
 
@@ -640,7 +640,7 @@ ApiV2ConfigurationsIdRestorePost Restore configuration from the archive
  @param id Unique or global ID of the configuration
  @return ApiApiV2ConfigurationsIdRestorePostRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdRestorePost(ctx context.Context, id string) ApiApiV2ConfigurationsIdRestorePostRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdRestorePost(ctx context.Context, id string) ApiApiV2ConfigurationsIdRestorePostRequest {
 	return ApiApiV2ConfigurationsIdRestorePostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -649,14 +649,14 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdRestorePost(ctx context.
 }
 
 // Execute executes the request
-func (a *ConfigurationsApiService) ApiV2ConfigurationsIdRestorePostExecute(r ApiApiV2ConfigurationsIdRestorePostRequest) (*http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsIdRestorePostExecute(r ApiApiV2ConfigurationsIdRestorePostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsIdRestorePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsIdRestorePost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -739,12 +739,12 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsIdRestorePostExecute(r Api
 
 type ApiApiV2ConfigurationsPurgeBulkPostRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
-	apiV2ConfigurationsPurgeBulkPostRequest *ApiV2ConfigurationsPurgeBulkPostRequest
+	ApiService *ConfigurationsAPIService
+	configurationSelectModel *ConfigurationSelectModel
 }
 
-func (r ApiApiV2ConfigurationsPurgeBulkPostRequest) ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest ApiV2ConfigurationsPurgeBulkPostRequest) ApiApiV2ConfigurationsPurgeBulkPostRequest {
-	r.apiV2ConfigurationsPurgeBulkPostRequest = &apiV2ConfigurationsPurgeBulkPostRequest
+func (r ApiApiV2ConfigurationsPurgeBulkPostRequest) ConfigurationSelectModel(configurationSelectModel ConfigurationSelectModel) ApiApiV2ConfigurationsPurgeBulkPostRequest {
+	r.configurationSelectModel = &configurationSelectModel
 	return r
 }
 
@@ -758,7 +758,7 @@ ApiV2ConfigurationsPurgeBulkPost Permanently delete multiple archived configurat
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ConfigurationsPurgeBulkPostRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsPurgeBulkPost(ctx context.Context) ApiApiV2ConfigurationsPurgeBulkPostRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsPurgeBulkPost(ctx context.Context) ApiApiV2ConfigurationsPurgeBulkPostRequest {
 	return ApiApiV2ConfigurationsPurgeBulkPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -766,14 +766,14 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsPurgeBulkPost(ctx context.
 }
 
 // Execute executes the request
-func (a *ConfigurationsApiService) ApiV2ConfigurationsPurgeBulkPostExecute(r ApiApiV2ConfigurationsPurgeBulkPostRequest) (*http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsPurgeBulkPostExecute(r ApiApiV2ConfigurationsPurgeBulkPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsPurgeBulkPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsPurgeBulkPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -802,7 +802,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsPurgeBulkPostExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ConfigurationsPurgeBulkPostRequest
+	localVarPostBody = r.configurationSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -857,12 +857,12 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsPurgeBulkPostExecute(r Api
 
 type ApiApiV2ConfigurationsPutRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
-	apiV2ConfigurationsPutRequest *ApiV2ConfigurationsPutRequest
+	ApiService *ConfigurationsAPIService
+	configurationPutModel *ConfigurationPutModel
 }
 
-func (r ApiApiV2ConfigurationsPutRequest) ApiV2ConfigurationsPutRequest(apiV2ConfigurationsPutRequest ApiV2ConfigurationsPutRequest) ApiApiV2ConfigurationsPutRequest {
-	r.apiV2ConfigurationsPutRequest = &apiV2ConfigurationsPutRequest
+func (r ApiApiV2ConfigurationsPutRequest) ConfigurationPutModel(configurationPutModel ConfigurationPutModel) ApiApiV2ConfigurationsPutRequest {
+	r.configurationPutModel = &configurationPutModel
 	return r
 }
 
@@ -876,7 +876,7 @@ ApiV2ConfigurationsPut Edit configuration
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ConfigurationsPutRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsPut(ctx context.Context) ApiApiV2ConfigurationsPutRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsPut(ctx context.Context) ApiApiV2ConfigurationsPutRequest {
 	return ApiApiV2ConfigurationsPutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -884,14 +884,14 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsPut(ctx context.Context) A
 }
 
 // Execute executes the request
-func (a *ConfigurationsApiService) ApiV2ConfigurationsPutExecute(r ApiApiV2ConfigurationsPutRequest) (*http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsPutExecute(r ApiApiV2ConfigurationsPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -920,7 +920,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsPutExecute(r ApiApiV2Confi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ConfigurationsPutRequest
+	localVarPostBody = r.configurationPutModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -975,12 +975,12 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsPutExecute(r ApiApiV2Confi
 
 type ApiApiV2ConfigurationsRestoreBulkPostRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
-	apiV2ConfigurationsPurgeBulkPostRequest *ApiV2ConfigurationsPurgeBulkPostRequest
+	ApiService *ConfigurationsAPIService
+	configurationSelectModel *ConfigurationSelectModel
 }
 
-func (r ApiApiV2ConfigurationsRestoreBulkPostRequest) ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest ApiV2ConfigurationsPurgeBulkPostRequest) ApiApiV2ConfigurationsRestoreBulkPostRequest {
-	r.apiV2ConfigurationsPurgeBulkPostRequest = &apiV2ConfigurationsPurgeBulkPostRequest
+func (r ApiApiV2ConfigurationsRestoreBulkPostRequest) ConfigurationSelectModel(configurationSelectModel ConfigurationSelectModel) ApiApiV2ConfigurationsRestoreBulkPostRequest {
+	r.configurationSelectModel = &configurationSelectModel
 	return r
 }
 
@@ -994,7 +994,7 @@ ApiV2ConfigurationsRestoreBulkPost Restore multiple configurations from the arch
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ConfigurationsRestoreBulkPostRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsRestoreBulkPost(ctx context.Context) ApiApiV2ConfigurationsRestoreBulkPostRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsRestoreBulkPost(ctx context.Context) ApiApiV2ConfigurationsRestoreBulkPostRequest {
 	return ApiApiV2ConfigurationsRestoreBulkPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1003,7 +1003,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsRestoreBulkPost(ctx contex
 
 // Execute executes the request
 //  @return int32
-func (a *ConfigurationsApiService) ApiV2ConfigurationsRestoreBulkPostExecute(r ApiApiV2ConfigurationsRestoreBulkPostRequest) (int32, *http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsRestoreBulkPostExecute(r ApiApiV2ConfigurationsRestoreBulkPostRequest) (int32, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1011,7 +1011,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsRestoreBulkPostExecute(r A
 		localVarReturnValue  int32
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsRestoreBulkPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsRestoreBulkPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1040,7 +1040,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsRestoreBulkPostExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ConfigurationsPurgeBulkPostRequest
+	localVarPostBody = r.configurationSelectModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1104,13 +1104,13 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsRestoreBulkPostExecute(r A
 
 type ApiApiV2ConfigurationsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
+	ApiService *ConfigurationsAPIService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	apiV2ConfigurationsSearchPostRequest *ApiV2ConfigurationsSearchPostRequest
+	configurationFilterModel *ConfigurationFilterModel
 }
 
 // Amount of items to be skipped (offset)
@@ -1144,8 +1144,8 @@ func (r ApiApiV2ConfigurationsSearchPostRequest) SearchValue(searchValue string)
 }
 
 // Model containing all the filters
-func (r ApiApiV2ConfigurationsSearchPostRequest) ApiV2ConfigurationsSearchPostRequest(apiV2ConfigurationsSearchPostRequest ApiV2ConfigurationsSearchPostRequest) ApiApiV2ConfigurationsSearchPostRequest {
-	r.apiV2ConfigurationsSearchPostRequest = &apiV2ConfigurationsSearchPostRequest
+func (r ApiApiV2ConfigurationsSearchPostRequest) ConfigurationFilterModel(configurationFilterModel ConfigurationFilterModel) ApiApiV2ConfigurationsSearchPostRequest {
+	r.configurationFilterModel = &configurationFilterModel
 	return r
 }
 
@@ -1159,7 +1159,7 @@ ApiV2ConfigurationsSearchPost Search for configurations
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ConfigurationsSearchPostRequest
 */
-func (a *ConfigurationsApiService) ApiV2ConfigurationsSearchPost(ctx context.Context) ApiApiV2ConfigurationsSearchPostRequest {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsSearchPost(ctx context.Context) ApiApiV2ConfigurationsSearchPostRequest {
 	return ApiApiV2ConfigurationsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1168,7 +1168,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsSearchPost(ctx context.Con
 
 // Execute executes the request
 //  @return []ConfigurationModel
-func (a *ConfigurationsApiService) ApiV2ConfigurationsSearchPostExecute(r ApiApiV2ConfigurationsSearchPostRequest) ([]ConfigurationModel, *http.Response, error) {
+func (a *ConfigurationsAPIService) ApiV2ConfigurationsSearchPostExecute(r ApiApiV2ConfigurationsSearchPostRequest) ([]ConfigurationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1176,7 +1176,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsSearchPostExecute(r ApiApi
 		localVarReturnValue  []ConfigurationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.ApiV2ConfigurationsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.ApiV2ConfigurationsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1220,7 +1220,7 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsSearchPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.apiV2ConfigurationsSearchPostRequest
+	localVarPostBody = r.configurationFilterModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1274,12 +1274,12 @@ func (a *ConfigurationsApiService) ApiV2ConfigurationsSearchPostExecute(r ApiApi
 
 type ApiCreateConfigurationRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
-	createConfigurationRequest *CreateConfigurationRequest
+	ApiService *ConfigurationsAPIService
+	configurationPostModel *ConfigurationPostModel
 }
 
-func (r ApiCreateConfigurationRequest) CreateConfigurationRequest(createConfigurationRequest CreateConfigurationRequest) ApiCreateConfigurationRequest {
-	r.createConfigurationRequest = &createConfigurationRequest
+func (r ApiCreateConfigurationRequest) ConfigurationPostModel(configurationPostModel ConfigurationPostModel) ApiCreateConfigurationRequest {
+	r.configurationPostModel = &configurationPostModel
 	return r
 }
 
@@ -1299,7 +1299,7 @@ CreateConfiguration Create Configuration
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateConfigurationRequest
 */
-func (a *ConfigurationsApiService) CreateConfiguration(ctx context.Context) ApiCreateConfigurationRequest {
+func (a *ConfigurationsAPIService) CreateConfiguration(ctx context.Context) ApiCreateConfigurationRequest {
 	return ApiCreateConfigurationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1308,7 +1308,7 @@ func (a *ConfigurationsApiService) CreateConfiguration(ctx context.Context) ApiC
 
 // Execute executes the request
 //  @return ConfigurationModel
-func (a *ConfigurationsApiService) CreateConfigurationExecute(r ApiCreateConfigurationRequest) (*ConfigurationModel, *http.Response, error) {
+func (a *ConfigurationsAPIService) CreateConfigurationExecute(r ApiCreateConfigurationRequest) (*ConfigurationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1316,7 +1316,7 @@ func (a *ConfigurationsApiService) CreateConfigurationExecute(r ApiCreateConfigu
 		localVarReturnValue  *ConfigurationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.CreateConfiguration")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.CreateConfiguration")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1345,7 +1345,7 @@ func (a *ConfigurationsApiService) CreateConfigurationExecute(r ApiCreateConfigu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createConfigurationRequest
+	localVarPostBody = r.configurationPostModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1453,7 +1453,7 @@ func (a *ConfigurationsApiService) CreateConfigurationExecute(r ApiCreateConfigu
 
 type ApiGetConfigurationByIdRequest struct {
 	ctx context.Context
-	ApiService *ConfigurationsApiService
+	ApiService *ConfigurationsAPIService
 	id string
 }
 
@@ -1474,7 +1474,7 @@ GetConfigurationById Get configuration by internal or global ID
  @param id Configuration internal (guid format) or global (integer format) identifier
  @return ApiGetConfigurationByIdRequest
 */
-func (a *ConfigurationsApiService) GetConfigurationById(ctx context.Context, id string) ApiGetConfigurationByIdRequest {
+func (a *ConfigurationsAPIService) GetConfigurationById(ctx context.Context, id string) ApiGetConfigurationByIdRequest {
 	return ApiGetConfigurationByIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1484,7 +1484,7 @@ func (a *ConfigurationsApiService) GetConfigurationById(ctx context.Context, id 
 
 // Execute executes the request
 //  @return ConfigurationModel
-func (a *ConfigurationsApiService) GetConfigurationByIdExecute(r ApiGetConfigurationByIdRequest) (*ConfigurationModel, *http.Response, error) {
+func (a *ConfigurationsAPIService) GetConfigurationByIdExecute(r ApiGetConfigurationByIdRequest) (*ConfigurationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1492,7 +1492,7 @@ func (a *ConfigurationsApiService) GetConfigurationByIdExecute(r ApiGetConfigura
 		localVarReturnValue  *ConfigurationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsApiService.GetConfigurationById")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigurationsAPIService.GetConfigurationById")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

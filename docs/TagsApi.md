@@ -1,22 +1,22 @@
-# \TagsApi
+# \TagsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2TagsDelete**](TagsApi.md#ApiV2TagsDelete) | **Delete** /api/v2/tags | Delete tags
-[**ApiV2TagsGet**](TagsApi.md#ApiV2TagsGet) | **Get** /api/v2/tags | Get all Tags
-[**ApiV2TagsIdDelete**](TagsApi.md#ApiV2TagsIdDelete) | **Delete** /api/v2/tags/{id} | Delete tag
-[**ApiV2TagsPost**](TagsApi.md#ApiV2TagsPost) | **Post** /api/v2/tags | Create tag
-[**ApiV2TagsPut**](TagsApi.md#ApiV2TagsPut) | **Put** /api/v2/tags | Update tag
-[**ApiV2TagsSearchGet**](TagsApi.md#ApiV2TagsSearchGet) | **Get** /api/v2/tags/search | Search tags
-[**ApiV2TagsTestPlansTagsGet**](TagsApi.md#ApiV2TagsTestPlansTagsGet) | **Get** /api/v2/tags/testPlansTags | Get all Tags that are used in TestPlans
+[**ApiV2TagsDelete**](TagsAPI.md#ApiV2TagsDelete) | **Delete** /api/v2/tags | Delete tags
+[**ApiV2TagsGet**](TagsAPI.md#ApiV2TagsGet) | **Get** /api/v2/tags | Get all Tags
+[**ApiV2TagsIdDelete**](TagsAPI.md#ApiV2TagsIdDelete) | **Delete** /api/v2/tags/{id} | Delete tag
+[**ApiV2TagsPost**](TagsAPI.md#ApiV2TagsPost) | **Post** /api/v2/tags | Create tag
+[**ApiV2TagsPut**](TagsAPI.md#ApiV2TagsPut) | **Put** /api/v2/tags | Update tag
+[**ApiV2TagsSearchGet**](TagsAPI.md#ApiV2TagsSearchGet) | **Get** /api/v2/tags/search | Search tags
+[**ApiV2TagsTestPlansTagsGet**](TagsAPI.md#ApiV2TagsTestPlansTagsGet) | **Get** /api/v2/tags/testPlansTags | Get all Tags that are used in TestPlans
 
 
 
 ## ApiV2TagsDelete
 
-> ApiV2TagsDelete(ctx).ApiV2TagsDeleteRequest(apiV2TagsDeleteRequest).Execute()
+> ApiV2TagsDelete(ctx).TagSelectModel(tagSelectModel).Execute()
 
 Delete tags
 
@@ -28,22 +28,22 @@ Delete tags
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    apiV2TagsDeleteRequest := *openapiclient.NewApiV2TagsDeleteRequest() // ApiV2TagsDeleteRequest |  (optional)
+	tagSelectModel := *openapiclient.NewTagSelectModel() // TagSelectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TagsApi.ApiV2TagsDelete(context.Background()).ApiV2TagsDeleteRequest(apiV2TagsDeleteRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.ApiV2TagsDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TagsAPI.ApiV2TagsDelete(context.Background()).TagSelectModel(tagSelectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -58,7 +58,7 @@ Other parameters are passed through a pointer to a apiApiV2TagsDeleteRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiV2TagsDeleteRequest** | [**ApiV2TagsDeleteRequest**](ApiV2TagsDeleteRequest.md) |  | 
+ **tagSelectModel** | [**TagSelectModel**](TagSelectModel.md) |  | 
 
 ### Return type
 
@@ -92,23 +92,23 @@ Get all Tags
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TagsApi.ApiV2TagsGet(context.Background()).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.ApiV2TagsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TagsGet`: []TagModel
-    fmt.Fprintf(os.Stdout, "Response from `TagsApi.ApiV2TagsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TagsAPI.ApiV2TagsGet(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TagsGet`: []TagModel
+	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsGet`: %v\n", resp)
 }
 ```
 
@@ -153,22 +153,22 @@ Delete tag
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Tag internal (UUID) identifier
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Tag internal (UUID) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.TagsApi.ApiV2TagsIdDelete(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.ApiV2TagsIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.TagsAPI.ApiV2TagsIdDelete(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TagsPost
 
-> TagModel ApiV2TagsPost(ctx).ApiV2TagsPostRequest(apiV2TagsPostRequest).Execute()
+> TagModel ApiV2TagsPost(ctx).TagPostModel(tagPostModel).Execute()
 
 Create tag
 
@@ -221,24 +221,24 @@ Create tag
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    apiV2TagsPostRequest := *openapiclient.NewApiV2TagsPostRequest("Name_example") // ApiV2TagsPostRequest |  (optional)
+	tagPostModel := *openapiclient.NewTagPostModel("Name_example") // TagPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TagsApi.ApiV2TagsPost(context.Background()).ApiV2TagsPostRequest(apiV2TagsPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.ApiV2TagsPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TagsPost`: TagModel
-    fmt.Fprintf(os.Stdout, "Response from `TagsApi.ApiV2TagsPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TagsAPI.ApiV2TagsPost(context.Background()).TagPostModel(tagPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TagsPost`: TagModel
+	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsPost`: %v\n", resp)
 }
 ```
 
@@ -253,7 +253,7 @@ Other parameters are passed through a pointer to a apiApiV2TagsPostRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiV2TagsPostRequest** | [**ApiV2TagsPostRequest**](ApiV2TagsPostRequest.md) |  | 
+ **tagPostModel** | [**TagPostModel**](TagPostModel.md) |  | 
 
 ### Return type
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TagsPut
 
-> TagModel ApiV2TagsPut(ctx).Id(id).ApiV2TagsPutRequest(apiV2TagsPutRequest).Execute()
+> TagModel ApiV2TagsPut(ctx).Id(id).TagPutModel(tagPutModel).Execute()
 
 Update tag
 
@@ -287,25 +287,25 @@ Update tag
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    apiV2TagsPutRequest := *openapiclient.NewApiV2TagsPutRequest("Name_example") // ApiV2TagsPutRequest |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	tagPutModel := *openapiclient.NewTagPutModel("Name_example") // TagPutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TagsApi.ApiV2TagsPut(context.Background()).Id(id).ApiV2TagsPutRequest(apiV2TagsPutRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.ApiV2TagsPut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TagsPut`: TagModel
-    fmt.Fprintf(os.Stdout, "Response from `TagsApi.ApiV2TagsPut`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TagsAPI.ApiV2TagsPut(context.Background()).Id(id).TagPutModel(tagPutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TagsPut`: TagModel
+	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsPut`: %v\n", resp)
 }
 ```
 
@@ -321,7 +321,7 @@ Other parameters are passed through a pointer to a apiApiV2TagsPutRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** |  | 
- **apiV2TagsPutRequest** | [**ApiV2TagsPutRequest**](ApiV2TagsPutRequest.md) |  | 
+ **tagPutModel** | [**TagPutModel**](TagPutModel.md) |  | 
 
 ### Return type
 
@@ -355,28 +355,28 @@ Search tags
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TagsApi.ApiV2TagsSearchGet(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.ApiV2TagsSearchGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TagsSearchGet`: []TagModel
-    fmt.Fprintf(os.Stdout, "Response from `TagsApi.ApiV2TagsSearchGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TagsAPI.ApiV2TagsSearchGet(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsSearchGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TagsSearchGet`: []TagModel
+	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsSearchGet`: %v\n", resp)
 }
 ```
 
@@ -429,28 +429,28 @@ Get all Tags that are used in TestPlans
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TagsApi.ApiV2TagsTestPlansTagsGet(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TagsApi.ApiV2TagsTestPlansTagsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2TagsTestPlansTagsGet`: []TagModel
-    fmt.Fprintf(os.Stdout, "Response from `TagsApi.ApiV2TagsTestPlansTagsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TagsAPI.ApiV2TagsTestPlansTagsGet(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsTestPlansTagsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TagsTestPlansTagsGet`: []TagModel
+	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsTestPlansTagsGet`: %v\n", resp)
 }
 ```
 

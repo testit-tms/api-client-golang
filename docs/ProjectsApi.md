@@ -1,38 +1,38 @@
-# \ProjectsApi
+# \ProjectsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddGlobaAttributesToProject**](ProjectsApi.md#AddGlobaAttributesToProject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-[**ApiV2ProjectsDemoPost**](ProjectsApi.md#ApiV2ProjectsDemoPost) | **Post** /api/v2/projects/demo | 
-[**ApiV2ProjectsIdDelete**](ProjectsApi.md#ApiV2ProjectsIdDelete) | **Delete** /api/v2/projects/{id} | Archive project
-[**ApiV2ProjectsIdFailureClassesGet**](ProjectsApi.md#ApiV2ProjectsIdFailureClassesGet) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
-[**ApiV2ProjectsIdFavoritePut**](ProjectsApi.md#ApiV2ProjectsIdFavoritePut) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
-[**ApiV2ProjectsIdFiltersGet**](ProjectsApi.md#ApiV2ProjectsIdFiltersGet) | **Get** /api/v2/projects/{id}/filters | Get Project filters
-[**ApiV2ProjectsIdPatch**](ProjectsApi.md#ApiV2ProjectsIdPatch) | **Patch** /api/v2/projects/{id} | Patch project
-[**ApiV2ProjectsIdPurgePost**](ProjectsApi.md#ApiV2ProjectsIdPurgePost) | **Post** /api/v2/projects/{id}/purge | Purge archived project
-[**ApiV2ProjectsIdRestorePost**](ProjectsApi.md#ApiV2ProjectsIdRestorePost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
-[**ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](ProjectsApi.md#ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
-[**ApiV2ProjectsIdTestPlansAttributePut**](ProjectsApi.md#ApiV2ProjectsIdTestPlansAttributePut) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
-[**ApiV2ProjectsIdTestRunsActiveGet**](ProjectsApi.md#ApiV2ProjectsIdTestRunsActiveGet) | **Get** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
-[**ApiV2ProjectsIdTestRunsFullGet**](ProjectsApi.md#ApiV2ProjectsIdTestRunsFullGet) | **Get** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
-[**ApiV2ProjectsNameNameExistsGet**](ProjectsApi.md#ApiV2ProjectsNameNameExistsGet) | **Get** /api/v2/projects/name/{name}/exists | 
-[**ApiV2ProjectsPurgeBulkPost**](ProjectsApi.md#ApiV2ProjectsPurgeBulkPost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
-[**ApiV2ProjectsRestoreBulkPost**](ProjectsApi.md#ApiV2ProjectsRestoreBulkPost) | **Post** /api/v2/projects/restore/bulk | Restore multiple projects
-[**ApiV2ProjectsSearchPost**](ProjectsApi.md#ApiV2ProjectsSearchPost) | **Post** /api/v2/projects/search | Search for projects
-[**BackgroundImportProject**](ProjectsApi.md#BackgroundImportProject) | **Post** /api/v2/projects/import/json | Import project from JSON file in background job
-[**BackgroundImportZipProject**](ProjectsApi.md#BackgroundImportZipProject) | **Post** /api/v2/projects/import/zip | Import project from Zip file in background job
-[**CallImport**](ProjectsApi.md#CallImport) | **Post** /api/v2/projects/import | Import project from JSON file
-[**CreateProject**](ProjectsApi.md#CreateProject) | **Post** /api/v2/projects | Create project
-[**DeleteProjectAutoTests**](ProjectsApi.md#DeleteProjectAutoTests) | **Delete** /api/v2/projects/{id}/autoTests | Delete all autotests from project
-[**ExportWithTestPlansAndConfigurations**](ProjectsApi.md#ExportWithTestPlansAndConfigurations) | **Post** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file
-[**GetAllProjects**](ProjectsApi.md#GetAllProjects) | **Get** /api/v2/projects | Get all projects
-[**GetAutoTestsNamespaces**](ProjectsApi.md#GetAutoTestsNamespaces) | **Get** /api/v2/projects/{id}/autoTestsNamespaces | Get namespaces of autotests in project
-[**GetProjectById**](ProjectsApi.md#GetProjectById) | **Get** /api/v2/projects/{id} | Get project by ID
-[**GetTestPlansByProjectId**](ProjectsApi.md#GetTestPlansByProjectId) | **Get** /api/v2/projects/{id}/testPlans | Get project test plans
-[**GetTestRunsByProjectId**](ProjectsApi.md#GetTestRunsByProjectId) | **Get** /api/v2/projects/{id}/testRuns | Get project test runs
-[**UpdateProject**](ProjectsApi.md#UpdateProject) | **Put** /api/v2/projects | Update project
+[**AddGlobaAttributesToProject**](ProjectsAPI.md#AddGlobaAttributesToProject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
+[**ApiV2ProjectsDemoPost**](ProjectsAPI.md#ApiV2ProjectsDemoPost) | **Post** /api/v2/projects/demo | 
+[**ApiV2ProjectsIdDelete**](ProjectsAPI.md#ApiV2ProjectsIdDelete) | **Delete** /api/v2/projects/{id} | Archive project
+[**ApiV2ProjectsIdFailureClassesGet**](ProjectsAPI.md#ApiV2ProjectsIdFailureClassesGet) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
+[**ApiV2ProjectsIdFavoritePut**](ProjectsAPI.md#ApiV2ProjectsIdFavoritePut) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
+[**ApiV2ProjectsIdFiltersGet**](ProjectsAPI.md#ApiV2ProjectsIdFiltersGet) | **Get** /api/v2/projects/{id}/filters | Get Project filters
+[**ApiV2ProjectsIdPatch**](ProjectsAPI.md#ApiV2ProjectsIdPatch) | **Patch** /api/v2/projects/{id} | Patch project
+[**ApiV2ProjectsIdPurgePost**](ProjectsAPI.md#ApiV2ProjectsIdPurgePost) | **Post** /api/v2/projects/{id}/purge | Purge archived project
+[**ApiV2ProjectsIdRestorePost**](ProjectsAPI.md#ApiV2ProjectsIdRestorePost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
+[**ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](ProjectsAPI.md#ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
+[**ApiV2ProjectsIdTestPlansAttributePut**](ProjectsAPI.md#ApiV2ProjectsIdTestPlansAttributePut) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
+[**ApiV2ProjectsIdTestRunsActiveGet**](ProjectsAPI.md#ApiV2ProjectsIdTestRunsActiveGet) | **Get** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
+[**ApiV2ProjectsIdTestRunsFullGet**](ProjectsAPI.md#ApiV2ProjectsIdTestRunsFullGet) | **Get** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
+[**ApiV2ProjectsNameNameExistsGet**](ProjectsAPI.md#ApiV2ProjectsNameNameExistsGet) | **Get** /api/v2/projects/name/{name}/exists | 
+[**ApiV2ProjectsPurgeBulkPost**](ProjectsAPI.md#ApiV2ProjectsPurgeBulkPost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
+[**ApiV2ProjectsRestoreBulkPost**](ProjectsAPI.md#ApiV2ProjectsRestoreBulkPost) | **Post** /api/v2/projects/restore/bulk | Restore multiple projects
+[**ApiV2ProjectsSearchPost**](ProjectsAPI.md#ApiV2ProjectsSearchPost) | **Post** /api/v2/projects/search | Search for projects
+[**BackgroundImportProject**](ProjectsAPI.md#BackgroundImportProject) | **Post** /api/v2/projects/import/json | Import project from JSON file in background job
+[**BackgroundImportZipProject**](ProjectsAPI.md#BackgroundImportZipProject) | **Post** /api/v2/projects/import/zip | Import project from Zip file in background job
+[**CallImport**](ProjectsAPI.md#CallImport) | **Post** /api/v2/projects/import | Import project from JSON file
+[**CreateProject**](ProjectsAPI.md#CreateProject) | **Post** /api/v2/projects | Create project
+[**DeleteProjectAutoTests**](ProjectsAPI.md#DeleteProjectAutoTests) | **Delete** /api/v2/projects/{id}/autoTests | Delete all autotests from project
+[**ExportWithTestPlansAndConfigurations**](ProjectsAPI.md#ExportWithTestPlansAndConfigurations) | **Post** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file
+[**GetAllProjects**](ProjectsAPI.md#GetAllProjects) | **Get** /api/v2/projects | Get all projects
+[**GetAutoTestsNamespaces**](ProjectsAPI.md#GetAutoTestsNamespaces) | **Get** /api/v2/projects/{id}/autoTestsNamespaces | Get namespaces of autotests in project
+[**GetProjectById**](ProjectsAPI.md#GetProjectById) | **Get** /api/v2/projects/{id} | Get project by ID
+[**GetTestPlansByProjectId**](ProjectsAPI.md#GetTestPlansByProjectId) | **Get** /api/v2/projects/{id}/testPlans | Get project test plans
+[**GetTestRunsByProjectId**](ProjectsAPI.md#GetTestRunsByProjectId) | **Get** /api/v2/projects/{id}/testRuns | Get project test runs
+[**UpdateProject**](ProjectsAPI.md#UpdateProject) | **Put** /api/v2/projects | Update project
 
 
 
@@ -50,23 +50,23 @@ Add global attributes to project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    requestBody := []string{"Property_example"} // []string |  (optional)
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	requestBody := []string{"Property_example"} // []string |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.AddGlobaAttributesToProject(context.Background(), id).RequestBody(requestBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.AddGlobaAttributesToProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.AddGlobaAttributesToProject(context.Background(), id).RequestBody(requestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.AddGlobaAttributesToProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsDemoPost
 
-> ProjectModel ApiV2ProjectsDemoPost(ctx).CreateProjectRequest(createProjectRequest).Execute()
+> ProjectModel ApiV2ProjectsDemoPost(ctx).ProjectPostModel(projectPostModel).Execute()
 
 
 
@@ -118,24 +118,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    createProjectRequest := *openapiclient.NewCreateProjectRequest("Name_example") // CreateProjectRequest |  (optional)
+	projectPostModel := *openapiclient.NewProjectPostModel("Name_example") // ProjectPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsDemoPost(context.Background()).CreateProjectRequest(createProjectRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsDemoPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsDemoPost`: ProjectModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsDemoPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsDemoPost(context.Background()).ProjectPostModel(projectPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsDemoPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsDemoPost`: ProjectModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsDemoPost`: %v\n", resp)
 }
 ```
 
@@ -150,7 +150,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsDemoPostReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md) |  | 
+ **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md) |  | 
 
 ### Return type
 
@@ -182,22 +182,22 @@ Archive project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the project
+	id := "id_example" // string | Unique or global ID of the project
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdDelete(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdDelete(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -248,25 +248,25 @@ Get failure classes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the project
-    isDeleted := true // bool |  (optional)
+	id := "id_example" // string | Unique or global ID of the project
+	isDeleted := true // bool |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdFailureClassesGet(context.Background(), id).IsDeleted(isDeleted).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdFailureClassesGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsIdFailureClassesGet`: []FailureClassModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsIdFailureClassesGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdFailureClassesGet(context.Background(), id).IsDeleted(isDeleted).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdFailureClassesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsIdFailureClassesGet`: []FailureClassModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdFailureClassesGet`: %v\n", resp)
 }
 ```
 
@@ -318,22 +318,22 @@ Mark Project as favorite
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdFavoritePut(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdFavoritePut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdFavoritePut(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdFavoritePut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -386,24 +386,24 @@ Get Project filters
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdFiltersGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdFiltersGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsIdFiltersGet`: []FilterModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsIdFiltersGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdFiltersGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdFiltersGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsIdFiltersGet`: []FilterModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdFiltersGet`: %v\n", resp)
 }
 ```
 
@@ -456,23 +456,23 @@ Patch project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique or global Id of project
-    operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique or global Id of project
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdPatch(context.Background(), id).Operation(operation).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdPatch``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdPatch(context.Background(), id).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -524,22 +524,22 @@ Purge archived project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the project
+	id := "id_example" // string | Unique or global ID of the project
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdPurgePost(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdPurgePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdPurgePost(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdPurgePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -590,22 +590,22 @@ Restore archived project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the project
+	id := "id_example" // string | Unique or global ID of the project
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdRestorePost(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdRestorePost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdRestorePost(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdRestorePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -658,23 +658,23 @@ Delete attribute from project's test plans
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    attributeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	attributeId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete(context.Background(), id, attributeId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete(context.Background(), id, attributeId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -717,7 +717,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdTestPlansAttributePut
 
-> ApiV2ProjectsIdTestPlansAttributePut(ctx, id).UpdateCustomAttributeTestPlanProjectRelationsRequest(updateCustomAttributeTestPlanProjectRelationsRequest).Execute()
+> ApiV2ProjectsIdTestPlansAttributePut(ctx, id).CustomAttributeTestPlanProjectRelationPutModel(customAttributeTestPlanProjectRelationPutModel).Execute()
 
 Update attribute of project's test plans
 
@@ -729,23 +729,23 @@ Update attribute of project's test plans
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    updateCustomAttributeTestPlanProjectRelationsRequest := *openapiclient.NewUpdateCustomAttributeTestPlanProjectRelationsRequest("Id_example", false, false) // UpdateCustomAttributeTestPlanProjectRelationsRequest |  (optional)
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	customAttributeTestPlanProjectRelationPutModel := *openapiclient.NewCustomAttributeTestPlanProjectRelationPutModel("Id_example", false, false) // CustomAttributeTestPlanProjectRelationPutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestPlansAttributePut(context.Background(), id).UpdateCustomAttributeTestPlanProjectRelationsRequest(updateCustomAttributeTestPlanProjectRelationsRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestPlansAttributePut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdTestPlansAttributePut(context.Background(), id).CustomAttributeTestPlanProjectRelationPutModel(customAttributeTestPlanProjectRelationPutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdTestPlansAttributePut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -765,7 +765,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsIdTestPlansAt
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **updateCustomAttributeTestPlanProjectRelationsRequest** | [**UpdateCustomAttributeTestPlanProjectRelationsRequest**](UpdateCustomAttributeTestPlanProjectRelationsRequest.md) |  | 
+ **customAttributeTestPlanProjectRelationPutModel** | [**CustomAttributeTestPlanProjectRelationPutModel**](CustomAttributeTestPlanProjectRelationPutModel.md) |  | 
 
 ### Return type
 
@@ -799,24 +799,24 @@ Get active Project TestRuns
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestRunsActiveGet(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestRunsActiveGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsIdTestRunsActiveGet`: []PublicTestRunModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsIdTestRunsActiveGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdTestRunsActiveGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdTestRunsActiveGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsIdTestRunsActiveGet`: []PublicTestRunModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdTestRunsActiveGet`: %v\n", resp)
 }
 ```
 
@@ -869,39 +869,39 @@ Get Project TestRuns full models
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
+	"context"
+	"fmt"
+	"os"
     "time"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    includeTestResults := true // bool |  (optional) (default to false)
-    mustAggregateTestResults := true // bool |  (optional) (default to true)
-    notStarted := true // bool |  (optional)
-    inProgress := true // bool |  (optional)
-    stopped := true // bool |  (optional)
-    completed := true // bool |  (optional)
-    createdDateFrom := time.Now() // time.Time |  (optional)
-    createdDateTo := time.Now() // time.Time |  (optional)
-    testPlanId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	includeTestResults := true // bool |  (optional) (default to false)
+	mustAggregateTestResults := true // bool |  (optional) (default to true)
+	notStarted := true // bool |  (optional)
+	inProgress := true // bool |  (optional)
+	stopped := true // bool |  (optional)
+	completed := true // bool |  (optional)
+	createdDateFrom := time.Now() // time.Time |  (optional)
+	createdDateTo := time.Now() // time.Time |  (optional)
+	testPlanId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsIdTestRunsFullGet(context.Background(), id).IncludeTestResults(includeTestResults).MustAggregateTestResults(mustAggregateTestResults).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsIdTestRunsFullGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsIdTestRunsFullGet`: []TestRunModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsIdTestRunsFullGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdTestRunsFullGet(context.Background(), id).IncludeTestResults(includeTestResults).MustAggregateTestResults(mustAggregateTestResults).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdTestRunsFullGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsIdTestRunsFullGet`: []TestRunModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdTestRunsFullGet`: %v\n", resp)
 }
 ```
 
@@ -966,24 +966,24 @@ Name | Type | Description  | Notes
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    name := "name_example" // string | 
+	name := "name_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsNameNameExistsGet(context.Background(), name).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsNameNameExistsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsNameNameExistsGet`: bool
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsNameNameExistsGet`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsNameNameExistsGet(context.Background(), name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsNameNameExistsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsNameNameExistsGet`: bool
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsNameNameExistsGet`: %v\n", resp)
 }
 ```
 
@@ -1024,7 +1024,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsPurgeBulkPost
 
-> int64 ApiV2ProjectsPurgeBulkPost(ctx).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
+> int64 ApiV2ProjectsPurgeBulkPost(ctx).ProjectSelectModel(projectSelectModel).Execute()
 
 Purge multiple projects
 
@@ -1034,24 +1034,24 @@ Purge multiple projects
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    apiV2ProjectsRestoreBulkPostRequest := *openapiclient.NewApiV2ProjectsRestoreBulkPostRequest() // ApiV2ProjectsRestoreBulkPostRequest |  (optional)
+	projectSelectModel := *openapiclient.NewProjectSelectModel() // ProjectSelectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsPurgeBulkPost(context.Background()).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsPurgeBulkPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsPurgeBulkPost`: int64
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsPurgeBulkPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsPurgeBulkPost(context.Background()).ProjectSelectModel(projectSelectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsPurgeBulkPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsPurgeBulkPost`: int64
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsPurgeBulkPost`: %v\n", resp)
 }
 ```
 
@@ -1066,7 +1066,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsPurgeBulkPost
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md) |  | 
+ **projectSelectModel** | [**ProjectSelectModel**](ProjectSelectModel.md) |  | 
 
 ### Return type
 
@@ -1088,7 +1088,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsRestoreBulkPost
 
-> int64 ApiV2ProjectsRestoreBulkPost(ctx).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
+> int64 ApiV2ProjectsRestoreBulkPost(ctx).ProjectSelectModel(projectSelectModel).Execute()
 
 Restore multiple projects
 
@@ -1098,24 +1098,24 @@ Restore multiple projects
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    apiV2ProjectsRestoreBulkPostRequest := *openapiclient.NewApiV2ProjectsRestoreBulkPostRequest() // ApiV2ProjectsRestoreBulkPostRequest |  (optional)
+	projectSelectModel := *openapiclient.NewProjectSelectModel() // ProjectSelectModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsRestoreBulkPost(context.Background()).ApiV2ProjectsRestoreBulkPostRequest(apiV2ProjectsRestoreBulkPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsRestoreBulkPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsRestoreBulkPost`: int64
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsRestoreBulkPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsRestoreBulkPost(context.Background()).ProjectSelectModel(projectSelectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsRestoreBulkPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsRestoreBulkPost`: int64
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsRestoreBulkPost`: %v\n", resp)
 }
 ```
 
@@ -1130,7 +1130,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsRestoreBulkPo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiV2ProjectsRestoreBulkPostRequest** | [**ApiV2ProjectsRestoreBulkPostRequest**](ApiV2ProjectsRestoreBulkPostRequest.md) |  | 
+ **projectSelectModel** | [**ProjectSelectModel**](ProjectSelectModel.md) |  | 
 
 ### Return type
 
@@ -1152,7 +1152,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsSearchPost
 
-> []ProjectModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsSearchPostRequest(apiV2ProjectsSearchPostRequest).Execute()
+> []ProjectModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
 
 Search for projects
 
@@ -1162,29 +1162,29 @@ Search for projects
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
-    apiV2ProjectsSearchPostRequest := *openapiclient.NewApiV2ProjectsSearchPostRequest() // ApiV2ProjectsSearchPostRequest |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	projectsFilterModel := *openapiclient.NewProjectsFilterModel() // ProjectsFilterModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ApiV2ProjectsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsSearchPostRequest(apiV2ProjectsSearchPostRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ApiV2ProjectsSearchPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ApiV2ProjectsSearchPost`: []ProjectModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ApiV2ProjectsSearchPost`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsSearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsSearchPost`: []ProjectModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -1204,7 +1204,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **apiV2ProjectsSearchPostRequest** | [**ApiV2ProjectsSearchPostRequest**](ApiV2ProjectsSearchPostRequest.md) |  | 
+ **projectsFilterModel** | [**ProjectsFilterModel**](ProjectsFilterModel.md) |  | 
 
 ### Return type
 
@@ -1236,24 +1236,24 @@ Import project from JSON file in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    file := os.NewFile(1234, "some_file") // *os.File |  (optional)
+	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.BackgroundImportProject(context.Background()).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.BackgroundImportProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BackgroundImportProject`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.BackgroundImportProject`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.BackgroundImportProject(context.Background()).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.BackgroundImportProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BackgroundImportProject`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.BackgroundImportProject`: %v\n", resp)
 }
 ```
 
@@ -1300,24 +1300,24 @@ Import project from Zip file in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    file := os.NewFile(1234, "some_file") // *os.File |  (optional)
+	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.BackgroundImportZipProject(context.Background()).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.BackgroundImportZipProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `BackgroundImportZipProject`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.BackgroundImportZipProject`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.BackgroundImportZipProject(context.Background()).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.BackgroundImportZipProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BackgroundImportZipProject`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.BackgroundImportZipProject`: %v\n", resp)
 }
 ```
 
@@ -1366,23 +1366,23 @@ Import project from JSON file
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    includeAttachments := true // bool | Enables attachment import. (optional) (default to false)
-    file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
+	includeAttachments := true // bool | Enables attachment import. (optional) (default to false)
+	file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.CallImport(context.Background()).IncludeAttachments(includeAttachments).File(file).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.CallImport``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.CallImport(context.Background()).IncludeAttachments(includeAttachments).File(file).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CallImport``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1420,7 +1420,7 @@ Name | Type | Description  | Notes
 
 ## CreateProject
 
-> ProjectModel CreateProject(ctx).CreateProjectRequest(createProjectRequest).Execute()
+> ProjectModel CreateProject(ctx).ProjectPostModel(projectPostModel).Execute()
 
 Create project
 
@@ -1432,24 +1432,24 @@ Create project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    createProjectRequest := *openapiclient.NewCreateProjectRequest("Name_example") // CreateProjectRequest |  (optional)
+	projectPostModel := *openapiclient.NewProjectPostModel("Name_example") // ProjectPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.CreateProject(context.Background()).CreateProjectRequest(createProjectRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.CreateProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateProject`: ProjectModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.CreateProject`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.CreateProject(context.Background()).ProjectPostModel(projectPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CreateProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateProject`: ProjectModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.CreateProject`: %v\n", resp)
 }
 ```
 
@@ -1464,7 +1464,7 @@ Other parameters are passed through a pointer to a apiCreateProjectRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createProjectRequest** | [**CreateProjectRequest**](CreateProjectRequest.md) |  | 
+ **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md) |  | 
 
 ### Return type
 
@@ -1496,22 +1496,22 @@ Delete all autotests from project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Unique or global ID of the project
+	id := "id_example" // string | Unique or global ID of the project
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.DeleteProjectAutoTests(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.DeleteProjectAutoTests``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.DeleteProjectAutoTests(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.DeleteProjectAutoTests``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -1552,7 +1552,7 @@ Name | Type | Description  | Notes
 
 ## ExportWithTestPlansAndConfigurations
 
-> *os.File ExportWithTestPlansAndConfigurations(ctx, id).IncludeAttachments(includeAttachments).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
+> *os.File ExportWithTestPlansAndConfigurations(ctx, id).IncludeAttachments(includeAttachments).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
 
 Export project with test plans, test suites and test points as JSON file
 
@@ -1564,26 +1564,26 @@ Export project with test plans, test suites and test points as JSON file
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Specifies the ID of the project you want to export.
-    includeAttachments := true // bool | Enables attachment export. (optional) (default to false)
-    exportProjectWithTestPlansJsonRequest := *openapiclient.NewExportProjectWithTestPlansJsonRequest() // ExportProjectWithTestPlansJsonRequest |  (optional)
+	id := "id_example" // string | Specifies the ID of the project you want to export.
+	includeAttachments := true // bool | Enables attachment export. (optional) (default to false)
+	projectExportWithTestPlansPostModel := *openapiclient.NewProjectExportWithTestPlansPostModel() // ProjectExportWithTestPlansPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.ExportWithTestPlansAndConfigurations(context.Background(), id).IncludeAttachments(includeAttachments).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.ExportWithTestPlansAndConfigurations``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ExportWithTestPlansAndConfigurations`: *os.File
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.ExportWithTestPlansAndConfigurations`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ExportWithTestPlansAndConfigurations(context.Background(), id).IncludeAttachments(includeAttachments).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ExportWithTestPlansAndConfigurations``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ExportWithTestPlansAndConfigurations`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ExportWithTestPlansAndConfigurations`: %v\n", resp)
 }
 ```
 
@@ -1604,7 +1604,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **includeAttachments** | **bool** | Enables attachment export. | [default to false]
- **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md) |  | 
+ **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md) |  | 
 
 ### Return type
 
@@ -1638,30 +1638,30 @@ Get all projects
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    isDeleted := true // bool | If result must consist of only actual/deleted parameters (optional)
-    projectName := "projectName_example" // string |  (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	isDeleted := true // bool | If result must consist of only actual/deleted parameters (optional)
+	projectName := "projectName_example" // string |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.GetAllProjects(context.Background()).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetAllProjects``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAllProjects`: []ProjectModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.GetAllProjects`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetAllProjects(context.Background()).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetAllProjects``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAllProjects`: []ProjectModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetAllProjects`: %v\n", resp)
 }
 ```
 
@@ -1716,24 +1716,24 @@ Get namespaces of autotests in project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.GetAutoTestsNamespaces(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetAutoTestsNamespaces``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAutoTestsNamespaces`: []AutoTestNamespaceModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.GetAutoTestsNamespaces`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetAutoTestsNamespaces(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetAutoTestsNamespaces``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAutoTestsNamespaces`: []AutoTestNamespaceModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetAutoTestsNamespaces`: %v\n", resp)
 }
 ```
 
@@ -1786,24 +1786,24 @@ Get project by ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.GetProjectById(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetProjectById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetProjectById`: ProjectModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.GetProjectById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetProjectById(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetProjectById`: ProjectModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetProjectById`: %v\n", resp)
 }
 ```
 
@@ -1856,25 +1856,25 @@ Get project test plans
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    isDeleted := true // bool | If result must consist of only actual/archived test plans (optional)
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	isDeleted := true // bool | If result must consist of only actual/archived test plans (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.GetTestPlansByProjectId(context.Background(), id).IsDeleted(isDeleted).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetTestPlansByProjectId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTestPlansByProjectId`: []TestPlanModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.GetTestPlansByProjectId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetTestPlansByProjectId(context.Background(), id).IsDeleted(isDeleted).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTestPlansByProjectId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTestPlansByProjectId`: []TestPlanModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetTestPlansByProjectId`: %v\n", resp)
 }
 ```
 
@@ -1928,37 +1928,37 @@ Get project test runs
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
+	"context"
+	"fmt"
+	"os"
     "time"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-    notStarted := true // bool |  (optional)
-    inProgress := true // bool |  (optional)
-    stopped := true // bool |  (optional)
-    completed := true // bool |  (optional)
-    createdDateFrom := time.Now() // time.Time |  (optional)
-    createdDateTo := time.Now() // time.Time |  (optional)
-    testPlanId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-    searchField := "searchField_example" // string | Property name for searching (optional)
-    searchValue := "searchValue_example" // string | Value for searching (optional)
+	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
+	notStarted := true // bool |  (optional)
+	inProgress := true // bool |  (optional)
+	stopped := true // bool |  (optional)
+	completed := true // bool |  (optional)
+	createdDateFrom := time.Now() // time.Time |  (optional)
+	createdDateTo := time.Now() // time.Time |  (optional)
+	testPlanId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectsApi.GetTestRunsByProjectId(context.Background(), id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.GetTestRunsByProjectId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetTestRunsByProjectId`: []TestRunV2GetModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectsApi.GetTestRunsByProjectId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.GetTestRunsByProjectId(context.Background(), id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTestRunsByProjectId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetTestRunsByProjectId`: []TestRunV2GetModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetTestRunsByProjectId`: %v\n", resp)
 }
 ```
 
@@ -2011,7 +2011,7 @@ Name | Type | Description  | Notes
 
 ## UpdateProject
 
-> UpdateProject(ctx).UpdateProjectRequest(updateProjectRequest).Execute()
+> UpdateProject(ctx).ProjectPutModel(projectPutModel).Execute()
 
 Update project
 
@@ -2023,22 +2023,22 @@ Update project
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    updateProjectRequest := *openapiclient.NewUpdateProjectRequest("Id_example", "Name_example") // UpdateProjectRequest |  (optional)
+	projectPutModel := *openapiclient.NewProjectPutModel("Id_example", "Name_example") // ProjectPutModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ProjectsApi.UpdateProject(context.Background()).UpdateProjectRequest(updateProjectRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectsApi.UpdateProject``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectsAPI.UpdateProject(context.Background()).ProjectPutModel(projectPutModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.UpdateProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -2053,7 +2053,7 @@ Other parameters are passed through a pointer to a apiUpdateProjectRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateProjectRequest** | [**UpdateProjectRequest**](UpdateProjectRequest.md) |  | 
+ **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md) |  | 
 
 ### Return type
 

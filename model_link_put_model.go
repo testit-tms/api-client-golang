@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the LinkPutModel type satisfies the MappedNullable interface at compile time
@@ -29,6 +31,8 @@ type LinkPutModel struct {
 	Type NullableLinkType `json:"type,omitempty"`
 	HasInfo bool `json:"hasInfo"`
 }
+
+type _LinkPutModel LinkPutModel
 
 // NewLinkPutModel instantiates a new LinkPutModel object
 // This constructor will assign default values to properties that have it defined,
@@ -290,6 +294,44 @@ func (o LinkPutModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["hasInfo"] = o.HasInfo
 	return toSerialize, nil
+}
+
+func (o *LinkPutModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"url",
+		"hasInfo",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varLinkPutModel := _LinkPutModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varLinkPutModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = LinkPutModel(varLinkPutModel)
+
+	return err
 }
 
 type NullableLinkPutModel struct {

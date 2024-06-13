@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the ValidateAntiForgeryTokenAttribute type satisfies the MappedNullable interface at compile time
@@ -23,6 +25,8 @@ type ValidateAntiForgeryTokenAttribute struct {
 	IsReusable bool `json:"isReusable"`
 	TypeId interface{} `json:"typeId"`
 }
+
+type _ValidateAntiForgeryTokenAttribute ValidateAntiForgeryTokenAttribute
 
 // NewValidateAntiForgeryTokenAttribute instantiates a new ValidateAntiForgeryTokenAttribute object
 // This constructor will assign default values to properties that have it defined,
@@ -129,11 +133,50 @@ func (o ValidateAntiForgeryTokenAttribute) MarshalJSON() ([]byte, error) {
 func (o ValidateAntiForgeryTokenAttribute) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["order"] = o.Order
-	// skip: isReusable is readOnly
+	toSerialize["isReusable"] = o.IsReusable
 	if o.TypeId != nil {
 		toSerialize["typeId"] = o.TypeId
 	}
 	return toSerialize, nil
+}
+
+func (o *ValidateAntiForgeryTokenAttribute) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"order",
+		"isReusable",
+		"typeId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varValidateAntiForgeryTokenAttribute := _ValidateAntiForgeryTokenAttribute{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varValidateAntiForgeryTokenAttribute)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ValidateAntiForgeryTokenAttribute(varValidateAntiForgeryTokenAttribute)
+
+	return err
 }
 
 type NullableValidateAntiForgeryTokenAttribute struct {

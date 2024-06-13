@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 **IsDisabled** | **bool** |  | 
 **ProviderId** | Pointer to **NullableString** |  | [optional] 
 **IsActiveStatusByEntity** | **bool** |  | 
-**UserRank** | [**UserWithRankModelUserRank**](UserWithRankModelUserRank.md) |  | 
+**UserRank** | [**UserRankModel**](UserRankModel.md) |  | 
 
 ## Methods
 
 ### NewUserWithRankModel
 
-`func NewUserWithRankModel(id string, firstName string, lastName string, middleName string, userName string, displayName string, userType string, avatarUrl string, avatarMetadata string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool, userRank UserWithRankModelUserRank, ) *UserWithRankModel`
+`func NewUserWithRankModel(id string, firstName string, lastName string, middleName string, userName string, displayName string, userType string, avatarUrl string, avatarMetadata string, isDeleted bool, isDisabled bool, isActiveStatusByEntity bool, userRank UserRankModel, ) *UserWithRankModel`
 
 NewUserWithRankModel instantiates a new UserWithRankModel object
 This constructor will assign default values to properties that have it defined,
@@ -315,20 +315,20 @@ SetIsActiveStatusByEntity sets IsActiveStatusByEntity field to given value.
 
 ### GetUserRank
 
-`func (o *UserWithRankModel) GetUserRank() UserWithRankModelUserRank`
+`func (o *UserWithRankModel) GetUserRank() UserRankModel`
 
 GetUserRank returns the UserRank field if non-nil, zero value otherwise.
 
 ### GetUserRankOk
 
-`func (o *UserWithRankModel) GetUserRankOk() (*UserWithRankModelUserRank, bool)`
+`func (o *UserWithRankModel) GetUserRankOk() (*UserRankModel, bool)`
 
 GetUserRankOk returns a tuple with the UserRank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserRank
 
-`func (o *UserWithRankModel) SetUserRank(v UserWithRankModelUserRank)`
+`func (o *UserWithRankModel) SetUserRank(v UserRankModel)`
 
 SetUserRank sets UserRank field to given value.
 

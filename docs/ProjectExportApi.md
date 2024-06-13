@@ -1,20 +1,20 @@
-# \ProjectExportApi
+# \ProjectExportAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Export**](ProjectExportApi.md#Export) | **Post** /api/v2/projects/{projectId}/export | Export project as JSON file
-[**ExportProjectJson**](ProjectExportApi.md#ExportProjectJson) | **Post** /api/v2/projects/{projectId}/export/json | Export project as JSON file in background job
-[**ExportProjectWithTestPlansJson**](ProjectExportApi.md#ExportProjectWithTestPlansJson) | **Post** /api/v2/projects/{projectId}/export/testPlans/json | Export project as JSON file with test plans in background job
-[**ExportProjectWithTestPlansZip**](ProjectExportApi.md#ExportProjectWithTestPlansZip) | **Post** /api/v2/projects/{projectId}/export/testPlans/zip | Export project as Zip file with test plans in background job
-[**ExportProjectZip**](ProjectExportApi.md#ExportProjectZip) | **Post** /api/v2/projects/{projectId}/export/zip | Export project as Zip file in background job
+[**Export**](ProjectExportAPI.md#Export) | **Post** /api/v2/projects/{projectId}/export | Export project as JSON file
+[**ExportProjectJson**](ProjectExportAPI.md#ExportProjectJson) | **Post** /api/v2/projects/{projectId}/export/json | Export project as JSON file in background job
+[**ExportProjectWithTestPlansJson**](ProjectExportAPI.md#ExportProjectWithTestPlansJson) | **Post** /api/v2/projects/{projectId}/export/testPlans/json | Export project as JSON file with test plans in background job
+[**ExportProjectWithTestPlansZip**](ProjectExportAPI.md#ExportProjectWithTestPlansZip) | **Post** /api/v2/projects/{projectId}/export/testPlans/zip | Export project as Zip file with test plans in background job
+[**ExportProjectZip**](ProjectExportAPI.md#ExportProjectZip) | **Post** /api/v2/projects/{projectId}/export/zip | Export project as Zip file in background job
 
 
 
 ## Export
 
-> *os.File Export(ctx, projectId).IncludeAttachments(includeAttachments).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
+> *os.File Export(ctx, projectId).IncludeAttachments(includeAttachments).ProjectExportQueryModel(projectExportQueryModel).Execute()
 
 Export project as JSON file
 
@@ -26,26 +26,26 @@ Export project as JSON file
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Specifies the ID of the project you want to export.
-    includeAttachments := true // bool | Enables attachment export. (optional) (default to false)
-    exportProjectJsonRequest := *openapiclient.NewExportProjectJsonRequest() // ExportProjectJsonRequest |  (optional)
+	projectId := "projectId_example" // string | Specifies the ID of the project you want to export.
+	includeAttachments := true // bool | Enables attachment export. (optional) (default to false)
+	projectExportQueryModel := *openapiclient.NewProjectExportQueryModel() // ProjectExportQueryModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectExportApi.Export(context.Background(), projectId).IncludeAttachments(includeAttachments).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportApi.Export``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `Export`: *os.File
-    fmt.Fprintf(os.Stdout, "Response from `ProjectExportApi.Export`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectExportAPI.Export(context.Background(), projectId).IncludeAttachments(includeAttachments).ProjectExportQueryModel(projectExportQueryModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportAPI.Export``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Export`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `ProjectExportAPI.Export`: %v\n", resp)
 }
 ```
 
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **includeAttachments** | **bool** | Enables attachment export. | [default to false]
- **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md) |  | 
+ **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md) |  | 
 
 ### Return type
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectJson
 
-> string ExportProjectJson(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
+> string ExportProjectJson(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
 
 Export project as JSON file in background job
 
@@ -98,26 +98,26 @@ Export project as JSON file in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    exportProjectJsonRequest := *openapiclient.NewExportProjectJsonRequest() // ExportProjectJsonRequest |  (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
+	projectExportQueryModel := *openapiclient.NewProjectExportQueryModel() // ProjectExportQueryModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectExportApi.ExportProjectJson(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportApi.ExportProjectJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ExportProjectJson`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectExportApi.ExportProjectJson`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectExportAPI.ExportProjectJson(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportAPI.ExportProjectJson``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ExportProjectJson`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectExportAPI.ExportProjectJson`: %v\n", resp)
 }
 ```
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md) |  | 
+ **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md) |  | 
 
 ### Return type
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectWithTestPlansJson
 
-> string ExportProjectWithTestPlansJson(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
+> string ExportProjectWithTestPlansJson(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
 
 Export project as JSON file with test plans in background job
 
@@ -170,26 +170,26 @@ Export project as JSON file with test plans in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    exportProjectWithTestPlansJsonRequest := *openapiclient.NewExportProjectWithTestPlansJsonRequest() // ExportProjectWithTestPlansJsonRequest |  (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
+	projectExportWithTestPlansPostModel := *openapiclient.NewProjectExportWithTestPlansPostModel() // ProjectExportWithTestPlansPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectExportApi.ExportProjectWithTestPlansJson(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportApi.ExportProjectWithTestPlansJson``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ExportProjectWithTestPlansJson`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectExportApi.ExportProjectWithTestPlansJson`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectExportAPI.ExportProjectWithTestPlansJson(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportAPI.ExportProjectWithTestPlansJson``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ExportProjectWithTestPlansJson`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectExportAPI.ExportProjectWithTestPlansJson`: %v\n", resp)
 }
 ```
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md) |  | 
+ **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md) |  | 
 
 ### Return type
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectWithTestPlansZip
 
-> string ExportProjectWithTestPlansZip(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
+> string ExportProjectWithTestPlansZip(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
 
 Export project as Zip file with test plans in background job
 
@@ -242,26 +242,26 @@ Export project as Zip file with test plans in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    exportProjectWithTestPlansJsonRequest := *openapiclient.NewExportProjectWithTestPlansJsonRequest() // ExportProjectWithTestPlansJsonRequest |  (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
+	projectExportWithTestPlansPostModel := *openapiclient.NewProjectExportWithTestPlansPostModel() // ProjectExportWithTestPlansPostModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectExportApi.ExportProjectWithTestPlansZip(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectWithTestPlansJsonRequest(exportProjectWithTestPlansJsonRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportApi.ExportProjectWithTestPlansZip``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ExportProjectWithTestPlansZip`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectExportApi.ExportProjectWithTestPlansZip`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectExportAPI.ExportProjectWithTestPlansZip(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportAPI.ExportProjectWithTestPlansZip``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ExportProjectWithTestPlansZip`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectExportAPI.ExportProjectWithTestPlansZip`: %v\n", resp)
 }
 ```
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **exportProjectWithTestPlansJsonRequest** | [**ExportProjectWithTestPlansJsonRequest**](ExportProjectWithTestPlansJsonRequest.md) |  | 
+ **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md) |  | 
 
 ### Return type
 
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 ## ExportProjectZip
 
-> string ExportProjectZip(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
+> string ExportProjectZip(ctx, projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
 
 Export project as Zip file in background job
 
@@ -314,26 +314,26 @@ Export project as Zip file in background job
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-    timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
-    exportProjectJsonRequest := *openapiclient.NewExportProjectJsonRequest() // ExportProjectJsonRequest |  (optional)
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	timeZoneOffsetInMinutes := int64(789) // int64 |  (optional)
+	projectExportQueryModel := *openapiclient.NewProjectExportQueryModel() // ProjectExportQueryModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectExportApi.ExportProjectZip(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ExportProjectJsonRequest(exportProjectJsonRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportApi.ExportProjectZip``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ExportProjectZip`: string
-    fmt.Fprintf(os.Stdout, "Response from `ProjectExportApi.ExportProjectZip`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectExportAPI.ExportProjectZip(context.Background(), projectId).TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes).ProjectExportQueryModel(projectExportQueryModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectExportAPI.ExportProjectZip``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ExportProjectZip`: string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectExportAPI.ExportProjectZip`: %v\n", resp)
 }
 ```
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **timeZoneOffsetInMinutes** | **int64** |  | 
- **exportProjectJsonRequest** | [**ExportProjectJsonRequest**](ExportProjectJsonRequest.md) |  | 
+ **projectExportQueryModel** | [**ProjectExportQueryModel**](ProjectExportQueryModel.md) |  | 
 
 ### Return type
 

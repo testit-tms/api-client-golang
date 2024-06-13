@@ -1,10 +1,10 @@
-# \ProjectConfigurationsApi
+# \ProjectConfigurationsAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetConfigurationsByProjectId**](ProjectConfigurationsApi.md#GetConfigurationsByProjectId) | **Get** /api/v2/projects/{projectId}/configurations | Get project configurations
+[**GetConfigurationsByProjectId**](ProjectConfigurationsAPI.md#GetConfigurationsByProjectId) | **Get** /api/v2/projects/{projectId}/configurations | Get project configurations
 
 
 
@@ -22,24 +22,24 @@ Get project configurations
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ProjectConfigurationsApi.GetConfigurationsByProjectId(context.Background(), projectId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ProjectConfigurationsApi.GetConfigurationsByProjectId``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetConfigurationsByProjectId`: []ConfigurationModel
-    fmt.Fprintf(os.Stdout, "Response from `ProjectConfigurationsApi.GetConfigurationsByProjectId`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectConfigurationsAPI.GetConfigurationsByProjectId(context.Background(), projectId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectConfigurationsAPI.GetConfigurationsByProjectId``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetConfigurationsByProjectId`: []ConfigurationModel
+	fmt.Fprintf(os.Stdout, "Response from `ProjectConfigurationsAPI.GetConfigurationsByProjectId`: %v\n", resp)
 }
 ```
 
