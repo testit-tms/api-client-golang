@@ -20,12 +20,12 @@ import (
 )
 
 
-// ProjectConfigurationsAPIService ProjectConfigurationsAPI service
-type ProjectConfigurationsAPIService service
+// ProjectConfigurationsApiService ProjectConfigurationsApi service
+type ProjectConfigurationsApiService service
 
 type ApiGetConfigurationsByProjectIdRequest struct {
 	ctx context.Context
-	ApiService *ProjectConfigurationsAPIService
+	ApiService *ProjectConfigurationsApiService
 	projectId string
 }
 
@@ -36,18 +36,24 @@ func (r ApiGetConfigurationsByProjectIdRequest) Execute() ([]ConfigurationModel,
 /*
 GetConfigurationsByProjectId Get project configurations
 
-<br>Use case
-<br>User sets project internal or global identifier
-<br>User runs method execution
-<br>System search project
-<br>System search all configurations related to project
-<br>System returns array of found configurations (listed in response model)
+
+Use case
+
+User sets project internal or global identifier
+
+User runs method execution
+
+System search project
+
+System search all configurations related to project
+
+System returns array of found configurations (listed in response model)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiGetConfigurationsByProjectIdRequest
 */
-func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectId(ctx context.Context, projectId string) ApiGetConfigurationsByProjectIdRequest {
+func (a *ProjectConfigurationsApiService) GetConfigurationsByProjectId(ctx context.Context, projectId string) ApiGetConfigurationsByProjectIdRequest {
 	return ApiGetConfigurationsByProjectIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +63,7 @@ func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectId(ctx conte
 
 // Execute executes the request
 //  @return []ConfigurationModel
-func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectIdExecute(r ApiGetConfigurationsByProjectIdRequest) ([]ConfigurationModel, *http.Response, error) {
+func (a *ProjectConfigurationsApiService) GetConfigurationsByProjectIdExecute(r ApiGetConfigurationsByProjectIdRequest) ([]ConfigurationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +71,7 @@ func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectIdExecute(r 
 		localVarReturnValue  []ConfigurationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectConfigurationsAPIService.GetConfigurationsByProjectId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectConfigurationsApiService.GetConfigurationsByProjectId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -141,6 +147,17 @@ func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectIdExecute(r 
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -153,6 +170,28 @@ func (a *ProjectConfigurationsAPIService) GetConfigurationsByProjectIdExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

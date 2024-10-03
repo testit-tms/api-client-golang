@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AutoTestStepModel type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type AutoTestStepModel struct {
 	// Includes a nested step inside another step. The maximum nesting level is 15.
 	Steps []AutoTestStepModel `json:"steps,omitempty"`
 }
-
-type _AutoTestStepModel AutoTestStepModel
 
 // NewAutoTestStepModel instantiates a new AutoTestStepModel object
 // This constructor will assign default values to properties that have it defined,
@@ -166,43 +162,6 @@ func (o AutoTestStepModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["steps"] = o.Steps
 	}
 	return toSerialize, nil
-}
-
-func (o *AutoTestStepModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"title",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAutoTestStepModel := _AutoTestStepModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoTestStepModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AutoTestStepModel(varAutoTestStepModel)
-
-	return err
 }
 
 type NullableAutoTestStepModel struct {

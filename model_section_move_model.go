@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the SectionMoveModel type satisfies the MappedNullable interface at compile time
@@ -30,8 +28,6 @@ type SectionMoveModel struct {
 	// Unique ID of the section's following section
 	NextSectionId NullableString `json:"nextSectionId,omitempty"`
 }
-
-type _SectionMoveModel SectionMoveModel
 
 // NewSectionMoveModel instantiates a new SectionMoveModel object
 // This constructor will assign default values to properties that have it defined,
@@ -184,45 +180,6 @@ func (o SectionMoveModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["nextSectionId"] = o.NextSectionId.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *SectionMoveModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"oldParentId",
-		"parentId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varSectionMoveModel := _SectionMoveModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varSectionMoveModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = SectionMoveModel(varSectionMoveModel)
-
-	return err
 }
 
 type NullableSectionMoveModel struct {

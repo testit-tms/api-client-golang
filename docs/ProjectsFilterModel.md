@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **GlobalIds** | Pointer to **[]int64** | Specifies a project global IDs to search for | [optional] 
 **CreatedDate** | Pointer to [**NullableProjectsFilterModelCreatedDate**](ProjectsFilterModelCreatedDate.md) |  | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies an autotest creator IDs to search for | [optional] 
+**Types** | Pointer to [**[]ProjectTypeModel**](ProjectTypeModel.md) | Collection of project types to search for | [optional] 
 
 ## Methods
 
@@ -384,6 +385,41 @@ HasCreatedByIds returns a boolean if a field has been set.
 `func (o *ProjectsFilterModel) UnsetCreatedByIds()`
 
 UnsetCreatedByIds ensures that no value is present for CreatedByIds, not even an explicit nil
+### GetTypes
+
+`func (o *ProjectsFilterModel) GetTypes() []ProjectTypeModel`
+
+GetTypes returns the Types field if non-nil, zero value otherwise.
+
+### GetTypesOk
+
+`func (o *ProjectsFilterModel) GetTypesOk() (*[]ProjectTypeModel, bool)`
+
+GetTypesOk returns a tuple with the Types field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTypes
+
+`func (o *ProjectsFilterModel) SetTypes(v []ProjectTypeModel)`
+
+SetTypes sets Types field to given value.
+
+### HasTypes
+
+`func (o *ProjectsFilterModel) HasTypes() bool`
+
+HasTypes returns a boolean if a field has been set.
+
+### SetTypesNil
+
+`func (o *ProjectsFilterModel) SetTypesNil(b bool)`
+
+ SetTypesNil sets the value for Types to be an explicit nil
+
+### UnsetTypes
+`func (o *ProjectsFilterModel) UnsetTypes()`
+
+UnsetTypes ensures that no value is present for Types, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

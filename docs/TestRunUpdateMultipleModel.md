@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md) |  | 
+**SelectModel** | [**TestRunSelectionModel**](TestRunSelectionModel.md) |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
-**AttachmentUpdateScheme** | [**UpdateAttachmentShortModel**](UpdateAttachmentShortModel.md) |  | 
-**LinkUpdateScheme** | [**UpdateLinkShortModel**](UpdateLinkShortModel.md) |  | 
+**AttachmentUpdateScheme** | [**SetOfAttachmentIds**](SetOfAttachmentIds.md) |  | 
+**LinkUpdateScheme** | [**SetOfLinks**](SetOfLinks.md) |  | 
 
 ## Methods
 
 ### NewTestRunUpdateMultipleModel
 
-`func NewTestRunUpdateMultipleModel(selectModel TestRunSelectModel, attachmentUpdateScheme UpdateAttachmentShortModel, linkUpdateScheme UpdateLinkShortModel, ) *TestRunUpdateMultipleModel`
+`func NewTestRunUpdateMultipleModel(selectModel TestRunSelectionModel, attachmentUpdateScheme SetOfAttachmentIds, linkUpdateScheme SetOfLinks, ) *TestRunUpdateMultipleModel`
 
 NewTestRunUpdateMultipleModel instantiates a new TestRunUpdateMultipleModel object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSelectModel
 
-`func (o *TestRunUpdateMultipleModel) GetSelectModel() TestRunSelectModel`
+`func (o *TestRunUpdateMultipleModel) GetSelectModel() TestRunSelectionModel`
 
 GetSelectModel returns the SelectModel field if non-nil, zero value otherwise.
 
 ### GetSelectModelOk
 
-`func (o *TestRunUpdateMultipleModel) GetSelectModelOk() (*TestRunSelectModel, bool)`
+`func (o *TestRunUpdateMultipleModel) GetSelectModelOk() (*TestRunSelectionModel, bool)`
 
 GetSelectModelOk returns a tuple with the SelectModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSelectModel
 
-`func (o *TestRunUpdateMultipleModel) SetSelectModel(v TestRunSelectModel)`
+`func (o *TestRunUpdateMultipleModel) SetSelectModel(v TestRunSelectionModel)`
 
 SetSelectModel sets SelectModel field to given value.
 
@@ -85,40 +85,40 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetAttachmentUpdateScheme
 
-`func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateScheme() UpdateAttachmentShortModel`
+`func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateScheme() SetOfAttachmentIds`
 
 GetAttachmentUpdateScheme returns the AttachmentUpdateScheme field if non-nil, zero value otherwise.
 
 ### GetAttachmentUpdateSchemeOk
 
-`func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateSchemeOk() (*UpdateAttachmentShortModel, bool)`
+`func (o *TestRunUpdateMultipleModel) GetAttachmentUpdateSchemeOk() (*SetOfAttachmentIds, bool)`
 
 GetAttachmentUpdateSchemeOk returns a tuple with the AttachmentUpdateScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachmentUpdateScheme
 
-`func (o *TestRunUpdateMultipleModel) SetAttachmentUpdateScheme(v UpdateAttachmentShortModel)`
+`func (o *TestRunUpdateMultipleModel) SetAttachmentUpdateScheme(v SetOfAttachmentIds)`
 
 SetAttachmentUpdateScheme sets AttachmentUpdateScheme field to given value.
 
 
 ### GetLinkUpdateScheme
 
-`func (o *TestRunUpdateMultipleModel) GetLinkUpdateScheme() UpdateLinkShortModel`
+`func (o *TestRunUpdateMultipleModel) GetLinkUpdateScheme() SetOfLinks`
 
 GetLinkUpdateScheme returns the LinkUpdateScheme field if non-nil, zero value otherwise.
 
 ### GetLinkUpdateSchemeOk
 
-`func (o *TestRunUpdateMultipleModel) GetLinkUpdateSchemeOk() (*UpdateLinkShortModel, bool)`
+`func (o *TestRunUpdateMultipleModel) GetLinkUpdateSchemeOk() (*SetOfLinks, bool)`
 
 GetLinkUpdateSchemeOk returns a tuple with the LinkUpdateScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinkUpdateScheme
 
-`func (o *TestRunUpdateMultipleModel) SetLinkUpdateScheme(v UpdateLinkShortModel)`
+`func (o *TestRunUpdateMultipleModel) SetLinkUpdateScheme(v SetOfLinks)`
 
 SetLinkUpdateScheme sets LinkUpdateScheme field to given value.
 

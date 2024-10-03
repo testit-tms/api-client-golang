@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Text** | **string** |  | 
-**User** | [**UserWithRankModel**](UserWithRankModel.md) |  | 
+**User** | [**WorkItemCommentModelUser**](WorkItemCommentModelUser.md) |  | 
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedDate** | **time.Time** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemCommentModel
 
-`func NewWorkItemCommentModel(id string, text string, user UserWithRankModel, createdById string, createdDate time.Time, ) *WorkItemCommentModel`
+`func NewWorkItemCommentModel(id string, text string, user WorkItemCommentModelUser, createdById string, createdDate time.Time, ) *WorkItemCommentModel`
 
 NewWorkItemCommentModel instantiates a new WorkItemCommentModel object
 This constructor will assign default values to properties that have it defined,
@@ -73,20 +73,20 @@ SetText sets Text field to given value.
 
 ### GetUser
 
-`func (o *WorkItemCommentModel) GetUser() UserWithRankModel`
+`func (o *WorkItemCommentModel) GetUser() WorkItemCommentModelUser`
 
 GetUser returns the User field if non-nil, zero value otherwise.
 
 ### GetUserOk
 
-`func (o *WorkItemCommentModel) GetUserOk() (*UserWithRankModel, bool)`
+`func (o *WorkItemCommentModel) GetUserOk() (*WorkItemCommentModelUser, bool)`
 
 GetUserOk returns a tuple with the User field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUser
 
-`func (o *WorkItemCommentModel) SetUser(v UserWithRankModel)`
+`func (o *WorkItemCommentModel) SetUser(v WorkItemCommentModelUser)`
 
 SetUser sets User field to given value.
 

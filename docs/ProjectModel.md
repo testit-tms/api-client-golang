@@ -20,12 +20,14 @@ Name | Type | Description | Notes
 **CreatedById** | **string** | Unique ID of the project creator | 
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
 **GlobalId** | **int64** | Global ID of the project | 
+**Type** | [**ProjectTypeModel**](ProjectTypeModel.md) |  | 
+**IsFlakyAuto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
 
 ## Methods
 
 ### NewProjectModel
 
-`func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, ) *ProjectModel`
+`func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool, ) *ProjectModel`
 
 NewProjectModel instantiates a new ProjectModel object
 This constructor will assign default values to properties that have it defined,
@@ -493,6 +495,46 @@ and a boolean to check if the value has been set.
 `func (o *ProjectModel) SetGlobalId(v int64)`
 
 SetGlobalId sets GlobalId field to given value.
+
+
+### GetType
+
+`func (o *ProjectModel) GetType() ProjectTypeModel`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *ProjectModel) GetTypeOk() (*ProjectTypeModel, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *ProjectModel) SetType(v ProjectTypeModel)`
+
+SetType sets Type field to given value.
+
+
+### GetIsFlakyAuto
+
+`func (o *ProjectModel) GetIsFlakyAuto() bool`
+
+GetIsFlakyAuto returns the IsFlakyAuto field if non-nil, zero value otherwise.
+
+### GetIsFlakyAutoOk
+
+`func (o *ProjectModel) GetIsFlakyAutoOk() (*bool, bool)`
+
+GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsFlakyAuto
+
+`func (o *ProjectModel) SetIsFlakyAuto(v bool)`
+
+SetIsFlakyAuto sets IsFlakyAuto field to given value.
 
 
 

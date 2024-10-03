@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **SectionId** | **string** | Unique ID of section where work item the test point represents is located | 
 **SectionName** | Pointer to **NullableString** | Name of section where work item the test point represents is located | [optional] 
 **ProjectId** | **string** | Unique ID of the test point project | 
-**LastTestResult** | [**LastTestResultModel**](LastTestResultModel.md) |  | 
+**LastTestResult** | [**TestPointShortGetModelLastTestResult**](TestPointShortGetModelLastTestResult.md) |  | 
 **IterationId** | **string** | Unique ID of work item iteration the test point represents | 
 **WorkItemState** | [**WorkItemState**](WorkItemState.md) |  | 
 **WorkItemCreatedById** | **string** | Unique ID of the work item creator | 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointShortGetModel
 
-`func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult LastTestResultModel, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortGetModel`
+`func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortGetModel`
 
 NewTestPointShortGetModel instantiates a new TestPointShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -669,20 +669,20 @@ SetProjectId sets ProjectId field to given value.
 
 ### GetLastTestResult
 
-`func (o *TestPointShortGetModel) GetLastTestResult() LastTestResultModel`
+`func (o *TestPointShortGetModel) GetLastTestResult() TestPointShortGetModelLastTestResult`
 
 GetLastTestResult returns the LastTestResult field if non-nil, zero value otherwise.
 
 ### GetLastTestResultOk
 
-`func (o *TestPointShortGetModel) GetLastTestResultOk() (*LastTestResultModel, bool)`
+`func (o *TestPointShortGetModel) GetLastTestResultOk() (*TestPointShortGetModelLastTestResult, bool)`
 
 GetLastTestResultOk returns a tuple with the LastTestResult field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastTestResult
 
-`func (o *TestPointShortGetModel) SetLastTestResult(v LastTestResultModel)`
+`func (o *TestPointShortGetModel) SetLastTestResult(v TestPointShortGetModelLastTestResult)`
 
 SetLastTestResult sets LastTestResult field to given value.
 

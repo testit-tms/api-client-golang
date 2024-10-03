@@ -13,8 +13,6 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the TestPlanWithTestSuiteTreeModel type satisfies the MappedNullable interface at compile time
@@ -51,8 +49,6 @@ type TestPlanWithTestSuiteTreeModel struct {
 	HasAutomaticDurationTimer NullableBool `json:"hasAutomaticDurationTimer,omitempty"`
 	Attributes map[string]interface{} `json:"attributes"`
 }
-
-type _TestPlanWithTestSuiteTreeModel TestPlanWithTestSuiteTreeModel
 
 // NewTestPlanWithTestSuiteTreeModel instantiates a new TestPlanWithTestSuiteTreeModel object
 // This constructor will assign default values to properties that have it defined,
@@ -937,51 +933,6 @@ func (o TestPlanWithTestSuiteTreeModel) ToMap() (map[string]interface{}, error) 
 	}
 	toSerialize["attributes"] = o.Attributes
 	return toSerialize, nil
-}
-
-func (o *TestPlanWithTestSuiteTreeModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"testSuites",
-		"status",
-		"createdById",
-		"globalId",
-		"isDeleted",
-		"id",
-		"name",
-		"projectId",
-		"attributes",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTestPlanWithTestSuiteTreeModel := _TestPlanWithTestSuiteTreeModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTestPlanWithTestSuiteTreeModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TestPlanWithTestSuiteTreeModel(varTestPlanWithTestSuiteTreeModel)
-
-	return err
 }
 
 type NullableTestPlanWithTestSuiteTreeModel struct {

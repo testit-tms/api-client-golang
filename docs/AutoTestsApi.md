@@ -1,35 +1,35 @@
-# \AutoTestsAPI
+# \AutoTestsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2AutoTestsFlakyBulkPost**](AutoTestsAPI.md#ApiV2AutoTestsFlakyBulkPost) | **Post** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests
-[**ApiV2AutoTestsIdPatch**](AutoTestsAPI.md#ApiV2AutoTestsIdPatch) | **Patch** /api/v2/autoTests/{id} | Patch auto test
-[**ApiV2AutoTestsIdTestResultsSearchPost**](AutoTestsAPI.md#ApiV2AutoTestsIdTestResultsSearchPost) | **Post** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest
-[**ApiV2AutoTestsIdWorkItemsChangedIdGet**](AutoTestsAPI.md#ApiV2AutoTestsIdWorkItemsChangedIdGet) | **Get** /api/v2/autoTests/{id}/workItems/changed/id | Get identifiers of changed linked work items
-[**ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost**](AutoTestsAPI.md#ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost) | **Post** /api/v2/autoTests/{id}/workItems/changed/{workItemId}/approve | Approve changes to work items linked to autotest
-[**ApiV2AutoTestsSearchPost**](AutoTestsAPI.md#ApiV2AutoTestsSearchPost) | **Post** /api/v2/autoTests/search | Search for autotests
-[**CreateAutoTest**](AutoTestsAPI.md#CreateAutoTest) | **Post** /api/v2/autoTests | Create autotest
-[**CreateMultiple**](AutoTestsAPI.md#CreateMultiple) | **Post** /api/v2/autoTests/bulk | Create multiple autotests
-[**DeleteAutoTest**](AutoTestsAPI.md#DeleteAutoTest) | **Delete** /api/v2/autoTests/{id} | Delete autotest
-[**DeleteAutoTestLinkFromWorkItem**](AutoTestsAPI.md#DeleteAutoTestLinkFromWorkItem) | **Delete** /api/v2/autoTests/{id}/workItems | Unlink autotest from work item
-[**GetAllAutoTests**](AutoTestsAPI.md#GetAllAutoTests) | **Get** /api/v2/autoTests | 
-[**GetAutoTestAverageDuration**](AutoTestsAPI.md#GetAutoTestAverageDuration) | **Get** /api/v2/autoTests/{id}/averageDuration | Get average autotest duration
-[**GetAutoTestById**](AutoTestsAPI.md#GetAutoTestById) | **Get** /api/v2/autoTests/{id} | Get autotest by internal or global ID
-[**GetAutoTestChronology**](AutoTestsAPI.md#GetAutoTestChronology) | **Get** /api/v2/autoTests/{id}/chronology | Get autotest chronology
-[**GetTestRuns**](AutoTestsAPI.md#GetTestRuns) | **Get** /api/v2/autoTests/{id}/testRuns | Get completed tests runs for autotests
-[**GetWorkItemResults**](AutoTestsAPI.md#GetWorkItemResults) | **Get** /api/v2/autoTests/{id}/testResultHistory | 
-[**GetWorkItemsLinkedToAutoTest**](AutoTestsAPI.md#GetWorkItemsLinkedToAutoTest) | **Get** /api/v2/autoTests/{id}/workItems | Get work items linked to autotest
-[**LinkAutoTestToWorkItem**](AutoTestsAPI.md#LinkAutoTestToWorkItem) | **Post** /api/v2/autoTests/{id}/workItems | Link autotest with work items
-[**UpdateAutoTest**](AutoTestsAPI.md#UpdateAutoTest) | **Put** /api/v2/autoTests | Update autotest
-[**UpdateMultiple**](AutoTestsAPI.md#UpdateMultiple) | **Put** /api/v2/autoTests/bulk | Update multiple autotests
+[**ApiV2AutoTestsFlakyBulkPost**](AutoTestsApi.md#ApiV2AutoTestsFlakyBulkPost) | **Post** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests
+[**ApiV2AutoTestsIdPatch**](AutoTestsApi.md#ApiV2AutoTestsIdPatch) | **Patch** /api/v2/autoTests/{id} | Patch auto test
+[**ApiV2AutoTestsIdTestResultsSearchPost**](AutoTestsApi.md#ApiV2AutoTestsIdTestResultsSearchPost) | **Post** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest
+[**ApiV2AutoTestsIdWorkItemsChangedIdGet**](AutoTestsApi.md#ApiV2AutoTestsIdWorkItemsChangedIdGet) | **Get** /api/v2/autoTests/{id}/workItems/changed/id | Get identifiers of changed linked work items
+[**ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost**](AutoTestsApi.md#ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost) | **Post** /api/v2/autoTests/{id}/workItems/changed/{workItemId}/approve | Approve changes to work items linked to autotest
+[**ApiV2AutoTestsSearchPost**](AutoTestsApi.md#ApiV2AutoTestsSearchPost) | **Post** /api/v2/autoTests/search | Search for autotests
+[**CreateAutoTest**](AutoTestsApi.md#CreateAutoTest) | **Post** /api/v2/autoTests | Create autotest
+[**CreateMultiple**](AutoTestsApi.md#CreateMultiple) | **Post** /api/v2/autoTests/bulk | Create multiple autotests
+[**DeleteAutoTest**](AutoTestsApi.md#DeleteAutoTest) | **Delete** /api/v2/autoTests/{id} | Delete autotest
+[**DeleteAutoTestLinkFromWorkItem**](AutoTestsApi.md#DeleteAutoTestLinkFromWorkItem) | **Delete** /api/v2/autoTests/{id}/workItems | Unlink autotest from work item
+[**GetAllAutoTests**](AutoTestsApi.md#GetAllAutoTests) | **Get** /api/v2/autoTests | 
+[**GetAutoTestAverageDuration**](AutoTestsApi.md#GetAutoTestAverageDuration) | **Get** /api/v2/autoTests/{id}/averageDuration | Get average autotest duration
+[**GetAutoTestById**](AutoTestsApi.md#GetAutoTestById) | **Get** /api/v2/autoTests/{id} | Get autotest by internal or global ID
+[**GetAutoTestChronology**](AutoTestsApi.md#GetAutoTestChronology) | **Get** /api/v2/autoTests/{id}/chronology | Get autotest chronology
+[**GetTestRuns**](AutoTestsApi.md#GetTestRuns) | **Get** /api/v2/autoTests/{id}/testRuns | Get completed tests runs for autotests
+[**GetWorkItemResults**](AutoTestsApi.md#GetWorkItemResults) | **Get** /api/v2/autoTests/{id}/testResultHistory | 
+[**GetWorkItemsLinkedToAutoTest**](AutoTestsApi.md#GetWorkItemsLinkedToAutoTest) | **Get** /api/v2/autoTests/{id}/workItems | Get work items linked to autotest
+[**LinkAutoTestToWorkItem**](AutoTestsApi.md#LinkAutoTestToWorkItem) | **Post** /api/v2/autoTests/{id}/workItems | Link autotest with work items
+[**UpdateAutoTest**](AutoTestsApi.md#UpdateAutoTest) | **Put** /api/v2/autoTests | Update autotest
+[**UpdateMultiple**](AutoTestsApi.md#UpdateMultiple) | **Put** /api/v2/autoTests/bulk | Update multiple autotests
 
 
 
 ## ApiV2AutoTestsFlakyBulkPost
 
-> ApiV2AutoTestsFlakyBulkPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).FlakyBulkModel(flakyBulkModel).Execute()
+> ApiV2AutoTestsFlakyBulkPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsFlakyBulkPostRequest(apiV2AutoTestsFlakyBulkPostRequest).Execute()
 
 Set \"Flaky\" status for multiple autotests
 
@@ -41,27 +41,27 @@ Set \"Flaky\" status for multiple autotests
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	flakyBulkModel := *openapiclient.NewFlakyBulkModel(*openapiclient.NewAutotestSelectModel(*openapiclient.NewAutotestFilterModel(), *openapiclient.NewAutotestsExtractionModel()), false) // FlakyBulkModel |  (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2AutoTestsFlakyBulkPostRequest := *openapiclient.NewApiV2AutoTestsFlakyBulkPostRequest(*openapiclient.NewFlakyBulkModelAutotestSelect(*openapiclient.NewAutotestSelectModelFilter(), *openapiclient.NewAutotestSelectModelExtractionModel()), false) // ApiV2AutoTestsFlakyBulkPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsFlakyBulkPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).FlakyBulkModel(flakyBulkModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsFlakyBulkPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.ApiV2AutoTestsFlakyBulkPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsFlakyBulkPostRequest(apiV2AutoTestsFlakyBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsFlakyBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **flakyBulkModel** | [**FlakyBulkModel**](FlakyBulkModel.md) |  | 
+ **apiV2AutoTestsFlakyBulkPostRequest** | [**ApiV2AutoTestsFlakyBulkPostRequest**](ApiV2AutoTestsFlakyBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -115,23 +115,23 @@ Patch auto test
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Global Id of auto test
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Global Id of auto test
+    operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsIdPatch(context.Background(), id).Operation(operation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsIdPatch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.ApiV2AutoTestsIdPatch(context.Background(), id).Operation(operation).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsIdPatch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2AutoTestsIdTestResultsSearchPost
 
-> []AutotestResultHistoricalGetModel ApiV2AutoTestsIdTestResultsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestHistoricalResultSelectModel(autotestHistoricalResultSelectModel).Execute()
+> []AutotestResultHistoricalGetModel ApiV2AutoTestsIdTestResultsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsIdTestResultsSearchPostRequest(apiV2AutoTestsIdTestResultsSearchPostRequest).Execute()
 
 Get test results history for autotest
 
@@ -185,30 +185,30 @@ Get test results history for autotest
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest identifier
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	autotestHistoricalResultSelectModel := *openapiclient.NewAutotestHistoricalResultSelectModel() // AutotestHistoricalResultSelectModel |  (optional)
+    id := "id_example" // string | Autotest identifier
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2AutoTestsIdTestResultsSearchPostRequest := *openapiclient.NewApiV2AutoTestsIdTestResultsSearchPostRequest() // ApiV2AutoTestsIdTestResultsSearchPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsIdTestResultsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestHistoricalResultSelectModel(autotestHistoricalResultSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsIdTestResultsSearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2AutoTestsIdTestResultsSearchPost`: []AutotestResultHistoricalGetModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.ApiV2AutoTestsIdTestResultsSearchPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.ApiV2AutoTestsIdTestResultsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsIdTestResultsSearchPostRequest(apiV2AutoTestsIdTestResultsSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsIdTestResultsSearchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2AutoTestsIdTestResultsSearchPost`: []AutotestResultHistoricalGetModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.ApiV2AutoTestsIdTestResultsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **autotestHistoricalResultSelectModel** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md) |  | 
+ **apiV2AutoTestsIdTestResultsSearchPostRequest** | [**ApiV2AutoTestsIdTestResultsSearchPostRequest**](ApiV2AutoTestsIdTestResultsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -267,24 +267,24 @@ Get identifiers of changed linked work items
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsIdWorkItemsChangedIdGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsIdWorkItemsChangedIdGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2AutoTestsIdWorkItemsChangedIdGet`: []string
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.ApiV2AutoTestsIdWorkItemsChangedIdGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.ApiV2AutoTestsIdWorkItemsChangedIdGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsIdWorkItemsChangedIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2AutoTestsIdWorkItemsChangedIdGet`: []string
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.ApiV2AutoTestsIdWorkItemsChangedIdGet`: %v\n", resp)
 }
 ```
 
@@ -337,23 +337,23 @@ Approve changes to work items linked to autotest
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	workItemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    workItemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost(context.Background(), id, workItemId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost(context.Background(), id, workItemId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApprovePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2AutoTestsSearchPost
 
-> []AutoTestModel ApiV2AutoTestsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestsSelectModel(autotestsSelectModel).Execute()
+> []AutoTestModel ApiV2AutoTestsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsSearchPostRequest(apiV2AutoTestsSearchPostRequest).Execute()
 
 Search for autotests
 
@@ -406,29 +406,29 @@ Search for autotests
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	autotestsSelectModel := *openapiclient.NewAutotestsSelectModel(*openapiclient.NewAutotestFilterModel(), *openapiclient.NewSearchAutoTestsQueryIncludesModel(false, false, false)) // AutotestsSelectModel |  (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2AutoTestsSearchPostRequest := *openapiclient.NewApiV2AutoTestsSearchPostRequest(*openapiclient.NewAutotestsSelectModelFilter(), *openapiclient.NewAutotestsSelectModelIncludes(false, false, false)) // ApiV2AutoTestsSearchPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestsSelectModel(autotestsSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsSearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2AutoTestsSearchPost`: []AutoTestModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.ApiV2AutoTestsSearchPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.ApiV2AutoTestsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2AutoTestsSearchPostRequest(apiV2AutoTestsSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.ApiV2AutoTestsSearchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2AutoTestsSearchPost`: []AutoTestModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.ApiV2AutoTestsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -448,7 +448,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **autotestsSelectModel** | [**AutotestsSelectModel**](AutotestsSelectModel.md) |  | 
+ **apiV2AutoTestsSearchPostRequest** | [**ApiV2AutoTestsSearchPostRequest**](ApiV2AutoTestsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -470,7 +470,7 @@ Name | Type | Description  | Notes
 
 ## CreateAutoTest
 
-> AutoTestModel CreateAutoTest(ctx).AutoTestPostModel(autoTestPostModel).Execute()
+> AutoTestModel CreateAutoTest(ctx).CreateAutoTestRequest(createAutoTestRequest).Execute()
 
 Create autotest
 
@@ -482,24 +482,24 @@ Create autotest
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	autoTestPostModel := *openapiclient.NewAutoTestPostModel("ExternalId_example", "ProjectId_example", "Name_example") // AutoTestPostModel |  (optional)
+    createAutoTestRequest := *openapiclient.NewCreateAutoTestRequest("ExternalId_example", "ProjectId_example", "Name_example") // CreateAutoTestRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.CreateAutoTest(context.Background()).AutoTestPostModel(autoTestPostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.CreateAutoTest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateAutoTest`: AutoTestModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.CreateAutoTest`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.CreateAutoTest(context.Background()).CreateAutoTestRequest(createAutoTestRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.CreateAutoTest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateAutoTest`: AutoTestModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.CreateAutoTest`: %v\n", resp)
 }
 ```
 
@@ -514,7 +514,7 @@ Other parameters are passed through a pointer to a apiCreateAutoTestRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPostModel** | [**AutoTestPostModel**](AutoTestPostModel.md) |  | 
+ **createAutoTestRequest** | [**CreateAutoTestRequest**](CreateAutoTestRequest.md) |  | 
 
 ### Return type
 
@@ -548,24 +548,24 @@ Create multiple autotests
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	autoTestPostModel := []openapiclient.AutoTestPostModel{*openapiclient.NewAutoTestPostModel("ExternalId_example", "ProjectId_example", "Name_example")} // []AutoTestPostModel |  (optional)
+    autoTestPostModel := []openapiclient.AutoTestPostModel{*openapiclient.NewAutoTestPostModel("ExternalId_example", "ProjectId_example", "Name_example")} // []AutoTestPostModel |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.CreateMultiple(context.Background()).AutoTestPostModel(autoTestPostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.CreateMultiple``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateMultiple`: []AutoTestModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.CreateMultiple`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.CreateMultiple(context.Background()).AutoTestPostModel(autoTestPostModel).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.CreateMultiple``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateMultiple`: []AutoTestModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.CreateMultiple`: %v\n", resp)
 }
 ```
 
@@ -614,22 +614,22 @@ Delete autotest
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
+    id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.DeleteAutoTest(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.DeleteAutoTest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.DeleteAutoTest(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.DeleteAutoTest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -682,23 +682,23 @@ Unlink autotest from work item
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-	workItemId := "workItemId_example" // string | Work item internal (UUID) or global (integer) identifier (optional)
+    id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
+    workItemId := "workItemId_example" // string | Work item internal (UUID) or global (integer) identifier (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.DeleteAutoTestLinkFromWorkItem(context.Background(), id).WorkItemId(workItemId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.DeleteAutoTestLinkFromWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.DeleteAutoTestLinkFromWorkItem(context.Background(), id).WorkItemId(workItemId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.DeleteAutoTestLinkFromWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -750,49 +750,49 @@ Name | Type | Description  | Notes
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project internal ID (optional)
-	externalId := "externalId_example" // string | Autotest external ID (optional)
-	globalId := int64(789) // int64 | Autotest global ID (optional)
-	namespace := "namespace_example" // string | Namespace in which autotest is located (optional)
-	isNamespaceNull := true // bool | OBSOLETE: Use `includeEmptyNamespaces` instead (optional)
-	includeEmptyNamespaces := true // bool | If result must contain autotests without namespace (optional)
-	className := "className_example" // string | Name of class in which autotest is located (optional)
-	isClassnameNull := true // bool | OBSOLETE: Use `includeEmptyClassNames` instead (optional)
-	includeEmptyClassNames := true // bool | If result must contain autotests without class (optional)
-	isDeleted := true // bool | OBSOLETE: Use `deleted` instead (optional)
-	deleted := true // bool | Is autotest deleted (optional)
-	labels := []string{"Inner_example"} // []string | Include only autotests with provided labels (optional)
-	stabilityMinimal := int32(56) // int32 | OBSOLETE: Use `minStability` instead (optional)
-	minStability := int32(56) // int32 | Minimum stability value of autotest (optional)
-	stabilityMaximal := int32(56) // int32 | OBSOLETE: Use `maxStability` instead (optional)
-	maxStability := int32(56) // int32 | Maximum stability value of autotest (optional)
-	isFlaky := true // bool | OBSOLETE: Use `flaky` instead (optional)
-	flaky := true // bool | Is autotest marked as \"Flaky\" (optional)
-	includeSteps := true // bool | If result must also include autotest steps (optional)
-	includeLabels := true // bool | If result must also include autotest labels (optional)
-	externalKey := "externalKey_example" // string | External key of autotest (optional)
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
+    projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project internal ID (optional)
+    externalId := "externalId_example" // string | Autotest external ID (optional)
+    globalId := int64(789) // int64 | Autotest global ID (optional)
+    namespace := "namespace_example" // string | Namespace in which autotest is located (optional)
+    isNamespaceNull := true // bool | OBSOLETE: Use `includeEmptyNamespaces` instead (optional)
+    includeEmptyNamespaces := true // bool | If result must contain autotests without namespace (optional)
+    className := "className_example" // string | Name of class in which autotest is located (optional)
+    isClassnameNull := true // bool | OBSOLETE: Use `includeEmptyClassNames` instead (optional)
+    includeEmptyClassNames := true // bool | If result must contain autotests without class (optional)
+    isDeleted := true // bool | OBSOLETE: Use `deleted` instead (optional)
+    deleted := true // bool | Is autotest deleted (optional)
+    labels := []string{"Inner_example"} // []string | Include only autotests with provided labels (optional)
+    stabilityMinimal := int32(56) // int32 | OBSOLETE: Use `minStability` instead (optional)
+    minStability := int32(56) // int32 | Minimum stability value of autotest (optional)
+    stabilityMaximal := int32(56) // int32 | OBSOLETE: Use `maxStability` instead (optional)
+    maxStability := int32(56) // int32 | Maximum stability value of autotest (optional)
+    isFlaky := true // bool | OBSOLETE: Use `flaky` instead (optional)
+    flaky := true // bool | Is autotest marked as \"Flaky\" (optional)
+    includeSteps := true // bool | If result must also include autotest steps (optional)
+    includeLabels := true // bool | If result must also include autotest labels (optional)
+    externalKey := "externalKey_example" // string | External key of autotest (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetAllAutoTests(context.Background()).ProjectId(projectId).ExternalId(externalId).GlobalId(globalId).Namespace(namespace).IsNamespaceNull(isNamespaceNull).IncludeEmptyNamespaces(includeEmptyNamespaces).ClassName(className).IsClassnameNull(isClassnameNull).IncludeEmptyClassNames(includeEmptyClassNames).IsDeleted(isDeleted).Deleted(deleted).Labels(labels).StabilityMinimal(stabilityMinimal).MinStability(minStability).StabilityMaximal(stabilityMaximal).MaxStability(maxStability).IsFlaky(isFlaky).Flaky(flaky).IncludeSteps(includeSteps).IncludeLabels(includeLabels).ExternalKey(externalKey).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetAllAutoTests``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAllAutoTests`: []AutoTestModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetAllAutoTests`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.GetAllAutoTests(context.Background()).ProjectId(projectId).ExternalId(externalId).GlobalId(globalId).Namespace(namespace).IsNamespaceNull(isNamespaceNull).IncludeEmptyNamespaces(includeEmptyNamespaces).ClassName(className).IsClassnameNull(isClassnameNull).IncludeEmptyClassNames(includeEmptyClassNames).IsDeleted(isDeleted).Deleted(deleted).Labels(labels).StabilityMinimal(stabilityMinimal).MinStability(minStability).StabilityMaximal(stabilityMaximal).MaxStability(maxStability).IsFlaky(isFlaky).Flaky(flaky).IncludeSteps(includeSteps).IncludeLabels(includeLabels).ExternalKey(externalKey).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetAllAutoTests``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAllAutoTests`: []AutoTestModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.GetAllAutoTests`: %v\n", resp)
 }
 ```
 
@@ -866,24 +866,24 @@ Get average autotest duration
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
+    id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetAutoTestAverageDuration(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetAutoTestAverageDuration``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAutoTestAverageDuration`: AutoTestAverageDurationModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetAutoTestAverageDuration`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.GetAutoTestAverageDuration(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetAutoTestAverageDuration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAutoTestAverageDuration`: AutoTestAverageDurationModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.GetAutoTestAverageDuration`: %v\n", resp)
 }
 ```
 
@@ -936,24 +936,24 @@ Get autotest by internal or global ID
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
+    id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetAutoTestById(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetAutoTestById``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAutoTestById`: AutoTestModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetAutoTestById`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.GetAutoTestById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetAutoTestById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAutoTestById`: AutoTestModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.GetAutoTestById`: %v\n", resp)
 }
 ```
 
@@ -1006,24 +1006,24 @@ Get autotest chronology
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
+    id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetAutoTestChronology(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetAutoTestChronology``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAutoTestChronology`: []TestResultChronologyModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetAutoTestChronology`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.GetAutoTestChronology(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetAutoTestChronology``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAutoTestChronology`: []TestResultChronologyModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.GetAutoTestChronology`: %v\n", resp)
 }
 ```
 
@@ -1076,24 +1076,24 @@ Get completed tests runs for autotests
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
+    id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetTestRuns(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetTestRuns``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTestRuns`: []TestRunShortModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetTestRuns`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.GetTestRuns(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetTestRuns``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTestRuns`: []TestRunShortModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.GetTestRuns`: %v\n", resp)
 }
 ```
 
@@ -1144,39 +1144,39 @@ Name | Type | Description  | Notes
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
+    "context"
+    "fmt"
+    "os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | 
-	from := time.Now() // time.Time | Take results from this date (optional)
-	to := time.Now() // time.Time | Take results until this date (optional)
-	configurationIds := []string{"Inner_example"} // []string | Identifiers of test result configurations (optional)
-	testPlanIds := []string{"Inner_example"} // []string | Identifiers of test plans which contain test results (optional)
-	userIds := []string{"Inner_example"} // []string | Identifiers of users who set test results (optional)
-	outcomes := []string{"Inner_example"} // []string | List of outcomes of test results (optional)
-	isAutomated := true // bool | OBSOLETE: Use `Automated` instead (optional)
-	automated := true // bool | If result must consist of only manual/automated test results (optional)
-	testRunIds := []string{"Inner_example"} // []string | Identifiers of test runs which contain test results (optional)
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
+    id := "id_example" // string | 
+    from := time.Now() // time.Time | Take results from this date (optional)
+    to := time.Now() // time.Time | Take results until this date (optional)
+    configurationIds := []string{"Inner_example"} // []string | Identifiers of test result configurations (optional)
+    testPlanIds := []string{"Inner_example"} // []string | Identifiers of test plans which contain test results (optional)
+    userIds := []string{"Inner_example"} // []string | Identifiers of users who set test results (optional)
+    outcomes := []string{"Inner_example"} // []string | List of outcomes of test results (optional)
+    isAutomated := true // bool | OBSOLETE: Use `Automated` instead (optional)
+    automated := true // bool | If result must consist of only manual/automated test results (optional)
+    testRunIds := []string{"Inner_example"} // []string | Identifiers of test runs which contain test results (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetWorkItemResults(context.Background(), id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetWorkItemResults``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkItemResults`: []TestResultHistoryReportModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetWorkItemResults`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.GetWorkItemResults(context.Background(), id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetWorkItemResults``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWorkItemResults`: []TestResultHistoryReportModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.GetWorkItemResults`: %v\n", resp)
 }
 ```
 
@@ -1243,26 +1243,26 @@ Get work items linked to autotest
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Specifies the autotest entity ID.<br />  You can copy it from the address bar in your web browser or use autotest GUID.
-	isDeleted := true // bool | Specifies that a test is deleted or still relevant. (optional)
-	isWorkItemDeleted := true // bool | OBSOLETE: Use `isDeleted` instead (optional) (default to false)
+    id := "id_example" // string | Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.
+    isDeleted := true // bool | Specifies that a test is deleted or still relevant. (optional)
+    isWorkItemDeleted := true // bool | OBSOLETE: Use `isDeleted` instead (optional) (default to false)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetWorkItemsLinkedToAutoTest(context.Background(), id).IsDeleted(isDeleted).IsWorkItemDeleted(isWorkItemDeleted).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetWorkItemsLinkedToAutoTest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkItemsLinkedToAutoTest`: []WorkItemIdentifierModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetWorkItemsLinkedToAutoTest`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutoTestsApi.GetWorkItemsLinkedToAutoTest(context.Background(), id).IsDeleted(isDeleted).IsWorkItemDeleted(isWorkItemDeleted).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.GetWorkItemsLinkedToAutoTest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWorkItemsLinkedToAutoTest`: []WorkItemIdentifierModel
+    fmt.Fprintf(os.Stdout, "Response from `AutoTestsApi.GetWorkItemsLinkedToAutoTest`: %v\n", resp)
 }
 ```
 
@@ -1272,7 +1272,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Specifies the autotest entity ID.&lt;br /&gt;  You can copy it from the address bar in your web browser or use autotest GUID. | 
+**id** | **string** | Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. | 
 
 ### Other Parameters
 
@@ -1305,7 +1305,7 @@ Name | Type | Description  | Notes
 
 ## LinkAutoTestToWorkItem
 
-> LinkAutoTestToWorkItem(ctx, id).WorkItemIdModel(workItemIdModel).Execute()
+> LinkAutoTestToWorkItem(ctx, id).LinkAutoTestToWorkItemRequest(linkAutoTestToWorkItemRequest).Execute()
 
 Link autotest with work items
 
@@ -1317,23 +1317,23 @@ Link autotest with work items
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-	workItemIdModel := *openapiclient.NewWorkItemIdModel("82e92d6f-0258-416b-b2b4-039ea76601c7") // WorkItemIdModel |  (optional)
+    id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
+    linkAutoTestToWorkItemRequest := *openapiclient.NewLinkAutoTestToWorkItemRequest("59173397-9485-4b36-9196-9405cf7416c2") // LinkAutoTestToWorkItemRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.LinkAutoTestToWorkItem(context.Background(), id).WorkItemIdModel(workItemIdModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.LinkAutoTestToWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.LinkAutoTestToWorkItem(context.Background(), id).LinkAutoTestToWorkItemRequest(linkAutoTestToWorkItemRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.LinkAutoTestToWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -1353,7 +1353,7 @@ Other parameters are passed through a pointer to a apiLinkAutoTestToWorkItemRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemIdModel** | [**WorkItemIdModel**](WorkItemIdModel.md) |  | 
+ **linkAutoTestToWorkItemRequest** | [**LinkAutoTestToWorkItemRequest**](LinkAutoTestToWorkItemRequest.md) |  | 
 
 ### Return type
 
@@ -1375,7 +1375,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAutoTest
 
-> UpdateAutoTest(ctx).AutoTestPutModel(autoTestPutModel).Execute()
+> UpdateAutoTest(ctx).UpdateAutoTestRequest(updateAutoTestRequest).Execute()
 
 Update autotest
 
@@ -1387,22 +1387,22 @@ Update autotest
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	autoTestPutModel := *openapiclient.NewAutoTestPutModel("ExternalId_example", "ProjectId_example", "Name_example") // AutoTestPutModel |  (optional)
+    updateAutoTestRequest := *openapiclient.NewUpdateAutoTestRequest("ExternalId_example", "ProjectId_example", "Name_example") // UpdateAutoTestRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.UpdateAutoTest(context.Background()).AutoTestPutModel(autoTestPutModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.UpdateAutoTest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.UpdateAutoTest(context.Background()).UpdateAutoTestRequest(updateAutoTestRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.UpdateAutoTest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -1417,7 +1417,7 @@ Other parameters are passed through a pointer to a apiUpdateAutoTestRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPutModel** | [**AutoTestPutModel**](AutoTestPutModel.md) |  | 
+ **updateAutoTestRequest** | [**UpdateAutoTestRequest**](UpdateAutoTestRequest.md) |  | 
 
 ### Return type
 
@@ -1451,22 +1451,22 @@ Update multiple autotests
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	autoTestPutModel := []openapiclient.AutoTestPutModel{*openapiclient.NewAutoTestPutModel("ExternalId_example", "ProjectId_example", "Name_example")} // []AutoTestPutModel |  (optional)
+    autoTestPutModel := []openapiclient.AutoTestPutModel{*openapiclient.NewAutoTestPutModel("ExternalId_example", "ProjectId_example", "Name_example")} // []AutoTestPutModel |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.UpdateMultiple(context.Background()).AutoTestPutModel(autoTestPutModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.UpdateMultiple``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.AutoTestsApi.UpdateMultiple(context.Background()).AutoTestPutModel(autoTestPutModel).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsApi.UpdateMultiple``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 

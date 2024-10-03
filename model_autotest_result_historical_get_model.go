@@ -13,8 +13,6 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AutotestResultHistoricalGetModel type satisfies the MappedNullable interface at compile time
@@ -39,8 +37,6 @@ type AutotestResultHistoricalGetModel struct {
 	TestPlanName NullableString `json:"testPlanName,omitempty"`
 	Duration NullableInt64 `json:"duration,omitempty"`
 }
-
-type _AutotestResultHistoricalGetModel AutotestResultHistoricalGetModel
 
 // NewAutotestResultHistoricalGetModel instantiates a new AutotestResultHistoricalGetModel object
 // This constructor will assign default values to properties that have it defined,
@@ -638,50 +634,6 @@ func (o AutotestResultHistoricalGetModel) ToMap() (map[string]interface{}, error
 		toSerialize["duration"] = o.Duration.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *AutotestResultHistoricalGetModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"createdDate",
-		"createdById",
-		"createdByName",
-		"testRunId",
-		"configurationId",
-		"configurationName",
-		"outcome",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAutotestResultHistoricalGetModel := _AutotestResultHistoricalGetModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutotestResultHistoricalGetModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AutotestResultHistoricalGetModel(varAutotestResultHistoricalGetModel)
-
-	return err
 }
 
 type NullableAutotestResultHistoricalGetModel struct {

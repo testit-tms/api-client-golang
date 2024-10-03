@@ -1,13 +1,13 @@
-# \TestPointsAPI
+# \TestPointsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2TestPointsIdTestRunsGet**](TestPointsAPI.md#ApiV2TestPointsIdTestRunsGet) | **Get** /api/v2/testPoints/{id}/testRuns | Get all test runs which use test point
-[**ApiV2TestPointsIdWorkItemGet**](TestPointsAPI.md#ApiV2TestPointsIdWorkItemGet) | **Get** /api/v2/testPoints/{id}/workItem | Get work item represented by test point
-[**ApiV2TestPointsSearchIdPost**](TestPointsAPI.md#ApiV2TestPointsSearchIdPost) | **Post** /api/v2/testPoints/search/id | Search for test points and extract IDs only
-[**ApiV2TestPointsSearchPost**](TestPointsAPI.md#ApiV2TestPointsSearchPost) | **Post** /api/v2/testPoints/search | Search for test points
+[**ApiV2TestPointsIdTestRunsGet**](TestPointsApi.md#ApiV2TestPointsIdTestRunsGet) | **Get** /api/v2/testPoints/{id}/testRuns | Get all test runs which use test point
+[**ApiV2TestPointsIdWorkItemGet**](TestPointsApi.md#ApiV2TestPointsIdWorkItemGet) | **Get** /api/v2/testPoints/{id}/workItem | Get work item represented by test point
+[**ApiV2TestPointsSearchIdPost**](TestPointsApi.md#ApiV2TestPointsSearchIdPost) | **Post** /api/v2/testPoints/search/id | Search for test points and extract IDs only
+[**ApiV2TestPointsSearchPost**](TestPointsApi.md#ApiV2TestPointsSearchPost) | **Post** /api/v2/testPoints/search | Search for test points
 
 
 
@@ -23,24 +23,24 @@ Get all test runs which use test point
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test point unique ID
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test point unique ID
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsIdTestRunsGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestPointsAPI.ApiV2TestPointsIdTestRunsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2TestPointsIdTestRunsGet`: []TestRunModel
-	fmt.Fprintf(os.Stdout, "Response from `TestPointsAPI.ApiV2TestPointsIdTestRunsGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsIdTestRunsGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestPointsApi.ApiV2TestPointsIdTestRunsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestPointsIdTestRunsGet`: []TestRunModel
+    fmt.Fprintf(os.Stdout, "Response from `TestPointsApi.ApiV2TestPointsIdTestRunsGet`: %v\n", resp)
 }
 ```
 
@@ -91,24 +91,24 @@ Get work item represented by test point
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test point unique ID
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test point unique ID
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsIdWorkItemGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestPointsAPI.ApiV2TestPointsIdWorkItemGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2TestPointsIdWorkItemGet`: WorkItemModel
-	fmt.Fprintf(os.Stdout, "Response from `TestPointsAPI.ApiV2TestPointsIdWorkItemGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsIdWorkItemGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestPointsApi.ApiV2TestPointsIdWorkItemGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestPointsIdWorkItemGet`: WorkItemModel
+    fmt.Fprintf(os.Stdout, "Response from `TestPointsApi.ApiV2TestPointsIdWorkItemGet`: %v\n", resp)
 }
 ```
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPointsSearchIdPost
 
-> []string ApiV2TestPointsSearchIdPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+> []string ApiV2TestPointsSearchIdPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
 
 Search for test points and extract IDs only
 
@@ -159,29 +159,29 @@ Search for test points and extract IDs only
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testPointFilterModel := *openapiclient.NewTestPointFilterModel() // TestPointFilterModel |  (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2TestPointsSearchPostRequest := *openapiclient.NewApiV2TestPointsSearchPostRequest() // ApiV2TestPointsSearchPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsSearchIdPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestPointsAPI.ApiV2TestPointsSearchIdPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2TestPointsSearchIdPost`: []string
-	fmt.Fprintf(os.Stdout, "Response from `TestPointsAPI.ApiV2TestPointsSearchIdPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsSearchIdPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestPointsApi.ApiV2TestPointsSearchIdPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestPointsSearchIdPost`: []string
+    fmt.Fprintf(os.Stdout, "Response from `TestPointsApi.ApiV2TestPointsSearchIdPost`: %v\n", resp)
 }
 ```
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md) |  | 
+ **apiV2TestPointsSearchPostRequest** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPointsSearchPost
 
-> []TestPointShortGetModel ApiV2TestPointsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+> []TestPointShortGetModel ApiV2TestPointsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
 
 Search for test points
 
@@ -233,29 +233,29 @@ Search for test points
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testPointFilterModel := *openapiclient.NewTestPointFilterModel() // TestPointFilterModel |  (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2TestPointsSearchPostRequest := *openapiclient.NewApiV2TestPointsSearchPostRequest() // ApiV2TestPointsSearchPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestPointsAPI.ApiV2TestPointsSearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2TestPointsSearchPost`: []TestPointShortGetModel
-	fmt.Fprintf(os.Stdout, "Response from `TestPointsAPI.ApiV2TestPointsSearchPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestPointsApi.ApiV2TestPointsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2TestPointsSearchPostRequest(apiV2TestPointsSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestPointsApi.ApiV2TestPointsSearchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestPointsSearchPost`: []TestPointShortGetModel
+    fmt.Fprintf(os.Stdout, "Response from `TestPointsApi.ApiV2TestPointsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md) |  | 
+ **apiV2TestPointsSearchPostRequest** | [**ApiV2TestPointsSearchPostRequest**](ApiV2TestPointsSearchPostRequest.md) |  | 
 
 ### Return type
 

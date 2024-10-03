@@ -31,6 +31,10 @@
 
 * `IMPORT_PROJECTS` (value: `"ImportProjects"`)
 
+* `PURGE_ENTITIES` (value: `"PurgeEntities"`)
+
+* `DELETE_COMPLETED_JOBS` (value: `"DeleteCompletedJobs"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

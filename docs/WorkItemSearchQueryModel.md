@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **IsAutomated** | Pointer to **NullableBool** | Is result must consist of only manual/automated work items | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags | [optional] 
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
+**WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
 
 ## Methods
 
@@ -708,6 +709,41 @@ HasAutoTestIds returns a boolean if a field has been set.
 `func (o *WorkItemSearchQueryModel) UnsetAutoTestIds()`
 
 UnsetAutoTestIds ensures that no value is present for AutoTestIds, not even an explicit nil
+### GetWorkItemVersionIds
+
+`func (o *WorkItemSearchQueryModel) GetWorkItemVersionIds() []string`
+
+GetWorkItemVersionIds returns the WorkItemVersionIds field if non-nil, zero value otherwise.
+
+### GetWorkItemVersionIdsOk
+
+`func (o *WorkItemSearchQueryModel) GetWorkItemVersionIdsOk() (*[]string, bool)`
+
+GetWorkItemVersionIdsOk returns a tuple with the WorkItemVersionIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemVersionIds
+
+`func (o *WorkItemSearchQueryModel) SetWorkItemVersionIds(v []string)`
+
+SetWorkItemVersionIds sets WorkItemVersionIds field to given value.
+
+### HasWorkItemVersionIds
+
+`func (o *WorkItemSearchQueryModel) HasWorkItemVersionIds() bool`
+
+HasWorkItemVersionIds returns a boolean if a field has been set.
+
+### SetWorkItemVersionIdsNil
+
+`func (o *WorkItemSearchQueryModel) SetWorkItemVersionIdsNil(b bool)`
+
+ SetWorkItemVersionIdsNil sets the value for WorkItemVersionIds to be an explicit nil
+
+### UnsetWorkItemVersionIds
+`func (o *WorkItemSearchQueryModel) UnsetWorkItemVersionIds()`
+
+UnsetWorkItemVersionIds ensures that no value is present for WorkItemVersionIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

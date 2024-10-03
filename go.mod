@@ -1,4 +1,4 @@
-module github.com/testit-tms/api-client-golang/v2
+module github.com/testit-tms/api-client-golang
 
 go 1.18
 

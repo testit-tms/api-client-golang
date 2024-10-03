@@ -13,8 +13,6 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WorkItemChangeModel type satisfies the MappedNullable interface at compile time
@@ -26,18 +24,16 @@ type WorkItemChangeModel struct {
 	WorkItemId string `json:"workItemId"`
 	OldVersionId string `json:"oldVersionId"`
 	NewVersionId string `json:"newVersionId"`
-	WorkItemChangedFields WorkItemChangedFieldsViewModel `json:"workItemChangedFields"`
+	WorkItemChangedFields WorkItemChangeModelWorkItemChangedFields `json:"workItemChangedFields"`
 	CreatedById string `json:"createdById"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 }
-
-type _WorkItemChangeModel WorkItemChangeModel
 
 // NewWorkItemChangeModel instantiates a new WorkItemChangeModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangedFieldsViewModel, createdById string) *WorkItemChangeModel {
+func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangeModelWorkItemChangedFields, createdById string) *WorkItemChangeModel {
 	this := WorkItemChangeModel{}
 	this.Id = id
 	this.WorkItemId = workItemId
@@ -153,9 +149,9 @@ func (o *WorkItemChangeModel) SetNewVersionId(v string) {
 }
 
 // GetWorkItemChangedFields returns the WorkItemChangedFields field value
-func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsViewModel {
+func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangeModelWorkItemChangedFields {
 	if o == nil {
-		var ret WorkItemChangedFieldsViewModel
+		var ret WorkItemChangeModelWorkItemChangedFields
 		return ret
 	}
 
@@ -164,7 +160,7 @@ func (o *WorkItemChangeModel) GetWorkItemChangedFields() WorkItemChangedFieldsVi
 
 // GetWorkItemChangedFieldsOk returns a tuple with the WorkItemChangedFields field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFieldsViewModel, bool) {
+func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangeModelWorkItemChangedFields, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -172,7 +168,7 @@ func (o *WorkItemChangeModel) GetWorkItemChangedFieldsOk() (*WorkItemChangedFiel
 }
 
 // SetWorkItemChangedFields sets field value
-func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangedFieldsViewModel) {
+func (o *WorkItemChangeModel) SetWorkItemChangedFields(v WorkItemChangeModelWorkItemChangedFields) {
 	o.WorkItemChangedFields = v
 }
 
@@ -262,48 +258,6 @@ func (o WorkItemChangeModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *WorkItemChangeModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"workItemId",
-		"oldVersionId",
-		"newVersionId",
-		"workItemChangedFields",
-		"createdById",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWorkItemChangeModel := _WorkItemChangeModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWorkItemChangeModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WorkItemChangeModel(varWorkItemChangeModel)
-
-	return err
 }
 
 type NullableWorkItemChangeModel struct {

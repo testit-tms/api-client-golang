@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the FlakyBulkModel type satisfies the MappedNullable interface at compile time
@@ -21,18 +19,16 @@ var _ MappedNullable = &FlakyBulkModel{}
 
 // FlakyBulkModel struct for FlakyBulkModel
 type FlakyBulkModel struct {
-	AutotestSelect AutotestSelectModel `json:"autotestSelect"`
+	AutotestSelect FlakyBulkModelAutotestSelect `json:"autotestSelect"`
 	// Are autotests flaky
 	Value bool `json:"value"`
 }
-
-type _FlakyBulkModel FlakyBulkModel
 
 // NewFlakyBulkModel instantiates a new FlakyBulkModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFlakyBulkModel(autotestSelect AutotestSelectModel, value bool) *FlakyBulkModel {
+func NewFlakyBulkModel(autotestSelect FlakyBulkModelAutotestSelect, value bool) *FlakyBulkModel {
 	this := FlakyBulkModel{}
 	this.AutotestSelect = autotestSelect
 	this.Value = value
@@ -48,9 +44,9 @@ func NewFlakyBulkModelWithDefaults() *FlakyBulkModel {
 }
 
 // GetAutotestSelect returns the AutotestSelect field value
-func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel {
+func (o *FlakyBulkModel) GetAutotestSelect() FlakyBulkModelAutotestSelect {
 	if o == nil {
-		var ret AutotestSelectModel
+		var ret FlakyBulkModelAutotestSelect
 		return ret
 	}
 
@@ -59,7 +55,7 @@ func (o *FlakyBulkModel) GetAutotestSelect() AutotestSelectModel {
 
 // GetAutotestSelectOk returns a tuple with the AutotestSelect field value
 // and a boolean to check if the value has been set.
-func (o *FlakyBulkModel) GetAutotestSelectOk() (*AutotestSelectModel, bool) {
+func (o *FlakyBulkModel) GetAutotestSelectOk() (*FlakyBulkModelAutotestSelect, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +63,7 @@ func (o *FlakyBulkModel) GetAutotestSelectOk() (*AutotestSelectModel, bool) {
 }
 
 // SetAutotestSelect sets field value
-func (o *FlakyBulkModel) SetAutotestSelect(v AutotestSelectModel) {
+func (o *FlakyBulkModel) SetAutotestSelect(v FlakyBulkModelAutotestSelect) {
 	o.AutotestSelect = v
 }
 
@@ -108,44 +104,6 @@ func (o FlakyBulkModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["autotestSelect"] = o.AutotestSelect
 	toSerialize["value"] = o.Value
 	return toSerialize, nil
-}
-
-func (o *FlakyBulkModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"autotestSelect",
-		"value",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFlakyBulkModel := _FlakyBulkModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFlakyBulkModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FlakyBulkModel(varFlakyBulkModel)
-
-	return err
 }
 
 type NullableFlakyBulkModel struct {

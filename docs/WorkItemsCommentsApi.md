@@ -1,13 +1,13 @@
-# \WorkItemsCommentsAPI
+# \WorkItemsCommentsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2WorkItemsCommentsCommentIdDelete**](WorkItemsCommentsAPI.md#ApiV2WorkItemsCommentsCommentIdDelete) | **Delete** /api/v2/workItems/comments/{commentId} | Delete WorkItem comment
-[**ApiV2WorkItemsCommentsPost**](WorkItemsCommentsAPI.md#ApiV2WorkItemsCommentsPost) | **Post** /api/v2/workItems/comments | Create WorkItem comment
-[**ApiV2WorkItemsCommentsPut**](WorkItemsCommentsAPI.md#ApiV2WorkItemsCommentsPut) | **Put** /api/v2/workItems/comments | Update work item comment
-[**ApiV2WorkItemsIdCommentsGet**](WorkItemsCommentsAPI.md#ApiV2WorkItemsIdCommentsGet) | **Get** /api/v2/workItems/{id}/comments | Get work item comments
+[**ApiV2WorkItemsCommentsCommentIdDelete**](WorkItemsCommentsApi.md#ApiV2WorkItemsCommentsCommentIdDelete) | **Delete** /api/v2/workItems/comments/{commentId} | Delete WorkItem comment
+[**ApiV2WorkItemsCommentsPost**](WorkItemsCommentsApi.md#ApiV2WorkItemsCommentsPost) | **Post** /api/v2/workItems/comments | Create WorkItem comment
+[**ApiV2WorkItemsCommentsPut**](WorkItemsCommentsApi.md#ApiV2WorkItemsCommentsPut) | **Put** /api/v2/workItems/comments | Update work item comment
+[**ApiV2WorkItemsIdCommentsGet**](WorkItemsCommentsApi.md#ApiV2WorkItemsIdCommentsGet) | **Get** /api/v2/workItems/{id}/comments | Get work item comments
 
 
 
@@ -25,22 +25,22 @@ Delete WorkItem comment
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	commentId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Comment internal (guid format) identifier
+    commentId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Comment internal (guid format) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsCommentsCommentIdDelete(context.Background(), commentId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsAPI.ApiV2WorkItemsCommentsCommentIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsCommentsCommentIdDelete(context.Background(), commentId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsApi.ApiV2WorkItemsCommentsCommentIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsCommentsPost
 
-> WorkItemCommentModel ApiV2WorkItemsCommentsPost(ctx).WorkItemCommentPostModel(workItemCommentPostModel).Execute()
+> WorkItemCommentModel ApiV2WorkItemsCommentsPost(ctx).ApiV2WorkItemsCommentsPostRequest(apiV2WorkItemsCommentsPostRequest).Execute()
 
 Create WorkItem comment
 
@@ -93,24 +93,24 @@ Create WorkItem comment
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	workItemCommentPostModel := *openapiclient.NewWorkItemCommentPostModel("Text_example", "WorkItemId_example") // WorkItemCommentPostModel |  (optional)
+    apiV2WorkItemsCommentsPostRequest := *openapiclient.NewApiV2WorkItemsCommentsPostRequest("Text_example", "WorkItemId_example") // ApiV2WorkItemsCommentsPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPost(context.Background()).WorkItemCommentPostModel(workItemCommentPostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsCommentsPost`: WorkItemCommentModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsCommentsPost(context.Background()).ApiV2WorkItemsCommentsPostRequest(apiV2WorkItemsCommentsPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsApi.ApiV2WorkItemsCommentsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsCommentsPost`: WorkItemCommentModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsCommentsApi.ApiV2WorkItemsCommentsPost`: %v\n", resp)
 }
 ```
 
@@ -125,7 +125,7 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsCommentsPost
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemCommentPostModel** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md) |  | 
+ **apiV2WorkItemsCommentsPostRequest** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md) |  | 
 
 ### Return type
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsCommentsPut
 
-> ApiV2WorkItemsCommentsPut(ctx).WorkItemCommentPutModel(workItemCommentPutModel).Execute()
+> ApiV2WorkItemsCommentsPut(ctx).ApiV2WorkItemsCommentsPutRequest(apiV2WorkItemsCommentsPutRequest).Execute()
 
 Update work item comment
 
@@ -157,22 +157,22 @@ Update work item comment
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	workItemCommentPutModel := *openapiclient.NewWorkItemCommentPutModel("Text_example", "Id_example") // WorkItemCommentPutModel |  (optional)
+    apiV2WorkItemsCommentsPutRequest := *openapiclient.NewApiV2WorkItemsCommentsPutRequest("Text_example", "Id_example") // ApiV2WorkItemsCommentsPutRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPut(context.Background()).WorkItemCommentPutModel(workItemCommentPutModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsCommentsPut(context.Background()).ApiV2WorkItemsCommentsPutRequest(apiV2WorkItemsCommentsPutRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsApi.ApiV2WorkItemsCommentsPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -187,7 +187,7 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsCommentsPutR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemCommentPutModel** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md) |  | 
+ **apiV2WorkItemsCommentsPutRequest** | [**ApiV2WorkItemsCommentsPutRequest**](ApiV2WorkItemsCommentsPutRequest.md) |  | 
 
 ### Return type
 
@@ -219,24 +219,24 @@ Get work item comments
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Unique or global ID of the work item
+    id := "id_example" // string | Unique or global ID of the work item
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsIdCommentsGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsAPI.ApiV2WorkItemsIdCommentsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdCommentsGet`: []WorkItemCommentModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsCommentsAPI.ApiV2WorkItemsIdCommentsGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsCommentsApi.ApiV2WorkItemsIdCommentsGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsApi.ApiV2WorkItemsIdCommentsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsIdCommentsGet`: []WorkItemCommentModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsCommentsApi.ApiV2WorkItemsIdCommentsGet`: %v\n", resp)
 }
 ```
 

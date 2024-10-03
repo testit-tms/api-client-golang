@@ -21,12 +21,12 @@ import (
 )
 
 
-// ProjectImportAPIService ProjectImportAPI service
-type ProjectImportAPIService service
+// ProjectImportApiService ProjectImportApi service
+type ProjectImportApiService service
 
 type ApiBackgroundImportToExistingProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectImportAPIService
+	ApiService *ProjectImportApiService
 	projectId string
 	file *os.File
 }
@@ -47,8 +47,10 @@ BackgroundImportToExistingProject Import project from JSON file into existing pr
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiBackgroundImportToExistingProjectRequest
+
+Deprecated
 */
-func (a *ProjectImportAPIService) BackgroundImportToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportToExistingProjectRequest {
+func (a *ProjectImportApiService) BackgroundImportToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportToExistingProjectRequest {
 	return ApiBackgroundImportToExistingProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -58,7 +60,8 @@ func (a *ProjectImportAPIService) BackgroundImportToExistingProject(ctx context.
 
 // Execute executes the request
 //  @return string
-func (a *ProjectImportAPIService) BackgroundImportToExistingProjectExecute(r ApiBackgroundImportToExistingProjectRequest) (string, *http.Response, error) {
+// Deprecated
+func (a *ProjectImportApiService) BackgroundImportToExistingProjectExecute(r ApiBackgroundImportToExistingProjectRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -66,7 +69,7 @@ func (a *ProjectImportAPIService) BackgroundImportToExistingProjectExecute(r Api
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportAPIService.BackgroundImportToExistingProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportApiService.BackgroundImportToExistingProject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -100,6 +103,8 @@ func (a *ProjectImportAPIService) BackgroundImportToExistingProjectExecute(r Api
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
+
+
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {
@@ -146,6 +151,71 @@ func (a *ProjectImportAPIService) BackgroundImportToExistingProjectExecute(r Api
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -163,7 +233,7 @@ func (a *ProjectImportAPIService) BackgroundImportToExistingProjectExecute(r Api
 
 type ApiBackgroundImportZipToExistingProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectImportAPIService
+	ApiService *ProjectImportApiService
 	projectId string
 	file *os.File
 }
@@ -184,8 +254,10 @@ BackgroundImportZipToExistingProject Import project from Zip file into existing 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiBackgroundImportZipToExistingProjectRequest
+
+Deprecated
 */
-func (a *ProjectImportAPIService) BackgroundImportZipToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportZipToExistingProjectRequest {
+func (a *ProjectImportApiService) BackgroundImportZipToExistingProject(ctx context.Context, projectId string) ApiBackgroundImportZipToExistingProjectRequest {
 	return ApiBackgroundImportZipToExistingProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -195,7 +267,8 @@ func (a *ProjectImportAPIService) BackgroundImportZipToExistingProject(ctx conte
 
 // Execute executes the request
 //  @return string
-func (a *ProjectImportAPIService) BackgroundImportZipToExistingProjectExecute(r ApiBackgroundImportZipToExistingProjectRequest) (string, *http.Response, error) {
+// Deprecated
+func (a *ProjectImportApiService) BackgroundImportZipToExistingProjectExecute(r ApiBackgroundImportZipToExistingProjectRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -203,7 +276,7 @@ func (a *ProjectImportAPIService) BackgroundImportZipToExistingProjectExecute(r 
 		localVarReturnValue  string
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportAPIService.BackgroundImportZipToExistingProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportApiService.BackgroundImportZipToExistingProject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -237,6 +310,8 @@ func (a *ProjectImportAPIService) BackgroundImportZipToExistingProjectExecute(r 
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
+
+
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {
@@ -283,6 +358,71 @@ func (a *ProjectImportAPIService) BackgroundImportZipToExistingProjectExecute(r 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -300,7 +440,7 @@ func (a *ProjectImportAPIService) BackgroundImportZipToExistingProjectExecute(r 
 
 type ApiImportToExistingProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectImportAPIService
+	ApiService *ProjectImportApiService
 	projectId string
 	includeAttachments *bool
 	file *os.File
@@ -324,11 +464,16 @@ func (r ApiImportToExistingProjectRequest) Execute() (*http.Response, error) {
 /*
 ImportToExistingProject Import project from JSON file into existing project
 
-<br>Use case
-<br>User attaches project as json file taken from export or export-by-testPlans method
-<br>User runs method execution
-<br>System updates project
-<br>System returns no content response
+
+Use case
+
+User attaches project as json file taken from export or export-by-testPlans method
+
+User runs method execution
+
+System updates project
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
@@ -336,7 +481,7 @@ ImportToExistingProject Import project from JSON file into existing project
 
 Deprecated
 */
-func (a *ProjectImportAPIService) ImportToExistingProject(ctx context.Context, projectId string) ApiImportToExistingProjectRequest {
+func (a *ProjectImportApiService) ImportToExistingProject(ctx context.Context, projectId string) ApiImportToExistingProjectRequest {
 	return ApiImportToExistingProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -346,14 +491,14 @@ func (a *ProjectImportAPIService) ImportToExistingProject(ctx context.Context, p
 
 // Execute executes the request
 // Deprecated
-func (a *ProjectImportAPIService) ImportToExistingProjectExecute(r ApiImportToExistingProjectRequest) (*http.Response, error) {
+func (a *ProjectImportApiService) ImportToExistingProjectExecute(r ApiImportToExistingProjectRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportAPIService.ImportToExistingProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectImportApiService.ImportToExistingProject")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -390,6 +535,8 @@ func (a *ProjectImportAPIService) ImportToExistingProjectExecute(r ApiImportToEx
 	var fileLocalVarFileBytes    []byte
 
 	fileLocalVarFormFileName = "file"
+
+
 	fileLocalVarFile := r.file
 
 	if fileLocalVarFile != nil {
@@ -436,6 +583,39 @@ func (a *ProjectImportAPIService) ImportToExistingProjectExecute(r ApiImportToEx
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 413 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -447,7 +627,7 @@ func (a *ProjectImportAPIService) ImportToExistingProjectExecute(r ApiImportToEx
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 413 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -457,6 +637,27 @@ func (a *ProjectImportAPIService) ImportToExistingProjectExecute(r ApiImportToEx
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

@@ -20,12 +20,12 @@ import (
 )
 
 
-// NotificationsAPIService NotificationsAPI service
-type NotificationsAPIService service
+// NotificationsApiService NotificationsApi service
+type NotificationsApiService service
 
 type ApiApiV2NotificationsCountGetRequest struct {
 	ctx context.Context
-	ApiService *NotificationsAPIService
+	ApiService *NotificationsApiService
 	isRead *bool
 }
 
@@ -41,14 +41,17 @@ func (r ApiApiV2NotificationsCountGetRequest) Execute() (int32, *http.Response, 
 /*
 ApiV2NotificationsCountGet Get unread Notifications total in last 7 days
 
-<br>Use case
-<br>User runs method execution
-<br>System returns unread notifications total (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System returns unread notifications total (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsCountGetRequest
 */
-func (a *NotificationsAPIService) ApiV2NotificationsCountGet(ctx context.Context) ApiApiV2NotificationsCountGetRequest {
+func (a *NotificationsApiService) ApiV2NotificationsCountGet(ctx context.Context) ApiApiV2NotificationsCountGetRequest {
 	return ApiApiV2NotificationsCountGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -57,7 +60,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsCountGet(ctx context.Context
 
 // Execute executes the request
 //  @return int32
-func (a *NotificationsAPIService) ApiV2NotificationsCountGetExecute(r ApiApiV2NotificationsCountGetRequest) (int32, *http.Response, error) {
+func (a *NotificationsApiService) ApiV2NotificationsCountGetExecute(r ApiApiV2NotificationsCountGetRequest) (int32, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -65,7 +68,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsCountGetExecute(r ApiApiV2No
 		localVarReturnValue  int32
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsCountGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsCountGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -132,7 +135,62 @@ func (a *NotificationsAPIService) ApiV2NotificationsCountGetExecute(r ApiApiV2No
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -159,7 +217,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsCountGetExecute(r ApiApiV2No
 
 type ApiApiV2NotificationsGetRequest struct {
 	ctx context.Context
-	ApiService *NotificationsAPIService
+	ApiService *NotificationsApiService
 	notificationType *NotificationTypeModel
 	skip *int32
 	take *int32
@@ -210,14 +268,17 @@ func (r ApiApiV2NotificationsGetRequest) Execute() ([]NotificationModel, *http.R
 /*
 ApiV2NotificationsGet Get all Notifications for current User
 
-<br>Use case
-<br>User runs method execution
-<br>System returns notifications (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System returns notifications (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsGetRequest
 */
-func (a *NotificationsAPIService) ApiV2NotificationsGet(ctx context.Context) ApiApiV2NotificationsGetRequest {
+func (a *NotificationsApiService) ApiV2NotificationsGet(ctx context.Context) ApiApiV2NotificationsGetRequest {
 	return ApiApiV2NotificationsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -226,7 +287,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsGet(ctx context.Context) Api
 
 // Execute executes the request
 //  @return []NotificationModel
-func (a *NotificationsAPIService) ApiV2NotificationsGetExecute(r ApiApiV2NotificationsGetRequest) ([]NotificationModel, *http.Response, error) {
+func (a *NotificationsApiService) ApiV2NotificationsGetExecute(r ApiApiV2NotificationsGetRequest) ([]NotificationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -234,7 +295,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsGetExecute(r ApiApiV2Notific
 		localVarReturnValue  []NotificationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -336,6 +397,50 @@ func (a *NotificationsAPIService) ApiV2NotificationsGetExecute(r ApiApiV2Notific
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -354,7 +459,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsGetExecute(r ApiApiV2Notific
 
 type ApiApiV2NotificationsIdReadPostRequest struct {
 	ctx context.Context
-	ApiService *NotificationsAPIService
+	ApiService *NotificationsApiService
 	id string
 }
 
@@ -365,16 +470,20 @@ func (r ApiApiV2NotificationsIdReadPostRequest) Execute() (*http.Response, error
 /*
 ApiV2NotificationsIdReadPost Set Notification as read
 
-<br>Use case
-<br>User sets notification internal (guid format) identifier
-<br>User runs method execution
-<br>System set notification as read
+
+Use case
+
+User sets notification internal (guid format) identifier
+
+User runs method execution
+
+System set notification as read
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id
  @return ApiApiV2NotificationsIdReadPostRequest
 */
-func (a *NotificationsAPIService) ApiV2NotificationsIdReadPost(ctx context.Context, id string) ApiApiV2NotificationsIdReadPostRequest {
+func (a *NotificationsApiService) ApiV2NotificationsIdReadPost(ctx context.Context, id string) ApiApiV2NotificationsIdReadPostRequest {
 	return ApiApiV2NotificationsIdReadPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -383,14 +492,14 @@ func (a *NotificationsAPIService) ApiV2NotificationsIdReadPost(ctx context.Conte
 }
 
 // Execute executes the request
-func (a *NotificationsAPIService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2NotificationsIdReadPostRequest) (*http.Response, error) {
+func (a *NotificationsApiService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2NotificationsIdReadPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsIdReadPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsIdReadPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -455,7 +564,29 @@ func (a *NotificationsAPIService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -475,6 +606,29 @@ func (a *NotificationsAPIService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -484,7 +638,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsIdReadPostExecute(r ApiApiV2
 
 type ApiApiV2NotificationsReadPostRequest struct {
 	ctx context.Context
-	ApiService *NotificationsAPIService
+	ApiService *NotificationsApiService
 }
 
 func (r ApiApiV2NotificationsReadPostRequest) Execute() (*http.Response, error) {
@@ -494,14 +648,17 @@ func (r ApiApiV2NotificationsReadPostRequest) Execute() (*http.Response, error) 
 /*
 ApiV2NotificationsReadPost Set all Notifications as read
 
-<br>Use case
-<br>User runs method execution
-<br>System set all notifications as read
+
+Use case
+
+User runs method execution
+
+System set all notifications as read
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsReadPostRequest
 */
-func (a *NotificationsAPIService) ApiV2NotificationsReadPost(ctx context.Context) ApiApiV2NotificationsReadPostRequest {
+func (a *NotificationsApiService) ApiV2NotificationsReadPost(ctx context.Context) ApiApiV2NotificationsReadPostRequest {
 	return ApiApiV2NotificationsReadPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -509,14 +666,14 @@ func (a *NotificationsAPIService) ApiV2NotificationsReadPost(ctx context.Context
 }
 
 // Execute executes the request
-func (a *NotificationsAPIService) ApiV2NotificationsReadPostExecute(r ApiApiV2NotificationsReadPostRequest) (*http.Response, error) {
+func (a *NotificationsApiService) ApiV2NotificationsReadPostExecute(r ApiApiV2NotificationsReadPostRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsReadPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsReadPost")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -580,6 +737,17 @@ func (a *NotificationsAPIService) ApiV2NotificationsReadPostExecute(r ApiApiV2No
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -589,6 +757,51 @@ func (a *NotificationsAPIService) ApiV2NotificationsReadPostExecute(r ApiApiV2No
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -598,13 +811,13 @@ func (a *NotificationsAPIService) ApiV2NotificationsReadPostExecute(r ApiApiV2No
 
 type ApiApiV2NotificationsSearchPostRequest struct {
 	ctx context.Context
-	ApiService *NotificationsAPIService
+	ApiService *NotificationsApiService
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	notificationQueryFilterModel *NotificationQueryFilterModel
+	apiV2NotificationsSearchPostRequest *ApiV2NotificationsSearchPostRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -637,8 +850,8 @@ func (r ApiApiV2NotificationsSearchPostRequest) SearchValue(searchValue string) 
 	return r
 }
 
-func (r ApiApiV2NotificationsSearchPostRequest) NotificationQueryFilterModel(notificationQueryFilterModel NotificationQueryFilterModel) ApiApiV2NotificationsSearchPostRequest {
-	r.notificationQueryFilterModel = &notificationQueryFilterModel
+func (r ApiApiV2NotificationsSearchPostRequest) ApiV2NotificationsSearchPostRequest(apiV2NotificationsSearchPostRequest ApiV2NotificationsSearchPostRequest) ApiApiV2NotificationsSearchPostRequest {
+	r.apiV2NotificationsSearchPostRequest = &apiV2NotificationsSearchPostRequest
 	return r
 }
 
@@ -649,14 +862,17 @@ func (r ApiApiV2NotificationsSearchPostRequest) Execute() ([]NotificationModel, 
 /*
 ApiV2NotificationsSearchPost Search Notifications for current User
 
-<br>Use case
-<br>User set filter and runs method execution
-<br>System returns notifications (listed in the response example)
+
+Use case
+
+User set filter and runs method execution
+
+System returns notifications (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2NotificationsSearchPostRequest
 */
-func (a *NotificationsAPIService) ApiV2NotificationsSearchPost(ctx context.Context) ApiApiV2NotificationsSearchPostRequest {
+func (a *NotificationsApiService) ApiV2NotificationsSearchPost(ctx context.Context) ApiApiV2NotificationsSearchPostRequest {
 	return ApiApiV2NotificationsSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -665,7 +881,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsSearchPost(ctx context.Conte
 
 // Execute executes the request
 //  @return []NotificationModel
-func (a *NotificationsAPIService) ApiV2NotificationsSearchPostExecute(r ApiApiV2NotificationsSearchPostRequest) ([]NotificationModel, *http.Response, error) {
+func (a *NotificationsApiService) ApiV2NotificationsSearchPostExecute(r ApiApiV2NotificationsSearchPostRequest) ([]NotificationModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -673,7 +889,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 		localVarReturnValue  []NotificationModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ApiV2NotificationsSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsApiService.ApiV2NotificationsSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -717,7 +933,7 @@ func (a *NotificationsAPIService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.notificationQueryFilterModel
+	localVarPostBody = r.apiV2NotificationsSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -766,6 +982,50 @@ func (a *NotificationsAPIService) ApiV2NotificationsSearchPostExecute(r ApiApiV2
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

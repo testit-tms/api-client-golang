@@ -13,8 +13,6 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the TestPointShortGetModel type satisfies the MappedNullable interface at compile time
@@ -72,7 +70,7 @@ type TestPointShortGetModel struct {
 	SectionName NullableString `json:"sectionName,omitempty"`
 	// Unique ID of the test point project
 	ProjectId string `json:"projectId"`
-	LastTestResult LastTestResultModel `json:"lastTestResult"`
+	LastTestResult TestPointShortGetModelLastTestResult `json:"lastTestResult"`
 	// Unique ID of work item iteration the test point represents
 	IterationId string `json:"iterationId"`
 	WorkItemState WorkItemState `json:"workItemState"`
@@ -86,13 +84,11 @@ type TestPointShortGetModel struct {
 	WorkItemModifiedDate NullableTime `json:"workItemModifiedDate,omitempty"`
 }
 
-type _TestPointShortGetModel TestPointShortGetModel
-
 // NewTestPointShortGetModel instantiates a new TestPointShortGetModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult LastTestResultModel, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time) *TestPointShortGetModel {
+func NewTestPointShortGetModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, lastTestResult TestPointShortGetModelLastTestResult, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time) *TestPointShortGetModel {
 	this := TestPointShortGetModel{}
 	this.Id = id
 	this.CreatedDate = createdDate
@@ -854,9 +850,9 @@ func (o *TestPointShortGetModel) SetProjectId(v string) {
 }
 
 // GetLastTestResult returns the LastTestResult field value
-func (o *TestPointShortGetModel) GetLastTestResult() LastTestResultModel {
+func (o *TestPointShortGetModel) GetLastTestResult() TestPointShortGetModelLastTestResult {
 	if o == nil {
-		var ret LastTestResultModel
+		var ret TestPointShortGetModelLastTestResult
 		return ret
 	}
 
@@ -865,7 +861,7 @@ func (o *TestPointShortGetModel) GetLastTestResult() LastTestResultModel {
 
 // GetLastTestResultOk returns a tuple with the LastTestResult field value
 // and a boolean to check if the value has been set.
-func (o *TestPointShortGetModel) GetLastTestResultOk() (*LastTestResultModel, bool) {
+func (o *TestPointShortGetModel) GetLastTestResultOk() (*TestPointShortGetModelLastTestResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -873,7 +869,7 @@ func (o *TestPointShortGetModel) GetLastTestResultOk() (*LastTestResultModel, bo
 }
 
 // SetLastTestResult sets field value
-func (o *TestPointShortGetModel) SetLastTestResult(v LastTestResultModel) {
+func (o *TestPointShortGetModel) SetLastTestResult(v TestPointShortGetModelLastTestResult) {
 	o.LastTestResult = v
 }
 
@@ -1117,67 +1113,6 @@ func (o TestPointShortGetModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["workItemModifiedDate"] = o.WorkItemModifiedDate.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *TestPointShortGetModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"createdDate",
-		"createdById",
-		"attributes",
-		"tags",
-		"links",
-		"testSuiteId",
-		"testSuiteName",
-		"workItemId",
-		"workItemGlobalId",
-		"workItemVersionId",
-		"workItemVersionNumber",
-		"status",
-		"priority",
-		"isAutomated",
-		"name",
-		"configurationId",
-		"duration",
-		"sectionId",
-		"projectId",
-		"lastTestResult",
-		"iterationId",
-		"workItemState",
-		"workItemCreatedById",
-		"workItemCreatedDate",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTestPointShortGetModel := _TestPointShortGetModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTestPointShortGetModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TestPointShortGetModel(varTestPointShortGetModel)
-
-	return err
 }
 
 type NullableTestPointShortGetModel struct {

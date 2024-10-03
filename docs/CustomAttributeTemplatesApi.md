@@ -1,17 +1,17 @@
-# \CustomAttributeTemplatesAPI
+# \CustomAttributeTemplatesApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/exclude | Exclude CustomAttributes from CustomAttributeTemplate
-[**ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/include | Include CustomAttributes to CustomAttributeTemplate
-[**ApiV2CustomAttributesTemplatesIdDelete**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesIdDelete) | **Delete** /api/v2/customAttributes/templates/{id} | Delete CustomAttributeTemplate
-[**ApiV2CustomAttributesTemplatesIdGet**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesIdGet) | **Get** /api/v2/customAttributes/templates/{id} | Get CustomAttributeTemplate by ID
-[**ApiV2CustomAttributesTemplatesNameGet**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesNameGet) | **Get** /api/v2/customAttributes/templates/{name} | Get CustomAttributeTemplate by name
-[**ApiV2CustomAttributesTemplatesPost**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesPost) | **Post** /api/v2/customAttributes/templates | Create CustomAttributeTemplate
-[**ApiV2CustomAttributesTemplatesPut**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesPut) | **Put** /api/v2/customAttributes/templates | Update custom attributes template
-[**ApiV2CustomAttributesTemplatesSearchPost**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesSearchPost) | **Post** /api/v2/customAttributes/templates/search | Search CustomAttributeTemplates
+[**ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/exclude | Exclude CustomAttributes from CustomAttributeTemplate
+[**ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/include | Include CustomAttributes to CustomAttributeTemplate
+[**ApiV2CustomAttributesTemplatesIdDelete**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesIdDelete) | **Delete** /api/v2/customAttributes/templates/{id} | Delete CustomAttributeTemplate
+[**ApiV2CustomAttributesTemplatesIdGet**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesIdGet) | **Get** /api/v2/customAttributes/templates/{id} | Get CustomAttributeTemplate by ID
+[**ApiV2CustomAttributesTemplatesNameGet**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesNameGet) | **Get** /api/v2/customAttributes/templates/{name} | Get CustomAttributeTemplate by name
+[**ApiV2CustomAttributesTemplatesPost**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesPost) | **Post** /api/v2/customAttributes/templates | Create CustomAttributeTemplate
+[**ApiV2CustomAttributesTemplatesPut**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesPut) | **Put** /api/v2/customAttributes/templates | Update custom attributes template
+[**ApiV2CustomAttributesTemplatesSearchPost**](CustomAttributeTemplatesApi.md#ApiV2CustomAttributesTemplatesSearchPost) | **Post** /api/v2/customAttributes/templates/search | Search CustomAttributeTemplates
 
 
 
@@ -29,23 +29,23 @@ Exclude CustomAttributes from CustomAttributeTemplate
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Attribute template internal (UUID) identifier
-	requestBody := []string{"Property_example"} // []string |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Attribute template internal (UUID) identifier
+    requestBody := []string{"Property_example"} // []string |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(context.Background(), id).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost(context.Background(), id).RequestBody(requestBody).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -99,23 +99,23 @@ Include CustomAttributes to CustomAttributeTemplate
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Attribute template internal (UUID) identifier
-	requestBody := []string{"Property_example"} // []string |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Attribute template internal (UUID) identifier
+    requestBody := []string{"Property_example"} // []string |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(context.Background(), id).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost(context.Background(), id).RequestBody(requestBody).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesIdDelete
 
-> NoContentResult ApiV2CustomAttributesTemplatesIdDelete(ctx, id).Execute()
+> ApiV2CustomAttributesTemplatesIdDelete(ctx, id).Execute()
 
 Delete CustomAttributeTemplate
 
@@ -169,24 +169,22 @@ Delete CustomAttributeTemplate
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Attribute template internal (UUID) identifier
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Attribute template internal (UUID) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdDelete(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2CustomAttributesTemplatesIdDelete`: NoContentResult
-	fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdDelete`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdDelete(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -209,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NoContentResult**](NoContentResult.md)
+ (empty response body)
 
 ### Authorization
 
@@ -239,24 +237,24 @@ Get CustomAttributeTemplate by ID
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | CustomAttributeTemplate internal (UUID) identifier
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | CustomAttributeTemplate internal (UUID) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2CustomAttributesTemplatesIdGet`: CustomAttributeTemplateModel
-	fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2CustomAttributesTemplatesIdGet`: CustomAttributeTemplateModel
+    fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesIdGet`: %v\n", resp)
 }
 ```
 
@@ -309,24 +307,24 @@ Get CustomAttributeTemplate by name
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	name := "name_example" // string | CustomAttributeTemplate name for search
+    name := "name_example" // string | CustomAttributeTemplate name for search
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesNameGet(context.Background(), name).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesNameGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2CustomAttributesTemplatesNameGet`: CustomAttributeTemplateModel
-	fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesNameGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesNameGet(context.Background(), name).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesNameGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2CustomAttributesTemplatesNameGet`: CustomAttributeTemplateModel
+    fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesNameGet`: %v\n", resp)
 }
 ```
 
@@ -367,7 +365,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesPost
 
-> CustomAttributeTemplateModel ApiV2CustomAttributesTemplatesPost(ctx).CustomAttributeTemplatePostModel(customAttributeTemplatePostModel).Execute()
+> CustomAttributeTemplateModel ApiV2CustomAttributesTemplatesPost(ctx).ApiV2CustomAttributesTemplatesPostRequest(apiV2CustomAttributesTemplatesPostRequest).Execute()
 
 Create CustomAttributeTemplate
 
@@ -379,24 +377,24 @@ Create CustomAttributeTemplate
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	customAttributeTemplatePostModel := *openapiclient.NewCustomAttributeTemplatePostModel("Name_example") // CustomAttributeTemplatePostModel |  (optional)
+    apiV2CustomAttributesTemplatesPostRequest := *openapiclient.NewApiV2CustomAttributesTemplatesPostRequest("Name_example") // ApiV2CustomAttributesTemplatesPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesPost(context.Background()).CustomAttributeTemplatePostModel(customAttributeTemplatePostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2CustomAttributesTemplatesPost`: CustomAttributeTemplateModel
-	fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPost(context.Background()).ApiV2CustomAttributesTemplatesPostRequest(apiV2CustomAttributesTemplatesPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2CustomAttributesTemplatesPost`: CustomAttributeTemplateModel
+    fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPost`: %v\n", resp)
 }
 ```
 
@@ -411,7 +409,7 @@ Other parameters are passed through a pointer to a apiApiV2CustomAttributesTempl
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customAttributeTemplatePostModel** | [**CustomAttributeTemplatePostModel**](CustomAttributeTemplatePostModel.md) |  | 
+ **apiV2CustomAttributesTemplatesPostRequest** | [**ApiV2CustomAttributesTemplatesPostRequest**](ApiV2CustomAttributesTemplatesPostRequest.md) |  | 
 
 ### Return type
 
@@ -433,7 +431,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesPut
 
-> ApiV2CustomAttributesTemplatesPut(ctx).CustomAttributeTemplatePutModel(customAttributeTemplatePutModel).Execute()
+> ApiV2CustomAttributesTemplatesPut(ctx).ApiV2CustomAttributesTemplatesPutRequest(apiV2CustomAttributesTemplatesPutRequest).Execute()
 
 Update custom attributes template
 
@@ -443,22 +441,22 @@ Update custom attributes template
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	customAttributeTemplatePutModel := *openapiclient.NewCustomAttributeTemplatePutModel("Id_example", "Name_example") // CustomAttributeTemplatePutModel |  (optional)
+    apiV2CustomAttributesTemplatesPutRequest := *openapiclient.NewApiV2CustomAttributesTemplatesPutRequest("Id_example", "Name_example") // ApiV2CustomAttributesTemplatesPutRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesPut(context.Background()).CustomAttributeTemplatePutModel(customAttributeTemplatePutModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPut(context.Background()).ApiV2CustomAttributesTemplatesPutRequest(apiV2CustomAttributesTemplatesPutRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -473,7 +471,7 @@ Other parameters are passed through a pointer to a apiApiV2CustomAttributesTempl
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customAttributeTemplatePutModel** | [**CustomAttributeTemplatePutModel**](CustomAttributeTemplatePutModel.md) |  | 
+ **apiV2CustomAttributesTemplatesPutRequest** | [**ApiV2CustomAttributesTemplatesPutRequest**](ApiV2CustomAttributesTemplatesPutRequest.md) |  | 
 
 ### Return type
 
@@ -495,7 +493,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesSearchPost
 
-> []SearchCustomAttributeTemplateGetModel ApiV2CustomAttributesTemplatesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeTemplateSearchQueryModel(customAttributeTemplateSearchQueryModel).Execute()
+> []SearchCustomAttributeTemplateGetModel ApiV2CustomAttributesTemplatesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2CustomAttributesTemplatesSearchPostRequest(apiV2CustomAttributesTemplatesSearchPostRequest).Execute()
 
 Search CustomAttributeTemplates
 
@@ -507,29 +505,29 @@ Search CustomAttributeTemplates
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	customAttributeTemplateSearchQueryModel := *openapiclient.NewCustomAttributeTemplateSearchQueryModel() // CustomAttributeTemplateSearchQueryModel |  (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2CustomAttributesTemplatesSearchPostRequest := *openapiclient.NewApiV2CustomAttributesTemplatesSearchPostRequest() // ApiV2CustomAttributesTemplatesSearchPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeTemplateSearchQueryModel(customAttributeTemplateSearchQueryModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesSearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2CustomAttributesTemplatesSearchPost`: []SearchCustomAttributeTemplateGetModel
-	fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesSearchPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2CustomAttributesTemplatesSearchPostRequest(apiV2CustomAttributesTemplatesSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesSearchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2CustomAttributesTemplatesSearchPost`: []SearchCustomAttributeTemplateGetModel
+    fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesApi.ApiV2CustomAttributesTemplatesSearchPost`: %v\n", resp)
 }
 ```
 
@@ -549,7 +547,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **customAttributeTemplateSearchQueryModel** | [**CustomAttributeTemplateSearchQueryModel**](CustomAttributeTemplateSearchQueryModel.md) |  | 
+ **apiV2CustomAttributesTemplatesSearchPostRequest** | [**ApiV2CustomAttributesTemplatesSearchPostRequest**](ApiV2CustomAttributesTemplatesSearchPostRequest.md) |  | 
 
 ### Return type
 

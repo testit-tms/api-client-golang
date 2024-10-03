@@ -20,12 +20,12 @@ import (
 )
 
 
-// WebhooksLogsAPIService WebhooksLogsAPI service
-type WebhooksLogsAPIService service
+// WebhooksLogsApiService WebhooksLogsApi service
+type WebhooksLogsApiService service
 
 type ApiApiV2WebhooksLogsGetRequest struct {
 	ctx context.Context
-	ApiService *WebhooksLogsAPIService
+	ApiService *WebhooksLogsApiService
 	projectId *string
 	skip *int32
 	take *int32
@@ -80,7 +80,7 @@ ApiV2WebhooksLogsGet Get all webhook logs
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WebhooksLogsGetRequest
 */
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGet(ctx context.Context) ApiApiV2WebhooksLogsGetRequest {
+func (a *WebhooksLogsApiService) ApiV2WebhooksLogsGet(ctx context.Context) ApiApiV2WebhooksLogsGetRequest {
 	return ApiApiV2WebhooksLogsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -89,7 +89,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGet(ctx context.Context) ApiAp
 
 // Execute executes the request
 //  @return []WebHookLogModel
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksLogsGetRequest) ([]WebHookLogModel, *http.Response, error) {
+func (a *WebhooksLogsApiService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksLogsGetRequest) ([]WebHookLogModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -97,7 +97,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksL
 		localVarReturnValue  []WebHookLogModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsAPIService.ApiV2WebhooksLogsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsApiService.ApiV2WebhooksLogsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -179,6 +179,80 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksL
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -196,7 +270,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksL
 
 type ApiApiV2WebhooksLogsIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *WebhooksLogsAPIService
+	ApiService *WebhooksLogsApiService
 	id string
 }
 
@@ -211,7 +285,7 @@ ApiV2WebhooksLogsIdDelete Delete webhook log by ID
  @param id Webhook log unique ID
  @return ApiApiV2WebhooksLogsIdDeleteRequest
 */
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdDelete(ctx context.Context, id string) ApiApiV2WebhooksLogsIdDeleteRequest {
+func (a *WebhooksLogsApiService) ApiV2WebhooksLogsIdDelete(ctx context.Context, id string) ApiApiV2WebhooksLogsIdDeleteRequest {
 	return ApiApiV2WebhooksLogsIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -220,14 +294,14 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdDelete(ctx context.Context, 
 }
 
 // Execute executes the request
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdDeleteExecute(r ApiApiV2WebhooksLogsIdDeleteRequest) (*http.Response, error) {
+func (a *WebhooksLogsApiService) ApiV2WebhooksLogsIdDeleteExecute(r ApiApiV2WebhooksLogsIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsAPIService.ApiV2WebhooksLogsIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsApiService.ApiV2WebhooksLogsIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -292,7 +366,62 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdDeleteExecute(r ApiApiV2Webh
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -310,7 +439,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdDeleteExecute(r ApiApiV2Webh
 
 type ApiApiV2WebhooksLogsIdGetRequest struct {
 	ctx context.Context
-	ApiService *WebhooksLogsAPIService
+	ApiService *WebhooksLogsApiService
 	id string
 }
 
@@ -325,7 +454,7 @@ ApiV2WebhooksLogsIdGet Get webhook log by ID
  @param id Webhook log unique ID
  @return ApiApiV2WebhooksLogsIdGetRequest
 */
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGet(ctx context.Context, id string) ApiApiV2WebhooksLogsIdGetRequest {
+func (a *WebhooksLogsApiService) ApiV2WebhooksLogsIdGet(ctx context.Context, id string) ApiApiV2WebhooksLogsIdGetRequest {
 	return ApiApiV2WebhooksLogsIdGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -335,7 +464,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGet(ctx context.Context, id 
 
 // Execute executes the request
 //  @return WebHookLogModel
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2WebhooksLogsIdGetRequest) (*WebHookLogModel, *http.Response, error) {
+func (a *WebhooksLogsApiService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2WebhooksLogsIdGetRequest) (*WebHookLogModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -343,7 +472,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2Webhook
 		localVarReturnValue  *WebHookLogModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsAPIService.ApiV2WebhooksLogsIdGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsApiService.ApiV2WebhooksLogsIdGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -408,6 +537,80 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2Webhook
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

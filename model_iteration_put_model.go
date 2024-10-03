@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the IterationPutModel type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type IterationPutModel struct {
 	Parameters []ParameterIterationModel `json:"parameters"`
 	Id string `json:"id"`
 }
-
-type _IterationPutModel IterationPutModel
 
 // NewIterationPutModel instantiates a new IterationPutModel object
 // This constructor will assign default values to properties that have it defined,
@@ -107,44 +103,6 @@ func (o IterationPutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["parameters"] = o.Parameters
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
-}
-
-func (o *IterationPutModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"parameters",
-		"id",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varIterationPutModel := _IterationPutModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varIterationPutModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = IterationPutModel(varIterationPutModel)
-
-	return err
 }
 
 type NullableIterationPutModel struct {

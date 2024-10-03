@@ -1,15 +1,15 @@
-# \ProjectTestPlansAPI
+# \ProjectTestPlansApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2ProjectsProjectIdTestPlansAnalyticsGet**](ProjectTestPlansAPI.md#ApiV2ProjectsProjectIdTestPlansAnalyticsGet) | **Get** /api/v2/projects/{projectId}/testPlans/analytics | Get TestPlans analytics
-[**ApiV2ProjectsProjectIdTestPlansDeleteBulkPost**](ProjectTestPlansAPI.md#ApiV2ProjectsProjectIdTestPlansDeleteBulkPost) | **Post** /api/v2/projects/{projectId}/testPlans/delete/bulk | Delete multiple test plans
-[**ApiV2ProjectsProjectIdTestPlansNameExistsGet**](ProjectTestPlansAPI.md#ApiV2ProjectsProjectIdTestPlansNameExistsGet) | **Get** /api/v2/projects/{projectId}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
-[**ApiV2ProjectsProjectIdTestPlansPurgeBulkPost**](ProjectTestPlansAPI.md#ApiV2ProjectsProjectIdTestPlansPurgeBulkPost) | **Post** /api/v2/projects/{projectId}/testPlans/purge/bulk | Permanently delete multiple archived test plans
-[**ApiV2ProjectsProjectIdTestPlansRestoreBulkPost**](ProjectTestPlansAPI.md#ApiV2ProjectsProjectIdTestPlansRestoreBulkPost) | **Post** /api/v2/projects/{projectId}/testPlans/restore/bulk | Restore multiple test plans
-[**ApiV2ProjectsProjectIdTestPlansSearchPost**](ProjectTestPlansAPI.md#ApiV2ProjectsProjectIdTestPlansSearchPost) | **Post** /api/v2/projects/{projectId}/testPlans/search | Get Project TestPlans with analytics
+[**ApiV2ProjectsProjectIdTestPlansAnalyticsGet**](ProjectTestPlansApi.md#ApiV2ProjectsProjectIdTestPlansAnalyticsGet) | **Get** /api/v2/projects/{projectId}/testPlans/analytics | Get TestPlans analytics
+[**ApiV2ProjectsProjectIdTestPlansDeleteBulkPost**](ProjectTestPlansApi.md#ApiV2ProjectsProjectIdTestPlansDeleteBulkPost) | **Post** /api/v2/projects/{projectId}/testPlans/delete/bulk | Delete multiple test plans
+[**ApiV2ProjectsProjectIdTestPlansNameExistsGet**](ProjectTestPlansApi.md#ApiV2ProjectsProjectIdTestPlansNameExistsGet) | **Get** /api/v2/projects/{projectId}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
+[**ApiV2ProjectsProjectIdTestPlansPurgeBulkPost**](ProjectTestPlansApi.md#ApiV2ProjectsProjectIdTestPlansPurgeBulkPost) | **Post** /api/v2/projects/{projectId}/testPlans/purge/bulk | Permanently delete multiple archived test plans
+[**ApiV2ProjectsProjectIdTestPlansRestoreBulkPost**](ProjectTestPlansApi.md#ApiV2ProjectsProjectIdTestPlansRestoreBulkPost) | **Post** /api/v2/projects/{projectId}/testPlans/restore/bulk | Restore multiple test plans
+[**ApiV2ProjectsProjectIdTestPlansSearchPost**](ProjectTestPlansApi.md#ApiV2ProjectsProjectIdTestPlansSearchPost) | **Post** /api/v2/projects/{projectId}/testPlans/search | Get Project TestPlans with analytics
 
 
 
@@ -27,31 +27,31 @@ Get TestPlans analytics
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project internal (UUID) identifier
-	isDeleted := true // bool |  (optional)
-	mustUpdateCache := true // bool |  (optional) (default to false)
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
+    projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project internal (UUID) identifier
+    isDeleted := true // bool |  (optional)
+    mustUpdateCache := true // bool |  (optional) (default to false)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansAnalyticsGet(context.Background(), projectId).IsDeleted(isDeleted).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansAnalyticsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ProjectsProjectIdTestPlansAnalyticsGet`: []TestPlanWithAnalyticModel
-	fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansAnalyticsGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansAnalyticsGet(context.Background(), projectId).IsDeleted(isDeleted).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansAnalyticsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ProjectsProjectIdTestPlansAnalyticsGet`: []TestPlanWithAnalyticModel
+    fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansAnalyticsGet`: %v\n", resp)
 }
 ```
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsProjectIdTestPlansDeleteBulkPost
 
-> []string ApiV2ProjectsProjectIdTestPlansDeleteBulkPost(ctx, projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
+> []string ApiV2ProjectsProjectIdTestPlansDeleteBulkPost(ctx, projectId).ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest).Execute()
 
 Delete multiple test plans
 
@@ -109,25 +109,25 @@ Delete multiple test plans
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	projectId := "projectId_example" // string | Unique or global ID of the project
-	testPlanSelectModel := *openapiclient.NewTestPlanSelectModel(*openapiclient.NewProjectTestPlansFilterModel()) // TestPlanSelectModel |  (optional)
+    projectId := "projectId_example" // string | Unique or global ID of the project
+    apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest := *openapiclient.NewApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(*openapiclient.NewApiV2ProjectsProjectIdTestPlansSearchPostRequest()) // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost(context.Background(), projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ProjectsProjectIdTestPlansDeleteBulkPost`: []string
-	fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost(context.Background(), projectId).ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ProjectsProjectIdTestPlansDeleteBulkPost`: []string
+    fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansDeleteBulkPost`: %v\n", resp)
 }
 ```
 
@@ -147,7 +147,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsProjectIdTest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md) |  | 
+ **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -181,25 +181,25 @@ Checks if TestPlan exists with the specified name exists for the project
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project internal (UUID) or global (integer) identifier
-	name := "name_example" // string | TestPlan name to check
+    projectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Project internal (UUID) or global (integer) identifier
+    name := "name_example" // string | TestPlan name to check
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansNameExistsGet(context.Background(), projectId, name).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansNameExistsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ProjectsProjectIdTestPlansNameExistsGet`: bool
-	fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansNameExistsGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansNameExistsGet(context.Background(), projectId, name).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansNameExistsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ProjectsProjectIdTestPlansNameExistsGet`: bool
+    fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansNameExistsGet`: %v\n", resp)
 }
 ```
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsProjectIdTestPlansPurgeBulkPost
 
-> ApiV2ProjectsProjectIdTestPlansPurgeBulkPost(ctx, projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
+> ApiV2ProjectsProjectIdTestPlansPurgeBulkPost(ctx, projectId).ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest).Execute()
 
 Permanently delete multiple archived test plans
 
@@ -252,23 +252,23 @@ Permanently delete multiple archived test plans
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	projectId := "projectId_example" // string | Unique or global ID of the project
-	testPlanSelectModel := *openapiclient.NewTestPlanSelectModel(*openapiclient.NewProjectTestPlansFilterModel()) // TestPlanSelectModel |  (optional)
+    projectId := "projectId_example" // string | Unique or global ID of the project
+    apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest := *openapiclient.NewApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(*openapiclient.NewApiV2ProjectsProjectIdTestPlansSearchPostRequest()) // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansPurgeBulkPost(context.Background(), projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansPurgeBulkPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansPurgeBulkPost(context.Background(), projectId).ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansPurgeBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -288,7 +288,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsProjectIdTest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md) |  | 
+ **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsProjectIdTestPlansRestoreBulkPost
 
-> ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(ctx, projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
+> []string ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(ctx, projectId).ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest).Execute()
 
 Restore multiple test plans
 
@@ -320,23 +320,25 @@ Restore multiple test plans
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	projectId := "projectId_example" // string | Unique or global ID of the project
-	testPlanSelectModel := *openapiclient.NewTestPlanSelectModel(*openapiclient.NewProjectTestPlansFilterModel()) // TestPlanSelectModel |  (optional)
+    projectId := "projectId_example" // string | Unique or global ID of the project
+    apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest := *openapiclient.NewApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(*openapiclient.NewApiV2ProjectsProjectIdTestPlansSearchPostRequest()) // ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(context.Background(), projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(context.Background(), projectId).ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest(apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ProjectsProjectIdTestPlansRestoreBulkPost`: []string
+    fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost`: %v\n", resp)
 }
 ```
 
@@ -356,11 +358,11 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsProjectIdTest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **testPlanSelectModel** | [**TestPlanSelectModel**](TestPlanSelectModel.md) |  | 
+ **apiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest** | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest**](ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest.md) |  | 
 
 ### Return type
 
- (empty response body)
+**[]string**
 
 ### Authorization
 
@@ -378,7 +380,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsProjectIdTestPlansSearchPost
 
-> []TestPlanWithAnalyticModel ApiV2ProjectsProjectIdTestPlansSearchPost(ctx, projectId).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
+> []TestPlanWithAnalyticModel ApiV2ProjectsProjectIdTestPlansSearchPost(ctx, projectId).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdTestPlansSearchPostRequest(apiV2ProjectsProjectIdTestPlansSearchPostRequest).Execute()
 
 Get Project TestPlans with analytics
 
@@ -390,31 +392,31 @@ Get Project TestPlans with analytics
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-	mustUpdateCache := true // bool |  (optional) (default to false)
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	projectTestPlansFilterModel := *openapiclient.NewProjectTestPlansFilterModel() // ProjectTestPlansFilterModel |  (optional)
+    projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
+    mustUpdateCache := true // bool |  (optional) (default to false)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2ProjectsProjectIdTestPlansSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdTestPlansSearchPostRequest() // ApiV2ProjectsProjectIdTestPlansSearchPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansSearchPost(context.Background(), projectId).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectTestPlansFilterModel(projectTestPlansFilterModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansSearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ProjectsProjectIdTestPlansSearchPost`: []TestPlanWithAnalyticModel
-	fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansSearchPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansSearchPost(context.Background(), projectId).MustUpdateCache(mustUpdateCache).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdTestPlansSearchPostRequest(apiV2ProjectsProjectIdTestPlansSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansSearchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ProjectsProjectIdTestPlansSearchPost`: []TestPlanWithAnalyticModel
+    fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansApi.ApiV2ProjectsProjectIdTestPlansSearchPost`: %v\n", resp)
 }
 ```
 
@@ -440,7 +442,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **projectTestPlansFilterModel** | [**ProjectTestPlansFilterModel**](ProjectTestPlansFilterModel.md) |  | 
+ **apiV2ProjectsProjectIdTestPlansSearchPostRequest** | [**ApiV2ProjectsProjectIdTestPlansSearchPostRequest**](ApiV2ProjectsProjectIdTestPlansSearchPostRequest.md) |  | 
 
 ### Return type
 

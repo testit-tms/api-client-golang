@@ -1,27 +1,27 @@
-# \ConfigurationsAPI
+# \ConfigurationsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2ConfigurationsCreateByParametersPost**](ConfigurationsAPI.md#ApiV2ConfigurationsCreateByParametersPost) | **Post** /api/v2/configurations/createByParameters | Create configurations by parameters
-[**ApiV2ConfigurationsDeleteBulkPost**](ConfigurationsAPI.md#ApiV2ConfigurationsDeleteBulkPost) | **Post** /api/v2/configurations/delete/bulk | Delete multiple configurations
-[**ApiV2ConfigurationsIdDelete**](ConfigurationsAPI.md#ApiV2ConfigurationsIdDelete) | **Delete** /api/v2/configurations/{id} | Delete configuration
-[**ApiV2ConfigurationsIdPatch**](ConfigurationsAPI.md#ApiV2ConfigurationsIdPatch) | **Patch** /api/v2/configurations/{id} | Patch configuration
-[**ApiV2ConfigurationsIdPurgePost**](ConfigurationsAPI.md#ApiV2ConfigurationsIdPurgePost) | **Post** /api/v2/configurations/{id}/purge | Permanently delete configuration from archive
-[**ApiV2ConfigurationsIdRestorePost**](ConfigurationsAPI.md#ApiV2ConfigurationsIdRestorePost) | **Post** /api/v2/configurations/{id}/restore | Restore configuration from the archive
-[**ApiV2ConfigurationsPurgeBulkPost**](ConfigurationsAPI.md#ApiV2ConfigurationsPurgeBulkPost) | **Post** /api/v2/configurations/purge/bulk | Permanently delete multiple archived configurations
-[**ApiV2ConfigurationsPut**](ConfigurationsAPI.md#ApiV2ConfigurationsPut) | **Put** /api/v2/configurations | Edit configuration
-[**ApiV2ConfigurationsRestoreBulkPost**](ConfigurationsAPI.md#ApiV2ConfigurationsRestoreBulkPost) | **Post** /api/v2/configurations/restore/bulk | Restore multiple configurations from the archive
-[**ApiV2ConfigurationsSearchPost**](ConfigurationsAPI.md#ApiV2ConfigurationsSearchPost) | **Post** /api/v2/configurations/search | Search for configurations
-[**CreateConfiguration**](ConfigurationsAPI.md#CreateConfiguration) | **Post** /api/v2/configurations | Create Configuration
-[**GetConfigurationById**](ConfigurationsAPI.md#GetConfigurationById) | **Get** /api/v2/configurations/{id} | Get configuration by internal or global ID
+[**ApiV2ConfigurationsCreateByParametersPost**](ConfigurationsApi.md#ApiV2ConfigurationsCreateByParametersPost) | **Post** /api/v2/configurations/createByParameters | Create configurations by parameters
+[**ApiV2ConfigurationsDeleteBulkPost**](ConfigurationsApi.md#ApiV2ConfigurationsDeleteBulkPost) | **Post** /api/v2/configurations/delete/bulk | Delete multiple configurations
+[**ApiV2ConfigurationsIdDelete**](ConfigurationsApi.md#ApiV2ConfigurationsIdDelete) | **Delete** /api/v2/configurations/{id} | Delete configuration
+[**ApiV2ConfigurationsIdPatch**](ConfigurationsApi.md#ApiV2ConfigurationsIdPatch) | **Patch** /api/v2/configurations/{id} | Patch configuration
+[**ApiV2ConfigurationsIdPurgePost**](ConfigurationsApi.md#ApiV2ConfigurationsIdPurgePost) | **Post** /api/v2/configurations/{id}/purge | Permanently delete configuration from archive
+[**ApiV2ConfigurationsIdRestorePost**](ConfigurationsApi.md#ApiV2ConfigurationsIdRestorePost) | **Post** /api/v2/configurations/{id}/restore | Restore configuration from the archive
+[**ApiV2ConfigurationsPurgeBulkPost**](ConfigurationsApi.md#ApiV2ConfigurationsPurgeBulkPost) | **Post** /api/v2/configurations/purge/bulk | Permanently delete multiple archived configurations
+[**ApiV2ConfigurationsPut**](ConfigurationsApi.md#ApiV2ConfigurationsPut) | **Put** /api/v2/configurations | Edit configuration
+[**ApiV2ConfigurationsRestoreBulkPost**](ConfigurationsApi.md#ApiV2ConfigurationsRestoreBulkPost) | **Post** /api/v2/configurations/restore/bulk | Restore multiple configurations from the archive
+[**ApiV2ConfigurationsSearchPost**](ConfigurationsApi.md#ApiV2ConfigurationsSearchPost) | **Post** /api/v2/configurations/search | Search for configurations
+[**CreateConfiguration**](ConfigurationsApi.md#CreateConfiguration) | **Post** /api/v2/configurations | Create Configuration
+[**GetConfigurationById**](ConfigurationsApi.md#GetConfigurationById) | **Get** /api/v2/configurations/{id} | Get configuration by internal or global ID
 
 
 
 ## ApiV2ConfigurationsCreateByParametersPost
 
-> []string ApiV2ConfigurationsCreateByParametersPost(ctx).ConfigurationByParametersModel(configurationByParametersModel).Execute()
+> []string ApiV2ConfigurationsCreateByParametersPost(ctx).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
 
 Create configurations by parameters
 
@@ -31,24 +31,24 @@ Create configurations by parameters
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	configurationByParametersModel := *openapiclient.NewConfigurationByParametersModel("82e92d6f-0258-416b-b2b4-039ea76601c7", []string{"ParameterIds_example"}) // ConfigurationByParametersModel |  (optional)
+    apiV2ConfigurationsCreateByParametersPostRequest := *openapiclient.NewApiV2ConfigurationsCreateByParametersPostRequest("59173397-9485-4b36-9196-9405cf7416c2", []string{"ParameterIds_example"}) // ApiV2ConfigurationsCreateByParametersPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsCreateByParametersPost(context.Background()).ConfigurationByParametersModel(configurationByParametersModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsCreateByParametersPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ConfigurationsCreateByParametersPost`: []string
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationsAPI.ApiV2ConfigurationsCreateByParametersPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost(context.Background()).ApiV2ConfigurationsCreateByParametersPostRequest(apiV2ConfigurationsCreateByParametersPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ConfigurationsCreateByParametersPost`: []string
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.ApiV2ConfigurationsCreateByParametersPost`: %v\n", resp)
 }
 ```
 
@@ -63,7 +63,7 @@ Other parameters are passed through a pointer to a apiApiV2ConfigurationsCreateB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationByParametersModel** | [**ConfigurationByParametersModel**](ConfigurationByParametersModel.md) |  | 
+ **apiV2ConfigurationsCreateByParametersPostRequest** | [**ApiV2ConfigurationsCreateByParametersPostRequest**](ApiV2ConfigurationsCreateByParametersPostRequest.md) |  | 
 
 ### Return type
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ConfigurationsDeleteBulkPost
 
-> int32 ApiV2ConfigurationsDeleteBulkPost(ctx).ConfigurationSelectModel(configurationSelectModel).Execute()
+> int32 ApiV2ConfigurationsDeleteBulkPost(ctx).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
 
 Delete multiple configurations
 
@@ -95,24 +95,24 @@ Delete multiple configurations
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	configurationSelectModel := *openapiclient.NewConfigurationSelectModel() // ConfigurationSelectModel |  (optional)
+    apiV2ConfigurationsPurgeBulkPostRequest := *openapiclient.NewApiV2ConfigurationsPurgeBulkPostRequest() // ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsDeleteBulkPost(context.Background()).ConfigurationSelectModel(configurationSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsDeleteBulkPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ConfigurationsDeleteBulkPost`: int32
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationsAPI.ApiV2ConfigurationsDeleteBulkPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsDeleteBulkPost(context.Background()).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsDeleteBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ConfigurationsDeleteBulkPost`: int32
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.ApiV2ConfigurationsDeleteBulkPost`: %v\n", resp)
 }
 ```
 
@@ -127,7 +127,7 @@ Other parameters are passed through a pointer to a apiApiV2ConfigurationsDeleteB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md) |  | 
+ **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -159,22 +159,22 @@ Delete configuration
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Unique or global ID of the configuration
+    id := "id_example" // string | Unique or global ID of the configuration
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsIdDelete(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsIdDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsIdDelete(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsIdDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -227,23 +227,23 @@ Patch configuration
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the configuration
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the configuration
+    operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsIdPatch(context.Background(), id).Operation(operation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsIdPatch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsIdPatch(context.Background(), id).Operation(operation).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsIdPatch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -295,22 +295,22 @@ Permanently delete configuration from archive
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Unique or global ID of the configuration
+    id := "id_example" // string | Unique or global ID of the configuration
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsIdPurgePost(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsIdPurgePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsIdPurgePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsIdPurgePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -361,22 +361,22 @@ Restore configuration from the archive
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Unique or global ID of the configuration
+    id := "id_example" // string | Unique or global ID of the configuration
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsIdRestorePost(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsIdRestorePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsIdRestorePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsIdRestorePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ConfigurationsPurgeBulkPost
 
-> ApiV2ConfigurationsPurgeBulkPost(ctx).ConfigurationSelectModel(configurationSelectModel).Execute()
+> ApiV2ConfigurationsPurgeBulkPost(ctx).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
 
 Permanently delete multiple archived configurations
 
@@ -427,22 +427,22 @@ Permanently delete multiple archived configurations
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	configurationSelectModel := *openapiclient.NewConfigurationSelectModel() // ConfigurationSelectModel |  (optional)
+    apiV2ConfigurationsPurgeBulkPostRequest := *openapiclient.NewApiV2ConfigurationsPurgeBulkPostRequest() // ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsPurgeBulkPost(context.Background()).ConfigurationSelectModel(configurationSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsPurgeBulkPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsPurgeBulkPost(context.Background()).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsPurgeBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -457,7 +457,7 @@ Other parameters are passed through a pointer to a apiApiV2ConfigurationsPurgeBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md) |  | 
+ **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ConfigurationsPut
 
-> ApiV2ConfigurationsPut(ctx).ConfigurationPutModel(configurationPutModel).Execute()
+> ApiV2ConfigurationsPut(ctx).ApiV2ConfigurationsPutRequest(apiV2ConfigurationsPutRequest).Execute()
 
 Edit configuration
 
@@ -489,22 +489,22 @@ Edit configuration
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	configurationPutModel := *openapiclient.NewConfigurationPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ConfigurationPutModel |  (optional)
+    apiV2ConfigurationsPutRequest := *openapiclient.NewApiV2ConfigurationsPutRequest("59173397-9485-4b36-9196-9405cf7416c2", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ApiV2ConfigurationsPutRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsPut(context.Background()).ConfigurationPutModel(configurationPutModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsPut(context.Background()).ApiV2ConfigurationsPutRequest(apiV2ConfigurationsPutRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -519,7 +519,7 @@ Other parameters are passed through a pointer to a apiApiV2ConfigurationsPutRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationPutModel** | [**ConfigurationPutModel**](ConfigurationPutModel.md) |  | 
+ **apiV2ConfigurationsPutRequest** | [**ApiV2ConfigurationsPutRequest**](ApiV2ConfigurationsPutRequest.md) |  | 
 
 ### Return type
 
@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ConfigurationsRestoreBulkPost
 
-> int32 ApiV2ConfigurationsRestoreBulkPost(ctx).ConfigurationSelectModel(configurationSelectModel).Execute()
+> int32 ApiV2ConfigurationsRestoreBulkPost(ctx).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
 
 Restore multiple configurations from the archive
 
@@ -551,24 +551,24 @@ Restore multiple configurations from the archive
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	configurationSelectModel := *openapiclient.NewConfigurationSelectModel() // ConfigurationSelectModel |  (optional)
+    apiV2ConfigurationsPurgeBulkPostRequest := *openapiclient.NewApiV2ConfigurationsPurgeBulkPostRequest() // ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsRestoreBulkPost(context.Background()).ConfigurationSelectModel(configurationSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsRestoreBulkPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ConfigurationsRestoreBulkPost`: int32
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationsAPI.ApiV2ConfigurationsRestoreBulkPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsRestoreBulkPost(context.Background()).ApiV2ConfigurationsPurgeBulkPostRequest(apiV2ConfigurationsPurgeBulkPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsRestoreBulkPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ConfigurationsRestoreBulkPost`: int32
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.ApiV2ConfigurationsRestoreBulkPost`: %v\n", resp)
 }
 ```
 
@@ -583,7 +583,7 @@ Other parameters are passed through a pointer to a apiApiV2ConfigurationsRestore
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md) |  | 
+ **apiV2ConfigurationsPurgeBulkPostRequest** | [**ApiV2ConfigurationsPurgeBulkPostRequest**](ApiV2ConfigurationsPurgeBulkPostRequest.md) |  | 
 
 ### Return type
 
@@ -605,7 +605,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ConfigurationsSearchPost
 
-> []ConfigurationModel ApiV2ConfigurationsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ConfigurationFilterModel(configurationFilterModel).Execute()
+> []ConfigurationModel ApiV2ConfigurationsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ConfigurationsSearchPostRequest(apiV2ConfigurationsSearchPostRequest).Execute()
 
 Search for configurations
 
@@ -615,29 +615,29 @@ Search for configurations
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	configurationFilterModel := *openapiclient.NewConfigurationFilterModel() // ConfigurationFilterModel | Model containing all the filters (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2ConfigurationsSearchPostRequest := *openapiclient.NewApiV2ConfigurationsSearchPostRequest() // ApiV2ConfigurationsSearchPostRequest | Model containing all the filters (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ConfigurationFilterModel(configurationFilterModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsSearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ConfigurationsSearchPost`: []ConfigurationModel
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationsAPI.ApiV2ConfigurationsSearchPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.ApiV2ConfigurationsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ConfigurationsSearchPostRequest(apiV2ConfigurationsSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.ApiV2ConfigurationsSearchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2ConfigurationsSearchPost`: []ConfigurationModel
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.ApiV2ConfigurationsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -657,7 +657,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **configurationFilterModel** | [**ConfigurationFilterModel**](ConfigurationFilterModel.md) | Model containing all the filters | 
+ **apiV2ConfigurationsSearchPostRequest** | [**ApiV2ConfigurationsSearchPostRequest**](ApiV2ConfigurationsSearchPostRequest.md) | Model containing all the filters | 
 
 ### Return type
 
@@ -679,7 +679,7 @@ Name | Type | Description  | Notes
 
 ## CreateConfiguration
 
-> ConfigurationModel CreateConfiguration(ctx).ConfigurationPostModel(configurationPostModel).Execute()
+> ConfigurationModel CreateConfiguration(ctx).CreateConfigurationRequest(createConfigurationRequest).Execute()
 
 Create Configuration
 
@@ -691,24 +691,24 @@ Create Configuration
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	configurationPostModel := *openapiclient.NewConfigurationPostModel(map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ConfigurationPostModel |  (optional)
+    createConfigurationRequest := *openapiclient.NewCreateConfigurationRequest(map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // CreateConfigurationRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConfigurationsAPI.CreateConfiguration(context.Background()).ConfigurationPostModel(configurationPostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.CreateConfiguration``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateConfiguration`: ConfigurationModel
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationsAPI.CreateConfiguration`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.CreateConfiguration(context.Background()).CreateConfigurationRequest(createConfigurationRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.CreateConfiguration``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateConfiguration`: ConfigurationModel
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.CreateConfiguration`: %v\n", resp)
 }
 ```
 
@@ -723,7 +723,7 @@ Other parameters are passed through a pointer to a apiCreateConfigurationRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationPostModel** | [**ConfigurationPostModel**](ConfigurationPostModel.md) |  | 
+ **createConfigurationRequest** | [**CreateConfigurationRequest**](CreateConfigurationRequest.md) |  | 
 
 ### Return type
 
@@ -757,24 +757,24 @@ Get configuration by internal or global ID
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Configuration internal (guid format) or global (integer format) identifier
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Configuration internal (guid format) or global (integer format) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConfigurationsAPI.GetConfigurationById(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.GetConfigurationById``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConfigurationById`: ConfigurationModel
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationsAPI.GetConfigurationById`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ConfigurationsApi.GetConfigurationById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsApi.GetConfigurationById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetConfigurationById`: ConfigurationModel
+    fmt.Fprintf(os.Stdout, "Response from `ConfigurationsApi.GetConfigurationById`: %v\n", resp)
 }
 ```
 

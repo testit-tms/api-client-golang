@@ -1,0 +1,273 @@
+# CreateAndFillByConfigurationsRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**TestPointSelectors** | [**[]TestPointSelector**](TestPointSelector.md) | Specifies an array of work items and configuration to create a test run for. | 
+**ProjectId** | **string** | Specifies the GUID of the project, in which a test run will be created. | 
+**TestPlanId** | **string** | Specifies the GUID of the test plan, within which the test run will be created. | 
+**Name** | Pointer to **NullableString** | Specifies the name of the test run. | [optional] 
+**Description** | Pointer to **NullableString** | Specifies the test run description. | [optional] 
+**LaunchSource** | Pointer to **NullableString** | Specifies the test run launch source. | [optional] 
+**Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) | Collection of attachment ids to relate to the test run | [optional] 
+**Links** | Pointer to [**[]LinkPostModel**](LinkPostModel.md) | Collection of links to relate to the test run | [optional] 
+
+## Methods
+
+### NewCreateAndFillByConfigurationsRequest
+
+`func NewCreateAndFillByConfigurationsRequest(testPointSelectors []TestPointSelector, projectId string, testPlanId string, ) *CreateAndFillByConfigurationsRequest`
+
+NewCreateAndFillByConfigurationsRequest instantiates a new CreateAndFillByConfigurationsRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewCreateAndFillByConfigurationsRequestWithDefaults
+
+`func NewCreateAndFillByConfigurationsRequestWithDefaults() *CreateAndFillByConfigurationsRequest`
+
+NewCreateAndFillByConfigurationsRequestWithDefaults instantiates a new CreateAndFillByConfigurationsRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetTestPointSelectors
+
+`func (o *CreateAndFillByConfigurationsRequest) GetTestPointSelectors() []TestPointSelector`
+
+GetTestPointSelectors returns the TestPointSelectors field if non-nil, zero value otherwise.
+
+### GetTestPointSelectorsOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetTestPointSelectorsOk() (*[]TestPointSelector, bool)`
+
+GetTestPointSelectorsOk returns a tuple with the TestPointSelectors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestPointSelectors
+
+`func (o *CreateAndFillByConfigurationsRequest) SetTestPointSelectors(v []TestPointSelector)`
+
+SetTestPointSelectors sets TestPointSelectors field to given value.
+
+
+### GetProjectId
+
+`func (o *CreateAndFillByConfigurationsRequest) GetProjectId() string`
+
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
+
+### GetProjectIdOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetProjectIdOk() (*string, bool)`
+
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectId
+
+`func (o *CreateAndFillByConfigurationsRequest) SetProjectId(v string)`
+
+SetProjectId sets ProjectId field to given value.
+
+
+### GetTestPlanId
+
+`func (o *CreateAndFillByConfigurationsRequest) GetTestPlanId() string`
+
+GetTestPlanId returns the TestPlanId field if non-nil, zero value otherwise.
+
+### GetTestPlanIdOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetTestPlanIdOk() (*string, bool)`
+
+GetTestPlanIdOk returns a tuple with the TestPlanId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestPlanId
+
+`func (o *CreateAndFillByConfigurationsRequest) SetTestPlanId(v string)`
+
+SetTestPlanId sets TestPlanId field to given value.
+
+
+### GetName
+
+`func (o *CreateAndFillByConfigurationsRequest) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *CreateAndFillByConfigurationsRequest) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *CreateAndFillByConfigurationsRequest) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *CreateAndFillByConfigurationsRequest) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *CreateAndFillByConfigurationsRequest) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
+### GetDescription
+
+`func (o *CreateAndFillByConfigurationsRequest) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *CreateAndFillByConfigurationsRequest) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *CreateAndFillByConfigurationsRequest) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *CreateAndFillByConfigurationsRequest) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateAndFillByConfigurationsRequest) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetLaunchSource
+
+`func (o *CreateAndFillByConfigurationsRequest) GetLaunchSource() string`
+
+GetLaunchSource returns the LaunchSource field if non-nil, zero value otherwise.
+
+### GetLaunchSourceOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetLaunchSourceOk() (*string, bool)`
+
+GetLaunchSourceOk returns a tuple with the LaunchSource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLaunchSource
+
+`func (o *CreateAndFillByConfigurationsRequest) SetLaunchSource(v string)`
+
+SetLaunchSource sets LaunchSource field to given value.
+
+### HasLaunchSource
+
+`func (o *CreateAndFillByConfigurationsRequest) HasLaunchSource() bool`
+
+HasLaunchSource returns a boolean if a field has been set.
+
+### SetLaunchSourceNil
+
+`func (o *CreateAndFillByConfigurationsRequest) SetLaunchSourceNil(b bool)`
+
+ SetLaunchSourceNil sets the value for LaunchSource to be an explicit nil
+
+### UnsetLaunchSource
+`func (o *CreateAndFillByConfigurationsRequest) UnsetLaunchSource()`
+
+UnsetLaunchSource ensures that no value is present for LaunchSource, not even an explicit nil
+### GetAttachments
+
+`func (o *CreateAndFillByConfigurationsRequest) GetAttachments() []AttachmentPutModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetAttachmentsOk() (*[]AttachmentPutModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *CreateAndFillByConfigurationsRequest) SetAttachments(v []AttachmentPutModel)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *CreateAndFillByConfigurationsRequest) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
+
+### SetAttachmentsNil
+
+`func (o *CreateAndFillByConfigurationsRequest) SetAttachmentsNil(b bool)`
+
+ SetAttachmentsNil sets the value for Attachments to be an explicit nil
+
+### UnsetAttachments
+`func (o *CreateAndFillByConfigurationsRequest) UnsetAttachments()`
+
+UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
+### GetLinks
+
+`func (o *CreateAndFillByConfigurationsRequest) GetLinks() []LinkPostModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *CreateAndFillByConfigurationsRequest) GetLinksOk() (*[]LinkPostModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *CreateAndFillByConfigurationsRequest) SetLinks(v []LinkPostModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *CreateAndFillByConfigurationsRequest) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *CreateAndFillByConfigurationsRequest) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *CreateAndFillByConfigurationsRequest) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

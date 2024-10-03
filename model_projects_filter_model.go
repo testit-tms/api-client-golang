@@ -34,6 +34,8 @@ type ProjectsFilterModel struct {
 	CreatedDate NullableProjectsFilterModelCreatedDate `json:"createdDate,omitempty"`
 	// Specifies an autotest creator IDs to search for
 	CreatedByIds []string `json:"createdByIds,omitempty"`
+	// Collection of project types to search for
+	Types []ProjectTypeModel `json:"types,omitempty"`
 }
 
 // NewProjectsFilterModel instantiates a new ProjectsFilterModel object
@@ -455,6 +457,39 @@ func (o *ProjectsFilterModel) SetCreatedByIds(v []string) {
 	o.CreatedByIds = v
 }
 
+// GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectsFilterModel) GetTypes() []ProjectTypeModel {
+	if o == nil {
+		var ret []ProjectTypeModel
+		return ret
+	}
+	return o.Types
+}
+
+// GetTypesOk returns a tuple with the Types field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectsFilterModel) GetTypesOk() ([]ProjectTypeModel, bool) {
+	if o == nil || IsNil(o.Types) {
+		return nil, false
+	}
+	return o.Types, true
+}
+
+// HasTypes returns a boolean if a field has been set.
+func (o *ProjectsFilterModel) HasTypes() bool {
+	if o != nil && IsNil(o.Types) {
+		return true
+	}
+
+	return false
+}
+
+// SetTypes gets a reference to the given []ProjectTypeModel and assigns it to the Types field.
+func (o *ProjectsFilterModel) SetTypes(v []ProjectTypeModel) {
+	o.Types = v
+}
+
 func (o ProjectsFilterModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -494,6 +529,9 @@ func (o ProjectsFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds
+	}
+	if o.Types != nil {
+		toSerialize["types"] = o.Types
 	}
 	return toSerialize, nil
 }

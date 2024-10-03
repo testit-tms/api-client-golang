@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the LinkSubGetModel type satisfies the MappedNullable interface at compile time
@@ -24,8 +22,6 @@ type LinkSubGetModel struct {
 	Name string `json:"name"`
 	Url string `json:"url"`
 }
-
-type _LinkSubGetModel LinkSubGetModel
 
 // NewLinkSubGetModel instantiates a new LinkSubGetModel object
 // This constructor will assign default values to properties that have it defined,
@@ -107,44 +103,6 @@ func (o LinkSubGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["url"] = o.Url
 	return toSerialize, nil
-}
-
-func (o *LinkSubGetModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"name",
-		"url",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varLinkSubGetModel := _LinkSubGetModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLinkSubGetModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = LinkSubGetModel(varLinkSubGetModel)
-
-	return err
 }
 
 type NullableLinkSubGetModel struct {

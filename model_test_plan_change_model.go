@@ -13,8 +13,6 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the TestPlanChangeModel type satisfies the MappedNullable interface at compile time
@@ -24,18 +22,16 @@ var _ MappedNullable = &TestPlanChangeModel{}
 type TestPlanChangeModel struct {
 	Id string `json:"id"`
 	TestPlanId string `json:"testPlanId"`
-	TestPlanChangedFields TestPlanChangedFieldsViewModel `json:"testPlanChangedFields"`
+	TestPlanChangedFields TestPlanChangeModelTestPlanChangedFields `json:"testPlanChangedFields"`
 	CreatedById string `json:"createdById"`
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 }
-
-type _TestPlanChangeModel TestPlanChangeModel
 
 // NewTestPlanChangeModel instantiates a new TestPlanChangeModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanChangeModel(id string, testPlanId string, testPlanChangedFields TestPlanChangedFieldsViewModel, createdById string) *TestPlanChangeModel {
+func NewTestPlanChangeModel(id string, testPlanId string, testPlanChangedFields TestPlanChangeModelTestPlanChangedFields, createdById string) *TestPlanChangeModel {
 	this := TestPlanChangeModel{}
 	this.Id = id
 	this.TestPlanId = testPlanId
@@ -101,9 +97,9 @@ func (o *TestPlanChangeModel) SetTestPlanId(v string) {
 }
 
 // GetTestPlanChangedFields returns the TestPlanChangedFields field value
-func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangedFieldsViewModel {
+func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangeModelTestPlanChangedFields {
 	if o == nil {
-		var ret TestPlanChangedFieldsViewModel
+		var ret TestPlanChangeModelTestPlanChangedFields
 		return ret
 	}
 
@@ -112,7 +108,7 @@ func (o *TestPlanChangeModel) GetTestPlanChangedFields() TestPlanChangedFieldsVi
 
 // GetTestPlanChangedFieldsOk returns a tuple with the TestPlanChangedFields field value
 // and a boolean to check if the value has been set.
-func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangedFieldsViewModel, bool) {
+func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangeModelTestPlanChangedFields, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -120,7 +116,7 @@ func (o *TestPlanChangeModel) GetTestPlanChangedFieldsOk() (*TestPlanChangedFiel
 }
 
 // SetTestPlanChangedFields sets field value
-func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangedFieldsViewModel) {
+func (o *TestPlanChangeModel) SetTestPlanChangedFields(v TestPlanChangeModelTestPlanChangedFields) {
 	o.TestPlanChangedFields = v
 }
 
@@ -208,46 +204,6 @@ func (o TestPlanChangeModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["createdDate"] = o.CreatedDate.Get()
 	}
 	return toSerialize, nil
-}
-
-func (o *TestPlanChangeModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"testPlanId",
-		"testPlanChangedFields",
-		"createdById",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTestPlanChangeModel := _TestPlanChangeModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTestPlanChangeModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TestPlanChangeModel(varTestPlanChangeModel)
-
-	return err
 }
 
 type NullableTestPlanChangeModel struct {

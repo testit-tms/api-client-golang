@@ -22,7 +22,7 @@ type TestSuiteWorkItemsSearchModel struct {
 	// Collection of tags
 	// Deprecated
 	TagNames []string `json:"tagNames,omitempty"`
-	// Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
+	// Collection of types of work item   Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
 	// Deprecated
 	EntityTypes []WorkItemEntityTypes `json:"entityTypes,omitempty"`
 	// Name or identifier (UUID) of work item
@@ -65,6 +65,8 @@ type TestSuiteWorkItemsSearchModel struct {
 	Tags []string `json:"tags,omitempty"`
 	// Collection of identifiers of linked autotests
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
+	// Collection of identifiers work items versions.
+	WorkItemVersionIds []string `json:"workItemVersionIds,omitempty"`
 }
 
 // NewTestSuiteWorkItemsSearchModel instantiates a new TestSuiteWorkItemsSearchModel object
@@ -954,6 +956,39 @@ func (o *TestSuiteWorkItemsSearchModel) SetAutoTestIds(v []string) {
 	o.AutoTestIds = v
 }
 
+// GetWorkItemVersionIds returns the WorkItemVersionIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetWorkItemVersionIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemVersionIds
+}
+
+// GetWorkItemVersionIdsOk returns a tuple with the WorkItemVersionIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetWorkItemVersionIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemVersionIds) {
+		return nil, false
+	}
+	return o.WorkItemVersionIds, true
+}
+
+// HasWorkItemVersionIds returns a boolean if a field has been set.
+func (o *TestSuiteWorkItemsSearchModel) HasWorkItemVersionIds() bool {
+	if o != nil && IsNil(o.WorkItemVersionIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemVersionIds gets a reference to the given []string and assigns it to the WorkItemVersionIds field.
+func (o *TestSuiteWorkItemsSearchModel) SetWorkItemVersionIds(v []string) {
+	o.WorkItemVersionIds = v
+}
+
 func (o TestSuiteWorkItemsSearchModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1035,6 +1070,9 @@ func (o TestSuiteWorkItemsSearchModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AutoTestIds != nil {
 		toSerialize["autoTestIds"] = o.AutoTestIds
+	}
+	if o.WorkItemVersionIds != nil {
+		toSerialize["workItemVersionIds"] = o.WorkItemVersionIds
 	}
 	return toSerialize, nil
 }

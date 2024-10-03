@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WorkItemGroupModel type satisfies the MappedNullable interface at compile time
@@ -25,8 +23,6 @@ type WorkItemGroupModel struct {
 	Size int32 `json:"size"`
 	WorkItems []WorkItemShortModel `json:"workItems"`
 }
-
-type _WorkItemGroupModel WorkItemGroupModel
 
 // NewWorkItemGroupModel instantiates a new WorkItemGroupModel object
 // This constructor will assign default values to properties that have it defined,
@@ -144,44 +140,6 @@ func (o WorkItemGroupModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["size"] = o.Size
 	toSerialize["workItems"] = o.WorkItems
 	return toSerialize, nil
-}
-
-func (o *WorkItemGroupModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"size",
-		"workItems",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWorkItemGroupModel := _WorkItemGroupModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWorkItemGroupModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WorkItemGroupModel(varWorkItemGroupModel)
-
-	return err
 }
 
 type NullableWorkItemGroupModel struct {

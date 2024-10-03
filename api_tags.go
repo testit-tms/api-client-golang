@@ -20,17 +20,17 @@ import (
 )
 
 
-// TagsAPIService TagsAPI service
-type TagsAPIService service
+// TagsApiService TagsApi service
+type TagsApiService service
 
 type ApiApiV2TagsDeleteRequest struct {
 	ctx context.Context
-	ApiService *TagsAPIService
-	tagSelectModel *TagSelectModel
+	ApiService *TagsApiService
+	apiV2TagsDeleteRequest *ApiV2TagsDeleteRequest
 }
 
-func (r ApiApiV2TagsDeleteRequest) TagSelectModel(tagSelectModel TagSelectModel) ApiApiV2TagsDeleteRequest {
-	r.tagSelectModel = &tagSelectModel
+func (r ApiApiV2TagsDeleteRequest) ApiV2TagsDeleteRequest(apiV2TagsDeleteRequest ApiV2TagsDeleteRequest) ApiApiV2TagsDeleteRequest {
+	r.apiV2TagsDeleteRequest = &apiV2TagsDeleteRequest
 	return r
 }
 
@@ -41,14 +41,17 @@ func (r ApiApiV2TagsDeleteRequest) Execute() (*http.Response, error) {
 /*
 ApiV2TagsDelete Delete tags
 
-<br>Use case
-<br>User sets collection of tags internal (guid format) identifiers
-<br>System searches and deletes a collection of tags
+
+Use case
+
+User sets collection of tags internal (guid format) identifiers
+
+System searches and deletes a collection of tags
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TagsDeleteRequest
 */
-func (a *TagsAPIService) ApiV2TagsDelete(ctx context.Context) ApiApiV2TagsDeleteRequest {
+func (a *TagsApiService) ApiV2TagsDelete(ctx context.Context) ApiApiV2TagsDeleteRequest {
 	return ApiApiV2TagsDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -56,14 +59,14 @@ func (a *TagsAPIService) ApiV2TagsDelete(ctx context.Context) ApiApiV2TagsDelete
 }
 
 // Execute executes the request
-func (a *TagsAPIService) ApiV2TagsDeleteExecute(r ApiApiV2TagsDeleteRequest) (*http.Response, error) {
+func (a *TagsApiService) ApiV2TagsDeleteExecute(r ApiApiV2TagsDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.ApiV2TagsDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -92,7 +95,7 @@ func (a *TagsAPIService) ApiV2TagsDeleteExecute(r ApiApiV2TagsDeleteRequest) (*h
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tagSelectModel
+	localVarPostBody = r.apiV2TagsDeleteRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -171,6 +174,28 @@ func (a *TagsAPIService) ApiV2TagsDeleteExecute(r ApiApiV2TagsDeleteRequest) (*h
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -180,7 +205,7 @@ func (a *TagsAPIService) ApiV2TagsDeleteExecute(r ApiApiV2TagsDeleteRequest) (*h
 
 type ApiApiV2TagsGetRequest struct {
 	ctx context.Context
-	ApiService *TagsAPIService
+	ApiService *TagsApiService
 }
 
 func (r ApiApiV2TagsGetRequest) Execute() ([]TagModel, *http.Response, error) {
@@ -190,16 +215,19 @@ func (r ApiApiV2TagsGetRequest) Execute() ([]TagModel, *http.Response, error) {
 /*
 ApiV2TagsGet Get all Tags
 
-<br>Use case
-<br>User runs method execution
-<br>System returns tags (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System returns tags (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TagsGetRequest
 
 Deprecated
 */
-func (a *TagsAPIService) ApiV2TagsGet(ctx context.Context) ApiApiV2TagsGetRequest {
+func (a *TagsApiService) ApiV2TagsGet(ctx context.Context) ApiApiV2TagsGetRequest {
 	return ApiApiV2TagsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -209,7 +237,7 @@ func (a *TagsAPIService) ApiV2TagsGet(ctx context.Context) ApiApiV2TagsGetReques
 // Execute executes the request
 //  @return []TagModel
 // Deprecated
-func (a *TagsAPIService) ApiV2TagsGetExecute(r ApiApiV2TagsGetRequest) ([]TagModel, *http.Response, error) {
+func (a *TagsApiService) ApiV2TagsGetExecute(r ApiApiV2TagsGetRequest) ([]TagModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -217,7 +245,7 @@ func (a *TagsAPIService) ApiV2TagsGetExecute(r ApiApiV2TagsGetRequest) ([]TagMod
 		localVarReturnValue  []TagModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.ApiV2TagsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -281,7 +309,62 @@ func (a *TagsAPIService) ApiV2TagsGetExecute(r ApiApiV2TagsGetRequest) ([]TagMod
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -308,7 +391,7 @@ func (a *TagsAPIService) ApiV2TagsGetExecute(r ApiApiV2TagsGetRequest) ([]TagMod
 
 type ApiApiV2TagsIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *TagsAPIService
+	ApiService *TagsApiService
 	id string
 }
 
@@ -319,15 +402,18 @@ func (r ApiApiV2TagsIdDeleteRequest) Execute() (*http.Response, error) {
 /*
 ApiV2TagsIdDelete Delete tag
 
-<br>Use case
-<br>User sets tag internal (guid format) identifier
-<br>System search and delete tag
+
+Use case
+
+User sets tag internal (guid format) identifier
+
+System search and delete tag
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Tag internal (UUID) identifier
  @return ApiApiV2TagsIdDeleteRequest
 */
-func (a *TagsAPIService) ApiV2TagsIdDelete(ctx context.Context, id string) ApiApiV2TagsIdDeleteRequest {
+func (a *TagsApiService) ApiV2TagsIdDelete(ctx context.Context, id string) ApiApiV2TagsIdDeleteRequest {
 	return ApiApiV2TagsIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -336,14 +422,14 @@ func (a *TagsAPIService) ApiV2TagsIdDelete(ctx context.Context, id string) ApiAp
 }
 
 // Execute executes the request
-func (a *TagsAPIService) ApiV2TagsIdDeleteExecute(r ApiApiV2TagsIdDeleteRequest) (*http.Response, error) {
+func (a *TagsApiService) ApiV2TagsIdDeleteExecute(r ApiApiV2TagsIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.ApiV2TagsIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -450,6 +536,28 @@ func (a *TagsAPIService) ApiV2TagsIdDeleteExecute(r ApiApiV2TagsIdDeleteRequest)
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -459,12 +567,12 @@ func (a *TagsAPIService) ApiV2TagsIdDeleteExecute(r ApiApiV2TagsIdDeleteRequest)
 
 type ApiApiV2TagsPostRequest struct {
 	ctx context.Context
-	ApiService *TagsAPIService
-	tagPostModel *TagPostModel
+	ApiService *TagsApiService
+	apiV2TagsPostRequest *ApiV2TagsPostRequest
 }
 
-func (r ApiApiV2TagsPostRequest) TagPostModel(tagPostModel TagPostModel) ApiApiV2TagsPostRequest {
-	r.tagPostModel = &tagPostModel
+func (r ApiApiV2TagsPostRequest) ApiV2TagsPostRequest(apiV2TagsPostRequest ApiV2TagsPostRequest) ApiApiV2TagsPostRequest {
+	r.apiV2TagsPostRequest = &apiV2TagsPostRequest
 	return r
 }
 
@@ -475,16 +583,21 @@ func (r ApiApiV2TagsPostRequest) Execute() (*TagModel, *http.Response, error) {
 /*
 ApiV2TagsPost Create tag
 
-<br>Use case
-<br>User sets tag model (listed in the request example)
-<br>User runs method execution
-<br>System creates tag
-<br>System returns tag model (listed in the response example)
+
+Use case
+
+User sets tag model (listed in the request example)
+
+User runs method execution
+
+System creates tag
+
+System returns tag model (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TagsPostRequest
 */
-func (a *TagsAPIService) ApiV2TagsPost(ctx context.Context) ApiApiV2TagsPostRequest {
+func (a *TagsApiService) ApiV2TagsPost(ctx context.Context) ApiApiV2TagsPostRequest {
 	return ApiApiV2TagsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -493,7 +606,7 @@ func (a *TagsAPIService) ApiV2TagsPost(ctx context.Context) ApiApiV2TagsPostRequ
 
 // Execute executes the request
 //  @return TagModel
-func (a *TagsAPIService) ApiV2TagsPostExecute(r ApiApiV2TagsPostRequest) (*TagModel, *http.Response, error) {
+func (a *TagsApiService) ApiV2TagsPostExecute(r ApiApiV2TagsPostRequest) (*TagModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -501,7 +614,7 @@ func (a *TagsAPIService) ApiV2TagsPostExecute(r ApiApiV2TagsPostRequest) (*TagMo
 		localVarReturnValue  *TagModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.ApiV2TagsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -530,162 +643,7 @@ func (a *TagsAPIService) ApiV2TagsPostExecute(r ApiApiV2TagsPostRequest) (*TagMo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tagPostModel
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiApiV2TagsPutRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIService
-	id *string
-	tagPutModel *TagPutModel
-}
-
-func (r ApiApiV2TagsPutRequest) Id(id string) ApiApiV2TagsPutRequest {
-	r.id = &id
-	return r
-}
-
-func (r ApiApiV2TagsPutRequest) TagPutModel(tagPutModel TagPutModel) ApiApiV2TagsPutRequest {
-	r.tagPutModel = &tagPutModel
-	return r
-}
-
-func (r ApiApiV2TagsPutRequest) Execute() (*TagModel, *http.Response, error) {
-	return r.ApiService.ApiV2TagsPutExecute(r)
-}
-
-/*
-ApiV2TagsPut Update tag
-
-<br>Use case
-<br>User sets tag ID and model (listed in the request example)
-<br>User runs method execution
-<br>System updates tag
-<br>System returns tag model (listed in the response example)
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV2TagsPutRequest
-*/
-func (a *TagsAPIService) ApiV2TagsPut(ctx context.Context) ApiApiV2TagsPutRequest {
-	return ApiApiV2TagsPutRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return TagModel
-func (a *TagsAPIService) ApiV2TagsPutExecute(r ApiApiV2TagsPutRequest) (*TagModel, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TagModel
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsPut")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/tags"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.id != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.tagPutModel
+	localVarPostBody = r.apiV2TagsPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -764,6 +722,232 @@ func (a *TagsAPIService) ApiV2TagsPutExecute(r ApiApiV2TagsPutRequest) (*TagMode
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV2TagsPutRequest struct {
+	ctx context.Context
+	ApiService *TagsApiService
+	id *string
+	apiV2TagsPutRequest *ApiV2TagsPutRequest
+}
+
+func (r ApiApiV2TagsPutRequest) Id(id string) ApiApiV2TagsPutRequest {
+	r.id = &id
+	return r
+}
+
+func (r ApiApiV2TagsPutRequest) ApiV2TagsPutRequest(apiV2TagsPutRequest ApiV2TagsPutRequest) ApiApiV2TagsPutRequest {
+	r.apiV2TagsPutRequest = &apiV2TagsPutRequest
+	return r
+}
+
+func (r ApiApiV2TagsPutRequest) Execute() (*TagModel, *http.Response, error) {
+	return r.ApiService.ApiV2TagsPutExecute(r)
+}
+
+/*
+ApiV2TagsPut Update tag
+
+
+Use case
+
+User sets tag ID and model (listed in the request example)
+
+User runs method execution
+
+System updates tag
+
+System returns tag model (listed in the response example)
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiApiV2TagsPutRequest
+*/
+func (a *TagsApiService) ApiV2TagsPut(ctx context.Context) ApiApiV2TagsPutRequest {
+	return ApiApiV2TagsPutRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return TagModel
+func (a *TagsApiService) ApiV2TagsPutExecute(r ApiApiV2TagsPutRequest) (*TagModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TagModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.ApiV2TagsPut")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/tags"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.id != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.apiV2TagsPutRequest
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -782,7 +966,7 @@ func (a *TagsAPIService) ApiV2TagsPutExecute(r ApiApiV2TagsPutRequest) (*TagMode
 
 type ApiApiV2TagsSearchGetRequest struct {
 	ctx context.Context
-	ApiService *TagsAPIService
+	ApiService *TagsApiService
 	skip *int32
 	take *int32
 	orderBy *string
@@ -827,14 +1011,17 @@ func (r ApiApiV2TagsSearchGetRequest) Execute() ([]TagModel, *http.Response, err
 /*
 ApiV2TagsSearchGet Search tags
 
-<br>Use case
-<br>User runs method execution
-<br>System returns collection of tags (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System returns collection of tags (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TagsSearchGetRequest
 */
-func (a *TagsAPIService) ApiV2TagsSearchGet(ctx context.Context) ApiApiV2TagsSearchGetRequest {
+func (a *TagsApiService) ApiV2TagsSearchGet(ctx context.Context) ApiApiV2TagsSearchGetRequest {
 	return ApiApiV2TagsSearchGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -843,7 +1030,7 @@ func (a *TagsAPIService) ApiV2TagsSearchGet(ctx context.Context) ApiApiV2TagsSea
 
 // Execute executes the request
 //  @return []TagModel
-func (a *TagsAPIService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetRequest) ([]TagModel, *http.Response, error) {
+func (a *TagsApiService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetRequest) ([]TagModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -851,7 +1038,7 @@ func (a *TagsAPIService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetReques
 		localVarReturnValue  []TagModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsSearchGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.ApiV2TagsSearchGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -930,6 +1117,17 @@ func (a *TagsAPIService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -940,6 +1138,49 @@ func (a *TagsAPIService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetReques
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -958,7 +1199,7 @@ func (a *TagsAPIService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetReques
 
 type ApiApiV2TagsTestPlansTagsGetRequest struct {
 	ctx context.Context
-	ApiService *TagsAPIService
+	ApiService *TagsApiService
 	skip *int32
 	take *int32
 	orderBy *string
@@ -1003,14 +1244,17 @@ func (r ApiApiV2TagsTestPlansTagsGetRequest) Execute() ([]TagModel, *http.Respon
 /*
 ApiV2TagsTestPlansTagsGet Get all Tags that are used in TestPlans
 
-<br>Use case
-<br>User runs method execution
-<br>System returns tags (listed in the response example)
+
+Use case
+
+User runs method execution
+
+System returns tags (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2TagsTestPlansTagsGetRequest
 */
-func (a *TagsAPIService) ApiV2TagsTestPlansTagsGet(ctx context.Context) ApiApiV2TagsTestPlansTagsGetRequest {
+func (a *TagsApiService) ApiV2TagsTestPlansTagsGet(ctx context.Context) ApiApiV2TagsTestPlansTagsGetRequest {
 	return ApiApiV2TagsTestPlansTagsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1019,7 +1263,7 @@ func (a *TagsAPIService) ApiV2TagsTestPlansTagsGet(ctx context.Context) ApiApiV2
 
 // Execute executes the request
 //  @return []TagModel
-func (a *TagsAPIService) ApiV2TagsTestPlansTagsGetExecute(r ApiApiV2TagsTestPlansTagsGetRequest) ([]TagModel, *http.Response, error) {
+func (a *TagsApiService) ApiV2TagsTestPlansTagsGetExecute(r ApiApiV2TagsTestPlansTagsGetRequest) ([]TagModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1027,7 +1271,7 @@ func (a *TagsAPIService) ApiV2TagsTestPlansTagsGetExecute(r ApiApiV2TagsTestPlan
 		localVarReturnValue  []TagModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsTestPlansTagsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsApiService.ApiV2TagsTestPlansTagsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1118,6 +1362,50 @@ func (a *TagsAPIService) ApiV2TagsTestPlansTagsGetExecute(r ApiApiV2TagsTestPlan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

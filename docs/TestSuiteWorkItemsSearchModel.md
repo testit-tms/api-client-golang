@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TagNames** | Pointer to **[]string** | Collection of tags | [optional] 
-**EntityTypes** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item  &lt;br&gt;Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**EntityTypes** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item   Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **NameOrId** | Pointer to **NullableString** | Name or identifier (UUID) of work item | [optional] 
 **IncludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **ExcludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **IsAutomated** | Pointer to **NullableBool** | Is result must consist of only manual/automated work items | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags | [optional] 
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
+**WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
 
 ## Methods
 
@@ -888,6 +889,41 @@ HasAutoTestIds returns a boolean if a field has been set.
 `func (o *TestSuiteWorkItemsSearchModel) UnsetAutoTestIds()`
 
 UnsetAutoTestIds ensures that no value is present for AutoTestIds, not even an explicit nil
+### GetWorkItemVersionIds
+
+`func (o *TestSuiteWorkItemsSearchModel) GetWorkItemVersionIds() []string`
+
+GetWorkItemVersionIds returns the WorkItemVersionIds field if non-nil, zero value otherwise.
+
+### GetWorkItemVersionIdsOk
+
+`func (o *TestSuiteWorkItemsSearchModel) GetWorkItemVersionIdsOk() (*[]string, bool)`
+
+GetWorkItemVersionIdsOk returns a tuple with the WorkItemVersionIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemVersionIds
+
+`func (o *TestSuiteWorkItemsSearchModel) SetWorkItemVersionIds(v []string)`
+
+SetWorkItemVersionIds sets WorkItemVersionIds field to given value.
+
+### HasWorkItemVersionIds
+
+`func (o *TestSuiteWorkItemsSearchModel) HasWorkItemVersionIds() bool`
+
+HasWorkItemVersionIds returns a boolean if a field has been set.
+
+### SetWorkItemVersionIdsNil
+
+`func (o *TestSuiteWorkItemsSearchModel) SetWorkItemVersionIdsNil(b bool)`
+
+ SetWorkItemVersionIdsNil sets the value for WorkItemVersionIds to be an explicit nil
+
+### UnsetWorkItemVersionIds
+`func (o *TestSuiteWorkItemsSearchModel) UnsetWorkItemVersionIds()`
+
+UnsetWorkItemVersionIds ensures that no value is present for WorkItemVersionIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

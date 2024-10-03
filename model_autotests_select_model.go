@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the AutotestsSelectModel type satisfies the MappedNullable interface at compile time
@@ -21,17 +19,15 @@ var _ MappedNullable = &AutotestsSelectModel{}
 
 // AutotestsSelectModel struct for AutotestsSelectModel
 type AutotestsSelectModel struct {
-	Filter AutotestFilterModel `json:"filter"`
-	Includes SearchAutoTestsQueryIncludesModel `json:"includes"`
+	Filter AutotestsSelectModelFilter `json:"filter"`
+	Includes AutotestsSelectModelIncludes `json:"includes"`
 }
-
-type _AutotestsSelectModel AutotestsSelectModel
 
 // NewAutotestsSelectModel instantiates a new AutotestsSelectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutotestsSelectModel(filter AutotestFilterModel, includes SearchAutoTestsQueryIncludesModel) *AutotestsSelectModel {
+func NewAutotestsSelectModel(filter AutotestsSelectModelFilter, includes AutotestsSelectModelIncludes) *AutotestsSelectModel {
 	this := AutotestsSelectModel{}
 	this.Filter = filter
 	this.Includes = includes
@@ -47,9 +43,9 @@ func NewAutotestsSelectModelWithDefaults() *AutotestsSelectModel {
 }
 
 // GetFilter returns the Filter field value
-func (o *AutotestsSelectModel) GetFilter() AutotestFilterModel {
+func (o *AutotestsSelectModel) GetFilter() AutotestsSelectModelFilter {
 	if o == nil {
-		var ret AutotestFilterModel
+		var ret AutotestsSelectModelFilter
 		return ret
 	}
 
@@ -58,7 +54,7 @@ func (o *AutotestsSelectModel) GetFilter() AutotestFilterModel {
 
 // GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-func (o *AutotestsSelectModel) GetFilterOk() (*AutotestFilterModel, bool) {
+func (o *AutotestsSelectModel) GetFilterOk() (*AutotestsSelectModelFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,14 +62,14 @@ func (o *AutotestsSelectModel) GetFilterOk() (*AutotestFilterModel, bool) {
 }
 
 // SetFilter sets field value
-func (o *AutotestsSelectModel) SetFilter(v AutotestFilterModel) {
+func (o *AutotestsSelectModel) SetFilter(v AutotestsSelectModelFilter) {
 	o.Filter = v
 }
 
 // GetIncludes returns the Includes field value
-func (o *AutotestsSelectModel) GetIncludes() SearchAutoTestsQueryIncludesModel {
+func (o *AutotestsSelectModel) GetIncludes() AutotestsSelectModelIncludes {
 	if o == nil {
-		var ret SearchAutoTestsQueryIncludesModel
+		var ret AutotestsSelectModelIncludes
 		return ret
 	}
 
@@ -82,7 +78,7 @@ func (o *AutotestsSelectModel) GetIncludes() SearchAutoTestsQueryIncludesModel {
 
 // GetIncludesOk returns a tuple with the Includes field value
 // and a boolean to check if the value has been set.
-func (o *AutotestsSelectModel) GetIncludesOk() (*SearchAutoTestsQueryIncludesModel, bool) {
+func (o *AutotestsSelectModel) GetIncludesOk() (*AutotestsSelectModelIncludes, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +86,7 @@ func (o *AutotestsSelectModel) GetIncludesOk() (*SearchAutoTestsQueryIncludesMod
 }
 
 // SetIncludes sets field value
-func (o *AutotestsSelectModel) SetIncludes(v SearchAutoTestsQueryIncludesModel) {
+func (o *AutotestsSelectModel) SetIncludes(v AutotestsSelectModelIncludes) {
 	o.Includes = v
 }
 
@@ -107,44 +103,6 @@ func (o AutotestsSelectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["filter"] = o.Filter
 	toSerialize["includes"] = o.Includes
 	return toSerialize, nil
-}
-
-func (o *AutotestsSelectModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"filter",
-		"includes",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varAutotestsSelectModel := _AutotestsSelectModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutotestsSelectModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = AutotestsSelectModel(varAutotestsSelectModel)
-
-	return err
 }
 
 type NullableAutotestsSelectModel struct {

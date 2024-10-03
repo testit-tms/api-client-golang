@@ -1,40 +1,40 @@
-# \WorkItemsAPI
+# \WorkItemsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2WorkItemsIdAttachmentsPost**](WorkItemsAPI.md#ApiV2WorkItemsIdAttachmentsPost) | **Post** /api/v2/workItems/{id}/attachments | Upload and link attachment to WorkItem
-[**ApiV2WorkItemsIdCheckListTransformToTestCasePost**](WorkItemsAPI.md#ApiV2WorkItemsIdCheckListTransformToTestCasePost) | **Post** /api/v2/workItems/{id}/checkList/transformTo/testCase | Transform CheckList to TestCase
-[**ApiV2WorkItemsIdHistoryGet**](WorkItemsAPI.md#ApiV2WorkItemsIdHistoryGet) | **Get** /api/v2/workItems/{id}/history | Get change history of WorkItem
-[**ApiV2WorkItemsIdLikeDelete**](WorkItemsAPI.md#ApiV2WorkItemsIdLikeDelete) | **Delete** /api/v2/workItems/{id}/like | Delete like from WorkItem
-[**ApiV2WorkItemsIdLikePost**](WorkItemsAPI.md#ApiV2WorkItemsIdLikePost) | **Post** /api/v2/workItems/{id}/like | Set like to WorkItem
-[**ApiV2WorkItemsIdLikesCountGet**](WorkItemsAPI.md#ApiV2WorkItemsIdLikesCountGet) | **Get** /api/v2/workItems/{id}/likes/count | Get likes count of WorkItem
-[**ApiV2WorkItemsIdLikesGet**](WorkItemsAPI.md#ApiV2WorkItemsIdLikesGet) | **Get** /api/v2/workItems/{id}/likes | Get likes of WorkItem
-[**ApiV2WorkItemsIdTestResultsHistoryGet**](WorkItemsAPI.md#ApiV2WorkItemsIdTestResultsHistoryGet) | **Get** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
-[**ApiV2WorkItemsIdVersionVersionIdActualPost**](WorkItemsAPI.md#ApiV2WorkItemsIdVersionVersionIdActualPost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
-[**ApiV2WorkItemsMovePost**](WorkItemsAPI.md#ApiV2WorkItemsMovePost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
-[**ApiV2WorkItemsSearchPost**](WorkItemsAPI.md#ApiV2WorkItemsSearchPost) | **Post** /api/v2/workItems/search | Search for work items
-[**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepIdReferencesSectionsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
-[**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
-[**ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet) | **Get** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
-[**CreateWorkItem**](WorkItemsAPI.md#CreateWorkItem) | **Post** /api/v2/workItems | Create Test Case, Checklist or Shared Step
-[**DeleteAllWorkItemsFromAutoTest**](WorkItemsAPI.md#DeleteAllWorkItemsFromAutoTest) | **Delete** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
-[**DeleteWorkItem**](WorkItemsAPI.md#DeleteWorkItem) | **Delete** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
-[**GetAutoTestsForWorkItem**](WorkItemsAPI.md#GetAutoTestsForWorkItem) | **Get** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
-[**GetIterations**](WorkItemsAPI.md#GetIterations) | **Get** /api/v2/workItems/{id}/iterations | Get iterations by work item Id or GlobalId
-[**GetWorkItemById**](WorkItemsAPI.md#GetWorkItemById) | **Get** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
-[**GetWorkItemChronology**](WorkItemsAPI.md#GetWorkItemChronology) | **Get** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
-[**GetWorkItemVersions**](WorkItemsAPI.md#GetWorkItemVersions) | **Get** /api/v2/workItems/{id}/versions | Get WorkItem versions
-[**PurgeWorkItem**](WorkItemsAPI.md#PurgeWorkItem) | **Post** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
-[**RestoreWorkItem**](WorkItemsAPI.md#RestoreWorkItem) | **Post** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
-[**UpdateWorkItem**](WorkItemsAPI.md#UpdateWorkItem) | **Put** /api/v2/workItems | Update Test Case, Checklist or Shared Step
+[**ApiV2WorkItemsIdAttachmentsPost**](WorkItemsApi.md#ApiV2WorkItemsIdAttachmentsPost) | **Post** /api/v2/workItems/{id}/attachments | Upload and link attachment to WorkItem
+[**ApiV2WorkItemsIdCheckListTransformToTestCasePost**](WorkItemsApi.md#ApiV2WorkItemsIdCheckListTransformToTestCasePost) | **Post** /api/v2/workItems/{id}/checkList/transformTo/testCase | Transform CheckList to TestCase
+[**ApiV2WorkItemsIdHistoryGet**](WorkItemsApi.md#ApiV2WorkItemsIdHistoryGet) | **Get** /api/v2/workItems/{id}/history | Get change history of WorkItem
+[**ApiV2WorkItemsIdLikeDelete**](WorkItemsApi.md#ApiV2WorkItemsIdLikeDelete) | **Delete** /api/v2/workItems/{id}/like | Delete like from WorkItem
+[**ApiV2WorkItemsIdLikePost**](WorkItemsApi.md#ApiV2WorkItemsIdLikePost) | **Post** /api/v2/workItems/{id}/like | Set like to WorkItem
+[**ApiV2WorkItemsIdLikesCountGet**](WorkItemsApi.md#ApiV2WorkItemsIdLikesCountGet) | **Get** /api/v2/workItems/{id}/likes/count | Get likes count of WorkItem
+[**ApiV2WorkItemsIdLikesGet**](WorkItemsApi.md#ApiV2WorkItemsIdLikesGet) | **Get** /api/v2/workItems/{id}/likes | Get likes of WorkItem
+[**ApiV2WorkItemsIdTestResultsHistoryGet**](WorkItemsApi.md#ApiV2WorkItemsIdTestResultsHistoryGet) | **Get** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
+[**ApiV2WorkItemsIdVersionVersionIdActualPost**](WorkItemsApi.md#ApiV2WorkItemsIdVersionVersionIdActualPost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
+[**ApiV2WorkItemsMovePost**](WorkItemsApi.md#ApiV2WorkItemsMovePost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
+[**ApiV2WorkItemsSearchPost**](WorkItemsApi.md#ApiV2WorkItemsSearchPost) | **Post** /api/v2/workItems/search | Search for work items
+[**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsApi.md#ApiV2WorkItemsSharedStepIdReferencesSectionsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
+[**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](WorkItemsApi.md#ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
+[**ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet**](WorkItemsApi.md#ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet) | **Get** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
+[**CreateWorkItem**](WorkItemsApi.md#CreateWorkItem) | **Post** /api/v2/workItems | Create Test Case, Checklist or Shared Step
+[**DeleteAllWorkItemsFromAutoTest**](WorkItemsApi.md#DeleteAllWorkItemsFromAutoTest) | **Delete** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
+[**DeleteWorkItem**](WorkItemsApi.md#DeleteWorkItem) | **Delete** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
+[**GetAutoTestsForWorkItem**](WorkItemsApi.md#GetAutoTestsForWorkItem) | **Get** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
+[**GetIterations**](WorkItemsApi.md#GetIterations) | **Get** /api/v2/workItems/{id}/iterations | Get iterations by work item Id or GlobalId
+[**GetWorkItemById**](WorkItemsApi.md#GetWorkItemById) | **Get** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
+[**GetWorkItemChronology**](WorkItemsApi.md#GetWorkItemChronology) | **Get** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
+[**GetWorkItemVersions**](WorkItemsApi.md#GetWorkItemVersions) | **Get** /api/v2/workItems/{id}/versions | Get WorkItem versions
+[**PurgeWorkItem**](WorkItemsApi.md#PurgeWorkItem) | **Post** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
+[**RestoreWorkItem**](WorkItemsApi.md#RestoreWorkItem) | **Post** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
+[**UpdateWorkItem**](WorkItemsApi.md#UpdateWorkItem) | **Put** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 
 
 
 ## ApiV2WorkItemsIdAttachmentsPost
 
-> string ApiV2WorkItemsIdAttachmentsPost(ctx, id).File(file).Execute()
+> ApiV2WorkItemsIdAttachmentsPost(ctx, id).File(file).Execute()
 
 Upload and link attachment to WorkItem
 
@@ -46,25 +46,23 @@ Upload and link attachment to WorkItem
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Work item internal identifier (guid format)
-	file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Work item internal identifier (guid format)
+    file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdAttachmentsPost(context.Background(), id).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdAttachmentsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdAttachmentsPost`: string
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdAttachmentsPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdAttachmentsPost(context.Background(), id).File(file).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdAttachmentsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -88,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+ (empty response body)
 
 ### Authorization
 
@@ -118,24 +116,24 @@ Transform CheckList to TestCase
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdCheckListTransformToTestCasePost(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdCheckListTransformToTestCasePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdCheckListTransformToTestCasePost`: WorkItemModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdCheckListTransformToTestCasePost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdCheckListTransformToTestCasePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdCheckListTransformToTestCasePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsIdCheckListTransformToTestCasePost`: WorkItemModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsIdCheckListTransformToTestCasePost`: %v\n", resp)
 }
 ```
 
@@ -188,29 +186,29 @@ Get change history of WorkItem
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdHistoryGet(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdHistoryGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdHistoryGet`: []WorkItemChangeModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdHistoryGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdHistoryGet(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdHistoryGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsIdHistoryGet`: []WorkItemChangeModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsIdHistoryGet`: %v\n", resp)
 }
 ```
 
@@ -268,22 +266,22 @@ Delete like from WorkItem
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdLikeDelete(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdLikeDelete``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdLikeDelete(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdLikeDelete``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -336,22 +334,22 @@ Set like to WorkItem
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdLikePost(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdLikePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdLikePost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdLikePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -404,24 +402,24 @@ Get likes count of WorkItem
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdLikesCountGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdLikesCountGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdLikesCountGet`: int32
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdLikesCountGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdLikesCountGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdLikesCountGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsIdLikesCountGet`: int32
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsIdLikesCountGet`: %v\n", resp)
 }
 ```
 
@@ -474,24 +472,24 @@ Get likes of WorkItem
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdLikesGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdLikesGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdLikesGet`: []WorkItemLikeModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdLikesGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdLikesGet(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdLikesGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsIdLikesGet`: []WorkItemLikeModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsIdLikesGet`: %v\n", resp)
 }
 ```
 
@@ -544,39 +542,39 @@ Get test results history of WorkItem
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
+    "context"
+    "fmt"
+    "os"
     "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	from := time.Now() // time.Time | Take results from this date (optional)
-	to := time.Now() // time.Time | Take results until this date (optional)
-	configurationIds := []string{"Inner_example"} // []string | Identifiers of test result configurations (optional)
-	testPlanIds := []string{"Inner_example"} // []string | Identifiers of test plans which contain test results (optional)
-	userIds := []string{"Inner_example"} // []string | Identifiers of users who set test results (optional)
-	outcomes := []string{"Inner_example"} // []string | List of outcomes of test results (optional)
-	isAutomated := true // bool | OBSOLETE: Use `Automated` instead (optional)
-	automated := true // bool | If result must consist of only manual/automated test results (optional)
-	testRunIds := []string{"Inner_example"} // []string | Identifiers of test runs which contain test results (optional)
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    from := time.Now() // time.Time | Take results from this date (optional)
+    to := time.Now() // time.Time | Take results until this date (optional)
+    configurationIds := []string{"Inner_example"} // []string | Identifiers of test result configurations (optional)
+    testPlanIds := []string{"Inner_example"} // []string | Identifiers of test plans which contain test results (optional)
+    userIds := []string{"Inner_example"} // []string | Identifiers of users who set test results (optional)
+    outcomes := []string{"Inner_example"} // []string | List of outcomes of test results (optional)
+    isAutomated := true // bool | OBSOLETE: Use `Automated` instead (optional)
+    automated := true // bool | If result must consist of only manual/automated test results (optional)
+    testRunIds := []string{"Inner_example"} // []string | Identifiers of test runs which contain test results (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet(context.Background(), id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdTestResultsHistoryGet`: []TestResultHistoryReportModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdTestResultsHistoryGet(context.Background(), id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdTestResultsHistoryGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsIdTestResultsHistoryGet`: []TestResultHistoryReportModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsIdTestResultsHistoryGet`: %v\n", resp)
 }
 ```
 
@@ -643,25 +641,25 @@ Set WorkItem as actual
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	versionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    versionId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdVersionVersionIdActualPost(context.Background(), id, versionId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdVersionVersionIdActualPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsIdVersionVersionIdActualPost`: WorkItemModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdVersionVersionIdActualPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsIdVersionVersionIdActualPost(context.Background(), id, versionId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsIdVersionVersionIdActualPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsIdVersionVersionIdActualPost`: WorkItemModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsIdVersionVersionIdActualPost`: %v\n", resp)
 }
 ```
 
@@ -704,7 +702,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsMovePost
 
-> WorkItemShortModel ApiV2WorkItemsMovePost(ctx).WorkItemMovePostModel(workItemMovePostModel).Execute()
+> WorkItemShortModel ApiV2WorkItemsMovePost(ctx).ApiV2WorkItemsMovePostRequest(apiV2WorkItemsMovePostRequest).Execute()
 
 Move WorkItem to another section
 
@@ -716,24 +714,24 @@ Move WorkItem to another section
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	workItemMovePostModel := *openapiclient.NewWorkItemMovePostModel("Id_example", "NewSectionId_example") // WorkItemMovePostModel |  (optional)
+    apiV2WorkItemsMovePostRequest := *openapiclient.NewApiV2WorkItemsMovePostRequest("Id_example", "NewSectionId_example") // ApiV2WorkItemsMovePostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsMovePost(context.Background()).WorkItemMovePostModel(workItemMovePostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsMovePost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsMovePost`: WorkItemShortModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsMovePost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsMovePost(context.Background()).ApiV2WorkItemsMovePostRequest(apiV2WorkItemsMovePostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsMovePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsMovePost`: WorkItemShortModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsMovePost`: %v\n", resp)
 }
 ```
 
@@ -748,7 +746,7 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsMovePostRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemMovePostModel** | [**WorkItemMovePostModel**](WorkItemMovePostModel.md) |  | 
+ **apiV2WorkItemsMovePostRequest** | [**ApiV2WorkItemsMovePostRequest**](ApiV2WorkItemsMovePostRequest.md) |  | 
 
 ### Return type
 
@@ -770,7 +768,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSearchPost
 
-> []WorkItemShortModel ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+> []WorkItemShortModel ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
 
 Search for work items
 
@@ -780,29 +778,29 @@ Search for work items
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	workItemSelectModel := *openapiclient.NewWorkItemSelectModel(*openapiclient.NewWorkItemFilterModel()) // WorkItemSelectModel |  (optional)
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2ProjectsProjectIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdWorkItemsSearchPostRequest(*openapiclient.NewWorkItemSelectModelFilter()) // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsSearchPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsSearchPost`: []WorkItemShortModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsSearchPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSearchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsSearchPost`: []WorkItemShortModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsSearchPost`: %v\n", resp)
 }
 ```
 
@@ -822,7 +820,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) |  | 
+ **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md) |  | 
 
 ### Return type
 
@@ -844,7 +842,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSharedStepIdReferencesSectionsPost
 
-> []SharedStepReferenceSectionModel ApiV2WorkItemsSharedStepIdReferencesSectionsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferenceSectionsQueryFilterModel(sharedStepReferenceSectionsQueryFilterModel).Execute()
+> []SharedStepReferenceSectionModel ApiV2WorkItemsSharedStepIdReferencesSectionsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest).Execute()
 
 Get SharedStep references in sections
 
@@ -856,30 +854,30 @@ Get SharedStep references in sections
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	sharedStepId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	sharedStepReferenceSectionsQueryFilterModel := *openapiclient.NewSharedStepReferenceSectionsQueryFilterModel() // SharedStepReferenceSectionsQueryFilterModel |  (optional)
+    sharedStepId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest := *openapiclient.NewApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest() // ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsSharedStepIdReferencesSectionsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferenceSectionsQueryFilterModel(sharedStepReferenceSectionsQueryFilterModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsSharedStepIdReferencesSectionsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsSharedStepIdReferencesSectionsPost`: []SharedStepReferenceSectionModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsSharedStepIdReferencesSectionsPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesSectionsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest(apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesSectionsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsSharedStepIdReferencesSectionsPost`: []SharedStepReferenceSectionModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesSectionsPost`: %v\n", resp)
 }
 ```
 
@@ -904,7 +902,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **sharedStepReferenceSectionsQueryFilterModel** | [**SharedStepReferenceSectionsQueryFilterModel**](SharedStepReferenceSectionsQueryFilterModel.md) |  | 
+ **apiV2WorkItemsSharedStepIdReferencesSectionsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest.md) |  | 
 
 ### Return type
 
@@ -926,7 +924,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost
 
-> []SharedStepReferenceModel ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferencesQueryFilterModel(sharedStepReferencesQueryFilterModel).Execute()
+> []SharedStepReferenceModel ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(ctx, sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest).Execute()
 
 Get SharedStep references in work items
 
@@ -938,30 +936,30 @@ Get SharedStep references in work items
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	sharedStepId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	sharedStepReferencesQueryFilterModel := *openapiclient.NewSharedStepReferencesQueryFilterModel() // SharedStepReferencesQueryFilterModel |  (optional)
+    sharedStepId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest := *openapiclient.NewApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest() // ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SharedStepReferencesQueryFilterModel(sharedStepReferencesQueryFilterModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost`: []SharedStepReferenceModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost(context.Background(), sharedStepId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest(apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost`: []SharedStepReferenceModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost`: %v\n", resp)
 }
 ```
 
@@ -986,7 +984,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **sharedStepReferencesQueryFilterModel** | [**SharedStepReferencesQueryFilterModel**](SharedStepReferencesQueryFilterModel.md) |  | 
+ **apiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest** | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest**](ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest.md) |  | 
 
 ### Return type
 
@@ -1020,24 +1018,24 @@ Get SharedStep references
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	sharedStepId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+    sharedStepId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet(context.Background(), sharedStepId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet`: []SharedStepReferenceModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet(context.Background(), sharedStepId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet`: []SharedStepReferenceModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet`: %v\n", resp)
 }
 ```
 
@@ -1078,7 +1076,7 @@ Name | Type | Description  | Notes
 
 ## CreateWorkItem
 
-> WorkItemModel CreateWorkItem(ctx).WorkItemPostModel(workItemPostModel).Execute()
+> WorkItemModel CreateWorkItem(ctx).CreateWorkItemRequest(createWorkItemRequest).Execute()
 
 Create Test Case, Checklist or Shared Step
 
@@ -1090,24 +1088,24 @@ Create Test Case, Checklist or Shared Step
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	workItemPostModel := *openapiclient.NewWorkItemPostModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPostModel{*openapiclient.NewTagPostModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "82e92d6f-0258-416b-b2b4-039ea76601c7", "82e92d6f-0258-416b-b2b4-039ea76601c7") // WorkItemPostModel |  (optional)
+    createWorkItemRequest := *openapiclient.NewCreateWorkItemRequest(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPostModel{*openapiclient.NewTagPostModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "59173397-9485-4b36-9196-9405cf7416c2", "59173397-9485-4b36-9196-9405cf7416c2") // CreateWorkItemRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.CreateWorkItem(context.Background()).WorkItemPostModel(workItemPostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.CreateWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateWorkItem`: WorkItemModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.CreateWorkItem`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.CreateWorkItem(context.Background()).CreateWorkItemRequest(createWorkItemRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.CreateWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateWorkItem`: WorkItemModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.CreateWorkItem`: %v\n", resp)
 }
 ```
 
@@ -1122,7 +1120,7 @@ Other parameters are passed through a pointer to a apiCreateWorkItemRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemPostModel** | [**WorkItemPostModel**](WorkItemPostModel.md) |  | 
+ **createWorkItemRequest** | [**CreateWorkItemRequest**](CreateWorkItemRequest.md) |  | 
 
 ### Return type
 
@@ -1156,22 +1154,22 @@ Delete all links AutoTests from WorkItem by Id or GlobalId
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.DeleteAllWorkItemsFromAutoTest(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.DeleteAllWorkItemsFromAutoTest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.DeleteAllWorkItemsFromAutoTest(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.DeleteAllWorkItemsFromAutoTest``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -1224,22 +1222,22 @@ Delete Test Case, Checklist or Shared Step by Id or GlobalId
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.DeleteWorkItem(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.DeleteWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.DeleteWorkItem(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.DeleteWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -1292,24 +1290,24 @@ Get all AutoTests linked to WorkItem by Id or GlobalId
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.GetAutoTestsForWorkItem(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetAutoTestsForWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAutoTestsForWorkItem`: []AutoTestModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.GetAutoTestsForWorkItem`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.GetAutoTestsForWorkItem(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.GetAutoTestsForWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAutoTestsForWorkItem`: []AutoTestModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.GetAutoTestsForWorkItem`: %v\n", resp)
 }
 ```
 
@@ -1360,26 +1358,26 @@ Get iterations by work item Id or GlobalId
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
-	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier (optional)
-	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+    versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier (optional)
+    versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.GetIterations(context.Background(), id).VersionId(versionId).VersionNumber(versionNumber).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetIterations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIterations`: []IterationModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.GetIterations`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.GetIterations(context.Background(), id).VersionId(versionId).VersionNumber(versionNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.GetIterations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIterations`: []IterationModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.GetIterations`: %v\n", resp)
 }
 ```
 
@@ -1434,26 +1432,26 @@ Get Test Case, Checklist or Shared Step by Id or GlobalId
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
-	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier\" (optional)
-	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+    versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier\" (optional)
+    versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.GetWorkItemById(context.Background(), id).VersionId(versionId).VersionNumber(versionNumber).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetWorkItemById``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkItemById`: WorkItemModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.GetWorkItemById`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.GetWorkItemById(context.Background(), id).VersionId(versionId).VersionNumber(versionNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.GetWorkItemById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWorkItemById`: WorkItemModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.GetWorkItemById`: %v\n", resp)
 }
 ```
 
@@ -1508,24 +1506,24 @@ Get WorkItem chronology by Id or GlobalId
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | 
+    id := "id_example" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.GetWorkItemChronology(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetWorkItemChronology``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkItemChronology`: []TestResultChronologyModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.GetWorkItemChronology`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.GetWorkItemChronology(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.GetWorkItemChronology``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWorkItemChronology`: []TestResultChronologyModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.GetWorkItemChronology`: %v\n", resp)
 }
 ```
 
@@ -1578,26 +1576,26 @@ Get WorkItem versions
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
-	workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format)  identifier\" (optional)
-	versionNumber := int32(1) // int32 | WorkItem version (integer format)  number\" (optional)
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+    workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format)  identifier\" (optional)
+    versionNumber := int32(1) // int32 | WorkItem version (integer format)  number\" (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.GetWorkItemVersions(context.Background(), id).WorkItemVersionId(workItemVersionId).VersionNumber(versionNumber).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetWorkItemVersions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkItemVersions`: []WorkItemVersionModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.GetWorkItemVersions`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.WorkItemsApi.GetWorkItemVersions(context.Background(), id).WorkItemVersionId(workItemVersionId).VersionNumber(versionNumber).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.GetWorkItemVersions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWorkItemVersions`: []WorkItemVersionModel
+    fmt.Fprintf(os.Stdout, "Response from `WorkItemsApi.GetWorkItemVersions`: %v\n", resp)
 }
 ```
 
@@ -1650,22 +1648,22 @@ Permanently delete test case, checklist or shared steps from archive
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Unique or global ID of the work item
+    id := "id_example" // string | Unique or global ID of the work item
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.PurgeWorkItem(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.PurgeWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.PurgeWorkItem(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.PurgeWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -1716,22 +1714,22 @@ Restore test case, checklist or shared steps from archive
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "id_example" // string | Unique or global ID of the work item
+    id := "id_example" // string | Unique or global ID of the work item
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.RestoreWorkItem(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.RestoreWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.RestoreWorkItem(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.RestoreWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -1772,7 +1770,7 @@ Name | Type | Description  | Notes
 
 ## UpdateWorkItem
 
-> UpdateWorkItem(ctx).WorkItemPutModel(workItemPutModel).Execute()
+> UpdateWorkItem(ctx).UpdateWorkItemRequest(updateWorkItemRequest).Execute()
 
 Update Test Case, Checklist or Shared Step
 
@@ -1784,22 +1782,22 @@ Update Test Case, Checklist or Shared Step
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	workItemPutModel := *openapiclient.NewWorkItemPutModel([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "82e92d6f-0258-416b-b2b4-039ea76601c7", "82e92d6f-0258-416b-b2b4-039ea76601c7", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPutModel{*openapiclient.NewTagPutModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // WorkItemPutModel |  (optional)
+    updateWorkItemRequest := *openapiclient.NewUpdateWorkItemRequest([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "59173397-9485-4b36-9196-9405cf7416c2", "59173397-9485-4b36-9196-9405cf7416c2", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("59173397-9485-4b36-9196-9405cf7416c2")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("59173397-9485-4b36-9196-9405cf7416c2")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("59173397-9485-4b36-9196-9405cf7416c2")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPutModel{*openapiclient.NewTagPutModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // UpdateWorkItemRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.UpdateWorkItem(context.Background()).WorkItemPutModel(workItemPutModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.UpdateWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.WorkItemsApi.UpdateWorkItem(context.Background()).UpdateWorkItemRequest(updateWorkItemRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsApi.UpdateWorkItem``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -1814,7 +1812,7 @@ Other parameters are passed through a pointer to a apiUpdateWorkItemRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemPutModel** | [**WorkItemPutModel**](WorkItemPutModel.md) |  | 
+ **updateWorkItemRequest** | [**UpdateWorkItemRequest**](UpdateWorkItemRequest.md) |  | 
 
 ### Return type
 

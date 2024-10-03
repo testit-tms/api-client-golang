@@ -51,6 +51,8 @@ type WorkItemLocalSelectModelFilter struct {
 	Tags []string `json:"tags,omitempty"`
 	// Collection of identifiers of linked autotests
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
+	// Collection of identifiers work items versions.
+	WorkItemVersionIds []string `json:"workItemVersionIds,omitempty"`
 }
 
 // NewWorkItemLocalSelectModelFilter instantiates a new WorkItemLocalSelectModelFilter object
@@ -727,6 +729,39 @@ func (o *WorkItemLocalSelectModelFilter) SetAutoTestIds(v []string) {
 	o.AutoTestIds = v
 }
 
+// GetWorkItemVersionIds returns the WorkItemVersionIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemLocalSelectModelFilter) GetWorkItemVersionIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemVersionIds
+}
+
+// GetWorkItemVersionIdsOk returns a tuple with the WorkItemVersionIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemLocalSelectModelFilter) GetWorkItemVersionIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemVersionIds) {
+		return nil, false
+	}
+	return o.WorkItemVersionIds, true
+}
+
+// HasWorkItemVersionIds returns a boolean if a field has been set.
+func (o *WorkItemLocalSelectModelFilter) HasWorkItemVersionIds() bool {
+	if o != nil && IsNil(o.WorkItemVersionIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemVersionIds gets a reference to the given []string and assigns it to the WorkItemVersionIds field.
+func (o *WorkItemLocalSelectModelFilter) SetWorkItemVersionIds(v []string) {
+	o.WorkItemVersionIds = v
+}
+
 func (o WorkItemLocalSelectModelFilter) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -790,6 +825,9 @@ func (o WorkItemLocalSelectModelFilter) ToMap() (map[string]interface{}, error) 
 	}
 	if o.AutoTestIds != nil {
 		toSerialize["autoTestIds"] = o.AutoTestIds
+	}
+	if o.WorkItemVersionIds != nil {
+		toSerialize["workItemVersionIds"] = o.WorkItemVersionIds
 	}
 	return toSerialize, nil
 }

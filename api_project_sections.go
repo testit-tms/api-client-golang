@@ -20,12 +20,12 @@ import (
 )
 
 
-// ProjectSectionsAPIService ProjectSectionsAPI service
-type ProjectSectionsAPIService service
+// ProjectSectionsApiService ProjectSectionsApi service
+type ProjectSectionsApiService service
 
 type ApiGetSectionsByProjectIdRequest struct {
 	ctx context.Context
-	ApiService *ProjectSectionsAPIService
+	ApiService *ProjectSectionsApiService
 	projectId string
 	skip *int32
 	take *int32
@@ -71,17 +71,22 @@ func (r ApiGetSectionsByProjectIdRequest) Execute() ([]SectionModel, *http.Respo
 /*
 GetSectionsByProjectId Get project sections
 
-<br>Use case
-<br>User sets project internal or global identifier and runs method execution
-<br>System search project
-<br>System search all sections related to the project
-<br>System returns array of sections (listed in response)
+
+Use case
+
+User sets project internal or global identifier and runs method execution
+
+System search project
+
+System search all sections related to the project
+
+System returns array of sections (listed in response)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiGetSectionsByProjectIdRequest
 */
-func (a *ProjectSectionsAPIService) GetSectionsByProjectId(ctx context.Context, projectId string) ApiGetSectionsByProjectIdRequest {
+func (a *ProjectSectionsApiService) GetSectionsByProjectId(ctx context.Context, projectId string) ApiGetSectionsByProjectIdRequest {
 	return ApiGetSectionsByProjectIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -91,7 +96,7 @@ func (a *ProjectSectionsAPIService) GetSectionsByProjectId(ctx context.Context, 
 
 // Execute executes the request
 //  @return []SectionModel
-func (a *ProjectSectionsAPIService) GetSectionsByProjectIdExecute(r ApiGetSectionsByProjectIdRequest) ([]SectionModel, *http.Response, error) {
+func (a *ProjectSectionsApiService) GetSectionsByProjectIdExecute(r ApiGetSectionsByProjectIdRequest) ([]SectionModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -99,7 +104,7 @@ func (a *ProjectSectionsAPIService) GetSectionsByProjectIdExecute(r ApiGetSectio
 		localVarReturnValue  []SectionModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectSectionsAPIService.GetSectionsByProjectId")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectSectionsApiService.GetSectionsByProjectId")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -179,7 +184,62 @@ func (a *ProjectSectionsAPIService) GetSectionsByProjectIdExecute(r ApiGetSectio
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

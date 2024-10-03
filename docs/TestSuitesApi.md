@@ -1,28 +1,28 @@
-# \TestSuitesAPI
+# \TestSuitesApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddTestPointsToTestSuite**](TestSuitesAPI.md#AddTestPointsToTestSuite) | **Post** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
-[**ApiV2TestSuitesIdPatch**](TestSuitesAPI.md#ApiV2TestSuitesIdPatch) | **Patch** /api/v2/testSuites/{id} | Patch test suite
-[**ApiV2TestSuitesIdRefreshPost**](TestSuitesAPI.md#ApiV2TestSuitesIdRefreshPost) | **Post** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
-[**ApiV2TestSuitesIdWorkItemsPost**](TestSuitesAPI.md#ApiV2TestSuitesIdWorkItemsPost) | **Post** /api/v2/testSuites/{id}/workItems | Set work items for test suite
-[**ApiV2TestSuitesPost**](TestSuitesAPI.md#ApiV2TestSuitesPost) | **Post** /api/v2/testSuites | Create test suite
-[**ApiV2TestSuitesPut**](TestSuitesAPI.md#ApiV2TestSuitesPut) | **Put** /api/v2/testSuites | Edit test suite
-[**DeleteTestSuite**](TestSuitesAPI.md#DeleteTestSuite) | **Delete** /api/v2/testSuites/{id} | Delete TestSuite
-[**GetConfigurationsByTestSuiteId**](TestSuitesAPI.md#GetConfigurationsByTestSuiteId) | **Get** /api/v2/testSuites/{id}/configurations | Get Configurations By Id
-[**GetTestPointsById**](TestSuitesAPI.md#GetTestPointsById) | **Get** /api/v2/testSuites/{id}/testPoints | Get TestPoints By Id
-[**GetTestResultsById**](TestSuitesAPI.md#GetTestResultsById) | **Get** /api/v2/testSuites/{id}/testResults | Get TestResults By Id
-[**GetTestSuiteById**](TestSuitesAPI.md#GetTestSuiteById) | **Get** /api/v2/testSuites/{id} | Get TestSuite by Id
-[**SearchWorkItems**](TestSuitesAPI.md#SearchWorkItems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
-[**SetConfigurationsByTestSuiteId**](TestSuitesAPI.md#SetConfigurationsByTestSuiteId) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
+[**AddTestPointsToTestSuite**](TestSuitesApi.md#AddTestPointsToTestSuite) | **Post** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
+[**ApiV2TestSuitesIdPatch**](TestSuitesApi.md#ApiV2TestSuitesIdPatch) | **Patch** /api/v2/testSuites/{id} | Patch test suite
+[**ApiV2TestSuitesIdRefreshPost**](TestSuitesApi.md#ApiV2TestSuitesIdRefreshPost) | **Post** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
+[**ApiV2TestSuitesIdWorkItemsPost**](TestSuitesApi.md#ApiV2TestSuitesIdWorkItemsPost) | **Post** /api/v2/testSuites/{id}/workItems | Set work items for test suite
+[**ApiV2TestSuitesPost**](TestSuitesApi.md#ApiV2TestSuitesPost) | **Post** /api/v2/testSuites | Create test suite
+[**ApiV2TestSuitesPut**](TestSuitesApi.md#ApiV2TestSuitesPut) | **Put** /api/v2/testSuites | Edit test suite
+[**DeleteTestSuite**](TestSuitesApi.md#DeleteTestSuite) | **Delete** /api/v2/testSuites/{id} | Delete TestSuite
+[**GetConfigurationsByTestSuiteId**](TestSuitesApi.md#GetConfigurationsByTestSuiteId) | **Get** /api/v2/testSuites/{id}/configurations | Get Configurations By Id
+[**GetTestPointsById**](TestSuitesApi.md#GetTestPointsById) | **Get** /api/v2/testSuites/{id}/testPoints | Get TestPoints By Id
+[**GetTestResultsById**](TestSuitesApi.md#GetTestResultsById) | **Get** /api/v2/testSuites/{id}/testResults | Get TestResults By Id
+[**GetTestSuiteById**](TestSuitesApi.md#GetTestSuiteById) | **Get** /api/v2/testSuites/{id} | Get TestSuite by Id
+[**SearchWorkItems**](TestSuitesApi.md#SearchWorkItems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
+[**SetConfigurationsByTestSuiteId**](TestSuitesApi.md#SetConfigurationsByTestSuiteId) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
 
 
 
 ## AddTestPointsToTestSuite
 
-> AddTestPointsToTestSuite(ctx, id).WorkItemSelectModel(workItemSelectModel).Execute()
+> AddTestPointsToTestSuite(ctx, id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
 
 Add test-points to test suite
 
@@ -32,23 +32,23 @@ Add test-points to test suite
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" // string | Test suite internal identifier
-	workItemSelectModel := *openapiclient.NewWorkItemSelectModel(*openapiclient.NewWorkItemFilterModel()) // WorkItemSelectModel | Filter object to retrieve work items for test-suite's project (optional)
+    id := "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" // string | Test suite internal identifier
+    apiV2ProjectsProjectIdWorkItemsSearchPostRequest := *openapiclient.NewApiV2ProjectsProjectIdWorkItemsSearchPostRequest(*openapiclient.NewWorkItemSelectModelFilter()) // ApiV2ProjectsProjectIdWorkItemsSearchPostRequest | Filter object to retrieve work items for test-suite's project (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestSuitesAPI.AddTestPointsToTestSuite(context.Background(), id).WorkItemSelectModel(workItemSelectModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.AddTestPointsToTestSuite``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.AddTestPointsToTestSuite(context.Background(), id).ApiV2ProjectsProjectIdWorkItemsSearchPostRequest(apiV2ProjectsProjectIdWorkItemsSearchPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.AddTestPointsToTestSuite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -68,7 +68,7 @@ Other parameters are passed through a pointer to a apiAddTestPointsToTestSuiteRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) | Filter object to retrieve work items for test-suite&#39;s project | 
+ **apiV2ProjectsProjectIdWorkItemsSearchPostRequest** | [**ApiV2ProjectsProjectIdWorkItemsSearchPostRequest**](ApiV2ProjectsProjectIdWorkItemsSearchPostRequest.md) | Filter object to retrieve work items for test-suite&#39;s project | 
 
 ### Return type
 
@@ -102,23 +102,23 @@ Patch test suite
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test Suite internal (UUID) identifier
-	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test Suite internal (UUID) identifier
+    operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestSuitesAPI.ApiV2TestSuitesIdPatch(context.Background(), id).Operation(operation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.ApiV2TestSuitesIdPatch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.ApiV2TestSuitesIdPatch(context.Background(), id).Operation(operation).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesIdPatch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -170,22 +170,22 @@ Refresh test suite. Only dynamic test suites are supported by this method
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test Suite internal (UUID) identifier
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test Suite internal (UUID) identifier
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestSuitesAPI.ApiV2TestSuitesIdRefreshPost(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.ApiV2TestSuitesIdRefreshPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.ApiV2TestSuitesIdRefreshPost(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesIdRefreshPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -236,23 +236,23 @@ Set work items for test suite
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the test suite
-	requestBody := []string{"Property_example"} // []string |  (optional)
+    id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Unique ID of the test suite
+    requestBody := []string{"Property_example"} // []string |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestSuitesAPI.ApiV2TestSuitesIdWorkItemsPost(context.Background(), id).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.ApiV2TestSuitesIdWorkItemsPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.ApiV2TestSuitesIdWorkItemsPost(context.Background(), id).RequestBody(requestBody).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesIdWorkItemsPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestSuitesPost
 
-> TestSuiteV2GetModel ApiV2TestSuitesPost(ctx).TestSuiteV2PostModel(testSuiteV2PostModel).Execute()
+> TestSuiteV2GetModel ApiV2TestSuitesPost(ctx).ApiV2TestSuitesPostRequest(apiV2TestSuitesPostRequest).Execute()
 
 Create test suite
 
@@ -304,24 +304,24 @@ Create test suite
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	testSuiteV2PostModel := *openapiclient.NewTestSuiteV2PostModel("TestPlanId_example", "Name_example") // TestSuiteV2PostModel |  (optional)
+    apiV2TestSuitesPostRequest := *openapiclient.NewApiV2TestSuitesPostRequest("TestPlanId_example", "Name_example") // ApiV2TestSuitesPostRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestSuitesAPI.ApiV2TestSuitesPost(context.Background()).TestSuiteV2PostModel(testSuiteV2PostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.ApiV2TestSuitesPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2TestSuitesPost`: TestSuiteV2GetModel
-	fmt.Fprintf(os.Stdout, "Response from `TestSuitesAPI.ApiV2TestSuitesPost`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestSuitesApi.ApiV2TestSuitesPost(context.Background()).ApiV2TestSuitesPostRequest(apiV2TestSuitesPostRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApiV2TestSuitesPost`: TestSuiteV2GetModel
+    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.ApiV2TestSuitesPost`: %v\n", resp)
 }
 ```
 
@@ -336,7 +336,7 @@ Other parameters are passed through a pointer to a apiApiV2TestSuitesPostRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testSuiteV2PostModel** | [**TestSuiteV2PostModel**](TestSuiteV2PostModel.md) |  | 
+ **apiV2TestSuitesPostRequest** | [**ApiV2TestSuitesPostRequest**](ApiV2TestSuitesPostRequest.md) |  | 
 
 ### Return type
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestSuitesPut
 
-> ApiV2TestSuitesPut(ctx).TestSuiteV2PutModel(testSuiteV2PutModel).Execute()
+> ApiV2TestSuitesPut(ctx).ApiV2TestSuitesPutRequest(apiV2TestSuitesPutRequest).Execute()
 
 Edit test suite
 
@@ -368,22 +368,22 @@ Edit test suite
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	testSuiteV2PutModel := *openapiclient.NewTestSuiteV2PutModel("Id_example", "Name_example", false) // TestSuiteV2PutModel |  (optional)
+    apiV2TestSuitesPutRequest := *openapiclient.NewApiV2TestSuitesPutRequest("Id_example", "Name_example", false) // ApiV2TestSuitesPutRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestSuitesAPI.ApiV2TestSuitesPut(context.Background()).TestSuiteV2PutModel(testSuiteV2PutModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.ApiV2TestSuitesPut``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.ApiV2TestSuitesPut(context.Background()).ApiV2TestSuitesPutRequest(apiV2TestSuitesPutRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.ApiV2TestSuitesPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -398,7 +398,7 @@ Other parameters are passed through a pointer to a apiApiV2TestSuitesPutRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testSuiteV2PutModel** | [**TestSuiteV2PutModel**](TestSuiteV2PutModel.md) |  | 
+ **apiV2TestSuitesPutRequest** | [**ApiV2TestSuitesPutRequest**](ApiV2TestSuitesPutRequest.md) |  | 
 
 ### Return type
 
@@ -432,22 +432,22 @@ Delete TestSuite
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestSuitesAPI.DeleteTestSuite(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.DeleteTestSuite``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.DeleteTestSuite(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.DeleteTestSuite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 
@@ -500,24 +500,24 @@ Get Configurations By Id
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestSuitesAPI.GetConfigurationsByTestSuiteId(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.GetConfigurationsByTestSuiteId``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConfigurationsByTestSuiteId`: []ConfigurationModel
-	fmt.Fprintf(os.Stdout, "Response from `TestSuitesAPI.GetConfigurationsByTestSuiteId`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestSuitesApi.GetConfigurationsByTestSuiteId(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.GetConfigurationsByTestSuiteId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetConfigurationsByTestSuiteId`: []ConfigurationModel
+    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.GetConfigurationsByTestSuiteId`: %v\n", resp)
 }
 ```
 
@@ -570,24 +570,24 @@ Get TestPoints By Id
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestSuitesAPI.GetTestPointsById(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.GetTestPointsById``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTestPointsById`: []TestPointByTestSuiteModel
-	fmt.Fprintf(os.Stdout, "Response from `TestSuitesAPI.GetTestPointsById`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestSuitesApi.GetTestPointsById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.GetTestPointsById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTestPointsById`: []TestPointByTestSuiteModel
+    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.GetTestPointsById`: %v\n", resp)
 }
 ```
 
@@ -640,24 +640,24 @@ Get TestResults By Id
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestSuitesAPI.GetTestResultsById(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.GetTestResultsById``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTestResultsById`: []TestResultV2ShortModel
-	fmt.Fprintf(os.Stdout, "Response from `TestSuitesAPI.GetTestResultsById`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestSuitesApi.GetTestResultsById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.GetTestResultsById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTestResultsById`: []TestResultV2ShortModel
+    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.GetTestResultsById`: %v\n", resp)
 }
 ```
 
@@ -710,24 +710,24 @@ Get TestSuite by Id
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestSuitesAPI.GetTestSuiteById(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.GetTestSuiteById``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTestSuiteById`: TestSuiteV2GetModel
-	fmt.Fprintf(os.Stdout, "Response from `TestSuitesAPI.GetTestSuiteById`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestSuitesApi.GetTestSuiteById(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.GetTestSuiteById``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTestSuiteById`: TestSuiteV2GetModel
+    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.GetTestSuiteById`: %v\n", resp)
 }
 ```
 
@@ -768,7 +768,7 @@ Name | Type | Description  | Notes
 
 ## SearchWorkItems
 
-> []WorkItemShortModel SearchWorkItems(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestSuiteWorkItemsSearchModel(testSuiteWorkItemsSearchModel).Execute()
+> []WorkItemShortModel SearchWorkItems(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWorkItemsRequest(searchWorkItemsRequest).Execute()
 
 Search WorkItems
 
@@ -780,30 +780,30 @@ Search WorkItems
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testSuiteWorkItemsSearchModel := *openapiclient.NewTestSuiteWorkItemsSearchModel() // TestSuiteWorkItemsSearchModel |  (optional)
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
+    skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+    take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+    orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+    searchField := "searchField_example" // string | Property name for searching (optional)
+    searchValue := "searchValue_example" // string | Value for searching (optional)
+    searchWorkItemsRequest := *openapiclient.NewSearchWorkItemsRequest() // SearchWorkItemsRequest |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestSuitesAPI.SearchWorkItems(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestSuiteWorkItemsSearchModel(testSuiteWorkItemsSearchModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.SearchWorkItems``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SearchWorkItems`: []WorkItemShortModel
-	fmt.Fprintf(os.Stdout, "Response from `TestSuitesAPI.SearchWorkItems`: %v\n", resp)
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.TestSuitesApi.SearchWorkItems(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchWorkItemsRequest(searchWorkItemsRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.SearchWorkItems``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchWorkItems`: []WorkItemShortModel
+    fmt.Fprintf(os.Stdout, "Response from `TestSuitesApi.SearchWorkItems`: %v\n", resp)
 }
 ```
 
@@ -828,7 +828,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testSuiteWorkItemsSearchModel** | [**TestSuiteWorkItemsSearchModel**](TestSuiteWorkItemsSearchModel.md) |  | 
+ **searchWorkItemsRequest** | [**SearchWorkItemsRequest**](SearchWorkItemsRequest.md) |  | 
 
 ### Return type
 
@@ -862,23 +862,23 @@ Set Configurations By TestSuite Id
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
-	requestBody := []string{"Property_example"} // []string | Collection of configuration identifiers\" (optional)
+    id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | Test suite internal (guid format) identifier\"
+    requestBody := []string{"Property_example"} // []string | Collection of configuration identifiers\" (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestSuitesAPI.SetConfigurationsByTestSuiteId(context.Background(), id).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.SetConfigurationsByTestSuiteId``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.TestSuitesApi.SetConfigurationsByTestSuiteId(context.Background(), id).RequestBody(requestBody).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesApi.SetConfigurationsByTestSuiteId``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
 }
 ```
 

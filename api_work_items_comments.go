@@ -20,12 +20,12 @@ import (
 )
 
 
-// WorkItemsCommentsAPIService WorkItemsCommentsAPI service
-type WorkItemsCommentsAPIService service
+// WorkItemsCommentsApiService WorkItemsCommentsApi service
+type WorkItemsCommentsApiService service
 
 type ApiApiV2WorkItemsCommentsCommentIdDeleteRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsAPIService
+	ApiService *WorkItemsCommentsApiService
 	commentId string
 }
 
@@ -36,17 +36,22 @@ func (r ApiApiV2WorkItemsCommentsCommentIdDeleteRequest) Execute() (*http.Respon
 /*
 ApiV2WorkItemsCommentsCommentIdDelete Delete WorkItem comment
 
-<br>Use case
-<br>User sets comment identifier
-<br>User runs method execution
-<br>System delete comment 
-<br>System returns success status code
+
+Use case
+
+User sets comment identifier
+
+User runs method execution
+
+System delete comment 
+
+System returns success status code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param commentId Comment internal (guid format) identifier
  @return ApiApiV2WorkItemsCommentsCommentIdDeleteRequest
 */
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDelete(ctx context.Context, commentId string) ApiApiV2WorkItemsCommentsCommentIdDeleteRequest {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDelete(ctx context.Context, commentId string) ApiApiV2WorkItemsCommentsCommentIdDeleteRequest {
 	return ApiApiV2WorkItemsCommentsCommentIdDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -55,14 +60,14 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDelete(ctx 
 }
 
 // Execute executes the request
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDeleteExecute(r ApiApiV2WorkItemsCommentsCommentIdDeleteRequest) (*http.Response, error) {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsCommentIdDeleteExecute(r ApiApiV2WorkItemsCommentsCommentIdDeleteRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsCommentsCommentIdDelete")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsCommentsCommentIdDelete")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -160,6 +165,38 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDeleteExecu
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
 		return localVarHTTPResponse, newErr
 	}
 
@@ -168,12 +205,12 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDeleteExecu
 
 type ApiApiV2WorkItemsCommentsPostRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsAPIService
-	workItemCommentPostModel *WorkItemCommentPostModel
+	ApiService *WorkItemsCommentsApiService
+	apiV2WorkItemsCommentsPostRequest *ApiV2WorkItemsCommentsPostRequest
 }
 
-func (r ApiApiV2WorkItemsCommentsPostRequest) WorkItemCommentPostModel(workItemCommentPostModel WorkItemCommentPostModel) ApiApiV2WorkItemsCommentsPostRequest {
-	r.workItemCommentPostModel = &workItemCommentPostModel
+func (r ApiApiV2WorkItemsCommentsPostRequest) ApiV2WorkItemsCommentsPostRequest(apiV2WorkItemsCommentsPostRequest ApiV2WorkItemsCommentsPostRequest) ApiApiV2WorkItemsCommentsPostRequest {
+	r.apiV2WorkItemsCommentsPostRequest = &apiV2WorkItemsCommentsPostRequest
 	return r
 }
 
@@ -184,16 +221,21 @@ func (r ApiApiV2WorkItemsCommentsPostRequest) Execute() (*WorkItemCommentModel, 
 /*
 ApiV2WorkItemsCommentsPost Create WorkItem comment
 
-<br>Use case
-<br>User sets comment properties (listed in request parameters)
-<br>User runs method execution
-<br>System creates comment 
-<br>System returns comment model (listed in response parameters)
+
+Use case
+
+User sets comment properties (listed in request parameters)
+
+User runs method execution
+
+System creates comment 
+
+System returns comment model (listed in response parameters)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WorkItemsCommentsPostRequest
 */
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPost(ctx context.Context) ApiApiV2WorkItemsCommentsPostRequest {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPost(ctx context.Context) ApiApiV2WorkItemsCommentsPostRequest {
 	return ApiApiV2WorkItemsCommentsPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -202,7 +244,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPost(ctx context.Con
 
 // Execute executes the request
 //  @return WorkItemCommentModel
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPostExecute(r ApiApiV2WorkItemsCommentsPostRequest) (*WorkItemCommentModel, *http.Response, error) {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPostExecute(r ApiApiV2WorkItemsCommentsPostRequest) (*WorkItemCommentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -210,7 +252,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 		localVarReturnValue  *WorkItemCommentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsCommentsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsCommentsPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -239,7 +281,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemCommentPostModel
+	localVarPostBody = r.apiV2WorkItemsCommentsPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -318,6 +360,28 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -336,12 +400,12 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 
 type ApiApiV2WorkItemsCommentsPutRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsAPIService
-	workItemCommentPutModel *WorkItemCommentPutModel
+	ApiService *WorkItemsCommentsApiService
+	apiV2WorkItemsCommentsPutRequest *ApiV2WorkItemsCommentsPutRequest
 }
 
-func (r ApiApiV2WorkItemsCommentsPutRequest) WorkItemCommentPutModel(workItemCommentPutModel WorkItemCommentPutModel) ApiApiV2WorkItemsCommentsPutRequest {
-	r.workItemCommentPutModel = &workItemCommentPutModel
+func (r ApiApiV2WorkItemsCommentsPutRequest) ApiV2WorkItemsCommentsPutRequest(apiV2WorkItemsCommentsPutRequest ApiV2WorkItemsCommentsPutRequest) ApiApiV2WorkItemsCommentsPutRequest {
+	r.apiV2WorkItemsCommentsPutRequest = &apiV2WorkItemsCommentsPutRequest
 	return r
 }
 
@@ -355,7 +419,7 @@ ApiV2WorkItemsCommentsPut Update work item comment
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WorkItemsCommentsPutRequest
 */
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPut(ctx context.Context) ApiApiV2WorkItemsCommentsPutRequest {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPut(ctx context.Context) ApiApiV2WorkItemsCommentsPutRequest {
 	return ApiApiV2WorkItemsCommentsPutRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -363,14 +427,14 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPut(ctx context.Cont
 }
 
 // Execute executes the request
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV2WorkItemsCommentsPutRequest) (*http.Response, error) {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV2WorkItemsCommentsPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsCommentsPut")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsCommentsPut")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -399,7 +463,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemCommentPutModel
+	localVarPostBody = r.apiV2WorkItemsCommentsPutRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -436,7 +500,62 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -454,7 +573,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 
 type ApiApiV2WorkItemsIdCommentsGetRequest struct {
 	ctx context.Context
-	ApiService *WorkItemsCommentsAPIService
+	ApiService *WorkItemsCommentsApiService
 	id string
 }
 
@@ -469,7 +588,7 @@ ApiV2WorkItemsIdCommentsGet Get work item comments
  @param id Unique or global ID of the work item
  @return ApiApiV2WorkItemsIdCommentsGetRequest
 */
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGet(ctx context.Context, id string) ApiApiV2WorkItemsIdCommentsGetRequest {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsIdCommentsGet(ctx context.Context, id string) ApiApiV2WorkItemsIdCommentsGetRequest {
 	return ApiApiV2WorkItemsIdCommentsGetRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -479,7 +598,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGet(ctx context.Co
 
 // Execute executes the request
 //  @return []WorkItemCommentModel
-func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGetExecute(r ApiApiV2WorkItemsIdCommentsGetRequest) ([]WorkItemCommentModel, *http.Response, error) {
+func (a *WorkItemsCommentsApiService) ApiV2WorkItemsIdCommentsGetExecute(r ApiApiV2WorkItemsIdCommentsGetRequest) ([]WorkItemCommentModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -487,7 +606,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGetExecute(r ApiAp
 		localVarReturnValue  []WorkItemCommentModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsAPIService.ApiV2WorkItemsIdCommentsGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsCommentsApiService.ApiV2WorkItemsIdCommentsGet")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -552,7 +671,62 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGetExecute(r ApiAp
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

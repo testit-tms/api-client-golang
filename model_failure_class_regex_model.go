@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the FailureClassRegexModel type satisfies the MappedNullable interface at compile time
@@ -28,8 +26,6 @@ type FailureClassRegexModel struct {
 	// Indicates if the entity is deleted
 	IsDeleted bool `json:"isDeleted"`
 }
-
-type _FailureClassRegexModel FailureClassRegexModel
 
 // NewFailureClassRegexModel instantiates a new FailureClassRegexModel object
 // This constructor will assign default values to properties that have it defined,
@@ -182,45 +178,6 @@ func (o FailureClassRegexModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
-}
-
-func (o *FailureClassRegexModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"regexText",
-		"id",
-		"isDeleted",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varFailureClassRegexModel := _FailureClassRegexModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varFailureClassRegexModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = FailureClassRegexModel(varFailureClassRegexModel)
-
-	return err
 }
 
 type NullableFailureClassRegexModel struct {

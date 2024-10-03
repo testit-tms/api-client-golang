@@ -13,8 +13,6 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the ProjectModel type satisfies the MappedNullable interface at compile time
@@ -54,15 +52,16 @@ type ProjectModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Global ID of the project
 	GlobalId int64 `json:"globalId"`
+	Type ProjectTypeModel `json:"type"`
+	// Indicates if the status \"Flaky/Stable\" sets automatically
+	IsFlakyAuto bool `json:"isFlakyAuto"`
 }
-
-type _ProjectModel ProjectModel
 
 // NewProjectModel instantiates a new ProjectModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64) *ProjectModel {
+func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool) *ProjectModel {
 	this := ProjectModel{}
 	this.Id = id
 	this.Name = name
@@ -71,6 +70,8 @@ func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, cr
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
 	this.GlobalId = globalId
+	this.Type = type_
+	this.IsFlakyAuto = isFlakyAuto
 	return &this
 }
 
@@ -610,6 +611,54 @@ func (o *ProjectModel) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
 
+// GetType returns the Type field value
+func (o *ProjectModel) GetType() ProjectTypeModel {
+	if o == nil {
+		var ret ProjectTypeModel
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *ProjectModel) GetTypeOk() (*ProjectTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *ProjectModel) SetType(v ProjectTypeModel) {
+	o.Type = v
+}
+
+// GetIsFlakyAuto returns the IsFlakyAuto field value
+func (o *ProjectModel) GetIsFlakyAuto() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsFlakyAuto
+}
+
+// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value
+// and a boolean to check if the value has been set.
+func (o *ProjectModel) GetIsFlakyAutoOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsFlakyAuto, true
+}
+
+// SetIsFlakyAuto sets field value
+func (o *ProjectModel) SetIsFlakyAuto(v bool) {
+	o.IsFlakyAuto = v
+}
+
 func (o ProjectModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -654,50 +703,9 @@ func (o ProjectModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
 	toSerialize["globalId"] = o.GlobalId
+	toSerialize["type"] = o.Type
+	toSerialize["isFlakyAuto"] = o.IsFlakyAuto
 	return toSerialize, nil
-}
-
-func (o *ProjectModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"id",
-		"name",
-		"isFavorite",
-		"isDeleted",
-		"createdDate",
-		"createdById",
-		"globalId",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varProjectModel := _ProjectModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varProjectModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = ProjectModel(varProjectModel)
-
-	return err
 }
 
 type NullableProjectModel struct {

@@ -19,17 +19,17 @@ import (
 )
 
 
-// SearchAPIService SearchAPI service
-type SearchAPIService service
+// SearchApiService SearchApi service
+type SearchApiService service
 
 type ApiApiV2SearchGlobalSearchPostRequest struct {
 	ctx context.Context
-	ApiService *SearchAPIService
-	globalSearchRequest *GlobalSearchRequest
+	ApiService *SearchApiService
+	apiV2SearchGlobalSearchPostRequest *ApiV2SearchGlobalSearchPostRequest
 }
 
-func (r ApiApiV2SearchGlobalSearchPostRequest) GlobalSearchRequest(globalSearchRequest GlobalSearchRequest) ApiApiV2SearchGlobalSearchPostRequest {
-	r.globalSearchRequest = &globalSearchRequest
+func (r ApiApiV2SearchGlobalSearchPostRequest) ApiV2SearchGlobalSearchPostRequest(apiV2SearchGlobalSearchPostRequest ApiV2SearchGlobalSearchPostRequest) ApiApiV2SearchGlobalSearchPostRequest {
+	r.apiV2SearchGlobalSearchPostRequest = &apiV2SearchGlobalSearchPostRequest
 	return r
 }
 
@@ -43,7 +43,7 @@ ApiV2SearchGlobalSearchPost Method for ApiV2SearchGlobalSearchPost
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2SearchGlobalSearchPostRequest
 */
-func (a *SearchAPIService) ApiV2SearchGlobalSearchPost(ctx context.Context) ApiApiV2SearchGlobalSearchPostRequest {
+func (a *SearchApiService) ApiV2SearchGlobalSearchPost(ctx context.Context) ApiApiV2SearchGlobalSearchPostRequest {
 	return ApiApiV2SearchGlobalSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -52,7 +52,7 @@ func (a *SearchAPIService) ApiV2SearchGlobalSearchPost(ctx context.Context) ApiA
 
 // Execute executes the request
 //  @return GlobalSearchResponse
-func (a *SearchAPIService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGlobalSearchPostRequest) (*GlobalSearchResponse, *http.Response, error) {
+func (a *SearchApiService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGlobalSearchPostRequest) (*GlobalSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -60,7 +60,7 @@ func (a *SearchAPIService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGl
 		localVarReturnValue  *GlobalSearchResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchAPIService.ApiV2SearchGlobalSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.ApiV2SearchGlobalSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -89,7 +89,7 @@ func (a *SearchAPIService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGl
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.globalSearchRequest
+	localVarPostBody = r.apiV2SearchGlobalSearchPostRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -125,6 +125,71 @@ func (a *SearchAPIService) ApiV2SearchGlobalSearchPostExecute(r ApiApiV2SearchGl
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

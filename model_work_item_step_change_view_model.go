@@ -12,8 +12,6 @@ package tmsclient
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the WorkItemStepChangeViewModel type satisfies the MappedNullable interface at compile time
@@ -27,16 +25,14 @@ type WorkItemStepChangeViewModel struct {
 	TestData string `json:"testData"`
 	Index int32 `json:"index"`
 	WorkItemId NullableString `json:"workItemId,omitempty"`
-	WorkItem SharedStepChangeViewModel `json:"workItem"`
+	WorkItem WorkItemStepChangeViewModelWorkItem `json:"workItem"`
 }
-
-type _WorkItemStepChangeViewModel WorkItemStepChangeViewModel
 
 // NewWorkItemStepChangeViewModel instantiates a new WorkItemStepChangeViewModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemStepChangeViewModel(action string, expected string, comments string, testData string, index int32, workItem SharedStepChangeViewModel) *WorkItemStepChangeViewModel {
+func NewWorkItemStepChangeViewModel(action string, expected string, comments string, testData string, index int32, workItem WorkItemStepChangeViewModelWorkItem) *WorkItemStepChangeViewModel {
 	this := WorkItemStepChangeViewModel{}
 	this.Action = action
 	this.Expected = expected
@@ -218,9 +214,9 @@ func (o *WorkItemStepChangeViewModel) UnsetWorkItemId() {
 }
 
 // GetWorkItem returns the WorkItem field value
-func (o *WorkItemStepChangeViewModel) GetWorkItem() SharedStepChangeViewModel {
+func (o *WorkItemStepChangeViewModel) GetWorkItem() WorkItemStepChangeViewModelWorkItem {
 	if o == nil {
-		var ret SharedStepChangeViewModel
+		var ret WorkItemStepChangeViewModelWorkItem
 		return ret
 	}
 
@@ -229,7 +225,7 @@ func (o *WorkItemStepChangeViewModel) GetWorkItem() SharedStepChangeViewModel {
 
 // GetWorkItemOk returns a tuple with the WorkItem field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*SharedStepChangeViewModel, bool) {
+func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*WorkItemStepChangeViewModelWorkItem, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -237,7 +233,7 @@ func (o *WorkItemStepChangeViewModel) GetWorkItemOk() (*SharedStepChangeViewMode
 }
 
 // SetWorkItem sets field value
-func (o *WorkItemStepChangeViewModel) SetWorkItem(v SharedStepChangeViewModel) {
+func (o *WorkItemStepChangeViewModel) SetWorkItem(v WorkItemStepChangeViewModelWorkItem) {
 	o.WorkItem = v
 }
 
@@ -261,48 +257,6 @@ func (o WorkItemStepChangeViewModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["workItem"] = o.WorkItem
 	return toSerialize, nil
-}
-
-func (o *WorkItemStepChangeViewModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"action",
-		"expected",
-		"comments",
-		"testData",
-		"index",
-		"workItem",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varWorkItemStepChangeViewModel := _WorkItemStepChangeViewModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWorkItemStepChangeViewModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = WorkItemStepChangeViewModel(varWorkItemStepChangeViewModel)
-
-	return err
 }
 
 type NullableWorkItemStepChangeViewModel struct {

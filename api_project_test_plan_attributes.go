@@ -20,12 +20,12 @@ import (
 )
 
 
-// ProjectTestPlanAttributesAPIService ProjectTestPlanAttributesAPI service
-type ProjectTestPlanAttributesAPIService service
+// ProjectTestPlanAttributesApiService ProjectTestPlanAttributesApi service
+type ProjectTestPlanAttributesApiService service
 
 type ApiCreateCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesAPIService
+	ApiService *ProjectTestPlanAttributesApiService
 	projectId string
 	requestBody *[]string
 }
@@ -42,17 +42,22 @@ func (r ApiCreateCustomAttributeTestPlanProjectRelationsRequest) Execute() (*htt
 /*
 CreateCustomAttributeTestPlanProjectRelations Add attributes to project's test plans
 
-<br>Use case
-<br>User sets project internal or global identifier and attributes identifiers
-<br>User runs method execution
-<br>System updates project and add attributes to project for test plans
-<br>System returns no content response
+
+Use case
+
+User sets project internal or global identifier and attributes identifiers
+
+User runs method execution
+
+System updates project and add attributes to project for test plans
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiCreateCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiCreateCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesApiService) CreateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiCreateCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiCreateCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -61,14 +66,14 @@ func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProje
 }
 
 // Execute executes the request
-func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProjectRelationsExecute(r ApiCreateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
+func (a *ProjectTestPlanAttributesApiService) CreateCustomAttributeTestPlanProjectRelationsExecute(r ApiCreateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.CreateCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.CreateCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -135,6 +140,28 @@ func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProje
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -146,6 +173,38 @@ func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProje
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
 		return localVarHTTPResponse, newErr
 	}
 
@@ -154,7 +213,7 @@ func (a *ProjectTestPlanAttributesAPIService) CreateCustomAttributeTestPlanProje
 
 type ApiDeleteCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesAPIService
+	ApiService *ProjectTestPlanAttributesApiService
 	projectId string
 	attributeId string
 }
@@ -166,18 +225,23 @@ func (r ApiDeleteCustomAttributeTestPlanProjectRelationsRequest) Execute() (*htt
 /*
 DeleteCustomAttributeTestPlanProjectRelations Delete attribute from project's test plans
 
-<br>Use case
-<br>User sets project internal or global identifier and attribute identifier
-<br>User runs method execution
-<br>System updates project and delete attribute from project for test plans
-<br>System returns no content response
+
+Use case
+
+User sets project internal or global identifier and attribute identifier
+
+User runs method execution
+
+System updates project and delete attribute from project for test plans
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @param attributeId
  @return ApiDeleteCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesAPIService) DeleteCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string, attributeId string) ApiDeleteCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesApiService) DeleteCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string, attributeId string) ApiDeleteCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiDeleteCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -187,14 +251,14 @@ func (a *ProjectTestPlanAttributesAPIService) DeleteCustomAttributeTestPlanProje
 }
 
 // Execute executes the request
-func (a *ProjectTestPlanAttributesAPIService) DeleteCustomAttributeTestPlanProjectRelationsExecute(r ApiDeleteCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
+func (a *ProjectTestPlanAttributesApiService) DeleteCustomAttributeTestPlanProjectRelationsExecute(r ApiDeleteCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.DeleteCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.DeleteCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -260,7 +324,62 @@ func (a *ProjectTestPlanAttributesAPIService) DeleteCustomAttributeTestPlanProje
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -278,7 +397,7 @@ func (a *ProjectTestPlanAttributesAPIService) DeleteCustomAttributeTestPlanProje
 
 type ApiGetCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesAPIService
+	ApiService *ProjectTestPlanAttributesApiService
 	projectId string
 }
 
@@ -289,15 +408,18 @@ func (r ApiGetCustomAttributeTestPlanProjectRelationsRequest) Execute() ([]Custo
 /*
 GetCustomAttributeTestPlanProjectRelations Get project's test plan attributes
 
-<br>Use case
-<br>User runs method execution
-<br>System returns project for test plans attributes by project identifier
+
+Use case
+
+User runs method execution
+
+System returns project for test plans attributes by project identifier
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiGetCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiGetCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesApiService) GetCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiGetCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiGetCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -307,7 +429,7 @@ func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectR
 
 // Execute executes the request
 //  @return []CustomAttributeModel
-func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectRelationsExecute(r ApiGetCustomAttributeTestPlanProjectRelationsRequest) ([]CustomAttributeModel, *http.Response, error) {
+func (a *ProjectTestPlanAttributesApiService) GetCustomAttributeTestPlanProjectRelationsExecute(r ApiGetCustomAttributeTestPlanProjectRelationsRequest) ([]CustomAttributeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -315,7 +437,7 @@ func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectR
 		localVarReturnValue  []CustomAttributeModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.GetCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.GetCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -380,7 +502,62 @@ func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -407,14 +584,14 @@ func (a *ProjectTestPlanAttributesAPIService) GetCustomAttributeTestPlanProjectR
 
 type ApiSearchTestPlanAttributesInProjectRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesAPIService
+	ApiService *ProjectTestPlanAttributesApiService
 	projectId string
 	skip *int32
 	take *int32
 	orderBy *string
 	searchField *string
 	searchValue *string
-	projectAttributesFilterModel *ProjectAttributesFilterModel
+	searchAttributesInProjectRequest *SearchAttributesInProjectRequest
 }
 
 // Amount of items to be skipped (offset)
@@ -447,8 +624,8 @@ func (r ApiSearchTestPlanAttributesInProjectRequest) SearchValue(searchValue str
 	return r
 }
 
-func (r ApiSearchTestPlanAttributesInProjectRequest) ProjectAttributesFilterModel(projectAttributesFilterModel ProjectAttributesFilterModel) ApiSearchTestPlanAttributesInProjectRequest {
-	r.projectAttributesFilterModel = &projectAttributesFilterModel
+func (r ApiSearchTestPlanAttributesInProjectRequest) SearchAttributesInProjectRequest(searchAttributesInProjectRequest SearchAttributesInProjectRequest) ApiSearchTestPlanAttributesInProjectRequest {
+	r.searchAttributesInProjectRequest = &searchAttributesInProjectRequest
 	return r
 }
 
@@ -463,7 +640,7 @@ SearchTestPlanAttributesInProject Search for attributes used in the project test
  @param projectId Unique or global project ID
  @return ApiSearchTestPlanAttributesInProjectRequest
 */
-func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProject(ctx context.Context, projectId string) ApiSearchTestPlanAttributesInProjectRequest {
+func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProject(ctx context.Context, projectId string) ApiSearchTestPlanAttributesInProjectRequest {
 	return ApiSearchTestPlanAttributesInProjectRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -473,7 +650,7 @@ func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProject(
 
 // Execute executes the request
 //  @return []CustomAttributeGetModel
-func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectExecute(r ApiSearchTestPlanAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
+func (a *ProjectTestPlanAttributesApiService) SearchTestPlanAttributesInProjectExecute(r ApiSearchTestPlanAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -481,7 +658,7 @@ func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectE
 		localVarReturnValue  []CustomAttributeGetModel
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.SearchTestPlanAttributesInProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.SearchTestPlanAttributesInProject")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -526,7 +703,7 @@ func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectAttributesFilterModel
+	localVarPostBody = r.searchAttributesInProjectRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -563,7 +740,62 @@ func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectE
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -590,13 +822,13 @@ func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectE
 
 type ApiUpdateCustomAttributeTestPlanProjectRelationsRequest struct {
 	ctx context.Context
-	ApiService *ProjectTestPlanAttributesAPIService
+	ApiService *ProjectTestPlanAttributesApiService
 	projectId string
-	customAttributeTestPlanProjectRelationPutModel *CustomAttributeTestPlanProjectRelationPutModel
+	updateCustomAttributeTestPlanProjectRelationsRequest *UpdateCustomAttributeTestPlanProjectRelationsRequest
 }
 
-func (r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) CustomAttributeTestPlanProjectRelationPutModel(customAttributeTestPlanProjectRelationPutModel CustomAttributeTestPlanProjectRelationPutModel) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
-	r.customAttributeTestPlanProjectRelationPutModel = &customAttributeTestPlanProjectRelationPutModel
+func (r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) UpdateCustomAttributeTestPlanProjectRelationsRequest(updateCustomAttributeTestPlanProjectRelationsRequest UpdateCustomAttributeTestPlanProjectRelationsRequest) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
+	r.updateCustomAttributeTestPlanProjectRelationsRequest = &updateCustomAttributeTestPlanProjectRelationsRequest
 	return r
 }
 
@@ -607,17 +839,22 @@ func (r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) Execute() (*htt
 /*
 UpdateCustomAttributeTestPlanProjectRelations Update attribute of project's test plans
 
-<br>Use case
-<br>User sets project internal or global identifier and attribute model
-<br>User runs method execution
-<br>System updates project and project attribute for test plan
-<br>System returns no content response
+
+Use case
+
+User sets project internal or global identifier and attribute model
+
+User runs method execution
+
+System updates project and project attribute for test plan
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
  @return ApiUpdateCustomAttributeTestPlanProjectRelationsRequest
 */
-func (a *ProjectTestPlanAttributesAPIService) UpdateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
+func (a *ProjectTestPlanAttributesApiService) UpdateCustomAttributeTestPlanProjectRelations(ctx context.Context, projectId string) ApiUpdateCustomAttributeTestPlanProjectRelationsRequest {
 	return ApiUpdateCustomAttributeTestPlanProjectRelationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -626,14 +863,14 @@ func (a *ProjectTestPlanAttributesAPIService) UpdateCustomAttributeTestPlanProje
 }
 
 // Execute executes the request
-func (a *ProjectTestPlanAttributesAPIService) UpdateCustomAttributeTestPlanProjectRelationsExecute(r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
+func (a *ProjectTestPlanAttributesApiService) UpdateCustomAttributeTestPlanProjectRelationsExecute(r ApiUpdateCustomAttributeTestPlanProjectRelationsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.UpdateCustomAttributeTestPlanProjectRelations")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesApiService.UpdateCustomAttributeTestPlanProjectRelations")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -663,7 +900,7 @@ func (a *ProjectTestPlanAttributesAPIService) UpdateCustomAttributeTestPlanProje
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.customAttributeTestPlanProjectRelationPutModel
+	localVarPostBody = r.updateCustomAttributeTestPlanProjectRelationsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -700,7 +937,62 @@ func (a *ProjectTestPlanAttributesAPIService) UpdateCustomAttributeTestPlanProje
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

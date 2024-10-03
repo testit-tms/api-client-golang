@@ -35,8 +35,8 @@ import (
 )
 
 var (
-	JsonCheck       = regexp.MustCompile(`(?i:(?:application|text)/(?:[^;]+\+)?json)`)
-	XmlCheck        = regexp.MustCompile(`(?i:(?:application|text)/(?:[^;]+\+)?xml)`)
+	jsonCheck = regexp.MustCompile(`(?i:(?:application|text)/(?:vnd\.[^;]+\+)?json)`)
+	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 	queryParamSplit = regexp.MustCompile(`(^|&)([^&]+)`)
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
@@ -49,65 +49,63 @@ type APIClient struct {
 
 	// API Services
 
-	AttachmentsAPI *AttachmentsAPIService
+	AttachmentsApi *AttachmentsApiService
 
-	AutoTestsAPI *AutoTestsAPIService
+	AutoTestsApi *AutoTestsApiService
 
-	BackgroundJobsAPI *BackgroundJobsAPIService
+	BackgroundJobsApi *BackgroundJobsApiService
 
-	ConfigurationsAPI *ConfigurationsAPIService
+	ConfigurationsApi *ConfigurationsApiService
 
-	CustomAttributeTemplatesAPI *CustomAttributeTemplatesAPIService
+	CustomAttributeTemplatesApi *CustomAttributeTemplatesApiService
 
-	CustomAttributesAPI *CustomAttributesAPIService
+	CustomAttributesApi *CustomAttributesApiService
 
-	NotificationsAPI *NotificationsAPIService
+	NotificationsApi *NotificationsApiService
 
-	ParametersAPI *ParametersAPIService
+	ParametersApi *ParametersApiService
 
-	ProjectAttributeTemplatesAPI *ProjectAttributeTemplatesAPIService
+	ProjectAttributeTemplatesApi *ProjectAttributeTemplatesApiService
 
-	ProjectAttributesAPI *ProjectAttributesAPIService
+	ProjectAttributesApi *ProjectAttributesApiService
 
-	ProjectConfigurationsAPI *ProjectConfigurationsAPIService
+	ProjectConfigurationsApi *ProjectConfigurationsApiService
 
-	ProjectExportAPI *ProjectExportAPIService
+	ProjectImportApi *ProjectImportApiService
 
-	ProjectImportAPI *ProjectImportAPIService
+	ProjectSectionsApi *ProjectSectionsApiService
 
-	ProjectSectionsAPI *ProjectSectionsAPIService
+	ProjectTestPlanAttributesApi *ProjectTestPlanAttributesApiService
 
-	ProjectTestPlanAttributesAPI *ProjectTestPlanAttributesAPIService
+	ProjectTestPlansApi *ProjectTestPlansApiService
 
-	ProjectTestPlansAPI *ProjectTestPlansAPIService
+	ProjectWorkItemsApi *ProjectWorkItemsApiService
 
-	ProjectWorkItemsAPI *ProjectWorkItemsAPIService
+	ProjectsApi *ProjectsApiService
 
-	ProjectsAPI *ProjectsAPIService
+	SearchApi *SearchApiService
 
-	SearchAPI *SearchAPIService
+	SectionsApi *SectionsApiService
 
-	SectionsAPI *SectionsAPIService
+	TagsApi *TagsApiService
 
-	TagsAPI *TagsAPIService
+	TestPlansApi *TestPlansApiService
 
-	TestPlansAPI *TestPlansAPIService
+	TestPointsApi *TestPointsApiService
 
-	TestPointsAPI *TestPointsAPIService
+	TestResultsApi *TestResultsApiService
 
-	TestResultsAPI *TestResultsAPIService
+	TestRunsApi *TestRunsApiService
 
-	TestRunsAPI *TestRunsAPIService
+	TestSuitesApi *TestSuitesApiService
 
-	TestSuitesAPI *TestSuitesAPIService
+	WebhooksApi *WebhooksApiService
 
-	WebhooksAPI *WebhooksAPIService
+	WebhooksLogsApi *WebhooksLogsApiService
 
-	WebhooksLogsAPI *WebhooksLogsAPIService
+	WorkItemsApi *WorkItemsApiService
 
-	WorkItemsAPI *WorkItemsAPIService
-
-	WorkItemsCommentsAPI *WorkItemsCommentsAPIService
+	WorkItemsCommentsApi *WorkItemsCommentsApiService
 }
 
 type service struct {
@@ -126,36 +124,35 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.AttachmentsAPI = (*AttachmentsAPIService)(&c.common)
-	c.AutoTestsAPI = (*AutoTestsAPIService)(&c.common)
-	c.BackgroundJobsAPI = (*BackgroundJobsAPIService)(&c.common)
-	c.ConfigurationsAPI = (*ConfigurationsAPIService)(&c.common)
-	c.CustomAttributeTemplatesAPI = (*CustomAttributeTemplatesAPIService)(&c.common)
-	c.CustomAttributesAPI = (*CustomAttributesAPIService)(&c.common)
-	c.NotificationsAPI = (*NotificationsAPIService)(&c.common)
-	c.ParametersAPI = (*ParametersAPIService)(&c.common)
-	c.ProjectAttributeTemplatesAPI = (*ProjectAttributeTemplatesAPIService)(&c.common)
-	c.ProjectAttributesAPI = (*ProjectAttributesAPIService)(&c.common)
-	c.ProjectConfigurationsAPI = (*ProjectConfigurationsAPIService)(&c.common)
-	c.ProjectExportAPI = (*ProjectExportAPIService)(&c.common)
-	c.ProjectImportAPI = (*ProjectImportAPIService)(&c.common)
-	c.ProjectSectionsAPI = (*ProjectSectionsAPIService)(&c.common)
-	c.ProjectTestPlanAttributesAPI = (*ProjectTestPlanAttributesAPIService)(&c.common)
-	c.ProjectTestPlansAPI = (*ProjectTestPlansAPIService)(&c.common)
-	c.ProjectWorkItemsAPI = (*ProjectWorkItemsAPIService)(&c.common)
-	c.ProjectsAPI = (*ProjectsAPIService)(&c.common)
-	c.SearchAPI = (*SearchAPIService)(&c.common)
-	c.SectionsAPI = (*SectionsAPIService)(&c.common)
-	c.TagsAPI = (*TagsAPIService)(&c.common)
-	c.TestPlansAPI = (*TestPlansAPIService)(&c.common)
-	c.TestPointsAPI = (*TestPointsAPIService)(&c.common)
-	c.TestResultsAPI = (*TestResultsAPIService)(&c.common)
-	c.TestRunsAPI = (*TestRunsAPIService)(&c.common)
-	c.TestSuitesAPI = (*TestSuitesAPIService)(&c.common)
-	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)
-	c.WebhooksLogsAPI = (*WebhooksLogsAPIService)(&c.common)
-	c.WorkItemsAPI = (*WorkItemsAPIService)(&c.common)
-	c.WorkItemsCommentsAPI = (*WorkItemsCommentsAPIService)(&c.common)
+	c.AttachmentsApi = (*AttachmentsApiService)(&c.common)
+	c.AutoTestsApi = (*AutoTestsApiService)(&c.common)
+	c.BackgroundJobsApi = (*BackgroundJobsApiService)(&c.common)
+	c.ConfigurationsApi = (*ConfigurationsApiService)(&c.common)
+	c.CustomAttributeTemplatesApi = (*CustomAttributeTemplatesApiService)(&c.common)
+	c.CustomAttributesApi = (*CustomAttributesApiService)(&c.common)
+	c.NotificationsApi = (*NotificationsApiService)(&c.common)
+	c.ParametersApi = (*ParametersApiService)(&c.common)
+	c.ProjectAttributeTemplatesApi = (*ProjectAttributeTemplatesApiService)(&c.common)
+	c.ProjectAttributesApi = (*ProjectAttributesApiService)(&c.common)
+	c.ProjectConfigurationsApi = (*ProjectConfigurationsApiService)(&c.common)
+	c.ProjectImportApi = (*ProjectImportApiService)(&c.common)
+	c.ProjectSectionsApi = (*ProjectSectionsApiService)(&c.common)
+	c.ProjectTestPlanAttributesApi = (*ProjectTestPlanAttributesApiService)(&c.common)
+	c.ProjectTestPlansApi = (*ProjectTestPlansApiService)(&c.common)
+	c.ProjectWorkItemsApi = (*ProjectWorkItemsApiService)(&c.common)
+	c.ProjectsApi = (*ProjectsApiService)(&c.common)
+	c.SearchApi = (*SearchApiService)(&c.common)
+	c.SectionsApi = (*SectionsApiService)(&c.common)
+	c.TagsApi = (*TagsApiService)(&c.common)
+	c.TestPlansApi = (*TestPlansApiService)(&c.common)
+	c.TestPointsApi = (*TestPointsApiService)(&c.common)
+	c.TestResultsApi = (*TestResultsApiService)(&c.common)
+	c.TestRunsApi = (*TestRunsApiService)(&c.common)
+	c.TestSuitesApi = (*TestSuitesApiService)(&c.common)
+	c.WebhooksApi = (*WebhooksApiService)(&c.common)
+	c.WebhooksLogsApi = (*WebhooksLogsApiService)(&c.common)
+	c.WorkItemsApi = (*WorkItemsApiService)(&c.common)
+	c.WorkItemsCommentsApi = (*WorkItemsCommentsApiService)(&c.common)
 
 	return c
 }
@@ -537,13 +534,13 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 		_, err = (*f).Seek(0, io.SeekStart)
 		return
 	}
-	if XmlCheck.MatchString(contentType) {
+	if xmlCheck.MatchString(contentType) {
 		if err = xml.Unmarshal(b, v); err != nil {
 			return err
 		}
 		return nil
 	}
-	if JsonCheck.MatchString(contentType) {
+	if jsonCheck.MatchString(contentType) {
 		if actualObj, ok := v.(interface{ GetActualInstance() interface{} }); ok { // oneOf, anyOf schemas
 			if unmarshalObj, ok := actualObj.(interface{ UnmarshalJSON([]byte) error }); ok { // make sure it has UnmarshalJSON defined
 				if err = unmarshalObj.UnmarshalJSON(b); err != nil {
@@ -608,14 +605,10 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 		_, err = bodyBuf.WriteString(s)
 	} else if s, ok := body.(*string); ok {
 		_, err = bodyBuf.WriteString(*s)
-	} else if JsonCheck.MatchString(contentType) {
+	} else if jsonCheck.MatchString(contentType) {
 		err = json.NewEncoder(bodyBuf).Encode(body)
-	} else if XmlCheck.MatchString(contentType) {
-		var bs []byte
-		bs, err = xml.Marshal(body)
-		if err == nil {
-			bodyBuf.Write(bs)
-		}
+	} else if xmlCheck.MatchString(contentType) {
+		err = xml.NewEncoder(bodyBuf).Encode(body)
 	}
 
 	if err != nil {

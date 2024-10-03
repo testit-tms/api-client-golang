@@ -13,8 +13,6 @@ package tmsclient
 import (
 	"encoding/json"
 	"time"
-	"bytes"
-	"fmt"
 )
 
 // checks if the TestRunModel type satisfies the MappedNullable interface at compile time
@@ -26,7 +24,7 @@ type TestRunModel struct {
 	AutoTestsCount int32 `json:"autoTestsCount"`
 	TestSuiteIds []string `json:"testSuiteIds,omitempty"`
 	IsAutomated bool `json:"isAutomated"`
-	Analytic TestRunAnalyticResultModel `json:"analytic"`
+	Analytic TestRunModelAnalytic `json:"analytic"`
 	TestResults []TestResultModel `json:"testResults,omitempty"`
 	TestPlan NullableTestPlanModel `json:"testPlan,omitempty"`
 	CreatedDate time.Time `json:"createdDate"`
@@ -51,13 +49,11 @@ type TestRunModel struct {
 	IsDeleted bool `json:"isDeleted"`
 }
 
-type _TestRunModel TestRunModel
-
 // NewTestRunModel instantiates a new TestRunModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunModel(autoTestsCount int32, isAutomated bool, analytic TestRunAnalyticResultModel, createdDate time.Time, createdById string, build string, description string, stateName TestRunState, projectId string, name string, launchSource string, id string, isDeleted bool) *TestRunModel {
+func NewTestRunModel(autoTestsCount int32, isAutomated bool, analytic TestRunModelAnalytic, createdDate time.Time, createdById string, build string, description string, stateName TestRunState, projectId string, name string, launchSource string, id string, isDeleted bool) *TestRunModel {
 	this := TestRunModel{}
 	this.AutoTestsCount = autoTestsCount
 	this.IsAutomated = isAutomated
@@ -198,9 +194,9 @@ func (o *TestRunModel) SetIsAutomated(v bool) {
 }
 
 // GetAnalytic returns the Analytic field value
-func (o *TestRunModel) GetAnalytic() TestRunAnalyticResultModel {
+func (o *TestRunModel) GetAnalytic() TestRunModelAnalytic {
 	if o == nil {
-		var ret TestRunAnalyticResultModel
+		var ret TestRunModelAnalytic
 		return ret
 	}
 
@@ -209,7 +205,7 @@ func (o *TestRunModel) GetAnalytic() TestRunAnalyticResultModel {
 
 // GetAnalyticOk returns a tuple with the Analytic field value
 // and a boolean to check if the value has been set.
-func (o *TestRunModel) GetAnalyticOk() (*TestRunAnalyticResultModel, bool) {
+func (o *TestRunModel) GetAnalyticOk() (*TestRunModelAnalytic, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -217,7 +213,7 @@ func (o *TestRunModel) GetAnalyticOk() (*TestRunAnalyticResultModel, bool) {
 }
 
 // SetAnalytic sets field value
-func (o *TestRunModel) SetAnalytic(v TestRunAnalyticResultModel) {
+func (o *TestRunModel) SetAnalytic(v TestRunModelAnalytic) {
 	o.Analytic = v
 }
 
@@ -932,55 +928,6 @@ func (o TestRunModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["isDeleted"] = o.IsDeleted
 	return toSerialize, nil
-}
-
-func (o *TestRunModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"autoTestsCount",
-		"isAutomated",
-		"analytic",
-		"createdDate",
-		"createdById",
-		"build",
-		"description",
-		"stateName",
-		"projectId",
-		"name",
-		"launchSource",
-		"id",
-		"isDeleted",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varTestRunModel := _TestRunModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varTestRunModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = TestRunModel(varTestRunModel)
-
-	return err
 }
 
 type NullableTestRunModel struct {

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
 **Name** | **string** | Name of the project | 
 **IsFavorite** | Pointer to **NullableBool** | Indicates if the project is marked as favorite | [optional] 
+**IsFlakyAuto** | Pointer to **NullableBool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | [optional] 
 
 ## Methods
 
@@ -117,6 +118,41 @@ HasIsFavorite returns a boolean if a field has been set.
 `func (o *ProjectPostModel) UnsetIsFavorite()`
 
 UnsetIsFavorite ensures that no value is present for IsFavorite, not even an explicit nil
+### GetIsFlakyAuto
+
+`func (o *ProjectPostModel) GetIsFlakyAuto() bool`
+
+GetIsFlakyAuto returns the IsFlakyAuto field if non-nil, zero value otherwise.
+
+### GetIsFlakyAutoOk
+
+`func (o *ProjectPostModel) GetIsFlakyAutoOk() (*bool, bool)`
+
+GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsFlakyAuto
+
+`func (o *ProjectPostModel) SetIsFlakyAuto(v bool)`
+
+SetIsFlakyAuto sets IsFlakyAuto field to given value.
+
+### HasIsFlakyAuto
+
+`func (o *ProjectPostModel) HasIsFlakyAuto() bool`
+
+HasIsFlakyAuto returns a boolean if a field has been set.
+
+### SetIsFlakyAutoNil
+
+`func (o *ProjectPostModel) SetIsFlakyAutoNil(b bool)`
+
+ SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
+
+### UnsetIsFlakyAuto
+`func (o *ProjectPostModel) UnsetIsFlakyAuto()`
+
+UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

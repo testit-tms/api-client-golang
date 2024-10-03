@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | [**AutotestFilterModel**](AutotestFilterModel.md) |  | 
-**Includes** | [**SearchAutoTestsQueryIncludesModel**](SearchAutoTestsQueryIncludesModel.md) |  | 
+**Filter** | [**AutotestsSelectModelFilter**](AutotestsSelectModelFilter.md) |  | 
+**Includes** | [**AutotestsSelectModelIncludes**](AutotestsSelectModelIncludes.md) |  | 
 
 ## Methods
 
 ### NewAutotestsSelectModel
 
-`func NewAutotestsSelectModel(filter AutotestFilterModel, includes SearchAutoTestsQueryIncludesModel, ) *AutotestsSelectModel`
+`func NewAutotestsSelectModel(filter AutotestsSelectModelFilter, includes AutotestsSelectModelIncludes, ) *AutotestsSelectModel`
 
 NewAutotestsSelectModel instantiates a new AutotestsSelectModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,40 +28,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *AutotestsSelectModel) GetFilter() AutotestFilterModel`
+`func (o *AutotestsSelectModel) GetFilter() AutotestsSelectModelFilter`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *AutotestsSelectModel) GetFilterOk() (*AutotestFilterModel, bool)`
+`func (o *AutotestsSelectModel) GetFilterOk() (*AutotestsSelectModelFilter, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *AutotestsSelectModel) SetFilter(v AutotestFilterModel)`
+`func (o *AutotestsSelectModel) SetFilter(v AutotestsSelectModelFilter)`
 
 SetFilter sets Filter field to given value.
 
 
 ### GetIncludes
 
-`func (o *AutotestsSelectModel) GetIncludes() SearchAutoTestsQueryIncludesModel`
+`func (o *AutotestsSelectModel) GetIncludes() AutotestsSelectModelIncludes`
 
 GetIncludes returns the Includes field if non-nil, zero value otherwise.
 
 ### GetIncludesOk
 
-`func (o *AutotestsSelectModel) GetIncludesOk() (*SearchAutoTestsQueryIncludesModel, bool)`
+`func (o *AutotestsSelectModel) GetIncludesOk() (*AutotestsSelectModelIncludes, bool)`
 
 GetIncludesOk returns a tuple with the Includes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIncludes
 
-`func (o *AutotestsSelectModel) SetIncludes(v SearchAutoTestsQueryIncludesModel)`
+`func (o *AutotestsSelectModel) SetIncludes(v AutotestsSelectModelIncludes)`
 
 SetIncludes sets Includes field to given value.
 
