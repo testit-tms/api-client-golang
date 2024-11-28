@@ -71,11 +71,9 @@ type APIClient struct {
 
 	ProjectConfigurationsAPI *ProjectConfigurationsAPIService
 
-	ProjectExportAPI *ProjectExportAPIService
-
-	ProjectImportAPI *ProjectImportAPIService
-
 	ProjectSectionsAPI *ProjectSectionsAPIService
+
+	ProjectSettingsAPI *ProjectSettingsAPIService
 
 	ProjectTestPlanAttributesAPI *ProjectTestPlanAttributesAPIService
 
@@ -100,6 +98,8 @@ type APIClient struct {
 	TestRunsAPI *TestRunsAPIService
 
 	TestSuitesAPI *TestSuitesAPIService
+
+	UsersAPI *UsersAPIService
 
 	WebhooksAPI *WebhooksAPIService
 
@@ -137,9 +137,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ProjectAttributeTemplatesAPI = (*ProjectAttributeTemplatesAPIService)(&c.common)
 	c.ProjectAttributesAPI = (*ProjectAttributesAPIService)(&c.common)
 	c.ProjectConfigurationsAPI = (*ProjectConfigurationsAPIService)(&c.common)
-	c.ProjectExportAPI = (*ProjectExportAPIService)(&c.common)
-	c.ProjectImportAPI = (*ProjectImportAPIService)(&c.common)
 	c.ProjectSectionsAPI = (*ProjectSectionsAPIService)(&c.common)
+	c.ProjectSettingsAPI = (*ProjectSettingsAPIService)(&c.common)
 	c.ProjectTestPlanAttributesAPI = (*ProjectTestPlanAttributesAPIService)(&c.common)
 	c.ProjectTestPlansAPI = (*ProjectTestPlansAPIService)(&c.common)
 	c.ProjectWorkItemsAPI = (*ProjectWorkItemsAPIService)(&c.common)
@@ -152,6 +151,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TestResultsAPI = (*TestResultsAPIService)(&c.common)
 	c.TestRunsAPI = (*TestRunsAPIService)(&c.common)
 	c.TestSuitesAPI = (*TestSuitesAPIService)(&c.common)
+	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)
 	c.WebhooksLogsAPI = (*WebhooksLogsAPIService)(&c.common)
 	c.WorkItemsAPI = (*WorkItemsAPIService)(&c.common)
@@ -229,7 +229,7 @@ func parameterValueToString( obj interface{}, key string ) string {
 
 // parameterAddToHeaderOrQuery adds the provided object to the request header or url query
 // supporting deep object syntax
-func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix string, obj interface{}, collectionType string) {
+func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix string, obj interface{}, style string, collectionType string) {
 	var v = reflect.ValueOf(obj)
 	var value = ""
 	if v == reflect.ValueOf(nil) {
@@ -245,11 +245,11 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix stri
 					if err != nil {
 						return
 					}
-					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, dataMap, collectionType)
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, dataMap, style, collectionType)
 					return
 				}
 				if t, ok := obj.(time.Time); ok {
-					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, t.Format(time.RFC3339), collectionType)
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, t.Format(time.RFC3339Nano), style, collectionType)
 					return
 				}
 				value = v.Type().String() + " value"
@@ -261,7 +261,11 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix stri
 				var lenIndValue = indValue.Len()
 				for i:=0;i<lenIndValue;i++ {
 					var arrayValue = indValue.Index(i)
-					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, arrayValue.Interface(), collectionType)
+					var keyPrefixForCollectionType = keyPrefix
+					if style == "deepObject" {
+						keyPrefixForCollectionType = keyPrefix + "[" + strconv.Itoa(i) + "]"
+					}
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefixForCollectionType, arrayValue.Interface(), style, collectionType)
 				}
 				return
 
@@ -273,14 +277,14 @@ func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix stri
 				iter := indValue.MapRange()
 				for iter.Next() {
 					k,v := iter.Key(), iter.Value()
-					parameterAddToHeaderOrQuery(headerOrQueryParams, fmt.Sprintf("%s[%s]", keyPrefix, k.String()), v.Interface(), collectionType)
+					parameterAddToHeaderOrQuery(headerOrQueryParams, fmt.Sprintf("%s[%s]", keyPrefix, k.String()), v.Interface(), style, collectionType)
 				}
 				return
 
 			case reflect.Interface:
 				fallthrough
 			case reflect.Ptr:
-				parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, v.Elem().Interface(), collectionType)
+				parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, v.Elem().Interface(), style, collectionType)
 				return
 
 			case reflect.Int, reflect.Int8, reflect.Int16,
@@ -578,18 +582,6 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 	_, err = io.Copy(part, file)
 
 	return err
-}
-
-// Prevent trying to import "fmt"
-func reportError(format string, a ...interface{}) error {
-	return fmt.Errorf(format, a...)
-}
-
-// A wrapper for strict JSON decoding
-func newStrictDecoder(data []byte) *json.Decoder {
-	dec := json.NewDecoder(bytes.NewBuffer(data))
-	dec.DisallowUnknownFields()
-	return dec
 }
 
 // Set request body from an interface{}

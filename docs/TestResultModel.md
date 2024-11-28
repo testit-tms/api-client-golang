@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **StepComments** | Pointer to [**[]StepCommentModel**](StepCommentModel.md) |  | [optional] 
 **FailureClassIds** | **[]string** |  | 
 **Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
+**Status** | Pointer to [**NullableTestStatusModel**](TestStatusModel.md) |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]LinkModel**](LinkModel.md) |  | [optional] 
 **StepResults** | Pointer to [**[]StepResultModel**](StepResultModel.md) |  | [optional] 
@@ -952,6 +953,41 @@ HasOutcome returns a boolean if a field has been set.
 `func (o *TestResultModel) UnsetOutcome()`
 
 UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+### GetStatus
+
+`func (o *TestResultModel) GetStatus() TestStatusModel`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *TestResultModel) GetStatusOk() (*TestStatusModel, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *TestResultModel) SetStatus(v TestStatusModel)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *TestResultModel) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### SetStatusNil
+
+`func (o *TestResultModel) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *TestResultModel) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultModel) GetComment() string`

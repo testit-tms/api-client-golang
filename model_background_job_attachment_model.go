@@ -24,6 +24,7 @@ type BackgroundJobAttachmentModel struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Type string `json:"type"`
+	Size float32 `json:"size"`
 }
 
 type _BackgroundJobAttachmentModel BackgroundJobAttachmentModel
@@ -32,11 +33,12 @@ type _BackgroundJobAttachmentModel BackgroundJobAttachmentModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBackgroundJobAttachmentModel(id string, name string, type_ string) *BackgroundJobAttachmentModel {
+func NewBackgroundJobAttachmentModel(id string, name string, type_ string, size float32) *BackgroundJobAttachmentModel {
 	this := BackgroundJobAttachmentModel{}
 	this.Id = id
 	this.Name = name
 	this.Type = type_
+	this.Size = size
 	return &this
 }
 
@@ -120,6 +122,30 @@ func (o *BackgroundJobAttachmentModel) SetType(v string) {
 	o.Type = v
 }
 
+// GetSize returns the Size field value
+func (o *BackgroundJobAttachmentModel) GetSize() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value
+// and a boolean to check if the value has been set.
+func (o *BackgroundJobAttachmentModel) GetSizeOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Size, true
+}
+
+// SetSize sets field value
+func (o *BackgroundJobAttachmentModel) SetSize(v float32) {
+	o.Size = v
+}
+
 func (o BackgroundJobAttachmentModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,6 +159,7 @@ func (o BackgroundJobAttachmentModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["type"] = o.Type
+	toSerialize["size"] = o.Size
 	return toSerialize, nil
 }
 
@@ -144,6 +171,7 @@ func (o *BackgroundJobAttachmentModel) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"type",
+		"size",
 	}
 
 	allProperties := make(map[string]interface{})

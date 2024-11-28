@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | Pointer to [**NullableAutotestsExtractionModelIds**](AutotestsExtractionModelIds.md) |  | [optional] 
+**Ids** | Pointer to [**NullableGuidExtractionModel**](GuidExtractionModel.md) | Extraction parameters for autotests | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetIds
 
-`func (o *AutotestsExtractionModel) GetIds() AutotestsExtractionModelIds`
+`func (o *AutotestsExtractionModel) GetIds() GuidExtractionModel`
 
 GetIds returns the Ids field if non-nil, zero value otherwise.
 
 ### GetIdsOk
 
-`func (o *AutotestsExtractionModel) GetIdsOk() (*AutotestsExtractionModelIds, bool)`
+`func (o *AutotestsExtractionModel) GetIdsOk() (*GuidExtractionModel, bool)`
 
 GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIds
 
-`func (o *AutotestsExtractionModel) SetIds(v AutotestsExtractionModelIds)`
+`func (o *AutotestsExtractionModel) SetIds(v GuidExtractionModel)`
 
 SetIds sets Ids field to given value.
 

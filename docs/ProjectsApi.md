@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**ApiV2ProjectsIdFavoritePut**](ProjectsAPI.md#ApiV2ProjectsIdFavoritePut) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
 [**ApiV2ProjectsIdFiltersGet**](ProjectsAPI.md#ApiV2ProjectsIdFiltersGet) | **Get** /api/v2/projects/{id}/filters | Get Project filters
 [**ApiV2ProjectsIdPatch**](ProjectsAPI.md#ApiV2ProjectsIdPatch) | **Patch** /api/v2/projects/{id} | Patch project
-[**ApiV2ProjectsIdPurgePost**](ProjectsAPI.md#ApiV2ProjectsIdPurgePost) | **Post** /api/v2/projects/{id}/purge | Purge archived project
+[**ApiV2ProjectsIdPurgePost**](ProjectsAPI.md#ApiV2ProjectsIdPurgePost) | **Post** /api/v2/projects/{id}/purge | Purge the project
 [**ApiV2ProjectsIdRestorePost**](ProjectsAPI.md#ApiV2ProjectsIdRestorePost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
 [**ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](ProjectsAPI.md#ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
 [**ApiV2ProjectsIdTestPlansAttributePut**](ProjectsAPI.md#ApiV2ProjectsIdTestPlansAttributePut) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
@@ -21,12 +21,8 @@ Method | HTTP request | Description
 [**ApiV2ProjectsPurgeBulkPost**](ProjectsAPI.md#ApiV2ProjectsPurgeBulkPost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
 [**ApiV2ProjectsRestoreBulkPost**](ProjectsAPI.md#ApiV2ProjectsRestoreBulkPost) | **Post** /api/v2/projects/restore/bulk | Restore multiple projects
 [**ApiV2ProjectsSearchPost**](ProjectsAPI.md#ApiV2ProjectsSearchPost) | **Post** /api/v2/projects/search | Search for projects
-[**BackgroundImportProject**](ProjectsAPI.md#BackgroundImportProject) | **Post** /api/v2/projects/import/json | Import project from JSON file in background job
-[**BackgroundImportZipProject**](ProjectsAPI.md#BackgroundImportZipProject) | **Post** /api/v2/projects/import/zip | Import project from Zip file in background job
-[**CallImport**](ProjectsAPI.md#CallImport) | **Post** /api/v2/projects/import | Import project from JSON file
 [**CreateProject**](ProjectsAPI.md#CreateProject) | **Post** /api/v2/projects | Create project
 [**DeleteProjectAutoTests**](ProjectsAPI.md#DeleteProjectAutoTests) | **Delete** /api/v2/projects/{id}/autoTests | Delete all autotests from project
-[**ExportWithTestPlansAndConfigurations**](ProjectsAPI.md#ExportWithTestPlansAndConfigurations) | **Post** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file
 [**GetAllProjects**](ProjectsAPI.md#GetAllProjects) | **Get** /api/v2/projects | Get all projects
 [**GetAutoTestsNamespaces**](ProjectsAPI.md#GetAutoTestsNamespaces) | **Get** /api/v2/projects/{id}/autoTestsNamespaces | Get namespaces of autotests in project
 [**GetProjectById**](ProjectsAPI.md#GetProjectById) | **Get** /api/v2/projects/{id} | Get project by ID
@@ -516,7 +512,7 @@ Name | Type | Description  | Notes
 
 > ApiV2ProjectsIdPurgePost(ctx, id).Execute()
 
-Purge archived project
+Purge the project
 
 ### Example
 
@@ -1152,7 +1148,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsSearchPost
 
-> []ProjectModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
+> []ProjectShortModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
 
 Search for projects
 
@@ -1183,7 +1179,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsSearchPost`: []ProjectModel
+	// response from `ApiV2ProjectsSearchPost`: []ProjectShortModel
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsSearchPost`: %v\n", resp)
 }
 ```
@@ -1208,7 +1204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ProjectModel**](ProjectModel.md)
+[**[]ProjectShortModel**](ProjectShortModel.md)
 
 ### Authorization
 
@@ -1217,200 +1213,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## BackgroundImportProject
-
-> string BackgroundImportProject(ctx).File(file).Execute()
-
-Import project from JSON file in background job
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.BackgroundImportProject(context.Background()).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.BackgroundImportProject``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `BackgroundImportProject`: string
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.BackgroundImportProject`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiBackgroundImportProjectRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | ***os.File** |  | 
-
-### Return type
-
-**string**
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data, application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## BackgroundImportZipProject
-
-> string BackgroundImportZipProject(ctx).File(file).Execute()
-
-Import project from Zip file in background job
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	file := os.NewFile(1234, "some_file") // *os.File |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.BackgroundImportZipProject(context.Background()).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.BackgroundImportZipProject``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `BackgroundImportZipProject`: string
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.BackgroundImportZipProject`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiBackgroundImportZipProjectRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | ***os.File** |  | 
-
-### Return type
-
-**string**
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data, application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CallImport
-
-> CallImport(ctx).IncludeAttachments(includeAttachments).File(file).Execute()
-
-Import project from JSON file
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	includeAttachments := true // bool | Enables attachment import. (optional) (default to false)
-	file := os.NewFile(1234, "some_file") // *os.File | Select file (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProjectsAPI.CallImport(context.Background()).IncludeAttachments(includeAttachments).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CallImport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCallImportRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **includeAttachments** | **bool** | Enables attachment import. | [default to false]
- **file** | ***os.File** | Select file | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1550,83 +1352,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ExportWithTestPlansAndConfigurations
-
-> *os.File ExportWithTestPlansAndConfigurations(ctx, id).IncludeAttachments(includeAttachments).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
-
-Export project with test plans, test suites and test points as JSON file
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	id := "id_example" // string | Specifies the ID of the project you want to export.
-	includeAttachments := true // bool | Enables attachment export. (optional) (default to false)
-	projectExportWithTestPlansPostModel := *openapiclient.NewProjectExportWithTestPlansPostModel() // ProjectExportWithTestPlansPostModel |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.ExportWithTestPlansAndConfigurations(context.Background(), id).IncludeAttachments(includeAttachments).ProjectExportWithTestPlansPostModel(projectExportWithTestPlansPostModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ExportWithTestPlansAndConfigurations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportWithTestPlansAndConfigurations`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ExportWithTestPlansAndConfigurations`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Specifies the ID of the project you want to export. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiExportWithTestPlansAndConfigurationsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **includeAttachments** | **bool** | Enables attachment export. | [default to false]
- **projectExportWithTestPlansPostModel** | [**ProjectExportWithTestPlansPostModel**](ProjectExportWithTestPlansPostModel.md) |  | 
-
-### Return type
-
-[***os.File**](*os.File.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetAllProjects
 
-> []ProjectModel GetAllProjects(ctx).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []ProjectShortModel GetAllProjects(ctx).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get all projects
 
@@ -1660,7 +1388,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetAllProjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAllProjects`: []ProjectModel
+	// response from `GetAllProjects`: []ProjectShortModel
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetAllProjects`: %v\n", resp)
 }
 ```
@@ -1686,7 +1414,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ProjectModel**](ProjectModel.md)
+[**[]ProjectShortModel**](ProjectShortModel.md)
 
 ### Authorization
 
@@ -2030,7 +1758,7 @@ import (
 )
 
 func main() {
-	projectPutModel := *openapiclient.NewProjectPutModel("Id_example", "Name_example") // ProjectPutModel |  (optional)
+	projectPutModel := *openapiclient.NewProjectPutModel("Id_example", "Name_example", openapiclient.ProjectTypeModel("Regular")) // ProjectPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -276,7 +276,7 @@ func (o *TestPointResultModel) GetTestResultsOk() ([]TestResultShortModel, bool)
 
 // HasTestResults returns a boolean if a field has been set.
 func (o *TestPointResultModel) HasTestResults() bool {
-	if o != nil && IsNil(o.TestResults) {
+	if o != nil && !IsNil(o.TestResults) {
 		return true
 	}
 
@@ -309,7 +309,7 @@ func (o *TestPointResultModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *TestPointResultModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 

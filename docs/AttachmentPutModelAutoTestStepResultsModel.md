@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **StartedOn** | Pointer to **NullableTime** | Step start date. | [optional] 
 **CompletedOn** | Pointer to **NullableTime** | Step end date. | [optional] 
 **Duration** | Pointer to **NullableInt64** | Expected or actual duration of the test run execution in milliseconds. | [optional] 
-**Outcome** | Pointer to [**NullableAvailableTestResultOutcome**](AvailableTestResultOutcome.md) |  | [optional] 
+**Outcome** | Pointer to [**NullableAvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | [optional] 
 **StepResults** | Pointer to [**[]AttachmentPutModelAutoTestStepResultsModel**](AttachmentPutModelAutoTestStepResultsModel.md) | Nested step results. The maximum nesting level is 15. | [optional] 
 **Attachments** | Pointer to [**[]AttachmentPutModel**](AttachmentPutModel.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; | [optional] 
 **Parameters** | Pointer to **map[string]string** | \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent. | [optional] 

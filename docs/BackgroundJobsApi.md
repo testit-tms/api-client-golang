@@ -4,12 +4,70 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2BackgroundJobsCompletedDelete**](BackgroundJobsAPI.md#ApiV2BackgroundJobsCompletedDelete) | **Delete** /api/v2/backgroundJobs/completed | Delete all completed background jobs
 [**ApiV2BackgroundJobsGet**](BackgroundJobsAPI.md#ApiV2BackgroundJobsGet) | **Get** /api/v2/backgroundJobs | 
 [**ApiV2BackgroundJobsIdCancelPost**](BackgroundJobsAPI.md#ApiV2BackgroundJobsIdCancelPost) | **Post** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
 [**ApiV2BackgroundJobsIdGet**](BackgroundJobsAPI.md#ApiV2BackgroundJobsIdGet) | **Get** /api/v2/backgroundJobs/{id} | Get background job by ID
 [**ApiV2BackgroundJobsIdStatusGet**](BackgroundJobsAPI.md#ApiV2BackgroundJobsIdStatusGet) | **Get** /api/v2/backgroundJobs/{id}/status | Get background job status by job ID
 [**ApiV2BackgroundJobsSearchPost**](BackgroundJobsAPI.md#ApiV2BackgroundJobsSearchPost) | **Post** /api/v2/backgroundJobs/search | Search for user background jobs
 
+
+
+## ApiV2BackgroundJobsCompletedDelete
+
+> ApiV2BackgroundJobsCompletedDelete(ctx).Execute()
+
+Delete all completed background jobs
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.BackgroundJobsAPI.ApiV2BackgroundJobsCompletedDelete(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `BackgroundJobsAPI.ApiV2BackgroundJobsCompletedDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2BackgroundJobsCompletedDeleteRequest struct via the builder pattern
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV2BackgroundJobsGet
@@ -143,7 +201,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -128,7 +128,7 @@ func (o *ConfigurationModel) GetParametersOk() (*map[string]string, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *ConfigurationModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

@@ -118,7 +118,7 @@ func (o *TestSuiteChangeViewModel) GetConfigurationsOk() ([]ShortConfiguration, 
 
 // HasConfigurations returns a boolean if a field has been set.
 func (o *TestSuiteChangeViewModel) HasConfigurations() bool {
-	if o != nil && IsNil(o.Configurations) {
+	if o != nil && !IsNil(o.Configurations) {
 		return true
 	}
 

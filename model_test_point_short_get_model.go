@@ -56,7 +56,9 @@ type TestPointShortGetModel struct {
 	WorkItemVersionNumber int32 `json:"workItemVersionNumber"`
 	// Median duration of work item the test point represents
 	WorkItemMedianDuration NullableInt64 `json:"workItemMedianDuration,omitempty"`
+	// Status of the test point
 	Status TestPointStatus `json:"status"`
+	// Priority of the test point
 	Priority WorkItemPriorityModel `json:"priority"`
 	// Indicates if the test point represents an autotest
 	IsAutomated bool `json:"isAutomated"`
@@ -75,6 +77,7 @@ type TestPointShortGetModel struct {
 	LastTestResult LastTestResultModel `json:"lastTestResult"`
 	// Unique ID of work item iteration the test point represents
 	IterationId string `json:"iterationId"`
+	// Work item state
 	WorkItemState WorkItemState `json:"workItemState"`
 	// Unique ID of the work item creator
 	WorkItemCreatedById string `json:"workItemCreatedById"`
@@ -349,7 +352,7 @@ func (o *TestPointShortGetModel) GetParametersOk() (*map[string]string, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *TestPointShortGetModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

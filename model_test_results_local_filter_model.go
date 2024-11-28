@@ -22,7 +22,10 @@ type TestResultsLocalFilterModel struct {
 	// Specifies a test result configuration IDs to search for
 	ConfigurationIds []string `json:"configurationIds,omitempty"`
 	// Specifies a test result outcomes to search for
+	// Deprecated
 	Outcomes []TestResultOutcome `json:"outcomes,omitempty"`
+	// Specifies a test result status codes to search for
+	StatusCodes []string `json:"statusCodes,omitempty"`
 	// Specifies a test result failure categories to search for
 	FailureCategories []FailureCategoryModel `json:"failureCategories,omitempty"`
 	// Specifies a test result namespace to search for
@@ -69,7 +72,7 @@ func (o *TestResultsLocalFilterModel) GetConfigurationIdsOk() ([]string, bool) {
 
 // HasConfigurationIds returns a boolean if a field has been set.
 func (o *TestResultsLocalFilterModel) HasConfigurationIds() bool {
-	if o != nil && IsNil(o.ConfigurationIds) {
+	if o != nil && !IsNil(o.ConfigurationIds) {
 		return true
 	}
 
@@ -82,6 +85,7 @@ func (o *TestResultsLocalFilterModel) SetConfigurationIds(v []string) {
 }
 
 // GetOutcomes returns the Outcomes field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *TestResultsLocalFilterModel) GetOutcomes() []TestResultOutcome {
 	if o == nil {
 		var ret []TestResultOutcome
@@ -93,6 +97,7 @@ func (o *TestResultsLocalFilterModel) GetOutcomes() []TestResultOutcome {
 // GetOutcomesOk returns a tuple with the Outcomes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *TestResultsLocalFilterModel) GetOutcomesOk() ([]TestResultOutcome, bool) {
 	if o == nil || IsNil(o.Outcomes) {
 		return nil, false
@@ -102,7 +107,7 @@ func (o *TestResultsLocalFilterModel) GetOutcomesOk() ([]TestResultOutcome, bool
 
 // HasOutcomes returns a boolean if a field has been set.
 func (o *TestResultsLocalFilterModel) HasOutcomes() bool {
-	if o != nil && IsNil(o.Outcomes) {
+	if o != nil && !IsNil(o.Outcomes) {
 		return true
 	}
 
@@ -110,8 +115,42 @@ func (o *TestResultsLocalFilterModel) HasOutcomes() bool {
 }
 
 // SetOutcomes gets a reference to the given []TestResultOutcome and assigns it to the Outcomes field.
+// Deprecated
 func (o *TestResultsLocalFilterModel) SetOutcomes(v []TestResultOutcome) {
 	o.Outcomes = v
+}
+
+// GetStatusCodes returns the StatusCodes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsLocalFilterModel) GetStatusCodes() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.StatusCodes
+}
+
+// GetStatusCodesOk returns a tuple with the StatusCodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsLocalFilterModel) GetStatusCodesOk() ([]string, bool) {
+	if o == nil || IsNil(o.StatusCodes) {
+		return nil, false
+	}
+	return o.StatusCodes, true
+}
+
+// HasStatusCodes returns a boolean if a field has been set.
+func (o *TestResultsLocalFilterModel) HasStatusCodes() bool {
+	if o != nil && !IsNil(o.StatusCodes) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusCodes gets a reference to the given []string and assigns it to the StatusCodes field.
+func (o *TestResultsLocalFilterModel) SetStatusCodes(v []string) {
+	o.StatusCodes = v
 }
 
 // GetFailureCategories returns the FailureCategories field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -135,7 +174,7 @@ func (o *TestResultsLocalFilterModel) GetFailureCategoriesOk() ([]FailureCategor
 
 // HasFailureCategories returns a boolean if a field has been set.
 func (o *TestResultsLocalFilterModel) HasFailureCategories() bool {
-	if o != nil && IsNil(o.FailureCategories) {
+	if o != nil && !IsNil(o.FailureCategories) {
 		return true
 	}
 
@@ -246,6 +285,9 @@ func (o TestResultsLocalFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Outcomes != nil {
 		toSerialize["outcomes"] = o.Outcomes
+	}
+	if o.StatusCodes != nil {
+		toSerialize["statusCodes"] = o.StatusCodes
 	}
 	if o.FailureCategories != nil {
 		toSerialize["failureCategories"] = o.FailureCategories

@@ -56,7 +56,9 @@ type WorkItemShortModel struct {
 	CreatedDate NullableTime `json:"createdDate,omitempty"`
 	// Date and time of the latest modification of Work Item
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
+	// The current state of Work Item
 	State WorkItemStates `json:"state"`
+	// Work Item priority level
 	Priority WorkItemPriorityModel `json:"priority"`
 	// Flag determining whether Work Item is deleted
 	IsDeleted bool `json:"isDeleted"`
@@ -431,7 +433,7 @@ func (o *WorkItemShortModel) GetAttributesOk() (map[string]interface{}, bool) {
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *WorkItemShortModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -686,7 +688,7 @@ func (o *WorkItemShortModel) GetTagNamesOk() ([]string, bool) {
 
 // HasTagNames returns a boolean if a field has been set.
 func (o *WorkItemShortModel) HasTagNames() bool {
-	if o != nil && IsNil(o.TagNames) {
+	if o != nil && !IsNil(o.TagNames) {
 		return true
 	}
 

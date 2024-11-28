@@ -21,7 +21,9 @@ var _ MappedNullable = &AutotestsSelectModel{}
 
 // AutotestsSelectModel struct for AutotestsSelectModel
 type AutotestsSelectModel struct {
+	// Object containing different filters to adjust search
 	Filter AutotestFilterModel `json:"filter"`
+	// Object specifying data to be included
 	Includes SearchAutoTestsQueryIncludesModel `json:"includes"`
 }
 

@@ -132,7 +132,62 @@ func (a *SectionsAPIService) ApiV2SectionsIdPatchExecute(r ApiApiV2SectionsIdPat
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -166,11 +221,16 @@ func (r ApiCreateSectionRequest) Execute() (*SectionWithStepsModel, *http.Respon
 /*
 CreateSection Create section
 
-<br>Use case
-<br>User sets section properties (listed in request example)
-<br>User runs method execution
-<br>System creates section property values
-<br>System returns section (listed in response example)
+
+Use case
+
+User sets section properties (listed in request example)
+
+User runs method execution
+
+System creates section property values
+
+System returns section (listed in response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateSectionRequest
@@ -311,6 +371,17 @@ func (a *SectionsAPIService) CreateSectionExecute(r ApiCreateSectionRequest) (*S
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -340,14 +411,22 @@ func (r ApiDeleteSectionRequest) Execute() (*http.Response, error) {
 /*
 DeleteSection Delete section
 
-<br>Use case
-<br>User sets section identifier
-<br>User runs method execution
-<br>System search section by the identifier
-<br>System search and delete nested sections of the found section
-<br>System search and delete workitems related to the found nested sections
-<br>System deletes initial section and related workitem
-<br>System returns no content response
+
+Use case
+
+User sets section identifier
+
+User runs method execution
+
+System search section by the identifier
+
+System search and delete nested sections of the found section
+
+System search and delete workitems related to the found nested sections
+
+System deletes initial section and related workitem
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Section internal (UUID) identifier
@@ -467,6 +546,17 @@ func (a *SectionsAPIService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*h
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -477,6 +567,16 @@ func (a *SectionsAPIService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*h
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -503,15 +603,21 @@ func (r ApiGetSectionByIdRequest) Execute() (*SectionWithStepsModel, *http.Respo
 /*
 GetSectionById Get section
 
-<br>Use case
-<br>User sets section internal (guid format) identifier
-<br>User runs method execution
-<br>System search section by the section identifier
-<br>
+
+Use case
+
+User sets section internal (guid format) identifier
+
+User runs method execution
+
+System search section by the section identifier
+
+
             [Optional] If isDeleted flag equals false, deleted work items are not being searched.
             If true, deleted work items are also being searched, null for all work items.
             
-<br>System returns section
+
+System returns section
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Section internal (UUID) identifier
@@ -548,7 +654,7 @@ func (a *SectionsAPIService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 	localVarFormParams := url.Values{}
 
 	if r.isDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	} else {
 		var defaultValue DeletionState = "NotDeleted"
 		r.isDeleted = &defaultValue
@@ -648,6 +754,28 @@ func (a *SectionsAPIService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -732,16 +860,23 @@ func (r ApiGetWorkItemsBySectionIdRequest) Execute() ([]WorkItemShortModel, *htt
 /*
 GetWorkItemsBySectionId Get section work items
 
-<br>Use case
-<br>User sets section identifier
-<br>User runs method execution
-<br>System search section by the identifier
-<br>System search work items related to the section
-<br>
+
+Use case
+
+User sets section identifier
+
+User runs method execution
+
+System search section by the identifier
+
+System search work items related to the section
+
+
             [Optional] If isDeleted flag equals false, deleted work items are not being searched.
             If true, deleted work items are also being searched, null for all work items.
             
-<br>System returns work item collection
+
+System returns work item collection
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Section internal (UUID) identifier
@@ -781,7 +916,7 @@ func (a *SectionsAPIService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 	localVarFormParams := url.Values{}
 
 	if r.isDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	} else {
 		var defaultValue bool = false
 		r.isDeleted = &defaultValue
@@ -791,32 +926,32 @@ func (a *SectionsAPIService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", t, "form", "multi")
 		}
 	}
 	if r.includeIterations != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", r.includeIterations, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", r.includeIterations, "form", "")
 	} else {
 		var defaultValue bool = true
 		r.includeIterations = &defaultValue
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -905,6 +1040,28 @@ func (a *SectionsAPIService) GetWorkItemsBySectionIdExecute(r ApiGetWorkItemsByS
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1031,7 +1188,62 @@ func (a *SectionsAPIService) MoveExecute(r ApiMoveRequest) (*http.Response, erro
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1065,12 +1277,18 @@ func (r ApiRenameRequest) Execute() (*http.Response, error) {
 /*
 Rename Rename section
 
-<br>Use case
-<br>User sets section identifier and new name (listed in request example)
-<br>User runs method execution
-<br>System search section by the identifier
-<br>System updates section name using the new name
-<br>System returns no content response
+
+Use case
+
+User sets section identifier and new name (listed in request example)
+
+User runs method execution
+
+System search section by the identifier
+
+System updates section name using the new name
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRenameRequest
@@ -1156,6 +1374,17 @@ func (a *SectionsAPIService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1200,6 +1429,16 @@ func (a *SectionsAPIService) RenameExecute(r ApiRenameRequest) (*http.Response, 
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
 		return localVarHTTPResponse, newErr
 	}
 
@@ -1224,12 +1463,18 @@ func (r ApiUpdateSectionRequest) Execute() (*http.Response, error) {
 /*
 UpdateSection Update section
 
-<br>Use case
-<br>User sets section properties (listed in request example)
-<br>User runs method execution
-<br>System search section by the identifier
-<br>System updates section using the property values
-<br>System returns no content response
+
+Use case
+
+User sets section properties (listed in request example)
+
+User runs method execution
+
+System search section by the identifier
+
+System updates section using the property values
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateSectionRequest

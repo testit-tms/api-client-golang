@@ -113,19 +113,19 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchGroupe
 	localVarFormParams := url.Values{}
 
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -182,7 +182,62 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchGroupe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -296,19 +351,19 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost
 	localVarFormParams := url.Values{}
 
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -365,7 +420,62 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchIdPost
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -479,19 +589,19 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPostEx
 	localVarFormParams := url.Values{}
 
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -548,7 +658,62 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPostEx
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -592,10 +757,14 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) Execute() ([]TagShortM
 /*
 ApiV2ProjectsProjectIdWorkItemsTagsGet Get WorkItems Tags
 
-<br>Use case
-<br>User sets project internal identifier 
-<br>User runs method execution
-<br>System returns work items tags
+
+Use case
+
+User sets project internal identifier 
+
+User runs method execution
+
+System returns work items tags
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) identifier
@@ -632,7 +801,7 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecu
 	localVarFormParams := url.Values{}
 
 	if r.isDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -686,6 +855,71 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecu
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -770,15 +1004,24 @@ func (r ApiGetWorkItemsByProjectIdRequest) Execute() ([]WorkItemShortModel, *htt
 /*
 GetWorkItemsByProjectId Get project work items
 
-<br>Use case
-<br>User sets project internal or global identifier
-<br>[Optional] User sets isDeleted field value
-<br>User runs method execution
-<br>System search project
-<br>[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project
-<br>[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted
-<br>If User did not set isDeleted field value, System search all  workitems related to project
-<br>System returns array of found workitems (listed in response model)
+
+Use case
+
+User sets project internal or global identifier
+
+[Optional] User sets isDeleted field value
+
+User runs method execution
+
+System search project
+
+[Optional] If User sets isDeleted field value as true, System search all deleted workitems related to project
+
+[Optional] If User sets isDeleted field value as false, System search all workitems related to project which are not deleted
+
+If User did not set isDeleted field value, System search all  workitems related to project
+
+System returns array of found workitems (listed in response model)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param projectId Project internal (UUID) or global (integer) identifier
@@ -818,7 +1061,7 @@ func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 	localVarFormParams := url.Values{}
 
 	if r.isDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	} else {
 		var defaultValue bool = false
 		r.isDeleted = &defaultValue
@@ -828,32 +1071,32 @@ func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "tagNames", t, "form", "multi")
 		}
 	}
 	if r.includeIterations != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", r.includeIterations, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", r.includeIterations, "form", "")
 	} else {
 		var defaultValue bool = true
 		r.includeIterations = &defaultValue
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -908,6 +1151,28 @@ func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -918,6 +1183,38 @@ func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

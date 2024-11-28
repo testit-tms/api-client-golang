@@ -21,7 +21,8 @@ var _ MappedNullable = &StepModel{}
 
 // StepModel struct for StepModel
 type StepModel struct {
-	WorkItem NullableSectionSharedStep `json:"workItem,omitempty"`
+	// Nested shared steps are allowed
+	WorkItem NullableSharedStepModel `json:"workItem,omitempty"`
 	Id string `json:"id"`
 	Action NullableString `json:"action,omitempty"`
 	Expected NullableString `json:"expected,omitempty"`
@@ -51,9 +52,9 @@ func NewStepModelWithDefaults() *StepModel {
 }
 
 // GetWorkItem returns the WorkItem field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *StepModel) GetWorkItem() SectionSharedStep {
+func (o *StepModel) GetWorkItem() SharedStepModel {
 	if o == nil || IsNil(o.WorkItem.Get()) {
-		var ret SectionSharedStep
+		var ret SharedStepModel
 		return ret
 	}
 	return *o.WorkItem.Get()
@@ -62,7 +63,7 @@ func (o *StepModel) GetWorkItem() SectionSharedStep {
 // GetWorkItemOk returns a tuple with the WorkItem field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *StepModel) GetWorkItemOk() (*SectionSharedStep, bool) {
+func (o *StepModel) GetWorkItemOk() (*SharedStepModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -78,8 +79,8 @@ func (o *StepModel) HasWorkItem() bool {
 	return false
 }
 
-// SetWorkItem gets a reference to the given NullableSectionSharedStep and assigns it to the WorkItem field.
-func (o *StepModel) SetWorkItem(v SectionSharedStep) {
+// SetWorkItem gets a reference to the given NullableSharedStepModel and assigns it to the WorkItem field.
+func (o *StepModel) SetWorkItem(v SharedStepModel) {
 	o.WorkItem.Set(&v)
 }
 // SetWorkItemNil sets the value for WorkItem to be an explicit nil

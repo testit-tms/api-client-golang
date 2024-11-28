@@ -280,7 +280,7 @@ func (o *TestRunFillByAutoTestsPostModel) GetAttachmentsOk() ([]AttachmentPutMod
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *TestRunFillByAutoTestsPostModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -313,7 +313,7 @@ func (o *TestRunFillByAutoTestsPostModel) GetLinksOk() ([]LinkPostModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *TestRunFillByAutoTestsPostModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 

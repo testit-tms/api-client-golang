@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **TestPlanIds** | Pointer to **[]string** | Specifies a test point test plan IDS to search for | [optional] 
 **TestSuiteIds** | Pointer to **[]string** | Specifies a test point test suite IDs to search for | [optional] 
 **WorkItemGlobalIds** | Pointer to **[]int64** | Specifies a test point work item global IDs to search for | [optional] 
-**WorkItemMedianDuration** | Pointer to [**NullableTestPointFilterModelWorkItemMedianDuration**](TestPointFilterModelWorkItemMedianDuration.md) |  | [optional] 
+**WorkItemMedianDuration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a test point work item median duration range to search for | [optional] 
 **WorkItemIsDeleted** | Pointer to **NullableBool** | Specifies a test point work item is deleted flag to search for | [optional] 
 **Statuses** | Pointer to [**[]TestPointStatus**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
@@ -15,17 +15,17 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Specifies a test point name to search for | [optional] 
 **ConfigurationIds** | Pointer to **[]string** | Specifies a test point configuration IDs to search for | [optional] 
 **TesterIds** | Pointer to **[]string** | Specifies a test point assigned user IDs to search for | [optional] 
-**Duration** | Pointer to [**NullableTestPointFilterModelDuration**](TestPointFilterModelDuration.md) |  | [optional] 
+**Duration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a test point range of duration to search for | [optional] 
 **SectionIds** | Pointer to **[]string** | Specifies a test point work item section IDs to search for | [optional] 
-**CreatedDate** | Pointer to [**NullableTestPointFilterModelCreatedDate**](TestPointFilterModelCreatedDate.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test point range of creation date to search for | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies a test point creator IDs to search for | [optional] 
-**ModifiedDate** | Pointer to [**NullableTestPointFilterModelModifiedDate**](TestPointFilterModelModifiedDate.md) |  | [optional] 
+**ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test point range of last modification date to search for | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Specifies a test point last editor IDs to search for | [optional] 
 **Tags** | Pointer to **[]string** | Specifies a test point tags to search for | [optional] 
 **Attributes** | Pointer to **map[string][]string** | Specifies a test point attributes to search for | [optional] 
-**WorkItemCreatedDate** | Pointer to [**NullableTestPointFilterModelWorkItemCreatedDate**](TestPointFilterModelWorkItemCreatedDate.md) |  | [optional] 
+**WorkItemCreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **WorkItemCreatedByIds** | Pointer to **[]string** | Specifies a work item creator IDs to search for | [optional] 
-**WorkItemModifiedDate** | Pointer to [**NullableTestPointFilterModelWorkItemModifiedDate**](TestPointFilterModelWorkItemModifiedDate.md) |  | [optional] 
+**WorkItemModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
 **WorkItemModifiedByIds** | Pointer to **[]string** | Specifies a work item last editor IDs to search for | [optional] 
 
 ## Methods
@@ -154,20 +154,20 @@ HasWorkItemGlobalIds returns a boolean if a field has been set.
 UnsetWorkItemGlobalIds ensures that no value is present for WorkItemGlobalIds, not even an explicit nil
 ### GetWorkItemMedianDuration
 
-`func (o *TestPointFilterModel) GetWorkItemMedianDuration() TestPointFilterModelWorkItemMedianDuration`
+`func (o *TestPointFilterModel) GetWorkItemMedianDuration() Int64RangeSelectorModel`
 
 GetWorkItemMedianDuration returns the WorkItemMedianDuration field if non-nil, zero value otherwise.
 
 ### GetWorkItemMedianDurationOk
 
-`func (o *TestPointFilterModel) GetWorkItemMedianDurationOk() (*TestPointFilterModelWorkItemMedianDuration, bool)`
+`func (o *TestPointFilterModel) GetWorkItemMedianDurationOk() (*Int64RangeSelectorModel, bool)`
 
 GetWorkItemMedianDurationOk returns a tuple with the WorkItemMedianDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItemMedianDuration
 
-`func (o *TestPointFilterModel) SetWorkItemMedianDuration(v TestPointFilterModelWorkItemMedianDuration)`
+`func (o *TestPointFilterModel) SetWorkItemMedianDuration(v Int64RangeSelectorModel)`
 
 SetWorkItemMedianDuration sets WorkItemMedianDuration field to given value.
 
@@ -434,20 +434,20 @@ HasTesterIds returns a boolean if a field has been set.
 UnsetTesterIds ensures that no value is present for TesterIds, not even an explicit nil
 ### GetDuration
 
-`func (o *TestPointFilterModel) GetDuration() TestPointFilterModelDuration`
+`func (o *TestPointFilterModel) GetDuration() Int64RangeSelectorModel`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *TestPointFilterModel) GetDurationOk() (*TestPointFilterModelDuration, bool)`
+`func (o *TestPointFilterModel) GetDurationOk() (*Int64RangeSelectorModel, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *TestPointFilterModel) SetDuration(v TestPointFilterModelDuration)`
+`func (o *TestPointFilterModel) SetDuration(v Int64RangeSelectorModel)`
 
 SetDuration sets Duration field to given value.
 
@@ -504,20 +504,20 @@ HasSectionIds returns a boolean if a field has been set.
 UnsetSectionIds ensures that no value is present for SectionIds, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *TestPointFilterModel) GetCreatedDate() TestPointFilterModelCreatedDate`
+`func (o *TestPointFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *TestPointFilterModel) GetCreatedDateOk() (*TestPointFilterModelCreatedDate, bool)`
+`func (o *TestPointFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *TestPointFilterModel) SetCreatedDate(v TestPointFilterModelCreatedDate)`
+`func (o *TestPointFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -574,20 +574,20 @@ HasCreatedByIds returns a boolean if a field has been set.
 UnsetCreatedByIds ensures that no value is present for CreatedByIds, not even an explicit nil
 ### GetModifiedDate
 
-`func (o *TestPointFilterModel) GetModifiedDate() TestPointFilterModelModifiedDate`
+`func (o *TestPointFilterModel) GetModifiedDate() DateTimeRangeSelectorModel`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *TestPointFilterModel) GetModifiedDateOk() (*TestPointFilterModelModifiedDate, bool)`
+`func (o *TestPointFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *TestPointFilterModel) SetModifiedDate(v TestPointFilterModelModifiedDate)`
+`func (o *TestPointFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 
@@ -714,20 +714,20 @@ HasAttributes returns a boolean if a field has been set.
 UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetWorkItemCreatedDate
 
-`func (o *TestPointFilterModel) GetWorkItemCreatedDate() TestPointFilterModelWorkItemCreatedDate`
+`func (o *TestPointFilterModel) GetWorkItemCreatedDate() DateTimeRangeSelectorModel`
 
 GetWorkItemCreatedDate returns the WorkItemCreatedDate field if non-nil, zero value otherwise.
 
 ### GetWorkItemCreatedDateOk
 
-`func (o *TestPointFilterModel) GetWorkItemCreatedDateOk() (*TestPointFilterModelWorkItemCreatedDate, bool)`
+`func (o *TestPointFilterModel) GetWorkItemCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetWorkItemCreatedDateOk returns a tuple with the WorkItemCreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItemCreatedDate
 
-`func (o *TestPointFilterModel) SetWorkItemCreatedDate(v TestPointFilterModelWorkItemCreatedDate)`
+`func (o *TestPointFilterModel) SetWorkItemCreatedDate(v DateTimeRangeSelectorModel)`
 
 SetWorkItemCreatedDate sets WorkItemCreatedDate field to given value.
 
@@ -784,20 +784,20 @@ HasWorkItemCreatedByIds returns a boolean if a field has been set.
 UnsetWorkItemCreatedByIds ensures that no value is present for WorkItemCreatedByIds, not even an explicit nil
 ### GetWorkItemModifiedDate
 
-`func (o *TestPointFilterModel) GetWorkItemModifiedDate() TestPointFilterModelWorkItemModifiedDate`
+`func (o *TestPointFilterModel) GetWorkItemModifiedDate() DateTimeRangeSelectorModel`
 
 GetWorkItemModifiedDate returns the WorkItemModifiedDate field if non-nil, zero value otherwise.
 
 ### GetWorkItemModifiedDateOk
 
-`func (o *TestPointFilterModel) GetWorkItemModifiedDateOk() (*TestPointFilterModelWorkItemModifiedDate, bool)`
+`func (o *TestPointFilterModel) GetWorkItemModifiedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetWorkItemModifiedDateOk returns a tuple with the WorkItemModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItemModifiedDate
 
-`func (o *TestPointFilterModel) SetWorkItemModifiedDate(v TestPointFilterModelWorkItemModifiedDate)`
+`func (o *TestPointFilterModel) SetWorkItemModifiedDate(v DateTimeRangeSelectorModel)`
 
 SetWorkItemModifiedDate sets WorkItemModifiedDate field to given value.
 

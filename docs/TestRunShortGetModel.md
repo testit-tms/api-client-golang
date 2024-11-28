@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID of the test run | 
 **Name** | **string** | Name of the test run | 
-**State** | [**TestRunState**](TestRunState.md) |  | 
+**State** | [**TestRunState**](TestRunState.md) | Current state of the test run | 
 **CreatedDate** | **time.Time** | Date when the test run was created | 
 **StartedDate** | Pointer to **NullableTime** | Date when the test run was started | [optional] 
 **CompletedDate** | Pointer to **NullableTime** | Completion date of the test run | [optional] 
@@ -14,13 +14,14 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of user who modified the test run last time | [optional] 
 **IsDeleted** | **bool** | Is the test run is deleted | 
 **AutoTestsCount** | **int32** | Number of AutoTests run in the test run | 
-**Statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) |  | 
+**Statistics** | [**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md) | Statistics of the test run | 
+**TestResultsConfigurations** | [**[]ConfigurationShortModel**](ConfigurationShortModel.md) | Test results configurations | 
 
 ## Methods
 
 ### NewTestRunShortGetModel
 
-`func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsGetModel, ) *TestRunShortGetModel`
+`func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsGetModel, testResultsConfigurations []ConfigurationShortModel, ) *TestRunShortGetModel`
 
 NewTestRunShortGetModel instantiates a new TestRunShortGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -298,6 +299,26 @@ and a boolean to check if the value has been set.
 `func (o *TestRunShortGetModel) SetStatistics(v TestResultsStatisticsGetModel)`
 
 SetStatistics sets Statistics field to given value.
+
+
+### GetTestResultsConfigurations
+
+`func (o *TestRunShortGetModel) GetTestResultsConfigurations() []ConfigurationShortModel`
+
+GetTestResultsConfigurations returns the TestResultsConfigurations field if non-nil, zero value otherwise.
+
+### GetTestResultsConfigurationsOk
+
+`func (o *TestRunShortGetModel) GetTestResultsConfigurationsOk() (*[]ConfigurationShortModel, bool)`
+
+GetTestResultsConfigurationsOk returns a tuple with the TestResultsConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestResultsConfigurations
+
+`func (o *TestRunShortGetModel) SetTestResultsConfigurations(v []ConfigurationShortModel)`
+
+SetTestResultsConfigurations sets TestResultsConfigurations field to given value.
 
 
 

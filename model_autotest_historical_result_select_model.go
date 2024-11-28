@@ -66,7 +66,7 @@ func (o *AutotestHistoricalResultSelectModel) GetOutcomesOk() ([]AutotestResultO
 
 // HasOutcomes returns a boolean if a field has been set.
 func (o *AutotestHistoricalResultSelectModel) HasOutcomes() bool {
-	if o != nil && IsNil(o.Outcomes) {
+	if o != nil && !IsNil(o.Outcomes) {
 		return true
 	}
 
@@ -99,7 +99,7 @@ func (o *AutotestHistoricalResultSelectModel) GetTestPlanIdsOk() ([]string, bool
 
 // HasTestPlanIds returns a boolean if a field has been set.
 func (o *AutotestHistoricalResultSelectModel) HasTestPlanIds() bool {
-	if o != nil && IsNil(o.TestPlanIds) {
+	if o != nil && !IsNil(o.TestPlanIds) {
 		return true
 	}
 
@@ -132,7 +132,7 @@ func (o *AutotestHistoricalResultSelectModel) GetTestRunIdsOk() ([]string, bool)
 
 // HasTestRunIds returns a boolean if a field has been set.
 func (o *AutotestHistoricalResultSelectModel) HasTestRunIds() bool {
-	if o != nil && IsNil(o.TestRunIds) {
+	if o != nil && !IsNil(o.TestRunIds) {
 		return true
 	}
 
@@ -165,7 +165,7 @@ func (o *AutotestHistoricalResultSelectModel) GetConfigurationIdsOk() ([]string,
 
 // HasConfigurationIds returns a boolean if a field has been set.
 func (o *AutotestHistoricalResultSelectModel) HasConfigurationIds() bool {
-	if o != nil && IsNil(o.ConfigurationIds) {
+	if o != nil && !IsNil(o.ConfigurationIds) {
 		return true
 	}
 
@@ -240,7 +240,7 @@ func (o *AutotestHistoricalResultSelectModel) GetUserIdsOk() ([]string, bool) {
 
 // HasUserIds returns a boolean if a field has been set.
 func (o *AutotestHistoricalResultSelectModel) HasUserIds() bool {
-	if o != nil && IsNil(o.UserIds) {
+	if o != nil && !IsNil(o.UserIds) {
 		return true
 	}
 

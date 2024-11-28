@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | [**AutotestFilterModel**](AutotestFilterModel.md) |  | 
-**Includes** | [**SearchAutoTestsQueryIncludesModel**](SearchAutoTestsQueryIncludesModel.md) |  | 
+**Filter** | [**AutotestFilterModel**](AutotestFilterModel.md) | Object containing different filters to adjust search | 
+**Includes** | [**SearchAutoTestsQueryIncludesModel**](SearchAutoTestsQueryIncludesModel.md) | Object specifying data to be included | 
 
 ## Methods
 

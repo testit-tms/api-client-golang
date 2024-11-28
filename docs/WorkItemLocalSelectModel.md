@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**NullableWorkItemLocalSelectModelFilter**](WorkItemLocalSelectModelFilter.md) |  | [optional] 
-**ExtractionModel** | Pointer to [**NullableWorkItemLocalSelectModelExtractionModel**](WorkItemLocalSelectModelExtractionModel.md) |  | [optional] 
+**Filter** | Pointer to [**NullableWorkItemLocalFilterModel**](WorkItemLocalFilterModel.md) | Collection of filters to apply to search | [optional] 
+**ExtractionModel** | Pointer to [**NullableWorkItemExtractionModel**](WorkItemExtractionModel.md) | Rules for different level entities inclusion/exclusion | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *WorkItemLocalSelectModel) GetFilter() WorkItemLocalSelectModelFilter`
+`func (o *WorkItemLocalSelectModel) GetFilter() WorkItemLocalFilterModel`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *WorkItemLocalSelectModel) GetFilterOk() (*WorkItemLocalSelectModelFilter, bool)`
+`func (o *WorkItemLocalSelectModel) GetFilterOk() (*WorkItemLocalFilterModel, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *WorkItemLocalSelectModel) SetFilter(v WorkItemLocalSelectModelFilter)`
+`func (o *WorkItemLocalSelectModel) SetFilter(v WorkItemLocalFilterModel)`
 
 SetFilter sets Filter field to given value.
 
@@ -63,20 +63,20 @@ HasFilter returns a boolean if a field has been set.
 UnsetFilter ensures that no value is present for Filter, not even an explicit nil
 ### GetExtractionModel
 
-`func (o *WorkItemLocalSelectModel) GetExtractionModel() WorkItemLocalSelectModelExtractionModel`
+`func (o *WorkItemLocalSelectModel) GetExtractionModel() WorkItemExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *WorkItemLocalSelectModel) GetExtractionModelOk() (*WorkItemLocalSelectModelExtractionModel, bool)`
+`func (o *WorkItemLocalSelectModel) GetExtractionModelOk() (*WorkItemExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *WorkItemLocalSelectModel) SetExtractionModel(v WorkItemLocalSelectModelExtractionModel)`
+`func (o *WorkItemLocalSelectModel) SetExtractionModel(v WorkItemExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

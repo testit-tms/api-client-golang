@@ -64,7 +64,7 @@ func (o *BackgroundJobFilterModel) GetTypesOk() ([]BackgroundJobType, bool) {
 
 // HasTypes returns a boolean if a field has been set.
 func (o *BackgroundJobFilterModel) HasTypes() bool {
-	if o != nil && IsNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -97,7 +97,7 @@ func (o *BackgroundJobFilterModel) GetStatesOk() ([]BackgroundJobState, bool) {
 
 // HasStates returns a boolean if a field has been set.
 func (o *BackgroundJobFilterModel) HasStates() bool {
-	if o != nil && IsNil(o.States) {
+	if o != nil && !IsNil(o.States) {
 		return true
 	}
 

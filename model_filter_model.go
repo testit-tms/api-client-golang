@@ -263,7 +263,7 @@ func (o *FilterModel) GetFieldsToShowOk() (*interface{}, bool) {
 
 // HasFieldsToShow returns a boolean if a field has been set.
 func (o *FilterModel) HasFieldsToShow() bool {
-	if o != nil && IsNil(o.FieldsToShow) {
+	if o != nil && !IsNil(o.FieldsToShow) {
 		return true
 	}
 

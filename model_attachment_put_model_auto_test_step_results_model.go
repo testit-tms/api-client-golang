@@ -32,6 +32,7 @@ type AttachmentPutModelAutoTestStepResultsModel struct {
 	CompletedOn NullableTime `json:"completedOn,omitempty"`
 	// Expected or actual duration of the test run execution in milliseconds.
 	Duration NullableInt64 `json:"duration,omitempty"`
+	// Specifies the result of the autotest execution.
 	Outcome NullableAvailableTestResultOutcome `json:"outcome,omitempty"`
 	// Nested step results. The maximum nesting level is 15.
 	StepResults []AttachmentPutModelAutoTestStepResultsModel `json:"stepResults,omitempty"`
@@ -373,7 +374,7 @@ func (o *AttachmentPutModelAutoTestStepResultsModel) GetStepResultsOk() ([]Attac
 
 // HasStepResults returns a boolean if a field has been set.
 func (o *AttachmentPutModelAutoTestStepResultsModel) HasStepResults() bool {
-	if o != nil && IsNil(o.StepResults) {
+	if o != nil && !IsNil(o.StepResults) {
 		return true
 	}
 
@@ -406,7 +407,7 @@ func (o *AttachmentPutModelAutoTestStepResultsModel) GetAttachmentsOk() ([]Attac
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *AttachmentPutModelAutoTestStepResultsModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -439,7 +440,7 @@ func (o *AttachmentPutModelAutoTestStepResultsModel) GetParametersOk() (*map[str
 
 // HasParameters returns a boolean if a field has been set.
 func (o *AttachmentPutModelAutoTestStepResultsModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

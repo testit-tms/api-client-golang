@@ -24,11 +24,13 @@ var _ MappedNullable = &WebHookModel{}
 type WebHookModel struct {
 	// Name of the webhook
 	Name string `json:"name"`
+	// Type of event which triggers the webhook
 	EventType WebHookEventTypeModel `json:"eventType"`
 	// Description of the webhook
 	Description NullableString `json:"description,omitempty"`
 	// Url to which the webhook sends request
 	Url string `json:"url"`
+	// Method which the webhook uses
 	RequestType RequestTypeModel `json:"requestType"`
 	// Indicates if the webhook sends body
 	ShouldSendBody bool `json:"shouldSendBody"`
@@ -280,7 +282,7 @@ func (o *WebHookModel) GetHeadersOk() (*map[string]string, bool) {
 
 // HasHeaders returns a boolean if a field has been set.
 func (o *WebHookModel) HasHeaders() bool {
-	if o != nil && IsNil(o.Headers) {
+	if o != nil && !IsNil(o.Headers) {
 		return true
 	}
 
@@ -313,7 +315,7 @@ func (o *WebHookModel) GetQueryParametersOk() (*map[string]string, bool) {
 
 // HasQueryParameters returns a boolean if a field has been set.
 func (o *WebHookModel) HasQueryParameters() bool {
-	if o != nil && IsNil(o.QueryParameters) {
+	if o != nil && !IsNil(o.QueryParameters) {
 		return true
 	}
 

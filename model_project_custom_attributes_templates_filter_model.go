@@ -105,7 +105,7 @@ func (o *ProjectCustomAttributesTemplatesFilterModel) GetCustomAttributeTypesOk(
 
 // HasCustomAttributeTypes returns a boolean if a field has been set.
 func (o *ProjectCustomAttributesTemplatesFilterModel) HasCustomAttributeTypes() bool {
-	if o != nil && IsNil(o.CustomAttributeTypes) {
+	if o != nil && !IsNil(o.CustomAttributeTypes) {
 		return true
 	}
 

@@ -61,7 +61,7 @@ func (o *TestRunAnalyticResultModel) GetCountGroupByStatusOk() ([]TestRunGroupBy
 
 // HasCountGroupByStatus returns a boolean if a field has been set.
 func (o *TestRunAnalyticResultModel) HasCountGroupByStatus() bool {
-	if o != nil && IsNil(o.CountGroupByStatus) {
+	if o != nil && !IsNil(o.CountGroupByStatus) {
 		return true
 	}
 
@@ -94,7 +94,7 @@ func (o *TestRunAnalyticResultModel) GetCountGroupByFailureClassOk() ([]TestRunG
 
 // HasCountGroupByFailureClass returns a boolean if a field has been set.
 func (o *TestRunAnalyticResultModel) HasCountGroupByFailureClass() bool {
-	if o != nil && IsNil(o.CountGroupByFailureClass) {
+	if o != nil && !IsNil(o.CountGroupByFailureClass) {
 		return true
 	}
 

@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Type** | **string** |  | 
+**Size** | **float32** |  | 
 
 ## Methods
 
 ### NewBackgroundJobAttachmentModel
 
-`func NewBackgroundJobAttachmentModel(id string, name string, type_ string, ) *BackgroundJobAttachmentModel`
+`func NewBackgroundJobAttachmentModel(id string, name string, type_ string, size float32, ) *BackgroundJobAttachmentModel`
 
 NewBackgroundJobAttachmentModel instantiates a new BackgroundJobAttachmentModel object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *BackgroundJobAttachmentModel) SetType(v string)`
 
 SetType sets Type field to given value.
+
+
+### GetSize
+
+`func (o *BackgroundJobAttachmentModel) GetSize() float32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *BackgroundJobAttachmentModel) GetSizeOk() (*float32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *BackgroundJobAttachmentModel) SetSize(v float32)`
+
+SetSize sets Size field to given value.
 
 
 

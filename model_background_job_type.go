@@ -34,6 +34,8 @@ const (
 	BACKGROUNDJOBTYPE_PURGE_PROJECT BackgroundJobType = "PurgeProject"
 	BACKGROUNDJOBTYPE_EXPORT_PROJECTS BackgroundJobType = "ExportProjects"
 	BACKGROUNDJOBTYPE_IMPORT_PROJECTS BackgroundJobType = "ImportProjects"
+	BACKGROUNDJOBTYPE_PURGE_ENTITIES BackgroundJobType = "PurgeEntities"
+	BACKGROUNDJOBTYPE_DELETE_COMPLETED_JOBS BackgroundJobType = "DeleteCompletedJobs"
 )
 
 // All allowed values of BackgroundJobType enum
@@ -52,6 +54,8 @@ var AllowedBackgroundJobTypeEnumValues = []BackgroundJobType{
 	"PurgeProject",
 	"ExportProjects",
 	"ImportProjects",
+	"PurgeEntities",
+	"DeleteCompletedJobs",
 }
 
 func (v *BackgroundJobType) UnmarshalJSON(src []byte) error {

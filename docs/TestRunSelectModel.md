@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Filter** | [**TestRunFilterModel**](TestRunFilterModel.md) |  | 
-**ExtractionModel** | [**TestRunExtractionModel**](TestRunExtractionModel.md) |  | 
+**ExtractionModel** | [**TestRunExtractionModel**](TestRunExtractionModel.md) | Rules for different level entities inclusion/exclusion | 
 
 ## Methods
 

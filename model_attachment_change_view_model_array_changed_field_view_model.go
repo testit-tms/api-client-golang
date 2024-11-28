@@ -61,7 +61,7 @@ func (o *AttachmentChangeViewModelArrayChangedFieldViewModel) GetOldValueOk() ([
 
 // HasOldValue returns a boolean if a field has been set.
 func (o *AttachmentChangeViewModelArrayChangedFieldViewModel) HasOldValue() bool {
-	if o != nil && IsNil(o.OldValue) {
+	if o != nil && !IsNil(o.OldValue) {
 		return true
 	}
 
@@ -94,7 +94,7 @@ func (o *AttachmentChangeViewModelArrayChangedFieldViewModel) GetNewValueOk() ([
 
 // HasNewValue returns a boolean if a field has been set.
 func (o *AttachmentChangeViewModelArrayChangedFieldViewModel) HasNewValue() bool {
-	if o != nil && IsNil(o.NewValue) {
+	if o != nil && !IsNil(o.NewValue) {
 		return true
 	}
 

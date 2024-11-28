@@ -95,7 +95,7 @@ func (o *CustomAttributeTemplatePutModel) GetCustomAttributeIdsOk() ([]string, b
 
 // HasCustomAttributeIds returns a boolean if a field has been set.
 func (o *CustomAttributeTemplatePutModel) HasCustomAttributeIds() bool {
-	if o != nil && IsNil(o.CustomAttributeIds) {
+	if o != nil && !IsNil(o.CustomAttributeIds) {
 		return true
 	}
 

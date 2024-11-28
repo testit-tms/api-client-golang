@@ -103,7 +103,7 @@ func (o *AutoTestNamespaceModel) GetClassesOk() ([]string, bool) {
 
 // HasClasses returns a boolean if a field has been set.
 func (o *AutoTestNamespaceModel) HasClasses() bool {
-	if o != nil && IsNil(o.Classes) {
+	if o != nil && !IsNil(o.Classes) {
 		return true
 	}
 

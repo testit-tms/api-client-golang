@@ -62,7 +62,7 @@ func (o *NotificationQueryFilterModel) GetTypesOk() ([]NotificationTypeModel, bo
 
 // HasTypes returns a boolean if a field has been set.
 func (o *NotificationQueryFilterModel) HasTypes() bool {
-	if o != nil && IsNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 

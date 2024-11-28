@@ -19,8 +19,10 @@ var _ MappedNullable = &ConfigurationExtractionModel{}
 
 // ConfigurationExtractionModel struct for ConfigurationExtractionModel
 type ConfigurationExtractionModel struct {
-	Ids NullableConfigurationExtractionModelIds `json:"ids,omitempty"`
-	ProjectIds NullableConfigurationExtractionModelProjectIds `json:"projectIds,omitempty"`
+	// Extraction parameters for configurations
+	Ids NullableGuidExtractionModel `json:"ids,omitempty"`
+	// Extraction parameters for projects
+	ProjectIds NullableGuidExtractionModel `json:"projectIds,omitempty"`
 }
 
 // NewConfigurationExtractionModel instantiates a new ConfigurationExtractionModel object
@@ -41,9 +43,9 @@ func NewConfigurationExtractionModelWithDefaults() *ConfigurationExtractionModel
 }
 
 // GetIds returns the Ids field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationExtractionModel) GetIds() ConfigurationExtractionModelIds {
+func (o *ConfigurationExtractionModel) GetIds() GuidExtractionModel {
 	if o == nil || IsNil(o.Ids.Get()) {
-		var ret ConfigurationExtractionModelIds
+		var ret GuidExtractionModel
 		return ret
 	}
 	return *o.Ids.Get()
@@ -52,7 +54,7 @@ func (o *ConfigurationExtractionModel) GetIds() ConfigurationExtractionModelIds 
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationExtractionModel) GetIdsOk() (*ConfigurationExtractionModelIds, bool) {
+func (o *ConfigurationExtractionModel) GetIdsOk() (*GuidExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,8 +70,8 @@ func (o *ConfigurationExtractionModel) HasIds() bool {
 	return false
 }
 
-// SetIds gets a reference to the given NullableConfigurationExtractionModelIds and assigns it to the Ids field.
-func (o *ConfigurationExtractionModel) SetIds(v ConfigurationExtractionModelIds) {
+// SetIds gets a reference to the given NullableGuidExtractionModel and assigns it to the Ids field.
+func (o *ConfigurationExtractionModel) SetIds(v GuidExtractionModel) {
 	o.Ids.Set(&v)
 }
 // SetIdsNil sets the value for Ids to be an explicit nil
@@ -83,9 +85,9 @@ func (o *ConfigurationExtractionModel) UnsetIds() {
 }
 
 // GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationExtractionModel) GetProjectIds() ConfigurationExtractionModelProjectIds {
+func (o *ConfigurationExtractionModel) GetProjectIds() GuidExtractionModel {
 	if o == nil || IsNil(o.ProjectIds.Get()) {
-		var ret ConfigurationExtractionModelProjectIds
+		var ret GuidExtractionModel
 		return ret
 	}
 	return *o.ProjectIds.Get()
@@ -94,7 +96,7 @@ func (o *ConfigurationExtractionModel) GetProjectIds() ConfigurationExtractionMo
 // GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationExtractionModel) GetProjectIdsOk() (*ConfigurationExtractionModelProjectIds, bool) {
+func (o *ConfigurationExtractionModel) GetProjectIdsOk() (*GuidExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,8 +112,8 @@ func (o *ConfigurationExtractionModel) HasProjectIds() bool {
 	return false
 }
 
-// SetProjectIds gets a reference to the given NullableConfigurationExtractionModelProjectIds and assigns it to the ProjectIds field.
-func (o *ConfigurationExtractionModel) SetProjectIds(v ConfigurationExtractionModelProjectIds) {
+// SetProjectIds gets a reference to the given NullableGuidExtractionModel and assigns it to the ProjectIds field.
+func (o *ConfigurationExtractionModel) SetProjectIds(v GuidExtractionModel) {
 	o.ProjectIds.Set(&v)
 }
 // SetProjectIdsNil sets the value for ProjectIds to be an explicit nil

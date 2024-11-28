@@ -19,8 +19,10 @@ var _ MappedNullable = &WorkItemLocalSelectModel{}
 
 // WorkItemLocalSelectModel Model containing options to filter work items
 type WorkItemLocalSelectModel struct {
-	Filter NullableWorkItemLocalSelectModelFilter `json:"filter,omitempty"`
-	ExtractionModel NullableWorkItemLocalSelectModelExtractionModel `json:"extractionModel,omitempty"`
+	// Collection of filters to apply to search
+	Filter NullableWorkItemLocalFilterModel `json:"filter,omitempty"`
+	// Rules for different level entities inclusion/exclusion
+	ExtractionModel NullableWorkItemExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewWorkItemLocalSelectModel instantiates a new WorkItemLocalSelectModel object
@@ -41,9 +43,9 @@ func NewWorkItemLocalSelectModelWithDefaults() *WorkItemLocalSelectModel {
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemLocalSelectModel) GetFilter() WorkItemLocalSelectModelFilter {
+func (o *WorkItemLocalSelectModel) GetFilter() WorkItemLocalFilterModel {
 	if o == nil || IsNil(o.Filter.Get()) {
-		var ret WorkItemLocalSelectModelFilter
+		var ret WorkItemLocalFilterModel
 		return ret
 	}
 	return *o.Filter.Get()
@@ -52,7 +54,7 @@ func (o *WorkItemLocalSelectModel) GetFilter() WorkItemLocalSelectModelFilter {
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemLocalSelectModel) GetFilterOk() (*WorkItemLocalSelectModelFilter, bool) {
+func (o *WorkItemLocalSelectModel) GetFilterOk() (*WorkItemLocalFilterModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,8 +70,8 @@ func (o *WorkItemLocalSelectModel) HasFilter() bool {
 	return false
 }
 
-// SetFilter gets a reference to the given NullableWorkItemLocalSelectModelFilter and assigns it to the Filter field.
-func (o *WorkItemLocalSelectModel) SetFilter(v WorkItemLocalSelectModelFilter) {
+// SetFilter gets a reference to the given NullableWorkItemLocalFilterModel and assigns it to the Filter field.
+func (o *WorkItemLocalSelectModel) SetFilter(v WorkItemLocalFilterModel) {
 	o.Filter.Set(&v)
 }
 // SetFilterNil sets the value for Filter to be an explicit nil
@@ -83,9 +85,9 @@ func (o *WorkItemLocalSelectModel) UnsetFilter() {
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemLocalSelectModel) GetExtractionModel() WorkItemLocalSelectModelExtractionModel {
+func (o *WorkItemLocalSelectModel) GetExtractionModel() WorkItemExtractionModel {
 	if o == nil || IsNil(o.ExtractionModel.Get()) {
-		var ret WorkItemLocalSelectModelExtractionModel
+		var ret WorkItemExtractionModel
 		return ret
 	}
 	return *o.ExtractionModel.Get()
@@ -94,7 +96,7 @@ func (o *WorkItemLocalSelectModel) GetExtractionModel() WorkItemLocalSelectModel
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemLocalSelectModel) GetExtractionModelOk() (*WorkItemLocalSelectModelExtractionModel, bool) {
+func (o *WorkItemLocalSelectModel) GetExtractionModelOk() (*WorkItemExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,8 +112,8 @@ func (o *WorkItemLocalSelectModel) HasExtractionModel() bool {
 	return false
 }
 
-// SetExtractionModel gets a reference to the given NullableWorkItemLocalSelectModelExtractionModel and assigns it to the ExtractionModel field.
-func (o *WorkItemLocalSelectModel) SetExtractionModel(v WorkItemLocalSelectModelExtractionModel) {
+// SetExtractionModel gets a reference to the given NullableWorkItemExtractionModel and assigns it to the ExtractionModel field.
+func (o *WorkItemLocalSelectModel) SetExtractionModel(v WorkItemExtractionModel) {
 	o.ExtractionModel.Set(&v)
 }
 // SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil

@@ -100,7 +100,7 @@ func (o *AutoTestPostModel) GetWorkItemIdsForLinkWithAutoTestOk() ([]string, boo
 
 // HasWorkItemIdsForLinkWithAutoTest returns a boolean if a field has been set.
 func (o *AutoTestPostModel) HasWorkItemIdsForLinkWithAutoTest() bool {
-	if o != nil && IsNil(o.WorkItemIdsForLinkWithAutoTest) {
+	if o != nil && !IsNil(o.WorkItemIdsForLinkWithAutoTest) {
 		return true
 	}
 
@@ -175,7 +175,7 @@ func (o *AutoTestPostModel) GetAttributesOk() (map[string]interface{}, bool) {
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *AutoTestPostModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -232,7 +232,7 @@ func (o *AutoTestPostModel) GetLinksOk() ([]LinkPostModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *AutoTestPostModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -397,7 +397,7 @@ func (o *AutoTestPostModel) GetStepsOk() ([]AutoTestStepModel, bool) {
 
 // HasSteps returns a boolean if a field has been set.
 func (o *AutoTestPostModel) HasSteps() bool {
-	if o != nil && IsNil(o.Steps) {
+	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
 
@@ -430,7 +430,7 @@ func (o *AutoTestPostModel) GetSetupOk() ([]AutoTestStepModel, bool) {
 
 // HasSetup returns a boolean if a field has been set.
 func (o *AutoTestPostModel) HasSetup() bool {
-	if o != nil && IsNil(o.Setup) {
+	if o != nil && !IsNil(o.Setup) {
 		return true
 	}
 
@@ -463,7 +463,7 @@ func (o *AutoTestPostModel) GetTeardownOk() ([]AutoTestStepModel, bool) {
 
 // HasTeardown returns a boolean if a field has been set.
 func (o *AutoTestPostModel) HasTeardown() bool {
-	if o != nil && IsNil(o.Teardown) {
+	if o != nil && !IsNil(o.Teardown) {
 		return true
 	}
 
@@ -580,7 +580,7 @@ func (o *AutoTestPostModel) GetLabelsOk() ([]LabelPostModel, bool) {
 
 // HasLabels returns a boolean if a field has been set.
 func (o *AutoTestPostModel) HasLabels() bool {
-	if o != nil && IsNil(o.Labels) {
+	if o != nil && !IsNil(o.Labels) {
 		return true
 	}
 

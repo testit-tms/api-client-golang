@@ -21,10 +21,10 @@ var _ MappedNullable = &TestPlanChangedFieldsViewModel{}
 type TestPlanChangedFieldsViewModel struct {
 	Name NullableStringChangedFieldWithDiffsViewModel `json:"name,omitempty"`
 	Description NullableStringChangedFieldWithDiffsViewModel `json:"description,omitempty"`
-	ProductName NullableStringChangedFieldViewModel `json:"productName,omitempty"`
-	Build NullableStringChangedFieldViewModel `json:"build,omitempty"`
+	ProductName NullableStringChangedFieldWithDiffsViewModel `json:"productName,omitempty"`
+	Build NullableStringChangedFieldWithDiffsViewModel `json:"build,omitempty"`
 	Period NullablePeriodViewModelChangedFieldViewModel `json:"period,omitempty"`
-	Status NullableStringChangedFieldViewModel `json:"status,omitempty"`
+	Status NullableStringChangedFieldWithDiffsViewModel `json:"status,omitempty"`
 	Tags NullableStringArrayChangedFieldViewModel `json:"tags,omitempty"`
 	TestSuite NullableTestSuiteChangeViewModelChangedFieldViewModel `json:"testSuite,omitempty"`
 	TestPoints NullableTestPointChangeViewModelChangedFieldViewModel `json:"testPoints,omitempty"`
@@ -136,9 +136,9 @@ func (o *TestPlanChangedFieldsViewModel) UnsetDescription() {
 }
 
 // GetProductName returns the ProductName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanChangedFieldsViewModel) GetProductName() StringChangedFieldViewModel {
+func (o *TestPlanChangedFieldsViewModel) GetProductName() StringChangedFieldWithDiffsViewModel {
 	if o == nil || IsNil(o.ProductName.Get()) {
-		var ret StringChangedFieldViewModel
+		var ret StringChangedFieldWithDiffsViewModel
 		return ret
 	}
 	return *o.ProductName.Get()
@@ -147,7 +147,7 @@ func (o *TestPlanChangedFieldsViewModel) GetProductName() StringChangedFieldView
 // GetProductNameOk returns a tuple with the ProductName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanChangedFieldsViewModel) GetProductNameOk() (*StringChangedFieldViewModel, bool) {
+func (o *TestPlanChangedFieldsViewModel) GetProductNameOk() (*StringChangedFieldWithDiffsViewModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -163,8 +163,8 @@ func (o *TestPlanChangedFieldsViewModel) HasProductName() bool {
 	return false
 }
 
-// SetProductName gets a reference to the given NullableStringChangedFieldViewModel and assigns it to the ProductName field.
-func (o *TestPlanChangedFieldsViewModel) SetProductName(v StringChangedFieldViewModel) {
+// SetProductName gets a reference to the given NullableStringChangedFieldWithDiffsViewModel and assigns it to the ProductName field.
+func (o *TestPlanChangedFieldsViewModel) SetProductName(v StringChangedFieldWithDiffsViewModel) {
 	o.ProductName.Set(&v)
 }
 // SetProductNameNil sets the value for ProductName to be an explicit nil
@@ -178,9 +178,9 @@ func (o *TestPlanChangedFieldsViewModel) UnsetProductName() {
 }
 
 // GetBuild returns the Build field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanChangedFieldsViewModel) GetBuild() StringChangedFieldViewModel {
+func (o *TestPlanChangedFieldsViewModel) GetBuild() StringChangedFieldWithDiffsViewModel {
 	if o == nil || IsNil(o.Build.Get()) {
-		var ret StringChangedFieldViewModel
+		var ret StringChangedFieldWithDiffsViewModel
 		return ret
 	}
 	return *o.Build.Get()
@@ -189,7 +189,7 @@ func (o *TestPlanChangedFieldsViewModel) GetBuild() StringChangedFieldViewModel 
 // GetBuildOk returns a tuple with the Build field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanChangedFieldsViewModel) GetBuildOk() (*StringChangedFieldViewModel, bool) {
+func (o *TestPlanChangedFieldsViewModel) GetBuildOk() (*StringChangedFieldWithDiffsViewModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -205,8 +205,8 @@ func (o *TestPlanChangedFieldsViewModel) HasBuild() bool {
 	return false
 }
 
-// SetBuild gets a reference to the given NullableStringChangedFieldViewModel and assigns it to the Build field.
-func (o *TestPlanChangedFieldsViewModel) SetBuild(v StringChangedFieldViewModel) {
+// SetBuild gets a reference to the given NullableStringChangedFieldWithDiffsViewModel and assigns it to the Build field.
+func (o *TestPlanChangedFieldsViewModel) SetBuild(v StringChangedFieldWithDiffsViewModel) {
 	o.Build.Set(&v)
 }
 // SetBuildNil sets the value for Build to be an explicit nil
@@ -262,9 +262,9 @@ func (o *TestPlanChangedFieldsViewModel) UnsetPeriod() {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanChangedFieldsViewModel) GetStatus() StringChangedFieldViewModel {
+func (o *TestPlanChangedFieldsViewModel) GetStatus() StringChangedFieldWithDiffsViewModel {
 	if o == nil || IsNil(o.Status.Get()) {
-		var ret StringChangedFieldViewModel
+		var ret StringChangedFieldWithDiffsViewModel
 		return ret
 	}
 	return *o.Status.Get()
@@ -273,7 +273,7 @@ func (o *TestPlanChangedFieldsViewModel) GetStatus() StringChangedFieldViewModel
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanChangedFieldsViewModel) GetStatusOk() (*StringChangedFieldViewModel, bool) {
+func (o *TestPlanChangedFieldsViewModel) GetStatusOk() (*StringChangedFieldWithDiffsViewModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -289,8 +289,8 @@ func (o *TestPlanChangedFieldsViewModel) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given NullableStringChangedFieldViewModel and assigns it to the Status field.
-func (o *TestPlanChangedFieldsViewModel) SetStatus(v StringChangedFieldViewModel) {
+// SetStatus gets a reference to the given NullableStringChangedFieldWithDiffsViewModel and assigns it to the Status field.
+func (o *TestPlanChangedFieldsViewModel) SetStatus(v StringChangedFieldWithDiffsViewModel) {
 	o.Status.Set(&v)
 }
 // SetStatusNil sets the value for Status to be an explicit nil
@@ -576,7 +576,7 @@ func (o *TestPlanChangedFieldsViewModel) GetAttributesOk() (*map[string]CustomAt
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPlanChangedFieldsViewModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 

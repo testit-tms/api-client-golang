@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **IsDeleted** | **bool** | Indicates whether the project is deleted | 
 **GlobalId** | **int64** | Global ID of project | 
 **Name** | **string** | Name of project | 
+**Type** | [**ProjectTypeModel**](ProjectTypeModel.md) | Type of the project | 
 
 ## Methods
 
 ### NewProjectShortestModel
 
-`func NewProjectShortestModel(id string, isDeleted bool, globalId int64, name string, ) *ProjectShortestModel`
+`func NewProjectShortestModel(id string, isDeleted bool, globalId int64, name string, type_ ProjectTypeModel, ) *ProjectShortestModel`
 
 NewProjectShortestModel instantiates a new ProjectShortestModel object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *ProjectShortestModel) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetType
+
+`func (o *ProjectShortestModel) GetType() ProjectTypeModel`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *ProjectShortestModel) GetTypeOk() (*ProjectTypeModel, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *ProjectShortestModel) SetType(v ProjectTypeModel)`
+
+SetType sets Type field to given value.
 
 
 

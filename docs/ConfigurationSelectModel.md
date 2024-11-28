@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**NullableConfigurationSelectModelFilter**](ConfigurationSelectModelFilter.md) |  | [optional] 
-**ExtractionModel** | Pointer to [**NullableConfigurationSelectModelExtractionModel**](ConfigurationSelectModelExtractionModel.md) |  | [optional] 
+**Filter** | Pointer to [**NullableConfigurationFilterModel**](ConfigurationFilterModel.md) | Configuration filters collection | [optional] 
+**ExtractionModel** | Pointer to [**NullableConfigurationExtractionModel**](ConfigurationExtractionModel.md) | Rules for configurations extraction | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *ConfigurationSelectModel) GetFilter() ConfigurationSelectModelFilter`
+`func (o *ConfigurationSelectModel) GetFilter() ConfigurationFilterModel`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *ConfigurationSelectModel) GetFilterOk() (*ConfigurationSelectModelFilter, bool)`
+`func (o *ConfigurationSelectModel) GetFilterOk() (*ConfigurationFilterModel, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *ConfigurationSelectModel) SetFilter(v ConfigurationSelectModelFilter)`
+`func (o *ConfigurationSelectModel) SetFilter(v ConfigurationFilterModel)`
 
 SetFilter sets Filter field to given value.
 
@@ -63,20 +63,20 @@ HasFilter returns a boolean if a field has been set.
 UnsetFilter ensures that no value is present for Filter, not even an explicit nil
 ### GetExtractionModel
 
-`func (o *ConfigurationSelectModel) GetExtractionModel() ConfigurationSelectModelExtractionModel`
+`func (o *ConfigurationSelectModel) GetExtractionModel() ConfigurationExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *ConfigurationSelectModel) GetExtractionModelOk() (*ConfigurationSelectModelExtractionModel, bool)`
+`func (o *ConfigurationSelectModel) GetExtractionModelOk() (*ConfigurationExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *ConfigurationSelectModel) SetExtractionModel(v ConfigurationSelectModelExtractionModel)`
+`func (o *ConfigurationSelectModel) SetExtractionModel(v ConfigurationExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

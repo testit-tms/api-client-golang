@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ApiV2AttachmentsIdDelete**](AttachmentsAPI.md#ApiV2AttachmentsIdDelete) | **Delete** /api/v2/attachments/{id} | Delete attachment file
 [**ApiV2AttachmentsIdGet**](AttachmentsAPI.md#ApiV2AttachmentsIdGet) | **Get** /api/v2/attachments/{id} | Download attachment file
+[**ApiV2AttachmentsIdMetadataGet**](AttachmentsAPI.md#ApiV2AttachmentsIdMetadataGet) | **Get** /api/v2/attachments/{id}/metadata | Get attachment metadata
 [**ApiV2AttachmentsOccupiedFileStorageSizeGet**](AttachmentsAPI.md#ApiV2AttachmentsOccupiedFileStorageSizeGet) | **Get** /api/v2/attachments/occupiedFileStorageSize | Get size of attachments storage in bytes
 [**ApiV2AttachmentsPost**](AttachmentsAPI.md#ApiV2AttachmentsPost) | **Post** /api/v2/attachments | Upload new attachment file
 
@@ -70,7 +71,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json, text/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -79,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2AttachmentsIdGet
 
-> *os.File ApiV2AttachmentsIdGet(ctx, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
+> ApiV2AttachmentsIdGet(ctx, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
 
 Download attachment file
 
@@ -105,13 +106,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AttachmentsAPI.ApiV2AttachmentsIdGet(context.Background(), id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
+	r, err := apiClient.AttachmentsAPI.ApiV2AttachmentsIdGet(context.Background(), id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttachmentsAPI.ApiV2AttachmentsIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2AttachmentsIdGet`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `AttachmentsAPI.ApiV2AttachmentsIdGet`: %v\n", resp)
 }
 ```
 
@@ -139,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+ (empty response body)
 
 ### Authorization
 
@@ -148,7 +147,75 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2AttachmentsIdMetadataGet
+
+> AttachmentModel ApiV2AttachmentsIdMetadataGet(ctx, id).Execute()
+
+Get attachment metadata
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AttachmentsAPI.ApiV2AttachmentsIdMetadataGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AttachmentsAPI.ApiV2AttachmentsIdMetadataGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2AttachmentsIdMetadataGet`: AttachmentModel
+	fmt.Fprintf(os.Stdout, "Response from `AttachmentsAPI.ApiV2AttachmentsIdMetadataGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2AttachmentsIdMetadataGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AttachmentModel**](AttachmentModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -263,7 +263,7 @@ func (o *WorkItemModel) GetAutoTestsOk() ([]AutoTestModel, bool) {
 
 // HasAutoTests returns a boolean if a field has been set.
 func (o *WorkItemModel) HasAutoTests() bool {
-	if o != nil && IsNil(o.AutoTests) {
+	if o != nil && !IsNil(o.AutoTests) {
 		return true
 	}
 
@@ -296,7 +296,7 @@ func (o *WorkItemModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *WorkItemModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -329,7 +329,7 @@ func (o *WorkItemModel) GetSectionPreconditionStepsOk() ([]StepModel, bool) {
 
 // HasSectionPreconditionSteps returns a boolean if a field has been set.
 func (o *WorkItemModel) HasSectionPreconditionSteps() bool {
-	if o != nil && IsNil(o.SectionPreconditionSteps) {
+	if o != nil && !IsNil(o.SectionPreconditionSteps) {
 		return true
 	}
 
@@ -362,7 +362,7 @@ func (o *WorkItemModel) GetSectionPostconditionStepsOk() ([]StepModel, bool) {
 
 // HasSectionPostconditionSteps returns a boolean if a field has been set.
 func (o *WorkItemModel) HasSectionPostconditionSteps() bool {
-	if o != nil && IsNil(o.SectionPostconditionSteps) {
+	if o != nil && !IsNil(o.SectionPostconditionSteps) {
 		return true
 	}
 
@@ -419,7 +419,7 @@ func (o *WorkItemModel) GetIterationsOk() ([]IterationModel, bool) {
 
 // HasIterations returns a boolean if a field has been set.
 func (o *WorkItemModel) HasIterations() bool {
-	if o != nil && IsNil(o.Iterations) {
+	if o != nil && !IsNil(o.Iterations) {
 		return true
 	}
 

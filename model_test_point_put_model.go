@@ -26,7 +26,9 @@ type TestPointPutModel struct {
 	WorkItemId NullableString `json:"workItemId,omitempty"`
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
 	TestSuiteId string `json:"testSuiteId"`
+	// Deprecated
 	Status NullableString `json:"status,omitempty"`
+	StatusModel TestStatusModel `json:"statusModel"`
 	LastTestResultId NullableString `json:"lastTestResultId,omitempty"`
 	// Unique ID of the entity
 	Id string `json:"id"`
@@ -40,10 +42,11 @@ type _TestPointPutModel TestPointPutModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointPutModel(iterationId string, testSuiteId string, id string, isDeleted bool) *TestPointPutModel {
+func NewTestPointPutModel(iterationId string, testSuiteId string, statusModel TestStatusModel, id string, isDeleted bool) *TestPointPutModel {
 	this := TestPointPutModel{}
 	this.IterationId = iterationId
 	this.TestSuiteId = testSuiteId
+	this.StatusModel = statusModel
 	this.Id = id
 	this.IsDeleted = isDeleted
 	return &this
@@ -232,6 +235,7 @@ func (o *TestPointPutModel) SetTestSuiteId(v string) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *TestPointPutModel) GetStatus() string {
 	if o == nil || IsNil(o.Status.Get()) {
 		var ret string
@@ -243,6 +247,7 @@ func (o *TestPointPutModel) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *TestPointPutModel) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
@@ -260,6 +265,7 @@ func (o *TestPointPutModel) HasStatus() bool {
 }
 
 // SetStatus gets a reference to the given NullableString and assigns it to the Status field.
+// Deprecated
 func (o *TestPointPutModel) SetStatus(v string) {
 	o.Status.Set(&v)
 }
@@ -271,6 +277,30 @@ func (o *TestPointPutModel) SetStatusNil() {
 // UnsetStatus ensures that no value is present for Status, not even an explicit nil
 func (o *TestPointPutModel) UnsetStatus() {
 	o.Status.Unset()
+}
+
+// GetStatusModel returns the StatusModel field value
+func (o *TestPointPutModel) GetStatusModel() TestStatusModel {
+	if o == nil {
+		var ret TestStatusModel
+		return ret
+	}
+
+	return o.StatusModel
+}
+
+// GetStatusModelOk returns a tuple with the StatusModel field value
+// and a boolean to check if the value has been set.
+func (o *TestPointPutModel) GetStatusModelOk() (*TestStatusModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StatusModel, true
+}
+
+// SetStatusModel sets field value
+func (o *TestPointPutModel) SetStatusModel(v TestStatusModel) {
+	o.StatusModel = v
 }
 
 // GetLastTestResultId returns the LastTestResultId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -387,6 +417,7 @@ func (o TestPointPutModel) ToMap() (map[string]interface{}, error) {
 	if o.Status.IsSet() {
 		toSerialize["status"] = o.Status.Get()
 	}
+	toSerialize["statusModel"] = o.StatusModel
 	if o.LastTestResultId.IsSet() {
 		toSerialize["lastTestResultId"] = o.LastTestResultId.Get()
 	}
@@ -402,6 +433,7 @@ func (o *TestPointPutModel) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"iterationId",
 		"testSuiteId",
+		"statusModel",
 		"id",
 		"isDeleted",
 	}

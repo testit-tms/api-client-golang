@@ -22,6 +22,7 @@ var _ MappedNullable = &TestRunSelectModel{}
 // TestRunSelectModel Model containing options to filter test runs
 type TestRunSelectModel struct {
 	Filter TestRunFilterModel `json:"filter"`
+	// Rules for different level entities inclusion/exclusion
 	ExtractionModel TestRunExtractionModel `json:"extractionModel"`
 }
 

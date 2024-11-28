@@ -107,7 +107,7 @@ func (o *TestRunSearchQueryModel) GetStatesOk() ([]TestRunState, bool) {
 
 // HasStates returns a boolean if a field has been set.
 func (o *TestRunSearchQueryModel) HasStates() bool {
-	if o != nil && IsNil(o.States) {
+	if o != nil && !IsNil(o.States) {
 		return true
 	}
 
@@ -224,7 +224,7 @@ func (o *TestRunSearchQueryModel) GetCreatedByIdsOk() ([]string, bool) {
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *TestRunSearchQueryModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 
@@ -257,7 +257,7 @@ func (o *TestRunSearchQueryModel) GetModifiedByIdsOk() ([]string, bool) {
 
 // HasModifiedByIds returns a boolean if a field has been set.
 func (o *TestRunSearchQueryModel) HasModifiedByIds() bool {
-	if o != nil && IsNil(o.ModifiedByIds) {
+	if o != nil && !IsNil(o.ModifiedByIds) {
 		return true
 	}
 

@@ -7,15 +7,16 @@ Name | Type | Description | Notes
 **ProjectIds** | Pointer to **[]string** | Specifies a test run project IDs to search for | [optional] 
 **Name** | Pointer to **NullableString** | Specifies test run name | [optional] 
 **States** | Pointer to [**[]TestRunState**](TestRunState.md) | Specifies a test run states to search for | [optional] 
-**CreatedDate** | Pointer to [**NullableTestRunFilterModelCreatedDate**](TestRunFilterModelCreatedDate.md) |  | [optional] 
-**StartedDate** | Pointer to [**NullableTestRunFilterModelStartedDate**](TestRunFilterModelStartedDate.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test run range of created date to search for | [optional] 
+**StartedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test run range of started date to search for | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies a test run creator IDs to search for | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Specifies a test run last editor IDs to search for | [optional] 
 **IsDeleted** | Pointer to **NullableBool** | Specifies a test run deleted status to search for | [optional] 
-**AutoTestsCount** | Pointer to [**NullableTestRunFilterModelAutoTestsCount**](TestRunFilterModelAutoTestsCount.md) |  | [optional] 
+**AutoTestsCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Number of autoTests run in the test run | [optional] 
 **TestResultsOutcome** | Pointer to [**[]TestResultOutcome**](TestResultOutcome.md) | Specifies test results outcomes | [optional] 
 **FailureCategory** | Pointer to [**[]FailureCategoryModel**](FailureCategoryModel.md) | Specifies failure categories | [optional] 
-**CompletedDate** | Pointer to [**NullableTestRunFilterModelCompletedDate**](TestRunFilterModelCompletedDate.md) |  | [optional] 
+**CompletedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test run range of completed date to search for | [optional] 
+**TestResultsConfigurationIds** | Pointer to **[]string** | Specifies a test result configuration IDs to search for | [optional] 
 
 ## Methods
 
@@ -143,20 +144,20 @@ HasStates returns a boolean if a field has been set.
 UnsetStates ensures that no value is present for States, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *TestRunFilterModel) GetCreatedDate() TestRunFilterModelCreatedDate`
+`func (o *TestRunFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *TestRunFilterModel) GetCreatedDateOk() (*TestRunFilterModelCreatedDate, bool)`
+`func (o *TestRunFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *TestRunFilterModel) SetCreatedDate(v TestRunFilterModelCreatedDate)`
+`func (o *TestRunFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -178,20 +179,20 @@ HasCreatedDate returns a boolean if a field has been set.
 UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetStartedDate
 
-`func (o *TestRunFilterModel) GetStartedDate() TestRunFilterModelStartedDate`
+`func (o *TestRunFilterModel) GetStartedDate() DateTimeRangeSelectorModel`
 
 GetStartedDate returns the StartedDate field if non-nil, zero value otherwise.
 
 ### GetStartedDateOk
 
-`func (o *TestRunFilterModel) GetStartedDateOk() (*TestRunFilterModelStartedDate, bool)`
+`func (o *TestRunFilterModel) GetStartedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetStartedDateOk returns a tuple with the StartedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartedDate
 
-`func (o *TestRunFilterModel) SetStartedDate(v TestRunFilterModelStartedDate)`
+`func (o *TestRunFilterModel) SetStartedDate(v DateTimeRangeSelectorModel)`
 
 SetStartedDate sets StartedDate field to given value.
 
@@ -318,20 +319,20 @@ HasIsDeleted returns a boolean if a field has been set.
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 ### GetAutoTestsCount
 
-`func (o *TestRunFilterModel) GetAutoTestsCount() TestRunFilterModelAutoTestsCount`
+`func (o *TestRunFilterModel) GetAutoTestsCount() Int32RangeSelectorModel`
 
 GetAutoTestsCount returns the AutoTestsCount field if non-nil, zero value otherwise.
 
 ### GetAutoTestsCountOk
 
-`func (o *TestRunFilterModel) GetAutoTestsCountOk() (*TestRunFilterModelAutoTestsCount, bool)`
+`func (o *TestRunFilterModel) GetAutoTestsCountOk() (*Int32RangeSelectorModel, bool)`
 
 GetAutoTestsCountOk returns a tuple with the AutoTestsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoTestsCount
 
-`func (o *TestRunFilterModel) SetAutoTestsCount(v TestRunFilterModelAutoTestsCount)`
+`func (o *TestRunFilterModel) SetAutoTestsCount(v Int32RangeSelectorModel)`
 
 SetAutoTestsCount sets AutoTestsCount field to given value.
 
@@ -423,20 +424,20 @@ HasFailureCategory returns a boolean if a field has been set.
 UnsetFailureCategory ensures that no value is present for FailureCategory, not even an explicit nil
 ### GetCompletedDate
 
-`func (o *TestRunFilterModel) GetCompletedDate() TestRunFilterModelCompletedDate`
+`func (o *TestRunFilterModel) GetCompletedDate() DateTimeRangeSelectorModel`
 
 GetCompletedDate returns the CompletedDate field if non-nil, zero value otherwise.
 
 ### GetCompletedDateOk
 
-`func (o *TestRunFilterModel) GetCompletedDateOk() (*TestRunFilterModelCompletedDate, bool)`
+`func (o *TestRunFilterModel) GetCompletedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetCompletedDateOk returns a tuple with the CompletedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompletedDate
 
-`func (o *TestRunFilterModel) SetCompletedDate(v TestRunFilterModelCompletedDate)`
+`func (o *TestRunFilterModel) SetCompletedDate(v DateTimeRangeSelectorModel)`
 
 SetCompletedDate sets CompletedDate field to given value.
 
@@ -456,6 +457,41 @@ HasCompletedDate returns a boolean if a field has been set.
 `func (o *TestRunFilterModel) UnsetCompletedDate()`
 
 UnsetCompletedDate ensures that no value is present for CompletedDate, not even an explicit nil
+### GetTestResultsConfigurationIds
+
+`func (o *TestRunFilterModel) GetTestResultsConfigurationIds() []string`
+
+GetTestResultsConfigurationIds returns the TestResultsConfigurationIds field if non-nil, zero value otherwise.
+
+### GetTestResultsConfigurationIdsOk
+
+`func (o *TestRunFilterModel) GetTestResultsConfigurationIdsOk() (*[]string, bool)`
+
+GetTestResultsConfigurationIdsOk returns a tuple with the TestResultsConfigurationIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestResultsConfigurationIds
+
+`func (o *TestRunFilterModel) SetTestResultsConfigurationIds(v []string)`
+
+SetTestResultsConfigurationIds sets TestResultsConfigurationIds field to given value.
+
+### HasTestResultsConfigurationIds
+
+`func (o *TestRunFilterModel) HasTestResultsConfigurationIds() bool`
+
+HasTestResultsConfigurationIds returns a boolean if a field has been set.
+
+### SetTestResultsConfigurationIdsNil
+
+`func (o *TestRunFilterModel) SetTestResultsConfigurationIdsNil(b bool)`
+
+ SetTestResultsConfigurationIdsNil sets the value for TestResultsConfigurationIds to be an explicit nil
+
+### UnsetTestResultsConfigurationIds
+`func (o *TestRunFilterModel) UnsetTestResultsConfigurationIds()`
+
+UnsetTestResultsConfigurationIds ensures that no value is present for TestResultsConfigurationIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

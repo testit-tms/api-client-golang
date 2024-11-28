@@ -111,7 +111,7 @@ func (o *SearchWebhooksQueryModel) GetEventTypesOk() ([]WebHookEventTypeModel, b
 
 // HasEventTypes returns a boolean if a field has been set.
 func (o *SearchWebhooksQueryModel) HasEventTypes() bool {
-	if o != nil && IsNil(o.EventTypes) {
+	if o != nil && !IsNil(o.EventTypes) {
 		return true
 	}
 
@@ -144,7 +144,7 @@ func (o *SearchWebhooksQueryModel) GetMethodsOk() ([]RequestTypeModel, bool) {
 
 // HasMethods returns a boolean if a field has been set.
 func (o *SearchWebhooksQueryModel) HasMethods() bool {
-	if o != nil && IsNil(o.Methods) {
+	if o != nil && !IsNil(o.Methods) {
 		return true
 	}
 
@@ -177,7 +177,7 @@ func (o *SearchWebhooksQueryModel) GetProjectIdsOk() ([]string, bool) {
 
 // HasProjectIds returns a boolean if a field has been set.
 func (o *SearchWebhooksQueryModel) HasProjectIds() bool {
-	if o != nil && IsNil(o.ProjectIds) {
+	if o != nil && !IsNil(o.ProjectIds) {
 		return true
 	}
 

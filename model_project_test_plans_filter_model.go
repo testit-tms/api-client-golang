@@ -243,7 +243,7 @@ func (o *ProjectTestPlansFilterModel) GetStatusOk() ([]TestPlanStatusModel, bool
 
 // HasStatus returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasStatus() bool {
-	if o != nil && IsNil(o.Status) {
+	if o != nil && !IsNil(o.Status) {
 		return true
 	}
 
@@ -276,7 +276,7 @@ func (o *ProjectTestPlansFilterModel) GetGlobalIdsOk() ([]int64, bool) {
 
 // HasGlobalIds returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasGlobalIds() bool {
-	if o != nil && IsNil(o.GlobalIds) {
+	if o != nil && !IsNil(o.GlobalIds) {
 		return true
 	}
 
@@ -393,7 +393,7 @@ func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimerOk() ([]bool, boo
 
 // HasAutomaticDurationTimer returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasAutomaticDurationTimer() bool {
-	if o != nil && IsNil(o.AutomaticDurationTimer) {
+	if o != nil && !IsNil(o.AutomaticDurationTimer) {
 		return true
 	}
 
@@ -426,7 +426,7 @@ func (o *ProjectTestPlansFilterModel) GetCreatedByIdsOk() ([]string, bool) {
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 
@@ -585,7 +585,7 @@ func (o *ProjectTestPlansFilterModel) GetTagNamesOk() ([]string, bool) {
 
 // HasTagNames returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasTagNames() bool {
-	if o != nil && IsNil(o.TagNames) {
+	if o != nil && !IsNil(o.TagNames) {
 		return true
 	}
 
@@ -618,7 +618,7 @@ func (o *ProjectTestPlansFilterModel) GetAttributesOk() (*map[string][]string, b
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *ProjectTestPlansFilterModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 

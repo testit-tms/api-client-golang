@@ -162,7 +162,7 @@ func (o *SectionPostModel) GetPreconditionStepsOk() ([]StepPostModel, bool) {
 
 // HasPreconditionSteps returns a boolean if a field has been set.
 func (o *SectionPostModel) HasPreconditionSteps() bool {
-	if o != nil && IsNil(o.PreconditionSteps) {
+	if o != nil && !IsNil(o.PreconditionSteps) {
 		return true
 	}
 
@@ -195,7 +195,7 @@ func (o *SectionPostModel) GetPostconditionStepsOk() ([]StepPostModel, bool) {
 
 // HasPostconditionSteps returns a boolean if a field has been set.
 func (o *SectionPostModel) HasPostconditionSteps() bool {
-	if o != nil && IsNil(o.PostconditionSteps) {
+	if o != nil && !IsNil(o.PostconditionSteps) {
 		return true
 	}
 

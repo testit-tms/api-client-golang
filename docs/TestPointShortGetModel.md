@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **WorkItemVersionId** | **string** | Unique ID of work item version the test point represents | 
 **WorkItemVersionNumber** | **int32** | Number of work item version the test point represents | 
 **WorkItemMedianDuration** | Pointer to **NullableInt64** | Median duration of work item the test point represents | [optional] 
-**Status** | [**TestPointStatus**](TestPointStatus.md) |  | 
-**Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**Status** | [**TestPointStatus**](TestPointStatus.md) | Status of the test point | 
+**Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) | Priority of the test point | 
 **IsAutomated** | **bool** | Indicates if the test point represents an autotest | 
 **Name** | **string** | Name of the test point | 
 **ConfigurationId** | **string** | Unique ID of the test point configuration | 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **ProjectId** | **string** | Unique ID of the test point project | 
 **LastTestResult** | [**LastTestResultModel**](LastTestResultModel.md) |  | 
 **IterationId** | **string** | Unique ID of work item iteration the test point represents | 
-**WorkItemState** | [**WorkItemState**](WorkItemState.md) |  | 
+**WorkItemState** | [**WorkItemState**](WorkItemState.md) | Work item state | 
 **WorkItemCreatedById** | **string** | Unique ID of the work item creator | 
 **WorkItemCreatedDate** | **time.Time** | Creation date of work item | 
 **WorkItemModifiedById** | Pointer to **NullableString** | Unique ID of the work item last editor | [optional] 

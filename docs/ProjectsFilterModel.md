@@ -7,13 +7,14 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Specifies a project name to search for | [optional] 
 **IsFavorite** | Pointer to **NullableBool** | Specifies a project favorite status to search for | [optional] 
 **IsDeleted** | Pointer to **NullableBool** | Specifies a project deleted status to search for | [optional] 
-**TestCasesCount** | Pointer to [**NullableProjectsFilterModelTestCasesCount**](ProjectsFilterModelTestCasesCount.md) |  | [optional] 
-**ChecklistsCount** | Pointer to [**NullableProjectsFilterModelChecklistsCount**](ProjectsFilterModelChecklistsCount.md) |  | [optional] 
-**SharedStepsCount** | Pointer to [**NullableProjectsFilterModelSharedStepsCount**](ProjectsFilterModelSharedStepsCount.md) |  | [optional] 
-**AutotestsCount** | Pointer to [**NullableProjectsFilterModelAutotestsCount**](ProjectsFilterModelAutotestsCount.md) |  | [optional] 
+**TestCasesCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of test cases count to search for | [optional] 
+**ChecklistsCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of checklists count to search for | [optional] 
+**SharedStepsCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of shared steps count to search for | [optional] 
+**AutotestsCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of autotests count to search for | [optional] 
 **GlobalIds** | Pointer to **[]int64** | Specifies a project global IDs to search for | [optional] 
-**CreatedDate** | Pointer to [**NullableProjectsFilterModelCreatedDate**](ProjectsFilterModelCreatedDate.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a project range of creation date to search for | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies an autotest creator IDs to search for | [optional] 
+**Types** | Pointer to [**[]ProjectTypeModel**](ProjectTypeModel.md) | Collection of project types to search for | [optional] 
 
 ## Methods
 
@@ -141,20 +142,20 @@ HasIsDeleted returns a boolean if a field has been set.
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 ### GetTestCasesCount
 
-`func (o *ProjectsFilterModel) GetTestCasesCount() ProjectsFilterModelTestCasesCount`
+`func (o *ProjectsFilterModel) GetTestCasesCount() Int32RangeSelectorModel`
 
 GetTestCasesCount returns the TestCasesCount field if non-nil, zero value otherwise.
 
 ### GetTestCasesCountOk
 
-`func (o *ProjectsFilterModel) GetTestCasesCountOk() (*ProjectsFilterModelTestCasesCount, bool)`
+`func (o *ProjectsFilterModel) GetTestCasesCountOk() (*Int32RangeSelectorModel, bool)`
 
 GetTestCasesCountOk returns a tuple with the TestCasesCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestCasesCount
 
-`func (o *ProjectsFilterModel) SetTestCasesCount(v ProjectsFilterModelTestCasesCount)`
+`func (o *ProjectsFilterModel) SetTestCasesCount(v Int32RangeSelectorModel)`
 
 SetTestCasesCount sets TestCasesCount field to given value.
 
@@ -176,20 +177,20 @@ HasTestCasesCount returns a boolean if a field has been set.
 UnsetTestCasesCount ensures that no value is present for TestCasesCount, not even an explicit nil
 ### GetChecklistsCount
 
-`func (o *ProjectsFilterModel) GetChecklistsCount() ProjectsFilterModelChecklistsCount`
+`func (o *ProjectsFilterModel) GetChecklistsCount() Int32RangeSelectorModel`
 
 GetChecklistsCount returns the ChecklistsCount field if non-nil, zero value otherwise.
 
 ### GetChecklistsCountOk
 
-`func (o *ProjectsFilterModel) GetChecklistsCountOk() (*ProjectsFilterModelChecklistsCount, bool)`
+`func (o *ProjectsFilterModel) GetChecklistsCountOk() (*Int32RangeSelectorModel, bool)`
 
 GetChecklistsCountOk returns a tuple with the ChecklistsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChecklistsCount
 
-`func (o *ProjectsFilterModel) SetChecklistsCount(v ProjectsFilterModelChecklistsCount)`
+`func (o *ProjectsFilterModel) SetChecklistsCount(v Int32RangeSelectorModel)`
 
 SetChecklistsCount sets ChecklistsCount field to given value.
 
@@ -211,20 +212,20 @@ HasChecklistsCount returns a boolean if a field has been set.
 UnsetChecklistsCount ensures that no value is present for ChecklistsCount, not even an explicit nil
 ### GetSharedStepsCount
 
-`func (o *ProjectsFilterModel) GetSharedStepsCount() ProjectsFilterModelSharedStepsCount`
+`func (o *ProjectsFilterModel) GetSharedStepsCount() Int32RangeSelectorModel`
 
 GetSharedStepsCount returns the SharedStepsCount field if non-nil, zero value otherwise.
 
 ### GetSharedStepsCountOk
 
-`func (o *ProjectsFilterModel) GetSharedStepsCountOk() (*ProjectsFilterModelSharedStepsCount, bool)`
+`func (o *ProjectsFilterModel) GetSharedStepsCountOk() (*Int32RangeSelectorModel, bool)`
 
 GetSharedStepsCountOk returns a tuple with the SharedStepsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSharedStepsCount
 
-`func (o *ProjectsFilterModel) SetSharedStepsCount(v ProjectsFilterModelSharedStepsCount)`
+`func (o *ProjectsFilterModel) SetSharedStepsCount(v Int32RangeSelectorModel)`
 
 SetSharedStepsCount sets SharedStepsCount field to given value.
 
@@ -246,20 +247,20 @@ HasSharedStepsCount returns a boolean if a field has been set.
 UnsetSharedStepsCount ensures that no value is present for SharedStepsCount, not even an explicit nil
 ### GetAutotestsCount
 
-`func (o *ProjectsFilterModel) GetAutotestsCount() ProjectsFilterModelAutotestsCount`
+`func (o *ProjectsFilterModel) GetAutotestsCount() Int32RangeSelectorModel`
 
 GetAutotestsCount returns the AutotestsCount field if non-nil, zero value otherwise.
 
 ### GetAutotestsCountOk
 
-`func (o *ProjectsFilterModel) GetAutotestsCountOk() (*ProjectsFilterModelAutotestsCount, bool)`
+`func (o *ProjectsFilterModel) GetAutotestsCountOk() (*Int32RangeSelectorModel, bool)`
 
 GetAutotestsCountOk returns a tuple with the AutotestsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutotestsCount
 
-`func (o *ProjectsFilterModel) SetAutotestsCount(v ProjectsFilterModelAutotestsCount)`
+`func (o *ProjectsFilterModel) SetAutotestsCount(v Int32RangeSelectorModel)`
 
 SetAutotestsCount sets AutotestsCount field to given value.
 
@@ -316,20 +317,20 @@ HasGlobalIds returns a boolean if a field has been set.
 UnsetGlobalIds ensures that no value is present for GlobalIds, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *ProjectsFilterModel) GetCreatedDate() ProjectsFilterModelCreatedDate`
+`func (o *ProjectsFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *ProjectsFilterModel) GetCreatedDateOk() (*ProjectsFilterModelCreatedDate, bool)`
+`func (o *ProjectsFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *ProjectsFilterModel) SetCreatedDate(v ProjectsFilterModelCreatedDate)`
+`func (o *ProjectsFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -384,6 +385,41 @@ HasCreatedByIds returns a boolean if a field has been set.
 `func (o *ProjectsFilterModel) UnsetCreatedByIds()`
 
 UnsetCreatedByIds ensures that no value is present for CreatedByIds, not even an explicit nil
+### GetTypes
+
+`func (o *ProjectsFilterModel) GetTypes() []ProjectTypeModel`
+
+GetTypes returns the Types field if non-nil, zero value otherwise.
+
+### GetTypesOk
+
+`func (o *ProjectsFilterModel) GetTypesOk() (*[]ProjectTypeModel, bool)`
+
+GetTypesOk returns a tuple with the Types field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTypes
+
+`func (o *ProjectsFilterModel) SetTypes(v []ProjectTypeModel)`
+
+SetTypes sets Types field to given value.
+
+### HasTypes
+
+`func (o *ProjectsFilterModel) HasTypes() bool`
+
+HasTypes returns a boolean if a field has been set.
+
+### SetTypesNil
+
+`func (o *ProjectsFilterModel) SetTypesNil(b bool)`
+
+ SetTypesNil sets the value for Types to be an explicit nil
+
+### UnsetTypes
+`func (o *ProjectsFilterModel) UnsetTypes()`
+
+UnsetTypes ensures that no value is present for Types, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -19,7 +19,8 @@ var _ MappedNullable = &AutotestsExtractionModel{}
 
 // AutotestsExtractionModel struct for AutotestsExtractionModel
 type AutotestsExtractionModel struct {
-	Ids NullableAutotestsExtractionModelIds `json:"ids,omitempty"`
+	// Extraction parameters for autotests
+	Ids NullableGuidExtractionModel `json:"ids,omitempty"`
 }
 
 // NewAutotestsExtractionModel instantiates a new AutotestsExtractionModel object
@@ -40,9 +41,9 @@ func NewAutotestsExtractionModelWithDefaults() *AutotestsExtractionModel {
 }
 
 // GetIds returns the Ids field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestsExtractionModel) GetIds() AutotestsExtractionModelIds {
+func (o *AutotestsExtractionModel) GetIds() GuidExtractionModel {
 	if o == nil || IsNil(o.Ids.Get()) {
-		var ret AutotestsExtractionModelIds
+		var ret GuidExtractionModel
 		return ret
 	}
 	return *o.Ids.Get()
@@ -51,7 +52,7 @@ func (o *AutotestsExtractionModel) GetIds() AutotestsExtractionModelIds {
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestsExtractionModel) GetIdsOk() (*AutotestsExtractionModelIds, bool) {
+func (o *AutotestsExtractionModel) GetIdsOk() (*GuidExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,8 +68,8 @@ func (o *AutotestsExtractionModel) HasIds() bool {
 	return false
 }
 
-// SetIds gets a reference to the given NullableAutotestsExtractionModelIds and assigns it to the Ids field.
-func (o *AutotestsExtractionModel) SetIds(v AutotestsExtractionModelIds) {
+// SetIds gets a reference to the given NullableGuidExtractionModel and assigns it to the Ids field.
+func (o *AutotestsExtractionModel) SetIds(v GuidExtractionModel) {
 	o.Ids.Set(&v)
 }
 // SetIdsNil sets the value for Ids to be an explicit nil

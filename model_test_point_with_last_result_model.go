@@ -29,7 +29,7 @@ type TestPointWithLastResultModel struct {
 	WorkItemId string `json:"workItemId"`
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
 	TestSuiteId string `json:"testSuiteId"`
-	LastTestResult NullableLastTestResultModel `json:"lastTestResult,omitempty"`
+	LastTestResult *LastTestResultModel `json:"lastTestResult,omitempty"`
 	Status NullableString `json:"status,omitempty"`
 	WorkItemGlobalId NullableInt64 `json:"workItemGlobalId,omitempty"`
 	WorkItemEntityTypeName NullableString `json:"workItemEntityTypeName,omitempty"`
@@ -297,46 +297,36 @@ func (o *TestPointWithLastResultModel) SetTestSuiteId(v string) {
 	o.TestSuiteId = v
 }
 
-// GetLastTestResult returns the LastTestResult field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetLastTestResult returns the LastTestResult field value if set, zero value otherwise.
 func (o *TestPointWithLastResultModel) GetLastTestResult() LastTestResultModel {
-	if o == nil || IsNil(o.LastTestResult.Get()) {
+	if o == nil || IsNil(o.LastTestResult) {
 		var ret LastTestResultModel
 		return ret
 	}
-	return *o.LastTestResult.Get()
+	return *o.LastTestResult
 }
 
 // GetLastTestResultOk returns a tuple with the LastTestResult field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestPointWithLastResultModel) GetLastTestResultOk() (*LastTestResultModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastTestResult) {
 		return nil, false
 	}
-	return o.LastTestResult.Get(), o.LastTestResult.IsSet()
+	return o.LastTestResult, true
 }
 
 // HasLastTestResult returns a boolean if a field has been set.
 func (o *TestPointWithLastResultModel) HasLastTestResult() bool {
-	if o != nil && o.LastTestResult.IsSet() {
+	if o != nil && !IsNil(o.LastTestResult) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastTestResult gets a reference to the given NullableLastTestResultModel and assigns it to the LastTestResult field.
+// SetLastTestResult gets a reference to the given LastTestResultModel and assigns it to the LastTestResult field.
 func (o *TestPointWithLastResultModel) SetLastTestResult(v LastTestResultModel) {
-	o.LastTestResult.Set(&v)
-}
-// SetLastTestResultNil sets the value for LastTestResult to be an explicit nil
-func (o *TestPointWithLastResultModel) SetLastTestResultNil() {
-	o.LastTestResult.Set(nil)
-}
-
-// UnsetLastTestResult ensures that no value is present for LastTestResult, not even an explicit nil
-func (o *TestPointWithLastResultModel) UnsetLastTestResult() {
-	o.LastTestResult.Unset()
+	o.LastTestResult = &v
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -702,7 +692,7 @@ func (o *TestPointWithLastResultModel) GetAttributesOk() (map[string]interface{}
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPointWithLastResultModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -735,7 +725,7 @@ func (o *TestPointWithLastResultModel) GetTagNamesOk() ([]string, bool) {
 
 // HasTagNames returns a boolean if a field has been set.
 func (o *TestPointWithLastResultModel) HasTagNames() bool {
-	if o != nil && IsNil(o.TagNames) {
+	if o != nil && !IsNil(o.TagNames) {
 		return true
 	}
 
@@ -816,7 +806,7 @@ func (o *TestPointWithLastResultModel) GetTestSuiteNameBreadCrumbsOk() ([]string
 
 // HasTestSuiteNameBreadCrumbs returns a boolean if a field has been set.
 func (o *TestPointWithLastResultModel) HasTestSuiteNameBreadCrumbs() bool {
-	if o != nil && IsNil(o.TestSuiteNameBreadCrumbs) {
+	if o != nil && !IsNil(o.TestSuiteNameBreadCrumbs) {
 		return true
 	}
 
@@ -935,8 +925,8 @@ func (o TestPointWithLastResultModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["configurationId"] = o.ConfigurationId.Get()
 	}
 	toSerialize["testSuiteId"] = o.TestSuiteId
-	if o.LastTestResult.IsSet() {
-		toSerialize["lastTestResult"] = o.LastTestResult.Get()
+	if !IsNil(o.LastTestResult) {
+		toSerialize["lastTestResult"] = o.LastTestResult
 	}
 	if o.Status.IsSet() {
 		toSerialize["status"] = o.Status.Get()

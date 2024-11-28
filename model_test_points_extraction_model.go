@@ -19,7 +19,8 @@ var _ MappedNullable = &TestPointsExtractionModel{}
 
 // TestPointsExtractionModel struct for TestPointsExtractionModel
 type TestPointsExtractionModel struct {
-	Ids NullableTestPointsExtractionModelIds `json:"ids,omitempty"`
+	// Extraction parameters for test points
+	Ids NullableGuidExtractionModel `json:"ids,omitempty"`
 }
 
 // NewTestPointsExtractionModel instantiates a new TestPointsExtractionModel object
@@ -40,9 +41,9 @@ func NewTestPointsExtractionModelWithDefaults() *TestPointsExtractionModel {
 }
 
 // GetIds returns the Ids field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPointsExtractionModel) GetIds() TestPointsExtractionModelIds {
+func (o *TestPointsExtractionModel) GetIds() GuidExtractionModel {
 	if o == nil || IsNil(o.Ids.Get()) {
-		var ret TestPointsExtractionModelIds
+		var ret GuidExtractionModel
 		return ret
 	}
 	return *o.Ids.Get()
@@ -51,7 +52,7 @@ func (o *TestPointsExtractionModel) GetIds() TestPointsExtractionModelIds {
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPointsExtractionModel) GetIdsOk() (*TestPointsExtractionModelIds, bool) {
+func (o *TestPointsExtractionModel) GetIdsOk() (*GuidExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,8 +68,8 @@ func (o *TestPointsExtractionModel) HasIds() bool {
 	return false
 }
 
-// SetIds gets a reference to the given NullableTestPointsExtractionModelIds and assigns it to the Ids field.
-func (o *TestPointsExtractionModel) SetIds(v TestPointsExtractionModelIds) {
+// SetIds gets a reference to the given NullableGuidExtractionModel and assigns it to the Ids field.
+func (o *TestPointsExtractionModel) SetIds(v GuidExtractionModel) {
 	o.Ids.Set(&v)
 }
 // SetIdsNil sets the value for Ids to be an explicit nil

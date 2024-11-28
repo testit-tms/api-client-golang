@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of attribute | 
-**Options** | Pointer to [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of attribute options  &lt;br /&gt;  Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
+**Options** | Pointer to [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of attribute options     Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **IsEnabled** | Pointer to **NullableBool** | Indicates whether the attribute is available | [optional] 
 **IsRequired** | Pointer to **NullableBool** | Indicates whether the attribute value is mandatory to specify | [optional] 
 

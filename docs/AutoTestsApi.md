@@ -19,7 +19,6 @@ Method | HTTP request | Description
 [**GetAutoTestById**](AutoTestsAPI.md#GetAutoTestById) | **Get** /api/v2/autoTests/{id} | Get autotest by internal or global ID
 [**GetAutoTestChronology**](AutoTestsAPI.md#GetAutoTestChronology) | **Get** /api/v2/autoTests/{id}/chronology | Get autotest chronology
 [**GetTestRuns**](AutoTestsAPI.md#GetTestRuns) | **Get** /api/v2/autoTests/{id}/testRuns | Get completed tests runs for autotests
-[**GetWorkItemResults**](AutoTestsAPI.md#GetWorkItemResults) | **Get** /api/v2/autoTests/{id}/testResultHistory | 
 [**GetWorkItemsLinkedToAutoTest**](AutoTestsAPI.md#GetWorkItemsLinkedToAutoTest) | **Get** /api/v2/autoTests/{id}/workItems | Get work items linked to autotest
 [**LinkAutoTestToWorkItem**](AutoTestsAPI.md#LinkAutoTestToWorkItem) | **Post** /api/v2/autoTests/{id}/workItems | Link autotest with work items
 [**UpdateAutoTest**](AutoTestsAPI.md#UpdateAutoTest) | **Put** /api/v2/autoTests | Update autotest
@@ -1132,103 +1131,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetWorkItemResults
-
-> []TestResultHistoryReportModel GetWorkItemResults(ctx, id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-    "time"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	id := "id_example" // string | 
-	from := time.Now() // time.Time | Take results from this date (optional)
-	to := time.Now() // time.Time | Take results until this date (optional)
-	configurationIds := []string{"Inner_example"} // []string | Identifiers of test result configurations (optional)
-	testPlanIds := []string{"Inner_example"} // []string | Identifiers of test plans which contain test results (optional)
-	userIds := []string{"Inner_example"} // []string | Identifiers of users who set test results (optional)
-	outcomes := []string{"Inner_example"} // []string | List of outcomes of test results (optional)
-	isAutomated := true // bool | OBSOLETE: Use `Automated` instead (optional)
-	automated := true // bool | If result must consist of only manual/automated test results (optional)
-	testRunIds := []string{"Inner_example"} // []string | Identifiers of test runs which contain test results (optional)
-	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
-	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
-	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
-	searchField := "searchField_example" // string | Property name for searching (optional)
-	searchValue := "searchValue_example" // string | Value for searching (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.GetWorkItemResults(context.Background(), id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetWorkItemResults``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkItemResults`: []TestResultHistoryReportModel
-	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetWorkItemResults`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWorkItemResultsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **from** | **time.Time** | Take results from this date | 
- **to** | **time.Time** | Take results until this date | 
- **configurationIds** | **[]string** | Identifiers of test result configurations | 
- **testPlanIds** | **[]string** | Identifiers of test plans which contain test results | 
- **userIds** | **[]string** | Identifiers of users who set test results | 
- **outcomes** | **[]string** | List of outcomes of test results | 
- **isAutomated** | **bool** | OBSOLETE: Use &#x60;Automated&#x60; instead | 
- **automated** | **bool** | If result must consist of only manual/automated test results | 
- **testRunIds** | **[]string** | Identifiers of test runs which contain test results | 
- **skip** | **int32** | Amount of items to be skipped (offset) | 
- **take** | **int32** | Amount of items to be taken (limit) | 
- **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
- **searchField** | **string** | Property name for searching | 
- **searchValue** | **string** | Value for searching | 
-
-### Return type
-
-[**[]TestResultHistoryReportModel**](TestResultHistoryReportModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetWorkItemsLinkedToAutoTest
 
 > []WorkItemIdentifierModel GetWorkItemsLinkedToAutoTest(ctx, id).IsDeleted(isDeleted).IsWorkItemDeleted(isWorkItemDeleted).Execute()
@@ -1250,7 +1152,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | Specifies the autotest entity ID.<br />  You can copy it from the address bar in your web browser or use autotest GUID.
+	id := "id_example" // string | Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.
 	isDeleted := true // bool | Specifies that a test is deleted or still relevant. (optional)
 	isWorkItemDeleted := true // bool | OBSOLETE: Use `isDeleted` instead (optional) (default to false)
 
@@ -1272,7 +1174,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Specifies the autotest entity ID.&lt;br /&gt;  You can copy it from the address bar in your web browser or use autotest GUID. | 
+**id** | **string** | Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID. | 
 
 ### Other Parameters
 
@@ -1325,7 +1227,7 @@ import (
 
 func main() {
 	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-	workItemIdModel := *openapiclient.NewWorkItemIdModel("82e92d6f-0258-416b-b2b4-039ea76601c7") // WorkItemIdModel |  (optional)
+	workItemIdModel := *openapiclient.NewWorkItemIdModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23") // WorkItemIdModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

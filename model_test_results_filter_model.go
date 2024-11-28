@@ -19,29 +19,22 @@ var _ MappedNullable = &TestResultsFilterModel{}
 
 // TestResultsFilterModel struct for TestResultsFilterModel
 type TestResultsFilterModel struct {
-	// Specifies a test result test run IDs to search for
-	TestRunIds []string `json:"testRunIds,omitempty"`
-	// Specifies an autotest global IDs to search results for
-	AutoTestGlobalIds []int64 `json:"autoTestGlobalIds,omitempty"`
-	// Specifies an autotest name to search results for
-	Name NullableString `json:"name,omitempty"`
-	CreatedDate NullableTestResultsFilterModelCreatedDate `json:"createdDate,omitempty"`
-	ModifiedDate NullableTestResultsFilterModelModifiedDate `json:"modifiedDate,omitempty"`
-	StartedOn NullableTestResultsFilterModelStartedOn `json:"startedOn,omitempty"`
-	CompletedOn NullableTestResultsFilterModelCompletedOn `json:"completedOn,omitempty"`
-	Duration NullableTestResultsFilterModelDuration `json:"duration,omitempty"`
-	// Specifies result reasons for searching test results
-	ResultReasons []string `json:"resultReasons,omitempty"`
-	// Specifies a test result configuration IDs to search for
 	ConfigurationIds []string `json:"configurationIds,omitempty"`
-	// Specifies a test result outcomes to search for
+	// Deprecated
 	Outcomes []TestResultOutcome `json:"outcomes,omitempty"`
-	// Specifies a test result failure categories to search for
+	StatusCodes []string `json:"statusCodes,omitempty"`
 	FailureCategories []FailureCategoryModel `json:"failureCategories,omitempty"`
-	// Specifies a test result namespace to search for
 	Namespace NullableString `json:"namespace,omitempty"`
-	// Specifies a test result class name to search for
 	ClassName NullableString `json:"className,omitempty"`
+	AutoTestGlobalIds []int64 `json:"autoTestGlobalIds,omitempty"`
+	Name NullableString `json:"name,omitempty"`
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	ModifiedDate NullableDateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
+	StartedOn NullableDateTimeRangeSelectorModel `json:"startedOn,omitempty"`
+	CompletedOn NullableDateTimeRangeSelectorModel `json:"completedOn,omitempty"`
+	Duration NullableInt64RangeSelectorModel `json:"duration,omitempty"`
+	ResultReasons []string `json:"resultReasons,omitempty"`
+	TestRunIds []string `json:"testRunIds,omitempty"`
 }
 
 // NewTestResultsFilterModel instantiates a new TestResultsFilterModel object
@@ -59,357 +52,6 @@ func NewTestResultsFilterModel() *TestResultsFilterModel {
 func NewTestResultsFilterModelWithDefaults() *TestResultsFilterModel {
 	this := TestResultsFilterModel{}
 	return &this
-}
-
-// GetTestRunIds returns the TestRunIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetTestRunIds() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.TestRunIds
-}
-
-// GetTestRunIdsOk returns a tuple with the TestRunIds field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetTestRunIdsOk() ([]string, bool) {
-	if o == nil || IsNil(o.TestRunIds) {
-		return nil, false
-	}
-	return o.TestRunIds, true
-}
-
-// HasTestRunIds returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasTestRunIds() bool {
-	if o != nil && IsNil(o.TestRunIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestRunIds gets a reference to the given []string and assigns it to the TestRunIds field.
-func (o *TestResultsFilterModel) SetTestRunIds(v []string) {
-	o.TestRunIds = v
-}
-
-// GetAutoTestGlobalIds returns the AutoTestGlobalIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetAutoTestGlobalIds() []int64 {
-	if o == nil {
-		var ret []int64
-		return ret
-	}
-	return o.AutoTestGlobalIds
-}
-
-// GetAutoTestGlobalIdsOk returns a tuple with the AutoTestGlobalIds field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetAutoTestGlobalIdsOk() ([]int64, bool) {
-	if o == nil || IsNil(o.AutoTestGlobalIds) {
-		return nil, false
-	}
-	return o.AutoTestGlobalIds, true
-}
-
-// HasAutoTestGlobalIds returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasAutoTestGlobalIds() bool {
-	if o != nil && IsNil(o.AutoTestGlobalIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetAutoTestGlobalIds gets a reference to the given []int64 and assigns it to the AutoTestGlobalIds field.
-func (o *TestResultsFilterModel) SetAutoTestGlobalIds(v []int64) {
-	o.AutoTestGlobalIds = v
-}
-
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Name.Get()
-}
-
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Name.Get(), o.Name.IsSet()
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *TestResultsFilterModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *TestResultsFilterModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *TestResultsFilterModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetCreatedDate() TestResultsFilterModelCreatedDate {
-	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret TestResultsFilterModelCreatedDate
-		return ret
-	}
-	return *o.CreatedDate.Get()
-}
-
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetCreatedDateOk() (*TestResultsFilterModelCreatedDate, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
-}
-
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasCreatedDate() bool {
-	if o != nil && o.CreatedDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCreatedDate gets a reference to the given NullableTestResultsFilterModelCreatedDate and assigns it to the CreatedDate field.
-func (o *TestResultsFilterModel) SetCreatedDate(v TestResultsFilterModelCreatedDate) {
-	o.CreatedDate.Set(&v)
-}
-// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
-func (o *TestResultsFilterModel) SetCreatedDateNil() {
-	o.CreatedDate.Set(nil)
-}
-
-// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
-func (o *TestResultsFilterModel) UnsetCreatedDate() {
-	o.CreatedDate.Unset()
-}
-
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetModifiedDate() TestResultsFilterModelModifiedDate {
-	if o == nil || IsNil(o.ModifiedDate.Get()) {
-		var ret TestResultsFilterModelModifiedDate
-		return ret
-	}
-	return *o.ModifiedDate.Get()
-}
-
-// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetModifiedDateOk() (*TestResultsFilterModelModifiedDate, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
-}
-
-// HasModifiedDate returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasModifiedDate() bool {
-	if o != nil && o.ModifiedDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetModifiedDate gets a reference to the given NullableTestResultsFilterModelModifiedDate and assigns it to the ModifiedDate field.
-func (o *TestResultsFilterModel) SetModifiedDate(v TestResultsFilterModelModifiedDate) {
-	o.ModifiedDate.Set(&v)
-}
-// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
-func (o *TestResultsFilterModel) SetModifiedDateNil() {
-	o.ModifiedDate.Set(nil)
-}
-
-// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
-func (o *TestResultsFilterModel) UnsetModifiedDate() {
-	o.ModifiedDate.Unset()
-}
-
-// GetStartedOn returns the StartedOn field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetStartedOn() TestResultsFilterModelStartedOn {
-	if o == nil || IsNil(o.StartedOn.Get()) {
-		var ret TestResultsFilterModelStartedOn
-		return ret
-	}
-	return *o.StartedOn.Get()
-}
-
-// GetStartedOnOk returns a tuple with the StartedOn field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetStartedOnOk() (*TestResultsFilterModelStartedOn, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.StartedOn.Get(), o.StartedOn.IsSet()
-}
-
-// HasStartedOn returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasStartedOn() bool {
-	if o != nil && o.StartedOn.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStartedOn gets a reference to the given NullableTestResultsFilterModelStartedOn and assigns it to the StartedOn field.
-func (o *TestResultsFilterModel) SetStartedOn(v TestResultsFilterModelStartedOn) {
-	o.StartedOn.Set(&v)
-}
-// SetStartedOnNil sets the value for StartedOn to be an explicit nil
-func (o *TestResultsFilterModel) SetStartedOnNil() {
-	o.StartedOn.Set(nil)
-}
-
-// UnsetStartedOn ensures that no value is present for StartedOn, not even an explicit nil
-func (o *TestResultsFilterModel) UnsetStartedOn() {
-	o.StartedOn.Unset()
-}
-
-// GetCompletedOn returns the CompletedOn field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetCompletedOn() TestResultsFilterModelCompletedOn {
-	if o == nil || IsNil(o.CompletedOn.Get()) {
-		var ret TestResultsFilterModelCompletedOn
-		return ret
-	}
-	return *o.CompletedOn.Get()
-}
-
-// GetCompletedOnOk returns a tuple with the CompletedOn field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetCompletedOnOk() (*TestResultsFilterModelCompletedOn, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CompletedOn.Get(), o.CompletedOn.IsSet()
-}
-
-// HasCompletedOn returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasCompletedOn() bool {
-	if o != nil && o.CompletedOn.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCompletedOn gets a reference to the given NullableTestResultsFilterModelCompletedOn and assigns it to the CompletedOn field.
-func (o *TestResultsFilterModel) SetCompletedOn(v TestResultsFilterModelCompletedOn) {
-	o.CompletedOn.Set(&v)
-}
-// SetCompletedOnNil sets the value for CompletedOn to be an explicit nil
-func (o *TestResultsFilterModel) SetCompletedOnNil() {
-	o.CompletedOn.Set(nil)
-}
-
-// UnsetCompletedOn ensures that no value is present for CompletedOn, not even an explicit nil
-func (o *TestResultsFilterModel) UnsetCompletedOn() {
-	o.CompletedOn.Unset()
-}
-
-// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetDuration() TestResultsFilterModelDuration {
-	if o == nil || IsNil(o.Duration.Get()) {
-		var ret TestResultsFilterModelDuration
-		return ret
-	}
-	return *o.Duration.Get()
-}
-
-// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetDurationOk() (*TestResultsFilterModelDuration, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Duration.Get(), o.Duration.IsSet()
-}
-
-// HasDuration returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasDuration() bool {
-	if o != nil && o.Duration.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDuration gets a reference to the given NullableTestResultsFilterModelDuration and assigns it to the Duration field.
-func (o *TestResultsFilterModel) SetDuration(v TestResultsFilterModelDuration) {
-	o.Duration.Set(&v)
-}
-// SetDurationNil sets the value for Duration to be an explicit nil
-func (o *TestResultsFilterModel) SetDurationNil() {
-	o.Duration.Set(nil)
-}
-
-// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
-func (o *TestResultsFilterModel) UnsetDuration() {
-	o.Duration.Unset()
-}
-
-// GetResultReasons returns the ResultReasons field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultsFilterModel) GetResultReasons() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.ResultReasons
-}
-
-// GetResultReasonsOk returns a tuple with the ResultReasons field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultsFilterModel) GetResultReasonsOk() ([]string, bool) {
-	if o == nil || IsNil(o.ResultReasons) {
-		return nil, false
-	}
-	return o.ResultReasons, true
-}
-
-// HasResultReasons returns a boolean if a field has been set.
-func (o *TestResultsFilterModel) HasResultReasons() bool {
-	if o != nil && IsNil(o.ResultReasons) {
-		return true
-	}
-
-	return false
-}
-
-// SetResultReasons gets a reference to the given []string and assigns it to the ResultReasons field.
-func (o *TestResultsFilterModel) SetResultReasons(v []string) {
-	o.ResultReasons = v
 }
 
 // GetConfigurationIds returns the ConfigurationIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -433,7 +75,7 @@ func (o *TestResultsFilterModel) GetConfigurationIdsOk() ([]string, bool) {
 
 // HasConfigurationIds returns a boolean if a field has been set.
 func (o *TestResultsFilterModel) HasConfigurationIds() bool {
-	if o != nil && IsNil(o.ConfigurationIds) {
+	if o != nil && !IsNil(o.ConfigurationIds) {
 		return true
 	}
 
@@ -446,6 +88,7 @@ func (o *TestResultsFilterModel) SetConfigurationIds(v []string) {
 }
 
 // GetOutcomes returns the Outcomes field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *TestResultsFilterModel) GetOutcomes() []TestResultOutcome {
 	if o == nil {
 		var ret []TestResultOutcome
@@ -457,6 +100,7 @@ func (o *TestResultsFilterModel) GetOutcomes() []TestResultOutcome {
 // GetOutcomesOk returns a tuple with the Outcomes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *TestResultsFilterModel) GetOutcomesOk() ([]TestResultOutcome, bool) {
 	if o == nil || IsNil(o.Outcomes) {
 		return nil, false
@@ -466,7 +110,7 @@ func (o *TestResultsFilterModel) GetOutcomesOk() ([]TestResultOutcome, bool) {
 
 // HasOutcomes returns a boolean if a field has been set.
 func (o *TestResultsFilterModel) HasOutcomes() bool {
-	if o != nil && IsNil(o.Outcomes) {
+	if o != nil && !IsNil(o.Outcomes) {
 		return true
 	}
 
@@ -474,8 +118,42 @@ func (o *TestResultsFilterModel) HasOutcomes() bool {
 }
 
 // SetOutcomes gets a reference to the given []TestResultOutcome and assigns it to the Outcomes field.
+// Deprecated
 func (o *TestResultsFilterModel) SetOutcomes(v []TestResultOutcome) {
 	o.Outcomes = v
+}
+
+// GetStatusCodes returns the StatusCodes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetStatusCodes() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.StatusCodes
+}
+
+// GetStatusCodesOk returns a tuple with the StatusCodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetStatusCodesOk() ([]string, bool) {
+	if o == nil || IsNil(o.StatusCodes) {
+		return nil, false
+	}
+	return o.StatusCodes, true
+}
+
+// HasStatusCodes returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasStatusCodes() bool {
+	if o != nil && !IsNil(o.StatusCodes) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusCodes gets a reference to the given []string and assigns it to the StatusCodes field.
+func (o *TestResultsFilterModel) SetStatusCodes(v []string) {
+	o.StatusCodes = v
 }
 
 // GetFailureCategories returns the FailureCategories field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -499,7 +177,7 @@ func (o *TestResultsFilterModel) GetFailureCategoriesOk() ([]FailureCategoryMode
 
 // HasFailureCategories returns a boolean if a field has been set.
 func (o *TestResultsFilterModel) HasFailureCategories() bool {
-	if o != nil && IsNil(o.FailureCategories) {
+	if o != nil && !IsNil(o.FailureCategories) {
 		return true
 	}
 
@@ -595,6 +273,357 @@ func (o *TestResultsFilterModel) UnsetClassName() {
 	o.ClassName.Unset()
 }
 
+// GetAutoTestGlobalIds returns the AutoTestGlobalIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetAutoTestGlobalIds() []int64 {
+	if o == nil {
+		var ret []int64
+		return ret
+	}
+	return o.AutoTestGlobalIds
+}
+
+// GetAutoTestGlobalIdsOk returns a tuple with the AutoTestGlobalIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetAutoTestGlobalIdsOk() ([]int64, bool) {
+	if o == nil || IsNil(o.AutoTestGlobalIds) {
+		return nil, false
+	}
+	return o.AutoTestGlobalIds, true
+}
+
+// HasAutoTestGlobalIds returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasAutoTestGlobalIds() bool {
+	if o != nil && !IsNil(o.AutoTestGlobalIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestGlobalIds gets a reference to the given []int64 and assigns it to the AutoTestGlobalIds field.
+func (o *TestResultsFilterModel) SetAutoTestGlobalIds(v []int64) {
+	o.AutoTestGlobalIds = v
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetName() string {
+	if o == nil || IsNil(o.Name.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Name.Get()
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Name.Get(), o.Name.IsSet()
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
+func (o *TestResultsFilterModel) SetName(v string) {
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *TestResultsFilterModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *TestResultsFilterModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
+	if o == nil || IsNil(o.CreatedDate.Get()) {
+		var ret DateTimeRangeSelectorModel
+		return ret
+	}
+	return *o.CreatedDate.Get()
+}
+
+// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
+}
+
+// HasCreatedDate returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasCreatedDate() bool {
+	if o != nil && o.CreatedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+func (o *TestResultsFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
+	o.CreatedDate.Set(&v)
+}
+// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+func (o *TestResultsFilterModel) SetCreatedDateNil() {
+	o.CreatedDate.Set(nil)
+}
+
+// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+func (o *TestResultsFilterModel) UnsetCreatedDate() {
+	o.CreatedDate.Unset()
+}
+
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetModifiedDate() DateTimeRangeSelectorModel {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret DateTimeRangeSelectorModel
+		return ret
+	}
+	return *o.ModifiedDate.Get()
+}
+
+// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
+}
+
+// HasModifiedDate returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasModifiedDate() bool {
+	if o != nil && o.ModifiedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
+func (o *TestResultsFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *TestResultsFilterModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *TestResultsFilterModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
+}
+
+// GetStartedOn returns the StartedOn field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetStartedOn() DateTimeRangeSelectorModel {
+	if o == nil || IsNil(o.StartedOn.Get()) {
+		var ret DateTimeRangeSelectorModel
+		return ret
+	}
+	return *o.StartedOn.Get()
+}
+
+// GetStartedOnOk returns a tuple with the StartedOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetStartedOnOk() (*DateTimeRangeSelectorModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StartedOn.Get(), o.StartedOn.IsSet()
+}
+
+// HasStartedOn returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasStartedOn() bool {
+	if o != nil && o.StartedOn.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStartedOn gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the StartedOn field.
+func (o *TestResultsFilterModel) SetStartedOn(v DateTimeRangeSelectorModel) {
+	o.StartedOn.Set(&v)
+}
+// SetStartedOnNil sets the value for StartedOn to be an explicit nil
+func (o *TestResultsFilterModel) SetStartedOnNil() {
+	o.StartedOn.Set(nil)
+}
+
+// UnsetStartedOn ensures that no value is present for StartedOn, not even an explicit nil
+func (o *TestResultsFilterModel) UnsetStartedOn() {
+	o.StartedOn.Unset()
+}
+
+// GetCompletedOn returns the CompletedOn field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetCompletedOn() DateTimeRangeSelectorModel {
+	if o == nil || IsNil(o.CompletedOn.Get()) {
+		var ret DateTimeRangeSelectorModel
+		return ret
+	}
+	return *o.CompletedOn.Get()
+}
+
+// GetCompletedOnOk returns a tuple with the CompletedOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetCompletedOnOk() (*DateTimeRangeSelectorModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CompletedOn.Get(), o.CompletedOn.IsSet()
+}
+
+// HasCompletedOn returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasCompletedOn() bool {
+	if o != nil && o.CompletedOn.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCompletedOn gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CompletedOn field.
+func (o *TestResultsFilterModel) SetCompletedOn(v DateTimeRangeSelectorModel) {
+	o.CompletedOn.Set(&v)
+}
+// SetCompletedOnNil sets the value for CompletedOn to be an explicit nil
+func (o *TestResultsFilterModel) SetCompletedOnNil() {
+	o.CompletedOn.Set(nil)
+}
+
+// UnsetCompletedOn ensures that no value is present for CompletedOn, not even an explicit nil
+func (o *TestResultsFilterModel) UnsetCompletedOn() {
+	o.CompletedOn.Unset()
+}
+
+// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetDuration() Int64RangeSelectorModel {
+	if o == nil || IsNil(o.Duration.Get()) {
+		var ret Int64RangeSelectorModel
+		return ret
+	}
+	return *o.Duration.Get()
+}
+
+// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetDurationOk() (*Int64RangeSelectorModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Duration.Get(), o.Duration.IsSet()
+}
+
+// HasDuration returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasDuration() bool {
+	if o != nil && o.Duration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDuration gets a reference to the given NullableInt64RangeSelectorModel and assigns it to the Duration field.
+func (o *TestResultsFilterModel) SetDuration(v Int64RangeSelectorModel) {
+	o.Duration.Set(&v)
+}
+// SetDurationNil sets the value for Duration to be an explicit nil
+func (o *TestResultsFilterModel) SetDurationNil() {
+	o.Duration.Set(nil)
+}
+
+// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+func (o *TestResultsFilterModel) UnsetDuration() {
+	o.Duration.Unset()
+}
+
+// GetResultReasons returns the ResultReasons field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetResultReasons() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ResultReasons
+}
+
+// GetResultReasonsOk returns a tuple with the ResultReasons field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetResultReasonsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ResultReasons) {
+		return nil, false
+	}
+	return o.ResultReasons, true
+}
+
+// HasResultReasons returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasResultReasons() bool {
+	if o != nil && !IsNil(o.ResultReasons) {
+		return true
+	}
+
+	return false
+}
+
+// SetResultReasons gets a reference to the given []string and assigns it to the ResultReasons field.
+func (o *TestResultsFilterModel) SetResultReasons(v []string) {
+	o.ResultReasons = v
+}
+
+// GetTestRunIds returns the TestRunIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterModel) GetTestRunIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.TestRunIds
+}
+
+// GetTestRunIdsOk returns a tuple with the TestRunIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterModel) GetTestRunIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.TestRunIds) {
+		return nil, false
+	}
+	return o.TestRunIds, true
+}
+
+// HasTestRunIds returns a boolean if a field has been set.
+func (o *TestResultsFilterModel) HasTestRunIds() bool {
+	if o != nil && !IsNil(o.TestRunIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetTestRunIds gets a reference to the given []string and assigns it to the TestRunIds field.
+func (o *TestResultsFilterModel) SetTestRunIds(v []string) {
+	o.TestRunIds = v
+}
+
 func (o TestResultsFilterModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -605,8 +634,23 @@ func (o TestResultsFilterModel) MarshalJSON() ([]byte, error) {
 
 func (o TestResultsFilterModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.TestRunIds != nil {
-		toSerialize["testRunIds"] = o.TestRunIds
+	if o.ConfigurationIds != nil {
+		toSerialize["configurationIds"] = o.ConfigurationIds
+	}
+	if o.Outcomes != nil {
+		toSerialize["outcomes"] = o.Outcomes
+	}
+	if o.StatusCodes != nil {
+		toSerialize["statusCodes"] = o.StatusCodes
+	}
+	if o.FailureCategories != nil {
+		toSerialize["failureCategories"] = o.FailureCategories
+	}
+	if o.Namespace.IsSet() {
+		toSerialize["namespace"] = o.Namespace.Get()
+	}
+	if o.ClassName.IsSet() {
+		toSerialize["className"] = o.ClassName.Get()
 	}
 	if o.AutoTestGlobalIds != nil {
 		toSerialize["autoTestGlobalIds"] = o.AutoTestGlobalIds
@@ -632,20 +676,8 @@ func (o TestResultsFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.ResultReasons != nil {
 		toSerialize["resultReasons"] = o.ResultReasons
 	}
-	if o.ConfigurationIds != nil {
-		toSerialize["configurationIds"] = o.ConfigurationIds
-	}
-	if o.Outcomes != nil {
-		toSerialize["outcomes"] = o.Outcomes
-	}
-	if o.FailureCategories != nil {
-		toSerialize["failureCategories"] = o.FailureCategories
-	}
-	if o.Namespace.IsSet() {
-		toSerialize["namespace"] = o.Namespace.Get()
-	}
-	if o.ClassName.IsSet() {
-		toSerialize["className"] = o.ClassName.Get()
+	if o.TestRunIds != nil {
+		toSerialize["testRunIds"] = o.TestRunIds
 	}
 	return toSerialize, nil
 }

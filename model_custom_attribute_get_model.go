@@ -25,6 +25,7 @@ type CustomAttributeGetModel struct {
 	Id string `json:"id"`
 	// Collection of the attribute options
 	Options []CustomAttributeOptionModel `json:"options"`
+	// Type of the attribute
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Indicates if the attribute is deleted
 	IsDeleted bool `json:"isDeleted"`

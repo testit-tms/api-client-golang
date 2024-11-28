@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConfigurationIds** | Pointer to **[]string** | Specifies a test result configuration IDs to search for | [optional] 
 **Outcomes** | Pointer to [**[]TestResultOutcome**](TestResultOutcome.md) | Specifies a test result outcomes to search for | [optional] 
+**StatusCodes** | Pointer to **[]string** | Specifies a test result status codes to search for | [optional] 
 **FailureCategories** | Pointer to [**[]FailureCategoryModel**](FailureCategoryModel.md) | Specifies a test result failure categories to search for | [optional] 
 **Namespace** | Pointer to **NullableString** | Specifies a test result namespace to search for | [optional] 
 **ClassName** | Pointer to **NullableString** | Specifies a test result class name to search for | [optional] 
@@ -99,6 +100,41 @@ HasOutcomes returns a boolean if a field has been set.
 `func (o *TestResultsLocalFilterModel) UnsetOutcomes()`
 
 UnsetOutcomes ensures that no value is present for Outcomes, not even an explicit nil
+### GetStatusCodes
+
+`func (o *TestResultsLocalFilterModel) GetStatusCodes() []string`
+
+GetStatusCodes returns the StatusCodes field if non-nil, zero value otherwise.
+
+### GetStatusCodesOk
+
+`func (o *TestResultsLocalFilterModel) GetStatusCodesOk() (*[]string, bool)`
+
+GetStatusCodesOk returns a tuple with the StatusCodes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusCodes
+
+`func (o *TestResultsLocalFilterModel) SetStatusCodes(v []string)`
+
+SetStatusCodes sets StatusCodes field to given value.
+
+### HasStatusCodes
+
+`func (o *TestResultsLocalFilterModel) HasStatusCodes() bool`
+
+HasStatusCodes returns a boolean if a field has been set.
+
+### SetStatusCodesNil
+
+`func (o *TestResultsLocalFilterModel) SetStatusCodesNil(b bool)`
+
+ SetStatusCodesNil sets the value for StatusCodes to be an explicit nil
+
+### UnsetStatusCodes
+`func (o *TestResultsLocalFilterModel) UnsetStatusCodes()`
+
+UnsetStatusCodes ensures that no value is present for StatusCodes, not even an explicit nil
 ### GetFailureCategories
 
 `func (o *TestResultsLocalFilterModel) GetFailureCategories() []FailureCategoryModel`

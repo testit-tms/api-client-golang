@@ -76,7 +76,7 @@ func (o *TestSuiteWithChildrenModel) GetChildrenOk() ([]TestSuiteWithChildrenMod
 
 // HasChildren returns a boolean if a field has been set.
 func (o *TestSuiteWithChildrenModel) HasChildren() bool {
-	if o != nil && IsNil(o.Children) {
+	if o != nil && !IsNil(o.Children) {
 		return true
 	}
 

@@ -23,8 +23,9 @@ var _ MappedNullable = &CustomAttributePutModel{}
 type CustomAttributePutModel struct {
 	// Unique ID of the attribute
 	Id string `json:"id"`
-	// Collection of the attribute options  <br />  Available for attributes of type `options` and `multiple options` only
+	// Collection of the attribute options     Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionModel `json:"options,omitempty"`
+	// Type of the attribute
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Indicates if the entity is deleted
 	IsDeleted bool `json:"isDeleted"`
@@ -109,7 +110,7 @@ func (o *CustomAttributePutModel) GetOptionsOk() ([]CustomAttributeOptionModel, 
 
 // HasOptions returns a boolean if a field has been set.
 func (o *CustomAttributePutModel) HasOptions() bool {
-	if o != nil && IsNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 

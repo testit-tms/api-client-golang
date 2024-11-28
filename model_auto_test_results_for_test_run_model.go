@@ -30,6 +30,7 @@ type AutoTestResultsForTestRunModel struct {
 	FailureReasonNames []FailureCategoryModel `json:"failureReasonNames,omitempty"`
 	// Specifies the external ID of the autotest, which was specified when the test run was created.
 	AutoTestExternalId string `json:"autoTestExternalId"`
+	// Specifies the result of the autotest execution.
 	Outcome AvailableTestResultOutcome `json:"outcome"`
 	// A comment for the result.
 	Message NullableString `json:"message,omitempty"`
@@ -122,7 +123,7 @@ func (o *AutoTestResultsForTestRunModel) GetLinksOk() ([]LinkPostModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -155,7 +156,7 @@ func (o *AutoTestResultsForTestRunModel) GetFailureReasonNamesOk() ([]FailureCat
 
 // HasFailureReasonNames returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasFailureReasonNames() bool {
-	if o != nil && IsNil(o.FailureReasonNames) {
+	if o != nil && !IsNil(o.FailureReasonNames) {
 		return true
 	}
 
@@ -446,7 +447,7 @@ func (o *AutoTestResultsForTestRunModel) GetAttachmentsOk() ([]AttachmentPutMode
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -479,7 +480,7 @@ func (o *AutoTestResultsForTestRunModel) GetParametersOk() (*map[string]string, 
 
 // HasParameters returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 
@@ -512,7 +513,7 @@ func (o *AutoTestResultsForTestRunModel) GetPropertiesOk() (*map[string]string, 
 
 // HasProperties returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasProperties() bool {
-	if o != nil && IsNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
@@ -545,7 +546,7 @@ func (o *AutoTestResultsForTestRunModel) GetStepResultsOk() ([]AttachmentPutMode
 
 // HasStepResults returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasStepResults() bool {
-	if o != nil && IsNil(o.StepResults) {
+	if o != nil && !IsNil(o.StepResults) {
 		return true
 	}
 
@@ -578,7 +579,7 @@ func (o *AutoTestResultsForTestRunModel) GetSetupResultsOk() ([]AttachmentPutMod
 
 // HasSetupResults returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasSetupResults() bool {
-	if o != nil && IsNil(o.SetupResults) {
+	if o != nil && !IsNil(o.SetupResults) {
 		return true
 	}
 
@@ -611,7 +612,7 @@ func (o *AutoTestResultsForTestRunModel) GetTeardownResultsOk() ([]AttachmentPut
 
 // HasTeardownResults returns a boolean if a field has been set.
 func (o *AutoTestResultsForTestRunModel) HasTeardownResults() bool {
-	if o != nil && IsNil(o.TeardownResults) {
+	if o != nil && !IsNil(o.TeardownResults) {
 		return true
 	}
 

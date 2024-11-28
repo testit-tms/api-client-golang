@@ -121,7 +121,7 @@ func (o *PublicTestPointModel) GetAutoTestIdsOk() ([]string, bool) {
 
 // HasAutoTestIds returns a boolean if a field has been set.
 func (o *PublicTestPointModel) HasAutoTestIds() bool {
-	if o != nil && IsNil(o.AutoTestIds) {
+	if o != nil && !IsNil(o.AutoTestIds) {
 		return true
 	}
 
@@ -178,7 +178,7 @@ func (o *PublicTestPointModel) GetParameterModelsOk() ([]ParameterShortModel, bo
 
 // HasParameterModels returns a boolean if a field has been set.
 func (o *PublicTestPointModel) HasParameterModels() bool {
-	if o != nil && IsNil(o.ParameterModels) {
+	if o != nil && !IsNil(o.ParameterModels) {
 		return true
 	}
 

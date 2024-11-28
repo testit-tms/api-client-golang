@@ -190,7 +190,7 @@ func (o *CustomAttributeChangeModel) GetOldValueOk() (*interface{}, bool) {
 
 // HasOldValue returns a boolean if a field has been set.
 func (o *CustomAttributeChangeModel) HasOldValue() bool {
-	if o != nil && IsNil(o.OldValue) {
+	if o != nil && !IsNil(o.OldValue) {
 		return true
 	}
 
@@ -223,7 +223,7 @@ func (o *CustomAttributeChangeModel) GetNewValueOk() (*interface{}, bool) {
 
 // HasNewValue returns a boolean if a field has been set.
 func (o *CustomAttributeChangeModel) HasNewValue() bool {
-	if o != nil && IsNil(o.NewValue) {
+	if o != nil && !IsNil(o.NewValue) {
 		return true
 	}
 

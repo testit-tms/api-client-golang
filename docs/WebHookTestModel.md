@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
+**RequestType** | [**RequestTypeModel**](RequestTypeModel.md) | Request method of the webhook | 
 **Url** | **string** | Request URL of the webhook | 
 
 ## Methods

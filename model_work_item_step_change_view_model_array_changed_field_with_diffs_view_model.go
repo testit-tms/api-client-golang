@@ -62,7 +62,7 @@ func (o *WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel) GetDiff
 
 // HasDiffValue returns a boolean if a field has been set.
 func (o *WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel) HasDiffValue() bool {
-	if o != nil && IsNil(o.DiffValue) {
+	if o != nil && !IsNil(o.DiffValue) {
 		return true
 	}
 
@@ -95,7 +95,7 @@ func (o *WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel) GetOldV
 
 // HasOldValue returns a boolean if a field has been set.
 func (o *WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel) HasOldValue() bool {
-	if o != nil && IsNil(o.OldValue) {
+	if o != nil && !IsNil(o.OldValue) {
 		return true
 	}
 
@@ -128,7 +128,7 @@ func (o *WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel) GetNewV
 
 // HasNewValue returns a boolean if a field has been set.
 func (o *WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel) HasNewValue() bool {
-	if o != nil && IsNil(o.NewValue) {
+	if o != nil && !IsNil(o.NewValue) {
 		return true
 	}
 

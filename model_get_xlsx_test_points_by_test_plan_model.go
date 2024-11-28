@@ -377,7 +377,7 @@ func (o *GetXlsxTestPointsByTestPlanModel) GetCustomAttributesIdsOk() ([]string,
 
 // HasCustomAttributesIds returns a boolean if a field has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) HasCustomAttributesIds() bool {
-	if o != nil && IsNil(o.CustomAttributesIds) {
+	if o != nil && !IsNil(o.CustomAttributesIds) {
 		return true
 	}
 
@@ -410,7 +410,7 @@ func (o *GetXlsxTestPointsByTestPlanModel) GetConfigurationIdsOk() ([]string, bo
 
 // HasConfigurationIds returns a boolean if a field has been set.
 func (o *GetXlsxTestPointsByTestPlanModel) HasConfigurationIds() bool {
-	if o != nil && IsNil(o.ConfigurationIds) {
+	if o != nil && !IsNil(o.ConfigurationIds) {
 		return true
 	}
 

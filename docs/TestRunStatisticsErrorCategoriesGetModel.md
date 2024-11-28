@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NoAnalytics** | **int32** | Number of test results which outcomes were not analyzed | 
-**NoDefect** | **int32** | Number of test results which outcomes were not caused by any defect | 
 **InfrastructureDefect** | **int32** | Number of test results which outcomes were caused by some infrastructure defect | 
 **ProductDefect** | **int32** | Number of test results which outcomes were caused by some tested product defect | 
 **TestDefect** | **int32** | Number of test results which outcomes were caused by test itself | 
@@ -14,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewTestRunStatisticsErrorCategoriesGetModel
 
-`func NewTestRunStatisticsErrorCategoriesGetModel(noAnalytics int32, noDefect int32, infrastructureDefect int32, productDefect int32, testDefect int32, ) *TestRunStatisticsErrorCategoriesGetModel`
+`func NewTestRunStatisticsErrorCategoriesGetModel(infrastructureDefect int32, productDefect int32, testDefect int32, ) *TestRunStatisticsErrorCategoriesGetModel`
 
 NewTestRunStatisticsErrorCategoriesGetModel instantiates a new TestRunStatisticsErrorCategoriesGetModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,46 +26,6 @@ will change when the set of required properties is changed
 NewTestRunStatisticsErrorCategoriesGetModelWithDefaults instantiates a new TestRunStatisticsErrorCategoriesGetModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetNoAnalytics
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoAnalytics() int32`
-
-GetNoAnalytics returns the NoAnalytics field if non-nil, zero value otherwise.
-
-### GetNoAnalyticsOk
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoAnalyticsOk() (*int32, bool)`
-
-GetNoAnalyticsOk returns a tuple with the NoAnalytics field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNoAnalytics
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) SetNoAnalytics(v int32)`
-
-SetNoAnalytics sets NoAnalytics field to given value.
-
-
-### GetNoDefect
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoDefect() int32`
-
-GetNoDefect returns the NoDefect field if non-nil, zero value otherwise.
-
-### GetNoDefectOk
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoDefectOk() (*int32, bool)`
-
-GetNoDefectOk returns a tuple with the NoDefect field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNoDefect
-
-`func (o *TestRunStatisticsErrorCategoriesGetModel) SetNoDefect(v int32)`
-
-SetNoDefect sets NoDefect field to given value.
-
 
 ### GetInfrastructureDefect
 

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Links** | [**[]LinkModel**](LinkModel.md) |  | 
 **CustomParameters** | Pointer to **map[string]string** |  | [optional] 
 **Webhooks** | [**[]NamedEntityModel**](NamedEntityModel.md) |  | 
+**RunCount** | **int32** |  | 
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -28,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewTestRunV2GetModel
 
-`func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, webhooks []NamedEntityModel, id string, name string, ) *TestRunV2GetModel`
+`func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, webhooks []NamedEntityModel, runCount int32, id string, name string, ) *TestRunV2GetModel`
 
 NewTestRunV2GetModel instantiates a new TestRunV2GetModel object
 This constructor will assign default values to properties that have it defined,
@@ -461,6 +462,26 @@ and a boolean to check if the value has been set.
 `func (o *TestRunV2GetModel) SetWebhooks(v []NamedEntityModel)`
 
 SetWebhooks sets Webhooks field to given value.
+
+
+### GetRunCount
+
+`func (o *TestRunV2GetModel) GetRunCount() int32`
+
+GetRunCount returns the RunCount field if non-nil, zero value otherwise.
+
+### GetRunCountOk
+
+`func (o *TestRunV2GetModel) GetRunCountOk() (*int32, bool)`
+
+GetRunCountOk returns a tuple with the RunCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRunCount
+
+`func (o *TestRunV2GetModel) SetRunCount(v int32)`
+
+SetRunCount sets RunCount field to given value.
 
 
 ### GetId

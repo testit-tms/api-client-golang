@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | [**WorkItemFilterModel**](WorkItemFilterModel.md) |  | 
-**ExtractionModel** | Pointer to [**NullableWorkItemLocalSelectModelExtractionModel**](WorkItemLocalSelectModelExtractionModel.md) |  | [optional] 
+**Filter** | [**WorkItemFilterModel**](WorkItemFilterModel.md) | Collection of filters to apply to search | 
+**ExtractionModel** | Pointer to [**NullableWorkItemExtractionModel**](WorkItemExtractionModel.md) | Rules for different level entities inclusion/exclusion | [optional] 
 
 ## Methods
 
@@ -48,20 +48,20 @@ SetFilter sets Filter field to given value.
 
 ### GetExtractionModel
 
-`func (o *WorkItemSelectModel) GetExtractionModel() WorkItemLocalSelectModelExtractionModel`
+`func (o *WorkItemSelectModel) GetExtractionModel() WorkItemExtractionModel`
 
 GetExtractionModel returns the ExtractionModel field if non-nil, zero value otherwise.
 
 ### GetExtractionModelOk
 
-`func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemLocalSelectModelExtractionModel, bool)`
+`func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemExtractionModel, bool)`
 
 GetExtractionModelOk returns a tuple with the ExtractionModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExtractionModel
 
-`func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemLocalSelectModelExtractionModel)`
+`func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemExtractionModel)`
 
 SetExtractionModel sets ExtractionModel field to given value.
 

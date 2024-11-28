@@ -21,6 +21,7 @@ var _ MappedNullable = &TestRunUpdateMultipleModel{}
 
 // TestRunUpdateMultipleModel struct for TestRunUpdateMultipleModel
 type TestRunUpdateMultipleModel struct {
+	// Model containing options to filter test runs
 	SelectModel TestRunSelectModel `json:"selectModel"`
 	Description NullableString `json:"description,omitempty"`
 	AttachmentUpdateScheme UpdateAttachmentShortModel `json:"attachmentUpdateScheme"`

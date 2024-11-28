@@ -34,7 +34,7 @@ Method | HTTP request | Description
 
 ## ApiV2WorkItemsIdAttachmentsPost
 
-> string ApiV2WorkItemsIdAttachmentsPost(ctx, id).File(file).Execute()
+> ApiV2WorkItemsIdAttachmentsPost(ctx, id).File(file).Execute()
 
 Upload and link attachment to WorkItem
 
@@ -58,13 +58,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdAttachmentsPost(context.Background(), id).File(file).Execute()
+	r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdAttachmentsPost(context.Background(), id).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdAttachmentsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkItemsIdAttachmentsPost`: string
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdAttachmentsPost`: %v\n", resp)
 }
 ```
 
@@ -88,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+ (empty response body)
 
 ### Authorization
 
@@ -532,7 +530,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsIdTestResultsHistoryGet
 
-> []TestResultHistoryReportModel ApiV2WorkItemsIdTestResultsHistoryGet(ctx, id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TestResultHistoryResponse ApiV2WorkItemsIdTestResultsHistoryGet(ctx, id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get test results history of WorkItem
 
@@ -575,7 +573,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkItemsIdTestResultsHistoryGet`: []TestResultHistoryReportModel
+	// response from `ApiV2WorkItemsIdTestResultsHistoryGet`: []TestResultHistoryResponse
 	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet`: %v\n", resp)
 }
 ```
@@ -613,7 +611,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestResultHistoryReportModel**](TestResultHistoryReportModel.md)
+[**[]TestResultHistoryResponse**](TestResultHistoryResponse.md)
 
 ### Authorization
 
@@ -1097,7 +1095,7 @@ import (
 )
 
 func main() {
-	workItemPostModel := *openapiclient.NewWorkItemPostModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPostModel{*openapiclient.NewTagPostModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "82e92d6f-0258-416b-b2b4-039ea76601c7", "82e92d6f-0258-416b-b2b4-039ea76601c7") // WorkItemPostModel |  (optional)
+	workItemPostModel := *openapiclient.NewWorkItemPostModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPostModel{*openapiclient.NewTagPostModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "3e5a61f5-bb50-44f4-8898-6dda6d40fe23", "3e5a61f5-bb50-44f4-8898-6dda6d40fe23") // WorkItemPostModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1791,7 +1789,7 @@ import (
 )
 
 func main() {
-	workItemPutModel := *openapiclient.NewWorkItemPutModel([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "82e92d6f-0258-416b-b2b4-039ea76601c7", "82e92d6f-0258-416b-b2b4-039ea76601c7", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPutModel{*openapiclient.NewTagPutModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // WorkItemPutModel |  (optional)
+	workItemPutModel := *openapiclient.NewWorkItemPutModel([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "3e5a61f5-bb50-44f4-8898-6dda6d40fe23", "3e5a61f5-bb50-44f4-8898-6dda6d40fe23", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPutModel{*openapiclient.NewTagPutModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // WorkItemPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

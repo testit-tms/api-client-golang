@@ -376,7 +376,7 @@ func (o *PublicTestRunModel) GetCustomParametersOk() (*map[string]string, bool) 
 
 // HasCustomParameters returns a boolean if a field has been set.
 func (o *PublicTestRunModel) HasCustomParameters() bool {
-	if o != nil && IsNil(o.CustomParameters) {
+	if o != nil && !IsNil(o.CustomParameters) {
 		return true
 	}
 
