@@ -148,7 +148,7 @@ func (o *TestPlanPutModel) GetTagsOk() ([]TagPostModel, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *TestPlanPutModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 

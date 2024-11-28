@@ -21,8 +21,10 @@ var _ MappedNullable = &TestResultsStatisticsGetModel{}
 
 // TestResultsStatisticsGetModel struct for TestResultsStatisticsGetModel
 type TestResultsStatisticsGetModel struct {
-	Statuses TestResultsStatisticsGetModelStatuses `json:"statuses"`
-	FailureCategories TestResultsStatisticsGetModelFailureCategories `json:"failureCategories"`
+	// Test results counts aggregated by outcome
+	Statuses TestRunStatisticsStatusesGetModel `json:"statuses"`
+	// Test results counts aggregated by result failure categories
+	FailureCategories TestRunStatisticsErrorCategoriesGetModel `json:"failureCategories"`
 }
 
 type _TestResultsStatisticsGetModel TestResultsStatisticsGetModel
@@ -31,7 +33,7 @@ type _TestResultsStatisticsGetModel TestResultsStatisticsGetModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultsStatisticsGetModel(statuses TestResultsStatisticsGetModelStatuses, failureCategories TestResultsStatisticsGetModelFailureCategories) *TestResultsStatisticsGetModel {
+func NewTestResultsStatisticsGetModel(statuses TestRunStatisticsStatusesGetModel, failureCategories TestRunStatisticsErrorCategoriesGetModel) *TestResultsStatisticsGetModel {
 	this := TestResultsStatisticsGetModel{}
 	this.Statuses = statuses
 	this.FailureCategories = failureCategories
@@ -47,9 +49,9 @@ func NewTestResultsStatisticsGetModelWithDefaults() *TestResultsStatisticsGetMod
 }
 
 // GetStatuses returns the Statuses field value
-func (o *TestResultsStatisticsGetModel) GetStatuses() TestResultsStatisticsGetModelStatuses {
+func (o *TestResultsStatisticsGetModel) GetStatuses() TestRunStatisticsStatusesGetModel {
 	if o == nil {
-		var ret TestResultsStatisticsGetModelStatuses
+		var ret TestRunStatisticsStatusesGetModel
 		return ret
 	}
 
@@ -58,7 +60,7 @@ func (o *TestResultsStatisticsGetModel) GetStatuses() TestResultsStatisticsGetMo
 
 // GetStatusesOk returns a tuple with the Statuses field value
 // and a boolean to check if the value has been set.
-func (o *TestResultsStatisticsGetModel) GetStatusesOk() (*TestResultsStatisticsGetModelStatuses, bool) {
+func (o *TestResultsStatisticsGetModel) GetStatusesOk() (*TestRunStatisticsStatusesGetModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,14 +68,14 @@ func (o *TestResultsStatisticsGetModel) GetStatusesOk() (*TestResultsStatisticsG
 }
 
 // SetStatuses sets field value
-func (o *TestResultsStatisticsGetModel) SetStatuses(v TestResultsStatisticsGetModelStatuses) {
+func (o *TestResultsStatisticsGetModel) SetStatuses(v TestRunStatisticsStatusesGetModel) {
 	o.Statuses = v
 }
 
 // GetFailureCategories returns the FailureCategories field value
-func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestResultsStatisticsGetModelFailureCategories {
+func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestRunStatisticsErrorCategoriesGetModel {
 	if o == nil {
-		var ret TestResultsStatisticsGetModelFailureCategories
+		var ret TestRunStatisticsErrorCategoriesGetModel
 		return ret
 	}
 
@@ -82,7 +84,7 @@ func (o *TestResultsStatisticsGetModel) GetFailureCategories() TestResultsStatis
 
 // GetFailureCategoriesOk returns a tuple with the FailureCategories field value
 // and a boolean to check if the value has been set.
-func (o *TestResultsStatisticsGetModel) GetFailureCategoriesOk() (*TestResultsStatisticsGetModelFailureCategories, bool) {
+func (o *TestResultsStatisticsGetModel) GetFailureCategoriesOk() (*TestRunStatisticsErrorCategoriesGetModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +92,7 @@ func (o *TestResultsStatisticsGetModel) GetFailureCategoriesOk() (*TestResultsSt
 }
 
 // SetFailureCategories sets field value
-func (o *TestResultsStatisticsGetModel) SetFailureCategories(v TestResultsStatisticsGetModelFailureCategories) {
+func (o *TestResultsStatisticsGetModel) SetFailureCategories(v TestRunStatisticsErrorCategoriesGetModel) {
 	o.FailureCategories = v
 }
 

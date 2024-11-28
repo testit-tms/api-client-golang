@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SelectModel** | Pointer to [**NullableWorkItemGroupGetModelSelectModel**](WorkItemGroupGetModelSelectModel.md) |  | [optional] 
+**SelectModel** | Pointer to [**NullableWorkItemLocalSelectModel**](WorkItemLocalSelectModel.md) | Model containing options to filter work items | [optional] 
 **GroupType** | [**WorkItemGroupType**](WorkItemGroupType.md) |  | 
 **CustomAttributeId** | Pointer to **NullableString** |  | [optional] 
 
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSelectModel
 
-`func (o *WorkItemGroupGetModel) GetSelectModel() WorkItemGroupGetModelSelectModel`
+`func (o *WorkItemGroupGetModel) GetSelectModel() WorkItemLocalSelectModel`
 
 GetSelectModel returns the SelectModel field if non-nil, zero value otherwise.
 
 ### GetSelectModelOk
 
-`func (o *WorkItemGroupGetModel) GetSelectModelOk() (*WorkItemGroupGetModelSelectModel, bool)`
+`func (o *WorkItemGroupGetModel) GetSelectModelOk() (*WorkItemLocalSelectModel, bool)`
 
 GetSelectModelOk returns a tuple with the SelectModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSelectModel
 
-`func (o *WorkItemGroupGetModel) SetSelectModel(v WorkItemGroupGetModelSelectModel)`
+`func (o *WorkItemGroupGetModel) SetSelectModel(v WorkItemLocalSelectModel)`
 
 SetSelectModel sets SelectModel field to given value.
 

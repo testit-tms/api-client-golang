@@ -113,7 +113,7 @@ func (o *CustomAttributeSearchQueryModel) GetProjectIdsOk() ([]string, bool) {
 
 // HasProjectIds returns a boolean if a field has been set.
 func (o *CustomAttributeSearchQueryModel) HasProjectIds() bool {
-	if o != nil && IsNil(o.ProjectIds) {
+	if o != nil && !IsNil(o.ProjectIds) {
 		return true
 	}
 
@@ -146,7 +146,7 @@ func (o *CustomAttributeSearchQueryModel) GetCustomAttributeIdsOk() ([]string, b
 
 // HasCustomAttributeIds returns a boolean if a field has been set.
 func (o *CustomAttributeSearchQueryModel) HasCustomAttributeIds() bool {
-	if o != nil && IsNil(o.CustomAttributeIds) {
+	if o != nil && !IsNil(o.CustomAttributeIds) {
 		return true
 	}
 
@@ -179,7 +179,7 @@ func (o *CustomAttributeSearchQueryModel) GetCustomAttributeTypesOk() ([]CustomA
 
 // HasCustomAttributeTypes returns a boolean if a field has been set.
 func (o *CustomAttributeSearchQueryModel) HasCustomAttributeTypes() bool {
-	if o != nil && IsNil(o.CustomAttributeTypes) {
+	if o != nil && !IsNil(o.CustomAttributeTypes) {
 		return true
 	}
 

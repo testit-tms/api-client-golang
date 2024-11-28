@@ -205,7 +205,7 @@ func (o *LastTestResultModel) GetLinksOk() ([]LinkModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *LastTestResultModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -262,7 +262,7 @@ func (o *LastTestResultModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *LastTestResultModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 

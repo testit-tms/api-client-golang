@@ -221,7 +221,7 @@ func (o *TestRunV2PostShortModel) GetAttachmentsOk() ([]AttachmentPutModel, bool
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *TestRunV2PostShortModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -254,7 +254,7 @@ func (o *TestRunV2PostShortModel) GetLinksOk() ([]LinkPostModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *TestRunV2PostShortModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 

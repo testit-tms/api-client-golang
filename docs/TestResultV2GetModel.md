@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Configuration** | Pointer to [**NullableTestResultConfiguration**](TestResultConfiguration.md) |  | [optional] 
-**AutoTest** | Pointer to [**NullableAutoTestRelatedToTestResult**](AutoTestRelatedToTestResult.md) |  | [optional] 
+**Configuration** | Pointer to [**NullableConfigurationModel**](ConfigurationModel.md) |  | [optional] 
+**AutoTest** | Pointer to [**NullableAutoTestModelV2GetModel**](AutoTestModelV2GetModel.md) |  | [optional] 
 **Id** | **string** |  | 
 **ConfigurationId** | **string** |  | 
 **WorkItemVersionId** | **string** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **RunByUserId** | Pointer to **NullableString** |  | [optional] 
 **StoppedByUserId** | Pointer to **NullableString** |  | [optional] 
 **TestPointId** | Pointer to **NullableString** |  | [optional] 
-**TestPoint** | Pointer to [**NullableTestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  | [optional] 
+**TestPoint** | Pointer to [**NullableTestPointShortModel**](TestPointShortModel.md) |  | [optional] 
 **TestRunId** | **string** |  | 
 **Outcome** | **string** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | 
 **Comment** | Pointer to **NullableString** |  | [optional] 
@@ -47,20 +47,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetConfiguration
 
-`func (o *TestResultV2GetModel) GetConfiguration() TestResultConfiguration`
+`func (o *TestResultV2GetModel) GetConfiguration() ConfigurationModel`
 
 GetConfiguration returns the Configuration field if non-nil, zero value otherwise.
 
 ### GetConfigurationOk
 
-`func (o *TestResultV2GetModel) GetConfigurationOk() (*TestResultConfiguration, bool)`
+`func (o *TestResultV2GetModel) GetConfigurationOk() (*ConfigurationModel, bool)`
 
 GetConfigurationOk returns a tuple with the Configuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfiguration
 
-`func (o *TestResultV2GetModel) SetConfiguration(v TestResultConfiguration)`
+`func (o *TestResultV2GetModel) SetConfiguration(v ConfigurationModel)`
 
 SetConfiguration sets Configuration field to given value.
 
@@ -82,20 +82,20 @@ HasConfiguration returns a boolean if a field has been set.
 UnsetConfiguration ensures that no value is present for Configuration, not even an explicit nil
 ### GetAutoTest
 
-`func (o *TestResultV2GetModel) GetAutoTest() AutoTestRelatedToTestResult`
+`func (o *TestResultV2GetModel) GetAutoTest() AutoTestModelV2GetModel`
 
 GetAutoTest returns the AutoTest field if non-nil, zero value otherwise.
 
 ### GetAutoTestOk
 
-`func (o *TestResultV2GetModel) GetAutoTestOk() (*AutoTestRelatedToTestResult, bool)`
+`func (o *TestResultV2GetModel) GetAutoTestOk() (*AutoTestModelV2GetModel, bool)`
 
 GetAutoTestOk returns a tuple with the AutoTest field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoTest
 
-`func (o *TestResultV2GetModel) SetAutoTest(v AutoTestRelatedToTestResult)`
+`func (o *TestResultV2GetModel) SetAutoTest(v AutoTestModelV2GetModel)`
 
 SetAutoTest sets AutoTest field to given value.
 
@@ -457,20 +457,20 @@ HasTestPointId returns a boolean if a field has been set.
 UnsetTestPointId ensures that no value is present for TestPointId, not even an explicit nil
 ### GetTestPoint
 
-`func (o *TestResultV2GetModel) GetTestPoint() TestPointRelatedToTestResult`
+`func (o *TestResultV2GetModel) GetTestPoint() TestPointShortModel`
 
 GetTestPoint returns the TestPoint field if non-nil, zero value otherwise.
 
 ### GetTestPointOk
 
-`func (o *TestResultV2GetModel) GetTestPointOk() (*TestPointRelatedToTestResult, bool)`
+`func (o *TestResultV2GetModel) GetTestPointOk() (*TestPointShortModel, bool)`
 
 GetTestPointOk returns a tuple with the TestPoint field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestPoint
 
-`func (o *TestResultV2GetModel) SetTestPoint(v TestPointRelatedToTestResult)`
+`func (o *TestResultV2GetModel) SetTestPoint(v TestPointShortModel)`
 
 SetTestPoint sets TestPoint field to given value.
 

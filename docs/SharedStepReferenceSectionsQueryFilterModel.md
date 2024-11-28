@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Name of section | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Collection of identifiers of users who created work item | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Collection of identifiers of users who applied last modification to work item | [optional] 
-**CreatedDate** | Pointer to [**NullableSharedStepReferenceSectionsQueryFilterModelCreatedDate**](SharedStepReferenceSectionsQueryFilterModelCreatedDate.md) |  | [optional] 
-**ModifiedDate** | Pointer to [**NullableSharedStepReferenceSectionsQueryFilterModelModifiedDate**](SharedStepReferenceSectionsQueryFilterModelModifiedDate.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Date and time of work item creation | [optional] 
+**ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Date and time of work item last modification | [optional] 
 
 ## Methods
 
@@ -136,20 +136,20 @@ HasModifiedByIds returns a boolean if a field has been set.
 UnsetModifiedByIds ensures that no value is present for ModifiedByIds, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDate() SharedStepReferenceSectionsQueryFilterModelCreatedDate`
+`func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDateOk() (*SharedStepReferenceSectionsQueryFilterModelCreatedDate, bool)`
+`func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *SharedStepReferenceSectionsQueryFilterModel) SetCreatedDate(v SharedStepReferenceSectionsQueryFilterModelCreatedDate)`
+`func (o *SharedStepReferenceSectionsQueryFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -171,20 +171,20 @@ HasCreatedDate returns a boolean if a field has been set.
 UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetModifiedDate
 
-`func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDate() SharedStepReferenceSectionsQueryFilterModelModifiedDate`
+`func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDate() DateTimeRangeSelectorModel`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDateOk() (*SharedStepReferenceSectionsQueryFilterModelModifiedDate, bool)`
+`func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *SharedStepReferenceSectionsQueryFilterModel) SetModifiedDate(v SharedStepReferenceSectionsQueryFilterModelModifiedDate)`
+`func (o *SharedStepReferenceSectionsQueryFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 

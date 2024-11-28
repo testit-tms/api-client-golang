@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
 **TestSuiteId** | **string** |  | 
 **Status** | Pointer to **NullableString** |  | [optional] 
+**StatusModel** | [**TestStatusModel**](TestStatusModel.md) |  | 
 **LastTestResultId** | Pointer to **NullableString** |  | [optional] 
 **Id** | **string** | Unique ID of the entity | 
 **IsDeleted** | **bool** | Indicates if the entity is deleted | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointPutModel
 
-`func NewTestPointPutModel(iterationId string, testSuiteId string, id string, isDeleted bool, ) *TestPointPutModel`
+`func NewTestPointPutModel(iterationId string, testSuiteId string, statusModel TestStatusModel, id string, isDeleted bool, ) *TestPointPutModel`
 
 NewTestPointPutModel instantiates a new TestPointPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -213,6 +214,26 @@ HasStatus returns a boolean if a field has been set.
 `func (o *TestPointPutModel) UnsetStatus()`
 
 UnsetStatus ensures that no value is present for Status, not even an explicit nil
+### GetStatusModel
+
+`func (o *TestPointPutModel) GetStatusModel() TestStatusModel`
+
+GetStatusModel returns the StatusModel field if non-nil, zero value otherwise.
+
+### GetStatusModelOk
+
+`func (o *TestPointPutModel) GetStatusModelOk() (*TestStatusModel, bool)`
+
+GetStatusModelOk returns a tuple with the StatusModel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusModel
+
+`func (o *TestPointPutModel) SetStatusModel(v TestStatusModel)`
+
+SetStatusModel sets StatusModel field to given value.
+
+
 ### GetLastTestResultId
 
 `func (o *TestPointPutModel) GetLastTestResultId() string`

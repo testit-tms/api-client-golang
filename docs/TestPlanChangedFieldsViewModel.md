@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to [**NullableStringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
 **Description** | Pointer to [**NullableStringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
-**ProductName** | Pointer to [**NullableStringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  | [optional] 
-**Build** | Pointer to [**NullableStringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  | [optional] 
+**ProductName** | Pointer to [**NullableStringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
+**Build** | Pointer to [**NullableStringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
 **Period** | Pointer to [**NullablePeriodViewModelChangedFieldViewModel**](PeriodViewModelChangedFieldViewModel.md) |  | [optional] 
-**Status** | Pointer to [**NullableStringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  | [optional] 
+**Status** | Pointer to [**NullableStringChangedFieldWithDiffsViewModel**](StringChangedFieldWithDiffsViewModel.md) |  | [optional] 
 **Tags** | Pointer to [**NullableStringArrayChangedFieldViewModel**](StringArrayChangedFieldViewModel.md) |  | [optional] 
 **TestSuite** | Pointer to [**NullableTestSuiteChangeViewModelChangedFieldViewModel**](TestSuiteChangeViewModelChangedFieldViewModel.md) |  | [optional] 
 **TestPoints** | Pointer to [**NullableTestPointChangeViewModelChangedFieldViewModel**](TestPointChangeViewModelChangedFieldViewModel.md) |  | [optional] 
@@ -109,20 +109,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetProductName
 
-`func (o *TestPlanChangedFieldsViewModel) GetProductName() StringChangedFieldViewModel`
+`func (o *TestPlanChangedFieldsViewModel) GetProductName() StringChangedFieldWithDiffsViewModel`
 
 GetProductName returns the ProductName field if non-nil, zero value otherwise.
 
 ### GetProductNameOk
 
-`func (o *TestPlanChangedFieldsViewModel) GetProductNameOk() (*StringChangedFieldViewModel, bool)`
+`func (o *TestPlanChangedFieldsViewModel) GetProductNameOk() (*StringChangedFieldWithDiffsViewModel, bool)`
 
 GetProductNameOk returns a tuple with the ProductName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProductName
 
-`func (o *TestPlanChangedFieldsViewModel) SetProductName(v StringChangedFieldViewModel)`
+`func (o *TestPlanChangedFieldsViewModel) SetProductName(v StringChangedFieldWithDiffsViewModel)`
 
 SetProductName sets ProductName field to given value.
 
@@ -144,20 +144,20 @@ HasProductName returns a boolean if a field has been set.
 UnsetProductName ensures that no value is present for ProductName, not even an explicit nil
 ### GetBuild
 
-`func (o *TestPlanChangedFieldsViewModel) GetBuild() StringChangedFieldViewModel`
+`func (o *TestPlanChangedFieldsViewModel) GetBuild() StringChangedFieldWithDiffsViewModel`
 
 GetBuild returns the Build field if non-nil, zero value otherwise.
 
 ### GetBuildOk
 
-`func (o *TestPlanChangedFieldsViewModel) GetBuildOk() (*StringChangedFieldViewModel, bool)`
+`func (o *TestPlanChangedFieldsViewModel) GetBuildOk() (*StringChangedFieldWithDiffsViewModel, bool)`
 
 GetBuildOk returns a tuple with the Build field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBuild
 
-`func (o *TestPlanChangedFieldsViewModel) SetBuild(v StringChangedFieldViewModel)`
+`func (o *TestPlanChangedFieldsViewModel) SetBuild(v StringChangedFieldWithDiffsViewModel)`
 
 SetBuild sets Build field to given value.
 
@@ -214,20 +214,20 @@ HasPeriod returns a boolean if a field has been set.
 UnsetPeriod ensures that no value is present for Period, not even an explicit nil
 ### GetStatus
 
-`func (o *TestPlanChangedFieldsViewModel) GetStatus() StringChangedFieldViewModel`
+`func (o *TestPlanChangedFieldsViewModel) GetStatus() StringChangedFieldWithDiffsViewModel`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *TestPlanChangedFieldsViewModel) GetStatusOk() (*StringChangedFieldViewModel, bool)`
+`func (o *TestPlanChangedFieldsViewModel) GetStatusOk() (*StringChangedFieldWithDiffsViewModel, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *TestPlanChangedFieldsViewModel) SetStatus(v StringChangedFieldViewModel)`
+`func (o *TestPlanChangedFieldsViewModel) SetStatus(v StringChangedFieldWithDiffsViewModel)`
 
 SetStatus sets Status field to given value.
 

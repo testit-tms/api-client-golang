@@ -61,7 +61,7 @@ func (o *GuidExtractionModel) GetIncludeOk() ([]string, bool) {
 
 // HasInclude returns a boolean if a field has been set.
 func (o *GuidExtractionModel) HasInclude() bool {
-	if o != nil && IsNil(o.Include) {
+	if o != nil && !IsNil(o.Include) {
 		return true
 	}
 
@@ -94,7 +94,7 @@ func (o *GuidExtractionModel) GetExcludeOk() ([]string, bool) {
 
 // HasExclude returns a boolean if a field has been set.
 func (o *GuidExtractionModel) HasExclude() bool {
-	if o != nil && IsNil(o.Exclude) {
+	if o != nil && !IsNil(o.Exclude) {
 		return true
 	}
 

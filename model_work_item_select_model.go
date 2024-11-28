@@ -21,8 +21,10 @@ var _ MappedNullable = &WorkItemSelectModel{}
 
 // WorkItemSelectModel Model containing options to filter work items
 type WorkItemSelectModel struct {
+	// Collection of filters to apply to search
 	Filter WorkItemFilterModel `json:"filter"`
-	ExtractionModel NullableWorkItemLocalSelectModelExtractionModel `json:"extractionModel,omitempty"`
+	// Rules for different level entities inclusion/exclusion
+	ExtractionModel NullableWorkItemExtractionModel `json:"extractionModel,omitempty"`
 }
 
 type _WorkItemSelectModel WorkItemSelectModel
@@ -70,9 +72,9 @@ func (o *WorkItemSelectModel) SetFilter(v WorkItemFilterModel) {
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemSelectModel) GetExtractionModel() WorkItemLocalSelectModelExtractionModel {
+func (o *WorkItemSelectModel) GetExtractionModel() WorkItemExtractionModel {
 	if o == nil || IsNil(o.ExtractionModel.Get()) {
-		var ret WorkItemLocalSelectModelExtractionModel
+		var ret WorkItemExtractionModel
 		return ret
 	}
 	return *o.ExtractionModel.Get()
@@ -81,7 +83,7 @@ func (o *WorkItemSelectModel) GetExtractionModel() WorkItemLocalSelectModelExtra
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemLocalSelectModelExtractionModel, bool) {
+func (o *WorkItemSelectModel) GetExtractionModelOk() (*WorkItemExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -97,8 +99,8 @@ func (o *WorkItemSelectModel) HasExtractionModel() bool {
 	return false
 }
 
-// SetExtractionModel gets a reference to the given NullableWorkItemLocalSelectModelExtractionModel and assigns it to the ExtractionModel field.
-func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemLocalSelectModelExtractionModel) {
+// SetExtractionModel gets a reference to the given NullableWorkItemExtractionModel and assigns it to the ExtractionModel field.
+func (o *WorkItemSelectModel) SetExtractionModel(v WorkItemExtractionModel) {
 	o.ExtractionModel.Set(&v)
 }
 // SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil

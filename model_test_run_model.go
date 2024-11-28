@@ -104,7 +104,7 @@ func (o *TestRunModel) GetAutoTestsOk() ([]AutoTestModel, bool) {
 
 // HasAutoTests returns a boolean if a field has been set.
 func (o *TestRunModel) HasAutoTests() bool {
-	if o != nil && IsNil(o.AutoTests) {
+	if o != nil && !IsNil(o.AutoTests) {
 		return true
 	}
 
@@ -161,7 +161,7 @@ func (o *TestRunModel) GetTestSuiteIdsOk() ([]string, bool) {
 
 // HasTestSuiteIds returns a boolean if a field has been set.
 func (o *TestRunModel) HasTestSuiteIds() bool {
-	if o != nil && IsNil(o.TestSuiteIds) {
+	if o != nil && !IsNil(o.TestSuiteIds) {
 		return true
 	}
 
@@ -242,7 +242,7 @@ func (o *TestRunModel) GetTestResultsOk() ([]TestResultModel, bool) {
 
 // HasTestResults returns a boolean if a field has been set.
 func (o *TestRunModel) HasTestResults() bool {
-	if o != nil && IsNil(o.TestResults) {
+	if o != nil && !IsNil(o.TestResults) {
 		return true
 	}
 

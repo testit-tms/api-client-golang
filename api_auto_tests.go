@@ -18,7 +18,6 @@ import (
 	"net/url"
 	"strings"
 	"reflect"
-	"time"
 )
 
 
@@ -114,19 +113,19 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsFlakyBulkPostExecute(r ApiApiV2AutoT
 	localVarFormParams := url.Values{}
 
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -183,7 +182,51 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsFlakyBulkPostExecute(r ApiApiV2AutoT
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -318,7 +361,62 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdPatchExecute(r ApiApiV2AutoTestsId
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -388,12 +486,18 @@ func (r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) Execute() ([]AutotestRe
 /*
 ApiV2AutoTestsIdTestResultsSearchPost Get test results history for autotest
 
-<br>Use case
-<br>User sets autotest internal (guid format) or global (integer format) identifier
-<br>User sets getTestResultHistoryReportQuery (listed in the example)
-<br>User runs method execution
-<br>System search for test results using filters set by user in getTestResultHistoryReportQuery and id
-<br>System returns the enumeration of test results
+
+Use case
+
+User sets autotest internal (guid format) or global (integer format) identifier
+
+User sets getTestResultHistoryReportQuery (listed in the example)
+
+User runs method execution
+
+System search for test results using filters set by user in getTestResultHistoryReportQuery and id
+
+System returns the enumeration of test results
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest identifier
@@ -430,19 +534,19 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdTestResultsSearchPostExecute(r Api
 	localVarFormParams := url.Values{}
 
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -533,6 +637,28 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdTestResultsSearchPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -663,6 +789,28 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdWorkItemsChangedIdGetExecute(r Api
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -675,6 +823,28 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdWorkItemsChangedIdGetExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -807,6 +977,28 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApproveP
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -819,6 +1011,28 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdWorkItemsChangedWorkItemIdApproveP
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -919,19 +1133,19 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsSearchPostExecute(r ApiApiV2AutoTest
 	localVarFormParams := url.Values{}
 
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -988,7 +1202,62 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsSearchPostExecute(r ApiApiV2AutoTest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1031,9 +1300,12 @@ func (r ApiCreateAutoTestRequest) Execute() (*AutoTestModel, *http.Response, err
 /*
 CreateAutoTest Create autotest
 
-<br>This method creates a new autotest.
-<br>To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.
-<br>Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
+
+This method creates a new autotest.
+
+To add an autotest to the test plan, link it to a work item using the `POST /api/v2/autoTests/{autoTestId}/workItems` method.
+
+Use the `POST /api/v2/testRuns/byAutoTests` method to run autotest outside the test plan.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateAutoTestRequest
@@ -1219,15 +1491,24 @@ func (r ApiCreateMultipleRequest) Execute() ([]AutoTestModel, *http.Response, er
 /*
 CreateMultiple Create multiple autotests
 
-<br>Use case
-<br>User sets autotest parameters (listed in the example) and runs method execution
-<br>System creates autotest
-<br>[Optional] If steps enumeration is set, system creates step items and relates them to autotest
-<br>[Optional] If setup enumeration is set, system creates setup items and relates them to autotest
-<br>[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
-<br>[Optional] If label enumeration is set, system creates labels and relates them to autotest
-<br>[Optional] If link enumeration is set, system creates links and relates them to autotest
-<br>System returns autotest model (example listed in response parameters)
+
+Use case
+
+User sets autotest parameters (listed in the example) and runs method execution
+
+System creates autotest
+
+[Optional] If steps enumeration is set, system creates step items and relates them to autotest
+
+[Optional] If setup enumeration is set, system creates setup items and relates them to autotest
+
+[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
+
+[Optional] If label enumeration is set, system creates labels and relates them to autotest
+
+[Optional] If link enumeration is set, system creates links and relates them to autotest
+
+System returns autotest model (example listed in response parameters)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateMultipleRequest
@@ -1408,10 +1689,14 @@ func (r ApiDeleteAutoTestRequest) Execute() (*http.Response, error) {
 /*
 DeleteAutoTest Delete autotest
 
-<br>Use case
-<br>User sets autotest internal (guid format) or global (integer format) identifier and runs method execution
-<br>System finds the autotest by the identifier
-<br>System deletes autotest and returns no content response
+
+Use case
+
+User sets autotest internal (guid format) or global (integer format) identifier and runs method execution
+
+System finds the autotest by the identifier
+
+System deletes autotest and returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest internal (UUID) or global (integer) identifier
@@ -1498,6 +1783,17 @@ func (a *AutoTestsAPIService) DeleteAutoTestExecute(r ApiDeleteAutoTestRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1521,6 +1817,28 @@ func (a *AutoTestsAPIService) DeleteAutoTestExecute(r ApiDeleteAutoTestRequest) 
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1556,17 +1874,25 @@ func (r ApiDeleteAutoTestLinkFromWorkItemRequest) Execute() (*http.Response, err
 /*
 DeleteAutoTestLinkFromWorkItem Unlink autotest from work item
 
-<br>Use case
-<br>User sets autotest internal (guid format) or global (integer format) identifier
-<br>[Optional] User sets workitem internal (guid format) or global (integer format) identifier
-<br>User runs method execution
-<br>System finds the autotest by the autotest identifier
-<br>
+
+Use case
+
+User sets autotest internal (guid format) or global (integer format) identifier
+
+[Optional] User sets workitem internal (guid format) or global (integer format) identifier
+
+User runs method execution
+
+System finds the autotest by the autotest identifier
+
+
             [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it
             from autotest.
             
-<br>[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.
-<br>System returns no content response
+
+[Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.
+
+System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest internal (UUID) or global (integer) identifier
@@ -1601,7 +1927,7 @@ func (a *AutoTestsAPIService) DeleteAutoTestLinkFromWorkItemExecute(r ApiDeleteA
 	localVarFormParams := url.Values{}
 
 	if r.workItemId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "workItemId", r.workItemId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "workItemId", r.workItemId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1690,6 +2016,28 @@ func (a *AutoTestsAPIService) DeleteAutoTestLinkFromWorkItemExecute(r ApiDeleteA
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -1934,90 +2282,90 @@ func (a *AutoTestsAPIService) GetAllAutoTestsExecute(r ApiGetAllAutoTestsRequest
 	localVarFormParams := url.Values{}
 
 	if r.projectId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "projectId", r.projectId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "projectId", r.projectId, "form", "")
 	}
 	if r.externalId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "externalId", r.externalId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "externalId", r.externalId, "form", "")
 	}
 	if r.globalId != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "globalId", r.globalId, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "globalId", r.globalId, "form", "")
 	}
 	if r.namespace != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "namespace", r.namespace, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "namespace", r.namespace, "form", "")
 	}
 	if r.isNamespaceNull != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isNamespaceNull", r.isNamespaceNull, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isNamespaceNull", r.isNamespaceNull, "form", "")
 	}
 	if r.includeEmptyNamespaces != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeEmptyNamespaces", r.includeEmptyNamespaces, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeEmptyNamespaces", r.includeEmptyNamespaces, "form", "")
 	}
 	if r.className != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "className", r.className, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "className", r.className, "form", "")
 	}
 	if r.isClassnameNull != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isClassnameNull", r.isClassnameNull, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isClassnameNull", r.isClassnameNull, "form", "")
 	}
 	if r.includeEmptyClassNames != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeEmptyClassNames", r.includeEmptyClassNames, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeEmptyClassNames", r.includeEmptyClassNames, "form", "")
 	}
 	if r.isDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	}
 	if r.deleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "deleted", r.deleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "deleted", r.deleted, "form", "")
 	}
 	if r.labels != nil {
 		t := *r.labels
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
 			s := reflect.ValueOf(t)
 			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "multi")
+				parameterAddToHeaderOrQuery(localVarQueryParams, "labels", s.Index(i).Interface(), "form", "multi")
 			}
 		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "multi")
+			parameterAddToHeaderOrQuery(localVarQueryParams, "labels", t, "form", "multi")
 		}
 	}
 	if r.stabilityMinimal != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "stabilityMinimal", r.stabilityMinimal, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "stabilityMinimal", r.stabilityMinimal, "form", "")
 	}
 	if r.minStability != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "minStability", r.minStability, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "minStability", r.minStability, "form", "")
 	}
 	if r.stabilityMaximal != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "stabilityMaximal", r.stabilityMaximal, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "stabilityMaximal", r.stabilityMaximal, "form", "")
 	}
 	if r.maxStability != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "maxStability", r.maxStability, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "maxStability", r.maxStability, "form", "")
 	}
 	if r.isFlaky != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isFlaky", r.isFlaky, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isFlaky", r.isFlaky, "form", "")
 	}
 	if r.flaky != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "flaky", r.flaky, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "flaky", r.flaky, "form", "")
 	}
 	if r.includeSteps != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeSteps", r.includeSteps, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeSteps", r.includeSteps, "form", "")
 	}
 	if r.includeLabels != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeLabels", r.includeLabels, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeLabels", r.includeLabels, "form", "")
 	}
 	if r.externalKey != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "externalKey", r.externalKey, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "externalKey", r.externalKey, "form", "")
 	}
 	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
 	}
 	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
 	}
 	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
 	}
 	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
 	}
 	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2072,6 +2420,17 @@ func (a *AutoTestsAPIService) GetAllAutoTestsExecute(r ApiGetAllAutoTestsRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2095,6 +2454,28 @@ func (a *AutoTestsAPIService) GetAllAutoTestsExecute(r ApiGetAllAutoTestsRequest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2132,11 +2513,16 @@ func (r ApiGetAutoTestAverageDurationRequest) Execute() (*AutoTestAverageDuratio
 /*
 GetAutoTestAverageDuration Get average autotest duration
 
-<br>Use case
-<br>User sets autotest internal (guid format) or global (integer format) identifier
-<br>User runs method execution
-<br>System calculates pass average duration and fail average duration of autotest from all related test results
-<br>System returns pass average duration and fail average duration for autotest
+
+Use case
+
+User sets autotest internal (guid format) or global (integer format) identifier
+
+User runs method execution
+
+System calculates pass average duration and fail average duration of autotest from all related test results
+
+System returns pass average duration and fail average duration for autotest
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest internal (UUID) or global (integer) identifier
@@ -2225,6 +2611,28 @@ func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2247,7 +2655,7 @@ func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTest
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2256,7 +2664,27 @@ func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -2285,9 +2713,12 @@ func (r ApiGetAutoTestByIdRequest) Execute() (*AutoTestModel, *http.Response, er
 /*
 GetAutoTestById Get autotest by internal or global ID
 
-<br>Use case
-<br>User sets autotest internal or global identifier and runs method execution
-<br>System returns autotest, which internal or global identifier equals the identifier value set in the previous action
+
+Use case
+
+User sets autotest internal or global identifier and runs method execution
+
+System returns autotest, which internal or global identifier equals the identifier value set in the previous action
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest internal (UUID) or global (integer) identifier
@@ -2317,6 +2748,208 @@ func (a *AutoTestsAPIService) GetAutoTestByIdExecute(r ApiGetAutoTestByIdRequest
 	}
 
 	localVarPath := localBasePath + "/api/v2/autoTests/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetAutoTestChronologyRequest struct {
+	ctx context.Context
+	ApiService *AutoTestsAPIService
+	id string
+}
+
+func (r ApiGetAutoTestChronologyRequest) Execute() ([]TestResultChronologyModel, *http.Response, error) {
+	return r.ApiService.GetAutoTestChronologyExecute(r)
+}
+
+/*
+GetAutoTestChronology Get autotest chronology
+
+
+Use case
+
+User sets autotest internal (guid format) or global (integer format) identifier
+
+User runs method execution
+
+System search all test results related to autotest (with default limit equal 100)
+
+System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending
+
+System returns test result chronology for autotest
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Autotest internal (UUID) or global (integer) identifier
+ @return ApiGetAutoTestChronologyRequest
+*/
+func (a *AutoTestsAPIService) GetAutoTestChronology(ctx context.Context, id string) ApiGetAutoTestChronologyRequest {
+	return ApiGetAutoTestChronologyRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return []TestResultChronologyModel
+func (a *AutoTestsAPIService) GetAutoTestChronologyExecute(r ApiGetAutoTestChronologyRequest) ([]TestResultChronologyModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []TestResultChronologyModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.GetAutoTestChronology")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/autoTests/{id}/chronology"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2418,130 +3051,9 @@ func (a *AutoTestsAPIService) GetAutoTestByIdExecute(r ApiGetAutoTestByIdRequest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetAutoTestChronologyRequest struct {
-	ctx context.Context
-	ApiService *AutoTestsAPIService
-	id string
-}
-
-func (r ApiGetAutoTestChronologyRequest) Execute() ([]TestResultChronologyModel, *http.Response, error) {
-	return r.ApiService.GetAutoTestChronologyExecute(r)
-}
-
-/*
-GetAutoTestChronology Get autotest chronology
-
-<br>Use case
-<br>User sets autotest internal (guid format) or global (integer format) identifier
-<br>User runs method execution
-<br>System search all test results related to autotest (with default limit equal 100)
-<br>System orders the test results by CompletedOn property descending and then orders by CreatedDate property descending
-<br>System returns test result chronology for autotest
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Autotest internal (UUID) or global (integer) identifier
- @return ApiGetAutoTestChronologyRequest
-*/
-func (a *AutoTestsAPIService) GetAutoTestChronology(ctx context.Context, id string) ApiGetAutoTestChronologyRequest {
-	return ApiGetAutoTestChronologyRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return []TestResultChronologyModel
-func (a *AutoTestsAPIService) GetAutoTestChronologyExecute(r ApiGetAutoTestChronologyRequest) ([]TestResultChronologyModel, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []TestResultChronologyModel
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.GetAutoTestChronology")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/autoTests/{id}/chronology"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2552,18 +3064,7 @@ func (a *AutoTestsAPIService) GetAutoTestChronologyExecute(r ApiGetAutoTestChron
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2601,11 +3102,16 @@ func (r ApiGetTestRunsRequest) Execute() ([]TestRunShortModel, *http.Response, e
 /*
 GetTestRuns Get completed tests runs for autotests
 
-<br>Use case
-<br>User sets autotest internal (guid format) or global (integer format) identifier
-<br>User runs method execution
-<br>System search for all test runs related to the autotest
-<br>System returns the enumeration of test runs
+
+Use case
+
+User sets autotest internal (guid format) or global (integer format) identifier
+
+User runs method execution
+
+System search for all test runs related to the autotest
+
+System returns the enumeration of test runs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest internal (UUID) or global (integer) identifier
@@ -2694,6 +3200,17 @@ func (a *AutoTestsAPIService) GetTestRunsExecute(r ApiGetTestRunsRequest) ([]Tes
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2725,306 +3242,9 @@ func (a *AutoTestsAPIService) GetTestRunsExecute(r ApiGetTestRunsRequest) ([]Tes
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiGetWorkItemResultsRequest struct {
-	ctx context.Context
-	ApiService *AutoTestsAPIService
-	id string
-	from *time.Time
-	to *time.Time
-	configurationIds *[]string
-	testPlanIds *[]string
-	userIds *[]string
-	outcomes *[]string
-	isAutomated *bool
-	automated *bool
-	testRunIds *[]string
-	skip *int32
-	take *int32
-	orderBy *string
-	searchField *string
-	searchValue *string
-}
-
-// Take results from this date
-func (r ApiGetWorkItemResultsRequest) From(from time.Time) ApiGetWorkItemResultsRequest {
-	r.from = &from
-	return r
-}
-
-// Take results until this date
-func (r ApiGetWorkItemResultsRequest) To(to time.Time) ApiGetWorkItemResultsRequest {
-	r.to = &to
-	return r
-}
-
-// Identifiers of test result configurations
-func (r ApiGetWorkItemResultsRequest) ConfigurationIds(configurationIds []string) ApiGetWorkItemResultsRequest {
-	r.configurationIds = &configurationIds
-	return r
-}
-
-// Identifiers of test plans which contain test results
-func (r ApiGetWorkItemResultsRequest) TestPlanIds(testPlanIds []string) ApiGetWorkItemResultsRequest {
-	r.testPlanIds = &testPlanIds
-	return r
-}
-
-// Identifiers of users who set test results
-func (r ApiGetWorkItemResultsRequest) UserIds(userIds []string) ApiGetWorkItemResultsRequest {
-	r.userIds = &userIds
-	return r
-}
-
-// List of outcomes of test results
-func (r ApiGetWorkItemResultsRequest) Outcomes(outcomes []string) ApiGetWorkItemResultsRequest {
-	r.outcomes = &outcomes
-	return r
-}
-
-// OBSOLETE: Use &#x60;Automated&#x60; instead
-func (r ApiGetWorkItemResultsRequest) IsAutomated(isAutomated bool) ApiGetWorkItemResultsRequest {
-	r.isAutomated = &isAutomated
-	return r
-}
-
-// If result must consist of only manual/automated test results
-func (r ApiGetWorkItemResultsRequest) Automated(automated bool) ApiGetWorkItemResultsRequest {
-	r.automated = &automated
-	return r
-}
-
-// Identifiers of test runs which contain test results
-func (r ApiGetWorkItemResultsRequest) TestRunIds(testRunIds []string) ApiGetWorkItemResultsRequest {
-	r.testRunIds = &testRunIds
-	return r
-}
-
-// Amount of items to be skipped (offset)
-func (r ApiGetWorkItemResultsRequest) Skip(skip int32) ApiGetWorkItemResultsRequest {
-	r.skip = &skip
-	return r
-}
-
-// Amount of items to be taken (limit)
-func (r ApiGetWorkItemResultsRequest) Take(take int32) ApiGetWorkItemResultsRequest {
-	r.take = &take
-	return r
-}
-
-// SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
-func (r ApiGetWorkItemResultsRequest) OrderBy(orderBy string) ApiGetWorkItemResultsRequest {
-	r.orderBy = &orderBy
-	return r
-}
-
-// Property name for searching
-func (r ApiGetWorkItemResultsRequest) SearchField(searchField string) ApiGetWorkItemResultsRequest {
-	r.searchField = &searchField
-	return r
-}
-
-// Value for searching
-func (r ApiGetWorkItemResultsRequest) SearchValue(searchValue string) ApiGetWorkItemResultsRequest {
-	r.searchValue = &searchValue
-	return r
-}
-
-func (r ApiGetWorkItemResultsRequest) Execute() ([]TestResultHistoryReportModel, *http.Response, error) {
-	return r.ApiService.GetWorkItemResultsExecute(r)
-}
-
-/*
-GetWorkItemResults Method for GetWorkItemResults
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiGetWorkItemResultsRequest
-
-Deprecated
-*/
-func (a *AutoTestsAPIService) GetWorkItemResults(ctx context.Context, id string) ApiGetWorkItemResultsRequest {
-	return ApiGetWorkItemResultsRequest{
-		ApiService: a,
-		ctx: ctx,
-		id: id,
-	}
-}
-
-// Execute executes the request
-//  @return []TestResultHistoryReportModel
-// Deprecated
-func (a *AutoTestsAPIService) GetWorkItemResultsExecute(r ApiGetWorkItemResultsRequest) ([]TestResultHistoryReportModel, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []TestResultHistoryReportModel
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.GetWorkItemResults")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/autoTests/{id}/testResultHistory"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.from != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "from", r.from, "")
-	}
-	if r.to != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "to", r.to, "")
-	}
-	if r.configurationIds != nil {
-		t := *r.configurationIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "configurationIds", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "configurationIds", t, "multi")
-		}
-	}
-	if r.testPlanIds != nil {
-		t := *r.testPlanIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "testPlanIds", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "testPlanIds", t, "multi")
-		}
-	}
-	if r.userIds != nil {
-		t := *r.userIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "userIds", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "userIds", t, "multi")
-		}
-	}
-	if r.outcomes != nil {
-		t := *r.outcomes
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "outcomes", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "outcomes", t, "multi")
-		}
-	}
-	if r.isAutomated != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isAutomated", r.isAutomated, "")
-	}
-	if r.automated != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "automated", r.automated, "")
-	}
-	if r.testRunIds != nil {
-		t := *r.testRunIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "testRunIds", s.Index(i).Interface(), "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "testRunIds", t, "multi")
-		}
-	}
-	if r.skip != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "")
-	}
-	if r.take != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "")
-	}
-	if r.orderBy != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "")
-	}
-	if r.searchField != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "")
-	}
-	if r.searchValue != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
+		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3035,18 +3255,7 @@ func (a *AutoTestsAPIService) GetWorkItemResultsExecute(r ApiGetWorkItemResultsR
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3098,20 +3307,25 @@ func (r ApiGetWorkItemsLinkedToAutoTestRequest) Execute() ([]WorkItemIdentifierM
 /*
 GetWorkItemsLinkedToAutoTest Get work items linked to autotest
 
-<br>
+
+
             This method links an autotest to a test case or a checklist.
             A manual test case with a linked automated work item is marked in the test management system as an autotest.
             You can run it from graphical user interface (GUI). To do that:
             
-<br>
-            1. Open the project in GUI.<br />
-            2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.<br />
-            3. Select the autotest(s) you want to run using checkboxes.<br />
+
+
+            1. Open the project in GUI.
+
+            2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.
+
+            3. Select the autotest(s) you want to run using checkboxes.
+
             4. In the toolbar above the test list, click <b>Run autotests</b>.
             
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Specifies the autotest entity ID.<br />  You can copy it from the address bar in your web browser or use autotest GUID.
+ @param id Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.
  @return ApiGetWorkItemsLinkedToAutoTestRequest
 */
 func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTest(ctx context.Context, id string) ApiGetWorkItemsLinkedToAutoTestRequest {
@@ -3145,10 +3359,10 @@ func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTestExecute(r ApiGetWorkIt
 	localVarFormParams := url.Values{}
 
 	if r.isDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	}
 	if r.isWorkItemDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isWorkItemDeleted", r.isWorkItemDeleted, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isWorkItemDeleted", r.isWorkItemDeleted, "form", "")
 	} else {
 		var defaultValue bool = false
 		r.isWorkItemDeleted = &defaultValue
@@ -3206,6 +3420,17 @@ func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTestExecute(r ApiGetWorkIt
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 401 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3229,6 +3454,28 @@ func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTestExecute(r ApiGetWorkIt
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -3272,13 +3519,20 @@ func (r ApiLinkAutoTestToWorkItemRequest) Execute() (*http.Response, error) {
 /*
 LinkAutoTestToWorkItem Link autotest with work items
 
-<br>Use case
-<br>User sets autotest internal (guid format) or global (integer format) identifier
-<br>User sets work item internal (guid format) or global (integer format) identifier
-<br>User runs method execution
-<br>System finds the autotest by the autotest identifier
-<br>System finds the work item by the work item identifier
-<br>System relates the work item with the autotest and returns no content response
+
+Use case
+
+User sets autotest internal (guid format) or global (integer format) identifier
+
+User sets work item internal (guid format) or global (integer format) identifier
+
+User runs method execution
+
+System finds the autotest by the autotest identifier
+
+System finds the work item by the work item identifier
+
+System relates the work item with the autotest and returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest internal (UUID) or global (integer) identifier
@@ -3409,6 +3663,28 @@ func (a *AutoTestsAPIService) LinkAutoTestToWorkItemExecute(r ApiLinkAutoTestToW
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3434,31 +3710,41 @@ func (r ApiUpdateAutoTestRequest) Execute() (*http.Response, error) {
 /*
 UpdateAutoTest Update autotest
 
-<br>Use case
-<br>User sets autotest updated parameters values (listed in the example) and runs method execution
-<br>System finds the autotest by the identifier
-<br>System updates autotest parameters 
-<br>
+
+Use case
+
+User sets autotest updated parameters values (listed in the example) and runs method execution
+
+System finds the autotest by the identifier
+
+System updates autotest parameters 
+
+
             [Optional] If steps enumeration is set, system creates step items, relates them to autotest
             and deletes relations with current steps( if exist)
             
-<br>
+
+
             [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
             and deletes relations with current Setup items (if exist)
             
-<br>
+
+
             [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
             and deletes relations with current teardown items (if exist)
             
-<br>
+
+
             [Optional] If label enumeration is set, system creates labels and relates them to autotest
             and deletes relations with current Labels (if exist)
             
-<br>
+
+
             [Optional] If link enumeration is set, system creates links and relates them to autotest
             and deletes relations with current Links (if exist)
             
-<br>System updates autotest and returns no content response
+
+System updates autotest and returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateAutoTestRequest
@@ -3634,31 +3920,41 @@ func (r ApiUpdateMultipleRequest) Execute() (*http.Response, error) {
 /*
 UpdateMultiple Update multiple autotests
 
-<br>Use case
-<br>User sets autotest updated parameters values (listed in the example) and runs method execution
-<br>System finds the autotest by the identifier
-<br>System updates autotest parameters 
-<br>
+
+Use case
+
+User sets autotest updated parameters values (listed in the example) and runs method execution
+
+System finds the autotest by the identifier
+
+System updates autotest parameters 
+
+
             [Optional] If steps enumeration is set, system creates step items, relates them to autotest
             and deletes relations with current steps( if exist)
             
-<br>
+
+
             [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
             and deletes relations with current Setup items (if exist)
             
-<br>
+
+
             [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
             and deletes relations with current teardown items (if exist)
             
-<br>
+
+
             [Optional] If label enumeration is set, system creates labels and relates them to autotest
             and deletes relations with current Labels (if exist)
             
-<br>
+
+
             [Optional] If link enumeration is set, system creates links and relates them to autotest
             and deletes relations with current Links (if exist)
             
-<br>System updates autotest and returns no content response
+
+System updates autotest and returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateMultipleRequest

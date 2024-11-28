@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md) |  | 
+**SelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md) | Model containing options to filter test runs | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 **AttachmentUpdateScheme** | [**UpdateAttachmentShortModel**](UpdateAttachmentShortModel.md) |  | 
 **LinkUpdateScheme** | [**UpdateLinkShortModel**](UpdateLinkShortModel.md) |  | 

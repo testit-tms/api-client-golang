@@ -22,6 +22,12 @@ var _ MappedNullable = &AutotestResultHistoricalGetModel{}
 
 // AutotestResultHistoricalGetModel struct for AutotestResultHistoricalGetModel
 type AutotestResultHistoricalGetModel struct {
+	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
+	ModifiedById NullableString `json:"modifiedById,omitempty"`
+	TestPlanId NullableString `json:"testPlanId,omitempty"`
+	TestPlanGlobalId NullableInt64 `json:"testPlanGlobalId,omitempty"`
+	TestPlanName NullableString `json:"testPlanName,omitempty"`
+	Duration NullableInt64 `json:"duration,omitempty"`
 	Id string `json:"id"`
 	CreatedDate time.Time `json:"createdDate"`
 	CreatedById string `json:"createdById"`
@@ -32,12 +38,8 @@ type AutotestResultHistoricalGetModel struct {
 	ConfigurationName string `json:"configurationName"`
 	Outcome AutotestResultOutcome `json:"outcome"`
 	LaunchSource NullableString `json:"launchSource,omitempty"`
-	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
-	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	TestPlanId NullableString `json:"testPlanId,omitempty"`
-	TestPlanGlobalId NullableInt64 `json:"testPlanGlobalId,omitempty"`
-	TestPlanName NullableString `json:"testPlanName,omitempty"`
-	Duration NullableInt64 `json:"duration,omitempty"`
+	RerunCount int32 `json:"rerunCount"`
+	RerunTestResults []RerunTestResultModel `json:"rerunTestResults"`
 }
 
 type _AutotestResultHistoricalGetModel AutotestResultHistoricalGetModel
@@ -46,7 +48,7 @@ type _AutotestResultHistoricalGetModel AutotestResultHistoricalGetModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutotestResultHistoricalGetModel(id string, createdDate time.Time, createdById string, createdByName string, testRunId string, configurationId string, configurationName string, outcome AutotestResultOutcome) *AutotestResultHistoricalGetModel {
+func NewAutotestResultHistoricalGetModel(id string, createdDate time.Time, createdById string, createdByName string, testRunId string, configurationId string, configurationName string, outcome AutotestResultOutcome, rerunCount int32, rerunTestResults []RerunTestResultModel) *AutotestResultHistoricalGetModel {
 	this := AutotestResultHistoricalGetModel{}
 	this.Id = id
 	this.CreatedDate = createdDate
@@ -56,6 +58,8 @@ func NewAutotestResultHistoricalGetModel(id string, createdDate time.Time, creat
 	this.ConfigurationId = configurationId
 	this.ConfigurationName = configurationName
 	this.Outcome = outcome
+	this.RerunCount = rerunCount
+	this.RerunTestResults = rerunTestResults
 	return &this
 }
 
@@ -65,6 +69,258 @@ func NewAutotestResultHistoricalGetModel(id string, createdDate time.Time, creat
 func NewAutotestResultHistoricalGetModelWithDefaults() *AutotestResultHistoricalGetModel {
 	this := AutotestResultHistoricalGetModel{}
 	return &this
+}
+
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetModifiedDate() time.Time {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ModifiedDate.Get()
+}
+
+// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetModifiedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
+}
+
+// HasModifiedDate returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasModifiedDate() bool {
+	if o != nil && o.ModifiedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedDate gets a reference to the given NullableTime and assigns it to the ModifiedDate field.
+func (o *AutotestResultHistoricalGetModel) SetModifiedDate(v time.Time) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
+}
+
+// GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetModifiedById() string {
+	if o == nil || IsNil(o.ModifiedById.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ModifiedById.Get()
+}
+
+// GetModifiedByIdOk returns a tuple with the ModifiedById field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetModifiedByIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedById.Get(), o.ModifiedById.IsSet()
+}
+
+// HasModifiedById returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasModifiedById() bool {
+	if o != nil && o.ModifiedById.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedById gets a reference to the given NullableString and assigns it to the ModifiedById field.
+func (o *AutotestResultHistoricalGetModel) SetModifiedById(v string) {
+	o.ModifiedById.Set(&v)
+}
+// SetModifiedByIdNil sets the value for ModifiedById to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetModifiedByIdNil() {
+	o.ModifiedById.Set(nil)
+}
+
+// UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetModifiedById() {
+	o.ModifiedById.Unset()
+}
+
+// GetTestPlanId returns the TestPlanId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetTestPlanId() string {
+	if o == nil || IsNil(o.TestPlanId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TestPlanId.Get()
+}
+
+// GetTestPlanIdOk returns a tuple with the TestPlanId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetTestPlanIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TestPlanId.Get(), o.TestPlanId.IsSet()
+}
+
+// HasTestPlanId returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasTestPlanId() bool {
+	if o != nil && o.TestPlanId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTestPlanId gets a reference to the given NullableString and assigns it to the TestPlanId field.
+func (o *AutotestResultHistoricalGetModel) SetTestPlanId(v string) {
+	o.TestPlanId.Set(&v)
+}
+// SetTestPlanIdNil sets the value for TestPlanId to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetTestPlanIdNil() {
+	o.TestPlanId.Set(nil)
+}
+
+// UnsetTestPlanId ensures that no value is present for TestPlanId, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetTestPlanId() {
+	o.TestPlanId.Unset()
+}
+
+// GetTestPlanGlobalId returns the TestPlanGlobalId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetTestPlanGlobalId() int64 {
+	if o == nil || IsNil(o.TestPlanGlobalId.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TestPlanGlobalId.Get()
+}
+
+// GetTestPlanGlobalIdOk returns a tuple with the TestPlanGlobalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetTestPlanGlobalIdOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TestPlanGlobalId.Get(), o.TestPlanGlobalId.IsSet()
+}
+
+// HasTestPlanGlobalId returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasTestPlanGlobalId() bool {
+	if o != nil && o.TestPlanGlobalId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTestPlanGlobalId gets a reference to the given NullableInt64 and assigns it to the TestPlanGlobalId field.
+func (o *AutotestResultHistoricalGetModel) SetTestPlanGlobalId(v int64) {
+	o.TestPlanGlobalId.Set(&v)
+}
+// SetTestPlanGlobalIdNil sets the value for TestPlanGlobalId to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetTestPlanGlobalIdNil() {
+	o.TestPlanGlobalId.Set(nil)
+}
+
+// UnsetTestPlanGlobalId ensures that no value is present for TestPlanGlobalId, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetTestPlanGlobalId() {
+	o.TestPlanGlobalId.Unset()
+}
+
+// GetTestPlanName returns the TestPlanName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetTestPlanName() string {
+	if o == nil || IsNil(o.TestPlanName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.TestPlanName.Get()
+}
+
+// GetTestPlanNameOk returns a tuple with the TestPlanName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetTestPlanNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TestPlanName.Get(), o.TestPlanName.IsSet()
+}
+
+// HasTestPlanName returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasTestPlanName() bool {
+	if o != nil && o.TestPlanName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTestPlanName gets a reference to the given NullableString and assigns it to the TestPlanName field.
+func (o *AutotestResultHistoricalGetModel) SetTestPlanName(v string) {
+	o.TestPlanName.Set(&v)
+}
+// SetTestPlanNameNil sets the value for TestPlanName to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetTestPlanNameNil() {
+	o.TestPlanName.Set(nil)
+}
+
+// UnsetTestPlanName ensures that no value is present for TestPlanName, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetTestPlanName() {
+	o.TestPlanName.Unset()
+}
+
+// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutotestResultHistoricalGetModel) GetDuration() int64 {
+	if o == nil || IsNil(o.Duration.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.Duration.Get()
+}
+
+// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutotestResultHistoricalGetModel) GetDurationOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Duration.Get(), o.Duration.IsSet()
+}
+
+// HasDuration returns a boolean if a field has been set.
+func (o *AutotestResultHistoricalGetModel) HasDuration() bool {
+	if o != nil && o.Duration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDuration gets a reference to the given NullableInt64 and assigns it to the Duration field.
+func (o *AutotestResultHistoricalGetModel) SetDuration(v int64) {
+	o.Duration.Set(&v)
+}
+// SetDurationNil sets the value for Duration to be an explicit nil
+func (o *AutotestResultHistoricalGetModel) SetDurationNil() {
+	o.Duration.Set(nil)
+}
+
+// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+func (o *AutotestResultHistoricalGetModel) UnsetDuration() {
+	o.Duration.Unset()
 }
 
 // GetId returns the Id field value
@@ -343,256 +599,52 @@ func (o *AutotestResultHistoricalGetModel) UnsetLaunchSource() {
 	o.LaunchSource.Unset()
 }
 
-// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestResultHistoricalGetModel) GetModifiedDate() time.Time {
-	if o == nil || IsNil(o.ModifiedDate.Get()) {
-		var ret time.Time
+// GetRerunCount returns the RerunCount field value
+func (o *AutotestResultHistoricalGetModel) GetRerunCount() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.ModifiedDate.Get()
+
+	return o.RerunCount
 }
 
-// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
+// GetRerunCountOk returns a tuple with the RerunCount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestResultHistoricalGetModel) GetModifiedDateOk() (*time.Time, bool) {
+func (o *AutotestResultHistoricalGetModel) GetRerunCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
+	return &o.RerunCount, true
 }
 
-// HasModifiedDate returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasModifiedDate() bool {
-	if o != nil && o.ModifiedDate.IsSet() {
-		return true
-	}
-
-	return false
+// SetRerunCount sets field value
+func (o *AutotestResultHistoricalGetModel) SetRerunCount(v int32) {
+	o.RerunCount = v
 }
 
-// SetModifiedDate gets a reference to the given NullableTime and assigns it to the ModifiedDate field.
-func (o *AutotestResultHistoricalGetModel) SetModifiedDate(v time.Time) {
-	o.ModifiedDate.Set(&v)
-}
-// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
-func (o *AutotestResultHistoricalGetModel) SetModifiedDateNil() {
-	o.ModifiedDate.Set(nil)
-}
-
-// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
-func (o *AutotestResultHistoricalGetModel) UnsetModifiedDate() {
-	o.ModifiedDate.Unset()
-}
-
-// GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestResultHistoricalGetModel) GetModifiedById() string {
-	if o == nil || IsNil(o.ModifiedById.Get()) {
-		var ret string
+// GetRerunTestResults returns the RerunTestResults field value
+func (o *AutotestResultHistoricalGetModel) GetRerunTestResults() []RerunTestResultModel {
+	if o == nil {
+		var ret []RerunTestResultModel
 		return ret
 	}
-	return *o.ModifiedById.Get()
+
+	return o.RerunTestResults
 }
 
-// GetModifiedByIdOk returns a tuple with the ModifiedById field value if set, nil otherwise
+// GetRerunTestResultsOk returns a tuple with the RerunTestResults field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestResultHistoricalGetModel) GetModifiedByIdOk() (*string, bool) {
+func (o *AutotestResultHistoricalGetModel) GetRerunTestResultsOk() ([]RerunTestResultModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ModifiedById.Get(), o.ModifiedById.IsSet()
+	return o.RerunTestResults, true
 }
 
-// HasModifiedById returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasModifiedById() bool {
-	if o != nil && o.ModifiedById.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetModifiedById gets a reference to the given NullableString and assigns it to the ModifiedById field.
-func (o *AutotestResultHistoricalGetModel) SetModifiedById(v string) {
-	o.ModifiedById.Set(&v)
-}
-// SetModifiedByIdNil sets the value for ModifiedById to be an explicit nil
-func (o *AutotestResultHistoricalGetModel) SetModifiedByIdNil() {
-	o.ModifiedById.Set(nil)
-}
-
-// UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
-func (o *AutotestResultHistoricalGetModel) UnsetModifiedById() {
-	o.ModifiedById.Unset()
-}
-
-// GetTestPlanId returns the TestPlanId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestResultHistoricalGetModel) GetTestPlanId() string {
-	if o == nil || IsNil(o.TestPlanId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TestPlanId.Get()
-}
-
-// GetTestPlanIdOk returns a tuple with the TestPlanId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestResultHistoricalGetModel) GetTestPlanIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TestPlanId.Get(), o.TestPlanId.IsSet()
-}
-
-// HasTestPlanId returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasTestPlanId() bool {
-	if o != nil && o.TestPlanId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlanId gets a reference to the given NullableString and assigns it to the TestPlanId field.
-func (o *AutotestResultHistoricalGetModel) SetTestPlanId(v string) {
-	o.TestPlanId.Set(&v)
-}
-// SetTestPlanIdNil sets the value for TestPlanId to be an explicit nil
-func (o *AutotestResultHistoricalGetModel) SetTestPlanIdNil() {
-	o.TestPlanId.Set(nil)
-}
-
-// UnsetTestPlanId ensures that no value is present for TestPlanId, not even an explicit nil
-func (o *AutotestResultHistoricalGetModel) UnsetTestPlanId() {
-	o.TestPlanId.Unset()
-}
-
-// GetTestPlanGlobalId returns the TestPlanGlobalId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestResultHistoricalGetModel) GetTestPlanGlobalId() int64 {
-	if o == nil || IsNil(o.TestPlanGlobalId.Get()) {
-		var ret int64
-		return ret
-	}
-	return *o.TestPlanGlobalId.Get()
-}
-
-// GetTestPlanGlobalIdOk returns a tuple with the TestPlanGlobalId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestResultHistoricalGetModel) GetTestPlanGlobalIdOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TestPlanGlobalId.Get(), o.TestPlanGlobalId.IsSet()
-}
-
-// HasTestPlanGlobalId returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasTestPlanGlobalId() bool {
-	if o != nil && o.TestPlanGlobalId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlanGlobalId gets a reference to the given NullableInt64 and assigns it to the TestPlanGlobalId field.
-func (o *AutotestResultHistoricalGetModel) SetTestPlanGlobalId(v int64) {
-	o.TestPlanGlobalId.Set(&v)
-}
-// SetTestPlanGlobalIdNil sets the value for TestPlanGlobalId to be an explicit nil
-func (o *AutotestResultHistoricalGetModel) SetTestPlanGlobalIdNil() {
-	o.TestPlanGlobalId.Set(nil)
-}
-
-// UnsetTestPlanGlobalId ensures that no value is present for TestPlanGlobalId, not even an explicit nil
-func (o *AutotestResultHistoricalGetModel) UnsetTestPlanGlobalId() {
-	o.TestPlanGlobalId.Unset()
-}
-
-// GetTestPlanName returns the TestPlanName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestResultHistoricalGetModel) GetTestPlanName() string {
-	if o == nil || IsNil(o.TestPlanName.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TestPlanName.Get()
-}
-
-// GetTestPlanNameOk returns a tuple with the TestPlanName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestResultHistoricalGetModel) GetTestPlanNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TestPlanName.Get(), o.TestPlanName.IsSet()
-}
-
-// HasTestPlanName returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasTestPlanName() bool {
-	if o != nil && o.TestPlanName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlanName gets a reference to the given NullableString and assigns it to the TestPlanName field.
-func (o *AutotestResultHistoricalGetModel) SetTestPlanName(v string) {
-	o.TestPlanName.Set(&v)
-}
-// SetTestPlanNameNil sets the value for TestPlanName to be an explicit nil
-func (o *AutotestResultHistoricalGetModel) SetTestPlanNameNil() {
-	o.TestPlanName.Set(nil)
-}
-
-// UnsetTestPlanName ensures that no value is present for TestPlanName, not even an explicit nil
-func (o *AutotestResultHistoricalGetModel) UnsetTestPlanName() {
-	o.TestPlanName.Unset()
-}
-
-// GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutotestResultHistoricalGetModel) GetDuration() int64 {
-	if o == nil || IsNil(o.Duration.Get()) {
-		var ret int64
-		return ret
-	}
-	return *o.Duration.Get()
-}
-
-// GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutotestResultHistoricalGetModel) GetDurationOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Duration.Get(), o.Duration.IsSet()
-}
-
-// HasDuration returns a boolean if a field has been set.
-func (o *AutotestResultHistoricalGetModel) HasDuration() bool {
-	if o != nil && o.Duration.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDuration gets a reference to the given NullableInt64 and assigns it to the Duration field.
-func (o *AutotestResultHistoricalGetModel) SetDuration(v int64) {
-	o.Duration.Set(&v)
-}
-// SetDurationNil sets the value for Duration to be an explicit nil
-func (o *AutotestResultHistoricalGetModel) SetDurationNil() {
-	o.Duration.Set(nil)
-}
-
-// UnsetDuration ensures that no value is present for Duration, not even an explicit nil
-func (o *AutotestResultHistoricalGetModel) UnsetDuration() {
-	o.Duration.Unset()
+// SetRerunTestResults sets field value
+func (o *AutotestResultHistoricalGetModel) SetRerunTestResults(v []RerunTestResultModel) {
+	o.RerunTestResults = v
 }
 
 func (o AutotestResultHistoricalGetModel) MarshalJSON() ([]byte, error) {
@@ -605,20 +657,6 @@ func (o AutotestResultHistoricalGetModel) MarshalJSON() ([]byte, error) {
 
 func (o AutotestResultHistoricalGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
-	toSerialize["createdDate"] = o.CreatedDate
-	toSerialize["createdById"] = o.CreatedById
-	toSerialize["createdByName"] = o.CreatedByName
-	toSerialize["testRunId"] = o.TestRunId
-	if o.TestRunName.IsSet() {
-		toSerialize["testRunName"] = o.TestRunName.Get()
-	}
-	toSerialize["configurationId"] = o.ConfigurationId
-	toSerialize["configurationName"] = o.ConfigurationName
-	toSerialize["outcome"] = o.Outcome
-	if o.LaunchSource.IsSet() {
-		toSerialize["launchSource"] = o.LaunchSource.Get()
-	}
 	if o.ModifiedDate.IsSet() {
 		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
@@ -637,6 +675,22 @@ func (o AutotestResultHistoricalGetModel) ToMap() (map[string]interface{}, error
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
 	}
+	toSerialize["id"] = o.Id
+	toSerialize["createdDate"] = o.CreatedDate
+	toSerialize["createdById"] = o.CreatedById
+	toSerialize["createdByName"] = o.CreatedByName
+	toSerialize["testRunId"] = o.TestRunId
+	if o.TestRunName.IsSet() {
+		toSerialize["testRunName"] = o.TestRunName.Get()
+	}
+	toSerialize["configurationId"] = o.ConfigurationId
+	toSerialize["configurationName"] = o.ConfigurationName
+	toSerialize["outcome"] = o.Outcome
+	if o.LaunchSource.IsSet() {
+		toSerialize["launchSource"] = o.LaunchSource.Get()
+	}
+	toSerialize["rerunCount"] = o.RerunCount
+	toSerialize["rerunTestResults"] = o.RerunTestResults
 	return toSerialize, nil
 }
 
@@ -653,6 +707,8 @@ func (o *AutotestResultHistoricalGetModel) UnmarshalJSON(data []byte) (err error
 		"configurationId",
 		"configurationName",
 		"outcome",
+		"rerunCount",
+		"rerunTestResults",
 	}
 
 	allProperties := make(map[string]interface{})

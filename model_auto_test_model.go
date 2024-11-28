@@ -44,6 +44,8 @@ type AutoTestModel struct {
 	LastTestRunName NullableString `json:"lastTestRunName,omitempty"`
 	// Unique ID of the autotest last test result
 	LastTestResultId NullableString `json:"lastTestResultId,omitempty"`
+	// Configuration of the autotest last test result
+	LastTestResultConfiguration NullableConfigurationShortModel `json:"lastTestResultConfiguration,omitempty"`
 	// Outcome of the autotest last test result
 	LastTestResultOutcome NullableString `json:"lastTestResultOutcome,omitempty"`
 	// Stability percentage of the autotest
@@ -460,6 +462,48 @@ func (o *AutoTestModel) UnsetLastTestResultId() {
 	o.LastTestResultId.Unset()
 }
 
+// GetLastTestResultConfiguration returns the LastTestResultConfiguration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestModel) GetLastTestResultConfiguration() ConfigurationShortModel {
+	if o == nil || IsNil(o.LastTestResultConfiguration.Get()) {
+		var ret ConfigurationShortModel
+		return ret
+	}
+	return *o.LastTestResultConfiguration.Get()
+}
+
+// GetLastTestResultConfigurationOk returns a tuple with the LastTestResultConfiguration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestModel) GetLastTestResultConfigurationOk() (*ConfigurationShortModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LastTestResultConfiguration.Get(), o.LastTestResultConfiguration.IsSet()
+}
+
+// HasLastTestResultConfiguration returns a boolean if a field has been set.
+func (o *AutoTestModel) HasLastTestResultConfiguration() bool {
+	if o != nil && o.LastTestResultConfiguration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastTestResultConfiguration gets a reference to the given NullableConfigurationShortModel and assigns it to the LastTestResultConfiguration field.
+func (o *AutoTestModel) SetLastTestResultConfiguration(v ConfigurationShortModel) {
+	o.LastTestResultConfiguration.Set(&v)
+}
+// SetLastTestResultConfigurationNil sets the value for LastTestResultConfiguration to be an explicit nil
+func (o *AutoTestModel) SetLastTestResultConfigurationNil() {
+	o.LastTestResultConfiguration.Set(nil)
+}
+
+// UnsetLastTestResultConfiguration ensures that no value is present for LastTestResultConfiguration, not even an explicit nil
+func (o *AutoTestModel) UnsetLastTestResultConfiguration() {
+	o.LastTestResultConfiguration.Unset()
+}
+
 // GetLastTestResultOutcome returns the LastTestResultOutcome field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutoTestModel) GetLastTestResultOutcome() string {
 	if o == nil || IsNil(o.LastTestResultOutcome.Get()) {
@@ -589,7 +633,7 @@ func (o *AutoTestModel) GetLinksOk() ([]LinkPutModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *AutoTestModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -754,7 +798,7 @@ func (o *AutoTestModel) GetStepsOk() ([]AutoTestStepModel, bool) {
 
 // HasSteps returns a boolean if a field has been set.
 func (o *AutoTestModel) HasSteps() bool {
-	if o != nil && IsNil(o.Steps) {
+	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
 
@@ -787,7 +831,7 @@ func (o *AutoTestModel) GetSetupOk() ([]AutoTestStepModel, bool) {
 
 // HasSetup returns a boolean if a field has been set.
 func (o *AutoTestModel) HasSetup() bool {
-	if o != nil && IsNil(o.Setup) {
+	if o != nil && !IsNil(o.Setup) {
 		return true
 	}
 
@@ -820,7 +864,7 @@ func (o *AutoTestModel) GetTeardownOk() ([]AutoTestStepModel, bool) {
 
 // HasTeardown returns a boolean if a field has been set.
 func (o *AutoTestModel) HasTeardown() bool {
-	if o != nil && IsNil(o.Teardown) {
+	if o != nil && !IsNil(o.Teardown) {
 		return true
 	}
 
@@ -937,7 +981,7 @@ func (o *AutoTestModel) GetLabelsOk() ([]LabelShortModel, bool) {
 
 // HasLabels returns a boolean if a field has been set.
 func (o *AutoTestModel) HasLabels() bool {
-	if o != nil && IsNil(o.Labels) {
+	if o != nil && !IsNil(o.Labels) {
 		return true
 	}
 
@@ -1063,6 +1107,9 @@ func (o AutoTestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LastTestResultId.IsSet() {
 		toSerialize["lastTestResultId"] = o.LastTestResultId.Get()
+	}
+	if o.LastTestResultConfiguration.IsSet() {
+		toSerialize["lastTestResultConfiguration"] = o.LastTestResultConfiguration.Get()
 	}
 	if o.LastTestResultOutcome.IsSet() {
 		toSerialize["lastTestResultOutcome"] = o.LastTestResultOutcome.Get()

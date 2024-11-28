@@ -19,8 +19,10 @@ var _ MappedNullable = &TestRunTestResultsSelectModel{}
 
 // TestRunTestResultsSelectModel struct for TestRunTestResultsSelectModel
 type TestRunTestResultsSelectModel struct {
-	Filter NullableTestRunTestResultsSelectModelFilter `json:"filter,omitempty"`
-	TestResultIdsExtractionModel NullableTestRunTestResultsSelectModelTestResultIdsExtractionModel `json:"testResultIdsExtractionModel,omitempty"`
+	// Collection of filters to apply to search
+	Filter NullableTestResultsLocalFilterModel `json:"filter,omitempty"`
+	// Rules to include and exclude certain entities in result
+	TestResultIdsExtractionModel NullableGuidExtractionModel `json:"testResultIdsExtractionModel,omitempty"`
 }
 
 // NewTestRunTestResultsSelectModel instantiates a new TestRunTestResultsSelectModel object
@@ -41,9 +43,9 @@ func NewTestRunTestResultsSelectModelWithDefaults() *TestRunTestResultsSelectMod
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunTestResultsSelectModel) GetFilter() TestRunTestResultsSelectModelFilter {
+func (o *TestRunTestResultsSelectModel) GetFilter() TestResultsLocalFilterModel {
 	if o == nil || IsNil(o.Filter.Get()) {
-		var ret TestRunTestResultsSelectModelFilter
+		var ret TestResultsLocalFilterModel
 		return ret
 	}
 	return *o.Filter.Get()
@@ -52,7 +54,7 @@ func (o *TestRunTestResultsSelectModel) GetFilter() TestRunTestResultsSelectMode
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunTestResultsSelectModel) GetFilterOk() (*TestRunTestResultsSelectModelFilter, bool) {
+func (o *TestRunTestResultsSelectModel) GetFilterOk() (*TestResultsLocalFilterModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,8 +70,8 @@ func (o *TestRunTestResultsSelectModel) HasFilter() bool {
 	return false
 }
 
-// SetFilter gets a reference to the given NullableTestRunTestResultsSelectModelFilter and assigns it to the Filter field.
-func (o *TestRunTestResultsSelectModel) SetFilter(v TestRunTestResultsSelectModelFilter) {
+// SetFilter gets a reference to the given NullableTestResultsLocalFilterModel and assigns it to the Filter field.
+func (o *TestRunTestResultsSelectModel) SetFilter(v TestResultsLocalFilterModel) {
 	o.Filter.Set(&v)
 }
 // SetFilterNil sets the value for Filter to be an explicit nil
@@ -83,9 +85,9 @@ func (o *TestRunTestResultsSelectModel) UnsetFilter() {
 }
 
 // GetTestResultIdsExtractionModel returns the TestResultIdsExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModel() TestRunTestResultsSelectModelTestResultIdsExtractionModel {
+func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModel() GuidExtractionModel {
 	if o == nil || IsNil(o.TestResultIdsExtractionModel.Get()) {
-		var ret TestRunTestResultsSelectModelTestResultIdsExtractionModel
+		var ret GuidExtractionModel
 		return ret
 	}
 	return *o.TestResultIdsExtractionModel.Get()
@@ -94,7 +96,7 @@ func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModel() TestRu
 // GetTestResultIdsExtractionModelOk returns a tuple with the TestResultIdsExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModelOk() (*TestRunTestResultsSelectModelTestResultIdsExtractionModel, bool) {
+func (o *TestRunTestResultsSelectModel) GetTestResultIdsExtractionModelOk() (*GuidExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,8 +112,8 @@ func (o *TestRunTestResultsSelectModel) HasTestResultIdsExtractionModel() bool {
 	return false
 }
 
-// SetTestResultIdsExtractionModel gets a reference to the given NullableTestRunTestResultsSelectModelTestResultIdsExtractionModel and assigns it to the TestResultIdsExtractionModel field.
-func (o *TestRunTestResultsSelectModel) SetTestResultIdsExtractionModel(v TestRunTestResultsSelectModelTestResultIdsExtractionModel) {
+// SetTestResultIdsExtractionModel gets a reference to the given NullableGuidExtractionModel and assigns it to the TestResultIdsExtractionModel field.
+func (o *TestRunTestResultsSelectModel) SetTestResultIdsExtractionModel(v GuidExtractionModel) {
 	o.TestResultIdsExtractionModel.Set(&v)
 }
 // SetTestResultIdsExtractionModelNil sets the value for TestResultIdsExtractionModel to be an explicit nil

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** | Specifies a tag name to search for | [optional] 
-**CreatedDate** | Pointer to [**NullableTagsFilterModelCreatedDate**](TagsFilterModelCreatedDate.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a tag range of creation date to search for | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies a tag creator IDs to search for | [optional] 
 
 ## Methods
@@ -64,20 +64,20 @@ HasName returns a boolean if a field has been set.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *TagsFilterModel) GetCreatedDate() TagsFilterModelCreatedDate`
+`func (o *TagsFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *TagsFilterModel) GetCreatedDateOk() (*TagsFilterModelCreatedDate, bool)`
+`func (o *TagsFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *TagsFilterModel) SetCreatedDate(v TagsFilterModelCreatedDate)`
+`func (o *TagsFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
 
 SetCreatedDate sets CreatedDate field to given value.
 

@@ -25,20 +25,26 @@ type TestRunFilterModel struct {
 	Name NullableString `json:"name,omitempty"`
 	// Specifies a test run states to search for
 	States []TestRunState `json:"states,omitempty"`
-	CreatedDate NullableTestRunFilterModelCreatedDate `json:"createdDate,omitempty"`
-	StartedDate NullableTestRunFilterModelStartedDate `json:"startedDate,omitempty"`
+	// Specifies a test run range of created date to search for
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	// Specifies a test run range of started date to search for
+	StartedDate NullableDateTimeRangeSelectorModel `json:"startedDate,omitempty"`
 	// Specifies a test run creator IDs to search for
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 	// Specifies a test run last editor IDs to search for
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 	// Specifies a test run deleted status to search for
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
-	AutoTestsCount NullableTestRunFilterModelAutoTestsCount `json:"autoTestsCount,omitempty"`
+	// Number of autoTests run in the test run
+	AutoTestsCount NullableInt32RangeSelectorModel `json:"autoTestsCount,omitempty"`
 	// Specifies test results outcomes
 	TestResultsOutcome []TestResultOutcome `json:"testResultsOutcome,omitempty"`
 	// Specifies failure categories
 	FailureCategory []FailureCategoryModel `json:"failureCategory,omitempty"`
-	CompletedDate NullableTestRunFilterModelCompletedDate `json:"completedDate,omitempty"`
+	// Specifies a test run range of completed date to search for
+	CompletedDate NullableDateTimeRangeSelectorModel `json:"completedDate,omitempty"`
+	// Specifies a test result configuration IDs to search for
+	TestResultsConfigurationIds []string `json:"testResultsConfigurationIds,omitempty"`
 }
 
 // NewTestRunFilterModel instantiates a new TestRunFilterModel object
@@ -79,7 +85,7 @@ func (o *TestRunFilterModel) GetProjectIdsOk() ([]string, bool) {
 
 // HasProjectIds returns a boolean if a field has been set.
 func (o *TestRunFilterModel) HasProjectIds() bool {
-	if o != nil && IsNil(o.ProjectIds) {
+	if o != nil && !IsNil(o.ProjectIds) {
 		return true
 	}
 
@@ -154,7 +160,7 @@ func (o *TestRunFilterModel) GetStatesOk() ([]TestRunState, bool) {
 
 // HasStates returns a boolean if a field has been set.
 func (o *TestRunFilterModel) HasStates() bool {
-	if o != nil && IsNil(o.States) {
+	if o != nil && !IsNil(o.States) {
 		return true
 	}
 
@@ -167,9 +173,9 @@ func (o *TestRunFilterModel) SetStates(v []TestRunState) {
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunFilterModel) GetCreatedDate() TestRunFilterModelCreatedDate {
+func (o *TestRunFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret TestRunFilterModelCreatedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.CreatedDate.Get()
@@ -178,7 +184,7 @@ func (o *TestRunFilterModel) GetCreatedDate() TestRunFilterModelCreatedDate {
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunFilterModel) GetCreatedDateOk() (*TestRunFilterModelCreatedDate, bool) {
+func (o *TestRunFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,8 +200,8 @@ func (o *TestRunFilterModel) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableTestRunFilterModelCreatedDate and assigns it to the CreatedDate field.
-func (o *TestRunFilterModel) SetCreatedDate(v TestRunFilterModelCreatedDate) {
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+func (o *TestRunFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
 	o.CreatedDate.Set(&v)
 }
 // SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
@@ -209,9 +215,9 @@ func (o *TestRunFilterModel) UnsetCreatedDate() {
 }
 
 // GetStartedDate returns the StartedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunFilterModel) GetStartedDate() TestRunFilterModelStartedDate {
+func (o *TestRunFilterModel) GetStartedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.StartedDate.Get()) {
-		var ret TestRunFilterModelStartedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.StartedDate.Get()
@@ -220,7 +226,7 @@ func (o *TestRunFilterModel) GetStartedDate() TestRunFilterModelStartedDate {
 // GetStartedDateOk returns a tuple with the StartedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunFilterModel) GetStartedDateOk() (*TestRunFilterModelStartedDate, bool) {
+func (o *TestRunFilterModel) GetStartedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -236,8 +242,8 @@ func (o *TestRunFilterModel) HasStartedDate() bool {
 	return false
 }
 
-// SetStartedDate gets a reference to the given NullableTestRunFilterModelStartedDate and assigns it to the StartedDate field.
-func (o *TestRunFilterModel) SetStartedDate(v TestRunFilterModelStartedDate) {
+// SetStartedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the StartedDate field.
+func (o *TestRunFilterModel) SetStartedDate(v DateTimeRangeSelectorModel) {
 	o.StartedDate.Set(&v)
 }
 // SetStartedDateNil sets the value for StartedDate to be an explicit nil
@@ -271,7 +277,7 @@ func (o *TestRunFilterModel) GetCreatedByIdsOk() ([]string, bool) {
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *TestRunFilterModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 
@@ -304,7 +310,7 @@ func (o *TestRunFilterModel) GetModifiedByIdsOk() ([]string, bool) {
 
 // HasModifiedByIds returns a boolean if a field has been set.
 func (o *TestRunFilterModel) HasModifiedByIds() bool {
-	if o != nil && IsNil(o.ModifiedByIds) {
+	if o != nil && !IsNil(o.ModifiedByIds) {
 		return true
 	}
 
@@ -359,9 +365,9 @@ func (o *TestRunFilterModel) UnsetIsDeleted() {
 }
 
 // GetAutoTestsCount returns the AutoTestsCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunFilterModel) GetAutoTestsCount() TestRunFilterModelAutoTestsCount {
+func (o *TestRunFilterModel) GetAutoTestsCount() Int32RangeSelectorModel {
 	if o == nil || IsNil(o.AutoTestsCount.Get()) {
-		var ret TestRunFilterModelAutoTestsCount
+		var ret Int32RangeSelectorModel
 		return ret
 	}
 	return *o.AutoTestsCount.Get()
@@ -370,7 +376,7 @@ func (o *TestRunFilterModel) GetAutoTestsCount() TestRunFilterModelAutoTestsCoun
 // GetAutoTestsCountOk returns a tuple with the AutoTestsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunFilterModel) GetAutoTestsCountOk() (*TestRunFilterModelAutoTestsCount, bool) {
+func (o *TestRunFilterModel) GetAutoTestsCountOk() (*Int32RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -386,8 +392,8 @@ func (o *TestRunFilterModel) HasAutoTestsCount() bool {
 	return false
 }
 
-// SetAutoTestsCount gets a reference to the given NullableTestRunFilterModelAutoTestsCount and assigns it to the AutoTestsCount field.
-func (o *TestRunFilterModel) SetAutoTestsCount(v TestRunFilterModelAutoTestsCount) {
+// SetAutoTestsCount gets a reference to the given NullableInt32RangeSelectorModel and assigns it to the AutoTestsCount field.
+func (o *TestRunFilterModel) SetAutoTestsCount(v Int32RangeSelectorModel) {
 	o.AutoTestsCount.Set(&v)
 }
 // SetAutoTestsCountNil sets the value for AutoTestsCount to be an explicit nil
@@ -421,7 +427,7 @@ func (o *TestRunFilterModel) GetTestResultsOutcomeOk() ([]TestResultOutcome, boo
 
 // HasTestResultsOutcome returns a boolean if a field has been set.
 func (o *TestRunFilterModel) HasTestResultsOutcome() bool {
-	if o != nil && IsNil(o.TestResultsOutcome) {
+	if o != nil && !IsNil(o.TestResultsOutcome) {
 		return true
 	}
 
@@ -454,7 +460,7 @@ func (o *TestRunFilterModel) GetFailureCategoryOk() ([]FailureCategoryModel, boo
 
 // HasFailureCategory returns a boolean if a field has been set.
 func (o *TestRunFilterModel) HasFailureCategory() bool {
-	if o != nil && IsNil(o.FailureCategory) {
+	if o != nil && !IsNil(o.FailureCategory) {
 		return true
 	}
 
@@ -467,9 +473,9 @@ func (o *TestRunFilterModel) SetFailureCategory(v []FailureCategoryModel) {
 }
 
 // GetCompletedDate returns the CompletedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunFilterModel) GetCompletedDate() TestRunFilterModelCompletedDate {
+func (o *TestRunFilterModel) GetCompletedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.CompletedDate.Get()) {
-		var ret TestRunFilterModelCompletedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.CompletedDate.Get()
@@ -478,7 +484,7 @@ func (o *TestRunFilterModel) GetCompletedDate() TestRunFilterModelCompletedDate 
 // GetCompletedDateOk returns a tuple with the CompletedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunFilterModel) GetCompletedDateOk() (*TestRunFilterModelCompletedDate, bool) {
+func (o *TestRunFilterModel) GetCompletedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -494,8 +500,8 @@ func (o *TestRunFilterModel) HasCompletedDate() bool {
 	return false
 }
 
-// SetCompletedDate gets a reference to the given NullableTestRunFilterModelCompletedDate and assigns it to the CompletedDate field.
-func (o *TestRunFilterModel) SetCompletedDate(v TestRunFilterModelCompletedDate) {
+// SetCompletedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CompletedDate field.
+func (o *TestRunFilterModel) SetCompletedDate(v DateTimeRangeSelectorModel) {
 	o.CompletedDate.Set(&v)
 }
 // SetCompletedDateNil sets the value for CompletedDate to be an explicit nil
@@ -506,6 +512,39 @@ func (o *TestRunFilterModel) SetCompletedDateNil() {
 // UnsetCompletedDate ensures that no value is present for CompletedDate, not even an explicit nil
 func (o *TestRunFilterModel) UnsetCompletedDate() {
 	o.CompletedDate.Unset()
+}
+
+// GetTestResultsConfigurationIds returns the TestResultsConfigurationIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestRunFilterModel) GetTestResultsConfigurationIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.TestResultsConfigurationIds
+}
+
+// GetTestResultsConfigurationIdsOk returns a tuple with the TestResultsConfigurationIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestRunFilterModel) GetTestResultsConfigurationIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.TestResultsConfigurationIds) {
+		return nil, false
+	}
+	return o.TestResultsConfigurationIds, true
+}
+
+// HasTestResultsConfigurationIds returns a boolean if a field has been set.
+func (o *TestRunFilterModel) HasTestResultsConfigurationIds() bool {
+	if o != nil && !IsNil(o.TestResultsConfigurationIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetTestResultsConfigurationIds gets a reference to the given []string and assigns it to the TestResultsConfigurationIds field.
+func (o *TestRunFilterModel) SetTestResultsConfigurationIds(v []string) {
+	o.TestResultsConfigurationIds = v
 }
 
 func (o TestRunFilterModel) MarshalJSON() ([]byte, error) {
@@ -553,6 +592,9 @@ func (o TestRunFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.CompletedDate.IsSet() {
 		toSerialize["completedDate"] = o.CompletedDate.Get()
+	}
+	if o.TestResultsConfigurationIds != nil {
+		toSerialize["testResultsConfigurationIds"] = o.TestResultsConfigurationIds
 	}
 	return toSerialize, nil
 }

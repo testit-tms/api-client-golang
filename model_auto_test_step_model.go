@@ -136,7 +136,7 @@ func (o *AutoTestStepModel) GetStepsOk() ([]AutoTestStepModel, bool) {
 
 // HasSteps returns a boolean if a field has been set.
 func (o *AutoTestStepModel) HasSteps() bool {
-	if o != nil && IsNil(o.Steps) {
+	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
 

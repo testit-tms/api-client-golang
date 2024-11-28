@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **LastTestRunId** | Pointer to **NullableString** | Unique ID of the autotest last test run | [optional] 
 **LastTestRunName** | Pointer to **NullableString** | Name of the autotest last test run | [optional] 
 **LastTestResultId** | Pointer to **NullableString** | Unique ID of the autotest last test result | [optional] 
+**LastTestResultConfiguration** | Pointer to [**NullableConfigurationShortModel**](ConfigurationShortModel.md) | Configuration of the autotest last test result | [optional] 
 **LastTestResultOutcome** | Pointer to **NullableString** | Outcome of the autotest last test result | [optional] 
 **StabilityPercentage** | Pointer to **NullableInt32** | Stability percentage of the autotest | [optional] 
 **ExternalId** | **string** | External ID of the autotest | 
@@ -346,6 +347,41 @@ HasLastTestResultId returns a boolean if a field has been set.
 `func (o *AutoTestModel) UnsetLastTestResultId()`
 
 UnsetLastTestResultId ensures that no value is present for LastTestResultId, not even an explicit nil
+### GetLastTestResultConfiguration
+
+`func (o *AutoTestModel) GetLastTestResultConfiguration() ConfigurationShortModel`
+
+GetLastTestResultConfiguration returns the LastTestResultConfiguration field if non-nil, zero value otherwise.
+
+### GetLastTestResultConfigurationOk
+
+`func (o *AutoTestModel) GetLastTestResultConfigurationOk() (*ConfigurationShortModel, bool)`
+
+GetLastTestResultConfigurationOk returns a tuple with the LastTestResultConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastTestResultConfiguration
+
+`func (o *AutoTestModel) SetLastTestResultConfiguration(v ConfigurationShortModel)`
+
+SetLastTestResultConfiguration sets LastTestResultConfiguration field to given value.
+
+### HasLastTestResultConfiguration
+
+`func (o *AutoTestModel) HasLastTestResultConfiguration() bool`
+
+HasLastTestResultConfiguration returns a boolean if a field has been set.
+
+### SetLastTestResultConfigurationNil
+
+`func (o *AutoTestModel) SetLastTestResultConfigurationNil(b bool)`
+
+ SetLastTestResultConfigurationNil sets the value for LastTestResultConfiguration to be an explicit nil
+
+### UnsetLastTestResultConfiguration
+`func (o *AutoTestModel) UnsetLastTestResultConfiguration()`
+
+UnsetLastTestResultConfiguration ensures that no value is present for LastTestResultConfiguration, not even an explicit nil
 ### GetLastTestResultOutcome
 
 `func (o *AutoTestModel) GetLastTestResultOutcome() string`

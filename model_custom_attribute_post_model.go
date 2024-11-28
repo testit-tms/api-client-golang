@@ -21,8 +21,9 @@ var _ MappedNullable = &CustomAttributePostModel{}
 
 // CustomAttributePostModel struct for CustomAttributePostModel
 type CustomAttributePostModel struct {
-	// Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only
+	// Collection of attribute options     Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionPostModel `json:"options,omitempty"`
+	// Type of attribute
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Name of the attribute
 	Name string `json:"name"`
@@ -79,7 +80,7 @@ func (o *CustomAttributePostModel) GetOptionsOk() ([]CustomAttributeOptionPostMo
 
 // HasOptions returns a boolean if a field has been set.
 func (o *CustomAttributePostModel) HasOptions() bool {
-	if o != nil && IsNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 

@@ -90,7 +90,7 @@ func (o *UpdateAttachmentShortModel) GetAttachmentIdsOk() ([]string, bool) {
 
 // HasAttachmentIds returns a boolean if a field has been set.
 func (o *UpdateAttachmentShortModel) HasAttachmentIds() bool {
-	if o != nil && IsNil(o.AttachmentIds) {
+	if o != nil && !IsNil(o.AttachmentIds) {
 		return true
 	}
 

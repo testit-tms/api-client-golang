@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the webhook | 
-**EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
+**EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) | Type of event which triggers the webhook | 
 **Description** | Pointer to **NullableString** | Description of the webhook | [optional] 
 **Url** | **string** | Url to which the webhook sends request | 
-**RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
+**RequestType** | [**RequestTypeModel**](RequestTypeModel.md) | Method which the webhook uses | 
 **ShouldSendBody** | **bool** | Indicates if the webhook sends body | 
 **Headers** | Pointer to **map[string]string** | Collection of headers which the webhook sends | [optional] 
 **QueryParameters** | Pointer to **map[string]string** | Collection of query parameters which the webhook sends | [optional] 

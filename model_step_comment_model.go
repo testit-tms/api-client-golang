@@ -211,7 +211,7 @@ func (o *StepCommentModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *StepCommentModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 

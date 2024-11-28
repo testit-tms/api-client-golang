@@ -19,8 +19,10 @@ var _ MappedNullable = &ConfigurationSelectModel{}
 
 // ConfigurationSelectModel struct for ConfigurationSelectModel
 type ConfigurationSelectModel struct {
-	Filter NullableConfigurationSelectModelFilter `json:"filter,omitempty"`
-	ExtractionModel NullableConfigurationSelectModelExtractionModel `json:"extractionModel,omitempty"`
+	// Configuration filters collection
+	Filter NullableConfigurationFilterModel `json:"filter,omitempty"`
+	// Rules for configurations extraction
+	ExtractionModel NullableConfigurationExtractionModel `json:"extractionModel,omitempty"`
 }
 
 // NewConfigurationSelectModel instantiates a new ConfigurationSelectModel object
@@ -41,9 +43,9 @@ func NewConfigurationSelectModelWithDefaults() *ConfigurationSelectModel {
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationSelectModel) GetFilter() ConfigurationSelectModelFilter {
+func (o *ConfigurationSelectModel) GetFilter() ConfigurationFilterModel {
 	if o == nil || IsNil(o.Filter.Get()) {
-		var ret ConfigurationSelectModelFilter
+		var ret ConfigurationFilterModel
 		return ret
 	}
 	return *o.Filter.Get()
@@ -52,7 +54,7 @@ func (o *ConfigurationSelectModel) GetFilter() ConfigurationSelectModelFilter {
 // GetFilterOk returns a tuple with the Filter field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationSelectModel) GetFilterOk() (*ConfigurationSelectModelFilter, bool) {
+func (o *ConfigurationSelectModel) GetFilterOk() (*ConfigurationFilterModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,8 +70,8 @@ func (o *ConfigurationSelectModel) HasFilter() bool {
 	return false
 }
 
-// SetFilter gets a reference to the given NullableConfigurationSelectModelFilter and assigns it to the Filter field.
-func (o *ConfigurationSelectModel) SetFilter(v ConfigurationSelectModelFilter) {
+// SetFilter gets a reference to the given NullableConfigurationFilterModel and assigns it to the Filter field.
+func (o *ConfigurationSelectModel) SetFilter(v ConfigurationFilterModel) {
 	o.Filter.Set(&v)
 }
 // SetFilterNil sets the value for Filter to be an explicit nil
@@ -83,9 +85,9 @@ func (o *ConfigurationSelectModel) UnsetFilter() {
 }
 
 // GetExtractionModel returns the ExtractionModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ConfigurationSelectModel) GetExtractionModel() ConfigurationSelectModelExtractionModel {
+func (o *ConfigurationSelectModel) GetExtractionModel() ConfigurationExtractionModel {
 	if o == nil || IsNil(o.ExtractionModel.Get()) {
-		var ret ConfigurationSelectModelExtractionModel
+		var ret ConfigurationExtractionModel
 		return ret
 	}
 	return *o.ExtractionModel.Get()
@@ -94,7 +96,7 @@ func (o *ConfigurationSelectModel) GetExtractionModel() ConfigurationSelectModel
 // GetExtractionModelOk returns a tuple with the ExtractionModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ConfigurationSelectModel) GetExtractionModelOk() (*ConfigurationSelectModelExtractionModel, bool) {
+func (o *ConfigurationSelectModel) GetExtractionModelOk() (*ConfigurationExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -110,8 +112,8 @@ func (o *ConfigurationSelectModel) HasExtractionModel() bool {
 	return false
 }
 
-// SetExtractionModel gets a reference to the given NullableConfigurationSelectModelExtractionModel and assigns it to the ExtractionModel field.
-func (o *ConfigurationSelectModel) SetExtractionModel(v ConfigurationSelectModelExtractionModel) {
+// SetExtractionModel gets a reference to the given NullableConfigurationExtractionModel and assigns it to the ExtractionModel field.
+func (o *ConfigurationSelectModel) SetExtractionModel(v ConfigurationExtractionModel) {
 	o.ExtractionModel.Set(&v)
 }
 // SetExtractionModelNil sets the value for ExtractionModel to be an explicit nil

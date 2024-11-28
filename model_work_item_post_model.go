@@ -353,7 +353,7 @@ func (o *WorkItemPostModel) GetAttachmentsOk() ([]AttachmentPutModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *WorkItemPostModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -386,7 +386,7 @@ func (o *WorkItemPostModel) GetIterationsOk() ([]IterationPutModel, bool) {
 
 // HasIterations returns a boolean if a field has been set.
 func (o *WorkItemPostModel) HasIterations() bool {
-	if o != nil && IsNil(o.Iterations) {
+	if o != nil && !IsNil(o.Iterations) {
 		return true
 	}
 
@@ -515,7 +515,7 @@ func (o *WorkItemPostModel) GetAutoTestsOk() ([]AutoTestIdModel, bool) {
 
 // HasAutoTests returns a boolean if a field has been set.
 func (o *WorkItemPostModel) HasAutoTests() bool {
-	if o != nil && IsNil(o.AutoTests) {
+	if o != nil && !IsNil(o.AutoTests) {
 		return true
 	}
 

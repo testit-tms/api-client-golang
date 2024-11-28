@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **WorkItemId** | **string** |  | 
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
 **TestSuiteId** | **string** |  | 
-**LastTestResult** | Pointer to [**NullableLastTestResultModel**](LastTestResultModel.md) |  | [optional] 
+**LastTestResult** | Pointer to [**LastTestResultModel**](LastTestResultModel.md) |  | [optional] 
 **Status** | Pointer to **NullableString** |  | [optional] 
 **WorkItemGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 **WorkItemEntityTypeName** | Pointer to **NullableString** |  | [optional] 
@@ -258,16 +258,6 @@ SetLastTestResult sets LastTestResult field to given value.
 
 HasLastTestResult returns a boolean if a field has been set.
 
-### SetLastTestResultNil
-
-`func (o *TestPointWithLastResultModel) SetLastTestResultNil(b bool)`
-
- SetLastTestResultNil sets the value for LastTestResult to be an explicit nil
-
-### UnsetLastTestResult
-`func (o *TestPointWithLastResultModel) UnsetLastTestResult()`
-
-UnsetLastTestResult ensures that no value is present for LastTestResult, not even an explicit nil
 ### GetStatus
 
 `func (o *TestPointWithLastResultModel) GetStatus() string`

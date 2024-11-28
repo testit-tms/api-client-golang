@@ -50,7 +50,9 @@ type TestResultModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	StepComments []StepCommentModel `json:"stepComments,omitempty"`
 	FailureClassIds []string `json:"failureClassIds"`
+	// Deprecated
 	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
+	Status NullableTestStatusModel `json:"status,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []LinkModel `json:"links,omitempty"`
 	StepResults []StepResultModel `json:"stepResults,omitempty"`
@@ -639,7 +641,7 @@ func (o *TestResultModel) GetAutoTestStepResultsOk() ([]AttachmentModelAutoTestS
 
 // HasAutoTestStepResults returns a boolean if a field has been set.
 func (o *TestResultModel) HasAutoTestStepResults() bool {
-	if o != nil && IsNil(o.AutoTestStepResults) {
+	if o != nil && !IsNil(o.AutoTestStepResults) {
 		return true
 	}
 
@@ -672,7 +674,7 @@ func (o *TestResultModel) GetSetupResultsOk() ([]AttachmentModelAutoTestStepResu
 
 // HasSetupResults returns a boolean if a field has been set.
 func (o *TestResultModel) HasSetupResults() bool {
-	if o != nil && IsNil(o.SetupResults) {
+	if o != nil && !IsNil(o.SetupResults) {
 		return true
 	}
 
@@ -705,7 +707,7 @@ func (o *TestResultModel) GetTeardownResultsOk() ([]AttachmentModelAutoTestStepR
 
 // HasTeardownResults returns a boolean if a field has been set.
 func (o *TestResultModel) HasTeardownResults() bool {
-	if o != nil && IsNil(o.TeardownResults) {
+	if o != nil && !IsNil(o.TeardownResults) {
 		return true
 	}
 
@@ -804,7 +806,7 @@ func (o *TestResultModel) GetParametersOk() (*map[string]string, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *TestResultModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 
@@ -837,7 +839,7 @@ func (o *TestResultModel) GetPropertiesOk() (*map[string]string, bool) {
 
 // HasProperties returns a boolean if a field has been set.
 func (o *TestResultModel) HasProperties() bool {
-	if o != nil && IsNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 
@@ -1026,7 +1028,7 @@ func (o *TestResultModel) GetStepCommentsOk() ([]StepCommentModel, bool) {
 
 // HasStepComments returns a boolean if a field has been set.
 func (o *TestResultModel) HasStepComments() bool {
-	if o != nil && IsNil(o.StepComments) {
+	if o != nil && !IsNil(o.StepComments) {
 		return true
 	}
 
@@ -1063,6 +1065,7 @@ func (o *TestResultModel) SetFailureClassIds(v []string) {
 }
 
 // GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *TestResultModel) GetOutcome() TestResultOutcome {
 	if o == nil || IsNil(o.Outcome.Get()) {
 		var ret TestResultOutcome
@@ -1074,6 +1077,7 @@ func (o *TestResultModel) GetOutcome() TestResultOutcome {
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *TestResultModel) GetOutcomeOk() (*TestResultOutcome, bool) {
 	if o == nil {
 		return nil, false
@@ -1091,6 +1095,7 @@ func (o *TestResultModel) HasOutcome() bool {
 }
 
 // SetOutcome gets a reference to the given NullableTestResultOutcome and assigns it to the Outcome field.
+// Deprecated
 func (o *TestResultModel) SetOutcome(v TestResultOutcome) {
 	o.Outcome.Set(&v)
 }
@@ -1102,6 +1107,48 @@ func (o *TestResultModel) SetOutcomeNil() {
 // UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 func (o *TestResultModel) UnsetOutcome() {
 	o.Outcome.Unset()
+}
+
+// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultModel) GetStatus() TestStatusModel {
+	if o == nil || IsNil(o.Status.Get()) {
+		var ret TestStatusModel
+		return ret
+	}
+	return *o.Status.Get()
+}
+
+// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultModel) GetStatusOk() (*TestStatusModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Status.Get(), o.Status.IsSet()
+}
+
+// HasStatus returns a boolean if a field has been set.
+func (o *TestResultModel) HasStatus() bool {
+	if o != nil && o.Status.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStatus gets a reference to the given NullableTestStatusModel and assigns it to the Status field.
+func (o *TestResultModel) SetStatus(v TestStatusModel) {
+	o.Status.Set(&v)
+}
+// SetStatusNil sets the value for Status to be an explicit nil
+func (o *TestResultModel) SetStatusNil() {
+	o.Status.Set(nil)
+}
+
+// UnsetStatus ensures that no value is present for Status, not even an explicit nil
+func (o *TestResultModel) UnsetStatus() {
+	o.Status.Unset()
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1167,7 +1214,7 @@ func (o *TestResultModel) GetLinksOk() ([]LinkModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *TestResultModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -1200,7 +1247,7 @@ func (o *TestResultModel) GetStepResultsOk() ([]StepResultModel, bool) {
 
 // HasStepResults returns a boolean if a field has been set.
 func (o *TestResultModel) HasStepResults() bool {
-	if o != nil && IsNil(o.StepResults) {
+	if o != nil && !IsNil(o.StepResults) {
 		return true
 	}
 
@@ -1233,7 +1280,7 @@ func (o *TestResultModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *TestResultModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -1325,6 +1372,9 @@ func (o TestResultModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["failureClassIds"] = o.FailureClassIds
 	if o.Outcome.IsSet() {
 		toSerialize["outcome"] = o.Outcome.Get()
+	}
+	if o.Status.IsSet() {
+		toSerialize["status"] = o.Status.Get()
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()

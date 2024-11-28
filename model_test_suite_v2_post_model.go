@@ -27,6 +27,7 @@ type TestSuiteV2PostModel struct {
 	TestPlanId string `json:"testPlanId"`
 	// Name of the test suite
 	Name string `json:"name"`
+	// Type of the test suite
 	Type NullableTestSuiteType `json:"type,omitempty"`
 	// Indicates if the test suite retains section tree structure
 	SaveStructure NullableBool `json:"saveStructure,omitempty"`

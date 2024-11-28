@@ -25,7 +25,8 @@ type TestPointFilterModel struct {
 	TestSuiteIds []string `json:"testSuiteIds,omitempty"`
 	// Specifies a test point work item global IDs to search for
 	WorkItemGlobalIds []int64 `json:"workItemGlobalIds,omitempty"`
-	WorkItemMedianDuration NullableTestPointFilterModelWorkItemMedianDuration `json:"workItemMedianDuration,omitempty"`
+	// Specifies a test point work item median duration range to search for
+	WorkItemMedianDuration NullableInt64RangeSelectorModel `json:"workItemMedianDuration,omitempty"`
 	// Specifies a test point work item is deleted flag to search for
 	WorkItemIsDeleted NullableBool `json:"workItemIsDeleted,omitempty"`
 	// Specifies a test point statuses to search for
@@ -40,23 +41,28 @@ type TestPointFilterModel struct {
 	ConfigurationIds []string `json:"configurationIds,omitempty"`
 	// Specifies a test point assigned user IDs to search for
 	TesterIds []string `json:"testerIds,omitempty"`
-	Duration NullableTestPointFilterModelDuration `json:"duration,omitempty"`
+	// Specifies a test point range of duration to search for
+	Duration NullableInt64RangeSelectorModel `json:"duration,omitempty"`
 	// Specifies a test point work item section IDs to search for
 	SectionIds []string `json:"sectionIds,omitempty"`
-	CreatedDate NullableTestPointFilterModelCreatedDate `json:"createdDate,omitempty"`
+	// Specifies a test point range of creation date to search for
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 	// Specifies a test point creator IDs to search for
 	CreatedByIds []string `json:"createdByIds,omitempty"`
-	ModifiedDate NullableTestPointFilterModelModifiedDate `json:"modifiedDate,omitempty"`
+	// Specifies a test point range of last modification date to search for
+	ModifiedDate NullableDateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
 	// Specifies a test point last editor IDs to search for
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 	// Specifies a test point tags to search for
 	Tags []string `json:"tags,omitempty"`
 	// Specifies a test point attributes to search for
 	Attributes map[string][]string `json:"attributes,omitempty"`
-	WorkItemCreatedDate NullableTestPointFilterModelWorkItemCreatedDate `json:"workItemCreatedDate,omitempty"`
+	// Specifies a work item range of creation date to search for
+	WorkItemCreatedDate NullableDateTimeRangeSelectorModel `json:"workItemCreatedDate,omitempty"`
 	// Specifies a work item creator IDs to search for
 	WorkItemCreatedByIds []string `json:"workItemCreatedByIds,omitempty"`
-	WorkItemModifiedDate NullableTestPointFilterModelWorkItemModifiedDate `json:"workItemModifiedDate,omitempty"`
+	// Specifies a work item range of last modification date to search for
+	WorkItemModifiedDate NullableDateTimeRangeSelectorModel `json:"workItemModifiedDate,omitempty"`
 	// Specifies a work item last editor IDs to search for
 	WorkItemModifiedByIds []string `json:"workItemModifiedByIds,omitempty"`
 }
@@ -99,7 +105,7 @@ func (o *TestPointFilterModel) GetTestPlanIdsOk() ([]string, bool) {
 
 // HasTestPlanIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasTestPlanIds() bool {
-	if o != nil && IsNil(o.TestPlanIds) {
+	if o != nil && !IsNil(o.TestPlanIds) {
 		return true
 	}
 
@@ -132,7 +138,7 @@ func (o *TestPointFilterModel) GetTestSuiteIdsOk() ([]string, bool) {
 
 // HasTestSuiteIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasTestSuiteIds() bool {
-	if o != nil && IsNil(o.TestSuiteIds) {
+	if o != nil && !IsNil(o.TestSuiteIds) {
 		return true
 	}
 
@@ -165,7 +171,7 @@ func (o *TestPointFilterModel) GetWorkItemGlobalIdsOk() ([]int64, bool) {
 
 // HasWorkItemGlobalIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasWorkItemGlobalIds() bool {
-	if o != nil && IsNil(o.WorkItemGlobalIds) {
+	if o != nil && !IsNil(o.WorkItemGlobalIds) {
 		return true
 	}
 
@@ -178,9 +184,9 @@ func (o *TestPointFilterModel) SetWorkItemGlobalIds(v []int64) {
 }
 
 // GetWorkItemMedianDuration returns the WorkItemMedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPointFilterModel) GetWorkItemMedianDuration() TestPointFilterModelWorkItemMedianDuration {
+func (o *TestPointFilterModel) GetWorkItemMedianDuration() Int64RangeSelectorModel {
 	if o == nil || IsNil(o.WorkItemMedianDuration.Get()) {
-		var ret TestPointFilterModelWorkItemMedianDuration
+		var ret Int64RangeSelectorModel
 		return ret
 	}
 	return *o.WorkItemMedianDuration.Get()
@@ -189,7 +195,7 @@ func (o *TestPointFilterModel) GetWorkItemMedianDuration() TestPointFilterModelW
 // GetWorkItemMedianDurationOk returns a tuple with the WorkItemMedianDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPointFilterModel) GetWorkItemMedianDurationOk() (*TestPointFilterModelWorkItemMedianDuration, bool) {
+func (o *TestPointFilterModel) GetWorkItemMedianDurationOk() (*Int64RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -205,8 +211,8 @@ func (o *TestPointFilterModel) HasWorkItemMedianDuration() bool {
 	return false
 }
 
-// SetWorkItemMedianDuration gets a reference to the given NullableTestPointFilterModelWorkItemMedianDuration and assigns it to the WorkItemMedianDuration field.
-func (o *TestPointFilterModel) SetWorkItemMedianDuration(v TestPointFilterModelWorkItemMedianDuration) {
+// SetWorkItemMedianDuration gets a reference to the given NullableInt64RangeSelectorModel and assigns it to the WorkItemMedianDuration field.
+func (o *TestPointFilterModel) SetWorkItemMedianDuration(v Int64RangeSelectorModel) {
 	o.WorkItemMedianDuration.Set(&v)
 }
 // SetWorkItemMedianDurationNil sets the value for WorkItemMedianDuration to be an explicit nil
@@ -282,7 +288,7 @@ func (o *TestPointFilterModel) GetStatusesOk() ([]TestPointStatus, bool) {
 
 // HasStatuses returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasStatuses() bool {
-	if o != nil && IsNil(o.Statuses) {
+	if o != nil && !IsNil(o.Statuses) {
 		return true
 	}
 
@@ -315,7 +321,7 @@ func (o *TestPointFilterModel) GetPrioritiesOk() ([]WorkItemPriorityModel, bool)
 
 // HasPriorities returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasPriorities() bool {
-	if o != nil && IsNil(o.Priorities) {
+	if o != nil && !IsNil(o.Priorities) {
 		return true
 	}
 
@@ -432,7 +438,7 @@ func (o *TestPointFilterModel) GetConfigurationIdsOk() ([]string, bool) {
 
 // HasConfigurationIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasConfigurationIds() bool {
-	if o != nil && IsNil(o.ConfigurationIds) {
+	if o != nil && !IsNil(o.ConfigurationIds) {
 		return true
 	}
 
@@ -465,7 +471,7 @@ func (o *TestPointFilterModel) GetTesterIdsOk() ([]string, bool) {
 
 // HasTesterIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasTesterIds() bool {
-	if o != nil && IsNil(o.TesterIds) {
+	if o != nil && !IsNil(o.TesterIds) {
 		return true
 	}
 
@@ -478,9 +484,9 @@ func (o *TestPointFilterModel) SetTesterIds(v []string) {
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPointFilterModel) GetDuration() TestPointFilterModelDuration {
+func (o *TestPointFilterModel) GetDuration() Int64RangeSelectorModel {
 	if o == nil || IsNil(o.Duration.Get()) {
-		var ret TestPointFilterModelDuration
+		var ret Int64RangeSelectorModel
 		return ret
 	}
 	return *o.Duration.Get()
@@ -489,7 +495,7 @@ func (o *TestPointFilterModel) GetDuration() TestPointFilterModelDuration {
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPointFilterModel) GetDurationOk() (*TestPointFilterModelDuration, bool) {
+func (o *TestPointFilterModel) GetDurationOk() (*Int64RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -505,8 +511,8 @@ func (o *TestPointFilterModel) HasDuration() bool {
 	return false
 }
 
-// SetDuration gets a reference to the given NullableTestPointFilterModelDuration and assigns it to the Duration field.
-func (o *TestPointFilterModel) SetDuration(v TestPointFilterModelDuration) {
+// SetDuration gets a reference to the given NullableInt64RangeSelectorModel and assigns it to the Duration field.
+func (o *TestPointFilterModel) SetDuration(v Int64RangeSelectorModel) {
 	o.Duration.Set(&v)
 }
 // SetDurationNil sets the value for Duration to be an explicit nil
@@ -540,7 +546,7 @@ func (o *TestPointFilterModel) GetSectionIdsOk() ([]string, bool) {
 
 // HasSectionIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasSectionIds() bool {
-	if o != nil && IsNil(o.SectionIds) {
+	if o != nil && !IsNil(o.SectionIds) {
 		return true
 	}
 
@@ -553,9 +559,9 @@ func (o *TestPointFilterModel) SetSectionIds(v []string) {
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPointFilterModel) GetCreatedDate() TestPointFilterModelCreatedDate {
+func (o *TestPointFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret TestPointFilterModelCreatedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.CreatedDate.Get()
@@ -564,7 +570,7 @@ func (o *TestPointFilterModel) GetCreatedDate() TestPointFilterModelCreatedDate 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPointFilterModel) GetCreatedDateOk() (*TestPointFilterModelCreatedDate, bool) {
+func (o *TestPointFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -580,8 +586,8 @@ func (o *TestPointFilterModel) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableTestPointFilterModelCreatedDate and assigns it to the CreatedDate field.
-func (o *TestPointFilterModel) SetCreatedDate(v TestPointFilterModelCreatedDate) {
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+func (o *TestPointFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
 	o.CreatedDate.Set(&v)
 }
 // SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
@@ -615,7 +621,7 @@ func (o *TestPointFilterModel) GetCreatedByIdsOk() ([]string, bool) {
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 
@@ -628,9 +634,9 @@ func (o *TestPointFilterModel) SetCreatedByIds(v []string) {
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPointFilterModel) GetModifiedDate() TestPointFilterModelModifiedDate {
+func (o *TestPointFilterModel) GetModifiedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.ModifiedDate.Get()) {
-		var ret TestPointFilterModelModifiedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.ModifiedDate.Get()
@@ -639,7 +645,7 @@ func (o *TestPointFilterModel) GetModifiedDate() TestPointFilterModelModifiedDat
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPointFilterModel) GetModifiedDateOk() (*TestPointFilterModelModifiedDate, bool) {
+func (o *TestPointFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -655,8 +661,8 @@ func (o *TestPointFilterModel) HasModifiedDate() bool {
 	return false
 }
 
-// SetModifiedDate gets a reference to the given NullableTestPointFilterModelModifiedDate and assigns it to the ModifiedDate field.
-func (o *TestPointFilterModel) SetModifiedDate(v TestPointFilterModelModifiedDate) {
+// SetModifiedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
+func (o *TestPointFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
 	o.ModifiedDate.Set(&v)
 }
 // SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
@@ -690,7 +696,7 @@ func (o *TestPointFilterModel) GetModifiedByIdsOk() ([]string, bool) {
 
 // HasModifiedByIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasModifiedByIds() bool {
-	if o != nil && IsNil(o.ModifiedByIds) {
+	if o != nil && !IsNil(o.ModifiedByIds) {
 		return true
 	}
 
@@ -723,7 +729,7 @@ func (o *TestPointFilterModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -756,7 +762,7 @@ func (o *TestPointFilterModel) GetAttributesOk() (*map[string][]string, bool) {
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -769,9 +775,9 @@ func (o *TestPointFilterModel) SetAttributes(v map[string][]string) {
 }
 
 // GetWorkItemCreatedDate returns the WorkItemCreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPointFilterModel) GetWorkItemCreatedDate() TestPointFilterModelWorkItemCreatedDate {
+func (o *TestPointFilterModel) GetWorkItemCreatedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.WorkItemCreatedDate.Get()) {
-		var ret TestPointFilterModelWorkItemCreatedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.WorkItemCreatedDate.Get()
@@ -780,7 +786,7 @@ func (o *TestPointFilterModel) GetWorkItemCreatedDate() TestPointFilterModelWork
 // GetWorkItemCreatedDateOk returns a tuple with the WorkItemCreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPointFilterModel) GetWorkItemCreatedDateOk() (*TestPointFilterModelWorkItemCreatedDate, bool) {
+func (o *TestPointFilterModel) GetWorkItemCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -796,8 +802,8 @@ func (o *TestPointFilterModel) HasWorkItemCreatedDate() bool {
 	return false
 }
 
-// SetWorkItemCreatedDate gets a reference to the given NullableTestPointFilterModelWorkItemCreatedDate and assigns it to the WorkItemCreatedDate field.
-func (o *TestPointFilterModel) SetWorkItemCreatedDate(v TestPointFilterModelWorkItemCreatedDate) {
+// SetWorkItemCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the WorkItemCreatedDate field.
+func (o *TestPointFilterModel) SetWorkItemCreatedDate(v DateTimeRangeSelectorModel) {
 	o.WorkItemCreatedDate.Set(&v)
 }
 // SetWorkItemCreatedDateNil sets the value for WorkItemCreatedDate to be an explicit nil
@@ -831,7 +837,7 @@ func (o *TestPointFilterModel) GetWorkItemCreatedByIdsOk() ([]string, bool) {
 
 // HasWorkItemCreatedByIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasWorkItemCreatedByIds() bool {
-	if o != nil && IsNil(o.WorkItemCreatedByIds) {
+	if o != nil && !IsNil(o.WorkItemCreatedByIds) {
 		return true
 	}
 
@@ -844,9 +850,9 @@ func (o *TestPointFilterModel) SetWorkItemCreatedByIds(v []string) {
 }
 
 // GetWorkItemModifiedDate returns the WorkItemModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPointFilterModel) GetWorkItemModifiedDate() TestPointFilterModelWorkItemModifiedDate {
+func (o *TestPointFilterModel) GetWorkItemModifiedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.WorkItemModifiedDate.Get()) {
-		var ret TestPointFilterModelWorkItemModifiedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.WorkItemModifiedDate.Get()
@@ -855,7 +861,7 @@ func (o *TestPointFilterModel) GetWorkItemModifiedDate() TestPointFilterModelWor
 // GetWorkItemModifiedDateOk returns a tuple with the WorkItemModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPointFilterModel) GetWorkItemModifiedDateOk() (*TestPointFilterModelWorkItemModifiedDate, bool) {
+func (o *TestPointFilterModel) GetWorkItemModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -871,8 +877,8 @@ func (o *TestPointFilterModel) HasWorkItemModifiedDate() bool {
 	return false
 }
 
-// SetWorkItemModifiedDate gets a reference to the given NullableTestPointFilterModelWorkItemModifiedDate and assigns it to the WorkItemModifiedDate field.
-func (o *TestPointFilterModel) SetWorkItemModifiedDate(v TestPointFilterModelWorkItemModifiedDate) {
+// SetWorkItemModifiedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the WorkItemModifiedDate field.
+func (o *TestPointFilterModel) SetWorkItemModifiedDate(v DateTimeRangeSelectorModel) {
 	o.WorkItemModifiedDate.Set(&v)
 }
 // SetWorkItemModifiedDateNil sets the value for WorkItemModifiedDate to be an explicit nil
@@ -906,7 +912,7 @@ func (o *TestPointFilterModel) GetWorkItemModifiedByIdsOk() ([]string, bool) {
 
 // HasWorkItemModifiedByIds returns a boolean if a field has been set.
 func (o *TestPointFilterModel) HasWorkItemModifiedByIds() bool {
-	if o != nil && IsNil(o.WorkItemModifiedByIds) {
+	if o != nil && !IsNil(o.WorkItemModifiedByIds) {
 		return true
 	}
 

@@ -4,11 +4,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost**](TestResultsAPI.md#ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost) | **Post** /api/v2/testResults/external-projects/{externalProjectId}/defects/external-forms | 
+[**ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost**](TestResultsAPI.md#ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost) | **Post** /api/v2/testResults/external-projects/{externalProjectId}/defects | 
 [**ApiV2TestResultsIdAggregatedGet**](TestResultsAPI.md#ApiV2TestResultsIdAggregatedGet) | **Get** /api/v2/testResults/{id}/aggregated | Get test result by ID aggregated with previous results
 [**ApiV2TestResultsIdAttachmentsAttachmentIdPut**](TestResultsAPI.md#ApiV2TestResultsIdAttachmentsAttachmentIdPut) | **Put** /api/v2/testResults/{id}/attachments/{attachmentId} | Attach file to the test result
 [**ApiV2TestResultsIdAttachmentsInfoGet**](TestResultsAPI.md#ApiV2TestResultsIdAttachmentsInfoGet) | **Get** /api/v2/testResults/{id}/attachments/info | Get test result attachments meta-information
 [**ApiV2TestResultsIdGet**](TestResultsAPI.md#ApiV2TestResultsIdGet) | **Get** /api/v2/testResults/{id} | Get test result by ID
 [**ApiV2TestResultsIdPut**](TestResultsAPI.md#ApiV2TestResultsIdPut) | **Put** /api/v2/testResults/{id} | Edit test result by ID
+[**ApiV2TestResultsIdRerunsGet**](TestResultsAPI.md#ApiV2TestResultsIdRerunsGet) | **Get** /api/v2/testResults/{id}/reruns | Get reruns
 [**ApiV2TestResultsSearchPost**](TestResultsAPI.md#ApiV2TestResultsSearchPost) | **Post** /api/v2/testResults/search | Search for test results
 [**ApiV2TestResultsStatisticsFilterPost**](TestResultsAPI.md#ApiV2TestResultsStatisticsFilterPost) | **Post** /api/v2/testResults/statistics/filter | Search for test results and extract statistics
 [**CreateAttachment**](TestResultsAPI.md#CreateAttachment) | **Post** /api/v2/testResults/{id}/attachments | Upload and link attachment to TestResult
@@ -19,9 +22,149 @@ Method | HTTP request | Description
 
 
 
+## ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost
+
+> GetExternalFormApiResult ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(ctx, externalProjectId).TestResultsSelectApiModel(testResultsSelectApiModel).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	externalProjectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	testResultsSelectApiModel := *openapiclient.NewTestResultsSelectApiModel(*openapiclient.NewTestResultsFilterRequest(), *openapiclient.NewTestResultsExtractionApiModel()) // TestResultsSelectApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(context.Background(), externalProjectId).TestResultsSelectApiModel(testResultsSelectApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost`: GetExternalFormApiResult
+	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**externalProjectId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **testResultsSelectApiModel** | [**TestResultsSelectApiModel**](TestResultsSelectApiModel.md) |  | 
+
+### Return type
+
+[**GetExternalFormApiResult**](GetExternalFormApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost
+
+> DefectApiModel ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(ctx, externalProjectId).CreateDefectApiModel(createDefectApiModel).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	externalProjectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	createDefectApiModel := *openapiclient.NewCreateDefectApiModel([]string{"TestResultIds_example"}, *openapiclient.NewExternalFormCreateModel(map[string][]openapiclient.ExternalFormAllowedValueModel{"key": []openapiclient.ExternalFormAllowedValueModel{*openapiclient.NewExternalFormAllowedValueModel(false)}}, []openapiclient.ExternalFormFieldModel{*openapiclient.NewExternalFormFieldModel(false)}, []openapiclient.ExternalFormLinkModel{*openapiclient.NewExternalFormLinkModel("Name_example", "Url_example")}, map[string]interface{}{"key": interface{}(123)})) // CreateDefectApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(context.Background(), externalProjectId).CreateDefectApiModel(createDefectApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost`: DefectApiModel
+	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**externalProjectId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createDefectApiModel** | [**CreateDefectApiModel**](CreateDefectApiModel.md) |  | 
+
+### Return type
+
+[**DefectApiModel**](DefectApiModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2TestResultsIdAggregatedGet
 
-> TestResultModel ApiV2TestResultsIdAggregatedGet(ctx, id).Execute()
+> TestResultResponse ApiV2TestResultsIdAggregatedGet(ctx, id).Execute()
 
 Get test result by ID aggregated with previous results
 
@@ -47,7 +190,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsIdAggregatedGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestResultsIdAggregatedGet`: TestResultModel
+	// response from `ApiV2TestResultsIdAggregatedGet`: TestResultResponse
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsIdAggregatedGet`: %v\n", resp)
 }
 ```
@@ -71,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestResultModel**](TestResultModel.md)
+[**TestResultResponse**](TestResultResponse.md)
 
 ### Authorization
 
@@ -226,7 +369,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsIdGet
 
-> TestResultModel ApiV2TestResultsIdGet(ctx, id).Execute()
+> TestResultResponse ApiV2TestResultsIdGet(ctx, id).Execute()
 
 Get test result by ID
 
@@ -252,7 +395,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestResultsIdGet`: TestResultModel
+	// response from `ApiV2TestResultsIdGet`: TestResultResponse
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsIdGet`: %v\n", resp)
 }
 ```
@@ -276,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestResultModel**](TestResultModel.md)
+[**TestResultResponse**](TestResultResponse.md)
 
 ### Authorization
 
@@ -294,7 +437,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsIdPut
 
-> ApiV2TestResultsIdPut(ctx, id).TestResultUpdateModel(testResultUpdateModel).Execute()
+> ApiV2TestResultsIdPut(ctx, id).TestResultUpdateV2Request(testResultUpdateV2Request).Execute()
 
 Edit test result by ID
 
@@ -312,11 +455,11 @@ import (
 
 func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test result unique ID
-	testResultUpdateModel := *openapiclient.NewTestResultUpdateModel() // TestResultUpdateModel |  (optional)
+	testResultUpdateV2Request := *openapiclient.NewTestResultUpdateV2Request() // TestResultUpdateV2Request |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestResultsAPI.ApiV2TestResultsIdPut(context.Background(), id).TestResultUpdateModel(testResultUpdateModel).Execute()
+	r, err := apiClient.TestResultsAPI.ApiV2TestResultsIdPut(context.Background(), id).TestResultUpdateV2Request(testResultUpdateV2Request).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsIdPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -340,7 +483,7 @@ Other parameters are passed through a pointer to a apiApiV2TestResultsIdPutReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **testResultUpdateModel** | [**TestResultUpdateModel**](TestResultUpdateModel.md) |  | 
+ **testResultUpdateV2Request** | [**TestResultUpdateV2Request**](TestResultUpdateV2Request.md) |  | 
 
 ### Return type
 
@@ -360,9 +503,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiV2TestResultsIdRerunsGet
+
+> RerunsModel ApiV2TestResultsIdRerunsGet(ctx, id).Execute()
+
+Get reruns
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test result unique ID
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsIdRerunsGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsIdRerunsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestResultsIdRerunsGet`: RerunsModel
+	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsIdRerunsGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Test result unique ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestResultsIdRerunsGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**RerunsModel**](RerunsModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2TestResultsSearchPost
 
-> []TestResultShortGetModel ApiV2TestResultsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterModel(testResultsFilterModel).Execute()
+> []TestResultShortResponse ApiV2TestResultsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterRequest(testResultsFilterRequest).Execute()
 
 Search for test results
 
@@ -384,16 +595,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testResultsFilterModel := *openapiclient.NewTestResultsFilterModel() // TestResultsFilterModel |  (optional)
+	testResultsFilterRequest := *openapiclient.NewTestResultsFilterRequest() // TestResultsFilterRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterModel(testResultsFilterModel).Execute()
+	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterRequest(testResultsFilterRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestResultsSearchPost`: []TestResultShortGetModel
+	// response from `ApiV2TestResultsSearchPost`: []TestResultShortResponse
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsSearchPost`: %v\n", resp)
 }
 ```
@@ -414,11 +625,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md) |  | 
+ **testResultsFilterRequest** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md) |  | 
 
 ### Return type
 
-[**[]TestResultShortGetModel**](TestResultShortGetModel.md)
+[**[]TestResultShortResponse**](TestResultShortResponse.md)
 
 ### Authorization
 
@@ -436,7 +647,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsStatisticsFilterPost
 
-> TestResultsStatisticsGetModel ApiV2TestResultsStatisticsFilterPost(ctx).TestResultsFilterModel(testResultsFilterModel).Execute()
+> TestResultsStatisticsResponse ApiV2TestResultsStatisticsFilterPost(ctx).TestResultsFilterRequest(testResultsFilterRequest).Execute()
 
 Search for test results and extract statistics
 
@@ -453,16 +664,16 @@ import (
 )
 
 func main() {
-	testResultsFilterModel := *openapiclient.NewTestResultsFilterModel() // TestResultsFilterModel |  (optional)
+	testResultsFilterRequest := *openapiclient.NewTestResultsFilterRequest() // TestResultsFilterRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsStatisticsFilterPost(context.Background()).TestResultsFilterModel(testResultsFilterModel).Execute()
+	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsStatisticsFilterPost(context.Background()).TestResultsFilterRequest(testResultsFilterRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsStatisticsFilterPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestResultsStatisticsFilterPost`: TestResultsStatisticsGetModel
+	// response from `ApiV2TestResultsStatisticsFilterPost`: TestResultsStatisticsResponse
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsStatisticsFilterPost`: %v\n", resp)
 }
 ```
@@ -478,11 +689,11 @@ Other parameters are passed through a pointer to a apiApiV2TestResultsStatistics
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testResultsFilterModel** | [**TestResultsFilterModel**](TestResultsFilterModel.md) |  | 
+ **testResultsFilterRequest** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md) |  | 
 
 ### Return type
 
-[**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md)
+[**TestResultsStatisticsResponse**](TestResultsStatisticsResponse.md)
 
 ### Authorization
 
@@ -500,7 +711,7 @@ Name | Type | Description  | Notes
 
 ## CreateAttachment
 
-> string CreateAttachment(ctx, id).File(file).Execute()
+> CreateAttachment(ctx, id).File(file).Execute()
 
 Upload and link attachment to TestResult
 
@@ -524,13 +735,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestResultsAPI.CreateAttachment(context.Background(), id).File(file).Execute()
+	r, err := apiClient.TestResultsAPI.CreateAttachment(context.Background(), id).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.CreateAttachment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateAttachment`: string
-	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.CreateAttachment`: %v\n", resp)
 }
 ```
 
@@ -554,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+ (empty response body)
 
 ### Authorization
 
@@ -643,7 +852,7 @@ Name | Type | Description  | Notes
 
 ## DownloadAttachment
 
-> *os.File DownloadAttachment(ctx, attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
+> DownloadAttachment(ctx, attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
 
 Get attachment of TestResult
 
@@ -672,13 +881,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestResultsAPI.DownloadAttachment(context.Background(), attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
+	r, err := apiClient.TestResultsAPI.DownloadAttachment(context.Background(), attachmentId, id).Width(width).Height(height).ResizeType(resizeType).BackgroundColor(backgroundColor).Preview(preview).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.DownloadAttachment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DownloadAttachment`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.DownloadAttachment`: %v\n", resp)
 }
 ```
 
@@ -708,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+ (empty response body)
 
 ### Authorization
 
@@ -717,7 +924,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream, application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

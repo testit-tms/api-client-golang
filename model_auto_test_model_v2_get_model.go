@@ -117,7 +117,7 @@ func (o *AutoTestModelV2GetModel) GetLinksOk() ([]LinkModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *AutoTestModelV2GetModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -282,7 +282,7 @@ func (o *AutoTestModelV2GetModel) GetStepsOk() ([]AutoTestStepModel, bool) {
 
 // HasSteps returns a boolean if a field has been set.
 func (o *AutoTestModelV2GetModel) HasSteps() bool {
-	if o != nil && IsNil(o.Steps) {
+	if o != nil && !IsNil(o.Steps) {
 		return true
 	}
 
@@ -315,7 +315,7 @@ func (o *AutoTestModelV2GetModel) GetSetupOk() ([]AutoTestStepModel, bool) {
 
 // HasSetup returns a boolean if a field has been set.
 func (o *AutoTestModelV2GetModel) HasSetup() bool {
-	if o != nil && IsNil(o.Setup) {
+	if o != nil && !IsNil(o.Setup) {
 		return true
 	}
 
@@ -348,7 +348,7 @@ func (o *AutoTestModelV2GetModel) GetTeardownOk() ([]AutoTestStepModel, bool) {
 
 // HasTeardown returns a boolean if a field has been set.
 func (o *AutoTestModelV2GetModel) HasTeardown() bool {
-	if o != nil && IsNil(o.Teardown) {
+	if o != nil && !IsNil(o.Teardown) {
 		return true
 	}
 
@@ -555,7 +555,7 @@ func (o *AutoTestModelV2GetModel) GetLabelsOk() ([]LabelShortModel, bool) {
 
 // HasLabels returns a boolean if a field has been set.
 func (o *AutoTestModelV2GetModel) HasLabels() bool {
-	if o != nil && IsNil(o.Labels) {
+	if o != nil && !IsNil(o.Labels) {
 		return true
 	}
 

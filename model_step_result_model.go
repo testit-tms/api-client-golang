@@ -160,7 +160,7 @@ func (o *StepResultModel) GetSharedStepResultsOk() ([]SharedStepResultModel, boo
 
 // HasSharedStepResults returns a boolean if a field has been set.
 func (o *StepResultModel) HasSharedStepResults() bool {
-	if o != nil && IsNil(o.SharedStepResults) {
+	if o != nil && !IsNil(o.SharedStepResults) {
 		return true
 	}
 

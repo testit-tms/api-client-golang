@@ -67,7 +67,7 @@ func (o *ConfigurationFilterModel) GetProjectIdsOk() ([]string, bool) {
 
 // HasProjectIds returns a boolean if a field has been set.
 func (o *ConfigurationFilterModel) HasProjectIds() bool {
-	if o != nil && IsNil(o.ProjectIds) {
+	if o != nil && !IsNil(o.ProjectIds) {
 		return true
 	}
 
@@ -184,7 +184,7 @@ func (o *ConfigurationFilterModel) GetGlobalIdsOk() ([]int64, bool) {
 
 // HasGlobalIds returns a boolean if a field has been set.
 func (o *ConfigurationFilterModel) HasGlobalIds() bool {
-	if o != nil && IsNil(o.GlobalIds) {
+	if o != nil && !IsNil(o.GlobalIds) {
 		return true
 	}
 

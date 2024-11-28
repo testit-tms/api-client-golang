@@ -109,7 +109,7 @@ import (
 )
 
 func main() {
-	parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
+	parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -734,7 +734,7 @@ import (
 )
 
 func main() {
-	keyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	keyId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Identifier of the parameter key
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -752,7 +752,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**keyId** | **string** |  | 
+**keyId** | **string** | Identifier of the parameter key | 
 
 ### Other Parameters
 
@@ -1016,7 +1016,7 @@ import (
 )
 
 func main() {
-	parameterPutModel := *openapiclient.NewParameterPutModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "Value_example", "Name_example") // ParameterPutModel |  (optional)
+	parameterPutModel := *openapiclient.NewParameterPutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23", "Value_example", "Name_example") // ParameterPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

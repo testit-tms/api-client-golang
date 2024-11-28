@@ -68,7 +68,7 @@ func (o *WorkItemGroupModel) GetKeyOk() (*interface{}, bool) {
 
 // HasKey returns a boolean if a field has been set.
 func (o *WorkItemGroupModel) HasKey() bool {
-	if o != nil && IsNil(o.Key) {
+	if o != nil && !IsNil(o.Key) {
 		return true
 	}
 

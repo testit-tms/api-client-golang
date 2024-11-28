@@ -278,7 +278,7 @@ func (o *FailureClassModel) GetFailureClassRegexesOk() ([]FailureClassRegexModel
 
 // HasFailureClassRegexes returns a boolean if a field has been set.
 func (o *FailureClassModel) HasFailureClassRegexes() bool {
-	if o != nil && IsNil(o.FailureClassRegexes) {
+	if o != nil && !IsNil(o.FailureClassRegexes) {
 		return true
 	}
 

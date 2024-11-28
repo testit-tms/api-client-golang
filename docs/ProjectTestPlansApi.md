@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsProjectIdTestPlansRestoreBulkPost
 
-> ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(ctx, projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
+> []string ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(ctx, projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
 
 Restore multiple test plans
 
@@ -332,11 +332,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(context.Background(), projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
+	resp, r, err := apiClient.ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost(context.Background(), projectId).TestPlanSelectModel(testPlanSelectModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `ApiV2ProjectsProjectIdTestPlansRestoreBulkPost`: []string
+	fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlansAPI.ApiV2ProjectsProjectIdTestPlansRestoreBulkPost`: %v\n", resp)
 }
 ```
 
@@ -360,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**[]string**
 
 ### Authorization
 

@@ -90,7 +90,7 @@ func (o *IterationModel) GetParametersOk() ([]ParameterShortModel, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *IterationModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 

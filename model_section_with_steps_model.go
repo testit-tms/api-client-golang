@@ -81,7 +81,7 @@ func (o *SectionWithStepsModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *SectionWithStepsModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -114,7 +114,7 @@ func (o *SectionWithStepsModel) GetPreconditionStepsOk() ([]StepModel, bool) {
 
 // HasPreconditionSteps returns a boolean if a field has been set.
 func (o *SectionWithStepsModel) HasPreconditionSteps() bool {
-	if o != nil && IsNil(o.PreconditionSteps) {
+	if o != nil && !IsNil(o.PreconditionSteps) {
 		return true
 	}
 
@@ -147,7 +147,7 @@ func (o *SectionWithStepsModel) GetPostconditionStepsOk() ([]StepModel, bool) {
 
 // HasPostconditionSteps returns a boolean if a field has been set.
 func (o *SectionWithStepsModel) HasPostconditionSteps() bool {
-	if o != nil && IsNil(o.PostconditionSteps) {
+	if o != nil && !IsNil(o.PostconditionSteps) {
 		return true
 	}
 

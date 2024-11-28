@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkItem** | Pointer to [**NullableSectionSharedStep**](SectionSharedStep.md) |  | [optional] 
+**WorkItem** | Pointer to [**NullableSharedStepModel**](SharedStepModel.md) | Nested shared steps are allowed | [optional] 
 **Id** | **string** |  | 
 **Action** | Pointer to **NullableString** |  | [optional] 
 **Expected** | Pointer to **NullableString** |  | [optional] 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetWorkItem
 
-`func (o *StepModel) GetWorkItem() SectionSharedStep`
+`func (o *StepModel) GetWorkItem() SharedStepModel`
 
 GetWorkItem returns the WorkItem field if non-nil, zero value otherwise.
 
 ### GetWorkItemOk
 
-`func (o *StepModel) GetWorkItemOk() (*SectionSharedStep, bool)`
+`func (o *StepModel) GetWorkItemOk() (*SharedStepModel, bool)`
 
 GetWorkItemOk returns a tuple with the WorkItem field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItem
 
-`func (o *StepModel) SetWorkItem(v SectionSharedStep)`
+`func (o *StepModel) SetWorkItem(v SharedStepModel)`
 
 SetWorkItem sets WorkItem field to given value.
 

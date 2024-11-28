@@ -21,7 +21,8 @@ var _ MappedNullable = &TagsFilterModel{}
 type TagsFilterModel struct {
 	// Specifies a tag name to search for
 	Name NullableString `json:"name,omitempty"`
-	CreatedDate NullableTagsFilterModelCreatedDate `json:"createdDate,omitempty"`
+	// Specifies a tag range of creation date to search for
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 	// Specifies a tag creator IDs to search for
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 }
@@ -86,9 +87,9 @@ func (o *TagsFilterModel) UnsetName() {
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TagsFilterModel) GetCreatedDate() TagsFilterModelCreatedDate {
+func (o *TagsFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret TagsFilterModelCreatedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.CreatedDate.Get()
@@ -97,7 +98,7 @@ func (o *TagsFilterModel) GetCreatedDate() TagsFilterModelCreatedDate {
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TagsFilterModel) GetCreatedDateOk() (*TagsFilterModelCreatedDate, bool) {
+func (o *TagsFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -113,8 +114,8 @@ func (o *TagsFilterModel) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableTagsFilterModelCreatedDate and assigns it to the CreatedDate field.
-func (o *TagsFilterModel) SetCreatedDate(v TagsFilterModelCreatedDate) {
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+func (o *TagsFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
 	o.CreatedDate.Set(&v)
 }
 // SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
@@ -148,7 +149,7 @@ func (o *TagsFilterModel) GetCreatedByIdsOk() ([]string, bool) {
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *TagsFilterModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 

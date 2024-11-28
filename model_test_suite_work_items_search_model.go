@@ -22,7 +22,7 @@ type TestSuiteWorkItemsSearchModel struct {
 	// Collection of tags
 	// Deprecated
 	TagNames []string `json:"tagNames,omitempty"`
-	// Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
+	// Collection of types of work item   Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
 	// Deprecated
 	EntityTypes []WorkItemEntityTypes `json:"entityTypes,omitempty"`
 	// Name or identifier (UUID) of work item
@@ -55,16 +55,22 @@ type TestSuiteWorkItemsSearchModel struct {
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
 	// Collection of types of work item
 	Types []WorkItemEntityTypes `json:"types,omitempty"`
-	CreatedDate NullableTestPointFilterModelWorkItemCreatedDate `json:"createdDate,omitempty"`
-	ModifiedDate NullableTestPointFilterModelWorkItemModifiedDate `json:"modifiedDate,omitempty"`
-	Duration NullableTestSuiteWorkItemsSearchModelDuration `json:"duration,omitempty"`
-	MedianDuration NullableTestSuiteWorkItemsSearchModelMedianDuration `json:"medianDuration,omitempty"`
+	// Specifies a work item range of creation date to search for
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	// Specifies a work item range of last modification date to search for
+	ModifiedDate NullableDateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
+	// Specifies a work item duration range to search for
+	Duration NullableInt32RangeSelectorModel `json:"duration,omitempty"`
+	// Specifies a work item median duration range to search for
+	MedianDuration NullableInt64RangeSelectorModel `json:"medianDuration,omitempty"`
 	// Is result must consist of only manual/automated work items
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Collection of tags
 	Tags []string `json:"tags,omitempty"`
 	// Collection of identifiers of linked autotests
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
+	// Collection of identifiers work items versions.
+	WorkItemVersionIds []string `json:"workItemVersionIds,omitempty"`
 }
 
 // NewTestSuiteWorkItemsSearchModel instantiates a new TestSuiteWorkItemsSearchModel object
@@ -107,7 +113,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetTagNamesOk() ([]string, bool) {
 
 // HasTagNames returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasTagNames() bool {
-	if o != nil && IsNil(o.TagNames) {
+	if o != nil && !IsNil(o.TagNames) {
 		return true
 	}
 
@@ -143,7 +149,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetEntityTypesOk() ([]WorkItemEntityType
 
 // HasEntityTypes returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasEntityTypes() bool {
-	if o != nil && IsNil(o.EntityTypes) {
+	if o != nil && !IsNil(o.EntityTypes) {
 		return true
 	}
 
@@ -219,7 +225,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetIncludeIdsOk() ([]string, bool) {
 
 // HasIncludeIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasIncludeIds() bool {
-	if o != nil && IsNil(o.IncludeIds) {
+	if o != nil && !IsNil(o.IncludeIds) {
 		return true
 	}
 
@@ -252,7 +258,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetExcludeIdsOk() ([]string, bool) {
 
 // HasExcludeIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasExcludeIds() bool {
-	if o != nil && IsNil(o.ExcludeIds) {
+	if o != nil && !IsNil(o.ExcludeIds) {
 		return true
 	}
 
@@ -285,7 +291,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetProjectIdsOk() ([]string, bool) {
 
 // HasProjectIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasProjectIds() bool {
-	if o != nil && IsNil(o.ProjectIds) {
+	if o != nil && !IsNil(o.ProjectIds) {
 		return true
 	}
 
@@ -360,7 +366,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetIdsOk() ([]string, bool) {
 
 // HasIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasIds() bool {
-	if o != nil && IsNil(o.Ids) {
+	if o != nil && !IsNil(o.Ids) {
 		return true
 	}
 
@@ -393,7 +399,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetGlobalIdsOk() ([]int64, bool) {
 
 // HasGlobalIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasGlobalIds() bool {
-	if o != nil && IsNil(o.GlobalIds) {
+	if o != nil && !IsNil(o.GlobalIds) {
 		return true
 	}
 
@@ -426,7 +432,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetAttributesOk() (*map[string][]string,
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -501,7 +507,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetSectionIdsOk() ([]string, bool) {
 
 // HasSectionIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasSectionIds() bool {
-	if o != nil && IsNil(o.SectionIds) {
+	if o != nil && !IsNil(o.SectionIds) {
 		return true
 	}
 
@@ -534,7 +540,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetCreatedByIdsOk() ([]string, bool) {
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 
@@ -567,7 +573,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetModifiedByIdsOk() ([]string, bool) {
 
 // HasModifiedByIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasModifiedByIds() bool {
-	if o != nil && IsNil(o.ModifiedByIds) {
+	if o != nil && !IsNil(o.ModifiedByIds) {
 		return true
 	}
 
@@ -600,7 +606,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetStatesOk() ([]WorkItemStates, bool) {
 
 // HasStates returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasStates() bool {
-	if o != nil && IsNil(o.States) {
+	if o != nil && !IsNil(o.States) {
 		return true
 	}
 
@@ -633,7 +639,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetPrioritiesOk() ([]WorkItemPriorityMod
 
 // HasPriorities returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasPriorities() bool {
-	if o != nil && IsNil(o.Priorities) {
+	if o != nil && !IsNil(o.Priorities) {
 		return true
 	}
 
@@ -666,7 +672,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetTypesOk() ([]WorkItemEntityTypes, boo
 
 // HasTypes returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasTypes() bool {
-	if o != nil && IsNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -679,9 +685,9 @@ func (o *TestSuiteWorkItemsSearchModel) SetTypes(v []WorkItemEntityTypes) {
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetCreatedDate() TestPointFilterModelWorkItemCreatedDate {
+func (o *TestSuiteWorkItemsSearchModel) GetCreatedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret TestPointFilterModelWorkItemCreatedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.CreatedDate.Get()
@@ -690,7 +696,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetCreatedDate() TestPointFilterModelWor
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetCreatedDateOk() (*TestPointFilterModelWorkItemCreatedDate, bool) {
+func (o *TestSuiteWorkItemsSearchModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -706,8 +712,8 @@ func (o *TestSuiteWorkItemsSearchModel) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableTestPointFilterModelWorkItemCreatedDate and assigns it to the CreatedDate field.
-func (o *TestSuiteWorkItemsSearchModel) SetCreatedDate(v TestPointFilterModelWorkItemCreatedDate) {
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+func (o *TestSuiteWorkItemsSearchModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
 	o.CreatedDate.Set(&v)
 }
 // SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
@@ -721,9 +727,9 @@ func (o *TestSuiteWorkItemsSearchModel) UnsetCreatedDate() {
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetModifiedDate() TestPointFilterModelWorkItemModifiedDate {
+func (o *TestSuiteWorkItemsSearchModel) GetModifiedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.ModifiedDate.Get()) {
-		var ret TestPointFilterModelWorkItemModifiedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.ModifiedDate.Get()
@@ -732,7 +738,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetModifiedDate() TestPointFilterModelWo
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetModifiedDateOk() (*TestPointFilterModelWorkItemModifiedDate, bool) {
+func (o *TestSuiteWorkItemsSearchModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -748,8 +754,8 @@ func (o *TestSuiteWorkItemsSearchModel) HasModifiedDate() bool {
 	return false
 }
 
-// SetModifiedDate gets a reference to the given NullableTestPointFilterModelWorkItemModifiedDate and assigns it to the ModifiedDate field.
-func (o *TestSuiteWorkItemsSearchModel) SetModifiedDate(v TestPointFilterModelWorkItemModifiedDate) {
+// SetModifiedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
+func (o *TestSuiteWorkItemsSearchModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
 	o.ModifiedDate.Set(&v)
 }
 // SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
@@ -763,9 +769,9 @@ func (o *TestSuiteWorkItemsSearchModel) UnsetModifiedDate() {
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetDuration() TestSuiteWorkItemsSearchModelDuration {
+func (o *TestSuiteWorkItemsSearchModel) GetDuration() Int32RangeSelectorModel {
 	if o == nil || IsNil(o.Duration.Get()) {
-		var ret TestSuiteWorkItemsSearchModelDuration
+		var ret Int32RangeSelectorModel
 		return ret
 	}
 	return *o.Duration.Get()
@@ -774,7 +780,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetDuration() TestSuiteWorkItemsSearchMo
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetDurationOk() (*TestSuiteWorkItemsSearchModelDuration, bool) {
+func (o *TestSuiteWorkItemsSearchModel) GetDurationOk() (*Int32RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -790,8 +796,8 @@ func (o *TestSuiteWorkItemsSearchModel) HasDuration() bool {
 	return false
 }
 
-// SetDuration gets a reference to the given NullableTestSuiteWorkItemsSearchModelDuration and assigns it to the Duration field.
-func (o *TestSuiteWorkItemsSearchModel) SetDuration(v TestSuiteWorkItemsSearchModelDuration) {
+// SetDuration gets a reference to the given NullableInt32RangeSelectorModel and assigns it to the Duration field.
+func (o *TestSuiteWorkItemsSearchModel) SetDuration(v Int32RangeSelectorModel) {
 	o.Duration.Set(&v)
 }
 // SetDurationNil sets the value for Duration to be an explicit nil
@@ -805,9 +811,9 @@ func (o *TestSuiteWorkItemsSearchModel) UnsetDuration() {
 }
 
 // GetMedianDuration returns the MedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetMedianDuration() TestSuiteWorkItemsSearchModelMedianDuration {
+func (o *TestSuiteWorkItemsSearchModel) GetMedianDuration() Int64RangeSelectorModel {
 	if o == nil || IsNil(o.MedianDuration.Get()) {
-		var ret TestSuiteWorkItemsSearchModelMedianDuration
+		var ret Int64RangeSelectorModel
 		return ret
 	}
 	return *o.MedianDuration.Get()
@@ -816,7 +822,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetMedianDuration() TestSuiteWorkItemsSe
 // GetMedianDurationOk returns a tuple with the MedianDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetMedianDurationOk() (*TestSuiteWorkItemsSearchModelMedianDuration, bool) {
+func (o *TestSuiteWorkItemsSearchModel) GetMedianDurationOk() (*Int64RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -832,8 +838,8 @@ func (o *TestSuiteWorkItemsSearchModel) HasMedianDuration() bool {
 	return false
 }
 
-// SetMedianDuration gets a reference to the given NullableTestSuiteWorkItemsSearchModelMedianDuration and assigns it to the MedianDuration field.
-func (o *TestSuiteWorkItemsSearchModel) SetMedianDuration(v TestSuiteWorkItemsSearchModelMedianDuration) {
+// SetMedianDuration gets a reference to the given NullableInt64RangeSelectorModel and assigns it to the MedianDuration field.
+func (o *TestSuiteWorkItemsSearchModel) SetMedianDuration(v Int64RangeSelectorModel) {
 	o.MedianDuration.Set(&v)
 }
 // SetMedianDurationNil sets the value for MedianDuration to be an explicit nil
@@ -909,7 +915,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -942,7 +948,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetAutoTestIdsOk() ([]string, bool) {
 
 // HasAutoTestIds returns a boolean if a field has been set.
 func (o *TestSuiteWorkItemsSearchModel) HasAutoTestIds() bool {
-	if o != nil && IsNil(o.AutoTestIds) {
+	if o != nil && !IsNil(o.AutoTestIds) {
 		return true
 	}
 
@@ -952,6 +958,39 @@ func (o *TestSuiteWorkItemsSearchModel) HasAutoTestIds() bool {
 // SetAutoTestIds gets a reference to the given []string and assigns it to the AutoTestIds field.
 func (o *TestSuiteWorkItemsSearchModel) SetAutoTestIds(v []string) {
 	o.AutoTestIds = v
+}
+
+// GetWorkItemVersionIds returns the WorkItemVersionIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetWorkItemVersionIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemVersionIds
+}
+
+// GetWorkItemVersionIdsOk returns a tuple with the WorkItemVersionIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetWorkItemVersionIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemVersionIds) {
+		return nil, false
+	}
+	return o.WorkItemVersionIds, true
+}
+
+// HasWorkItemVersionIds returns a boolean if a field has been set.
+func (o *TestSuiteWorkItemsSearchModel) HasWorkItemVersionIds() bool {
+	if o != nil && !IsNil(o.WorkItemVersionIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemVersionIds gets a reference to the given []string and assigns it to the WorkItemVersionIds field.
+func (o *TestSuiteWorkItemsSearchModel) SetWorkItemVersionIds(v []string) {
+	o.WorkItemVersionIds = v
 }
 
 func (o TestSuiteWorkItemsSearchModel) MarshalJSON() ([]byte, error) {
@@ -1035,6 +1074,9 @@ func (o TestSuiteWorkItemsSearchModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AutoTestIds != nil {
 		toSerialize["autoTestIds"] = o.AutoTestIds
+	}
+	if o.WorkItemVersionIds != nil {
+		toSerialize["workItemVersionIds"] = o.WorkItemVersionIds
 	}
 	return toSerialize, nil
 }

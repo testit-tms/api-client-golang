@@ -21,6 +21,7 @@ var _ MappedNullable = &WebHookTestModel{}
 
 // WebHookTestModel struct for WebHookTestModel
 type WebHookTestModel struct {
+	// Request method of the webhook
 	RequestType RequestTypeModel `json:"requestType"`
 	// Request URL of the webhook
 	Url string `json:"url"`

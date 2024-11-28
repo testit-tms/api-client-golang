@@ -4,12 +4,79 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2CustomAttributesExistsGet**](CustomAttributesAPI.md#ApiV2CustomAttributesExistsGet) | **Get** /api/v2/customAttributes/exists | 
 [**ApiV2CustomAttributesGlobalIdDelete**](CustomAttributesAPI.md#ApiV2CustomAttributesGlobalIdDelete) | **Delete** /api/v2/customAttributes/global/{id} | Delete global attribute
 [**ApiV2CustomAttributesGlobalIdPut**](CustomAttributesAPI.md#ApiV2CustomAttributesGlobalIdPut) | **Put** /api/v2/customAttributes/global/{id} | Edit global attribute
 [**ApiV2CustomAttributesGlobalPost**](CustomAttributesAPI.md#ApiV2CustomAttributesGlobalPost) | **Post** /api/v2/customAttributes/global | Create global attribute
 [**ApiV2CustomAttributesIdGet**](CustomAttributesAPI.md#ApiV2CustomAttributesIdGet) | **Get** /api/v2/customAttributes/{id} | Get attribute
 [**ApiV2CustomAttributesSearchPost**](CustomAttributesAPI.md#ApiV2CustomAttributesSearchPost) | **Post** /api/v2/customAttributes/search | Search for attributes
 
+
+
+## ApiV2CustomAttributesExistsGet
+
+> CustomAttributeValidationResult ApiV2CustomAttributesExistsGet(ctx).Name(name).IsGlobal(isGlobal).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	name := "name_example" // string |  (optional)
+	isGlobal := true // bool |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CustomAttributesAPI.ApiV2CustomAttributesExistsGet(context.Background()).Name(name).IsGlobal(isGlobal).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributesAPI.ApiV2CustomAttributesExistsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2CustomAttributesExistsGet`: CustomAttributeValidationResult
+	fmt.Fprintf(os.Stdout, "Response from `CustomAttributesAPI.ApiV2CustomAttributesExistsGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2CustomAttributesExistsGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string** |  | 
+ **isGlobal** | **bool** |  | 
+
+### Return type
+
+[**CustomAttributeValidationResult**](CustomAttributeValidationResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV2CustomAttributesGlobalIdDelete

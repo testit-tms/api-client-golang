@@ -61,7 +61,7 @@ func (o *WorkItemLinkChangeViewModelArrayChangedFieldViewModel) GetOldValueOk() 
 
 // HasOldValue returns a boolean if a field has been set.
 func (o *WorkItemLinkChangeViewModelArrayChangedFieldViewModel) HasOldValue() bool {
-	if o != nil && IsNil(o.OldValue) {
+	if o != nil && !IsNil(o.OldValue) {
 		return true
 	}
 
@@ -94,7 +94,7 @@ func (o *WorkItemLinkChangeViewModelArrayChangedFieldViewModel) GetNewValueOk() 
 
 // HasNewValue returns a boolean if a field has been set.
 func (o *WorkItemLinkChangeViewModelArrayChangedFieldViewModel) HasNewValue() bool {
-	if o != nil && IsNil(o.NewValue) {
+	if o != nil && !IsNil(o.NewValue) {
 		return true
 	}
 

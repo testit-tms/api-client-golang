@@ -28,6 +28,7 @@ type LinkPutModel struct {
 	Url string `json:"url"`
 	// Link description.
 	Description NullableString `json:"description,omitempty"`
+	// Specifies the type of the link.
 	Type NullableLinkType `json:"type,omitempty"`
 	HasInfo bool `json:"hasInfo"`
 }

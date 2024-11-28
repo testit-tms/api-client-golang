@@ -25,8 +25,10 @@ type SharedStepReferenceSectionsQueryFilterModel struct {
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 	// Collection of identifiers of users who applied last modification to work item
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
-	CreatedDate NullableSharedStepReferenceSectionsQueryFilterModelCreatedDate `json:"createdDate,omitempty"`
-	ModifiedDate NullableSharedStepReferenceSectionsQueryFilterModelModifiedDate `json:"modifiedDate,omitempty"`
+	// Date and time of work item creation
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	// Date and time of work item last modification
+	ModifiedDate NullableDateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
 }
 
 // NewSharedStepReferenceSectionsQueryFilterModel instantiates a new SharedStepReferenceSectionsQueryFilterModel object
@@ -109,7 +111,7 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedByIdsOk() ([]str
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *SharedStepReferenceSectionsQueryFilterModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 
@@ -142,7 +144,7 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedByIdsOk() ([]st
 
 // HasModifiedByIds returns a boolean if a field has been set.
 func (o *SharedStepReferenceSectionsQueryFilterModel) HasModifiedByIds() bool {
-	if o != nil && IsNil(o.ModifiedByIds) {
+	if o != nil && !IsNil(o.ModifiedByIds) {
 		return true
 	}
 
@@ -155,9 +157,9 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) SetModifiedByIds(v []strin
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDate() SharedStepReferenceSectionsQueryFilterModelCreatedDate {
+func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret SharedStepReferenceSectionsQueryFilterModelCreatedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.CreatedDate.Get()
@@ -166,7 +168,7 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDate() SharedSte
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDateOk() (*SharedStepReferenceSectionsQueryFilterModelCreatedDate, bool) {
+func (o *SharedStepReferenceSectionsQueryFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -182,8 +184,8 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableSharedStepReferenceSectionsQueryFilterModelCreatedDate and assigns it to the CreatedDate field.
-func (o *SharedStepReferenceSectionsQueryFilterModel) SetCreatedDate(v SharedStepReferenceSectionsQueryFilterModelCreatedDate) {
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+func (o *SharedStepReferenceSectionsQueryFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
 	o.CreatedDate.Set(&v)
 }
 // SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
@@ -197,9 +199,9 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) UnsetCreatedDate() {
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDate() SharedStepReferenceSectionsQueryFilterModelModifiedDate {
+func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.ModifiedDate.Get()) {
-		var ret SharedStepReferenceSectionsQueryFilterModelModifiedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.ModifiedDate.Get()
@@ -208,7 +210,7 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDate() SharedSt
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDateOk() (*SharedStepReferenceSectionsQueryFilterModelModifiedDate, bool) {
+func (o *SharedStepReferenceSectionsQueryFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -224,8 +226,8 @@ func (o *SharedStepReferenceSectionsQueryFilterModel) HasModifiedDate() bool {
 	return false
 }
 
-// SetModifiedDate gets a reference to the given NullableSharedStepReferenceSectionsQueryFilterModelModifiedDate and assigns it to the ModifiedDate field.
-func (o *SharedStepReferenceSectionsQueryFilterModel) SetModifiedDate(v SharedStepReferenceSectionsQueryFilterModelModifiedDate) {
+// SetModifiedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
+func (o *SharedStepReferenceSectionsQueryFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
 	o.ModifiedDate.Set(&v)
 }
 // SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil

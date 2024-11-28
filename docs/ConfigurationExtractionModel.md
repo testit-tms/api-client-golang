@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | Pointer to [**NullableConfigurationExtractionModelIds**](ConfigurationExtractionModelIds.md) |  | [optional] 
-**ProjectIds** | Pointer to [**NullableConfigurationExtractionModelProjectIds**](ConfigurationExtractionModelProjectIds.md) |  | [optional] 
+**Ids** | Pointer to [**NullableGuidExtractionModel**](GuidExtractionModel.md) | Extraction parameters for configurations | [optional] 
+**ProjectIds** | Pointer to [**NullableGuidExtractionModel**](GuidExtractionModel.md) | Extraction parameters for projects | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetIds
 
-`func (o *ConfigurationExtractionModel) GetIds() ConfigurationExtractionModelIds`
+`func (o *ConfigurationExtractionModel) GetIds() GuidExtractionModel`
 
 GetIds returns the Ids field if non-nil, zero value otherwise.
 
 ### GetIdsOk
 
-`func (o *ConfigurationExtractionModel) GetIdsOk() (*ConfigurationExtractionModelIds, bool)`
+`func (o *ConfigurationExtractionModel) GetIdsOk() (*GuidExtractionModel, bool)`
 
 GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIds
 
-`func (o *ConfigurationExtractionModel) SetIds(v ConfigurationExtractionModelIds)`
+`func (o *ConfigurationExtractionModel) SetIds(v GuidExtractionModel)`
 
 SetIds sets Ids field to given value.
 
@@ -63,20 +63,20 @@ HasIds returns a boolean if a field has been set.
 UnsetIds ensures that no value is present for Ids, not even an explicit nil
 ### GetProjectIds
 
-`func (o *ConfigurationExtractionModel) GetProjectIds() ConfigurationExtractionModelProjectIds`
+`func (o *ConfigurationExtractionModel) GetProjectIds() GuidExtractionModel`
 
 GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
 
 ### GetProjectIdsOk
 
-`func (o *ConfigurationExtractionModel) GetProjectIdsOk() (*ConfigurationExtractionModelProjectIds, bool)`
+`func (o *ConfigurationExtractionModel) GetProjectIdsOk() (*GuidExtractionModel, bool)`
 
 GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectIds
 
-`func (o *ConfigurationExtractionModel) SetProjectIds(v ConfigurationExtractionModelProjectIds)`
+`func (o *ConfigurationExtractionModel) SetProjectIds(v GuidExtractionModel)`
 
 SetProjectIds sets ProjectIds field to given value.
 

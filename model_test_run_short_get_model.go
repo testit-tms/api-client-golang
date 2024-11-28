@@ -26,6 +26,7 @@ type TestRunShortGetModel struct {
 	Id string `json:"id"`
 	// Name of the test run
 	Name string `json:"name"`
+	// Current state of the test run
 	State TestRunState `json:"state"`
 	// Date when the test run was created
 	CreatedDate time.Time `json:"createdDate"`
@@ -41,7 +42,10 @@ type TestRunShortGetModel struct {
 	IsDeleted bool `json:"isDeleted"`
 	// Number of AutoTests run in the test run
 	AutoTestsCount int32 `json:"autoTestsCount"`
+	// Statistics of the test run
 	Statistics TestResultsStatisticsGetModel `json:"statistics"`
+	// Test results configurations
+	TestResultsConfigurations []ConfigurationShortModel `json:"testResultsConfigurations"`
 }
 
 type _TestRunShortGetModel TestRunShortGetModel
@@ -50,7 +54,7 @@ type _TestRunShortGetModel TestRunShortGetModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsGetModel) *TestRunShortGetModel {
+func NewTestRunShortGetModel(id string, name string, state TestRunState, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsGetModel, testResultsConfigurations []ConfigurationShortModel) *TestRunShortGetModel {
 	this := TestRunShortGetModel{}
 	this.Id = id
 	this.Name = name
@@ -60,6 +64,7 @@ func NewTestRunShortGetModel(id string, name string, state TestRunState, created
 	this.IsDeleted = isDeleted
 	this.AutoTestsCount = autoTestsCount
 	this.Statistics = statistics
+	this.TestResultsConfigurations = testResultsConfigurations
 	return &this
 }
 
@@ -389,6 +394,30 @@ func (o *TestRunShortGetModel) SetStatistics(v TestResultsStatisticsGetModel) {
 	o.Statistics = v
 }
 
+// GetTestResultsConfigurations returns the TestResultsConfigurations field value
+func (o *TestRunShortGetModel) GetTestResultsConfigurations() []ConfigurationShortModel {
+	if o == nil {
+		var ret []ConfigurationShortModel
+		return ret
+	}
+
+	return o.TestResultsConfigurations
+}
+
+// GetTestResultsConfigurationsOk returns a tuple with the TestResultsConfigurations field value
+// and a boolean to check if the value has been set.
+func (o *TestRunShortGetModel) GetTestResultsConfigurationsOk() ([]ConfigurationShortModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TestResultsConfigurations, true
+}
+
+// SetTestResultsConfigurations sets field value
+func (o *TestRunShortGetModel) SetTestResultsConfigurations(v []ConfigurationShortModel) {
+	o.TestResultsConfigurations = v
+}
+
 func (o TestRunShortGetModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -416,6 +445,7 @@ func (o TestRunShortGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["autoTestsCount"] = o.AutoTestsCount
 	toSerialize["statistics"] = o.Statistics
+	toSerialize["testResultsConfigurations"] = o.TestResultsConfigurations
 	return toSerialize, nil
 }
 
@@ -432,6 +462,7 @@ func (o *TestRunShortGetModel) UnmarshalJSON(data []byte) (err error) {
 		"isDeleted",
 		"autoTestsCount",
 		"statistics",
+		"testResultsConfigurations",
 	}
 
 	allProperties := make(map[string]interface{})

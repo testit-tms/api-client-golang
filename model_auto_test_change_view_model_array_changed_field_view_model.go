@@ -61,7 +61,7 @@ func (o *AutoTestChangeViewModelArrayChangedFieldViewModel) GetOldValueOk() ([]A
 
 // HasOldValue returns a boolean if a field has been set.
 func (o *AutoTestChangeViewModelArrayChangedFieldViewModel) HasOldValue() bool {
-	if o != nil && IsNil(o.OldValue) {
+	if o != nil && !IsNil(o.OldValue) {
 		return true
 	}
 
@@ -94,7 +94,7 @@ func (o *AutoTestChangeViewModelArrayChangedFieldViewModel) GetNewValueOk() ([]A
 
 // HasNewValue returns a boolean if a field has been set.
 func (o *AutoTestChangeViewModelArrayChangedFieldViewModel) HasNewValue() bool {
-	if o != nil && IsNil(o.NewValue) {
+	if o != nil && !IsNil(o.NewValue) {
 		return true
 	}
 

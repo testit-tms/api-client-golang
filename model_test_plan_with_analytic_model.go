@@ -539,7 +539,7 @@ func (o *TestPlanWithAnalyticModel) GetTagsOk() ([]TagPostModel, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *TestPlanWithAnalyticModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 

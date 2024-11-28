@@ -35,6 +35,7 @@ type TestSuiteV2TreeModel struct {
 	TestPlanId string `json:"testPlanId"`
 	// Name of the test suite
 	Name string `json:"name"`
+	// Type of the test suite
 	Type NullableTestSuiteType `json:"type,omitempty"`
 	// Indicates if the test suite retains section tree structure
 	SaveStructure NullableBool `json:"saveStructure,omitempty"`
@@ -87,7 +88,7 @@ func (o *TestSuiteV2TreeModel) GetChildrenOk() ([]TestSuiteV2TreeModel, bool) {
 
 // HasChildren returns a boolean if a field has been set.
 func (o *TestSuiteV2TreeModel) HasChildren() bool {
-	if o != nil && IsNil(o.Children) {
+	if o != nil && !IsNil(o.Children) {
 		return true
 	}
 

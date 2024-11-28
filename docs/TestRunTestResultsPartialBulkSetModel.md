@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Selector** | Pointer to [**NullableTestRunTestResultsPartialBulkSetModelSelector**](TestRunTestResultsPartialBulkSetModelSelector.md) |  | [optional] 
+**Selector** | Pointer to [**NullableTestRunTestResultsSelectModel**](TestRunTestResultsSelectModel.md) | Object with filters and extraction parameters | [optional] 
 **ResultReasonIds** | Pointer to **[]string** | Unique IDs of result reasons to be assigned to test results | [optional] 
 **Links** | Pointer to [**[]LinkPostModel**](LinkPostModel.md) | Collection of links to be assigned to test results | [optional] 
 **Comment** | Pointer to **NullableString** | Comment to be added to test results | [optional] 
@@ -31,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSelector
 
-`func (o *TestRunTestResultsPartialBulkSetModel) GetSelector() TestRunTestResultsPartialBulkSetModelSelector`
+`func (o *TestRunTestResultsPartialBulkSetModel) GetSelector() TestRunTestResultsSelectModel`
 
 GetSelector returns the Selector field if non-nil, zero value otherwise.
 
 ### GetSelectorOk
 
-`func (o *TestRunTestResultsPartialBulkSetModel) GetSelectorOk() (*TestRunTestResultsPartialBulkSetModelSelector, bool)`
+`func (o *TestRunTestResultsPartialBulkSetModel) GetSelectorOk() (*TestRunTestResultsSelectModel, bool)`
 
 GetSelectorOk returns a tuple with the Selector field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSelector
 
-`func (o *TestRunTestResultsPartialBulkSetModel) SetSelector(v TestRunTestResultsPartialBulkSetModelSelector)`
+`func (o *TestRunTestResultsPartialBulkSetModel) SetSelector(v TestRunTestResultsSelectModel)`
 
 SetSelector sets Selector field to given value.
 

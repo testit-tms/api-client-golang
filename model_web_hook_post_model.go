@@ -23,11 +23,13 @@ var _ MappedNullable = &WebHookPostModel{}
 type WebHookPostModel struct {
 	// Unique ID of the webhook project
 	ProjectId string `json:"projectId"`
+	// Type of event which triggers the webhook
 	EventType WebHookEventTypeModel `json:"eventType"`
 	// Description of the webhook
 	Description NullableString `json:"description,omitempty"`
 	// Request URL of the webhook
 	Url string `json:"url"`
+	// Request method of the webhook
 	RequestType RequestTypeModel `json:"requestType"`
 	// Indicates if the webhook sends body
 	ShouldSendBody bool `json:"shouldSendBody"`

@@ -33,7 +33,7 @@ type TestResultV2ShortModel struct {
 	RunByUserId NullableString `json:"runByUserId,omitempty"`
 	StoppedByUserId NullableString `json:"stoppedByUserId,omitempty"`
 	TestPointId NullableString `json:"testPointId,omitempty"`
-	TestPoint NullableTestPointRelatedToTestResult `json:"testPoint,omitempty"`
+	TestPoint NullableTestPointShortModel `json:"testPoint,omitempty"`
 	TestRunId string `json:"testRunId"`
 	// Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped
 	Outcome string `json:"outcome"`
@@ -477,9 +477,9 @@ func (o *TestResultV2ShortModel) UnsetTestPointId() {
 }
 
 // GetTestPoint returns the TestPoint field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultV2ShortModel) GetTestPoint() TestPointRelatedToTestResult {
+func (o *TestResultV2ShortModel) GetTestPoint() TestPointShortModel {
 	if o == nil || IsNil(o.TestPoint.Get()) {
-		var ret TestPointRelatedToTestResult
+		var ret TestPointShortModel
 		return ret
 	}
 	return *o.TestPoint.Get()
@@ -488,7 +488,7 @@ func (o *TestResultV2ShortModel) GetTestPoint() TestPointRelatedToTestResult {
 // GetTestPointOk returns a tuple with the TestPoint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultV2ShortModel) GetTestPointOk() (*TestPointRelatedToTestResult, bool) {
+func (o *TestResultV2ShortModel) GetTestPointOk() (*TestPointShortModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -504,8 +504,8 @@ func (o *TestResultV2ShortModel) HasTestPoint() bool {
 	return false
 }
 
-// SetTestPoint gets a reference to the given NullableTestPointRelatedToTestResult and assigns it to the TestPoint field.
-func (o *TestResultV2ShortModel) SetTestPoint(v TestPointRelatedToTestResult) {
+// SetTestPoint gets a reference to the given NullableTestPointShortModel and assigns it to the TestPoint field.
+func (o *TestResultV2ShortModel) SetTestPoint(v TestPointShortModel) {
 	o.TestPoint.Set(&v)
 }
 // SetTestPointNil sets the value for TestPoint to be an explicit nil
@@ -629,7 +629,7 @@ func (o *TestResultV2ShortModel) GetLinksOk() ([]LinkModel, bool) {
 
 // HasLinks returns a boolean if a field has been set.
 func (o *TestResultV2ShortModel) HasLinks() bool {
-	if o != nil && IsNil(o.Links) {
+	if o != nil && !IsNil(o.Links) {
 		return true
 	}
 
@@ -662,7 +662,7 @@ func (o *TestResultV2ShortModel) GetAttachmentsOk() ([]AttachmentModel, bool) {
 
 // HasAttachments returns a boolean if a field has been set.
 func (o *TestResultV2ShortModel) HasAttachments() bool {
-	if o != nil && IsNil(o.Attachments) {
+	if o != nil && !IsNil(o.Attachments) {
 		return true
 	}
 
@@ -695,7 +695,7 @@ func (o *TestResultV2ShortModel) GetParametersOk() (*map[string]string, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *TestResultV2ShortModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 
@@ -728,7 +728,7 @@ func (o *TestResultV2ShortModel) GetPropertiesOk() (*map[string]string, bool) {
 
 // HasProperties returns a boolean if a field has been set.
 func (o *TestResultV2ShortModel) HasProperties() bool {
-	if o != nil && IsNil(o.Properties) {
+	if o != nil && !IsNil(o.Properties) {
 		return true
 	}
 

@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique identifier of user who applied the latest modification of Work Item | [optional] 
 **CreatedDate** | Pointer to **NullableTime** | Date and time of Work Item creation | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** | Date and time of the latest modification of Work Item | [optional] 
-**State** | [**WorkItemStates**](WorkItemStates.md) |  | 
-**Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**State** | [**WorkItemStates**](WorkItemStates.md) | The current state of Work Item | 
+**Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) | Work Item priority level | 
 **IsDeleted** | **bool** | Flag determining whether Work Item is deleted | 
 **TagNames** | Pointer to **[]string** | Array of tag names of Work Item | [optional] 
 **Iterations** | [**[]IterationModel**](IterationModel.md) | Set of iterations related to Work Item | 

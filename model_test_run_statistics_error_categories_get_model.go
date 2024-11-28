@@ -21,10 +21,6 @@ var _ MappedNullable = &TestRunStatisticsErrorCategoriesGetModel{}
 
 // TestRunStatisticsErrorCategoriesGetModel struct for TestRunStatisticsErrorCategoriesGetModel
 type TestRunStatisticsErrorCategoriesGetModel struct {
-	// Number of test results which outcomes were not analyzed
-	NoAnalytics int32 `json:"noAnalytics"`
-	// Number of test results which outcomes were not caused by any defect
-	NoDefect int32 `json:"noDefect"`
 	// Number of test results which outcomes were caused by some infrastructure defect
 	InfrastructureDefect int32 `json:"infrastructureDefect"`
 	// Number of test results which outcomes were caused by some tested product defect
@@ -39,10 +35,8 @@ type _TestRunStatisticsErrorCategoriesGetModel TestRunStatisticsErrorCategoriesG
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunStatisticsErrorCategoriesGetModel(noAnalytics int32, noDefect int32, infrastructureDefect int32, productDefect int32, testDefect int32) *TestRunStatisticsErrorCategoriesGetModel {
+func NewTestRunStatisticsErrorCategoriesGetModel(infrastructureDefect int32, productDefect int32, testDefect int32) *TestRunStatisticsErrorCategoriesGetModel {
 	this := TestRunStatisticsErrorCategoriesGetModel{}
-	this.NoAnalytics = noAnalytics
-	this.NoDefect = noDefect
 	this.InfrastructureDefect = infrastructureDefect
 	this.ProductDefect = productDefect
 	this.TestDefect = testDefect
@@ -55,54 +49,6 @@ func NewTestRunStatisticsErrorCategoriesGetModel(noAnalytics int32, noDefect int
 func NewTestRunStatisticsErrorCategoriesGetModelWithDefaults() *TestRunStatisticsErrorCategoriesGetModel {
 	this := TestRunStatisticsErrorCategoriesGetModel{}
 	return &this
-}
-
-// GetNoAnalytics returns the NoAnalytics field value
-func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoAnalytics() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.NoAnalytics
-}
-
-// GetNoAnalyticsOk returns a tuple with the NoAnalytics field value
-// and a boolean to check if the value has been set.
-func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoAnalyticsOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NoAnalytics, true
-}
-
-// SetNoAnalytics sets field value
-func (o *TestRunStatisticsErrorCategoriesGetModel) SetNoAnalytics(v int32) {
-	o.NoAnalytics = v
-}
-
-// GetNoDefect returns the NoDefect field value
-func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoDefect() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.NoDefect
-}
-
-// GetNoDefectOk returns a tuple with the NoDefect field value
-// and a boolean to check if the value has been set.
-func (o *TestRunStatisticsErrorCategoriesGetModel) GetNoDefectOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.NoDefect, true
-}
-
-// SetNoDefect sets field value
-func (o *TestRunStatisticsErrorCategoriesGetModel) SetNoDefect(v int32) {
-	o.NoDefect = v
 }
 
 // GetInfrastructureDefect returns the InfrastructureDefect field value
@@ -187,8 +133,6 @@ func (o TestRunStatisticsErrorCategoriesGetModel) MarshalJSON() ([]byte, error) 
 
 func (o TestRunStatisticsErrorCategoriesGetModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["noAnalytics"] = o.NoAnalytics
-	toSerialize["noDefect"] = o.NoDefect
 	toSerialize["infrastructureDefect"] = o.InfrastructureDefect
 	toSerialize["productDefect"] = o.ProductDefect
 	toSerialize["testDefect"] = o.TestDefect
@@ -200,8 +144,6 @@ func (o *TestRunStatisticsErrorCategoriesGetModel) UnmarshalJSON(data []byte) (e
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"noAnalytics",
-		"noDefect",
 		"infrastructureDefect",
 		"productDefect",
 		"testDefect",

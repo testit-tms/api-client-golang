@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProjectId** | **string** | Unique ID of the webhook project | 
-**EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) |  | 
+**EventType** | [**WebHookEventTypeModel**](WebHookEventTypeModel.md) | Type of event which triggers the webhook | 
 **Description** | Pointer to **NullableString** | Description of the webhook | [optional] 
 **Url** | **string** | Request URL of the webhook | 
-**RequestType** | [**RequestTypeModel**](RequestTypeModel.md) |  | 
+**RequestType** | [**RequestTypeModel**](RequestTypeModel.md) | Request method of the webhook | 
 **ShouldSendBody** | **bool** | Indicates if the webhook sends body | 
 **Headers** | **map[string]string** | Collection of the webhook headers | 
 **QueryParameters** | **map[string]string** | Collection of the webhook query parameters | 

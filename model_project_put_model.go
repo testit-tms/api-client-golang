@@ -29,6 +29,11 @@ type ProjectPutModel struct {
 	Name string `json:"name"`
 	// Indicates if the project is marked as favorite
 	IsFavorite NullableBool `json:"isFavorite,omitempty"`
+	// Indicates if the status \"Flaky/Stable\" sets automatically
+	// Deprecated
+	IsFlakyAuto NullableBool `json:"isFlakyAuto,omitempty"`
+	// Type of the project
+	Type ProjectTypeModel `json:"type"`
 }
 
 type _ProjectPutModel ProjectPutModel
@@ -37,10 +42,11 @@ type _ProjectPutModel ProjectPutModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectPutModel(id string, name string) *ProjectPutModel {
+func NewProjectPutModel(id string, name string, type_ ProjectTypeModel) *ProjectPutModel {
 	this := ProjectPutModel{}
 	this.Id = id
 	this.Name = name
+	this.Type = type_
 	return &this
 }
 
@@ -184,6 +190,75 @@ func (o *ProjectPutModel) UnsetIsFavorite() {
 	o.IsFavorite.Unset()
 }
 
+// GetIsFlakyAuto returns the IsFlakyAuto field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
+func (o *ProjectPutModel) GetIsFlakyAuto() bool {
+	if o == nil || IsNil(o.IsFlakyAuto.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsFlakyAuto.Get()
+}
+
+// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
+func (o *ProjectPutModel) GetIsFlakyAutoOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsFlakyAuto.Get(), o.IsFlakyAuto.IsSet()
+}
+
+// HasIsFlakyAuto returns a boolean if a field has been set.
+func (o *ProjectPutModel) HasIsFlakyAuto() bool {
+	if o != nil && o.IsFlakyAuto.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsFlakyAuto gets a reference to the given NullableBool and assigns it to the IsFlakyAuto field.
+// Deprecated
+func (o *ProjectPutModel) SetIsFlakyAuto(v bool) {
+	o.IsFlakyAuto.Set(&v)
+}
+// SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
+func (o *ProjectPutModel) SetIsFlakyAutoNil() {
+	o.IsFlakyAuto.Set(nil)
+}
+
+// UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
+func (o *ProjectPutModel) UnsetIsFlakyAuto() {
+	o.IsFlakyAuto.Unset()
+}
+
+// GetType returns the Type field value
+func (o *ProjectPutModel) GetType() ProjectTypeModel {
+	if o == nil {
+		var ret ProjectTypeModel
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *ProjectPutModel) GetTypeOk() (*ProjectTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *ProjectPutModel) SetType(v ProjectTypeModel) {
+	o.Type = v
+}
+
 func (o ProjectPutModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -202,6 +277,10 @@ func (o ProjectPutModel) ToMap() (map[string]interface{}, error) {
 	if o.IsFavorite.IsSet() {
 		toSerialize["isFavorite"] = o.IsFavorite.Get()
 	}
+	if o.IsFlakyAuto.IsSet() {
+		toSerialize["isFlakyAuto"] = o.IsFlakyAuto.Get()
+	}
+	toSerialize["type"] = o.Type
 	return toSerialize, nil
 }
 
@@ -212,6 +291,7 @@ func (o *ProjectPutModel) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"name",
+		"type",
 	}
 
 	allProperties := make(map[string]interface{})

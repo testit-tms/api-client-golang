@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2CustomAttributesTemplatesExistsGet**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesExistsGet) | **Get** /api/v2/customAttributes/templates/exists | 
 [**ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/exclude | Exclude CustomAttributes from CustomAttributeTemplate
 [**ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesIdCustomAttributesIncludePost) | **Post** /api/v2/customAttributes/templates/{id}/customAttributes/include | Include CustomAttributes to CustomAttributeTemplate
 [**ApiV2CustomAttributesTemplatesIdDelete**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesIdDelete) | **Delete** /api/v2/customAttributes/templates/{id} | Delete CustomAttributeTemplate
@@ -13,6 +14,70 @@ Method | HTTP request | Description
 [**ApiV2CustomAttributesTemplatesPut**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesPut) | **Put** /api/v2/customAttributes/templates | Update custom attributes template
 [**ApiV2CustomAttributesTemplatesSearchPost**](CustomAttributeTemplatesAPI.md#ApiV2CustomAttributesTemplatesSearchPost) | **Post** /api/v2/customAttributes/templates/search | Search CustomAttributeTemplates
 
+
+
+## ApiV2CustomAttributesTemplatesExistsGet
+
+> CustomAttributeTemplateValidationResult ApiV2CustomAttributesTemplatesExistsGet(ctx).Name(name).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	name := "name_example" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesExistsGet(context.Background()).Name(name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesExistsGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2CustomAttributesTemplatesExistsGet`: CustomAttributeTemplateValidationResult
+	fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesExistsGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2CustomAttributesTemplatesExistsGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string** |  | 
+
+### Return type
+
+[**CustomAttributeTemplateValidationResult**](CustomAttributeTemplateValidationResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV2CustomAttributesTemplatesIdCustomAttributesExcludePost
@@ -157,7 +222,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesTemplatesIdDelete
 
-> NoContentResult ApiV2CustomAttributesTemplatesIdDelete(ctx, id).Execute()
+> ApiV2CustomAttributesTemplatesIdDelete(ctx, id).Execute()
 
 Delete CustomAttributeTemplate
 
@@ -180,13 +245,11 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdDelete(context.Background(), id).Execute()
+	r, err := apiClient.CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdDelete(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2CustomAttributesTemplatesIdDelete`: NoContentResult
-	fmt.Fprintf(os.Stdout, "Response from `CustomAttributeTemplatesAPI.ApiV2CustomAttributesTemplatesIdDelete`: %v\n", resp)
 }
 ```
 
@@ -209,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**NoContentResult**](NoContentResult.md)
+ (empty response body)
 
 ### Authorization
 

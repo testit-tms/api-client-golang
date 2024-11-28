@@ -39,6 +39,7 @@ type TestRunV2GetModel struct {
 	Links []LinkModel `json:"links"`
 	CustomParameters map[string]string `json:"customParameters,omitempty"`
 	Webhooks []NamedEntityModel `json:"webhooks"`
+	RunCount int32 `json:"runCount"`
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Description NullableString `json:"description,omitempty"`
@@ -52,7 +53,7 @@ type _TestRunV2GetModel TestRunV2GetModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, webhooks []NamedEntityModel, id string, name string) *TestRunV2GetModel {
+func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate time.Time, createdById string, attachments []AttachmentModel, links []LinkModel, webhooks []NamedEntityModel, runCount int32, id string, name string) *TestRunV2GetModel {
 	this := TestRunV2GetModel{}
 	this.StateName = stateName
 	this.ProjectId = projectId
@@ -61,6 +62,7 @@ func NewTestRunV2GetModel(stateName TestRunState, projectId string, createdDate 
 	this.Attachments = attachments
 	this.Links = links
 	this.Webhooks = webhooks
+	this.RunCount = runCount
 	this.Id = id
 	this.Name = name
 	return &this
@@ -269,7 +271,7 @@ func (o *TestRunV2GetModel) GetTestResultsOk() ([]TestResultV2GetModel, bool) {
 
 // HasTestResults returns a boolean if a field has been set.
 func (o *TestRunV2GetModel) HasTestResults() bool {
-	if o != nil && IsNil(o.TestResults) {
+	if o != nil && !IsNil(o.TestResults) {
 		return true
 	}
 
@@ -524,7 +526,7 @@ func (o *TestRunV2GetModel) GetCustomParametersOk() (*map[string]string, bool) {
 
 // HasCustomParameters returns a boolean if a field has been set.
 func (o *TestRunV2GetModel) HasCustomParameters() bool {
-	if o != nil && IsNil(o.CustomParameters) {
+	if o != nil && !IsNil(o.CustomParameters) {
 		return true
 	}
 
@@ -558,6 +560,30 @@ func (o *TestRunV2GetModel) GetWebhooksOk() ([]NamedEntityModel, bool) {
 // SetWebhooks sets field value
 func (o *TestRunV2GetModel) SetWebhooks(v []NamedEntityModel) {
 	o.Webhooks = v
+}
+
+// GetRunCount returns the RunCount field value
+func (o *TestRunV2GetModel) GetRunCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.RunCount
+}
+
+// GetRunCountOk returns a tuple with the RunCount field value
+// and a boolean to check if the value has been set.
+func (o *TestRunV2GetModel) GetRunCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.RunCount, true
+}
+
+// SetRunCount sets field value
+func (o *TestRunV2GetModel) SetRunCount(v int32) {
+	o.RunCount = v
 }
 
 // GetId returns the Id field value
@@ -733,6 +759,7 @@ func (o TestRunV2GetModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["customParameters"] = o.CustomParameters
 	}
 	toSerialize["webhooks"] = o.Webhooks
+	toSerialize["runCount"] = o.RunCount
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	if o.Description.IsSet() {
@@ -756,6 +783,7 @@ func (o *TestRunV2GetModel) UnmarshalJSON(data []byte) (err error) {
 		"attachments",
 		"links",
 		"webhooks",
+		"runCount",
 		"id",
 		"name",
 	}

@@ -54,6 +54,11 @@ type ProjectModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	// Global ID of the project
 	GlobalId int64 `json:"globalId"`
+	// Type of the project
+	Type ProjectTypeModel `json:"type"`
+	// Indicates if the status \"Flaky/Stable\" sets automatically
+	// Deprecated
+	IsFlakyAuto bool `json:"isFlakyAuto"`
 }
 
 type _ProjectModel ProjectModel
@@ -62,7 +67,7 @@ type _ProjectModel ProjectModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64) *ProjectModel {
+func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool) *ProjectModel {
 	this := ProjectModel{}
 	this.Id = id
 	this.Name = name
@@ -71,6 +76,8 @@ func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, cr
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
 	this.GlobalId = globalId
+	this.Type = type_
+	this.IsFlakyAuto = isFlakyAuto
 	return &this
 }
 
@@ -217,7 +224,7 @@ func (o *ProjectModel) GetAttributesSchemeOk() ([]CustomAttributeModel, bool) {
 
 // HasAttributesScheme returns a boolean if a field has been set.
 func (o *ProjectModel) HasAttributesScheme() bool {
-	if o != nil && IsNil(o.AttributesScheme) {
+	if o != nil && !IsNil(o.AttributesScheme) {
 		return true
 	}
 
@@ -250,7 +257,7 @@ func (o *ProjectModel) GetTestPlansAttributesSchemeOk() ([]CustomAttributeModel,
 
 // HasTestPlansAttributesScheme returns a boolean if a field has been set.
 func (o *ProjectModel) HasTestPlansAttributesScheme() bool {
-	if o != nil && IsNil(o.TestPlansAttributesScheme) {
+	if o != nil && !IsNil(o.TestPlansAttributesScheme) {
 		return true
 	}
 
@@ -610,6 +617,57 @@ func (o *ProjectModel) SetGlobalId(v int64) {
 	o.GlobalId = v
 }
 
+// GetType returns the Type field value
+func (o *ProjectModel) GetType() ProjectTypeModel {
+	if o == nil {
+		var ret ProjectTypeModel
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *ProjectModel) GetTypeOk() (*ProjectTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *ProjectModel) SetType(v ProjectTypeModel) {
+	o.Type = v
+}
+
+// GetIsFlakyAuto returns the IsFlakyAuto field value
+// Deprecated
+func (o *ProjectModel) GetIsFlakyAuto() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsFlakyAuto
+}
+
+// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value
+// and a boolean to check if the value has been set.
+// Deprecated
+func (o *ProjectModel) GetIsFlakyAutoOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsFlakyAuto, true
+}
+
+// SetIsFlakyAuto sets field value
+// Deprecated
+func (o *ProjectModel) SetIsFlakyAuto(v bool) {
+	o.IsFlakyAuto = v
+}
+
 func (o ProjectModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -654,6 +712,8 @@ func (o ProjectModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
 	toSerialize["globalId"] = o.GlobalId
+	toSerialize["type"] = o.Type
+	toSerialize["isFlakyAuto"] = o.IsFlakyAuto
 	return toSerialize, nil
 }
 
@@ -669,6 +729,8 @@ func (o *ProjectModel) UnmarshalJSON(data []byte) (err error) {
 		"createdDate",
 		"createdById",
 		"globalId",
+		"type",
+		"isFlakyAuto",
 	}
 
 	allProperties := make(map[string]interface{})

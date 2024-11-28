@@ -27,8 +27,9 @@ type GlobalCustomAttributePostModel struct {
 	IsEnabled NullableBool `json:"isEnabled,omitempty"`
 	// Indicates whether the attribute value is mandatory to specify
 	IsRequired NullableBool `json:"isRequired,omitempty"`
-	// Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only
+	// Collection of attribute options     Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionPostModel `json:"options,omitempty"`
+	// Type of attribute
 	Type CustomAttributeTypesEnum `json:"type"`
 }
 
@@ -182,7 +183,7 @@ func (o *GlobalCustomAttributePostModel) GetOptionsOk() ([]CustomAttributeOption
 
 // HasOptions returns a boolean if a field has been set.
 func (o *GlobalCustomAttributePostModel) HasOptions() bool {
-	if o != nil && IsNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 

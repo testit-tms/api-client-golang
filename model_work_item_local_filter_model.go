@@ -41,16 +41,22 @@ type WorkItemLocalFilterModel struct {
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
 	// Collection of types of work item
 	Types []WorkItemEntityTypes `json:"types,omitempty"`
-	CreatedDate NullableTestPointFilterModelWorkItemCreatedDate `json:"createdDate,omitempty"`
-	ModifiedDate NullableTestPointFilterModelWorkItemModifiedDate `json:"modifiedDate,omitempty"`
-	Duration NullableTestSuiteWorkItemsSearchModelDuration `json:"duration,omitempty"`
-	MedianDuration NullableTestSuiteWorkItemsSearchModelMedianDuration `json:"medianDuration,omitempty"`
+	// Specifies a work item range of creation date to search for
+	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
+	// Specifies a work item range of last modification date to search for
+	ModifiedDate NullableDateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
+	// Specifies a work item duration range to search for
+	Duration NullableInt32RangeSelectorModel `json:"duration,omitempty"`
+	// Specifies a work item median duration range to search for
+	MedianDuration NullableInt64RangeSelectorModel `json:"medianDuration,omitempty"`
 	// Is result must consist of only manual/automated work items
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Collection of tags
 	Tags []string `json:"tags,omitempty"`
 	// Collection of identifiers of linked autotests
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
+	// Collection of identifiers work items versions.
+	WorkItemVersionIds []string `json:"workItemVersionIds,omitempty"`
 }
 
 // NewWorkItemLocalFilterModel instantiates a new WorkItemLocalFilterModel object
@@ -133,7 +139,7 @@ func (o *WorkItemLocalFilterModel) GetIdsOk() ([]string, bool) {
 
 // HasIds returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasIds() bool {
-	if o != nil && IsNil(o.Ids) {
+	if o != nil && !IsNil(o.Ids) {
 		return true
 	}
 
@@ -166,7 +172,7 @@ func (o *WorkItemLocalFilterModel) GetGlobalIdsOk() ([]int64, bool) {
 
 // HasGlobalIds returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasGlobalIds() bool {
-	if o != nil && IsNil(o.GlobalIds) {
+	if o != nil && !IsNil(o.GlobalIds) {
 		return true
 	}
 
@@ -199,7 +205,7 @@ func (o *WorkItemLocalFilterModel) GetAttributesOk() (*map[string][]string, bool
 
 // HasAttributes returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasAttributes() bool {
-	if o != nil && IsNil(o.Attributes) {
+	if o != nil && !IsNil(o.Attributes) {
 		return true
 	}
 
@@ -274,7 +280,7 @@ func (o *WorkItemLocalFilterModel) GetSectionIdsOk() ([]string, bool) {
 
 // HasSectionIds returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasSectionIds() bool {
-	if o != nil && IsNil(o.SectionIds) {
+	if o != nil && !IsNil(o.SectionIds) {
 		return true
 	}
 
@@ -307,7 +313,7 @@ func (o *WorkItemLocalFilterModel) GetCreatedByIdsOk() ([]string, bool) {
 
 // HasCreatedByIds returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasCreatedByIds() bool {
-	if o != nil && IsNil(o.CreatedByIds) {
+	if o != nil && !IsNil(o.CreatedByIds) {
 		return true
 	}
 
@@ -340,7 +346,7 @@ func (o *WorkItemLocalFilterModel) GetModifiedByIdsOk() ([]string, bool) {
 
 // HasModifiedByIds returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasModifiedByIds() bool {
-	if o != nil && IsNil(o.ModifiedByIds) {
+	if o != nil && !IsNil(o.ModifiedByIds) {
 		return true
 	}
 
@@ -373,7 +379,7 @@ func (o *WorkItemLocalFilterModel) GetStatesOk() ([]WorkItemStates, bool) {
 
 // HasStates returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasStates() bool {
-	if o != nil && IsNil(o.States) {
+	if o != nil && !IsNil(o.States) {
 		return true
 	}
 
@@ -406,7 +412,7 @@ func (o *WorkItemLocalFilterModel) GetPrioritiesOk() ([]WorkItemPriorityModel, b
 
 // HasPriorities returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasPriorities() bool {
-	if o != nil && IsNil(o.Priorities) {
+	if o != nil && !IsNil(o.Priorities) {
 		return true
 	}
 
@@ -439,7 +445,7 @@ func (o *WorkItemLocalFilterModel) GetTypesOk() ([]WorkItemEntityTypes, bool) {
 
 // HasTypes returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasTypes() bool {
-	if o != nil && IsNil(o.Types) {
+	if o != nil && !IsNil(o.Types) {
 		return true
 	}
 
@@ -452,9 +458,9 @@ func (o *WorkItemLocalFilterModel) SetTypes(v []WorkItemEntityTypes) {
 }
 
 // GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemLocalFilterModel) GetCreatedDate() TestPointFilterModelWorkItemCreatedDate {
+func (o *WorkItemLocalFilterModel) GetCreatedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.CreatedDate.Get()) {
-		var ret TestPointFilterModelWorkItemCreatedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.CreatedDate.Get()
@@ -463,7 +469,7 @@ func (o *WorkItemLocalFilterModel) GetCreatedDate() TestPointFilterModelWorkItem
 // GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemLocalFilterModel) GetCreatedDateOk() (*TestPointFilterModelWorkItemCreatedDate, bool) {
+func (o *WorkItemLocalFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -479,8 +485,8 @@ func (o *WorkItemLocalFilterModel) HasCreatedDate() bool {
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableTestPointFilterModelWorkItemCreatedDate and assigns it to the CreatedDate field.
-func (o *WorkItemLocalFilterModel) SetCreatedDate(v TestPointFilterModelWorkItemCreatedDate) {
+// SetCreatedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the CreatedDate field.
+func (o *WorkItemLocalFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel) {
 	o.CreatedDate.Set(&v)
 }
 // SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
@@ -494,9 +500,9 @@ func (o *WorkItemLocalFilterModel) UnsetCreatedDate() {
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemLocalFilterModel) GetModifiedDate() TestPointFilterModelWorkItemModifiedDate {
+func (o *WorkItemLocalFilterModel) GetModifiedDate() DateTimeRangeSelectorModel {
 	if o == nil || IsNil(o.ModifiedDate.Get()) {
-		var ret TestPointFilterModelWorkItemModifiedDate
+		var ret DateTimeRangeSelectorModel
 		return ret
 	}
 	return *o.ModifiedDate.Get()
@@ -505,7 +511,7 @@ func (o *WorkItemLocalFilterModel) GetModifiedDate() TestPointFilterModelWorkIte
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemLocalFilterModel) GetModifiedDateOk() (*TestPointFilterModelWorkItemModifiedDate, bool) {
+func (o *WorkItemLocalFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -521,8 +527,8 @@ func (o *WorkItemLocalFilterModel) HasModifiedDate() bool {
 	return false
 }
 
-// SetModifiedDate gets a reference to the given NullableTestPointFilterModelWorkItemModifiedDate and assigns it to the ModifiedDate field.
-func (o *WorkItemLocalFilterModel) SetModifiedDate(v TestPointFilterModelWorkItemModifiedDate) {
+// SetModifiedDate gets a reference to the given NullableDateTimeRangeSelectorModel and assigns it to the ModifiedDate field.
+func (o *WorkItemLocalFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel) {
 	o.ModifiedDate.Set(&v)
 }
 // SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
@@ -536,9 +542,9 @@ func (o *WorkItemLocalFilterModel) UnsetModifiedDate() {
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemLocalFilterModel) GetDuration() TestSuiteWorkItemsSearchModelDuration {
+func (o *WorkItemLocalFilterModel) GetDuration() Int32RangeSelectorModel {
 	if o == nil || IsNil(o.Duration.Get()) {
-		var ret TestSuiteWorkItemsSearchModelDuration
+		var ret Int32RangeSelectorModel
 		return ret
 	}
 	return *o.Duration.Get()
@@ -547,7 +553,7 @@ func (o *WorkItemLocalFilterModel) GetDuration() TestSuiteWorkItemsSearchModelDu
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemLocalFilterModel) GetDurationOk() (*TestSuiteWorkItemsSearchModelDuration, bool) {
+func (o *WorkItemLocalFilterModel) GetDurationOk() (*Int32RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -563,8 +569,8 @@ func (o *WorkItemLocalFilterModel) HasDuration() bool {
 	return false
 }
 
-// SetDuration gets a reference to the given NullableTestSuiteWorkItemsSearchModelDuration and assigns it to the Duration field.
-func (o *WorkItemLocalFilterModel) SetDuration(v TestSuiteWorkItemsSearchModelDuration) {
+// SetDuration gets a reference to the given NullableInt32RangeSelectorModel and assigns it to the Duration field.
+func (o *WorkItemLocalFilterModel) SetDuration(v Int32RangeSelectorModel) {
 	o.Duration.Set(&v)
 }
 // SetDurationNil sets the value for Duration to be an explicit nil
@@ -578,9 +584,9 @@ func (o *WorkItemLocalFilterModel) UnsetDuration() {
 }
 
 // GetMedianDuration returns the MedianDuration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemLocalFilterModel) GetMedianDuration() TestSuiteWorkItemsSearchModelMedianDuration {
+func (o *WorkItemLocalFilterModel) GetMedianDuration() Int64RangeSelectorModel {
 	if o == nil || IsNil(o.MedianDuration.Get()) {
-		var ret TestSuiteWorkItemsSearchModelMedianDuration
+		var ret Int64RangeSelectorModel
 		return ret
 	}
 	return *o.MedianDuration.Get()
@@ -589,7 +595,7 @@ func (o *WorkItemLocalFilterModel) GetMedianDuration() TestSuiteWorkItemsSearchM
 // GetMedianDurationOk returns a tuple with the MedianDuration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemLocalFilterModel) GetMedianDurationOk() (*TestSuiteWorkItemsSearchModelMedianDuration, bool) {
+func (o *WorkItemLocalFilterModel) GetMedianDurationOk() (*Int64RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -605,8 +611,8 @@ func (o *WorkItemLocalFilterModel) HasMedianDuration() bool {
 	return false
 }
 
-// SetMedianDuration gets a reference to the given NullableTestSuiteWorkItemsSearchModelMedianDuration and assigns it to the MedianDuration field.
-func (o *WorkItemLocalFilterModel) SetMedianDuration(v TestSuiteWorkItemsSearchModelMedianDuration) {
+// SetMedianDuration gets a reference to the given NullableInt64RangeSelectorModel and assigns it to the MedianDuration field.
+func (o *WorkItemLocalFilterModel) SetMedianDuration(v Int64RangeSelectorModel) {
 	o.MedianDuration.Set(&v)
 }
 // SetMedianDurationNil sets the value for MedianDuration to be an explicit nil
@@ -682,7 +688,7 @@ func (o *WorkItemLocalFilterModel) GetTagsOk() ([]string, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -715,7 +721,7 @@ func (o *WorkItemLocalFilterModel) GetAutoTestIdsOk() ([]string, bool) {
 
 // HasAutoTestIds returns a boolean if a field has been set.
 func (o *WorkItemLocalFilterModel) HasAutoTestIds() bool {
-	if o != nil && IsNil(o.AutoTestIds) {
+	if o != nil && !IsNil(o.AutoTestIds) {
 		return true
 	}
 
@@ -725,6 +731,39 @@ func (o *WorkItemLocalFilterModel) HasAutoTestIds() bool {
 // SetAutoTestIds gets a reference to the given []string and assigns it to the AutoTestIds field.
 func (o *WorkItemLocalFilterModel) SetAutoTestIds(v []string) {
 	o.AutoTestIds = v
+}
+
+// GetWorkItemVersionIds returns the WorkItemVersionIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemLocalFilterModel) GetWorkItemVersionIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemVersionIds
+}
+
+// GetWorkItemVersionIdsOk returns a tuple with the WorkItemVersionIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemLocalFilterModel) GetWorkItemVersionIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemVersionIds) {
+		return nil, false
+	}
+	return o.WorkItemVersionIds, true
+}
+
+// HasWorkItemVersionIds returns a boolean if a field has been set.
+func (o *WorkItemLocalFilterModel) HasWorkItemVersionIds() bool {
+	if o != nil && !IsNil(o.WorkItemVersionIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemVersionIds gets a reference to the given []string and assigns it to the WorkItemVersionIds field.
+func (o *WorkItemLocalFilterModel) SetWorkItemVersionIds(v []string) {
+	o.WorkItemVersionIds = v
 }
 
 func (o WorkItemLocalFilterModel) MarshalJSON() ([]byte, error) {
@@ -790,6 +829,9 @@ func (o WorkItemLocalFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AutoTestIds != nil {
 		toSerialize["autoTestIds"] = o.AutoTestIds
+	}
+	if o.WorkItemVersionIds != nil {
+		toSerialize["workItemVersionIds"] = o.WorkItemVersionIds
 	}
 	return toSerialize, nil
 }

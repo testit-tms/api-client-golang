@@ -5,8 +5,10 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ApiV2TestRunsDelete**](TestRunsAPI.md#ApiV2TestRunsDelete) | **Delete** /api/v2/testRuns | Delete multiple test runs
+[**ApiV2TestRunsIdAutoTestsNamespacesGet**](TestRunsAPI.md#ApiV2TestRunsIdAutoTestsNamespacesGet) | **Get** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run
 [**ApiV2TestRunsIdDelete**](TestRunsAPI.md#ApiV2TestRunsIdDelete) | **Delete** /api/v2/testRuns/{id} | Delete test run
 [**ApiV2TestRunsIdPurgePost**](TestRunsAPI.md#ApiV2TestRunsIdPurgePost) | **Post** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive
+[**ApiV2TestRunsIdRerunsPost**](TestRunsAPI.md#ApiV2TestRunsIdRerunsPost) | **Post** /api/v2/testRuns/{id}/reruns | Manual autotests rerun in test run
 [**ApiV2TestRunsIdRestorePost**](TestRunsAPI.md#ApiV2TestRunsIdRestorePost) | **Post** /api/v2/testRuns/{id}/restore | Restore test run from the archive
 [**ApiV2TestRunsIdStatisticsFilterPost**](TestRunsAPI.md#ApiV2TestRunsIdStatisticsFilterPost) | **Post** /api/v2/testRuns/{id}/statistics/filter | Search for the test run test results and build statistics
 [**ApiV2TestRunsIdTestPointsResultsGet**](TestRunsAPI.md#ApiV2TestRunsIdTestPointsResultsGet) | **Get** /api/v2/testRuns/{id}/testPoints/results | Get test results from the test run grouped by test points
@@ -88,6 +90,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestRunsIdAutoTestsNamespacesGet
+
+> AutoTestNamespacesCountResponse ApiV2TestRunsIdAutoTestsNamespacesGet(ctx, id).Execute()
+
+Get autotest classes and namespaces in test run
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdAutoTestsNamespacesGet(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsIdAutoTestsNamespacesGet``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestRunsIdAutoTestsNamespacesGet`: AutoTestNamespacesCountResponse
+	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.ApiV2TestRunsIdAutoTestsNamespacesGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsIdAutoTestsNamespacesGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**AutoTestNamespacesCountResponse**](AutoTestNamespacesCountResponse.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -224,6 +294,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2TestRunsIdRerunsPost
+
+> ManualRerunResultModel ApiV2TestRunsIdRerunsPost(ctx, id).ManualRerunSelectModel(manualRerunSelectModel).Execute()
+
+Manual autotests rerun in test run
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	manualRerunSelectModel := *openapiclient.NewManualRerunSelectModel() // ManualRerunSelectModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdRerunsPost(context.Background(), id).ManualRerunSelectModel(manualRerunSelectModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsIdRerunsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestRunsIdRerunsPost`: ManualRerunResultModel
+	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.ApiV2TestRunsIdRerunsPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsIdRerunsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **manualRerunSelectModel** | [**ManualRerunSelectModel**](ManualRerunSelectModel.md) |  | 
+
+### Return type
+
+[**ManualRerunResultModel**](ManualRerunResultModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -834,7 +974,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1128,7 +1268,7 @@ import (
 )
 
 func main() {
-	testRunV2PostShortModel := *openapiclient.NewTestRunV2PostShortModel("82e92d6f-0258-416b-b2b4-039ea76601c7") // TestRunV2PostShortModel |  (optional)
+	testRunV2PostShortModel := *openapiclient.NewTestRunV2PostShortModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23") // TestRunV2PostShortModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1472,7 +1612,7 @@ import (
 )
 
 func main() {
-	testRunV2PutModel := *openapiclient.NewTestRunV2PutModel("82e92d6f-0258-416b-b2b4-039ea76601c7", "First run") // TestRunV2PutModel |  (optional)
+	testRunV2PutModel := *openapiclient.NewTestRunV2PutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23", "First run") // TestRunV2PutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

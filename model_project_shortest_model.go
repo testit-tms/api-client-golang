@@ -29,6 +29,8 @@ type ProjectShortestModel struct {
 	GlobalId int64 `json:"globalId"`
 	// Name of project
 	Name string `json:"name"`
+	// Type of the project
+	Type ProjectTypeModel `json:"type"`
 }
 
 type _ProjectShortestModel ProjectShortestModel
@@ -37,12 +39,13 @@ type _ProjectShortestModel ProjectShortestModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectShortestModel(id string, isDeleted bool, globalId int64, name string) *ProjectShortestModel {
+func NewProjectShortestModel(id string, isDeleted bool, globalId int64, name string, type_ ProjectTypeModel) *ProjectShortestModel {
 	this := ProjectShortestModel{}
 	this.Id = id
 	this.IsDeleted = isDeleted
 	this.GlobalId = globalId
 	this.Name = name
+	this.Type = type_
 	return &this
 }
 
@@ -150,6 +153,30 @@ func (o *ProjectShortestModel) SetName(v string) {
 	o.Name = v
 }
 
+// GetType returns the Type field value
+func (o *ProjectShortestModel) GetType() ProjectTypeModel {
+	if o == nil {
+		var ret ProjectTypeModel
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *ProjectShortestModel) GetTypeOk() (*ProjectTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *ProjectShortestModel) SetType(v ProjectTypeModel) {
+	o.Type = v
+}
+
 func (o ProjectShortestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -164,6 +191,7 @@ func (o ProjectShortestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["name"] = o.Name
+	toSerialize["type"] = o.Type
 	return toSerialize, nil
 }
 
@@ -176,6 +204,7 @@ func (o *ProjectShortestModel) UnmarshalJSON(data []byte) (err error) {
 		"isDeleted",
 		"globalId",
 		"name",
+		"type",
 	}
 
 	allProperties := make(map[string]interface{})

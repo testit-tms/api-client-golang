@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ParentId** | Pointer to **NullableString** | Unique ID of the parent test suite in hierarchy | [optional] 
 **TestPlanId** | **string** | Unique ID of test plan to which the test suite belongs | 
 **Name** | **string** | Name of the test suite | 
-**Type** | Pointer to [**NullableTestSuiteType**](TestSuiteType.md) |  | [optional] 
+**Type** | Pointer to [**NullableTestSuiteType**](TestSuiteType.md) | Type of the test suite | [optional] 
 **SaveStructure** | Pointer to **NullableBool** | Indicates if the test suite retains section tree structure | [optional] 
 **AutoRefresh** | Pointer to **NullableBool** | Indicates if scheduled auto refresh is enabled for the test suite | [optional] 
 

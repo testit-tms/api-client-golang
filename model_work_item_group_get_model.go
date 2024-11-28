@@ -21,7 +21,8 @@ var _ MappedNullable = &WorkItemGroupGetModel{}
 
 // WorkItemGroupGetModel struct for WorkItemGroupGetModel
 type WorkItemGroupGetModel struct {
-	SelectModel NullableWorkItemGroupGetModelSelectModel `json:"selectModel,omitempty"`
+	// Model containing options to filter work items
+	SelectModel NullableWorkItemLocalSelectModel `json:"selectModel,omitempty"`
 	GroupType WorkItemGroupType `json:"groupType"`
 	CustomAttributeId NullableString `json:"customAttributeId,omitempty"`
 }
@@ -47,9 +48,9 @@ func NewWorkItemGroupGetModelWithDefaults() *WorkItemGroupGetModel {
 }
 
 // GetSelectModel returns the SelectModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemGroupGetModel) GetSelectModel() WorkItemGroupGetModelSelectModel {
+func (o *WorkItemGroupGetModel) GetSelectModel() WorkItemLocalSelectModel {
 	if o == nil || IsNil(o.SelectModel.Get()) {
-		var ret WorkItemGroupGetModelSelectModel
+		var ret WorkItemLocalSelectModel
 		return ret
 	}
 	return *o.SelectModel.Get()
@@ -58,7 +59,7 @@ func (o *WorkItemGroupGetModel) GetSelectModel() WorkItemGroupGetModelSelectMode
 // GetSelectModelOk returns a tuple with the SelectModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemGroupGetModel) GetSelectModelOk() (*WorkItemGroupGetModelSelectModel, bool) {
+func (o *WorkItemGroupGetModel) GetSelectModelOk() (*WorkItemLocalSelectModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -74,8 +75,8 @@ func (o *WorkItemGroupGetModel) HasSelectModel() bool {
 	return false
 }
 
-// SetSelectModel gets a reference to the given NullableWorkItemGroupGetModelSelectModel and assigns it to the SelectModel field.
-func (o *WorkItemGroupGetModel) SetSelectModel(v WorkItemGroupGetModelSelectModel) {
+// SetSelectModel gets a reference to the given NullableWorkItemLocalSelectModel and assigns it to the SelectModel field.
+func (o *WorkItemGroupGetModel) SetSelectModel(v WorkItemLocalSelectModel) {
 	o.SelectModel.Set(&v)
 }
 // SetSelectModelNil sets the value for SelectModel to be an explicit nil

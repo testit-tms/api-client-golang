@@ -23,7 +23,7 @@ var _ MappedNullable = &GlobalCustomAttributeUpdateModel{}
 type GlobalCustomAttributeUpdateModel struct {
 	// Name of attribute
 	Name string `json:"name"`
-	// Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only
+	// Collection of attribute options     Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionModel `json:"options,omitempty"`
 	// Indicates whether the attribute is available
 	IsEnabled NullableBool `json:"isEnabled,omitempty"`
@@ -96,7 +96,7 @@ func (o *GlobalCustomAttributeUpdateModel) GetOptionsOk() ([]CustomAttributeOpti
 
 // HasOptions returns a boolean if a field has been set.
 func (o *GlobalCustomAttributeUpdateModel) HasOptions() bool {
-	if o != nil && IsNil(o.Options) {
+	if o != nil && !IsNil(o.Options) {
 		return true
 	}
 

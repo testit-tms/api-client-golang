@@ -4,15 +4,79 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2WebhooksDelete**](WebhooksAPI.md#ApiV2WebhooksDelete) | **Delete** /api/v2/webhooks | 
 [**ApiV2WebhooksGet**](WebhooksAPI.md#ApiV2WebhooksGet) | **Get** /api/v2/webhooks | Get all webhooks
 [**ApiV2WebhooksIdDelete**](WebhooksAPI.md#ApiV2WebhooksIdDelete) | **Delete** /api/v2/webhooks/{id} | Delete webhook by ID
 [**ApiV2WebhooksIdGet**](WebhooksAPI.md#ApiV2WebhooksIdGet) | **Get** /api/v2/webhooks/{id} | Get webhook by ID
 [**ApiV2WebhooksIdPut**](WebhooksAPI.md#ApiV2WebhooksIdPut) | **Put** /api/v2/webhooks/{id} | Edit webhook by ID
 [**ApiV2WebhooksPost**](WebhooksAPI.md#ApiV2WebhooksPost) | **Post** /api/v2/webhooks | Create webhook
+[**ApiV2WebhooksPut**](WebhooksAPI.md#ApiV2WebhooksPut) | **Put** /api/v2/webhooks | 
 [**ApiV2WebhooksSearchPost**](WebhooksAPI.md#ApiV2WebhooksSearchPost) | **Post** /api/v2/webhooks/search | Search for webhooks
 [**ApiV2WebhooksSpecialVariablesGet**](WebhooksAPI.md#ApiV2WebhooksSpecialVariablesGet) | **Get** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
 [**ApiV2WebhooksTestPost**](WebhooksAPI.md#ApiV2WebhooksTestPost) | **Post** /api/v2/webhooks/test | Test webhook&#39;s url
 
+
+
+## ApiV2WebhooksDelete
+
+> ApiV2WebhooksDelete(ctx).WebhooksDeleteRequest(webhooksDeleteRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	webhooksDeleteRequest := *openapiclient.NewWebhooksDeleteRequest(*openapiclient.NewWebhooksDeleteFilterRequest(), *openapiclient.NewWebhooksExtractionRequest()) // WebhooksDeleteRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.WebhooksAPI.ApiV2WebhooksDelete(context.Background()).WebhooksDeleteRequest(webhooksDeleteRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2WebhooksDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhooksDeleteRequest** | [**WebhooksDeleteRequest**](WebhooksDeleteRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV2WebhooksGet
@@ -332,6 +396,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WebHookModel**](WebHookModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2WebhooksPut
+
+> WebhooksUpdateResponse ApiV2WebhooksPut(ctx).WebhooksUpdateRequest(webhooksUpdateRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	webhooksUpdateRequest := *openapiclient.NewWebhooksUpdateRequest(*openapiclient.NewWebhooksFilterRequest(), *openapiclient.NewWebhookBulkUpdateApiModel(false), *openapiclient.NewWebhooksExtractionRequest()) // WebhooksUpdateRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksPut(context.Background()).WebhooksUpdateRequest(webhooksUpdateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WebhooksPut`: WebhooksUpdateResponse
+	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksPut`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2WebhooksPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhooksUpdateRequest** | [**WebhooksUpdateRequest**](WebhooksUpdateRequest.md) |  | 
+
+### Return type
+
+[**WebhooksUpdateResponse**](WebhooksUpdateResponse.md)
 
 ### Authorization
 

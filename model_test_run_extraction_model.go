@@ -19,7 +19,8 @@ var _ MappedNullable = &TestRunExtractionModel{}
 
 // TestRunExtractionModel Rules for different level entities inclusion/exclusion
 type TestRunExtractionModel struct {
-	Ids NullableTestRunExtractionModelIds `json:"ids,omitempty"`
+	// Extraction parameters for test runs
+	Ids NullableGuidExtractionModel `json:"ids,omitempty"`
 }
 
 // NewTestRunExtractionModel instantiates a new TestRunExtractionModel object
@@ -40,9 +41,9 @@ func NewTestRunExtractionModelWithDefaults() *TestRunExtractionModel {
 }
 
 // GetIds returns the Ids field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestRunExtractionModel) GetIds() TestRunExtractionModelIds {
+func (o *TestRunExtractionModel) GetIds() GuidExtractionModel {
 	if o == nil || IsNil(o.Ids.Get()) {
-		var ret TestRunExtractionModelIds
+		var ret GuidExtractionModel
 		return ret
 	}
 	return *o.Ids.Get()
@@ -51,7 +52,7 @@ func (o *TestRunExtractionModel) GetIds() TestRunExtractionModelIds {
 // GetIdsOk returns a tuple with the Ids field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestRunExtractionModel) GetIdsOk() (*TestRunExtractionModelIds, bool) {
+func (o *TestRunExtractionModel) GetIdsOk() (*GuidExtractionModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,8 +68,8 @@ func (o *TestRunExtractionModel) HasIds() bool {
 	return false
 }
 
-// SetIds gets a reference to the given NullableTestRunExtractionModelIds and assigns it to the Ids field.
-func (o *TestRunExtractionModel) SetIds(v TestRunExtractionModelIds) {
+// SetIds gets a reference to the given NullableGuidExtractionModel and assigns it to the Ids field.
+func (o *TestRunExtractionModel) SetIds(v GuidExtractionModel) {
 	o.Ids.Set(&v)
 }
 // SetIdsNil sets the value for Ids to be an explicit nil
