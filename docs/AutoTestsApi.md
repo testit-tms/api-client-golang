@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2AutoTestsDelete**](AutoTestsAPI.md#ApiV2AutoTestsDelete) | **Delete** /api/v2/autoTests | Delete autotests
 [**ApiV2AutoTestsFlakyBulkPost**](AutoTestsAPI.md#ApiV2AutoTestsFlakyBulkPost) | **Post** /api/v2/autoTests/flaky/bulk | Set \&quot;Flaky\&quot; status for multiple autotests
 [**ApiV2AutoTestsIdPatch**](AutoTestsAPI.md#ApiV2AutoTestsIdPatch) | **Patch** /api/v2/autoTests/{id} | Patch auto test
 [**ApiV2AutoTestsIdTestResultsSearchPost**](AutoTestsAPI.md#ApiV2AutoTestsIdTestResultsSearchPost) | **Post** /api/v2/autoTests/{id}/testResults/search | Get test results history for autotest
@@ -26,9 +27,73 @@ Method | HTTP request | Description
 
 
 
+## ApiV2AutoTestsDelete
+
+> AutoTestBulkDeleteApiResult ApiV2AutoTestsDelete(ctx).AutoTestBulkDeleteApiModel(autoTestBulkDeleteApiModel).Execute()
+
+Delete autotests
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	autoTestBulkDeleteApiModel := *openapiclient.NewAutoTestBulkDeleteApiModel(*openapiclient.NewAutoTestSelectModel(*openapiclient.NewAutoTestFilterModel())) // AutoTestBulkDeleteApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsDelete(context.Background()).AutoTestBulkDeleteApiModel(autoTestBulkDeleteApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2AutoTestsDelete`: AutoTestBulkDeleteApiResult
+	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.ApiV2AutoTestsDelete`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2AutoTestsDeleteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **autoTestBulkDeleteApiModel** | [**AutoTestBulkDeleteApiModel**](AutoTestBulkDeleteApiModel.md) |  | 
+
+### Return type
+
+[**AutoTestBulkDeleteApiResult**](AutoTestBulkDeleteApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2AutoTestsFlakyBulkPost
 
-> ApiV2AutoTestsFlakyBulkPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).FlakyBulkModel(flakyBulkModel).Execute()
+> ApiV2AutoTestsFlakyBulkPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutoTestFlakyBulkApiModel(autoTestFlakyBulkApiModel).Execute()
 
 Set \"Flaky\" status for multiple autotests
 
@@ -52,11 +117,11 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	flakyBulkModel := *openapiclient.NewFlakyBulkModel(*openapiclient.NewAutotestSelectModel(*openapiclient.NewAutotestFilterModel(), *openapiclient.NewAutotestsExtractionModel()), false) // FlakyBulkModel |  (optional)
+	autoTestFlakyBulkApiModel := *openapiclient.NewAutoTestFlakyBulkApiModel(*openapiclient.NewAutoTestSelectApiModel(), false) // AutoTestFlakyBulkApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsFlakyBulkPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).FlakyBulkModel(flakyBulkModel).Execute()
+	r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsFlakyBulkPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutoTestFlakyBulkApiModel(autoTestFlakyBulkApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsFlakyBulkPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -80,7 +145,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **flakyBulkModel** | [**FlakyBulkModel**](FlakyBulkModel.md) |  | 
+ **autoTestFlakyBulkApiModel** | [**AutoTestFlakyBulkApiModel**](AutoTestFlakyBulkApiModel.md) |  | 
 
 ### Return type
 
@@ -395,7 +460,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2AutoTestsSearchPost
 
-> []AutoTestModel ApiV2AutoTestsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestsSelectModel(autotestsSelectModel).Execute()
+> []AutoTestApiResult ApiV2AutoTestsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutoTestSearchApiModel(autoTestSearchApiModel).Execute()
 
 Search for autotests
 
@@ -417,16 +482,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	autotestsSelectModel := *openapiclient.NewAutotestsSelectModel(*openapiclient.NewAutotestFilterModel(), *openapiclient.NewSearchAutoTestsQueryIncludesModel(false, false, false)) // AutotestsSelectModel |  (optional)
+	autoTestSearchApiModel := *openapiclient.NewAutoTestSearchApiModel() // AutoTestSearchApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestsSelectModel(autotestsSelectModel).Execute()
+	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutoTestSearchApiModel(autoTestSearchApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2AutoTestsSearchPost`: []AutoTestModel
+	// response from `ApiV2AutoTestsSearchPost`: []AutoTestApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.ApiV2AutoTestsSearchPost`: %v\n", resp)
 }
 ```
@@ -447,11 +512,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **autotestsSelectModel** | [**AutotestsSelectModel**](AutotestsSelectModel.md) |  | 
+ **autoTestSearchApiModel** | [**AutoTestSearchApiModel**](AutoTestSearchApiModel.md) |  | 
 
 ### Return type
 
-[**[]AutoTestModel**](AutoTestModel.md)
+[**[]AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -1227,7 +1292,7 @@ import (
 
 func main() {
 	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-	workItemIdModel := *openapiclient.NewWorkItemIdModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23") // WorkItemIdModel |  (optional)
+	workItemIdModel := *openapiclient.NewWorkItemIdModel("cbb88fe6-c193-48e9-9e37-323fbc38de5f") // WorkItemIdModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

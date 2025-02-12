@@ -23,7 +23,11 @@ var _ MappedNullable = &TestStatusModel{}
 type TestStatusModel struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
+	Type TestStatusType `json:"type"`
+	IsBased bool `json:"isBased"`
+	IsDefault bool `json:"isDefault"`
 	Code string `json:"code"`
+	Description NullableString `json:"description,omitempty"`
 }
 
 type _TestStatusModel TestStatusModel
@@ -32,10 +36,13 @@ type _TestStatusModel TestStatusModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestStatusModel(id string, name string, code string) *TestStatusModel {
+func NewTestStatusModel(id string, name string, type_ TestStatusType, isBased bool, isDefault bool, code string) *TestStatusModel {
 	this := TestStatusModel{}
 	this.Id = id
 	this.Name = name
+	this.Type = type_
+	this.IsBased = isBased
+	this.IsDefault = isDefault
 	this.Code = code
 	return &this
 }
@@ -96,6 +103,78 @@ func (o *TestStatusModel) SetName(v string) {
 	o.Name = v
 }
 
+// GetType returns the Type field value
+func (o *TestStatusModel) GetType() TestStatusType {
+	if o == nil {
+		var ret TestStatusType
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *TestStatusModel) GetTypeOk() (*TestStatusType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *TestStatusModel) SetType(v TestStatusType) {
+	o.Type = v
+}
+
+// GetIsBased returns the IsBased field value
+func (o *TestStatusModel) GetIsBased() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsBased
+}
+
+// GetIsBasedOk returns a tuple with the IsBased field value
+// and a boolean to check if the value has been set.
+func (o *TestStatusModel) GetIsBasedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsBased, true
+}
+
+// SetIsBased sets field value
+func (o *TestStatusModel) SetIsBased(v bool) {
+	o.IsBased = v
+}
+
+// GetIsDefault returns the IsDefault field value
+func (o *TestStatusModel) GetIsDefault() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsDefault
+}
+
+// GetIsDefaultOk returns a tuple with the IsDefault field value
+// and a boolean to check if the value has been set.
+func (o *TestStatusModel) GetIsDefaultOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsDefault, true
+}
+
+// SetIsDefault sets field value
+func (o *TestStatusModel) SetIsDefault(v bool) {
+	o.IsDefault = v
+}
+
 // GetCode returns the Code field value
 func (o *TestStatusModel) GetCode() string {
 	if o == nil {
@@ -120,6 +199,48 @@ func (o *TestStatusModel) SetCode(v string) {
 	o.Code = v
 }
 
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestStatusModel) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestStatusModel) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *TestStatusModel) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *TestStatusModel) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *TestStatusModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *TestStatusModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
 func (o TestStatusModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -132,7 +253,13 @@ func (o TestStatusModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
+	toSerialize["type"] = o.Type
+	toSerialize["isBased"] = o.IsBased
+	toSerialize["isDefault"] = o.IsDefault
 	toSerialize["code"] = o.Code
+	if o.Description.IsSet() {
+		toSerialize["description"] = o.Description.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -143,6 +270,9 @@ func (o *TestStatusModel) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"name",
+		"type",
+		"isBased",
+		"isDefault",
 		"code",
 	}
 

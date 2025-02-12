@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FailureClassIds** | Pointer to **[]string** |  | [optional] 
-**Outcome** | Pointer to [**TestResultOutcome**](TestResultOutcome.md) |  | [optional] 
+**Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **StatusCode** | Pointer to **NullableString** |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]Link**](Link.md) |  | [optional] 
@@ -98,6 +98,16 @@ SetOutcome sets Outcome field to given value.
 
 HasOutcome returns a boolean if a field has been set.
 
+### SetOutcomeNil
+
+`func (o *TestResultUpdateV2Request) SetOutcomeNil(b bool)`
+
+ SetOutcomeNil sets the value for Outcome to be an explicit nil
+
+### UnsetOutcome
+`func (o *TestResultUpdateV2Request) UnsetOutcome()`
+
+UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetStatusCode
 
 `func (o *TestResultUpdateV2Request) GetStatusCode() string`

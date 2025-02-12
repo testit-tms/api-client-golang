@@ -31,7 +31,7 @@ type TestResultResponse struct {
 	FailureClassIds []string `json:"failureClassIds"`
 	// Deprecated
 	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
-	Status NullableTestStatus `json:"status,omitempty"`
+	Status NullableTestStatusApiResult `json:"status,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []Link `json:"links,omitempty"`
 	StepResults []StepResult `json:"stepResults,omitempty"`
@@ -345,9 +345,9 @@ func (o *TestResultResponse) UnsetOutcome() {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultResponse) GetStatus() TestStatus {
+func (o *TestResultResponse) GetStatus() TestStatusApiResult {
 	if o == nil || IsNil(o.Status.Get()) {
-		var ret TestStatus
+		var ret TestStatusApiResult
 		return ret
 	}
 	return *o.Status.Get()
@@ -356,7 +356,7 @@ func (o *TestResultResponse) GetStatus() TestStatus {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultResponse) GetStatusOk() (*TestStatus, bool) {
+func (o *TestResultResponse) GetStatusOk() (*TestStatusApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -372,8 +372,8 @@ func (o *TestResultResponse) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given NullableTestStatus and assigns it to the Status field.
-func (o *TestResultResponse) SetStatus(v TestStatus) {
+// SetStatus gets a reference to the given NullableTestStatusApiResult and assigns it to the Status field.
+func (o *TestResultResponse) SetStatus(v TestStatusApiResult) {
 	o.Status.Set(&v)
 }
 // SetStatusNil sets the value for Status to be an explicit nil

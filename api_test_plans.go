@@ -2253,7 +2253,7 @@ func (r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) SearchValue(searchVa
 	return r
 }
 
-func (r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) Execute() ([]TestPointWithLastResultModel, *http.Response, error) {
+func (r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) Execute() ([]TestPointWithLastResultResponseModel, *http.Response, error) {
 	return r.ApiService.ApiV2TestPlansIdTestPointsLastResultsGetExecute(r)
 }
 
@@ -2284,13 +2284,13 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx conte
 }
 
 // Execute executes the request
-//  @return []TestPointWithLastResultModel
-func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) ([]TestPointWithLastResultModel, *http.Response, error) {
+//  @return []TestPointWithLastResultResponseModel
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) ([]TestPointWithLastResultResponseModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestPointWithLastResultModel
+		localVarReturnValue  []TestPointWithLastResultResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestPointsLastResultsGet")
@@ -3089,7 +3089,7 @@ func (r ApiApiV2TestPlansIdTestRunsGetRequest) SearchValue(searchValue string) A
 	return r
 }
 
-func (r ApiApiV2TestPlansIdTestRunsGetRequest) Execute() ([]TestRunModel, *http.Response, error) {
+func (r ApiApiV2TestPlansIdTestRunsGetRequest) Execute() ([]TestRunApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestPlansIdTestRunsGetExecute(r)
 }
 
@@ -3120,13 +3120,13 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGet(ctx context.Context, i
 }
 
 // Execute executes the request
-//  @return []TestRunModel
-func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestPlansIdTestRunsGetRequest) ([]TestRunModel, *http.Response, error) {
+//  @return []TestRunApiResult
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestPlansIdTestRunsGetRequest) ([]TestRunApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestRunModel
+		localVarReturnValue  []TestRunApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestRunsGet")
@@ -3310,7 +3310,7 @@ type ApiApiV2TestPlansIdTestRunsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	testRunSearchQueryModel *TestRunSearchQueryModel
+	searchTestRunsApiModel *SearchTestRunsApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -3343,12 +3343,12 @@ func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) SearchValue(searchValue st
 	return r
 }
 
-func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) TestRunSearchQueryModel(testRunSearchQueryModel TestRunSearchQueryModel) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
-	r.testRunSearchQueryModel = &testRunSearchQueryModel
+func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) SearchTestRunsApiModel(searchTestRunsApiModel SearchTestRunsApiModel) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
+	r.searchTestRunsApiModel = &searchTestRunsApiModel
 	return r
 }
 
-func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) Execute() ([]TestRunModel, *http.Response, error) {
+func (r ApiApiV2TestPlansIdTestRunsSearchPostRequest) Execute() ([]TestRunApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestPlansIdTestRunsSearchPostExecute(r)
 }
 
@@ -3379,13 +3379,13 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPost(ctx context.Con
 }
 
 // Execute executes the request
-//  @return []TestRunModel
-func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApiV2TestPlansIdTestRunsSearchPostRequest) ([]TestRunModel, *http.Response, error) {
+//  @return []TestRunApiResult
+func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApiV2TestPlansIdTestRunsSearchPostRequest) ([]TestRunApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestRunModel
+		localVarReturnValue  []TestRunApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.ApiV2TestPlansIdTestRunsSearchPost")
@@ -3433,7 +3433,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunSearchQueryModel
+	localVarPostBody = r.searchTestRunsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -4483,11 +4483,11 @@ func (a *TestPlansAPIService) CompleteExecute(r ApiCompleteRequest) (*http.Respo
 type ApiCreateTestPlanRequest struct {
 	ctx context.Context
 	ApiService *TestPlansAPIService
-	testPlanPostModel *TestPlanPostModel
+	createTestPlanApiModel *CreateTestPlanApiModel
 }
 
-func (r ApiCreateTestPlanRequest) TestPlanPostModel(testPlanPostModel TestPlanPostModel) ApiCreateTestPlanRequest {
-	r.testPlanPostModel = &testPlanPostModel
+func (r ApiCreateTestPlanRequest) CreateTestPlanApiModel(createTestPlanApiModel CreateTestPlanApiModel) ApiCreateTestPlanRequest {
+	r.createTestPlanApiModel = &createTestPlanApiModel
 	return r
 }
 
@@ -4558,7 +4558,7 @@ func (a *TestPlansAPIService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testPlanPostModel
+	localVarPostBody = r.createTestPlanApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -5958,11 +5958,11 @@ func (a *TestPlansAPIService) StartExecute(r ApiStartRequest) (*http.Response, e
 type ApiUpdateTestPlanRequest struct {
 	ctx context.Context
 	ApiService *TestPlansAPIService
-	testPlanPutModel *TestPlanPutModel
+	updateTestPlanApiModel *UpdateTestPlanApiModel
 }
 
-func (r ApiUpdateTestPlanRequest) TestPlanPutModel(testPlanPutModel TestPlanPutModel) ApiUpdateTestPlanRequest {
-	r.testPlanPutModel = &testPlanPutModel
+func (r ApiUpdateTestPlanRequest) UpdateTestPlanApiModel(updateTestPlanApiModel UpdateTestPlanApiModel) ApiUpdateTestPlanRequest {
+	r.updateTestPlanApiModel = &updateTestPlanApiModel
 	return r
 }
 
@@ -6031,7 +6031,7 @@ func (a *TestPlansAPIService) UpdateTestPlanExecute(r ApiUpdateTestPlanRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testPlanPutModel
+	localVarPostBody = r.updateTestPlanApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

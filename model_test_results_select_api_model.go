@@ -22,7 +22,7 @@ var _ MappedNullable = &TestResultsSelectApiModel{}
 // TestResultsSelectApiModel struct for TestResultsSelectApiModel
 type TestResultsSelectApiModel struct {
 	// Test result filters
-	Filter TestResultsFilterRequest `json:"filter"`
+	Filter TestResultsFilterApiModel `json:"filter"`
 	// Test results extraction model
 	ExtractionModel TestResultsExtractionApiModel `json:"extractionModel"`
 }
@@ -33,7 +33,7 @@ type _TestResultsSelectApiModel TestResultsSelectApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultsSelectApiModel(filter TestResultsFilterRequest, extractionModel TestResultsExtractionApiModel) *TestResultsSelectApiModel {
+func NewTestResultsSelectApiModel(filter TestResultsFilterApiModel, extractionModel TestResultsExtractionApiModel) *TestResultsSelectApiModel {
 	this := TestResultsSelectApiModel{}
 	this.Filter = filter
 	this.ExtractionModel = extractionModel
@@ -49,9 +49,9 @@ func NewTestResultsSelectApiModelWithDefaults() *TestResultsSelectApiModel {
 }
 
 // GetFilter returns the Filter field value
-func (o *TestResultsSelectApiModel) GetFilter() TestResultsFilterRequest {
+func (o *TestResultsSelectApiModel) GetFilter() TestResultsFilterApiModel {
 	if o == nil {
-		var ret TestResultsFilterRequest
+		var ret TestResultsFilterApiModel
 		return ret
 	}
 
@@ -60,7 +60,7 @@ func (o *TestResultsSelectApiModel) GetFilter() TestResultsFilterRequest {
 
 // GetFilterOk returns a tuple with the Filter field value
 // and a boolean to check if the value has been set.
-func (o *TestResultsSelectApiModel) GetFilterOk() (*TestResultsFilterRequest, bool) {
+func (o *TestResultsSelectApiModel) GetFilterOk() (*TestResultsFilterApiModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -68,7 +68,7 @@ func (o *TestResultsSelectApiModel) GetFilterOk() (*TestResultsFilterRequest, bo
 }
 
 // SetFilter sets field value
-func (o *TestResultsSelectApiModel) SetFilter(v TestResultsFilterRequest) {
+func (o *TestResultsSelectApiModel) SetFilter(v TestResultsFilterApiModel) {
 	o.Filter = v
 }
 

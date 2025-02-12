@@ -6,13 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Fields** | [**[]ExternalFormFieldModel**](ExternalFormFieldModel.md) |  | 
 **PossibleValues** | [**map[string][]ExternalFormAllowedValueModel**](array.md) |  | 
-**Links** | [**[]ExternalFormLinkModel**](ExternalFormLinkModel.md) |  | 
 
 ## Methods
 
 ### NewExternalFormModel
 
-`func NewExternalFormModel(fields []ExternalFormFieldModel, possibleValues map[string][]ExternalFormAllowedValueModel, links []ExternalFormLinkModel, ) *ExternalFormModel`
+`func NewExternalFormModel(fields []ExternalFormFieldModel, possibleValues map[string][]ExternalFormAllowedValueModel, ) *ExternalFormModel`
 
 NewExternalFormModel instantiates a new ExternalFormModel object
 This constructor will assign default values to properties that have it defined,
@@ -65,26 +64,6 @@ and a boolean to check if the value has been set.
 `func (o *ExternalFormModel) SetPossibleValues(v map[string][]ExternalFormAllowedValueModel)`
 
 SetPossibleValues sets PossibleValues field to given value.
-
-
-### GetLinks
-
-`func (o *ExternalFormModel) GetLinks() []ExternalFormLinkModel`
-
-GetLinks returns the Links field if non-nil, zero value otherwise.
-
-### GetLinksOk
-
-`func (o *ExternalFormModel) GetLinksOk() (*[]ExternalFormLinkModel, bool)`
-
-GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLinks
-
-`func (o *ExternalFormModel) SetLinks(v []ExternalFormLinkModel)`
-
-SetLinks sets Links field to given value.
 
 
 

@@ -32,7 +32,7 @@ type TestPoint struct {
 	TestSuiteId string `json:"testSuiteId"`
 	// Deprecated
 	Status NullableString `json:"status,omitempty"`
-	StatusModel NullableTestStatus `json:"statusModel,omitempty"`
+	StatusModel NullableTestStatusApiResult `json:"statusModel,omitempty"`
 	LastTestResultId NullableString `json:"lastTestResultId,omitempty"`
 }
 
@@ -327,9 +327,9 @@ func (o *TestPoint) UnsetStatus() {
 }
 
 // GetStatusModel returns the StatusModel field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPoint) GetStatusModel() TestStatus {
+func (o *TestPoint) GetStatusModel() TestStatusApiResult {
 	if o == nil || IsNil(o.StatusModel.Get()) {
-		var ret TestStatus
+		var ret TestStatusApiResult
 		return ret
 	}
 	return *o.StatusModel.Get()
@@ -338,7 +338,7 @@ func (o *TestPoint) GetStatusModel() TestStatus {
 // GetStatusModelOk returns a tuple with the StatusModel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPoint) GetStatusModelOk() (*TestStatus, bool) {
+func (o *TestPoint) GetStatusModelOk() (*TestStatusApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -354,8 +354,8 @@ func (o *TestPoint) HasStatusModel() bool {
 	return false
 }
 
-// SetStatusModel gets a reference to the given NullableTestStatus and assigns it to the StatusModel field.
-func (o *TestPoint) SetStatusModel(v TestStatus) {
+// SetStatusModel gets a reference to the given NullableTestStatusApiResult and assigns it to the StatusModel field.
+func (o *TestPoint) SetStatusModel(v TestStatusApiResult) {
 	o.StatusModel.Set(&v)
 }
 // SetStatusModelNil sets the value for StatusModel to be an explicit nil

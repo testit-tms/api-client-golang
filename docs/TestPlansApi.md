@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestPointsLastResultsGet
 
-> []TestPointWithLastResultModel ApiV2TestPlansIdTestPointsLastResultsGet(ctx, id).TesterId(testerId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TestPointWithLastResultResponseModel ApiV2TestPlansIdTestPointsLastResultsGet(ctx, id).TesterId(testerId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get TestPoints with last result from TestPlan
 
@@ -866,7 +866,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestPointsLastResultsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestPlansIdTestPointsLastResultsGet`: []TestPointWithLastResultModel
+	// response from `ApiV2TestPlansIdTestPointsLastResultsGet`: []TestPointWithLastResultResponseModel
 	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestPointsLastResultsGet`: %v\n", resp)
 }
 ```
@@ -896,7 +896,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestPointWithLastResultModel**](TestPointWithLastResultModel.md)
+[**[]TestPointWithLastResultResponseModel**](TestPointWithLastResultResponseModel.md)
 
 ### Authorization
 
@@ -1127,7 +1127,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestRunsGet
 
-> []TestRunModel ApiV2TestPlansIdTestRunsGet(ctx, id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TestRunApiResult ApiV2TestPlansIdTestRunsGet(ctx, id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get TestRuns of TestPlan
 
@@ -1164,7 +1164,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestRunsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestPlansIdTestRunsGet`: []TestRunModel
+	// response from `ApiV2TestPlansIdTestRunsGet`: []TestRunApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestRunsGet`: %v\n", resp)
 }
 ```
@@ -1197,7 +1197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestRunModel**](TestRunModel.md)
+[**[]TestRunApiResult**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -1215,7 +1215,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPlansIdTestRunsSearchPost
 
-> []TestRunModel ApiV2TestPlansIdTestRunsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunSearchQueryModel(testRunSearchQueryModel).Execute()
+> []TestRunApiResult ApiV2TestPlansIdTestRunsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchTestRunsApiModel(searchTestRunsApiModel).Execute()
 
 Search TestRuns of TestPlan
 
@@ -1240,16 +1240,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testRunSearchQueryModel := *openapiclient.NewTestRunSearchQueryModel() // TestRunSearchQueryModel |  (optional)
+	searchTestRunsApiModel := *openapiclient.NewSearchTestRunsApiModel() // SearchTestRunsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestRunsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunSearchQueryModel(testRunSearchQueryModel).Execute()
+	resp, r, err := apiClient.TestPlansAPI.ApiV2TestPlansIdTestRunsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).SearchTestRunsApiModel(searchTestRunsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.ApiV2TestPlansIdTestRunsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestPlansIdTestRunsSearchPost`: []TestRunModel
+	// response from `ApiV2TestPlansIdTestRunsSearchPost`: []TestRunApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.ApiV2TestPlansIdTestRunsSearchPost`: %v\n", resp)
 }
 ```
@@ -1275,11 +1275,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testRunSearchQueryModel** | [**TestRunSearchQueryModel**](TestRunSearchQueryModel.md) |  | 
+ **searchTestRunsApiModel** | [**SearchTestRunsApiModel**](SearchTestRunsApiModel.md) |  | 
 
 ### Return type
 
-[**[]TestRunModel**](TestRunModel.md)
+[**[]TestRunApiResult**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -1637,7 +1637,7 @@ Name | Type | Description  | Notes
 
 ## CreateTestPlan
 
-> TestPlanModel CreateTestPlan(ctx).TestPlanPostModel(testPlanPostModel).Execute()
+> TestPlanModel CreateTestPlan(ctx).CreateTestPlanApiModel(createTestPlanApiModel).Execute()
 
 Create TestPlan
 
@@ -1656,11 +1656,11 @@ import (
 )
 
 func main() {
-	testPlanPostModel := *openapiclient.NewTestPlanPostModel("Base test plan", "3e5a61f5-bb50-44f4-8898-6dda6d40fe23", map[string]interface{}{"key": interface{}(123)}) // TestPlanPostModel |  (optional)
+	createTestPlanApiModel := *openapiclient.NewCreateTestPlanApiModel("Name_example", "ProjectId_example", map[string]interface{}{"key": interface{}(123)}) // CreateTestPlanApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPlansAPI.CreateTestPlan(context.Background()).TestPlanPostModel(testPlanPostModel).Execute()
+	resp, r, err := apiClient.TestPlansAPI.CreateTestPlan(context.Background()).CreateTestPlanApiModel(createTestPlanApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.CreateTestPlan``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1681,7 +1681,7 @@ Other parameters are passed through a pointer to a apiCreateTestPlanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testPlanPostModel** | [**TestPlanPostModel**](TestPlanPostModel.md) |  | 
+ **createTestPlanApiModel** | [**CreateTestPlanApiModel**](CreateTestPlanApiModel.md) |  | 
 
 ### Return type
 
@@ -2181,7 +2181,7 @@ Name | Type | Description  | Notes
 
 ## UpdateTestPlan
 
-> UpdateTestPlan(ctx).TestPlanPutModel(testPlanPutModel).Execute()
+> UpdateTestPlan(ctx).UpdateTestPlanApiModel(updateTestPlanApiModel).Execute()
 
 Update TestPlan
 
@@ -2200,11 +2200,11 @@ import (
 )
 
 func main() {
-	testPlanPutModel := *openapiclient.NewTestPlanPutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23", "Base test plan", "3e5a61f5-bb50-44f4-8898-6dda6d40fe23", map[string]interface{}{"key": interface{}(123)}) // TestPlanPutModel |  (optional)
+	updateTestPlanApiModel := *openapiclient.NewUpdateTestPlanApiModel("Id_example", "Name_example", "ProjectId_example") // UpdateTestPlanApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestPlansAPI.UpdateTestPlan(context.Background()).TestPlanPutModel(testPlanPutModel).Execute()
+	r, err := apiClient.TestPlansAPI.UpdateTestPlan(context.Background()).UpdateTestPlanApiModel(updateTestPlanApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.UpdateTestPlan``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2223,7 +2223,7 @@ Other parameters are passed through a pointer to a apiUpdateTestPlanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testPlanPutModel** | [**TestPlanPutModel**](TestPlanPutModel.md) |  | 
+ **updateTestPlanApiModel** | [**UpdateTestPlanApiModel**](UpdateTestPlanApiModel.md) |  | 
 
 ### Return type
 

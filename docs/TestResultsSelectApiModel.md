@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md) | Test result filters | 
+**Filter** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md) | Test result filters | 
 **ExtractionModel** | [**TestResultsExtractionApiModel**](TestResultsExtractionApiModel.md) | Test results extraction model | 
 
 ## Methods
 
 ### NewTestResultsSelectApiModel
 
-`func NewTestResultsSelectApiModel(filter TestResultsFilterRequest, extractionModel TestResultsExtractionApiModel, ) *TestResultsSelectApiModel`
+`func NewTestResultsSelectApiModel(filter TestResultsFilterApiModel, extractionModel TestResultsExtractionApiModel, ) *TestResultsSelectApiModel`
 
 NewTestResultsSelectApiModel instantiates a new TestResultsSelectApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilter
 
-`func (o *TestResultsSelectApiModel) GetFilter() TestResultsFilterRequest`
+`func (o *TestResultsSelectApiModel) GetFilter() TestResultsFilterApiModel`
 
 GetFilter returns the Filter field if non-nil, zero value otherwise.
 
 ### GetFilterOk
 
-`func (o *TestResultsSelectApiModel) GetFilterOk() (*TestResultsFilterRequest, bool)`
+`func (o *TestResultsSelectApiModel) GetFilterOk() (*TestResultsFilterApiModel, bool)`
 
 GetFilterOk returns a tuple with the Filter field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilter
 
-`func (o *TestResultsSelectApiModel) SetFilter(v TestResultsFilterRequest)`
+`func (o *TestResultsSelectApiModel) SetFilter(v TestResultsFilterApiModel)`
 
 SetFilter sets Filter field to given value.
 

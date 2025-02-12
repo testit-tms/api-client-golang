@@ -6,13 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
+**Type** | [**TestStatusType**](TestStatusType.md) |  | 
+**IsBased** | **bool** |  | 
+**IsDefault** | **bool** |  | 
 **Code** | **string** |  | 
+**Description** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewTestStatusModel
 
-`func NewTestStatusModel(id string, name string, code string, ) *TestStatusModel`
+`func NewTestStatusModel(id string, name string, type_ TestStatusType, isBased bool, isDefault bool, code string, ) *TestStatusModel`
 
 NewTestStatusModel instantiates a new TestStatusModel object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +71,66 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
+### GetType
+
+`func (o *TestStatusModel) GetType() TestStatusType`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TestStatusModel) GetTypeOk() (*TestStatusType, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TestStatusModel) SetType(v TestStatusType)`
+
+SetType sets Type field to given value.
+
+
+### GetIsBased
+
+`func (o *TestStatusModel) GetIsBased() bool`
+
+GetIsBased returns the IsBased field if non-nil, zero value otherwise.
+
+### GetIsBasedOk
+
+`func (o *TestStatusModel) GetIsBasedOk() (*bool, bool)`
+
+GetIsBasedOk returns a tuple with the IsBased field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsBased
+
+`func (o *TestStatusModel) SetIsBased(v bool)`
+
+SetIsBased sets IsBased field to given value.
+
+
+### GetIsDefault
+
+`func (o *TestStatusModel) GetIsDefault() bool`
+
+GetIsDefault returns the IsDefault field if non-nil, zero value otherwise.
+
+### GetIsDefaultOk
+
+`func (o *TestStatusModel) GetIsDefaultOk() (*bool, bool)`
+
+GetIsDefaultOk returns a tuple with the IsDefault field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDefault
+
+`func (o *TestStatusModel) SetIsDefault(v bool)`
+
+SetIsDefault sets IsDefault field to given value.
+
+
 ### GetCode
 
 `func (o *TestStatusModel) GetCode() string`
@@ -87,6 +151,41 @@ and a boolean to check if the value has been set.
 SetCode sets Code field to given value.
 
 
+### GetDescription
+
+`func (o *TestStatusModel) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *TestStatusModel) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *TestStatusModel) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *TestStatusModel) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *TestStatusModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *TestStatusModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
