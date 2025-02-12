@@ -20,7 +20,8 @@ var _ MappedNullable = &TestResultUpdateV2Request{}
 // TestResultUpdateV2Request struct for TestResultUpdateV2Request
 type TestResultUpdateV2Request struct {
 	FailureClassIds []string `json:"failureClassIds,omitempty"`
-	Outcome *TestResultOutcome `json:"outcome,omitempty"`
+	// Deprecated
+	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
 	StatusCode NullableString `json:"statusCode,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []Link `json:"links,omitempty"`
@@ -86,36 +87,49 @@ func (o *TestResultUpdateV2Request) SetFailureClassIds(v []string) {
 	o.FailureClassIds = v
 }
 
-// GetOutcome returns the Outcome field value if set, zero value otherwise.
+// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *TestResultUpdateV2Request) GetOutcome() TestResultOutcome {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil || IsNil(o.Outcome.Get()) {
 		var ret TestResultOutcome
 		return ret
 	}
-	return *o.Outcome
+	return *o.Outcome.Get()
 }
 
 // GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *TestResultUpdateV2Request) GetOutcomeOk() (*TestResultOutcome, bool) {
-	if o == nil || IsNil(o.Outcome) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Outcome, true
+	return o.Outcome.Get(), o.Outcome.IsSet()
 }
 
 // HasOutcome returns a boolean if a field has been set.
 func (o *TestResultUpdateV2Request) HasOutcome() bool {
-	if o != nil && !IsNil(o.Outcome) {
+	if o != nil && o.Outcome.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOutcome gets a reference to the given TestResultOutcome and assigns it to the Outcome field.
+// SetOutcome gets a reference to the given NullableTestResultOutcome and assigns it to the Outcome field.
+// Deprecated
 func (o *TestResultUpdateV2Request) SetOutcome(v TestResultOutcome) {
-	o.Outcome = &v
+	o.Outcome.Set(&v)
+}
+// SetOutcomeNil sets the value for Outcome to be an explicit nil
+func (o *TestResultUpdateV2Request) SetOutcomeNil() {
+	o.Outcome.Set(nil)
+}
+
+// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+func (o *TestResultUpdateV2Request) UnsetOutcome() {
+	o.Outcome.Unset()
 }
 
 // GetStatusCode returns the StatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -584,8 +598,8 @@ func (o TestResultUpdateV2Request) ToMap() (map[string]interface{}, error) {
 	if o.FailureClassIds != nil {
 		toSerialize["failureClassIds"] = o.FailureClassIds
 	}
-	if !IsNil(o.Outcome) {
-		toSerialize["outcome"] = o.Outcome
+	if o.Outcome.IsSet() {
+		toSerialize["outcome"] = o.Outcome.Get()
 	}
 	if o.StatusCode.IsSet() {
 		toSerialize["statusCode"] = o.StatusCode.Get()

@@ -1,63 +1,63 @@
-# AutotestsExtractionModel
+# AutoTestsExtractionModel
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ids** | Pointer to [**NullableGuidExtractionModel**](GuidExtractionModel.md) | Extraction parameters for autotests | [optional] 
+**Ids** | Pointer to [**NullableGuidExtractionModel**](GuidExtractionModel.md) |  | [optional] 
 
 ## Methods
 
-### NewAutotestsExtractionModel
+### NewAutoTestsExtractionModel
 
-`func NewAutotestsExtractionModel() *AutotestsExtractionModel`
+`func NewAutoTestsExtractionModel() *AutoTestsExtractionModel`
 
-NewAutotestsExtractionModel instantiates a new AutotestsExtractionModel object
+NewAutoTestsExtractionModel instantiates a new AutoTestsExtractionModel object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAutotestsExtractionModelWithDefaults
+### NewAutoTestsExtractionModelWithDefaults
 
-`func NewAutotestsExtractionModelWithDefaults() *AutotestsExtractionModel`
+`func NewAutoTestsExtractionModelWithDefaults() *AutoTestsExtractionModel`
 
-NewAutotestsExtractionModelWithDefaults instantiates a new AutotestsExtractionModel object
+NewAutoTestsExtractionModelWithDefaults instantiates a new AutoTestsExtractionModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetIds
 
-`func (o *AutotestsExtractionModel) GetIds() GuidExtractionModel`
+`func (o *AutoTestsExtractionModel) GetIds() GuidExtractionModel`
 
 GetIds returns the Ids field if non-nil, zero value otherwise.
 
 ### GetIdsOk
 
-`func (o *AutotestsExtractionModel) GetIdsOk() (*GuidExtractionModel, bool)`
+`func (o *AutoTestsExtractionModel) GetIdsOk() (*GuidExtractionModel, bool)`
 
 GetIdsOk returns a tuple with the Ids field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIds
 
-`func (o *AutotestsExtractionModel) SetIds(v GuidExtractionModel)`
+`func (o *AutoTestsExtractionModel) SetIds(v GuidExtractionModel)`
 
 SetIds sets Ids field to given value.
 
 ### HasIds
 
-`func (o *AutotestsExtractionModel) HasIds() bool`
+`func (o *AutoTestsExtractionModel) HasIds() bool`
 
 HasIds returns a boolean if a field has been set.
 
 ### SetIdsNil
 
-`func (o *AutotestsExtractionModel) SetIdsNil(b bool)`
+`func (o *AutoTestsExtractionModel) SetIdsNil(b bool)`
 
  SetIdsNil sets the value for Ids to be an explicit nil
 
 ### UnsetIds
-`func (o *AutotestsExtractionModel) UnsetIds()`
+`func (o *AutoTestsExtractionModel) UnsetIds()`
 
 UnsetIds ensures that no value is present for Ids, not even an explicit nil
 

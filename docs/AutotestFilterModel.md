@@ -1,711 +1,747 @@
-# AutotestFilterModel
+# AutoTestFilterModel
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectIds** | Pointer to **[]string** | Specifies an autotest projects IDs to search for | [optional] 
-**ExternalIds** | Pointer to **[]string** | Specifies an autotest external IDs to search for | [optional] 
-**GlobalIds** | Pointer to **[]int64** | Specifies an autotest global IDs to search for | [optional] 
-**Name** | Pointer to **NullableString** | Specifies an autotest name to search for | [optional] 
-**IsFlaky** | Pointer to **NullableBool** | Specifies an autotest flaky status to search for | [optional] 
-**MustBeApproved** | Pointer to **NullableBool** | Specifies an autotest unapproved changes status to search for | [optional] 
-**StabilityPercentage** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies an autotest range of stability percentage to search for | [optional] 
-**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies an autotest range of creation date to search for | [optional] 
-**CreatedByIds** | Pointer to **[]string** | Specifies an autotest creator IDs to search for | [optional] 
-**ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies an autotest range of last modification date to search for | [optional] 
-**ModifiedByIds** | Pointer to **[]string** | Specifies an autotest last editor IDs to search for | [optional] 
-**IsDeleted** | Pointer to **NullableBool** | Specifies an autotest deleted status to search for | [optional] 
-**Namespace** | Pointer to **NullableString** | Specifies an autotest namespace to search for | [optional] 
-**IsEmptyNamespace** | Pointer to **NullableBool** | Specifies an autotest namespace name presence status to search for | [optional] 
-**ClassName** | Pointer to **NullableString** | Specifies an autotest class name to search for | [optional] 
-**IsEmptyClassName** | Pointer to **NullableBool** | Specifies an autotest class name presence status to search for | [optional] 
-**LastTestResultOutcome** | Pointer to [**NullableAutotestResultOutcome**](AutotestResultOutcome.md) | Specifies an autotest outcome of the last test result to search for | [optional] 
-**ExternalKey** | Pointer to **NullableString** | Specifies an autotest external key to search for | [optional] 
-**LastTestResultConfigurationIds** | Pointer to **[]string** | Specifies an autotest configuration IDs of the last test result to search for | [optional] 
+**ProjectIds** | Pointer to **[]string** |  | [optional] 
+**ExternalIds** | Pointer to **[]string** |  | [optional] 
+**GlobalIds** | Pointer to **[]int64** |  | [optional] 
+**Name** | Pointer to **NullableString** |  | [optional] 
+**IsFlaky** | Pointer to **NullableBool** |  | [optional] 
+**MustBeApproved** | Pointer to **NullableBool** |  | [optional] 
+**StabilityPercentage** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) |  | [optional] 
+**CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**CreatedByIds** | Pointer to **[]string** |  | [optional] 
+**ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
+**ModifiedByIds** | Pointer to **[]string** |  | [optional] 
+**IsDeleted** | Pointer to **NullableBool** |  | [optional] 
+**Namespace** | Pointer to **NullableString** |  | [optional] 
+**IsEmptyNamespace** | Pointer to **NullableBool** |  | [optional] 
+**ClassName** | Pointer to **NullableString** |  | [optional] 
+**IsEmptyClassName** | Pointer to **NullableBool** |  | [optional] 
+**LastTestResultOutcome** | Pointer to [**NullableAutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
+**LastTestResultStatusCode** | Pointer to **NullableString** |  | [optional] 
+**ExternalKey** | Pointer to **NullableString** |  | [optional] 
+**LastTestResultConfigurationIds** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
-### NewAutotestFilterModel
+### NewAutoTestFilterModel
 
-`func NewAutotestFilterModel() *AutotestFilterModel`
+`func NewAutoTestFilterModel() *AutoTestFilterModel`
 
-NewAutotestFilterModel instantiates a new AutotestFilterModel object
+NewAutoTestFilterModel instantiates a new AutoTestFilterModel object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAutotestFilterModelWithDefaults
+### NewAutoTestFilterModelWithDefaults
 
-`func NewAutotestFilterModelWithDefaults() *AutotestFilterModel`
+`func NewAutoTestFilterModelWithDefaults() *AutoTestFilterModel`
 
-NewAutotestFilterModelWithDefaults instantiates a new AutotestFilterModel object
+NewAutoTestFilterModelWithDefaults instantiates a new AutoTestFilterModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetProjectIds
 
-`func (o *AutotestFilterModel) GetProjectIds() []string`
+`func (o *AutoTestFilterModel) GetProjectIds() []string`
 
 GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
 
 ### GetProjectIdsOk
 
-`func (o *AutotestFilterModel) GetProjectIdsOk() (*[]string, bool)`
+`func (o *AutoTestFilterModel) GetProjectIdsOk() (*[]string, bool)`
 
 GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectIds
 
-`func (o *AutotestFilterModel) SetProjectIds(v []string)`
+`func (o *AutoTestFilterModel) SetProjectIds(v []string)`
 
 SetProjectIds sets ProjectIds field to given value.
 
 ### HasProjectIds
 
-`func (o *AutotestFilterModel) HasProjectIds() bool`
+`func (o *AutoTestFilterModel) HasProjectIds() bool`
 
 HasProjectIds returns a boolean if a field has been set.
 
 ### SetProjectIdsNil
 
-`func (o *AutotestFilterModel) SetProjectIdsNil(b bool)`
+`func (o *AutoTestFilterModel) SetProjectIdsNil(b bool)`
 
  SetProjectIdsNil sets the value for ProjectIds to be an explicit nil
 
 ### UnsetProjectIds
-`func (o *AutotestFilterModel) UnsetProjectIds()`
+`func (o *AutoTestFilterModel) UnsetProjectIds()`
 
 UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
 ### GetExternalIds
 
-`func (o *AutotestFilterModel) GetExternalIds() []string`
+`func (o *AutoTestFilterModel) GetExternalIds() []string`
 
 GetExternalIds returns the ExternalIds field if non-nil, zero value otherwise.
 
 ### GetExternalIdsOk
 
-`func (o *AutotestFilterModel) GetExternalIdsOk() (*[]string, bool)`
+`func (o *AutoTestFilterModel) GetExternalIdsOk() (*[]string, bool)`
 
 GetExternalIdsOk returns a tuple with the ExternalIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExternalIds
 
-`func (o *AutotestFilterModel) SetExternalIds(v []string)`
+`func (o *AutoTestFilterModel) SetExternalIds(v []string)`
 
 SetExternalIds sets ExternalIds field to given value.
 
 ### HasExternalIds
 
-`func (o *AutotestFilterModel) HasExternalIds() bool`
+`func (o *AutoTestFilterModel) HasExternalIds() bool`
 
 HasExternalIds returns a boolean if a field has been set.
 
 ### SetExternalIdsNil
 
-`func (o *AutotestFilterModel) SetExternalIdsNil(b bool)`
+`func (o *AutoTestFilterModel) SetExternalIdsNil(b bool)`
 
  SetExternalIdsNil sets the value for ExternalIds to be an explicit nil
 
 ### UnsetExternalIds
-`func (o *AutotestFilterModel) UnsetExternalIds()`
+`func (o *AutoTestFilterModel) UnsetExternalIds()`
 
 UnsetExternalIds ensures that no value is present for ExternalIds, not even an explicit nil
 ### GetGlobalIds
 
-`func (o *AutotestFilterModel) GetGlobalIds() []int64`
+`func (o *AutoTestFilterModel) GetGlobalIds() []int64`
 
 GetGlobalIds returns the GlobalIds field if non-nil, zero value otherwise.
 
 ### GetGlobalIdsOk
 
-`func (o *AutotestFilterModel) GetGlobalIdsOk() (*[]int64, bool)`
+`func (o *AutoTestFilterModel) GetGlobalIdsOk() (*[]int64, bool)`
 
 GetGlobalIdsOk returns a tuple with the GlobalIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGlobalIds
 
-`func (o *AutotestFilterModel) SetGlobalIds(v []int64)`
+`func (o *AutoTestFilterModel) SetGlobalIds(v []int64)`
 
 SetGlobalIds sets GlobalIds field to given value.
 
 ### HasGlobalIds
 
-`func (o *AutotestFilterModel) HasGlobalIds() bool`
+`func (o *AutoTestFilterModel) HasGlobalIds() bool`
 
 HasGlobalIds returns a boolean if a field has been set.
 
 ### SetGlobalIdsNil
 
-`func (o *AutotestFilterModel) SetGlobalIdsNil(b bool)`
+`func (o *AutoTestFilterModel) SetGlobalIdsNil(b bool)`
 
  SetGlobalIdsNil sets the value for GlobalIds to be an explicit nil
 
 ### UnsetGlobalIds
-`func (o *AutotestFilterModel) UnsetGlobalIds()`
+`func (o *AutoTestFilterModel) UnsetGlobalIds()`
 
 UnsetGlobalIds ensures that no value is present for GlobalIds, not even an explicit nil
 ### GetName
 
-`func (o *AutotestFilterModel) GetName() string`
+`func (o *AutoTestFilterModel) GetName() string`
 
 GetName returns the Name field if non-nil, zero value otherwise.
 
 ### GetNameOk
 
-`func (o *AutotestFilterModel) GetNameOk() (*string, bool)`
+`func (o *AutoTestFilterModel) GetNameOk() (*string, bool)`
 
 GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetName
 
-`func (o *AutotestFilterModel) SetName(v string)`
+`func (o *AutoTestFilterModel) SetName(v string)`
 
 SetName sets Name field to given value.
 
 ### HasName
 
-`func (o *AutotestFilterModel) HasName() bool`
+`func (o *AutoTestFilterModel) HasName() bool`
 
 HasName returns a boolean if a field has been set.
 
 ### SetNameNil
 
-`func (o *AutotestFilterModel) SetNameNil(b bool)`
+`func (o *AutoTestFilterModel) SetNameNil(b bool)`
 
  SetNameNil sets the value for Name to be an explicit nil
 
 ### UnsetName
-`func (o *AutotestFilterModel) UnsetName()`
+`func (o *AutoTestFilterModel) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsFlaky
 
-`func (o *AutotestFilterModel) GetIsFlaky() bool`
+`func (o *AutoTestFilterModel) GetIsFlaky() bool`
 
 GetIsFlaky returns the IsFlaky field if non-nil, zero value otherwise.
 
 ### GetIsFlakyOk
 
-`func (o *AutotestFilterModel) GetIsFlakyOk() (*bool, bool)`
+`func (o *AutoTestFilterModel) GetIsFlakyOk() (*bool, bool)`
 
 GetIsFlakyOk returns a tuple with the IsFlaky field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsFlaky
 
-`func (o *AutotestFilterModel) SetIsFlaky(v bool)`
+`func (o *AutoTestFilterModel) SetIsFlaky(v bool)`
 
 SetIsFlaky sets IsFlaky field to given value.
 
 ### HasIsFlaky
 
-`func (o *AutotestFilterModel) HasIsFlaky() bool`
+`func (o *AutoTestFilterModel) HasIsFlaky() bool`
 
 HasIsFlaky returns a boolean if a field has been set.
 
 ### SetIsFlakyNil
 
-`func (o *AutotestFilterModel) SetIsFlakyNil(b bool)`
+`func (o *AutoTestFilterModel) SetIsFlakyNil(b bool)`
 
  SetIsFlakyNil sets the value for IsFlaky to be an explicit nil
 
 ### UnsetIsFlaky
-`func (o *AutotestFilterModel) UnsetIsFlaky()`
+`func (o *AutoTestFilterModel) UnsetIsFlaky()`
 
 UnsetIsFlaky ensures that no value is present for IsFlaky, not even an explicit nil
 ### GetMustBeApproved
 
-`func (o *AutotestFilterModel) GetMustBeApproved() bool`
+`func (o *AutoTestFilterModel) GetMustBeApproved() bool`
 
 GetMustBeApproved returns the MustBeApproved field if non-nil, zero value otherwise.
 
 ### GetMustBeApprovedOk
 
-`func (o *AutotestFilterModel) GetMustBeApprovedOk() (*bool, bool)`
+`func (o *AutoTestFilterModel) GetMustBeApprovedOk() (*bool, bool)`
 
 GetMustBeApprovedOk returns a tuple with the MustBeApproved field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMustBeApproved
 
-`func (o *AutotestFilterModel) SetMustBeApproved(v bool)`
+`func (o *AutoTestFilterModel) SetMustBeApproved(v bool)`
 
 SetMustBeApproved sets MustBeApproved field to given value.
 
 ### HasMustBeApproved
 
-`func (o *AutotestFilterModel) HasMustBeApproved() bool`
+`func (o *AutoTestFilterModel) HasMustBeApproved() bool`
 
 HasMustBeApproved returns a boolean if a field has been set.
 
 ### SetMustBeApprovedNil
 
-`func (o *AutotestFilterModel) SetMustBeApprovedNil(b bool)`
+`func (o *AutoTestFilterModel) SetMustBeApprovedNil(b bool)`
 
  SetMustBeApprovedNil sets the value for MustBeApproved to be an explicit nil
 
 ### UnsetMustBeApproved
-`func (o *AutotestFilterModel) UnsetMustBeApproved()`
+`func (o *AutoTestFilterModel) UnsetMustBeApproved()`
 
 UnsetMustBeApproved ensures that no value is present for MustBeApproved, not even an explicit nil
 ### GetStabilityPercentage
 
-`func (o *AutotestFilterModel) GetStabilityPercentage() Int64RangeSelectorModel`
+`func (o *AutoTestFilterModel) GetStabilityPercentage() Int64RangeSelectorModel`
 
 GetStabilityPercentage returns the StabilityPercentage field if non-nil, zero value otherwise.
 
 ### GetStabilityPercentageOk
 
-`func (o *AutotestFilterModel) GetStabilityPercentageOk() (*Int64RangeSelectorModel, bool)`
+`func (o *AutoTestFilterModel) GetStabilityPercentageOk() (*Int64RangeSelectorModel, bool)`
 
 GetStabilityPercentageOk returns a tuple with the StabilityPercentage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStabilityPercentage
 
-`func (o *AutotestFilterModel) SetStabilityPercentage(v Int64RangeSelectorModel)`
+`func (o *AutoTestFilterModel) SetStabilityPercentage(v Int64RangeSelectorModel)`
 
 SetStabilityPercentage sets StabilityPercentage field to given value.
 
 ### HasStabilityPercentage
 
-`func (o *AutotestFilterModel) HasStabilityPercentage() bool`
+`func (o *AutoTestFilterModel) HasStabilityPercentage() bool`
 
 HasStabilityPercentage returns a boolean if a field has been set.
 
 ### SetStabilityPercentageNil
 
-`func (o *AutotestFilterModel) SetStabilityPercentageNil(b bool)`
+`func (o *AutoTestFilterModel) SetStabilityPercentageNil(b bool)`
 
  SetStabilityPercentageNil sets the value for StabilityPercentage to be an explicit nil
 
 ### UnsetStabilityPercentage
-`func (o *AutotestFilterModel) UnsetStabilityPercentage()`
+`func (o *AutoTestFilterModel) UnsetStabilityPercentage()`
 
 UnsetStabilityPercentage ensures that no value is present for StabilityPercentage, not even an explicit nil
 ### GetCreatedDate
 
-`func (o *AutotestFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
+`func (o *AutoTestFilterModel) GetCreatedDate() DateTimeRangeSelectorModel`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *AutotestFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
+`func (o *AutoTestFilterModel) GetCreatedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *AutotestFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
+`func (o *AutoTestFilterModel) SetCreatedDate(v DateTimeRangeSelectorModel)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
 ### HasCreatedDate
 
-`func (o *AutotestFilterModel) HasCreatedDate() bool`
+`func (o *AutoTestFilterModel) HasCreatedDate() bool`
 
 HasCreatedDate returns a boolean if a field has been set.
 
 ### SetCreatedDateNil
 
-`func (o *AutotestFilterModel) SetCreatedDateNil(b bool)`
+`func (o *AutoTestFilterModel) SetCreatedDateNil(b bool)`
 
  SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
 
 ### UnsetCreatedDate
-`func (o *AutotestFilterModel) UnsetCreatedDate()`
+`func (o *AutoTestFilterModel) UnsetCreatedDate()`
 
 UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
 ### GetCreatedByIds
 
-`func (o *AutotestFilterModel) GetCreatedByIds() []string`
+`func (o *AutoTestFilterModel) GetCreatedByIds() []string`
 
 GetCreatedByIds returns the CreatedByIds field if non-nil, zero value otherwise.
 
 ### GetCreatedByIdsOk
 
-`func (o *AutotestFilterModel) GetCreatedByIdsOk() (*[]string, bool)`
+`func (o *AutoTestFilterModel) GetCreatedByIdsOk() (*[]string, bool)`
 
 GetCreatedByIdsOk returns a tuple with the CreatedByIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedByIds
 
-`func (o *AutotestFilterModel) SetCreatedByIds(v []string)`
+`func (o *AutoTestFilterModel) SetCreatedByIds(v []string)`
 
 SetCreatedByIds sets CreatedByIds field to given value.
 
 ### HasCreatedByIds
 
-`func (o *AutotestFilterModel) HasCreatedByIds() bool`
+`func (o *AutoTestFilterModel) HasCreatedByIds() bool`
 
 HasCreatedByIds returns a boolean if a field has been set.
 
 ### SetCreatedByIdsNil
 
-`func (o *AutotestFilterModel) SetCreatedByIdsNil(b bool)`
+`func (o *AutoTestFilterModel) SetCreatedByIdsNil(b bool)`
 
  SetCreatedByIdsNil sets the value for CreatedByIds to be an explicit nil
 
 ### UnsetCreatedByIds
-`func (o *AutotestFilterModel) UnsetCreatedByIds()`
+`func (o *AutoTestFilterModel) UnsetCreatedByIds()`
 
 UnsetCreatedByIds ensures that no value is present for CreatedByIds, not even an explicit nil
 ### GetModifiedDate
 
-`func (o *AutotestFilterModel) GetModifiedDate() DateTimeRangeSelectorModel`
+`func (o *AutoTestFilterModel) GetModifiedDate() DateTimeRangeSelectorModel`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *AutotestFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool)`
+`func (o *AutoTestFilterModel) GetModifiedDateOk() (*DateTimeRangeSelectorModel, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *AutotestFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel)`
+`func (o *AutoTestFilterModel) SetModifiedDate(v DateTimeRangeSelectorModel)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 
 ### HasModifiedDate
 
-`func (o *AutotestFilterModel) HasModifiedDate() bool`
+`func (o *AutoTestFilterModel) HasModifiedDate() bool`
 
 HasModifiedDate returns a boolean if a field has been set.
 
 ### SetModifiedDateNil
 
-`func (o *AutotestFilterModel) SetModifiedDateNil(b bool)`
+`func (o *AutoTestFilterModel) SetModifiedDateNil(b bool)`
 
  SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
 
 ### UnsetModifiedDate
-`func (o *AutotestFilterModel) UnsetModifiedDate()`
+`func (o *AutoTestFilterModel) UnsetModifiedDate()`
 
 UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
 ### GetModifiedByIds
 
-`func (o *AutotestFilterModel) GetModifiedByIds() []string`
+`func (o *AutoTestFilterModel) GetModifiedByIds() []string`
 
 GetModifiedByIds returns the ModifiedByIds field if non-nil, zero value otherwise.
 
 ### GetModifiedByIdsOk
 
-`func (o *AutotestFilterModel) GetModifiedByIdsOk() (*[]string, bool)`
+`func (o *AutoTestFilterModel) GetModifiedByIdsOk() (*[]string, bool)`
 
 GetModifiedByIdsOk returns a tuple with the ModifiedByIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedByIds
 
-`func (o *AutotestFilterModel) SetModifiedByIds(v []string)`
+`func (o *AutoTestFilterModel) SetModifiedByIds(v []string)`
 
 SetModifiedByIds sets ModifiedByIds field to given value.
 
 ### HasModifiedByIds
 
-`func (o *AutotestFilterModel) HasModifiedByIds() bool`
+`func (o *AutoTestFilterModel) HasModifiedByIds() bool`
 
 HasModifiedByIds returns a boolean if a field has been set.
 
 ### SetModifiedByIdsNil
 
-`func (o *AutotestFilterModel) SetModifiedByIdsNil(b bool)`
+`func (o *AutoTestFilterModel) SetModifiedByIdsNil(b bool)`
 
  SetModifiedByIdsNil sets the value for ModifiedByIds to be an explicit nil
 
 ### UnsetModifiedByIds
-`func (o *AutotestFilterModel) UnsetModifiedByIds()`
+`func (o *AutoTestFilterModel) UnsetModifiedByIds()`
 
 UnsetModifiedByIds ensures that no value is present for ModifiedByIds, not even an explicit nil
 ### GetIsDeleted
 
-`func (o *AutotestFilterModel) GetIsDeleted() bool`
+`func (o *AutoTestFilterModel) GetIsDeleted() bool`
 
 GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
 
 ### GetIsDeletedOk
 
-`func (o *AutotestFilterModel) GetIsDeletedOk() (*bool, bool)`
+`func (o *AutoTestFilterModel) GetIsDeletedOk() (*bool, bool)`
 
 GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsDeleted
 
-`func (o *AutotestFilterModel) SetIsDeleted(v bool)`
+`func (o *AutoTestFilterModel) SetIsDeleted(v bool)`
 
 SetIsDeleted sets IsDeleted field to given value.
 
 ### HasIsDeleted
 
-`func (o *AutotestFilterModel) HasIsDeleted() bool`
+`func (o *AutoTestFilterModel) HasIsDeleted() bool`
 
 HasIsDeleted returns a boolean if a field has been set.
 
 ### SetIsDeletedNil
 
-`func (o *AutotestFilterModel) SetIsDeletedNil(b bool)`
+`func (o *AutoTestFilterModel) SetIsDeletedNil(b bool)`
 
  SetIsDeletedNil sets the value for IsDeleted to be an explicit nil
 
 ### UnsetIsDeleted
-`func (o *AutotestFilterModel) UnsetIsDeleted()`
+`func (o *AutoTestFilterModel) UnsetIsDeleted()`
 
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 ### GetNamespace
 
-`func (o *AutotestFilterModel) GetNamespace() string`
+`func (o *AutoTestFilterModel) GetNamespace() string`
 
 GetNamespace returns the Namespace field if non-nil, zero value otherwise.
 
 ### GetNamespaceOk
 
-`func (o *AutotestFilterModel) GetNamespaceOk() (*string, bool)`
+`func (o *AutoTestFilterModel) GetNamespaceOk() (*string, bool)`
 
 GetNamespaceOk returns a tuple with the Namespace field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNamespace
 
-`func (o *AutotestFilterModel) SetNamespace(v string)`
+`func (o *AutoTestFilterModel) SetNamespace(v string)`
 
 SetNamespace sets Namespace field to given value.
 
 ### HasNamespace
 
-`func (o *AutotestFilterModel) HasNamespace() bool`
+`func (o *AutoTestFilterModel) HasNamespace() bool`
 
 HasNamespace returns a boolean if a field has been set.
 
 ### SetNamespaceNil
 
-`func (o *AutotestFilterModel) SetNamespaceNil(b bool)`
+`func (o *AutoTestFilterModel) SetNamespaceNil(b bool)`
 
  SetNamespaceNil sets the value for Namespace to be an explicit nil
 
 ### UnsetNamespace
-`func (o *AutotestFilterModel) UnsetNamespace()`
+`func (o *AutoTestFilterModel) UnsetNamespace()`
 
 UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
 ### GetIsEmptyNamespace
 
-`func (o *AutotestFilterModel) GetIsEmptyNamespace() bool`
+`func (o *AutoTestFilterModel) GetIsEmptyNamespace() bool`
 
 GetIsEmptyNamespace returns the IsEmptyNamespace field if non-nil, zero value otherwise.
 
 ### GetIsEmptyNamespaceOk
 
-`func (o *AutotestFilterModel) GetIsEmptyNamespaceOk() (*bool, bool)`
+`func (o *AutoTestFilterModel) GetIsEmptyNamespaceOk() (*bool, bool)`
 
 GetIsEmptyNamespaceOk returns a tuple with the IsEmptyNamespace field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsEmptyNamespace
 
-`func (o *AutotestFilterModel) SetIsEmptyNamespace(v bool)`
+`func (o *AutoTestFilterModel) SetIsEmptyNamespace(v bool)`
 
 SetIsEmptyNamespace sets IsEmptyNamespace field to given value.
 
 ### HasIsEmptyNamespace
 
-`func (o *AutotestFilterModel) HasIsEmptyNamespace() bool`
+`func (o *AutoTestFilterModel) HasIsEmptyNamespace() bool`
 
 HasIsEmptyNamespace returns a boolean if a field has been set.
 
 ### SetIsEmptyNamespaceNil
 
-`func (o *AutotestFilterModel) SetIsEmptyNamespaceNil(b bool)`
+`func (o *AutoTestFilterModel) SetIsEmptyNamespaceNil(b bool)`
 
  SetIsEmptyNamespaceNil sets the value for IsEmptyNamespace to be an explicit nil
 
 ### UnsetIsEmptyNamespace
-`func (o *AutotestFilterModel) UnsetIsEmptyNamespace()`
+`func (o *AutoTestFilterModel) UnsetIsEmptyNamespace()`
 
 UnsetIsEmptyNamespace ensures that no value is present for IsEmptyNamespace, not even an explicit nil
 ### GetClassName
 
-`func (o *AutotestFilterModel) GetClassName() string`
+`func (o *AutoTestFilterModel) GetClassName() string`
 
 GetClassName returns the ClassName field if non-nil, zero value otherwise.
 
 ### GetClassNameOk
 
-`func (o *AutotestFilterModel) GetClassNameOk() (*string, bool)`
+`func (o *AutoTestFilterModel) GetClassNameOk() (*string, bool)`
 
 GetClassNameOk returns a tuple with the ClassName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClassName
 
-`func (o *AutotestFilterModel) SetClassName(v string)`
+`func (o *AutoTestFilterModel) SetClassName(v string)`
 
 SetClassName sets ClassName field to given value.
 
 ### HasClassName
 
-`func (o *AutotestFilterModel) HasClassName() bool`
+`func (o *AutoTestFilterModel) HasClassName() bool`
 
 HasClassName returns a boolean if a field has been set.
 
 ### SetClassNameNil
 
-`func (o *AutotestFilterModel) SetClassNameNil(b bool)`
+`func (o *AutoTestFilterModel) SetClassNameNil(b bool)`
 
  SetClassNameNil sets the value for ClassName to be an explicit nil
 
 ### UnsetClassName
-`func (o *AutotestFilterModel) UnsetClassName()`
+`func (o *AutoTestFilterModel) UnsetClassName()`
 
 UnsetClassName ensures that no value is present for ClassName, not even an explicit nil
 ### GetIsEmptyClassName
 
-`func (o *AutotestFilterModel) GetIsEmptyClassName() bool`
+`func (o *AutoTestFilterModel) GetIsEmptyClassName() bool`
 
 GetIsEmptyClassName returns the IsEmptyClassName field if non-nil, zero value otherwise.
 
 ### GetIsEmptyClassNameOk
 
-`func (o *AutotestFilterModel) GetIsEmptyClassNameOk() (*bool, bool)`
+`func (o *AutoTestFilterModel) GetIsEmptyClassNameOk() (*bool, bool)`
 
 GetIsEmptyClassNameOk returns a tuple with the IsEmptyClassName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsEmptyClassName
 
-`func (o *AutotestFilterModel) SetIsEmptyClassName(v bool)`
+`func (o *AutoTestFilterModel) SetIsEmptyClassName(v bool)`
 
 SetIsEmptyClassName sets IsEmptyClassName field to given value.
 
 ### HasIsEmptyClassName
 
-`func (o *AutotestFilterModel) HasIsEmptyClassName() bool`
+`func (o *AutoTestFilterModel) HasIsEmptyClassName() bool`
 
 HasIsEmptyClassName returns a boolean if a field has been set.
 
 ### SetIsEmptyClassNameNil
 
-`func (o *AutotestFilterModel) SetIsEmptyClassNameNil(b bool)`
+`func (o *AutoTestFilterModel) SetIsEmptyClassNameNil(b bool)`
 
  SetIsEmptyClassNameNil sets the value for IsEmptyClassName to be an explicit nil
 
 ### UnsetIsEmptyClassName
-`func (o *AutotestFilterModel) UnsetIsEmptyClassName()`
+`func (o *AutoTestFilterModel) UnsetIsEmptyClassName()`
 
 UnsetIsEmptyClassName ensures that no value is present for IsEmptyClassName, not even an explicit nil
 ### GetLastTestResultOutcome
 
-`func (o *AutotestFilterModel) GetLastTestResultOutcome() AutotestResultOutcome`
+`func (o *AutoTestFilterModel) GetLastTestResultOutcome() AutotestResultOutcome`
 
 GetLastTestResultOutcome returns the LastTestResultOutcome field if non-nil, zero value otherwise.
 
 ### GetLastTestResultOutcomeOk
 
-`func (o *AutotestFilterModel) GetLastTestResultOutcomeOk() (*AutotestResultOutcome, bool)`
+`func (o *AutoTestFilterModel) GetLastTestResultOutcomeOk() (*AutotestResultOutcome, bool)`
 
 GetLastTestResultOutcomeOk returns a tuple with the LastTestResultOutcome field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastTestResultOutcome
 
-`func (o *AutotestFilterModel) SetLastTestResultOutcome(v AutotestResultOutcome)`
+`func (o *AutoTestFilterModel) SetLastTestResultOutcome(v AutotestResultOutcome)`
 
 SetLastTestResultOutcome sets LastTestResultOutcome field to given value.
 
 ### HasLastTestResultOutcome
 
-`func (o *AutotestFilterModel) HasLastTestResultOutcome() bool`
+`func (o *AutoTestFilterModel) HasLastTestResultOutcome() bool`
 
 HasLastTestResultOutcome returns a boolean if a field has been set.
 
 ### SetLastTestResultOutcomeNil
 
-`func (o *AutotestFilterModel) SetLastTestResultOutcomeNil(b bool)`
+`func (o *AutoTestFilterModel) SetLastTestResultOutcomeNil(b bool)`
 
  SetLastTestResultOutcomeNil sets the value for LastTestResultOutcome to be an explicit nil
 
 ### UnsetLastTestResultOutcome
-`func (o *AutotestFilterModel) UnsetLastTestResultOutcome()`
+`func (o *AutoTestFilterModel) UnsetLastTestResultOutcome()`
 
 UnsetLastTestResultOutcome ensures that no value is present for LastTestResultOutcome, not even an explicit nil
+### GetLastTestResultStatusCode
+
+`func (o *AutoTestFilterModel) GetLastTestResultStatusCode() string`
+
+GetLastTestResultStatusCode returns the LastTestResultStatusCode field if non-nil, zero value otherwise.
+
+### GetLastTestResultStatusCodeOk
+
+`func (o *AutoTestFilterModel) GetLastTestResultStatusCodeOk() (*string, bool)`
+
+GetLastTestResultStatusCodeOk returns a tuple with the LastTestResultStatusCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastTestResultStatusCode
+
+`func (o *AutoTestFilterModel) SetLastTestResultStatusCode(v string)`
+
+SetLastTestResultStatusCode sets LastTestResultStatusCode field to given value.
+
+### HasLastTestResultStatusCode
+
+`func (o *AutoTestFilterModel) HasLastTestResultStatusCode() bool`
+
+HasLastTestResultStatusCode returns a boolean if a field has been set.
+
+### SetLastTestResultStatusCodeNil
+
+`func (o *AutoTestFilterModel) SetLastTestResultStatusCodeNil(b bool)`
+
+ SetLastTestResultStatusCodeNil sets the value for LastTestResultStatusCode to be an explicit nil
+
+### UnsetLastTestResultStatusCode
+`func (o *AutoTestFilterModel) UnsetLastTestResultStatusCode()`
+
+UnsetLastTestResultStatusCode ensures that no value is present for LastTestResultStatusCode, not even an explicit nil
 ### GetExternalKey
 
-`func (o *AutotestFilterModel) GetExternalKey() string`
+`func (o *AutoTestFilterModel) GetExternalKey() string`
 
 GetExternalKey returns the ExternalKey field if non-nil, zero value otherwise.
 
 ### GetExternalKeyOk
 
-`func (o *AutotestFilterModel) GetExternalKeyOk() (*string, bool)`
+`func (o *AutoTestFilterModel) GetExternalKeyOk() (*string, bool)`
 
 GetExternalKeyOk returns a tuple with the ExternalKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExternalKey
 
-`func (o *AutotestFilterModel) SetExternalKey(v string)`
+`func (o *AutoTestFilterModel) SetExternalKey(v string)`
 
 SetExternalKey sets ExternalKey field to given value.
 
 ### HasExternalKey
 
-`func (o *AutotestFilterModel) HasExternalKey() bool`
+`func (o *AutoTestFilterModel) HasExternalKey() bool`
 
 HasExternalKey returns a boolean if a field has been set.
 
 ### SetExternalKeyNil
 
-`func (o *AutotestFilterModel) SetExternalKeyNil(b bool)`
+`func (o *AutoTestFilterModel) SetExternalKeyNil(b bool)`
 
  SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
 
 ### UnsetExternalKey
-`func (o *AutotestFilterModel) UnsetExternalKey()`
+`func (o *AutoTestFilterModel) UnsetExternalKey()`
 
 UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
 ### GetLastTestResultConfigurationIds
 
-`func (o *AutotestFilterModel) GetLastTestResultConfigurationIds() []string`
+`func (o *AutoTestFilterModel) GetLastTestResultConfigurationIds() []string`
 
 GetLastTestResultConfigurationIds returns the LastTestResultConfigurationIds field if non-nil, zero value otherwise.
 
 ### GetLastTestResultConfigurationIdsOk
 
-`func (o *AutotestFilterModel) GetLastTestResultConfigurationIdsOk() (*[]string, bool)`
+`func (o *AutoTestFilterModel) GetLastTestResultConfigurationIdsOk() (*[]string, bool)`
 
 GetLastTestResultConfigurationIdsOk returns a tuple with the LastTestResultConfigurationIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastTestResultConfigurationIds
 
-`func (o *AutotestFilterModel) SetLastTestResultConfigurationIds(v []string)`
+`func (o *AutoTestFilterModel) SetLastTestResultConfigurationIds(v []string)`
 
 SetLastTestResultConfigurationIds sets LastTestResultConfigurationIds field to given value.
 
 ### HasLastTestResultConfigurationIds
 
-`func (o *AutotestFilterModel) HasLastTestResultConfigurationIds() bool`
+`func (o *AutoTestFilterModel) HasLastTestResultConfigurationIds() bool`
 
 HasLastTestResultConfigurationIds returns a boolean if a field has been set.
 
 ### SetLastTestResultConfigurationIdsNil
 
-`func (o *AutotestFilterModel) SetLastTestResultConfigurationIdsNil(b bool)`
+`func (o *AutoTestFilterModel) SetLastTestResultConfigurationIdsNil(b bool)`
 
  SetLastTestResultConfigurationIdsNil sets the value for LastTestResultConfigurationIds to be an explicit nil
 
 ### UnsetLastTestResultConfigurationIds
-`func (o *AutotestFilterModel) UnsetLastTestResultConfigurationIds()`
+`func (o *AutoTestFilterModel) UnsetLastTestResultConfigurationIds()`
 
 UnsetLastTestResultConfigurationIds ensures that no value is present for LastTestResultConfigurationIds, not even an explicit nil
 

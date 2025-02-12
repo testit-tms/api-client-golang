@@ -33,7 +33,7 @@ Method | HTTP request | Description
 
 ## ApiV2TestRunsDelete
 
-> int32 ApiV2TestRunsDelete(ctx).TestRunSelectModel(testRunSelectModel).Execute()
+> int32 ApiV2TestRunsDelete(ctx).TestRunSelectApiModel(testRunSelectApiModel).Execute()
 
 Delete multiple test runs
 
@@ -52,11 +52,11 @@ import (
 )
 
 func main() {
-	testRunSelectModel := *openapiclient.NewTestRunSelectModel(*openapiclient.NewTestRunFilterModel(), *openapiclient.NewTestRunExtractionModel()) // TestRunSelectModel |  (optional)
+	testRunSelectApiModel := *openapiclient.NewTestRunSelectApiModel(*openapiclient.NewTestRunFilterApiModel(), *openapiclient.NewTestRunExtractionApiModel()) // TestRunSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsDelete(context.Background()).TestRunSelectModel(testRunSelectModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsDelete(context.Background()).TestRunSelectApiModel(testRunSelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -77,7 +77,7 @@ Other parameters are passed through a pointer to a apiApiV2TestRunsDeleteRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunSelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md) |  | 
+ **testRunSelectApiModel** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md) |  | 
 
 ### Return type
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsIdRerunsPost
 
-> ManualRerunResultModel ApiV2TestRunsIdRerunsPost(ctx, id).ManualRerunSelectModel(manualRerunSelectModel).Execute()
+> ManualRerunApiResult ApiV2TestRunsIdRerunsPost(ctx, id).ManualRerunSelectApiModel(manualRerunSelectApiModel).Execute()
 
 Manual autotests rerun in test run
 
@@ -321,16 +321,16 @@ import (
 
 func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	manualRerunSelectModel := *openapiclient.NewManualRerunSelectModel() // ManualRerunSelectModel |  (optional)
+	manualRerunSelectApiModel := *openapiclient.NewManualRerunSelectApiModel() // ManualRerunSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdRerunsPost(context.Background(), id).ManualRerunSelectModel(manualRerunSelectModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdRerunsPost(context.Background(), id).ManualRerunSelectApiModel(manualRerunSelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsIdRerunsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestRunsIdRerunsPost`: ManualRerunResultModel
+	// response from `ApiV2TestRunsIdRerunsPost`: ManualRerunApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.ApiV2TestRunsIdRerunsPost`: %v\n", resp)
 }
 ```
@@ -351,11 +351,11 @@ Other parameters are passed through a pointer to a apiApiV2TestRunsIdRerunsPostR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **manualRerunSelectModel** | [**ManualRerunSelectModel**](ManualRerunSelectModel.md) |  | 
+ **manualRerunSelectApiModel** | [**ManualRerunSelectApiModel**](ManualRerunSelectApiModel.md) |  | 
 
 ### Return type
 
-[**ManualRerunResultModel**](ManualRerunResultModel.md)
+[**ManualRerunApiResult**](ManualRerunApiResult.md)
 
 ### Authorization
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsIdStatisticsFilterPost
 
-> TestResultsStatisticsGetModel ApiV2TestRunsIdStatisticsFilterPost(ctx, id).TestResultsLocalFilterModel(testResultsLocalFilterModel).Execute()
+> TestResultsStatisticsApiResult ApiV2TestRunsIdStatisticsFilterPost(ctx, id).TestRunStatisticsFilterApiModel(testRunStatisticsFilterApiModel).Execute()
 
 Search for the test run test results and build statistics
 
@@ -459,16 +459,16 @@ import (
 
 func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test run unique ID
-	testResultsLocalFilterModel := *openapiclient.NewTestResultsLocalFilterModel() // TestResultsLocalFilterModel |  (optional)
+	testRunStatisticsFilterApiModel := *openapiclient.NewTestRunStatisticsFilterApiModel() // TestRunStatisticsFilterApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdStatisticsFilterPost(context.Background(), id).TestResultsLocalFilterModel(testResultsLocalFilterModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdStatisticsFilterPost(context.Background(), id).TestRunStatisticsFilterApiModel(testRunStatisticsFilterApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsIdStatisticsFilterPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestRunsIdStatisticsFilterPost`: TestResultsStatisticsGetModel
+	// response from `ApiV2TestRunsIdStatisticsFilterPost`: TestResultsStatisticsApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.ApiV2TestRunsIdStatisticsFilterPost`: %v\n", resp)
 }
 ```
@@ -489,11 +489,11 @@ Other parameters are passed through a pointer to a apiApiV2TestRunsIdStatisticsF
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **testResultsLocalFilterModel** | [**TestResultsLocalFilterModel**](TestResultsLocalFilterModel.md) |  | 
+ **testRunStatisticsFilterApiModel** | [**TestRunStatisticsFilterApiModel**](TestRunStatisticsFilterApiModel.md) |  | 
 
 ### Return type
 
-[**TestResultsStatisticsGetModel**](TestResultsStatisticsGetModel.md)
+[**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md)
 
 ### Authorization
 
@@ -715,7 +715,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsPurgeBulkPost
 
-> int32 ApiV2TestRunsPurgeBulkPost(ctx).TestRunSelectModel(testRunSelectModel).Execute()
+> int32 ApiV2TestRunsPurgeBulkPost(ctx).TestRunSelectApiModel(testRunSelectApiModel).Execute()
 
 Permanently delete multiple test runs from archive
 
@@ -734,11 +734,11 @@ import (
 )
 
 func main() {
-	testRunSelectModel := *openapiclient.NewTestRunSelectModel(*openapiclient.NewTestRunFilterModel(), *openapiclient.NewTestRunExtractionModel()) // TestRunSelectModel |  (optional)
+	testRunSelectApiModel := *openapiclient.NewTestRunSelectApiModel(*openapiclient.NewTestRunFilterApiModel(), *openapiclient.NewTestRunExtractionApiModel()) // TestRunSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsPurgeBulkPost(context.Background()).TestRunSelectModel(testRunSelectModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsPurgeBulkPost(context.Background()).TestRunSelectApiModel(testRunSelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsPurgeBulkPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -759,7 +759,7 @@ Other parameters are passed through a pointer to a apiApiV2TestRunsPurgeBulkPost
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunSelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md) |  | 
+ **testRunSelectApiModel** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md) |  | 
 
 ### Return type
 
@@ -781,7 +781,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsRestoreBulkPost
 
-> int32 ApiV2TestRunsRestoreBulkPost(ctx).TestRunSelectModel(testRunSelectModel).Execute()
+> int32 ApiV2TestRunsRestoreBulkPost(ctx).TestRunSelectApiModel(testRunSelectApiModel).Execute()
 
 Restore multiple test runs from the archive
 
@@ -800,11 +800,11 @@ import (
 )
 
 func main() {
-	testRunSelectModel := *openapiclient.NewTestRunSelectModel(*openapiclient.NewTestRunFilterModel(), *openapiclient.NewTestRunExtractionModel()) // TestRunSelectModel |  (optional)
+	testRunSelectApiModel := *openapiclient.NewTestRunSelectApiModel(*openapiclient.NewTestRunFilterApiModel(), *openapiclient.NewTestRunExtractionApiModel()) // TestRunSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsRestoreBulkPost(context.Background()).TestRunSelectModel(testRunSelectModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsRestoreBulkPost(context.Background()).TestRunSelectApiModel(testRunSelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsRestoreBulkPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -825,7 +825,7 @@ Other parameters are passed through a pointer to a apiApiV2TestRunsRestoreBulkPo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunSelectModel** | [**TestRunSelectModel**](TestRunSelectModel.md) |  | 
+ **testRunSelectApiModel** | [**TestRunSelectApiModel**](TestRunSelectApiModel.md) |  | 
 
 ### Return type
 
@@ -847,7 +847,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsSearchPost
 
-> []TestRunShortGetModel ApiV2TestRunsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunFilterModel(testRunFilterModel).Execute()
+> []TestRunShortApiResult ApiV2TestRunsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunFilterApiModel(testRunFilterApiModel).Execute()
 
 Search for test runs
 
@@ -869,16 +869,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testRunFilterModel := *openapiclient.NewTestRunFilterModel() // TestRunFilterModel |  (optional)
+	testRunFilterApiModel := *openapiclient.NewTestRunFilterApiModel() // TestRunFilterApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunFilterModel(testRunFilterModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestRunFilterApiModel(testRunFilterApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestRunsSearchPost`: []TestRunShortGetModel
+	// response from `ApiV2TestRunsSearchPost`: []TestRunShortApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.ApiV2TestRunsSearchPost`: %v\n", resp)
 }
 ```
@@ -899,11 +899,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testRunFilterModel** | [**TestRunFilterModel**](TestRunFilterModel.md) |  | 
+ **testRunFilterApiModel** | [**TestRunFilterApiModel**](TestRunFilterApiModel.md) |  | 
 
 ### Return type
 
-[**[]TestRunShortGetModel**](TestRunShortGetModel.md)
+[**[]TestRunShortApiResult**](TestRunShortApiResult.md)
 
 ### Authorization
 
@@ -921,7 +921,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsUpdateMultiplePost
 
-> ApiV2TestRunsUpdateMultiplePost(ctx).TestRunUpdateMultipleModel(testRunUpdateMultipleModel).Execute()
+> ApiV2TestRunsUpdateMultiplePost(ctx).UpdateMultipleTestRunsApiModel(updateMultipleTestRunsApiModel).Execute()
 
 Update multiple test runs
 
@@ -938,11 +938,11 @@ import (
 )
 
 func main() {
-	testRunUpdateMultipleModel := *openapiclient.NewTestRunUpdateMultipleModel(*openapiclient.NewTestRunSelectModel(*openapiclient.NewTestRunFilterModel(), *openapiclient.NewTestRunExtractionModel()), *openapiclient.NewUpdateAttachmentShortModel(openapiclient.ActionUpdate("Add")), *openapiclient.NewUpdateLinkShortModel(openapiclient.ActionUpdate("Add"))) // TestRunUpdateMultipleModel |  (optional)
+	updateMultipleTestRunsApiModel := *openapiclient.NewUpdateMultipleTestRunsApiModel(*openapiclient.NewTestRunSelectApiModel(*openapiclient.NewTestRunFilterApiModel(), *openapiclient.NewTestRunExtractionApiModel())) // UpdateMultipleTestRunsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestRunsAPI.ApiV2TestRunsUpdateMultiplePost(context.Background()).TestRunUpdateMultipleModel(testRunUpdateMultipleModel).Execute()
+	r, err := apiClient.TestRunsAPI.ApiV2TestRunsUpdateMultiplePost(context.Background()).UpdateMultipleTestRunsApiModel(updateMultipleTestRunsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsUpdateMultiplePost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -961,7 +961,7 @@ Other parameters are passed through a pointer to a apiApiV2TestRunsUpdateMultipl
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunUpdateMultipleModel** | [**TestRunUpdateMultipleModel**](TestRunUpdateMultipleModel.md) |  | 
+ **updateMultipleTestRunsApiModel** | [**UpdateMultipleTestRunsApiModel**](UpdateMultipleTestRunsApiModel.md) |  | 
 
 ### Return type
 
@@ -1051,7 +1051,7 @@ Name | Type | Description  | Notes
 
 ## CreateAndFillByAutoTests
 
-> TestRunV2GetModel CreateAndFillByAutoTests(ctx).TestRunFillByAutoTestsPostModel(testRunFillByAutoTestsPostModel).Execute()
+> TestRunV2ApiResult CreateAndFillByAutoTests(ctx).CreateTestRunAndFillByAutoTestsApiModel(createTestRunAndFillByAutoTestsApiModel).Execute()
 
 Create test runs based on autotests and configurations
 
@@ -1070,16 +1070,16 @@ import (
 )
 
 func main() {
-	testRunFillByAutoTestsPostModel := *openapiclient.NewTestRunFillByAutoTestsPostModel("ProjectId_example", []string{"ConfigurationIds_example"}, []string{"AutoTestExternalIds_example"}) // TestRunFillByAutoTestsPostModel |  (optional)
+	createTestRunAndFillByAutoTestsApiModel := *openapiclient.NewCreateTestRunAndFillByAutoTestsApiModel("ProjectId_example", []string{"ConfigurationIds_example"}, []string{"AutoTestExternalIds_example"}) // CreateTestRunAndFillByAutoTestsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.CreateAndFillByAutoTests(context.Background()).TestRunFillByAutoTestsPostModel(testRunFillByAutoTestsPostModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.CreateAndFillByAutoTests(context.Background()).CreateTestRunAndFillByAutoTestsApiModel(createTestRunAndFillByAutoTestsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.CreateAndFillByAutoTests``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateAndFillByAutoTests`: TestRunV2GetModel
+	// response from `CreateAndFillByAutoTests`: TestRunV2ApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.CreateAndFillByAutoTests`: %v\n", resp)
 }
 ```
@@ -1095,11 +1095,11 @@ Other parameters are passed through a pointer to a apiCreateAndFillByAutoTestsRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunFillByAutoTestsPostModel** | [**TestRunFillByAutoTestsPostModel**](TestRunFillByAutoTestsPostModel.md) |  | 
+ **createTestRunAndFillByAutoTestsApiModel** | [**CreateTestRunAndFillByAutoTestsApiModel**](CreateTestRunAndFillByAutoTestsApiModel.md) |  | 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1117,7 +1117,7 @@ Name | Type | Description  | Notes
 
 ## CreateAndFillByConfigurations
 
-> TestRunV2GetModel CreateAndFillByConfigurations(ctx).TestRunFillByConfigurationsPostModel(testRunFillByConfigurationsPostModel).Execute()
+> TestRunV2ApiResult CreateAndFillByConfigurations(ctx).CreateTestRunAndFillByConfigurationsApiModel(createTestRunAndFillByConfigurationsApiModel).Execute()
 
 Create test runs picking the needed test points
 
@@ -1136,16 +1136,16 @@ import (
 )
 
 func main() {
-	testRunFillByConfigurationsPostModel := *openapiclient.NewTestRunFillByConfigurationsPostModel([]openapiclient.TestPointSelector{*openapiclient.NewTestPointSelector("ConfigurationId_example", []string{"WorkItemIds_example"})}, "ProjectId_example", "TestPlanId_example") // TestRunFillByConfigurationsPostModel |  (optional)
+	createTestRunAndFillByConfigurationsApiModel := *openapiclient.NewCreateTestRunAndFillByConfigurationsApiModel("ProjectId_example", "TestPlanId_example", []openapiclient.TestPointSelector{*openapiclient.NewTestPointSelector("ConfigurationId_example", []string{"WorkItemIds_example"})}) // CreateTestRunAndFillByConfigurationsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.CreateAndFillByConfigurations(context.Background()).TestRunFillByConfigurationsPostModel(testRunFillByConfigurationsPostModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.CreateAndFillByConfigurations(context.Background()).CreateTestRunAndFillByConfigurationsApiModel(createTestRunAndFillByConfigurationsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.CreateAndFillByConfigurations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateAndFillByConfigurations`: TestRunV2GetModel
+	// response from `CreateAndFillByConfigurations`: TestRunV2ApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.CreateAndFillByConfigurations`: %v\n", resp)
 }
 ```
@@ -1161,11 +1161,11 @@ Other parameters are passed through a pointer to a apiCreateAndFillByConfigurati
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunFillByConfigurationsPostModel** | [**TestRunFillByConfigurationsPostModel**](TestRunFillByConfigurationsPostModel.md) |  | 
+ **createTestRunAndFillByConfigurationsApiModel** | [**CreateTestRunAndFillByConfigurationsApiModel**](CreateTestRunAndFillByConfigurationsApiModel.md) |  | 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1183,7 +1183,7 @@ Name | Type | Description  | Notes
 
 ## CreateAndFillByWorkItems
 
-> TestRunV2GetModel CreateAndFillByWorkItems(ctx).TestRunFillByWorkItemsPostModel(testRunFillByWorkItemsPostModel).Execute()
+> TestRunV2ApiResult CreateAndFillByWorkItems(ctx).CreateTestRunAndFillByWorkItemsApiModel(createTestRunAndFillByWorkItemsApiModel).Execute()
 
 Create test run based on configurations and work items
 
@@ -1202,16 +1202,16 @@ import (
 )
 
 func main() {
-	testRunFillByWorkItemsPostModel := *openapiclient.NewTestRunFillByWorkItemsPostModel([]string{"ConfigurationIds_example"}, []string{"WorkItemIds_example"}, "ProjectId_example", "TestPlanId_example") // TestRunFillByWorkItemsPostModel |  (optional)
+	createTestRunAndFillByWorkItemsApiModel := *openapiclient.NewCreateTestRunAndFillByWorkItemsApiModel("ProjectId_example", "TestPlanId_example", []string{"ConfigurationIds_example"}, []string{"WorkItemIds_example"}) // CreateTestRunAndFillByWorkItemsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.CreateAndFillByWorkItems(context.Background()).TestRunFillByWorkItemsPostModel(testRunFillByWorkItemsPostModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.CreateAndFillByWorkItems(context.Background()).CreateTestRunAndFillByWorkItemsApiModel(createTestRunAndFillByWorkItemsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.CreateAndFillByWorkItems``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateAndFillByWorkItems`: TestRunV2GetModel
+	// response from `CreateAndFillByWorkItems`: TestRunV2ApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.CreateAndFillByWorkItems`: %v\n", resp)
 }
 ```
@@ -1227,11 +1227,11 @@ Other parameters are passed through a pointer to a apiCreateAndFillByWorkItemsRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunFillByWorkItemsPostModel** | [**TestRunFillByWorkItemsPostModel**](TestRunFillByWorkItemsPostModel.md) |  | 
+ **createTestRunAndFillByWorkItemsApiModel** | [**CreateTestRunAndFillByWorkItemsApiModel**](CreateTestRunAndFillByWorkItemsApiModel.md) |  | 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1249,7 +1249,7 @@ Name | Type | Description  | Notes
 
 ## CreateEmpty
 
-> TestRunV2GetModel CreateEmpty(ctx).TestRunV2PostShortModel(testRunV2PostShortModel).Execute()
+> TestRunV2ApiResult CreateEmpty(ctx).CreateEmptyTestRunApiModel(createEmptyTestRunApiModel).Execute()
 
 Create empty TestRun
 
@@ -1268,16 +1268,16 @@ import (
 )
 
 func main() {
-	testRunV2PostShortModel := *openapiclient.NewTestRunV2PostShortModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23") // TestRunV2PostShortModel |  (optional)
+	createEmptyTestRunApiModel := *openapiclient.NewCreateEmptyTestRunApiModel("ProjectId_example") // CreateEmptyTestRunApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.CreateEmpty(context.Background()).TestRunV2PostShortModel(testRunV2PostShortModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.CreateEmpty(context.Background()).CreateEmptyTestRunApiModel(createEmptyTestRunApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.CreateEmpty``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateEmpty`: TestRunV2GetModel
+	// response from `CreateEmpty`: TestRunV2ApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.CreateEmpty`: %v\n", resp)
 }
 ```
@@ -1293,11 +1293,11 @@ Other parameters are passed through a pointer to a apiCreateEmptyRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunV2PostShortModel** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md) |  | 
+ **createEmptyTestRunApiModel** | [**CreateEmptyTestRunApiModel**](CreateEmptyTestRunApiModel.md) |  | 
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1315,7 +1315,7 @@ Name | Type | Description  | Notes
 
 ## GetTestRunById
 
-> TestRunV2GetModel GetTestRunById(ctx, id).Execute()
+> TestRunV2ApiResult GetTestRunById(ctx, id).Execute()
 
 Get TestRun by Id
 
@@ -1343,7 +1343,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.GetTestRunById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTestRunById`: TestRunV2GetModel
+	// response from `GetTestRunById`: TestRunV2ApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.GetTestRunById`: %v\n", resp)
 }
 ```
@@ -1367,7 +1367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestRunV2GetModel**](TestRunV2GetModel.md)
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 
@@ -1593,7 +1593,7 @@ Name | Type | Description  | Notes
 
 ## UpdateEmpty
 
-> UpdateEmpty(ctx).TestRunV2PutModel(testRunV2PutModel).Execute()
+> UpdateEmpty(ctx).UpdateEmptyTestRunApiModel(updateEmptyTestRunApiModel).Execute()
 
 Update empty TestRun
 
@@ -1612,11 +1612,11 @@ import (
 )
 
 func main() {
-	testRunV2PutModel := *openapiclient.NewTestRunV2PutModel("3e5a61f5-bb50-44f4-8898-6dda6d40fe23", "First run") // TestRunV2PutModel |  (optional)
+	updateEmptyTestRunApiModel := *openapiclient.NewUpdateEmptyTestRunApiModel("Id_example", "Name_example") // UpdateEmptyTestRunApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TestRunsAPI.UpdateEmpty(context.Background()).TestRunV2PutModel(testRunV2PutModel).Execute()
+	r, err := apiClient.TestRunsAPI.UpdateEmpty(context.Background()).UpdateEmptyTestRunApiModel(updateEmptyTestRunApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.UpdateEmpty``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1635,7 +1635,7 @@ Other parameters are passed through a pointer to a apiUpdateEmptyRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testRunV2PutModel** | [**TestRunV2PutModel**](TestRunV2PutModel.md) |  | 
+ **updateEmptyTestRunApiModel** | [**UpdateEmptyTestRunApiModel**](UpdateEmptyTestRunApiModel.md) |  | 
 
 ### Return type
 

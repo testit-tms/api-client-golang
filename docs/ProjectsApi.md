@@ -853,7 +853,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdTestRunsFullGet
 
-> []TestRunModel ApiV2ProjectsIdTestRunsFullGet(ctx, id).IncludeTestResults(includeTestResults).MustAggregateTestResults(mustAggregateTestResults).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TestRunApiResult ApiV2ProjectsIdTestRunsFullGet(ctx, id).IncludeTestResults(includeTestResults).MustAggregateTestResults(mustAggregateTestResults).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get Project TestRuns full models
 
@@ -874,8 +874,8 @@ import (
 
 func main() {
 	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-	includeTestResults := true // bool |  (optional) (default to false)
-	mustAggregateTestResults := true // bool |  (optional) (default to true)
+	includeTestResults := true // bool |  (optional)
+	mustAggregateTestResults := true // bool |  (optional)
 	notStarted := true // bool |  (optional)
 	inProgress := true // bool |  (optional)
 	stopped := true // bool |  (optional)
@@ -896,7 +896,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdTestRunsFullGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsIdTestRunsFullGet`: []TestRunModel
+	// response from `ApiV2ProjectsIdTestRunsFullGet`: []TestRunApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdTestRunsFullGet`: %v\n", resp)
 }
 ```
@@ -917,8 +917,8 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsIdTestRunsFul
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **includeTestResults** | **bool** |  | [default to false]
- **mustAggregateTestResults** | **bool** |  | [default to true]
+ **includeTestResults** | **bool** |  | 
+ **mustAggregateTestResults** | **bool** |  | 
  **notStarted** | **bool** |  | 
  **inProgress** | **bool** |  | 
  **stopped** | **bool** |  | 
@@ -934,7 +934,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestRunModel**](TestRunModel.md)
+[**[]TestRunApiResult**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -1644,7 +1644,7 @@ Name | Type | Description  | Notes
 
 ## GetTestRunsByProjectId
 
-> []TestRunV2GetModel GetTestRunsByProjectId(ctx, id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TestRunV2ApiResult GetTestRunsByProjectId(ctx, id).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get project test runs
 
@@ -1665,10 +1665,10 @@ import (
 
 func main() {
 	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-	notStarted := true // bool |  (optional)
-	inProgress := true // bool |  (optional)
-	stopped := true // bool |  (optional)
-	completed := true // bool |  (optional)
+	notStarted := true // bool | 
+	inProgress := true // bool | 
+	stopped := true // bool | 
+	completed := true // bool | 
 	createdDateFrom := time.Now() // time.Time |  (optional)
 	createdDateTo := time.Now() // time.Time |  (optional)
 	testPlanId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
@@ -1685,7 +1685,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetTestRunsByProjectId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTestRunsByProjectId`: []TestRunV2GetModel
+	// response from `GetTestRunsByProjectId`: []TestRunV2ApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetTestRunsByProjectId`: %v\n", resp)
 }
 ```
@@ -1721,7 +1721,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestRunV2GetModel**](TestRunV2GetModel.md)
+[**[]TestRunV2ApiResult**](TestRunV2ApiResult.md)
 
 ### Authorization
 

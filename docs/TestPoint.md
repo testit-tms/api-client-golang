@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ConfigurationId** | Pointer to **NullableString** |  | [optional] 
 **TestSuiteId** | **string** |  | 
 **Status** | Pointer to **NullableString** |  | [optional] 
-**StatusModel** | Pointer to [**NullableTestStatus**](TestStatus.md) |  | [optional] 
+**StatusModel** | Pointer to [**NullableTestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **LastTestResultId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -256,20 +256,20 @@ HasStatus returns a boolean if a field has been set.
 UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetStatusModel
 
-`func (o *TestPoint) GetStatusModel() TestStatus`
+`func (o *TestPoint) GetStatusModel() TestStatusApiResult`
 
 GetStatusModel returns the StatusModel field if non-nil, zero value otherwise.
 
 ### GetStatusModelOk
 
-`func (o *TestPoint) GetStatusModelOk() (*TestStatus, bool)`
+`func (o *TestPoint) GetStatusModelOk() (*TestStatusApiResult, bool)`
 
 GetStatusModelOk returns a tuple with the StatusModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatusModel
 
-`func (o *TestPoint) SetStatusModel(v TestStatus)`
+`func (o *TestPoint) SetStatusModel(v TestStatusApiResult)`
 
 SetStatusModel sets StatusModel field to given value.
 

@@ -27,11 +27,11 @@ type TestRunsAPIService service
 type ApiApiV2TestRunsDeleteRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunSelectModel *TestRunSelectModel
+	testRunSelectApiModel *TestRunSelectApiModel
 }
 
-func (r ApiApiV2TestRunsDeleteRequest) TestRunSelectModel(testRunSelectModel TestRunSelectModel) ApiApiV2TestRunsDeleteRequest {
-	r.testRunSelectModel = &testRunSelectModel
+func (r ApiApiV2TestRunsDeleteRequest) TestRunSelectApiModel(testRunSelectApiModel TestRunSelectApiModel) ApiApiV2TestRunsDeleteRequest {
+	r.testRunSelectApiModel = &testRunSelectApiModel
 	return r
 }
 
@@ -100,7 +100,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsDeleteExecute(r ApiApiV2TestRunsDelete
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunSelectModel
+	localVarPostBody = r.testRunSelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -753,15 +753,15 @@ type ApiApiV2TestRunsIdRerunsPostRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
 	id string
-	manualRerunSelectModel *ManualRerunSelectModel
+	manualRerunSelectApiModel *ManualRerunSelectApiModel
 }
 
-func (r ApiApiV2TestRunsIdRerunsPostRequest) ManualRerunSelectModel(manualRerunSelectModel ManualRerunSelectModel) ApiApiV2TestRunsIdRerunsPostRequest {
-	r.manualRerunSelectModel = &manualRerunSelectModel
+func (r ApiApiV2TestRunsIdRerunsPostRequest) ManualRerunSelectApiModel(manualRerunSelectApiModel ManualRerunSelectApiModel) ApiApiV2TestRunsIdRerunsPostRequest {
+	r.manualRerunSelectApiModel = &manualRerunSelectApiModel
 	return r
 }
 
-func (r ApiApiV2TestRunsIdRerunsPostRequest) Execute() (*ManualRerunResultModel, *http.Response, error) {
+func (r ApiApiV2TestRunsIdRerunsPostRequest) Execute() (*ManualRerunApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestRunsIdRerunsPostExecute(r)
 }
 
@@ -781,13 +781,13 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdRerunsPost(ctx context.Context, id s
 }
 
 // Execute executes the request
-//  @return ManualRerunResultModel
-func (a *TestRunsAPIService) ApiV2TestRunsIdRerunsPostExecute(r ApiApiV2TestRunsIdRerunsPostRequest) (*ManualRerunResultModel, *http.Response, error) {
+//  @return ManualRerunApiResult
+func (a *TestRunsAPIService) ApiV2TestRunsIdRerunsPostExecute(r ApiApiV2TestRunsIdRerunsPostRequest) (*ManualRerunApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ManualRerunResultModel
+		localVarReturnValue  *ManualRerunApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.ApiV2TestRunsIdRerunsPost")
@@ -820,7 +820,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdRerunsPostExecute(r ApiApiV2TestRuns
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.manualRerunSelectModel
+	localVarPostBody = r.manualRerunSelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1117,15 +1117,15 @@ type ApiApiV2TestRunsIdStatisticsFilterPostRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
 	id string
-	testResultsLocalFilterModel *TestResultsLocalFilterModel
+	testRunStatisticsFilterApiModel *TestRunStatisticsFilterApiModel
 }
 
-func (r ApiApiV2TestRunsIdStatisticsFilterPostRequest) TestResultsLocalFilterModel(testResultsLocalFilterModel TestResultsLocalFilterModel) ApiApiV2TestRunsIdStatisticsFilterPostRequest {
-	r.testResultsLocalFilterModel = &testResultsLocalFilterModel
+func (r ApiApiV2TestRunsIdStatisticsFilterPostRequest) TestRunStatisticsFilterApiModel(testRunStatisticsFilterApiModel TestRunStatisticsFilterApiModel) ApiApiV2TestRunsIdStatisticsFilterPostRequest {
+	r.testRunStatisticsFilterApiModel = &testRunStatisticsFilterApiModel
 	return r
 }
 
-func (r ApiApiV2TestRunsIdStatisticsFilterPostRequest) Execute() (*TestResultsStatisticsGetModel, *http.Response, error) {
+func (r ApiApiV2TestRunsIdStatisticsFilterPostRequest) Execute() (*TestResultsStatisticsApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestRunsIdStatisticsFilterPostExecute(r)
 }
 
@@ -1145,13 +1145,13 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdStatisticsFilterPost(ctx context.Con
 }
 
 // Execute executes the request
-//  @return TestResultsStatisticsGetModel
-func (a *TestRunsAPIService) ApiV2TestRunsIdStatisticsFilterPostExecute(r ApiApiV2TestRunsIdStatisticsFilterPostRequest) (*TestResultsStatisticsGetModel, *http.Response, error) {
+//  @return TestResultsStatisticsApiResult
+func (a *TestRunsAPIService) ApiV2TestRunsIdStatisticsFilterPostExecute(r ApiApiV2TestRunsIdStatisticsFilterPostRequest) (*TestResultsStatisticsApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestResultsStatisticsGetModel
+		localVarReturnValue  *TestResultsStatisticsApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.ApiV2TestRunsIdStatisticsFilterPost")
@@ -1184,7 +1184,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdStatisticsFilterPostExecute(r ApiApi
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testResultsLocalFilterModel
+	localVarPostBody = r.testRunStatisticsFilterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1841,11 +1841,11 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdTestResultsLastModifiedModificationD
 type ApiApiV2TestRunsPurgeBulkPostRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunSelectModel *TestRunSelectModel
+	testRunSelectApiModel *TestRunSelectApiModel
 }
 
-func (r ApiApiV2TestRunsPurgeBulkPostRequest) TestRunSelectModel(testRunSelectModel TestRunSelectModel) ApiApiV2TestRunsPurgeBulkPostRequest {
-	r.testRunSelectModel = &testRunSelectModel
+func (r ApiApiV2TestRunsPurgeBulkPostRequest) TestRunSelectApiModel(testRunSelectApiModel TestRunSelectApiModel) ApiApiV2TestRunsPurgeBulkPostRequest {
+	r.testRunSelectApiModel = &testRunSelectApiModel
 	return r
 }
 
@@ -1914,7 +1914,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsPurgeBulkPostExecute(r ApiApiV2TestRun
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunSelectModel
+	localVarPostBody = r.testRunSelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2034,11 +2034,11 @@ func (a *TestRunsAPIService) ApiV2TestRunsPurgeBulkPostExecute(r ApiApiV2TestRun
 type ApiApiV2TestRunsRestoreBulkPostRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunSelectModel *TestRunSelectModel
+	testRunSelectApiModel *TestRunSelectApiModel
 }
 
-func (r ApiApiV2TestRunsRestoreBulkPostRequest) TestRunSelectModel(testRunSelectModel TestRunSelectModel) ApiApiV2TestRunsRestoreBulkPostRequest {
-	r.testRunSelectModel = &testRunSelectModel
+func (r ApiApiV2TestRunsRestoreBulkPostRequest) TestRunSelectApiModel(testRunSelectApiModel TestRunSelectApiModel) ApiApiV2TestRunsRestoreBulkPostRequest {
+	r.testRunSelectApiModel = &testRunSelectApiModel
 	return r
 }
 
@@ -2107,7 +2107,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsRestoreBulkPostExecute(r ApiApiV2TestR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunSelectModel
+	localVarPostBody = r.testRunSelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2232,7 +2232,7 @@ type ApiApiV2TestRunsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	testRunFilterModel *TestRunFilterModel
+	testRunFilterApiModel *TestRunFilterApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -2265,12 +2265,12 @@ func (r ApiApiV2TestRunsSearchPostRequest) SearchValue(searchValue string) ApiAp
 	return r
 }
 
-func (r ApiApiV2TestRunsSearchPostRequest) TestRunFilterModel(testRunFilterModel TestRunFilterModel) ApiApiV2TestRunsSearchPostRequest {
-	r.testRunFilterModel = &testRunFilterModel
+func (r ApiApiV2TestRunsSearchPostRequest) TestRunFilterApiModel(testRunFilterApiModel TestRunFilterApiModel) ApiApiV2TestRunsSearchPostRequest {
+	r.testRunFilterApiModel = &testRunFilterApiModel
 	return r
 }
 
-func (r ApiApiV2TestRunsSearchPostRequest) Execute() ([]TestRunShortGetModel, *http.Response, error) {
+func (r ApiApiV2TestRunsSearchPostRequest) Execute() ([]TestRunShortApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestRunsSearchPostExecute(r)
 }
 
@@ -2288,13 +2288,13 @@ func (a *TestRunsAPIService) ApiV2TestRunsSearchPost(ctx context.Context) ApiApi
 }
 
 // Execute executes the request
-//  @return []TestRunShortGetModel
-func (a *TestRunsAPIService) ApiV2TestRunsSearchPostExecute(r ApiApiV2TestRunsSearchPostRequest) ([]TestRunShortGetModel, *http.Response, error) {
+//  @return []TestRunShortApiResult
+func (a *TestRunsAPIService) ApiV2TestRunsSearchPostExecute(r ApiApiV2TestRunsSearchPostRequest) ([]TestRunShortApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestRunShortGetModel
+		localVarReturnValue  []TestRunShortApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.ApiV2TestRunsSearchPost")
@@ -2341,7 +2341,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsSearchPostExecute(r ApiApiV2TestRunsSe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunFilterModel
+	localVarPostBody = r.testRunFilterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2461,11 +2461,11 @@ func (a *TestRunsAPIService) ApiV2TestRunsSearchPostExecute(r ApiApiV2TestRunsSe
 type ApiApiV2TestRunsUpdateMultiplePostRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunUpdateMultipleModel *TestRunUpdateMultipleModel
+	updateMultipleTestRunsApiModel *UpdateMultipleTestRunsApiModel
 }
 
-func (r ApiApiV2TestRunsUpdateMultiplePostRequest) TestRunUpdateMultipleModel(testRunUpdateMultipleModel TestRunUpdateMultipleModel) ApiApiV2TestRunsUpdateMultiplePostRequest {
-	r.testRunUpdateMultipleModel = &testRunUpdateMultipleModel
+func (r ApiApiV2TestRunsUpdateMultiplePostRequest) UpdateMultipleTestRunsApiModel(updateMultipleTestRunsApiModel UpdateMultipleTestRunsApiModel) ApiApiV2TestRunsUpdateMultiplePostRequest {
+	r.updateMultipleTestRunsApiModel = &updateMultipleTestRunsApiModel
 	return r
 }
 
@@ -2523,7 +2523,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsUpdateMultiplePostExecute(r ApiApiV2Te
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunUpdateMultipleModel
+	localVarPostBody = r.updateMultipleTestRunsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2814,15 +2814,15 @@ func (a *TestRunsAPIService) CompleteTestRunExecute(r ApiCompleteTestRunRequest)
 type ApiCreateAndFillByAutoTestsRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunFillByAutoTestsPostModel *TestRunFillByAutoTestsPostModel
+	createTestRunAndFillByAutoTestsApiModel *CreateTestRunAndFillByAutoTestsApiModel
 }
 
-func (r ApiCreateAndFillByAutoTestsRequest) TestRunFillByAutoTestsPostModel(testRunFillByAutoTestsPostModel TestRunFillByAutoTestsPostModel) ApiCreateAndFillByAutoTestsRequest {
-	r.testRunFillByAutoTestsPostModel = &testRunFillByAutoTestsPostModel
+func (r ApiCreateAndFillByAutoTestsRequest) CreateTestRunAndFillByAutoTestsApiModel(createTestRunAndFillByAutoTestsApiModel CreateTestRunAndFillByAutoTestsApiModel) ApiCreateAndFillByAutoTestsRequest {
+	r.createTestRunAndFillByAutoTestsApiModel = &createTestRunAndFillByAutoTestsApiModel
 	return r
 }
 
-func (r ApiCreateAndFillByAutoTestsRequest) Execute() (*TestRunV2GetModel, *http.Response, error) {
+func (r ApiCreateAndFillByAutoTestsRequest) Execute() (*TestRunV2ApiResult, *http.Response, error) {
 	return r.ApiService.CreateAndFillByAutoTestsExecute(r)
 }
 
@@ -2844,13 +2844,13 @@ func (a *TestRunsAPIService) CreateAndFillByAutoTests(ctx context.Context) ApiCr
 }
 
 // Execute executes the request
-//  @return TestRunV2GetModel
-func (a *TestRunsAPIService) CreateAndFillByAutoTestsExecute(r ApiCreateAndFillByAutoTestsRequest) (*TestRunV2GetModel, *http.Response, error) {
+//  @return TestRunV2ApiResult
+func (a *TestRunsAPIService) CreateAndFillByAutoTestsExecute(r ApiCreateAndFillByAutoTestsRequest) (*TestRunV2ApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestRunV2GetModel
+		localVarReturnValue  *TestRunV2ApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.CreateAndFillByAutoTests")
@@ -2882,7 +2882,7 @@ func (a *TestRunsAPIService) CreateAndFillByAutoTestsExecute(r ApiCreateAndFillB
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunFillByAutoTestsPostModel
+	localVarPostBody = r.createTestRunAndFillByAutoTestsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3002,15 +3002,15 @@ func (a *TestRunsAPIService) CreateAndFillByAutoTestsExecute(r ApiCreateAndFillB
 type ApiCreateAndFillByConfigurationsRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunFillByConfigurationsPostModel *TestRunFillByConfigurationsPostModel
+	createTestRunAndFillByConfigurationsApiModel *CreateTestRunAndFillByConfigurationsApiModel
 }
 
-func (r ApiCreateAndFillByConfigurationsRequest) TestRunFillByConfigurationsPostModel(testRunFillByConfigurationsPostModel TestRunFillByConfigurationsPostModel) ApiCreateAndFillByConfigurationsRequest {
-	r.testRunFillByConfigurationsPostModel = &testRunFillByConfigurationsPostModel
+func (r ApiCreateAndFillByConfigurationsRequest) CreateTestRunAndFillByConfigurationsApiModel(createTestRunAndFillByConfigurationsApiModel CreateTestRunAndFillByConfigurationsApiModel) ApiCreateAndFillByConfigurationsRequest {
+	r.createTestRunAndFillByConfigurationsApiModel = &createTestRunAndFillByConfigurationsApiModel
 	return r
 }
 
-func (r ApiCreateAndFillByConfigurationsRequest) Execute() (*TestRunV2GetModel, *http.Response, error) {
+func (r ApiCreateAndFillByConfigurationsRequest) Execute() (*TestRunV2ApiResult, *http.Response, error) {
 	return r.ApiService.CreateAndFillByConfigurationsExecute(r)
 }
 
@@ -3033,13 +3033,13 @@ func (a *TestRunsAPIService) CreateAndFillByConfigurations(ctx context.Context) 
 }
 
 // Execute executes the request
-//  @return TestRunV2GetModel
-func (a *TestRunsAPIService) CreateAndFillByConfigurationsExecute(r ApiCreateAndFillByConfigurationsRequest) (*TestRunV2GetModel, *http.Response, error) {
+//  @return TestRunV2ApiResult
+func (a *TestRunsAPIService) CreateAndFillByConfigurationsExecute(r ApiCreateAndFillByConfigurationsRequest) (*TestRunV2ApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestRunV2GetModel
+		localVarReturnValue  *TestRunV2ApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.CreateAndFillByConfigurations")
@@ -3071,7 +3071,7 @@ func (a *TestRunsAPIService) CreateAndFillByConfigurationsExecute(r ApiCreateAnd
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunFillByConfigurationsPostModel
+	localVarPostBody = r.createTestRunAndFillByConfigurationsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3191,15 +3191,15 @@ func (a *TestRunsAPIService) CreateAndFillByConfigurationsExecute(r ApiCreateAnd
 type ApiCreateAndFillByWorkItemsRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunFillByWorkItemsPostModel *TestRunFillByWorkItemsPostModel
+	createTestRunAndFillByWorkItemsApiModel *CreateTestRunAndFillByWorkItemsApiModel
 }
 
-func (r ApiCreateAndFillByWorkItemsRequest) TestRunFillByWorkItemsPostModel(testRunFillByWorkItemsPostModel TestRunFillByWorkItemsPostModel) ApiCreateAndFillByWorkItemsRequest {
-	r.testRunFillByWorkItemsPostModel = &testRunFillByWorkItemsPostModel
+func (r ApiCreateAndFillByWorkItemsRequest) CreateTestRunAndFillByWorkItemsApiModel(createTestRunAndFillByWorkItemsApiModel CreateTestRunAndFillByWorkItemsApiModel) ApiCreateAndFillByWorkItemsRequest {
+	r.createTestRunAndFillByWorkItemsApiModel = &createTestRunAndFillByWorkItemsApiModel
 	return r
 }
 
-func (r ApiCreateAndFillByWorkItemsRequest) Execute() (*TestRunV2GetModel, *http.Response, error) {
+func (r ApiCreateAndFillByWorkItemsRequest) Execute() (*TestRunV2ApiResult, *http.Response, error) {
 	return r.ApiService.CreateAndFillByWorkItemsExecute(r)
 }
 
@@ -3221,13 +3221,13 @@ func (a *TestRunsAPIService) CreateAndFillByWorkItems(ctx context.Context) ApiCr
 }
 
 // Execute executes the request
-//  @return TestRunV2GetModel
-func (a *TestRunsAPIService) CreateAndFillByWorkItemsExecute(r ApiCreateAndFillByWorkItemsRequest) (*TestRunV2GetModel, *http.Response, error) {
+//  @return TestRunV2ApiResult
+func (a *TestRunsAPIService) CreateAndFillByWorkItemsExecute(r ApiCreateAndFillByWorkItemsRequest) (*TestRunV2ApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestRunV2GetModel
+		localVarReturnValue  *TestRunV2ApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.CreateAndFillByWorkItems")
@@ -3259,7 +3259,7 @@ func (a *TestRunsAPIService) CreateAndFillByWorkItemsExecute(r ApiCreateAndFillB
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunFillByWorkItemsPostModel
+	localVarPostBody = r.createTestRunAndFillByWorkItemsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3379,15 +3379,15 @@ func (a *TestRunsAPIService) CreateAndFillByWorkItemsExecute(r ApiCreateAndFillB
 type ApiCreateEmptyRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunV2PostShortModel *TestRunV2PostShortModel
+	createEmptyTestRunApiModel *CreateEmptyTestRunApiModel
 }
 
-func (r ApiCreateEmptyRequest) TestRunV2PostShortModel(testRunV2PostShortModel TestRunV2PostShortModel) ApiCreateEmptyRequest {
-	r.testRunV2PostShortModel = &testRunV2PostShortModel
+func (r ApiCreateEmptyRequest) CreateEmptyTestRunApiModel(createEmptyTestRunApiModel CreateEmptyTestRunApiModel) ApiCreateEmptyRequest {
+	r.createEmptyTestRunApiModel = &createEmptyTestRunApiModel
 	return r
 }
 
-func (r ApiCreateEmptyRequest) Execute() (*TestRunV2GetModel, *http.Response, error) {
+func (r ApiCreateEmptyRequest) Execute() (*TestRunV2ApiResult, *http.Response, error) {
 	return r.ApiService.CreateEmptyExecute(r)
 }
 
@@ -3416,13 +3416,13 @@ func (a *TestRunsAPIService) CreateEmpty(ctx context.Context) ApiCreateEmptyRequ
 }
 
 // Execute executes the request
-//  @return TestRunV2GetModel
-func (a *TestRunsAPIService) CreateEmptyExecute(r ApiCreateEmptyRequest) (*TestRunV2GetModel, *http.Response, error) {
+//  @return TestRunV2ApiResult
+func (a *TestRunsAPIService) CreateEmptyExecute(r ApiCreateEmptyRequest) (*TestRunV2ApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestRunV2GetModel
+		localVarReturnValue  *TestRunV2ApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.CreateEmpty")
@@ -3454,7 +3454,7 @@ func (a *TestRunsAPIService) CreateEmptyExecute(r ApiCreateEmptyRequest) (*TestR
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunV2PostShortModel
+	localVarPostBody = r.createEmptyTestRunApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3577,7 +3577,7 @@ type ApiGetTestRunByIdRequest struct {
 	id string
 }
 
-func (r ApiGetTestRunByIdRequest) Execute() (*TestRunV2GetModel, *http.Response, error) {
+func (r ApiGetTestRunByIdRequest) Execute() (*TestRunV2ApiResult, *http.Response, error) {
 	return r.ApiService.GetTestRunByIdExecute(r)
 }
 
@@ -3608,13 +3608,13 @@ func (a *TestRunsAPIService) GetTestRunById(ctx context.Context, id string) ApiG
 }
 
 // Execute executes the request
-//  @return TestRunV2GetModel
-func (a *TestRunsAPIService) GetTestRunByIdExecute(r ApiGetTestRunByIdRequest) (*TestRunV2GetModel, *http.Response, error) {
+//  @return TestRunV2ApiResult
+func (a *TestRunsAPIService) GetTestRunByIdExecute(r ApiGetTestRunByIdRequest) (*TestRunV2ApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestRunV2GetModel
+		localVarReturnValue  *TestRunV2ApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.GetTestRunById")
@@ -4315,11 +4315,11 @@ func (a *TestRunsAPIService) StopTestRunExecute(r ApiStopTestRunRequest) (*http.
 type ApiUpdateEmptyRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
-	testRunV2PutModel *TestRunV2PutModel
+	updateEmptyTestRunApiModel *UpdateEmptyTestRunApiModel
 }
 
-func (r ApiUpdateEmptyRequest) TestRunV2PutModel(testRunV2PutModel TestRunV2PutModel) ApiUpdateEmptyRequest {
-	r.testRunV2PutModel = &testRunV2PutModel
+func (r ApiUpdateEmptyRequest) UpdateEmptyTestRunApiModel(updateEmptyTestRunApiModel UpdateEmptyTestRunApiModel) ApiUpdateEmptyRequest {
+	r.updateEmptyTestRunApiModel = &updateEmptyTestRunApiModel
 	return r
 }
 
@@ -4388,7 +4388,7 @@ func (a *TestRunsAPIService) UpdateEmptyExecute(r ApiUpdateEmptyRequest) (*http.
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testRunV2PutModel
+	localVarPostBody = r.updateEmptyTestRunApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

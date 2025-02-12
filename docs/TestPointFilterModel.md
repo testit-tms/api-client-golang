@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **WorkItemMedianDuration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a test point work item median duration range to search for | [optional] 
 **WorkItemIsDeleted** | Pointer to **NullableBool** | Specifies a test point work item is deleted flag to search for | [optional] 
 **Statuses** | Pointer to [**[]TestPointStatus**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
+**StatusCodes** | Pointer to **[]string** | Specifies a test point status codes to search for | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Specifies a test point automation status to search for | [optional] 
 **Name** | Pointer to **NullableString** | Specifies a test point name to search for | [optional] 
@@ -257,6 +258,41 @@ HasStatuses returns a boolean if a field has been set.
 `func (o *TestPointFilterModel) UnsetStatuses()`
 
 UnsetStatuses ensures that no value is present for Statuses, not even an explicit nil
+### GetStatusCodes
+
+`func (o *TestPointFilterModel) GetStatusCodes() []string`
+
+GetStatusCodes returns the StatusCodes field if non-nil, zero value otherwise.
+
+### GetStatusCodesOk
+
+`func (o *TestPointFilterModel) GetStatusCodesOk() (*[]string, bool)`
+
+GetStatusCodesOk returns a tuple with the StatusCodes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusCodes
+
+`func (o *TestPointFilterModel) SetStatusCodes(v []string)`
+
+SetStatusCodes sets StatusCodes field to given value.
+
+### HasStatusCodes
+
+`func (o *TestPointFilterModel) HasStatusCodes() bool`
+
+HasStatusCodes returns a boolean if a field has been set.
+
+### SetStatusCodesNil
+
+`func (o *TestPointFilterModel) SetStatusCodesNil(b bool)`
+
+ SetStatusCodesNil sets the value for StatusCodes to be an explicit nil
+
+### UnsetStatusCodes
+`func (o *TestPointFilterModel) UnsetStatusCodes()`
+
+UnsetStatusCodes ensures that no value is present for StatusCodes, not even an explicit nil
 ### GetPriorities
 
 `func (o *TestPointFilterModel) GetPriorities() []WorkItemPriorityModel`

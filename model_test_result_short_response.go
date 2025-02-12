@@ -37,7 +37,7 @@ type TestResultShortResponse struct {
 	// Outcome of the test result
 	// Deprecated
 	Outcome NullableString `json:"outcome,omitempty"`
-	Status NullableTestStatus `json:"status,omitempty"`
+	Status NullableTestStatusApiResult `json:"status,omitempty"`
 	// Collection of result reasons which the test result have
 	ResultReasons []AutoTestResultReasonShort `json:"resultReasons"`
 	// Comment to the test result
@@ -284,9 +284,9 @@ func (o *TestResultShortResponse) UnsetOutcome() {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultShortResponse) GetStatus() TestStatus {
+func (o *TestResultShortResponse) GetStatus() TestStatusApiResult {
 	if o == nil || IsNil(o.Status.Get()) {
-		var ret TestStatus
+		var ret TestStatusApiResult
 		return ret
 	}
 	return *o.Status.Get()
@@ -295,7 +295,7 @@ func (o *TestResultShortResponse) GetStatus() TestStatus {
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultShortResponse) GetStatusOk() (*TestStatus, bool) {
+func (o *TestResultShortResponse) GetStatusOk() (*TestStatusApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -311,8 +311,8 @@ func (o *TestResultShortResponse) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given NullableTestStatus and assigns it to the Status field.
-func (o *TestResultShortResponse) SetStatus(v TestStatus) {
+// SetStatus gets a reference to the given NullableTestStatusApiResult and assigns it to the Status field.
+func (o *TestResultShortResponse) SetStatus(v TestStatusApiResult) {
 	o.Status.Set(&v)
 }
 // SetStatusNil sets the value for Status to be an explicit nil

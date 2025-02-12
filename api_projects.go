@@ -2291,7 +2291,7 @@ func (r ApiApiV2ProjectsIdTestRunsFullGetRequest) SearchValue(searchValue string
 	return r
 }
 
-func (r ApiApiV2ProjectsIdTestRunsFullGetRequest) Execute() ([]TestRunModel, *http.Response, error) {
+func (r ApiApiV2ProjectsIdTestRunsFullGetRequest) Execute() ([]TestRunApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsIdTestRunsFullGetExecute(r)
 }
 
@@ -2322,13 +2322,13 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdTestRunsFullGet(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return []TestRunModel
-func (a *ProjectsAPIService) ApiV2ProjectsIdTestRunsFullGetExecute(r ApiApiV2ProjectsIdTestRunsFullGetRequest) ([]TestRunModel, *http.Response, error) {
+//  @return []TestRunApiResult
+func (a *ProjectsAPIService) ApiV2ProjectsIdTestRunsFullGetExecute(r ApiApiV2ProjectsIdTestRunsFullGetRequest) ([]TestRunApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestRunModel
+		localVarReturnValue  []TestRunApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.ApiV2ProjectsIdTestRunsFullGet")
@@ -2345,15 +2345,9 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdTestRunsFullGetExecute(r ApiApiV2Pro
 
 	if r.includeTestResults != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeTestResults", r.includeTestResults, "form", "")
-	} else {
-		var defaultValue bool = false
-		r.includeTestResults = &defaultValue
 	}
 	if r.mustAggregateTestResults != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "mustAggregateTestResults", r.mustAggregateTestResults, "form", "")
-	} else {
-		var defaultValue bool = true
-		r.mustAggregateTestResults = &defaultValue
 	}
 	if r.notStarted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "notStarted", r.notStarted, "form", "")
@@ -4610,7 +4604,7 @@ func (r ApiGetTestRunsByProjectIdRequest) SearchValue(searchValue string) ApiGet
 	return r
 }
 
-func (r ApiGetTestRunsByProjectIdRequest) Execute() ([]TestRunV2GetModel, *http.Response, error) {
+func (r ApiGetTestRunsByProjectIdRequest) Execute() ([]TestRunV2ApiResult, *http.Response, error) {
 	return r.ApiService.GetTestRunsByProjectIdExecute(r)
 }
 
@@ -4643,13 +4637,13 @@ func (a *ProjectsAPIService) GetTestRunsByProjectId(ctx context.Context, id stri
 }
 
 // Execute executes the request
-//  @return []TestRunV2GetModel
-func (a *ProjectsAPIService) GetTestRunsByProjectIdExecute(r ApiGetTestRunsByProjectIdRequest) ([]TestRunV2GetModel, *http.Response, error) {
+//  @return []TestRunV2ApiResult
+func (a *ProjectsAPIService) GetTestRunsByProjectIdExecute(r ApiGetTestRunsByProjectIdRequest) ([]TestRunV2ApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestRunV2GetModel
+		localVarReturnValue  []TestRunV2ApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetTestRunsByProjectId")
@@ -4663,19 +4657,23 @@ func (a *ProjectsAPIService) GetTestRunsByProjectIdExecute(r ApiGetTestRunsByPro
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if r.notStarted == nil {
+		return localVarReturnValue, nil, reportError("notStarted is required and must be specified")
+	}
+	if r.inProgress == nil {
+		return localVarReturnValue, nil, reportError("inProgress is required and must be specified")
+	}
+	if r.stopped == nil {
+		return localVarReturnValue, nil, reportError("stopped is required and must be specified")
+	}
+	if r.completed == nil {
+		return localVarReturnValue, nil, reportError("completed is required and must be specified")
+	}
 
-	if r.notStarted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "notStarted", r.notStarted, "form", "")
-	}
-	if r.inProgress != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "inProgress", r.inProgress, "form", "")
-	}
-	if r.stopped != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "stopped", r.stopped, "form", "")
-	}
-	if r.completed != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "completed", r.completed, "form", "")
-	}
+	parameterAddToHeaderOrQuery(localVarQueryParams, "notStarted", r.notStarted, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "inProgress", r.inProgress, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "stopped", r.stopped, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "completed", r.completed, "form", "")
 	if r.createdDateFrom != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "createdDateFrom", r.createdDateFrom, "form", "")
 	}

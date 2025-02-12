@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **StepComments** | Pointer to [**[]StepComment**](StepComment.md) |  | [optional] 
 **FailureClassIds** | **[]string** |  | 
 **Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
-**Status** | Pointer to [**NullableTestStatus**](TestStatus.md) |  | [optional] 
+**Status** | Pointer to [**NullableTestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]Link**](Link.md) |  | [optional] 
 **StepResults** | Pointer to [**[]StepResult**](StepResult.md) |  | [optional] 
@@ -280,20 +280,20 @@ HasOutcome returns a boolean if a field has been set.
 UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetStatus
 
-`func (o *TestResultResponse) GetStatus() TestStatus`
+`func (o *TestResultResponse) GetStatus() TestStatusApiResult`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *TestResultResponse) GetStatusOk() (*TestStatus, bool)`
+`func (o *TestResultResponse) GetStatusOk() (*TestStatusApiResult, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *TestResultResponse) SetStatus(v TestStatus)`
+`func (o *TestResultResponse) SetStatus(v TestStatusApiResult)`
 
 SetStatus sets Status field to given value.
 

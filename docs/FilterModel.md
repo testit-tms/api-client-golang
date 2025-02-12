@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**Data** | [**WorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  | 
+**Data** | Pointer to [**NullableWorkItemSearchQueryModel**](WorkItemSearchQueryModel.md) |  | [optional] 
 **ProjectId** | **string** |  | 
 **FieldsToShow** | Pointer to **interface{}** |  | [optional] 
 **Name** | **string** |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewFilterModel
 
-`func NewFilterModel(createdDate time.Time, createdById string, data WorkItemSearchQueryModel, projectId string, name string, id string, isDeleted bool, ) *FilterModel`
+`func NewFilterModel(createdDate time.Time, createdById string, projectId string, name string, id string, isDeleted bool, ) *FilterModel`
 
 NewFilterModel instantiates a new FilterModel object
 This constructor will assign default values to properties that have it defined,
@@ -163,7 +163,22 @@ and a boolean to check if the value has been set.
 
 SetData sets Data field to given value.
 
+### HasData
 
+`func (o *FilterModel) HasData() bool`
+
+HasData returns a boolean if a field has been set.
+
+### SetDataNil
+
+`func (o *FilterModel) SetDataNil(b bool)`
+
+ SetDataNil sets the value for Data to be an explicit nil
+
+### UnsetData
+`func (o *FilterModel) UnsetData()`
+
+UnsetData ensures that no value is present for Data, not even an explicit nil
 ### GetProjectId
 
 `func (o *FilterModel) GetProjectId() string`

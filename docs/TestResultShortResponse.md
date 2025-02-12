@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ConfigurationId** | **string** | Unique ID of configuration which the test result uses | 
 **ConfigurationName** | **string** | Name of configuration which the test result uses | 
 **Outcome** | Pointer to **NullableString** | Outcome of the test result | [optional] 
-**Status** | Pointer to [**NullableTestStatus**](TestStatus.md) |  | [optional] 
+**Status** | Pointer to [**NullableTestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **ResultReasons** | [**[]AutoTestResultReasonShort**](AutoTestResultReasonShort.md) | Collection of result reasons which the test result have | 
 **Comment** | Pointer to **NullableString** | Comment to the test result | [optional] 
 **Date** | **time.Time** | Date when the test result was completed or started or created | 
@@ -200,20 +200,20 @@ HasOutcome returns a boolean if a field has been set.
 UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetStatus
 
-`func (o *TestResultShortResponse) GetStatus() TestStatus`
+`func (o *TestResultShortResponse) GetStatus() TestStatusApiResult`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *TestResultShortResponse) GetStatusOk() (*TestStatus, bool)`
+`func (o *TestResultShortResponse) GetStatusOk() (*TestStatusApiResult, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *TestResultShortResponse) SetStatus(v TestStatus)`
+`func (o *TestResultShortResponse) SetStatus(v TestStatusApiResult)`
 
 SetStatus sets Status field to given value.
 

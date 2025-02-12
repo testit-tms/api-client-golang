@@ -26,7 +26,7 @@ type FilterModel struct {
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	Data WorkItemSearchQueryModel `json:"data"`
+	Data NullableWorkItemSearchQueryModel `json:"data,omitempty"`
 	ProjectId string `json:"projectId"`
 	FieldsToShow interface{} `json:"fieldsToShow,omitempty"`
 	Name string `json:"name"`
@@ -42,11 +42,10 @@ type _FilterModel FilterModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFilterModel(createdDate time.Time, createdById string, data WorkItemSearchQueryModel, projectId string, name string, id string, isDeleted bool) *FilterModel {
+func NewFilterModel(createdDate time.Time, createdById string, projectId string, name string, id string, isDeleted bool) *FilterModel {
 	this := FilterModel{}
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
-	this.Data = data
 	this.ProjectId = projectId
 	this.Name = name
 	this.Id = id
@@ -194,28 +193,46 @@ func (o *FilterModel) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
-// GetData returns the Data field value
+// GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FilterModel) GetData() WorkItemSearchQueryModel {
-	if o == nil {
+	if o == nil || IsNil(o.Data.Get()) {
 		var ret WorkItemSearchQueryModel
 		return ret
 	}
-
-	return o.Data
+	return *o.Data.Get()
 }
 
-// GetDataOk returns a tuple with the Data field value
+// GetDataOk returns a tuple with the Data field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FilterModel) GetDataOk() (*WorkItemSearchQueryModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Data, true
+	return o.Data.Get(), o.Data.IsSet()
 }
 
-// SetData sets field value
+// HasData returns a boolean if a field has been set.
+func (o *FilterModel) HasData() bool {
+	if o != nil && o.Data.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetData gets a reference to the given NullableWorkItemSearchQueryModel and assigns it to the Data field.
 func (o *FilterModel) SetData(v WorkItemSearchQueryModel) {
-	o.Data = v
+	o.Data.Set(&v)
+}
+// SetDataNil sets the value for Data to be an explicit nil
+func (o *FilterModel) SetDataNil() {
+	o.Data.Set(nil)
+}
+
+// UnsetData ensures that no value is present for Data, not even an explicit nil
+func (o *FilterModel) UnsetData() {
+	o.Data.Unset()
 }
 
 // GetProjectId returns the ProjectId field value
@@ -365,7 +382,9 @@ func (o FilterModel) ToMap() (map[string]interface{}, error) {
 	if o.ModifiedById.IsSet() {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
-	toSerialize["data"] = o.Data
+	if o.Data.IsSet() {
+		toSerialize["data"] = o.Data.Get()
+	}
 	toSerialize["projectId"] = o.ProjectId
 	if o.FieldsToShow != nil {
 		toSerialize["fieldsToShow"] = o.FieldsToShow
@@ -383,7 +402,6 @@ func (o *FilterModel) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"createdDate",
 		"createdById",
-		"data",
 		"projectId",
 		"name",
 		"id",

@@ -1478,7 +1478,7 @@ type ApiApiV2TestResultsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	testResultsFilterRequest *TestResultsFilterRequest
+	testResultsFilterApiModel *TestResultsFilterApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -1511,8 +1511,8 @@ func (r ApiApiV2TestResultsSearchPostRequest) SearchValue(searchValue string) Ap
 	return r
 }
 
-func (r ApiApiV2TestResultsSearchPostRequest) TestResultsFilterRequest(testResultsFilterRequest TestResultsFilterRequest) ApiApiV2TestResultsSearchPostRequest {
-	r.testResultsFilterRequest = &testResultsFilterRequest
+func (r ApiApiV2TestResultsSearchPostRequest) TestResultsFilterApiModel(testResultsFilterApiModel TestResultsFilterApiModel) ApiApiV2TestResultsSearchPostRequest {
+	r.testResultsFilterApiModel = &testResultsFilterApiModel
 	return r
 }
 
@@ -1587,7 +1587,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testResultsFilterRequest
+	localVarPostBody = r.testResultsFilterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1707,15 +1707,15 @@ func (a *TestResultsAPIService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 type ApiApiV2TestResultsStatisticsFilterPostRequest struct {
 	ctx context.Context
 	ApiService *TestResultsAPIService
-	testResultsFilterRequest *TestResultsFilterRequest
+	testResultsFilterApiModel *TestResultsFilterApiModel
 }
 
-func (r ApiApiV2TestResultsStatisticsFilterPostRequest) TestResultsFilterRequest(testResultsFilterRequest TestResultsFilterRequest) ApiApiV2TestResultsStatisticsFilterPostRequest {
-	r.testResultsFilterRequest = &testResultsFilterRequest
+func (r ApiApiV2TestResultsStatisticsFilterPostRequest) TestResultsFilterApiModel(testResultsFilterApiModel TestResultsFilterApiModel) ApiApiV2TestResultsStatisticsFilterPostRequest {
+	r.testResultsFilterApiModel = &testResultsFilterApiModel
 	return r
 }
 
-func (r ApiApiV2TestResultsStatisticsFilterPostRequest) Execute() (*TestResultsStatisticsResponse, *http.Response, error) {
+func (r ApiApiV2TestResultsStatisticsFilterPostRequest) Execute() (*TestResultsStatisticsApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestResultsStatisticsFilterPostExecute(r)
 }
 
@@ -1733,13 +1733,13 @@ func (a *TestResultsAPIService) ApiV2TestResultsStatisticsFilterPost(ctx context
 }
 
 // Execute executes the request
-//  @return TestResultsStatisticsResponse
-func (a *TestResultsAPIService) ApiV2TestResultsStatisticsFilterPostExecute(r ApiApiV2TestResultsStatisticsFilterPostRequest) (*TestResultsStatisticsResponse, *http.Response, error) {
+//  @return TestResultsStatisticsApiResult
+func (a *TestResultsAPIService) ApiV2TestResultsStatisticsFilterPostExecute(r ApiApiV2TestResultsStatisticsFilterPostRequest) (*TestResultsStatisticsApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestResultsStatisticsResponse
+		localVarReturnValue  *TestResultsStatisticsApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsStatisticsFilterPost")
@@ -1771,7 +1771,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsStatisticsFilterPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.testResultsFilterRequest
+	localVarPostBody = r.testResultsFilterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

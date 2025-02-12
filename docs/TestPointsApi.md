@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## ApiV2TestPointsIdTestRunsGet
 
-> []TestRunModel ApiV2TestPointsIdTestRunsGet(ctx, id).Execute()
+> []TestRunApiResult ApiV2TestPointsIdTestRunsGet(ctx, id).Execute()
 
 Get all test runs which use test point
 
@@ -39,7 +39,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPointsAPI.ApiV2TestPointsIdTestRunsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestPointsIdTestRunsGet`: []TestRunModel
+	// response from `ApiV2TestPointsIdTestRunsGet`: []TestRunApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestPointsAPI.ApiV2TestPointsIdTestRunsGet`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestRunModel**](TestRunModel.md)
+[**[]TestRunApiResult**](TestRunApiResult.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPointsSearchIdPost
 
-> []string ApiV2TestPointsSearchIdPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+> []string ApiV2TestPointsSearchIdPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterRequestModel(testPointFilterRequestModel).Execute()
 
 Search for test points and extract IDs only
 
@@ -171,11 +171,11 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testPointFilterModel := *openapiclient.NewTestPointFilterModel() // TestPointFilterModel |  (optional)
+	testPointFilterRequestModel := *openapiclient.NewTestPointFilterRequestModel() // TestPointFilterRequestModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsSearchIdPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsSearchIdPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterRequestModel(testPointFilterRequestModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPointsAPI.ApiV2TestPointsSearchIdPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md) |  | 
+ **testPointFilterRequestModel** | [**TestPointFilterRequestModel**](TestPointFilterRequestModel.md) |  | 
 
 ### Return type
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestPointsSearchPost
 
-> []TestPointShortGetModel ApiV2TestPointsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+> []TestPointShortResponseModel ApiV2TestPointsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterRequestModel(testPointFilterRequestModel).Execute()
 
 Search for test points
 
@@ -245,16 +245,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testPointFilterModel := *openapiclient.NewTestPointFilterModel() // TestPointFilterModel |  (optional)
+	testPointFilterRequestModel := *openapiclient.NewTestPointFilterRequestModel() // TestPointFilterRequestModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterModel(testPointFilterModel).Execute()
+	resp, r, err := apiClient.TestPointsAPI.ApiV2TestPointsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestPointFilterRequestModel(testPointFilterRequestModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPointsAPI.ApiV2TestPointsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestPointsSearchPost`: []TestPointShortGetModel
+	// response from `ApiV2TestPointsSearchPost`: []TestPointShortResponseModel
 	fmt.Fprintf(os.Stdout, "Response from `TestPointsAPI.ApiV2TestPointsSearchPost`: %v\n", resp)
 }
 ```
@@ -275,11 +275,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testPointFilterModel** | [**TestPointFilterModel**](TestPointFilterModel.md) |  | 
+ **testPointFilterRequestModel** | [**TestPointFilterRequestModel**](TestPointFilterRequestModel.md) |  | 
 
 ### Return type
 
-[**[]TestPointShortGetModel**](TestPointShortGetModel.md)
+[**[]TestPointShortResponseModel**](TestPointShortResponseModel.md)
 
 ### Authorization
 

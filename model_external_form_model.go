@@ -23,7 +23,6 @@ var _ MappedNullable = &ExternalFormModel{}
 type ExternalFormModel struct {
 	Fields []ExternalFormFieldModel `json:"fields"`
 	PossibleValues map[string][]ExternalFormAllowedValueModel `json:"possibleValues"`
-	Links []ExternalFormLinkModel `json:"links"`
 }
 
 type _ExternalFormModel ExternalFormModel
@@ -32,11 +31,10 @@ type _ExternalFormModel ExternalFormModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewExternalFormModel(fields []ExternalFormFieldModel, possibleValues map[string][]ExternalFormAllowedValueModel, links []ExternalFormLinkModel) *ExternalFormModel {
+func NewExternalFormModel(fields []ExternalFormFieldModel, possibleValues map[string][]ExternalFormAllowedValueModel) *ExternalFormModel {
 	this := ExternalFormModel{}
 	this.Fields = fields
 	this.PossibleValues = possibleValues
-	this.Links = links
 	return &this
 }
 
@@ -96,30 +94,6 @@ func (o *ExternalFormModel) SetPossibleValues(v map[string][]ExternalFormAllowed
 	o.PossibleValues = v
 }
 
-// GetLinks returns the Links field value
-func (o *ExternalFormModel) GetLinks() []ExternalFormLinkModel {
-	if o == nil {
-		var ret []ExternalFormLinkModel
-		return ret
-	}
-
-	return o.Links
-}
-
-// GetLinksOk returns a tuple with the Links field value
-// and a boolean to check if the value has been set.
-func (o *ExternalFormModel) GetLinksOk() ([]ExternalFormLinkModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Links, true
-}
-
-// SetLinks sets field value
-func (o *ExternalFormModel) SetLinks(v []ExternalFormLinkModel) {
-	o.Links = v
-}
-
 func (o ExternalFormModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -132,7 +106,6 @@ func (o ExternalFormModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["fields"] = o.Fields
 	toSerialize["possibleValues"] = o.PossibleValues
-	toSerialize["links"] = o.Links
 	return toSerialize, nil
 }
 
@@ -143,7 +116,6 @@ func (o *ExternalFormModel) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"fields",
 		"possibleValues",
-		"links",
 	}
 
 	allProperties := make(map[string]interface{})

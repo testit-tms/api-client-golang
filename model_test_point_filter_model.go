@@ -30,7 +30,10 @@ type TestPointFilterModel struct {
 	// Specifies a test point work item is deleted flag to search for
 	WorkItemIsDeleted NullableBool `json:"workItemIsDeleted,omitempty"`
 	// Specifies a test point statuses to search for
+	// Deprecated
 	Statuses []TestPointStatus `json:"statuses,omitempty"`
+	// Specifies a test point status codes to search for
+	StatusCodes []string `json:"statusCodes,omitempty"`
 	// Specifies a test point priorities to search for
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
 	// Specifies a test point automation status to search for
@@ -268,6 +271,7 @@ func (o *TestPointFilterModel) UnsetWorkItemIsDeleted() {
 }
 
 // GetStatuses returns the Statuses field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *TestPointFilterModel) GetStatuses() []TestPointStatus {
 	if o == nil {
 		var ret []TestPointStatus
@@ -279,6 +283,7 @@ func (o *TestPointFilterModel) GetStatuses() []TestPointStatus {
 // GetStatusesOk returns a tuple with the Statuses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *TestPointFilterModel) GetStatusesOk() ([]TestPointStatus, bool) {
 	if o == nil || IsNil(o.Statuses) {
 		return nil, false
@@ -296,8 +301,42 @@ func (o *TestPointFilterModel) HasStatuses() bool {
 }
 
 // SetStatuses gets a reference to the given []TestPointStatus and assigns it to the Statuses field.
+// Deprecated
 func (o *TestPointFilterModel) SetStatuses(v []TestPointStatus) {
 	o.Statuses = v
+}
+
+// GetStatusCodes returns the StatusCodes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetStatusCodes() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.StatusCodes
+}
+
+// GetStatusCodesOk returns a tuple with the StatusCodes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetStatusCodesOk() ([]string, bool) {
+	if o == nil || IsNil(o.StatusCodes) {
+		return nil, false
+	}
+	return o.StatusCodes, true
+}
+
+// HasStatusCodes returns a boolean if a field has been set.
+func (o *TestPointFilterModel) HasStatusCodes() bool {
+	if o != nil && !IsNil(o.StatusCodes) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusCodes gets a reference to the given []string and assigns it to the StatusCodes field.
+func (o *TestPointFilterModel) SetStatusCodes(v []string) {
+	o.StatusCodes = v
 }
 
 // GetPriorities returns the Priorities field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -951,6 +990,9 @@ func (o TestPointFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Statuses != nil {
 		toSerialize["statuses"] = o.Statuses
+	}
+	if o.StatusCodes != nil {
+		toSerialize["statusCodes"] = o.StatusCodes
 	}
 	if o.Priorities != nil {
 		toSerialize["priorities"] = o.Priorities

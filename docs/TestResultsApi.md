@@ -42,7 +42,7 @@ import (
 
 func main() {
 	externalProjectId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	testResultsSelectApiModel := *openapiclient.NewTestResultsSelectApiModel(*openapiclient.NewTestResultsFilterRequest(), *openapiclient.NewTestResultsExtractionApiModel()) // TestResultsSelectApiModel |  (optional)
+	testResultsSelectApiModel := *openapiclient.NewTestResultsSelectApiModel(*openapiclient.NewTestResultsFilterApiModel(), *openapiclient.NewTestResultsExtractionApiModel()) // TestResultsSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -573,7 +573,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsSearchPost
 
-> []TestResultShortResponse ApiV2TestResultsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterRequest(testResultsFilterRequest).Execute()
+> []TestResultShortResponse ApiV2TestResultsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterApiModel(testResultsFilterApiModel).Execute()
 
 Search for test results
 
@@ -595,11 +595,11 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	testResultsFilterRequest := *openapiclient.NewTestResultsFilterRequest() // TestResultsFilterRequest |  (optional)
+	testResultsFilterApiModel := *openapiclient.NewTestResultsFilterApiModel() // TestResultsFilterApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterRequest(testResultsFilterRequest).Execute()
+	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).TestResultsFilterApiModel(testResultsFilterApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **testResultsFilterRequest** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md) |  | 
+ **testResultsFilterApiModel** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md) |  | 
 
 ### Return type
 
@@ -647,7 +647,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsStatisticsFilterPost
 
-> TestResultsStatisticsResponse ApiV2TestResultsStatisticsFilterPost(ctx).TestResultsFilterRequest(testResultsFilterRequest).Execute()
+> TestResultsStatisticsApiResult ApiV2TestResultsStatisticsFilterPost(ctx).TestResultsFilterApiModel(testResultsFilterApiModel).Execute()
 
 Search for test results and extract statistics
 
@@ -664,16 +664,16 @@ import (
 )
 
 func main() {
-	testResultsFilterRequest := *openapiclient.NewTestResultsFilterRequest() // TestResultsFilterRequest |  (optional)
+	testResultsFilterApiModel := *openapiclient.NewTestResultsFilterApiModel() // TestResultsFilterApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsStatisticsFilterPost(context.Background()).TestResultsFilterRequest(testResultsFilterRequest).Execute()
+	resp, r, err := apiClient.TestResultsAPI.ApiV2TestResultsStatisticsFilterPost(context.Background()).TestResultsFilterApiModel(testResultsFilterApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsStatisticsFilterPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestResultsStatisticsFilterPost`: TestResultsStatisticsResponse
+	// response from `ApiV2TestResultsStatisticsFilterPost`: TestResultsStatisticsApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsStatisticsFilterPost`: %v\n", resp)
 }
 ```
@@ -689,11 +689,11 @@ Other parameters are passed through a pointer to a apiApiV2TestResultsStatistics
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testResultsFilterRequest** | [**TestResultsFilterRequest**](TestResultsFilterRequest.md) |  | 
+ **testResultsFilterApiModel** | [**TestResultsFilterApiModel**](TestResultsFilterApiModel.md) |  | 
 
 ### Return type
 
-[**TestResultsStatisticsResponse**](TestResultsStatisticsResponse.md)
+[**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md)
 
 ### Authorization
 

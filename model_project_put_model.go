@@ -29,9 +29,6 @@ type ProjectPutModel struct {
 	Name string `json:"name"`
 	// Indicates if the project is marked as favorite
 	IsFavorite NullableBool `json:"isFavorite,omitempty"`
-	// Indicates if the status \"Flaky/Stable\" sets automatically
-	// Deprecated
-	IsFlakyAuto NullableBool `json:"isFlakyAuto,omitempty"`
 	// Type of the project
 	Type ProjectTypeModel `json:"type"`
 }
@@ -190,51 +187,6 @@ func (o *ProjectPutModel) UnsetIsFavorite() {
 	o.IsFavorite.Unset()
 }
 
-// GetIsFlakyAuto returns the IsFlakyAuto field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
-func (o *ProjectPutModel) GetIsFlakyAuto() bool {
-	if o == nil || IsNil(o.IsFlakyAuto.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.IsFlakyAuto.Get()
-}
-
-// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
-func (o *ProjectPutModel) GetIsFlakyAutoOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.IsFlakyAuto.Get(), o.IsFlakyAuto.IsSet()
-}
-
-// HasIsFlakyAuto returns a boolean if a field has been set.
-func (o *ProjectPutModel) HasIsFlakyAuto() bool {
-	if o != nil && o.IsFlakyAuto.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIsFlakyAuto gets a reference to the given NullableBool and assigns it to the IsFlakyAuto field.
-// Deprecated
-func (o *ProjectPutModel) SetIsFlakyAuto(v bool) {
-	o.IsFlakyAuto.Set(&v)
-}
-// SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
-func (o *ProjectPutModel) SetIsFlakyAutoNil() {
-	o.IsFlakyAuto.Set(nil)
-}
-
-// UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
-func (o *ProjectPutModel) UnsetIsFlakyAuto() {
-	o.IsFlakyAuto.Unset()
-}
-
 // GetType returns the Type field value
 func (o *ProjectPutModel) GetType() ProjectTypeModel {
 	if o == nil {
@@ -276,9 +228,6 @@ func (o ProjectPutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	if o.IsFavorite.IsSet() {
 		toSerialize["isFavorite"] = o.IsFavorite.Get()
-	}
-	if o.IsFlakyAuto.IsSet() {
-		toSerialize["isFlakyAuto"] = o.IsFlakyAuto.Get()
 	}
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
