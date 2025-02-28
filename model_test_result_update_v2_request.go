@@ -25,7 +25,7 @@ type TestResultUpdateV2Request struct {
 	StatusCode NullableString `json:"statusCode,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []Link `json:"links,omitempty"`
-	StepResults []StepResult `json:"stepResults,omitempty"`
+	StepResults []StepResultApiModel `json:"stepResults,omitempty"`
 	Attachments []AttachmentUpdateRequest `json:"attachments,omitempty"`
 	// Deprecated
 	DurationInMs NullableInt64 `json:"durationInMs,omitempty"`
@@ -250,9 +250,9 @@ func (o *TestResultUpdateV2Request) SetLinks(v []Link) {
 }
 
 // GetStepResults returns the StepResults field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultUpdateV2Request) GetStepResults() []StepResult {
+func (o *TestResultUpdateV2Request) GetStepResults() []StepResultApiModel {
 	if o == nil {
-		var ret []StepResult
+		var ret []StepResultApiModel
 		return ret
 	}
 	return o.StepResults
@@ -261,7 +261,7 @@ func (o *TestResultUpdateV2Request) GetStepResults() []StepResult {
 // GetStepResultsOk returns a tuple with the StepResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultUpdateV2Request) GetStepResultsOk() ([]StepResult, bool) {
+func (o *TestResultUpdateV2Request) GetStepResultsOk() ([]StepResultApiModel, bool) {
 	if o == nil || IsNil(o.StepResults) {
 		return nil, false
 	}
@@ -277,8 +277,8 @@ func (o *TestResultUpdateV2Request) HasStepResults() bool {
 	return false
 }
 
-// SetStepResults gets a reference to the given []StepResult and assigns it to the StepResults field.
-func (o *TestResultUpdateV2Request) SetStepResults(v []StepResult) {
+// SetStepResults gets a reference to the given []StepResultApiModel and assigns it to the StepResults field.
+func (o *TestResultUpdateV2Request) SetStepResults(v []StepResultApiModel) {
 	o.StepResults = v
 }
 

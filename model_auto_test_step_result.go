@@ -37,7 +37,7 @@ type AutoTestStepResult struct {
 	// Nested step results. The maximum nesting level is 15.
 	StepResults []AutoTestStepResult `json:"stepResults,omitempty"`
 	// /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>
-	Attachments []Attachment `json:"attachments,omitempty"`
+	Attachments []AttachmentApiResult `json:"attachments,omitempty"`
 	// \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.
 	Parameters map[string]string `json:"parameters,omitempty"`
 }
@@ -387,9 +387,9 @@ func (o *AutoTestStepResult) SetStepResults(v []AutoTestStepResult) {
 }
 
 // GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestStepResult) GetAttachments() []Attachment {
+func (o *AutoTestStepResult) GetAttachments() []AttachmentApiResult {
 	if o == nil {
-		var ret []Attachment
+		var ret []AttachmentApiResult
 		return ret
 	}
 	return o.Attachments
@@ -398,7 +398,7 @@ func (o *AutoTestStepResult) GetAttachments() []Attachment {
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestStepResult) GetAttachmentsOk() ([]Attachment, bool) {
+func (o *AutoTestStepResult) GetAttachmentsOk() ([]AttachmentApiResult, bool) {
 	if o == nil || IsNil(o.Attachments) {
 		return nil, false
 	}
@@ -414,8 +414,8 @@ func (o *AutoTestStepResult) HasAttachments() bool {
 	return false
 }
 
-// SetAttachments gets a reference to the given []Attachment and assigns it to the Attachments field.
-func (o *AutoTestStepResult) SetAttachments(v []Attachment) {
+// SetAttachments gets a reference to the given []AttachmentApiResult and assigns it to the Attachments field.
+func (o *AutoTestStepResult) SetAttachments(v []AttachmentApiResult) {
 	o.Attachments = v
 }
 

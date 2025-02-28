@@ -27,15 +27,15 @@ type TestResultResponse struct {
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
-	StepComments []StepComment `json:"stepComments,omitempty"`
+	StepComments []StepCommentApiModel `json:"stepComments,omitempty"`
 	FailureClassIds []string `json:"failureClassIds"`
 	// Deprecated
 	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
 	Status NullableTestStatusApiResult `json:"status,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []Link `json:"links,omitempty"`
-	StepResults []StepResult `json:"stepResults,omitempty"`
-	Attachments []Attachment `json:"attachments,omitempty"`
+	StepResults []StepResultApiModel `json:"stepResults,omitempty"`
+	Attachments []AttachmentApiResult `json:"attachments,omitempty"`
 	AutoTestId NullableString `json:"autoTestId,omitempty"`
 	ConfigurationId string `json:"configurationId"`
 	StartedOn NullableTime `json:"startedOn,omitempty"`
@@ -243,9 +243,9 @@ func (o *TestResultResponse) UnsetModifiedById() {
 }
 
 // GetStepComments returns the StepComments field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultResponse) GetStepComments() []StepComment {
+func (o *TestResultResponse) GetStepComments() []StepCommentApiModel {
 	if o == nil {
-		var ret []StepComment
+		var ret []StepCommentApiModel
 		return ret
 	}
 	return o.StepComments
@@ -254,7 +254,7 @@ func (o *TestResultResponse) GetStepComments() []StepComment {
 // GetStepCommentsOk returns a tuple with the StepComments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultResponse) GetStepCommentsOk() ([]StepComment, bool) {
+func (o *TestResultResponse) GetStepCommentsOk() ([]StepCommentApiModel, bool) {
 	if o == nil || IsNil(o.StepComments) {
 		return nil, false
 	}
@@ -270,8 +270,8 @@ func (o *TestResultResponse) HasStepComments() bool {
 	return false
 }
 
-// SetStepComments gets a reference to the given []StepComment and assigns it to the StepComments field.
-func (o *TestResultResponse) SetStepComments(v []StepComment) {
+// SetStepComments gets a reference to the given []StepCommentApiModel and assigns it to the StepComments field.
+func (o *TestResultResponse) SetStepComments(v []StepCommentApiModel) {
 	o.StepComments = v
 }
 
@@ -462,9 +462,9 @@ func (o *TestResultResponse) SetLinks(v []Link) {
 }
 
 // GetStepResults returns the StepResults field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultResponse) GetStepResults() []StepResult {
+func (o *TestResultResponse) GetStepResults() []StepResultApiModel {
 	if o == nil {
-		var ret []StepResult
+		var ret []StepResultApiModel
 		return ret
 	}
 	return o.StepResults
@@ -473,7 +473,7 @@ func (o *TestResultResponse) GetStepResults() []StepResult {
 // GetStepResultsOk returns a tuple with the StepResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultResponse) GetStepResultsOk() ([]StepResult, bool) {
+func (o *TestResultResponse) GetStepResultsOk() ([]StepResultApiModel, bool) {
 	if o == nil || IsNil(o.StepResults) {
 		return nil, false
 	}
@@ -489,15 +489,15 @@ func (o *TestResultResponse) HasStepResults() bool {
 	return false
 }
 
-// SetStepResults gets a reference to the given []StepResult and assigns it to the StepResults field.
-func (o *TestResultResponse) SetStepResults(v []StepResult) {
+// SetStepResults gets a reference to the given []StepResultApiModel and assigns it to the StepResults field.
+func (o *TestResultResponse) SetStepResults(v []StepResultApiModel) {
 	o.StepResults = v
 }
 
 // GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultResponse) GetAttachments() []Attachment {
+func (o *TestResultResponse) GetAttachments() []AttachmentApiResult {
 	if o == nil {
-		var ret []Attachment
+		var ret []AttachmentApiResult
 		return ret
 	}
 	return o.Attachments
@@ -506,7 +506,7 @@ func (o *TestResultResponse) GetAttachments() []Attachment {
 // GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultResponse) GetAttachmentsOk() ([]Attachment, bool) {
+func (o *TestResultResponse) GetAttachmentsOk() ([]AttachmentApiResult, bool) {
 	if o == nil || IsNil(o.Attachments) {
 		return nil, false
 	}
@@ -522,8 +522,8 @@ func (o *TestResultResponse) HasAttachments() bool {
 	return false
 }
 
-// SetAttachments gets a reference to the given []Attachment and assigns it to the Attachments field.
-func (o *TestResultResponse) SetAttachments(v []Attachment) {
+// SetAttachments gets a reference to the given []AttachmentApiResult and assigns it to the Attachments field.
+func (o *TestResultResponse) SetAttachments(v []AttachmentApiResult) {
 	o.Attachments = v
 }
 

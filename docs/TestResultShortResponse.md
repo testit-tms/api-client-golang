@@ -21,14 +21,14 @@ Name | Type | Description | Notes
 **CompletedOn** | Pointer to **NullableTime** | Date when the test result has been completed | [optional] 
 **Duration** | Pointer to **NullableInt64** | Time which it took to run the test | [optional] 
 **Links** | [**[]LinkShort**](LinkShort.md) | Collection of links attached to the test result | 
-**Attachments** | [**[]Attachment**](Attachment.md) | Collection of files attached to the test result | 
+**Attachments** | [**[]AttachmentApiResult**](AttachmentApiResult.md) | Collection of files attached to the test result | 
 **RerunCompletedCount** | **int32** | Run count | 
 
 ## Methods
 
 ### NewTestResultShortResponse
 
-`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []Attachment, rerunCompletedCount int32, ) *TestResultShortResponse`
+`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32, ) *TestResultShortResponse`
 
 NewTestResultShortResponse instantiates a new TestResultShortResponse object
 This constructor will assign default values to properties that have it defined,
@@ -490,20 +490,20 @@ SetLinks sets Links field to given value.
 
 ### GetAttachments
 
-`func (o *TestResultShortResponse) GetAttachments() []Attachment`
+`func (o *TestResultShortResponse) GetAttachments() []AttachmentApiResult`
 
 GetAttachments returns the Attachments field if non-nil, zero value otherwise.
 
 ### GetAttachmentsOk
 
-`func (o *TestResultShortResponse) GetAttachmentsOk() (*[]Attachment, bool)`
+`func (o *TestResultShortResponse) GetAttachmentsOk() (*[]AttachmentApiResult, bool)`
 
 GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachments
 
-`func (o *TestResultShortResponse) SetAttachments(v []Attachment)`
+`func (o *TestResultShortResponse) SetAttachments(v []AttachmentApiResult)`
 
 SetAttachments sets Attachments field to given value.
 

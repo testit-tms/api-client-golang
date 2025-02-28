@@ -23,6 +23,8 @@ var _ MappedNullable = &TestPointShortApiResult{}
 type TestPointShortApiResult struct {
 	// Test point unique internal identifier
 	Id string `json:"id"`
+	// Indicates if the entity is deleted
+	IsDeleted bool `json:"isDeleted"`
 	// Tester who is responded for the test unique internal identifier
 	TesterId NullableString `json:"testerId,omitempty"`
 	// Workitem to which test point relates unique identifier
@@ -50,9 +52,10 @@ type _TestPointShortApiResult TestPointShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointShortApiResult(id string, statusModel TestStatusApiResult, iterationId string, testSuiteId string) *TestPointShortApiResult {
+func NewTestPointShortApiResult(id string, isDeleted bool, statusModel TestStatusApiResult, iterationId string, testSuiteId string) *TestPointShortApiResult {
 	this := TestPointShortApiResult{}
 	this.Id = id
+	this.IsDeleted = isDeleted
 	this.StatusModel = statusModel
 	this.IterationId = iterationId
 	this.TestSuiteId = testSuiteId
@@ -89,6 +92,30 @@ func (o *TestPointShortApiResult) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *TestPointShortApiResult) SetId(v string) {
 	o.Id = v
+}
+
+// GetIsDeleted returns the IsDeleted field value
+func (o *TestPointShortApiResult) GetIsDeleted() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsDeleted
+}
+
+// GetIsDeletedOk returns a tuple with the IsDeleted field value
+// and a boolean to check if the value has been set.
+func (o *TestPointShortApiResult) GetIsDeletedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsDeleted, true
+}
+
+// SetIsDeleted sets field value
+func (o *TestPointShortApiResult) SetIsDeleted(v bool) {
+	o.IsDeleted = v
 }
 
 // GetTesterId returns the TesterId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -429,6 +456,7 @@ func (o TestPointShortApiResult) MarshalJSON() ([]byte, error) {
 func (o TestPointShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	toSerialize["isDeleted"] = o.IsDeleted
 	if o.TesterId.IsSet() {
 		toSerialize["testerId"] = o.TesterId.Get()
 	}
@@ -459,6 +487,7 @@ func (o *TestPointShortApiResult) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
+		"isDeleted",
 		"statusModel",
 		"iterationId",
 		"testSuiteId",

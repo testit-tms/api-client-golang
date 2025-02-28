@@ -625,7 +625,7 @@ type ApiApiV2AutoTestsIdTestResultsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	autotestHistoricalResultSelectModel *AutotestHistoricalResultSelectModel
+	autoTestResultHistorySelectApiModel *AutoTestResultHistorySelectApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -658,12 +658,12 @@ func (r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) SearchValue(searchValue
 	return r
 }
 
-func (r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) AutotestHistoricalResultSelectModel(autotestHistoricalResultSelectModel AutotestHistoricalResultSelectModel) ApiApiV2AutoTestsIdTestResultsSearchPostRequest {
-	r.autotestHistoricalResultSelectModel = &autotestHistoricalResultSelectModel
+func (r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) AutoTestResultHistorySelectApiModel(autoTestResultHistorySelectApiModel AutoTestResultHistorySelectApiModel) ApiApiV2AutoTestsIdTestResultsSearchPostRequest {
+	r.autoTestResultHistorySelectApiModel = &autoTestResultHistorySelectApiModel
 	return r
 }
 
-func (r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) Execute() ([]AutotestResultHistoricalGetModel, *http.Response, error) {
+func (r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) Execute() ([]AutoTestResultHistoryApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2AutoTestsIdTestResultsSearchPostExecute(r)
 }
 
@@ -696,13 +696,13 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdTestResultsSearchPost(ctx context.
 }
 
 // Execute executes the request
-//  @return []AutotestResultHistoricalGetModel
-func (a *AutoTestsAPIService) ApiV2AutoTestsIdTestResultsSearchPostExecute(r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) ([]AutotestResultHistoricalGetModel, *http.Response, error) {
+//  @return []AutoTestResultHistoryApiResult
+func (a *AutoTestsAPIService) ApiV2AutoTestsIdTestResultsSearchPostExecute(r ApiApiV2AutoTestsIdTestResultsSearchPostRequest) ([]AutoTestResultHistoryApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []AutotestResultHistoricalGetModel
+		localVarReturnValue  []AutoTestResultHistoryApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.ApiV2AutoTestsIdTestResultsSearchPost")
@@ -750,7 +750,7 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsIdTestResultsSearchPostExecute(r Api
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.autotestHistoricalResultSelectModel
+	localVarPostBody = r.autoTestResultHistorySelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3279,7 +3279,7 @@ type ApiGetTestRunsRequest struct {
 	id string
 }
 
-func (r ApiGetTestRunsRequest) Execute() ([]TestRunShortModel, *http.Response, error) {
+func (r ApiGetTestRunsRequest) Execute() ([]TestRunByAutoTestApiResult, *http.Response, error) {
 	return r.ApiService.GetTestRunsExecute(r)
 }
 
@@ -3310,13 +3310,13 @@ func (a *AutoTestsAPIService) GetTestRuns(ctx context.Context, id string) ApiGet
 }
 
 // Execute executes the request
-//  @return []TestRunShortModel
-func (a *AutoTestsAPIService) GetTestRunsExecute(r ApiGetTestRunsRequest) ([]TestRunShortModel, *http.Response, error) {
+//  @return []TestRunByAutoTestApiResult
+func (a *AutoTestsAPIService) GetTestRunsExecute(r ApiGetTestRunsRequest) ([]TestRunByAutoTestApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestRunShortModel
+		localVarReturnValue  []TestRunByAutoTestApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.GetTestRuns")

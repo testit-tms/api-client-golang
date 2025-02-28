@@ -47,7 +47,7 @@ type TestResultApiResult struct {
 	Attachments []AttachmentApiResult `json:"attachments"`
 	Links []LinkApiResult `json:"links"`
 	FailureClasses []TestResultFailureClassApiResult `json:"failureClasses"`
-	StepComments []StepCommentApiResult `json:"stepComments,omitempty"`
+	StepComments []StepCommentApiModel `json:"stepComments,omitempty"`
 	Parameters map[string]string `json:"parameters,omitempty"`
 	Properties map[string]string `json:"properties,omitempty"`
 	CreatedDate time.Time `json:"createdDate"`
@@ -967,9 +967,9 @@ func (o *TestResultApiResult) SetFailureClasses(v []TestResultFailureClassApiRes
 }
 
 // GetStepComments returns the StepComments field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultApiResult) GetStepComments() []StepCommentApiResult {
+func (o *TestResultApiResult) GetStepComments() []StepCommentApiModel {
 	if o == nil {
-		var ret []StepCommentApiResult
+		var ret []StepCommentApiModel
 		return ret
 	}
 	return o.StepComments
@@ -978,7 +978,7 @@ func (o *TestResultApiResult) GetStepComments() []StepCommentApiResult {
 // GetStepCommentsOk returns a tuple with the StepComments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultApiResult) GetStepCommentsOk() ([]StepCommentApiResult, bool) {
+func (o *TestResultApiResult) GetStepCommentsOk() ([]StepCommentApiModel, bool) {
 	if o == nil || IsNil(o.StepComments) {
 		return nil, false
 	}
@@ -994,8 +994,8 @@ func (o *TestResultApiResult) HasStepComments() bool {
 	return false
 }
 
-// SetStepComments gets a reference to the given []StepCommentApiResult and assigns it to the StepComments field.
-func (o *TestResultApiResult) SetStepComments(v []StepCommentApiResult) {
+// SetStepComments gets a reference to the given []StepCommentApiModel and assigns it to the StepComments field.
+func (o *TestResultApiResult) SetStepComments(v []StepCommentApiModel) {
 	o.StepComments = v
 }
 

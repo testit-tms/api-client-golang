@@ -1412,6 +1412,7 @@ type ApiApiV2WorkItemsIdTestResultsHistoryGetRequest struct {
 	testPlanIds *[]string
 	userIds *[]string
 	outcomes *[]string
+	statusCodes *[]string
 	isAutomated *bool
 	automated *bool
 	testRunIds *[]string
@@ -1455,6 +1456,12 @@ func (r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) UserIds(userIds []strin
 // List of outcomes of test results
 func (r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) Outcomes(outcomes []string) ApiApiV2WorkItemsIdTestResultsHistoryGetRequest {
 	r.outcomes = &outcomes
+	return r
+}
+
+// List of status codes of test results
+func (r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) StatusCodes(statusCodes []string) ApiApiV2WorkItemsIdTestResultsHistoryGetRequest {
+	r.statusCodes = &statusCodes
 	return r
 }
 
@@ -1506,7 +1513,7 @@ func (r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) SearchValue(searchValue
 	return r
 }
 
-func (r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) Execute() ([]TestResultHistoryResponse, *http.Response, error) {
+func (r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) Execute() ([]TestResultHistoryReportApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2WorkItemsIdTestResultsHistoryGetExecute(r)
 }
 
@@ -1535,13 +1542,13 @@ func (a *WorkItemsAPIService) ApiV2WorkItemsIdTestResultsHistoryGet(ctx context.
 }
 
 // Execute executes the request
-//  @return []TestResultHistoryResponse
-func (a *WorkItemsAPIService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) ([]TestResultHistoryResponse, *http.Response, error) {
+//  @return []TestResultHistoryReportApiResult
+func (a *WorkItemsAPIService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r ApiApiV2WorkItemsIdTestResultsHistoryGetRequest) ([]TestResultHistoryReportApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestResultHistoryResponse
+		localVarReturnValue  []TestResultHistoryReportApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsIdTestResultsHistoryGet")
@@ -1604,6 +1611,17 @@ func (a *WorkItemsAPIService) ApiV2WorkItemsIdTestResultsHistoryGetExecute(r Api
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "outcomes", t, "form", "multi")
+		}
+	}
+	if r.statusCodes != nil {
+		t := *r.statusCodes
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "statusCodes", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "statusCodes", t, "form", "multi")
 		}
 	}
 	if r.isAutomated != nil {
@@ -1964,6 +1982,240 @@ func (a *WorkItemsAPIService) ApiV2WorkItemsIdVersionVersionIdActualPostExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiApiV2WorkItemsLinksUrlsSearchPostRequest struct {
+	ctx context.Context
+	ApiService *WorkItemsAPIService
+	skip *int32
+	take *int32
+	orderBy *string
+	searchField *string
+	searchValue *string
+	workItemLinkUrlApiModel *WorkItemLinkUrlApiModel
+}
+
+// Amount of items to be skipped (offset)
+func (r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) Skip(skip int32) ApiApiV2WorkItemsLinksUrlsSearchPostRequest {
+	r.skip = &skip
+	return r
+}
+
+// Amount of items to be taken (limit)
+func (r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) Take(take int32) ApiApiV2WorkItemsLinksUrlsSearchPostRequest {
+	r.take = &take
+	return r
+}
+
+// SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+func (r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) OrderBy(orderBy string) ApiApiV2WorkItemsLinksUrlsSearchPostRequest {
+	r.orderBy = &orderBy
+	return r
+}
+
+// Property name for searching
+func (r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) SearchField(searchField string) ApiApiV2WorkItemsLinksUrlsSearchPostRequest {
+	r.searchField = &searchField
+	return r
+}
+
+// Value for searching
+func (r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) SearchValue(searchValue string) ApiApiV2WorkItemsLinksUrlsSearchPostRequest {
+	r.searchValue = &searchValue
+	return r
+}
+
+func (r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) WorkItemLinkUrlApiModel(workItemLinkUrlApiModel WorkItemLinkUrlApiModel) ApiApiV2WorkItemsLinksUrlsSearchPostRequest {
+	r.workItemLinkUrlApiModel = &workItemLinkUrlApiModel
+	return r
+}
+
+func (r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) Execute() (*SearchWorkItemLinkUrlsApiResult, *http.Response, error) {
+	return r.ApiService.ApiV2WorkItemsLinksUrlsSearchPostExecute(r)
+}
+
+/*
+ApiV2WorkItemsLinksUrlsSearchPost Method for ApiV2WorkItemsLinksUrlsSearchPost
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiApiV2WorkItemsLinksUrlsSearchPostRequest
+*/
+func (a *WorkItemsAPIService) ApiV2WorkItemsLinksUrlsSearchPost(ctx context.Context) ApiApiV2WorkItemsLinksUrlsSearchPostRequest {
+	return ApiApiV2WorkItemsLinksUrlsSearchPostRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return SearchWorkItemLinkUrlsApiResult
+func (a *WorkItemsAPIService) ApiV2WorkItemsLinksUrlsSearchPostExecute(r ApiApiV2WorkItemsLinksUrlsSearchPostRequest) (*SearchWorkItemLinkUrlsApiResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SearchWorkItemLinkUrlsApiResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsLinksUrlsSearchPost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/workItems/links/urls/search"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.skip != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
+	}
+	if r.take != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
+	}
+	if r.orderBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
+	}
+	if r.searchField != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
+	}
+	if r.searchValue != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.workItemLinkUrlApiModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiApiV2WorkItemsMovePostRequest struct {
 	ctx context.Context
 	ApiService *WorkItemsAPIService
@@ -2165,7 +2417,7 @@ type ApiApiV2WorkItemsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	workItemSelectModel *WorkItemSelectModel
+	workItemSelectApiModel *WorkItemSelectApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -2198,12 +2450,12 @@ func (r ApiApiV2WorkItemsSearchPostRequest) SearchValue(searchValue string) ApiA
 	return r
 }
 
-func (r ApiApiV2WorkItemsSearchPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2WorkItemsSearchPostRequest {
-	r.workItemSelectModel = &workItemSelectModel
+func (r ApiApiV2WorkItemsSearchPostRequest) WorkItemSelectApiModel(workItemSelectApiModel WorkItemSelectApiModel) ApiApiV2WorkItemsSearchPostRequest {
+	r.workItemSelectApiModel = &workItemSelectApiModel
 	return r
 }
 
-func (r ApiApiV2WorkItemsSearchPostRequest) Execute() ([]WorkItemShortModel, *http.Response, error) {
+func (r ApiApiV2WorkItemsSearchPostRequest) Execute() ([]WorkItemShortApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2WorkItemsSearchPostExecute(r)
 }
 
@@ -2221,13 +2473,13 @@ func (a *WorkItemsAPIService) ApiV2WorkItemsSearchPost(ctx context.Context) ApiA
 }
 
 // Execute executes the request
-//  @return []WorkItemShortModel
-func (a *WorkItemsAPIService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItemsSearchPostRequest) ([]WorkItemShortModel, *http.Response, error) {
+//  @return []WorkItemShortApiResult
+func (a *WorkItemsAPIService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItemsSearchPostRequest) ([]WorkItemShortApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []WorkItemShortModel
+		localVarReturnValue  []WorkItemShortApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.ApiV2WorkItemsSearchPost")
@@ -2274,7 +2526,7 @@ func (a *WorkItemsAPIService) ApiV2WorkItemsSearchPostExecute(r ApiApiV2WorkItem
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemSelectModel
+	localVarPostBody = r.workItemSelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

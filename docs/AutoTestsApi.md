@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2AutoTestsIdTestResultsSearchPost
 
-> []AutotestResultHistoricalGetModel ApiV2AutoTestsIdTestResultsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestHistoricalResultSelectModel(autotestHistoricalResultSelectModel).Execute()
+> []AutoTestResultHistoryApiResult ApiV2AutoTestsIdTestResultsSearchPost(ctx, id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutoTestResultHistorySelectApiModel(autoTestResultHistorySelectApiModel).Execute()
 
 Get test results history for autotest
 
@@ -262,16 +262,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	autotestHistoricalResultSelectModel := *openapiclient.NewAutotestHistoricalResultSelectModel() // AutotestHistoricalResultSelectModel |  (optional)
+	autoTestResultHistorySelectApiModel := *openapiclient.NewAutoTestResultHistorySelectApiModel() // AutoTestResultHistorySelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsIdTestResultsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutotestHistoricalResultSelectModel(autotestHistoricalResultSelectModel).Execute()
+	resp, r, err := apiClient.AutoTestsAPI.ApiV2AutoTestsIdTestResultsSearchPost(context.Background(), id).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).AutoTestResultHistorySelectApiModel(autoTestResultHistorySelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.ApiV2AutoTestsIdTestResultsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2AutoTestsIdTestResultsSearchPost`: []AutotestResultHistoricalGetModel
+	// response from `ApiV2AutoTestsIdTestResultsSearchPost`: []AutoTestResultHistoryApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.ApiV2AutoTestsIdTestResultsSearchPost`: %v\n", resp)
 }
 ```
@@ -297,11 +297,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **autotestHistoricalResultSelectModel** | [**AutotestHistoricalResultSelectModel**](AutotestHistoricalResultSelectModel.md) |  | 
+ **autoTestResultHistorySelectApiModel** | [**AutoTestResultHistorySelectApiModel**](AutoTestResultHistorySelectApiModel.md) |  | 
 
 ### Return type
 
-[**[]AutotestResultHistoricalGetModel**](AutotestResultHistoricalGetModel.md)
+[**[]AutoTestResultHistoryApiResult**](AutoTestResultHistoryApiResult.md)
 
 ### Authorization
 
@@ -1128,7 +1128,7 @@ Name | Type | Description  | Notes
 
 ## GetTestRuns
 
-> []TestRunShortModel GetTestRuns(ctx, id).Execute()
+> []TestRunByAutoTestApiResult GetTestRuns(ctx, id).Execute()
 
 Get completed tests runs for autotests
 
@@ -1156,7 +1156,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetTestRuns``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTestRuns`: []TestRunShortModel
+	// response from `GetTestRuns`: []TestRunByAutoTestApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetTestRuns`: %v\n", resp)
 }
 ```
@@ -1180,7 +1180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestRunShortModel**](TestRunShortModel.md)
+[**[]TestRunByAutoTestApiResult**](TestRunByAutoTestApiResult.md)
 
 ### Authorization
 
@@ -1292,7 +1292,7 @@ import (
 
 func main() {
 	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-	workItemIdModel := *openapiclient.NewWorkItemIdModel("cbb88fe6-c193-48e9-9e37-323fbc38de5f") // WorkItemIdModel |  (optional)
+	workItemIdModel := *openapiclient.NewWorkItemIdModel("ec70e9ad-f280-4a70-be0c-3d9ee96fc70f") // WorkItemIdModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

@@ -58,7 +58,7 @@ type TestResultShortResponse struct {
 	// Collection of links attached to the test result
 	Links []LinkShort `json:"links"`
 	// Collection of files attached to the test result
-	Attachments []Attachment `json:"attachments"`
+	Attachments []AttachmentApiResult `json:"attachments"`
 	// Run count
 	RerunCompletedCount int32 `json:"rerunCompletedCount"`
 }
@@ -69,7 +69,7 @@ type _TestResultShortResponse TestResultShortResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []Attachment, rerunCompletedCount int32) *TestResultShortResponse {
+func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32) *TestResultShortResponse {
 	this := TestResultShortResponse{}
 	this.Id = id
 	this.Name = name
@@ -635,9 +635,9 @@ func (o *TestResultShortResponse) SetLinks(v []LinkShort) {
 }
 
 // GetAttachments returns the Attachments field value
-func (o *TestResultShortResponse) GetAttachments() []Attachment {
+func (o *TestResultShortResponse) GetAttachments() []AttachmentApiResult {
 	if o == nil {
-		var ret []Attachment
+		var ret []AttachmentApiResult
 		return ret
 	}
 
@@ -646,7 +646,7 @@ func (o *TestResultShortResponse) GetAttachments() []Attachment {
 
 // GetAttachmentsOk returns a tuple with the Attachments field value
 // and a boolean to check if the value has been set.
-func (o *TestResultShortResponse) GetAttachmentsOk() ([]Attachment, bool) {
+func (o *TestResultShortResponse) GetAttachmentsOk() ([]AttachmentApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -654,7 +654,7 @@ func (o *TestResultShortResponse) GetAttachmentsOk() ([]Attachment, bool) {
 }
 
 // SetAttachments sets field value
-func (o *TestResultShortResponse) SetAttachments(v []Attachment) {
+func (o *TestResultShortResponse) SetAttachments(v []AttachmentApiResult) {
 	o.Attachments = v
 }
 
