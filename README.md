@@ -14,6 +14,7 @@
 | 5.0     | 2.0.3           |
 | 5.2     | 2.1.0           |
 | 5.2.2   | 2.2.0-tms-5.2.2 |
+| Cloud   | 2.3.0           |
 
 ### Installation
 
@@ -325,6 +326,7 @@ Class | Method | HTTP request | Description
 *WorkItemsAPI* | [**ApiV2WorkItemsIdLikesGet**](docs/WorkItemsAPI.md#apiv2workitemsidlikesget) | **Get** /api/v2/workItems/{id}/likes | Get likes of WorkItem
 *WorkItemsAPI* | [**ApiV2WorkItemsIdTestResultsHistoryGet**](docs/WorkItemsAPI.md#apiv2workitemsidtestresultshistoryget) | **Get** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
 *WorkItemsAPI* | [**ApiV2WorkItemsIdVersionVersionIdActualPost**](docs/WorkItemsAPI.md#apiv2workitemsidversionversionidactualpost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
+*WorkItemsAPI* | [**ApiV2WorkItemsLinksUrlsSearchPost**](docs/WorkItemsAPI.md#apiv2workitemslinksurlssearchpost) | **Post** /api/v2/workItems/links/urls/search | 
 *WorkItemsAPI* | [**ApiV2WorkItemsMovePost**](docs/WorkItemsAPI.md#apiv2workitemsmovepost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
 *WorkItemsAPI* | [**ApiV2WorkItemsSearchPost**](docs/WorkItemsAPI.md#apiv2workitemssearchpost) | **Post** /api/v2/workItems/search | Search for work items
 *WorkItemsAPI* | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](docs/WorkItemsAPI.md#apiv2workitemssharedstepidreferencessectionspost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections

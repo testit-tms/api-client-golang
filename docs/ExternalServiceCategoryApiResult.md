@@ -1,0 +1,13 @@
+# ExternalServiceCategoryApiResult
+
+## Enum
+
+
+* `AI` (value: `"AI"`)
+
+* `ISSUE_TRACKER` (value: `"IssueTracker"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

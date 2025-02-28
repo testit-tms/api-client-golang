@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsIdRerunsPost
 
-> ManualRerunApiResult ApiV2TestRunsIdRerunsPost(ctx, id).ManualRerunSelectApiModel(manualRerunSelectApiModel).Execute()
+> ManualRerunApiResult ApiV2TestRunsIdRerunsPost(ctx, id).ManualRerunSelectTestResultsApiModel(manualRerunSelectTestResultsApiModel).Execute()
 
 Manual autotests rerun in test run
 
@@ -321,11 +321,11 @@ import (
 
 func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
-	manualRerunSelectApiModel := *openapiclient.NewManualRerunSelectApiModel() // ManualRerunSelectApiModel |  (optional)
+	manualRerunSelectTestResultsApiModel := *openapiclient.NewManualRerunSelectTestResultsApiModel() // ManualRerunSelectTestResultsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdRerunsPost(context.Background(), id).ManualRerunSelectApiModel(manualRerunSelectApiModel).Execute()
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsIdRerunsPost(context.Background(), id).ManualRerunSelectTestResultsApiModel(manualRerunSelectTestResultsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsIdRerunsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -351,7 +351,7 @@ Other parameters are passed through a pointer to a apiApiV2TestRunsIdRerunsPostR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **manualRerunSelectApiModel** | [**ManualRerunSelectApiModel**](ManualRerunSelectApiModel.md) |  | 
+ **manualRerunSelectTestResultsApiModel** | [**ManualRerunSelectTestResultsApiModel**](ManualRerunSelectTestResultsApiModel.md) |  | 
 
 ### Return type
 
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestRunsIdTestPointsResultsGet
 
-> []TestPointResultModel ApiV2TestRunsIdTestPointsResultsGet(ctx, id).Execute()
+> []TestPointResultApiResult ApiV2TestRunsIdTestPointsResultsGet(ctx, id).Execute()
 
 Get test results from the test run grouped by test points
 
@@ -537,7 +537,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsIdTestPointsResultsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestRunsIdTestPointsResultsGet`: []TestPointResultModel
+	// response from `ApiV2TestRunsIdTestPointsResultsGet`: []TestPointResultApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.ApiV2TestRunsIdTestPointsResultsGet`: %v\n", resp)
 }
 ```
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestPointResultModel**](TestPointResultModel.md)
+[**[]TestPointResultApiResult**](TestPointResultApiResult.md)
 
 ### Authorization
 

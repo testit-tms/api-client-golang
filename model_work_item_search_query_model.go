@@ -21,6 +21,8 @@ var _ MappedNullable = &WorkItemSearchQueryModel{}
 type WorkItemSearchQueryModel struct {
 	// Collection of project identifiers
 	ProjectIds []string `json:"projectIds,omitempty"`
+	// Specifies a work item filter by its links
+	Links NullableWorkItemLinkFilterModel `json:"links,omitempty"`
 	// Name of work item
 	Name NullableString `json:"name,omitempty"`
 	// Specifies a work item unique IDs to search for
@@ -109,6 +111,48 @@ func (o *WorkItemSearchQueryModel) HasProjectIds() bool {
 // SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
 func (o *WorkItemSearchQueryModel) SetProjectIds(v []string) {
 	o.ProjectIds = v
+}
+
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemSearchQueryModel) GetLinks() WorkItemLinkFilterModel {
+	if o == nil || IsNil(o.Links.Get()) {
+		var ret WorkItemLinkFilterModel
+		return ret
+	}
+	return *o.Links.Get()
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemSearchQueryModel) GetLinksOk() (*WorkItemLinkFilterModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Links.Get(), o.Links.IsSet()
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *WorkItemSearchQueryModel) HasLinks() bool {
+	if o != nil && o.Links.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given NullableWorkItemLinkFilterModel and assigns it to the Links field.
+func (o *WorkItemSearchQueryModel) SetLinks(v WorkItemLinkFilterModel) {
+	o.Links.Set(&v)
+}
+// SetLinksNil sets the value for Links to be an explicit nil
+func (o *WorkItemSearchQueryModel) SetLinksNil() {
+	o.Links.Set(nil)
+}
+
+// UnsetLinks ensures that no value is present for Links, not even an explicit nil
+func (o *WorkItemSearchQueryModel) UnsetLinks() {
+	o.Links.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -813,6 +857,9 @@ func (o WorkItemSearchQueryModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.ProjectIds != nil {
 		toSerialize["projectIds"] = o.ProjectIds
+	}
+	if o.Links.IsSet() {
+		toSerialize["links"] = o.Links.Get()
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()

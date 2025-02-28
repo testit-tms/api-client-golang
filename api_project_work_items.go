@@ -509,7 +509,7 @@ type ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	workItemSelectModel *WorkItemSelectModel
+	workItemSelectApiModel *WorkItemSelectApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -542,12 +542,12 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) SearchValue(searchV
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) WorkItemSelectModel(workItemSelectModel WorkItemSelectModel) ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest {
-	r.workItemSelectModel = &workItemSelectModel
+func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) WorkItemSelectApiModel(workItemSelectApiModel WorkItemSelectApiModel) ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest {
+	r.workItemSelectApiModel = &workItemSelectApiModel
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) Execute() ([]WorkItemShortModel, *http.Response, error) {
+func (r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) Execute() ([]WorkItemShortApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsProjectIdWorkItemsSearchPostExecute(r)
 }
 
@@ -567,13 +567,13 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPost(c
 }
 
 // Execute executes the request
-//  @return []WorkItemShortModel
-func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ([]WorkItemShortModel, *http.Response, error) {
+//  @return []WorkItemShortApiResult
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPostExecute(r ApiApiV2ProjectsProjectIdWorkItemsSearchPostRequest) ([]WorkItemShortApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []WorkItemShortModel
+		localVarReturnValue  []WorkItemShortApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsAPIService.ApiV2ProjectsProjectIdWorkItemsSearchPost")
@@ -621,7 +621,7 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsSearchPostEx
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemSelectModel
+	localVarPostBody = r.workItemSelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsProjectIdWorkItemsSearchPost
 
-> []WorkItemShortModel ApiV2ProjectsProjectIdWorkItemsSearchPost(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+> []WorkItemShortApiResult ApiV2ProjectsProjectIdWorkItemsSearchPost(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectApiModel(workItemSelectApiModel).Execute()
 
 Search for work items
 
@@ -197,16 +197,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	workItemSelectModel := *openapiclient.NewWorkItemSelectModel(*openapiclient.NewWorkItemFilterModel()) // WorkItemSelectModel |  (optional)
+	workItemSelectApiModel := *openapiclient.NewWorkItemSelectApiModel(*openapiclient.NewWorkItemFilterApiModel()) // WorkItemSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsSearchPost(context.Background(), projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+	resp, r, err := apiClient.ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsSearchPost(context.Background(), projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectApiModel(workItemSelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsProjectIdWorkItemsSearchPost`: []WorkItemShortModel
+	// response from `ApiV2ProjectsProjectIdWorkItemsSearchPost`: []WorkItemShortApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsSearchPost`: %v\n", resp)
 }
 ```
@@ -232,11 +232,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) |  | 
+ **workItemSelectApiModel** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md) |  | 
 
 ### Return type
 
-[**[]WorkItemShortModel**](WorkItemShortModel.md)
+[**[]WorkItemShortApiResult**](WorkItemShortApiResult.md)
 
 ### Authorization
 

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **Attachments** | [**[]AttachmentApiResult**](AttachmentApiResult.md) |  | 
 **Links** | [**[]LinkApiResult**](LinkApiResult.md) |  | 
 **FailureClasses** | [**[]TestResultFailureClassApiResult**](TestResultFailureClassApiResult.md) |  | 
-**StepComments** | Pointer to [**[]StepCommentApiResult**](StepCommentApiResult.md) |  | [optional] 
+**StepComments** | Pointer to [**[]StepCommentApiModel**](StepCommentApiModel.md) |  | [optional] 
 **Parameters** | Pointer to **map[string]string** |  | [optional] 
 **Properties** | Pointer to **map[string]string** |  | [optional] 
 **CreatedDate** | **time.Time** |  | 
@@ -814,20 +814,20 @@ SetFailureClasses sets FailureClasses field to given value.
 
 ### GetStepComments
 
-`func (o *TestResultApiResult) GetStepComments() []StepCommentApiResult`
+`func (o *TestResultApiResult) GetStepComments() []StepCommentApiModel`
 
 GetStepComments returns the StepComments field if non-nil, zero value otherwise.
 
 ### GetStepCommentsOk
 
-`func (o *TestResultApiResult) GetStepCommentsOk() (*[]StepCommentApiResult, bool)`
+`func (o *TestResultApiResult) GetStepCommentsOk() (*[]StepCommentApiModel, bool)`
 
 GetStepCommentsOk returns a tuple with the StepComments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStepComments
 
-`func (o *TestResultApiResult) SetStepComments(v []StepCommentApiResult)`
+`func (o *TestResultApiResult) SetStepComments(v []StepCommentApiModel)`
 
 SetStepComments sets StepComments field to given value.
 

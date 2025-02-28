@@ -753,11 +753,11 @@ type ApiApiV2TestRunsIdRerunsPostRequest struct {
 	ctx context.Context
 	ApiService *TestRunsAPIService
 	id string
-	manualRerunSelectApiModel *ManualRerunSelectApiModel
+	manualRerunSelectTestResultsApiModel *ManualRerunSelectTestResultsApiModel
 }
 
-func (r ApiApiV2TestRunsIdRerunsPostRequest) ManualRerunSelectApiModel(manualRerunSelectApiModel ManualRerunSelectApiModel) ApiApiV2TestRunsIdRerunsPostRequest {
-	r.manualRerunSelectApiModel = &manualRerunSelectApiModel
+func (r ApiApiV2TestRunsIdRerunsPostRequest) ManualRerunSelectTestResultsApiModel(manualRerunSelectTestResultsApiModel ManualRerunSelectTestResultsApiModel) ApiApiV2TestRunsIdRerunsPostRequest {
+	r.manualRerunSelectTestResultsApiModel = &manualRerunSelectTestResultsApiModel
 	return r
 }
 
@@ -820,7 +820,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdRerunsPostExecute(r ApiApiV2TestRuns
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.manualRerunSelectApiModel
+	localVarPostBody = r.manualRerunSelectTestResultsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1307,7 +1307,7 @@ type ApiApiV2TestRunsIdTestPointsResultsGetRequest struct {
 	id string
 }
 
-func (r ApiApiV2TestRunsIdTestPointsResultsGetRequest) Execute() ([]TestPointResultModel, *http.Response, error) {
+func (r ApiApiV2TestRunsIdTestPointsResultsGetRequest) Execute() ([]TestPointResultApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestRunsIdTestPointsResultsGetExecute(r)
 }
 
@@ -1327,13 +1327,13 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdTestPointsResultsGet(ctx context.Con
 }
 
 // Execute executes the request
-//  @return []TestPointResultModel
-func (a *TestRunsAPIService) ApiV2TestRunsIdTestPointsResultsGetExecute(r ApiApiV2TestRunsIdTestPointsResultsGetRequest) ([]TestPointResultModel, *http.Response, error) {
+//  @return []TestPointResultApiResult
+func (a *TestRunsAPIService) ApiV2TestRunsIdTestPointsResultsGetExecute(r ApiApiV2TestRunsIdTestPointsResultsGetRequest) ([]TestPointResultApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestPointResultModel
+		localVarReturnValue  []TestPointResultApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.ApiV2TestRunsIdTestPointsResultsGet")

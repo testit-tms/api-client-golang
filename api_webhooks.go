@@ -26,11 +26,11 @@ type WebhooksAPIService service
 type ApiApiV2WebhooksDeleteRequest struct {
 	ctx context.Context
 	ApiService *WebhooksAPIService
-	webhooksDeleteRequest *WebhooksDeleteRequest
+	webhooksDeleteApiModel *WebhooksDeleteApiModel
 }
 
-func (r ApiApiV2WebhooksDeleteRequest) WebhooksDeleteRequest(webhooksDeleteRequest WebhooksDeleteRequest) ApiApiV2WebhooksDeleteRequest {
-	r.webhooksDeleteRequest = &webhooksDeleteRequest
+func (r ApiApiV2WebhooksDeleteRequest) WebhooksDeleteApiModel(webhooksDeleteApiModel WebhooksDeleteApiModel) ApiApiV2WebhooksDeleteRequest {
+	r.webhooksDeleteApiModel = &webhooksDeleteApiModel
 	return r
 }
 
@@ -88,7 +88,7 @@ func (a *WebhooksAPIService) ApiV2WebhooksDeleteExecute(r ApiApiV2WebhooksDelete
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.webhooksDeleteRequest
+	localVarPostBody = r.webhooksDeleteApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1115,15 +1115,15 @@ func (a *WebhooksAPIService) ApiV2WebhooksPostExecute(r ApiApiV2WebhooksPostRequ
 type ApiApiV2WebhooksPutRequest struct {
 	ctx context.Context
 	ApiService *WebhooksAPIService
-	webhooksUpdateRequest *WebhooksUpdateRequest
+	webhooksUpdateApiModel *WebhooksUpdateApiModel
 }
 
-func (r ApiApiV2WebhooksPutRequest) WebhooksUpdateRequest(webhooksUpdateRequest WebhooksUpdateRequest) ApiApiV2WebhooksPutRequest {
-	r.webhooksUpdateRequest = &webhooksUpdateRequest
+func (r ApiApiV2WebhooksPutRequest) WebhooksUpdateApiModel(webhooksUpdateApiModel WebhooksUpdateApiModel) ApiApiV2WebhooksPutRequest {
+	r.webhooksUpdateApiModel = &webhooksUpdateApiModel
 	return r
 }
 
-func (r ApiApiV2WebhooksPutRequest) Execute() (*WebhooksUpdateResponse, *http.Response, error) {
+func (r ApiApiV2WebhooksPutRequest) Execute() (*WebhooksUpdateApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2WebhooksPutExecute(r)
 }
 
@@ -1141,13 +1141,13 @@ func (a *WebhooksAPIService) ApiV2WebhooksPut(ctx context.Context) ApiApiV2Webho
 }
 
 // Execute executes the request
-//  @return WebhooksUpdateResponse
-func (a *WebhooksAPIService) ApiV2WebhooksPutExecute(r ApiApiV2WebhooksPutRequest) (*WebhooksUpdateResponse, *http.Response, error) {
+//  @return WebhooksUpdateApiResult
+func (a *WebhooksAPIService) ApiV2WebhooksPutExecute(r ApiApiV2WebhooksPutRequest) (*WebhooksUpdateApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebhooksUpdateResponse
+		localVarReturnValue  *WebhooksUpdateApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksAPIService.ApiV2WebhooksPut")
@@ -1179,7 +1179,7 @@ func (a *WebhooksAPIService) ApiV2WebhooksPutExecute(r ApiApiV2WebhooksPutReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.webhooksUpdateRequest
+	localVarPostBody = r.webhooksUpdateApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

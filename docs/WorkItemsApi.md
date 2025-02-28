@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**ApiV2WorkItemsIdLikesGet**](WorkItemsAPI.md#ApiV2WorkItemsIdLikesGet) | **Get** /api/v2/workItems/{id}/likes | Get likes of WorkItem
 [**ApiV2WorkItemsIdTestResultsHistoryGet**](WorkItemsAPI.md#ApiV2WorkItemsIdTestResultsHistoryGet) | **Get** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
 [**ApiV2WorkItemsIdVersionVersionIdActualPost**](WorkItemsAPI.md#ApiV2WorkItemsIdVersionVersionIdActualPost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
+[**ApiV2WorkItemsLinksUrlsSearchPost**](WorkItemsAPI.md#ApiV2WorkItemsLinksUrlsSearchPost) | **Post** /api/v2/workItems/links/urls/search | 
 [**ApiV2WorkItemsMovePost**](WorkItemsAPI.md#ApiV2WorkItemsMovePost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
 [**ApiV2WorkItemsSearchPost**](WorkItemsAPI.md#ApiV2WorkItemsSearchPost) | **Post** /api/v2/workItems/search | Search for work items
 [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepIdReferencesSectionsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
@@ -530,7 +531,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsIdTestResultsHistoryGet
 
-> []TestResultHistoryResponse ApiV2WorkItemsIdTestResultsHistoryGet(ctx, id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TestResultHistoryReportApiResult ApiV2WorkItemsIdTestResultsHistoryGet(ctx, id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).StatusCodes(statusCodes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get test results history of WorkItem
 
@@ -557,6 +558,7 @@ func main() {
 	testPlanIds := []string{"Inner_example"} // []string | Identifiers of test plans which contain test results (optional)
 	userIds := []string{"Inner_example"} // []string | Identifiers of users who set test results (optional)
 	outcomes := []string{"Inner_example"} // []string | List of outcomes of test results (optional)
+	statusCodes := []string{"Inner_example"} // []string | List of status codes of test results (optional)
 	isAutomated := true // bool | OBSOLETE: Use `Automated` instead (optional)
 	automated := true // bool | If result must consist of only manual/automated test results (optional)
 	testRunIds := []string{"Inner_example"} // []string | Identifiers of test runs which contain test results (optional)
@@ -568,12 +570,12 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet(context.Background(), id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet(context.Background(), id).From(from).To(to).ConfigurationIds(configurationIds).TestPlanIds(testPlanIds).UserIds(userIds).Outcomes(outcomes).StatusCodes(statusCodes).IsAutomated(isAutomated).Automated(automated).TestRunIds(testRunIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkItemsIdTestResultsHistoryGet`: []TestResultHistoryResponse
+	// response from `ApiV2WorkItemsIdTestResultsHistoryGet`: []TestResultHistoryReportApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsIdTestResultsHistoryGet`: %v\n", resp)
 }
 ```
@@ -600,6 +602,7 @@ Name | Type | Description  | Notes
  **testPlanIds** | **[]string** | Identifiers of test plans which contain test results | 
  **userIds** | **[]string** | Identifiers of users who set test results | 
  **outcomes** | **[]string** | List of outcomes of test results | 
+ **statusCodes** | **[]string** | List of status codes of test results | 
  **isAutomated** | **bool** | OBSOLETE: Use &#x60;Automated&#x60; instead | 
  **automated** | **bool** | If result must consist of only manual/automated test results | 
  **testRunIds** | **[]string** | Identifiers of test runs which contain test results | 
@@ -611,7 +614,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestResultHistoryResponse**](TestResultHistoryResponse.md)
+[**[]TestResultHistoryReportApiResult**](TestResultHistoryReportApiResult.md)
 
 ### Authorization
 
@@ -700,6 +703,80 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiV2WorkItemsLinksUrlsSearchPost
+
+> SearchWorkItemLinkUrlsApiResult ApiV2WorkItemsLinksUrlsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemLinkUrlApiModel(workItemLinkUrlApiModel).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	workItemLinkUrlApiModel := *openapiclient.NewWorkItemLinkUrlApiModel(*openapiclient.NewWorkItemLinkUrlFilterApiModel(), *openapiclient.NewWorkItemLinkExtractionApiModel()) // WorkItemLinkUrlApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsLinksUrlsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemLinkUrlApiModel(workItemLinkUrlApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsLinksUrlsSearchPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WorkItemsLinksUrlsSearchPost`: SearchWorkItemLinkUrlsApiResult
+	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsLinksUrlsSearchPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2WorkItemsLinksUrlsSearchPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **skip** | **int32** | Amount of items to be skipped (offset) | 
+ **take** | **int32** | Amount of items to be taken (limit) | 
+ **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
+ **searchField** | **string** | Property name for searching | 
+ **searchValue** | **string** | Value for searching | 
+ **workItemLinkUrlApiModel** | [**WorkItemLinkUrlApiModel**](WorkItemLinkUrlApiModel.md) |  | 
+
+### Return type
+
+[**SearchWorkItemLinkUrlsApiResult**](SearchWorkItemLinkUrlsApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2WorkItemsMovePost
 
 > WorkItemShortModel ApiV2WorkItemsMovePost(ctx).WorkItemMovePostModel(workItemMovePostModel).Execute()
@@ -768,7 +845,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsSearchPost
 
-> []WorkItemShortModel ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+> []WorkItemShortApiResult ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectApiModel(workItemSelectApiModel).Execute()
 
 Search for work items
 
@@ -790,16 +867,16 @@ func main() {
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
 	searchField := "searchField_example" // string | Property name for searching (optional)
 	searchValue := "searchValue_example" // string | Value for searching (optional)
-	workItemSelectModel := *openapiclient.NewWorkItemSelectModel(*openapiclient.NewWorkItemFilterModel()) // WorkItemSelectModel |  (optional)
+	workItemSelectApiModel := *openapiclient.NewWorkItemSelectApiModel(*openapiclient.NewWorkItemFilterApiModel()) // WorkItemSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectModel(workItemSelectModel).Execute()
+	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsSearchPost(context.Background()).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectApiModel(workItemSelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkItemsSearchPost`: []WorkItemShortModel
+	// response from `ApiV2WorkItemsSearchPost`: []WorkItemShortApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsSearchPost`: %v\n", resp)
 }
 ```
@@ -820,11 +897,11 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
  **searchField** | **string** | Property name for searching | 
  **searchValue** | **string** | Value for searching | 
- **workItemSelectModel** | [**WorkItemSelectModel**](WorkItemSelectModel.md) |  | 
+ **workItemSelectApiModel** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md) |  | 
 
 ### Return type
 
-[**[]WorkItemShortModel**](WorkItemShortModel.md)
+[**[]WorkItemShortApiResult**](WorkItemShortApiResult.md)
 
 ### Authorization
 
@@ -1095,7 +1172,7 @@ import (
 )
 
 func main() {
-	workItemPostModel := *openapiclient.NewWorkItemPostModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPostModel{*openapiclient.NewTagPostModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "cbb88fe6-c193-48e9-9e37-323fbc38de5f", "cbb88fe6-c193-48e9-9e37-323fbc38de5f") // WorkItemPostModel |  (optional)
+	workItemPostModel := *openapiclient.NewWorkItemPostModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPostModel{*openapiclient.NewTagPostModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "ec70e9ad-f280-4a70-be0c-3d9ee96fc70f", "ec70e9ad-f280-4a70-be0c-3d9ee96fc70f") // WorkItemPostModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1789,7 +1866,7 @@ import (
 )
 
 func main() {
-	workItemPutModel := *openapiclient.NewWorkItemPutModel([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "cbb88fe6-c193-48e9-9e37-323fbc38de5f", "cbb88fe6-c193-48e9-9e37-323fbc38de5f", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("cbb88fe6-c193-48e9-9e37-323fbc38de5f")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("cbb88fe6-c193-48e9-9e37-323fbc38de5f")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("cbb88fe6-c193-48e9-9e37-323fbc38de5f")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPutModel{*openapiclient.NewTagPutModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // WorkItemPutModel |  (optional)
+	workItemPutModel := *openapiclient.NewWorkItemPutModel([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "ec70e9ad-f280-4a70-be0c-3d9ee96fc70f", "ec70e9ad-f280-4a70-be0c-3d9ee96fc70f", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("ec70e9ad-f280-4a70-be0c-3d9ee96fc70f")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("ec70e9ad-f280-4a70-be0c-3d9ee96fc70f")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("ec70e9ad-f280-4a70-be0c-3d9ee96fc70f")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPutModel{*openapiclient.NewTagPutModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // WorkItemPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

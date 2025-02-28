@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Duration** | Pointer to **NullableInt64** | Expected or actual duration of the test run execution in milliseconds. | [optional] 
 **Outcome** | Pointer to [**NullableAvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | [optional] 
 **StepResults** | Pointer to [**[]AutoTestStepResult**](AutoTestStepResult.md) | Nested step results. The maximum nesting level is 15. | [optional] 
-**Attachments** | Pointer to [**[]Attachment**](Attachment.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; | [optional] 
+**Attachments** | Pointer to [**[]AttachmentApiResult**](AttachmentApiResult.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; | [optional] 
 **Parameters** | Pointer to **map[string]string** | \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent. | [optional] 
 
 ## Methods
@@ -316,20 +316,20 @@ HasStepResults returns a boolean if a field has been set.
 UnsetStepResults ensures that no value is present for StepResults, not even an explicit nil
 ### GetAttachments
 
-`func (o *AutoTestStepResult) GetAttachments() []Attachment`
+`func (o *AutoTestStepResult) GetAttachments() []AttachmentApiResult`
 
 GetAttachments returns the Attachments field if non-nil, zero value otherwise.
 
 ### GetAttachmentsOk
 
-`func (o *AutoTestStepResult) GetAttachmentsOk() (*[]Attachment, bool)`
+`func (o *AutoTestStepResult) GetAttachmentsOk() (*[]AttachmentApiResult, bool)`
 
 GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachments
 
-`func (o *AutoTestStepResult) SetAttachments(v []Attachment)`
+`func (o *AutoTestStepResult) SetAttachments(v []AttachmentApiResult)`
 
 SetAttachments sets Attachments field to given value.
 

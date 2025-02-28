@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **StatusCode** | Pointer to **NullableString** |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]Link**](Link.md) |  | [optional] 
-**StepResults** | Pointer to [**[]StepResult**](StepResult.md) |  | [optional] 
+**StepResults** | Pointer to [**[]StepResultApiModel**](StepResultApiModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentUpdateRequest**](AttachmentUpdateRequest.md) |  | [optional] 
 **DurationInMs** | Pointer to **NullableInt64** |  | [optional] 
 **Duration** | Pointer to **NullableInt64** |  | [optional] 
@@ -215,20 +215,20 @@ HasLinks returns a boolean if a field has been set.
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetStepResults
 
-`func (o *TestResultUpdateV2Request) GetStepResults() []StepResult`
+`func (o *TestResultUpdateV2Request) GetStepResults() []StepResultApiModel`
 
 GetStepResults returns the StepResults field if non-nil, zero value otherwise.
 
 ### GetStepResultsOk
 
-`func (o *TestResultUpdateV2Request) GetStepResultsOk() (*[]StepResult, bool)`
+`func (o *TestResultUpdateV2Request) GetStepResultsOk() (*[]StepResultApiModel, bool)`
 
 GetStepResultsOk returns a tuple with the StepResults field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStepResults
 
-`func (o *TestResultUpdateV2Request) SetStepResults(v []StepResult)`
+`func (o *TestResultUpdateV2Request) SetStepResults(v []StepResultApiModel)`
 
 SetStepResults sets StepResults field to given value.
 

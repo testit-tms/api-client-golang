@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
-**StepComments** | Pointer to [**[]StepComment**](StepComment.md) |  | [optional] 
+**StepComments** | Pointer to [**[]StepCommentApiModel**](StepCommentApiModel.md) |  | [optional] 
 **FailureClassIds** | **[]string** |  | 
 **Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **Status** | Pointer to [**NullableTestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]Link**](Link.md) |  | [optional] 
-**StepResults** | Pointer to [**[]StepResult**](StepResult.md) |  | [optional] 
-**Attachments** | Pointer to [**[]Attachment**](Attachment.md) |  | [optional] 
+**StepResults** | Pointer to [**[]StepResultApiModel**](StepResultApiModel.md) |  | [optional] 
+**Attachments** | Pointer to [**[]AttachmentApiResult**](AttachmentApiResult.md) |  | [optional] 
 **AutoTestId** | Pointer to **NullableString** |  | [optional] 
 **ConfigurationId** | **string** |  | 
 **StartedOn** | Pointer to **NullableTime** |  | [optional] 
@@ -190,20 +190,20 @@ HasModifiedById returns a boolean if a field has been set.
 UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
 ### GetStepComments
 
-`func (o *TestResultResponse) GetStepComments() []StepComment`
+`func (o *TestResultResponse) GetStepComments() []StepCommentApiModel`
 
 GetStepComments returns the StepComments field if non-nil, zero value otherwise.
 
 ### GetStepCommentsOk
 
-`func (o *TestResultResponse) GetStepCommentsOk() (*[]StepComment, bool)`
+`func (o *TestResultResponse) GetStepCommentsOk() (*[]StepCommentApiModel, bool)`
 
 GetStepCommentsOk returns a tuple with the StepComments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStepComments
 
-`func (o *TestResultResponse) SetStepComments(v []StepComment)`
+`func (o *TestResultResponse) SetStepComments(v []StepCommentApiModel)`
 
 SetStepComments sets StepComments field to given value.
 
@@ -385,20 +385,20 @@ HasLinks returns a boolean if a field has been set.
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetStepResults
 
-`func (o *TestResultResponse) GetStepResults() []StepResult`
+`func (o *TestResultResponse) GetStepResults() []StepResultApiModel`
 
 GetStepResults returns the StepResults field if non-nil, zero value otherwise.
 
 ### GetStepResultsOk
 
-`func (o *TestResultResponse) GetStepResultsOk() (*[]StepResult, bool)`
+`func (o *TestResultResponse) GetStepResultsOk() (*[]StepResultApiModel, bool)`
 
 GetStepResultsOk returns a tuple with the StepResults field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStepResults
 
-`func (o *TestResultResponse) SetStepResults(v []StepResult)`
+`func (o *TestResultResponse) SetStepResults(v []StepResultApiModel)`
 
 SetStepResults sets StepResults field to given value.
 
@@ -420,20 +420,20 @@ HasStepResults returns a boolean if a field has been set.
 UnsetStepResults ensures that no value is present for StepResults, not even an explicit nil
 ### GetAttachments
 
-`func (o *TestResultResponse) GetAttachments() []Attachment`
+`func (o *TestResultResponse) GetAttachments() []AttachmentApiResult`
 
 GetAttachments returns the Attachments field if non-nil, zero value otherwise.
 
 ### GetAttachmentsOk
 
-`func (o *TestResultResponse) GetAttachmentsOk() (*[]Attachment, bool)`
+`func (o *TestResultResponse) GetAttachmentsOk() (*[]AttachmentApiResult, bool)`
 
 GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttachments
 
-`func (o *TestResultResponse) SetAttachments(v []Attachment)`
+`func (o *TestResultResponse) SetAttachments(v []AttachmentApiResult)`
 
 SetAttachments sets Attachments field to given value.
 

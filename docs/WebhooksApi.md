@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## ApiV2WebhooksDelete
 
-> ApiV2WebhooksDelete(ctx).WebhooksDeleteRequest(webhooksDeleteRequest).Execute()
+> ApiV2WebhooksDelete(ctx).WebhooksDeleteApiModel(webhooksDeleteApiModel).Execute()
 
 
 
@@ -36,11 +36,11 @@ import (
 )
 
 func main() {
-	webhooksDeleteRequest := *openapiclient.NewWebhooksDeleteRequest(*openapiclient.NewWebhooksDeleteFilterRequest(), *openapiclient.NewWebhooksExtractionRequest()) // WebhooksDeleteRequest |  (optional)
+	webhooksDeleteApiModel := *openapiclient.NewWebhooksDeleteApiModel(*openapiclient.NewWebhooksDeleteFilterApiModel(), *openapiclient.NewWebhooksExtractionApiModel()) // WebhooksDeleteApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WebhooksAPI.ApiV2WebhooksDelete(context.Background()).WebhooksDeleteRequest(webhooksDeleteRequest).Execute()
+	r, err := apiClient.WebhooksAPI.ApiV2WebhooksDelete(context.Background()).WebhooksDeleteApiModel(webhooksDeleteApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,7 +59,7 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksDeleteRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhooksDeleteRequest** | [**WebhooksDeleteRequest**](WebhooksDeleteRequest.md) |  | 
+ **webhooksDeleteApiModel** | [**WebhooksDeleteApiModel**](WebhooksDeleteApiModel.md) |  | 
 
 ### Return type
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksPut
 
-> WebhooksUpdateResponse ApiV2WebhooksPut(ctx).WebhooksUpdateRequest(webhooksUpdateRequest).Execute()
+> WebhooksUpdateApiResult ApiV2WebhooksPut(ctx).WebhooksUpdateApiModel(webhooksUpdateApiModel).Execute()
 
 
 
@@ -430,16 +430,16 @@ import (
 )
 
 func main() {
-	webhooksUpdateRequest := *openapiclient.NewWebhooksUpdateRequest(*openapiclient.NewWebhooksFilterRequest(), *openapiclient.NewWebhookBulkUpdateApiModel(false), *openapiclient.NewWebhooksExtractionRequest()) // WebhooksUpdateRequest |  (optional)
+	webhooksUpdateApiModel := *openapiclient.NewWebhooksUpdateApiModel(*openapiclient.NewWebhooksFilterApiModel(), *openapiclient.NewWebhookBulkUpdateApiModel(false), *openapiclient.NewWebhooksExtractionApiModel()) // WebhooksUpdateApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksPut(context.Background()).WebhooksUpdateRequest(webhooksUpdateRequest).Execute()
+	resp, r, err := apiClient.WebhooksAPI.ApiV2WebhooksPut(context.Background()).WebhooksUpdateApiModel(webhooksUpdateApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.ApiV2WebhooksPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WebhooksPut`: WebhooksUpdateResponse
+	// response from `ApiV2WebhooksPut`: WebhooksUpdateApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WebhooksAPI.ApiV2WebhooksPut`: %v\n", resp)
 }
 ```
@@ -455,11 +455,11 @@ Other parameters are passed through a pointer to a apiApiV2WebhooksPutRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhooksUpdateRequest** | [**WebhooksUpdateRequest**](WebhooksUpdateRequest.md) |  | 
+ **webhooksUpdateApiModel** | [**WebhooksUpdateApiModel**](WebhooksUpdateApiModel.md) |  | 
 
 ### Return type
 
-[**WebhooksUpdateResponse**](WebhooksUpdateResponse.md)
+[**WebhooksUpdateApiResult**](WebhooksUpdateApiResult.md)
 
 ### Authorization
 

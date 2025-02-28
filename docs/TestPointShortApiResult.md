@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Test point unique internal identifier | 
+**IsDeleted** | **bool** | Indicates if the entity is deleted | 
 **TesterId** | Pointer to **NullableString** | Tester who is responded for the test unique internal identifier | [optional] 
 **WorkItemId** | Pointer to **NullableString** | Workitem to which test point relates unique identifier | [optional] 
 **ConfigurationId** | Pointer to **NullableString** | Configuration to which test point relates unique identifier | [optional] 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointShortApiResult
 
-`func NewTestPointShortApiResult(id string, statusModel TestStatusApiResult, iterationId string, testSuiteId string, ) *TestPointShortApiResult`
+`func NewTestPointShortApiResult(id string, isDeleted bool, statusModel TestStatusApiResult, iterationId string, testSuiteId string, ) *TestPointShortApiResult`
 
 NewTestPointShortApiResult instantiates a new TestPointShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -52,6 +53,26 @@ and a boolean to check if the value has been set.
 `func (o *TestPointShortApiResult) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetIsDeleted
+
+`func (o *TestPointShortApiResult) GetIsDeleted() bool`
+
+GetIsDeleted returns the IsDeleted field if non-nil, zero value otherwise.
+
+### GetIsDeletedOk
+
+`func (o *TestPointShortApiResult) GetIsDeletedOk() (*bool, bool)`
+
+GetIsDeletedOk returns a tuple with the IsDeleted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsDeleted
+
+`func (o *TestPointShortApiResult) SetIsDeleted(v bool)`
+
+SetIsDeleted sets IsDeleted field to given value.
 
 
 ### GetTesterId
