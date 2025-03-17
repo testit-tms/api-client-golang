@@ -416,6 +416,8 @@ ApiV2TestResultsIdAggregatedGet Get test result by ID aggregated with previous r
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Test result unique ID
  @return ApiApiV2TestResultsIdAggregatedGetRequest
+
+Deprecated
 */
 func (a *TestResultsAPIService) ApiV2TestResultsIdAggregatedGet(ctx context.Context, id string) ApiApiV2TestResultsIdAggregatedGetRequest {
 	return ApiApiV2TestResultsIdAggregatedGetRequest{
@@ -427,6 +429,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdAggregatedGet(ctx context.Cont
 
 // Execute executes the request
 //  @return TestResultResponse
+// Deprecated
 func (a *TestResultsAPIService) ApiV2TestResultsIdAggregatedGetExecute(r ApiApiV2TestResultsIdAggregatedGetRequest) (*TestResultResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

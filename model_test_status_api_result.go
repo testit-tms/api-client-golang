@@ -24,8 +24,7 @@ type TestStatusApiResult struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Type TestStatusType `json:"type"`
-	IsBased bool `json:"isBased"`
-	IsDefault bool `json:"isDefault"`
+	IsSystem bool `json:"isSystem"`
 	Code string `json:"code"`
 	Description NullableString `json:"description,omitempty"`
 }
@@ -36,13 +35,12 @@ type _TestStatusApiResult TestStatusApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestStatusApiResult(id string, name string, type_ TestStatusType, isBased bool, isDefault bool, code string) *TestStatusApiResult {
+func NewTestStatusApiResult(id string, name string, type_ TestStatusType, isSystem bool, code string) *TestStatusApiResult {
 	this := TestStatusApiResult{}
 	this.Id = id
 	this.Name = name
 	this.Type = type_
-	this.IsBased = isBased
-	this.IsDefault = isDefault
+	this.IsSystem = isSystem
 	this.Code = code
 	return &this
 }
@@ -127,52 +125,28 @@ func (o *TestStatusApiResult) SetType(v TestStatusType) {
 	o.Type = v
 }
 
-// GetIsBased returns the IsBased field value
-func (o *TestStatusApiResult) GetIsBased() bool {
+// GetIsSystem returns the IsSystem field value
+func (o *TestStatusApiResult) GetIsSystem() bool {
 	if o == nil {
 		var ret bool
 		return ret
 	}
 
-	return o.IsBased
+	return o.IsSystem
 }
 
-// GetIsBasedOk returns a tuple with the IsBased field value
+// GetIsSystemOk returns a tuple with the IsSystem field value
 // and a boolean to check if the value has been set.
-func (o *TestStatusApiResult) GetIsBasedOk() (*bool, bool) {
+func (o *TestStatusApiResult) GetIsSystemOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.IsBased, true
+	return &o.IsSystem, true
 }
 
-// SetIsBased sets field value
-func (o *TestStatusApiResult) SetIsBased(v bool) {
-	o.IsBased = v
-}
-
-// GetIsDefault returns the IsDefault field value
-func (o *TestStatusApiResult) GetIsDefault() bool {
-	if o == nil {
-		var ret bool
-		return ret
-	}
-
-	return o.IsDefault
-}
-
-// GetIsDefaultOk returns a tuple with the IsDefault field value
-// and a boolean to check if the value has been set.
-func (o *TestStatusApiResult) GetIsDefaultOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.IsDefault, true
-}
-
-// SetIsDefault sets field value
-func (o *TestStatusApiResult) SetIsDefault(v bool) {
-	o.IsDefault = v
+// SetIsSystem sets field value
+func (o *TestStatusApiResult) SetIsSystem(v bool) {
+	o.IsSystem = v
 }
 
 // GetCode returns the Code field value
@@ -254,8 +228,7 @@ func (o TestStatusApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["type"] = o.Type
-	toSerialize["isBased"] = o.IsBased
-	toSerialize["isDefault"] = o.IsDefault
+	toSerialize["isSystem"] = o.IsSystem
 	toSerialize["code"] = o.Code
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
@@ -271,8 +244,7 @@ func (o *TestStatusApiResult) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"type",
-		"isBased",
-		"isDefault",
+		"isSystem",
 		"code",
 	}
 

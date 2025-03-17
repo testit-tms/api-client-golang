@@ -109,7 +109,7 @@ import (
 )
 
 func main() {
-	parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("ec70e9ad-f280-4a70-be0c-3d9ee96fc70f", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
+	parameterPutModel := []openapiclient.ParameterPutModel{*openapiclient.NewParameterPutModel("0c6006d5-6ebb-4662-ba1d-5b935fec82a5", "Value_example", "Name_example")} // []ParameterPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1016,7 +1016,7 @@ import (
 )
 
 func main() {
-	parameterPutModel := *openapiclient.NewParameterPutModel("ec70e9ad-f280-4a70-be0c-3d9ee96fc70f", "Value_example", "Name_example") // ParameterPutModel |  (optional)
+	parameterPutModel := *openapiclient.NewParameterPutModel("0c6006d5-6ebb-4662-ba1d-5b935fec82a5", "Value_example", "Name_example") // ParameterPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
