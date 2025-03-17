@@ -7,8 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Type** | [**TestStatusType**](TestStatusType.md) |  | 
-**IsBased** | **bool** |  | 
-**IsDefault** | **bool** |  | 
+**IsSystem** | **bool** |  | 
 **Code** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
 
@@ -16,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewTestStatusApiResult
 
-`func NewTestStatusApiResult(id string, name string, type_ TestStatusType, isBased bool, isDefault bool, code string, ) *TestStatusApiResult`
+`func NewTestStatusApiResult(id string, name string, type_ TestStatusType, isSystem bool, code string, ) *TestStatusApiResult`
 
 NewTestStatusApiResult instantiates a new TestStatusApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -91,44 +90,24 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
-### GetIsBased
+### GetIsSystem
 
-`func (o *TestStatusApiResult) GetIsBased() bool`
+`func (o *TestStatusApiResult) GetIsSystem() bool`
 
-GetIsBased returns the IsBased field if non-nil, zero value otherwise.
+GetIsSystem returns the IsSystem field if non-nil, zero value otherwise.
 
-### GetIsBasedOk
+### GetIsSystemOk
 
-`func (o *TestStatusApiResult) GetIsBasedOk() (*bool, bool)`
+`func (o *TestStatusApiResult) GetIsSystemOk() (*bool, bool)`
 
-GetIsBasedOk returns a tuple with the IsBased field if it's non-nil, zero value otherwise
+GetIsSystemOk returns a tuple with the IsSystem field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIsBased
+### SetIsSystem
 
-`func (o *TestStatusApiResult) SetIsBased(v bool)`
+`func (o *TestStatusApiResult) SetIsSystem(v bool)`
 
-SetIsBased sets IsBased field to given value.
-
-
-### GetIsDefault
-
-`func (o *TestStatusApiResult) GetIsDefault() bool`
-
-GetIsDefault returns the IsDefault field if non-nil, zero value otherwise.
-
-### GetIsDefaultOk
-
-`func (o *TestStatusApiResult) GetIsDefaultOk() (*bool, bool)`
-
-GetIsDefaultOk returns a tuple with the IsDefault field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsDefault
-
-`func (o *TestStatusApiResult) SetIsDefault(v bool)`
-
-SetIsDefault sets IsDefault field to given value.
+SetIsSystem sets IsSystem field to given value.
 
 
 ### GetCode
