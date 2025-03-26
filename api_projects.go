@@ -215,15 +215,15 @@ func (a *ProjectsAPIService) AddGlobaAttributesToProjectExecute(r ApiAddGlobaAtt
 type ApiApiV2ProjectsDemoPostRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
-	projectPostModel *ProjectPostModel
+	createProjectApiModel *CreateProjectApiModel
 }
 
-func (r ApiApiV2ProjectsDemoPostRequest) ProjectPostModel(projectPostModel ProjectPostModel) ApiApiV2ProjectsDemoPostRequest {
-	r.projectPostModel = &projectPostModel
+func (r ApiApiV2ProjectsDemoPostRequest) CreateProjectApiModel(createProjectApiModel CreateProjectApiModel) ApiApiV2ProjectsDemoPostRequest {
+	r.createProjectApiModel = &createProjectApiModel
 	return r
 }
 
-func (r ApiApiV2ProjectsDemoPostRequest) Execute() (*ProjectModel, *http.Response, error) {
+func (r ApiApiV2ProjectsDemoPostRequest) Execute() (*DemoProjectApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsDemoPostExecute(r)
 }
 
@@ -241,13 +241,13 @@ func (a *ProjectsAPIService) ApiV2ProjectsDemoPost(ctx context.Context) ApiApiV2
 }
 
 // Execute executes the request
-//  @return ProjectModel
-func (a *ProjectsAPIService) ApiV2ProjectsDemoPostExecute(r ApiApiV2ProjectsDemoPostRequest) (*ProjectModel, *http.Response, error) {
+//  @return DemoProjectApiResult
+func (a *ProjectsAPIService) ApiV2ProjectsDemoPostExecute(r ApiApiV2ProjectsDemoPostRequest) (*DemoProjectApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ProjectModel
+		localVarReturnValue  *DemoProjectApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.ApiV2ProjectsDemoPost")
@@ -279,7 +279,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsDemoPostExecute(r ApiApiV2ProjectsDemo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectPostModel
+	localVarPostBody = r.createProjectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -3303,11 +3303,11 @@ func (a *ProjectsAPIService) ApiV2ProjectsSearchPostExecute(r ApiApiV2ProjectsSe
 type ApiCreateProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
-	projectPostModel *ProjectPostModel
+	createProjectApiModel *CreateProjectApiModel
 }
 
-func (r ApiCreateProjectRequest) ProjectPostModel(projectPostModel ProjectPostModel) ApiCreateProjectRequest {
-	r.projectPostModel = &projectPostModel
+func (r ApiCreateProjectRequest) CreateProjectApiModel(createProjectApiModel CreateProjectApiModel) ApiCreateProjectRequest {
+	r.createProjectApiModel = &createProjectApiModel
 	return r
 }
 
@@ -3376,7 +3376,7 @@ func (a *ProjectsAPIService) CreateProjectExecute(r ApiCreateProjectRequest) (*P
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectPostModel
+	localVarPostBody = r.createProjectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -4834,11 +4834,11 @@ func (a *ProjectsAPIService) GetTestRunsByProjectIdExecute(r ApiGetTestRunsByPro
 type ApiUpdateProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
-	projectPutModel *ProjectPutModel
+	updateProjectApiModel *UpdateProjectApiModel
 }
 
-func (r ApiUpdateProjectRequest) ProjectPutModel(projectPutModel ProjectPutModel) ApiUpdateProjectRequest {
-	r.projectPutModel = &projectPutModel
+func (r ApiUpdateProjectRequest) UpdateProjectApiModel(updateProjectApiModel UpdateProjectApiModel) ApiUpdateProjectRequest {
+	r.updateProjectApiModel = &updateProjectApiModel
 	return r
 }
 
@@ -4905,7 +4905,7 @@ func (a *ProjectsAPIService) UpdateProjectExecute(r ApiUpdateProjectRequest) (*h
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.projectPutModel
+	localVarPostBody = r.updateProjectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

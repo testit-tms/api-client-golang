@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsDemoPost
 
-> ProjectModel ApiV2ProjectsDemoPost(ctx).ProjectPostModel(projectPostModel).Execute()
+> DemoProjectApiResult ApiV2ProjectsDemoPost(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
 
 
 
@@ -121,16 +121,16 @@ import (
 )
 
 func main() {
-	projectPostModel := *openapiclient.NewProjectPostModel("Name_example") // ProjectPostModel |  (optional)
+	createProjectApiModel := *openapiclient.NewCreateProjectApiModel("Name_example") // CreateProjectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsDemoPost(context.Background()).ProjectPostModel(projectPostModel).Execute()
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsDemoPost(context.Background()).CreateProjectApiModel(createProjectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsDemoPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsDemoPost`: ProjectModel
+	// response from `ApiV2ProjectsDemoPost`: DemoProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsDemoPost`: %v\n", resp)
 }
 ```
@@ -146,11 +146,11 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsDemoPostReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md) |  | 
+ **createProjectApiModel** | [**CreateProjectApiModel**](CreateProjectApiModel.md) |  | 
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**DemoProjectApiResult**](DemoProjectApiResult.md)
 
 ### Authorization
 
@@ -1222,7 +1222,7 @@ Name | Type | Description  | Notes
 
 ## CreateProject
 
-> ProjectModel CreateProject(ctx).ProjectPostModel(projectPostModel).Execute()
+> ProjectModel CreateProject(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
 
 Create project
 
@@ -1241,11 +1241,11 @@ import (
 )
 
 func main() {
-	projectPostModel := *openapiclient.NewProjectPostModel("Name_example") // ProjectPostModel |  (optional)
+	createProjectApiModel := *openapiclient.NewCreateProjectApiModel("Name_example") // CreateProjectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.CreateProject(context.Background()).ProjectPostModel(projectPostModel).Execute()
+	resp, r, err := apiClient.ProjectsAPI.CreateProject(context.Background()).CreateProjectApiModel(createProjectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CreateProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1266,7 +1266,7 @@ Other parameters are passed through a pointer to a apiCreateProjectRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectPostModel** | [**ProjectPostModel**](ProjectPostModel.md) |  | 
+ **createProjectApiModel** | [**CreateProjectApiModel**](CreateProjectApiModel.md) |  | 
 
 ### Return type
 
@@ -1739,7 +1739,7 @@ Name | Type | Description  | Notes
 
 ## UpdateProject
 
-> UpdateProject(ctx).ProjectPutModel(projectPutModel).Execute()
+> UpdateProject(ctx).UpdateProjectApiModel(updateProjectApiModel).Execute()
 
 Update project
 
@@ -1758,11 +1758,11 @@ import (
 )
 
 func main() {
-	projectPutModel := *openapiclient.NewProjectPutModel("Id_example", "Name_example", openapiclient.ProjectTypeModel("Regular")) // ProjectPutModel |  (optional)
+	updateProjectApiModel := *openapiclient.NewUpdateProjectApiModel("Id_example", "Name_example") // UpdateProjectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProjectsAPI.UpdateProject(context.Background()).ProjectPutModel(projectPutModel).Execute()
+	r, err := apiClient.ProjectsAPI.UpdateProject(context.Background()).UpdateProjectApiModel(updateProjectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.UpdateProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1781,7 +1781,7 @@ Other parameters are passed through a pointer to a apiUpdateProjectRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectPutModel** | [**ProjectPutModel**](ProjectPutModel.md) |  | 
+ **updateProjectApiModel** | [**UpdateProjectApiModel**](UpdateProjectApiModel.md) |  | 
 
 ### Return type
 
