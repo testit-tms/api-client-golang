@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **LastTestResultId** | Pointer to **NullableString** | Unique ID of the autotest last test result | [optional] 
 **LastTestResultConfiguration** | Pointer to [**NullableConfigurationShortModel**](ConfigurationShortModel.md) | Configuration of the autotest last test result | [optional] 
 **LastTestResultOutcome** | Pointer to **NullableString** | Outcome of the autotest last test result | [optional] 
+**LastTestResultStatus** | [**TestStatusModel**](TestStatusModel.md) | Status of the autotest last test result | 
 **StabilityPercentage** | Pointer to **NullableInt32** | Stability percentage of the autotest | [optional] 
 **ExternalId** | **string** | External ID of the autotest | 
 **Links** | Pointer to [**[]LinkPutModel**](LinkPutModel.md) | Collection of the autotest links | [optional] 
@@ -37,7 +38,7 @@ Name | Type | Description | Notes
 
 ### NewAutoTestModel
 
-`func NewAutoTestModel(globalId int64, isDeleted bool, mustBeApproved bool, id string, createdDate time.Time, createdById string, externalId string, projectId string, name string, ) *AutoTestModel`
+`func NewAutoTestModel(globalId int64, isDeleted bool, mustBeApproved bool, id string, createdDate time.Time, createdById string, lastTestResultStatus TestStatusModel, externalId string, projectId string, name string, ) *AutoTestModel`
 
 NewAutoTestModel instantiates a new AutoTestModel object
 This constructor will assign default values to properties that have it defined,
@@ -417,6 +418,26 @@ HasLastTestResultOutcome returns a boolean if a field has been set.
 `func (o *AutoTestModel) UnsetLastTestResultOutcome()`
 
 UnsetLastTestResultOutcome ensures that no value is present for LastTestResultOutcome, not even an explicit nil
+### GetLastTestResultStatus
+
+`func (o *AutoTestModel) GetLastTestResultStatus() TestStatusModel`
+
+GetLastTestResultStatus returns the LastTestResultStatus field if non-nil, zero value otherwise.
+
+### GetLastTestResultStatusOk
+
+`func (o *AutoTestModel) GetLastTestResultStatusOk() (*TestStatusModel, bool)`
+
+GetLastTestResultStatusOk returns a tuple with the LastTestResultStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastTestResultStatus
+
+`func (o *AutoTestModel) SetLastTestResultStatus(v TestStatusModel)`
+
+SetLastTestResultStatus sets LastTestResultStatus field to given value.
+
+
 ### GetStabilityPercentage
 
 `func (o *AutoTestModel) GetStabilityPercentage() int32`

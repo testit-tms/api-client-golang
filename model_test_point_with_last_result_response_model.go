@@ -45,6 +45,7 @@ type TestPointWithLastResultResponseModel struct {
 	TagNames []string `json:"tagNames,omitempty"`
 	Duration int32 `json:"duration"`
 	Priority WorkItemPriorityModel `json:"priority"`
+	SourceType WorkItemSourceTypeModel `json:"sourceType"`
 	TestSuiteNameBreadCrumbs []string `json:"testSuiteNameBreadCrumbs,omitempty"`
 	GroupCount NullableInt32 `json:"groupCount,omitempty"`
 	Iteration NullableIterationModel `json:"iteration,omitempty"`
@@ -56,7 +57,7 @@ type _TestPointWithLastResultResponseModel TestPointWithLastResultResponseModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointWithLastResultResponseModel(id string, isAutomated bool, workItemId string, testSuiteId string, sectionId string, createdById string, duration int32, priority WorkItemPriorityModel) *TestPointWithLastResultResponseModel {
+func NewTestPointWithLastResultResponseModel(id string, isAutomated bool, workItemId string, testSuiteId string, sectionId string, createdById string, duration int32, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel) *TestPointWithLastResultResponseModel {
 	this := TestPointWithLastResultResponseModel{}
 	this.Id = id
 	this.IsAutomated = isAutomated
@@ -66,6 +67,7 @@ func NewTestPointWithLastResultResponseModel(id string, isAutomated bool, workIt
 	this.CreatedById = createdById
 	this.Duration = duration
 	this.Priority = priority
+	this.SourceType = sourceType
 	return &this
 }
 
@@ -842,6 +844,30 @@ func (o *TestPointWithLastResultResponseModel) SetPriority(v WorkItemPriorityMod
 	o.Priority = v
 }
 
+// GetSourceType returns the SourceType field value
+func (o *TestPointWithLastResultResponseModel) GetSourceType() WorkItemSourceTypeModel {
+	if o == nil {
+		var ret WorkItemSourceTypeModel
+		return ret
+	}
+
+	return o.SourceType
+}
+
+// GetSourceTypeOk returns a tuple with the SourceType field value
+// and a boolean to check if the value has been set.
+func (o *TestPointWithLastResultResponseModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SourceType, true
+}
+
+// SetSourceType sets field value
+func (o *TestPointWithLastResultResponseModel) SetSourceType(v WorkItemSourceTypeModel) {
+	o.SourceType = v
+}
+
 // GetTestSuiteNameBreadCrumbs returns the TestSuiteNameBreadCrumbs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPointWithLastResultResponseModel) GetTestSuiteNameBreadCrumbs() []string {
 	if o == nil {
@@ -1019,6 +1045,7 @@ func (o TestPointWithLastResultResponseModel) ToMap() (map[string]interface{}, e
 	}
 	toSerialize["duration"] = o.Duration
 	toSerialize["priority"] = o.Priority
+	toSerialize["sourceType"] = o.SourceType
 	if o.TestSuiteNameBreadCrumbs != nil {
 		toSerialize["testSuiteNameBreadCrumbs"] = o.TestSuiteNameBreadCrumbs
 	}
@@ -1044,6 +1071,7 @@ func (o *TestPointWithLastResultResponseModel) UnmarshalJSON(data []byte) (err e
 		"createdById",
 		"duration",
 		"priority",
+		"sourceType",
 	}
 
 	allProperties := make(map[string]interface{})

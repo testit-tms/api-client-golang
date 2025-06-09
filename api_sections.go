@@ -612,10 +612,8 @@ User runs method execution
 
 System search section by the section identifier
 
-
-            [Optional] If isDeleted flag equals false, deleted work items are not being searched.
+[Optional] If isDeleted flag equals false, deleted work items are not being searched.
             If true, deleted work items are also being searched, null for all work items.
-            
 
 System returns section
 
@@ -871,10 +869,8 @@ System search section by the identifier
 
 System search work items related to the section
 
-
-            [Optional] If isDeleted flag equals false, deleted work items are not being searched.
+[Optional] If isDeleted flag equals false, deleted work items are not being searched.
             If true, deleted work items are also being searched, null for all work items.
-            
 
 System returns work item collection
 

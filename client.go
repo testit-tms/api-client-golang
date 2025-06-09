@@ -97,8 +97,6 @@ type APIClient struct {
 
 	TestRunsAPI *TestRunsAPIService
 
-	TestStatusesAPI *TestStatusesAPIService
-
 	TestSuitesAPI *TestSuitesAPIService
 
 	UsersAPI *UsersAPIService
@@ -152,7 +150,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TestPointsAPI = (*TestPointsAPIService)(&c.common)
 	c.TestResultsAPI = (*TestResultsAPIService)(&c.common)
 	c.TestRunsAPI = (*TestRunsAPIService)(&c.common)
-	c.TestStatusesAPI = (*TestStatusesAPIService)(&c.common)
 	c.TestSuitesAPI = (*TestSuitesAPIService)(&c.common)
 	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)

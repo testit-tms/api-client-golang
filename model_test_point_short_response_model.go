@@ -63,6 +63,8 @@ type TestPointShortResponseModel struct {
 	StatusModel TestStatusApiResult `json:"statusModel"`
 	// Priority of the test point
 	Priority WorkItemPriorityModel `json:"priority"`
+	// Source type of the test point
+	SourceType WorkItemSourceTypeModel `json:"sourceType"`
 	// Indicates if the test point represents an autotest
 	IsAutomated bool `json:"isAutomated"`
 	// Name of the test point
@@ -99,7 +101,7 @@ type _TestPointShortResponseModel TestPointShortResponseModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointShortResponseModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, statusModel TestStatusApiResult, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time) *TestPointShortResponseModel {
+func NewTestPointShortResponseModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, statusModel TestStatusApiResult, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time) *TestPointShortResponseModel {
 	this := TestPointShortResponseModel{}
 	this.Id = id
 	this.CreatedDate = createdDate
@@ -116,6 +118,7 @@ func NewTestPointShortResponseModel(id string, createdDate time.Time, createdByI
 	this.Status = status
 	this.StatusModel = statusModel
 	this.Priority = priority
+	this.SourceType = sourceType
 	this.IsAutomated = isAutomated
 	this.Name = name
 	this.ConfigurationId = configurationId
@@ -701,6 +704,30 @@ func (o *TestPointShortResponseModel) SetPriority(v WorkItemPriorityModel) {
 	o.Priority = v
 }
 
+// GetSourceType returns the SourceType field value
+func (o *TestPointShortResponseModel) GetSourceType() WorkItemSourceTypeModel {
+	if o == nil {
+		var ret WorkItemSourceTypeModel
+		return ret
+	}
+
+	return o.SourceType
+}
+
+// GetSourceTypeOk returns a tuple with the SourceType field value
+// and a boolean to check if the value has been set.
+func (o *TestPointShortResponseModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SourceType, true
+}
+
+// SetSourceType sets field value
+func (o *TestPointShortResponseModel) SetSourceType(v WorkItemSourceTypeModel) {
+	o.SourceType = v
+}
+
 // GetIsAutomated returns the IsAutomated field value
 func (o *TestPointShortResponseModel) GetIsAutomated() bool {
 	if o == nil {
@@ -1149,6 +1176,7 @@ func (o TestPointShortResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["status"] = o.Status
 	toSerialize["statusModel"] = o.StatusModel
 	toSerialize["priority"] = o.Priority
+	toSerialize["sourceType"] = o.SourceType
 	toSerialize["isAutomated"] = o.IsAutomated
 	toSerialize["name"] = o.Name
 	toSerialize["configurationId"] = o.ConfigurationId
@@ -1194,6 +1222,7 @@ func (o *TestPointShortResponseModel) UnmarshalJSON(data []byte) (err error) {
 		"status",
 		"statusModel",
 		"priority",
+		"sourceType",
 		"isAutomated",
 		"name",
 		"configurationId",

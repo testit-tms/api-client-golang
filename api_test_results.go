@@ -2351,10 +2351,8 @@ User runs method execution
 
 System search attachments by the attachmentId and the testResultId
 
-
-                    [Optional] If resize configuration is set, System resizes the attachment according to the resize
+[Optional] If resize configuration is set, System resizes the attachment according to the resize
                     configuration
-                
 
 [Optional] Otherwise, System does not resize the attachment
 

@@ -26,11 +26,11 @@ type TagsAPIService service
 type ApiApiV2TagsDeleteRequest struct {
 	ctx context.Context
 	ApiService *TagsAPIService
-	tagSelectModel *TagSelectModel
+	selectTagsApiModel *SelectTagsApiModel
 }
 
-func (r ApiApiV2TagsDeleteRequest) TagSelectModel(tagSelectModel TagSelectModel) ApiApiV2TagsDeleteRequest {
-	r.tagSelectModel = &tagSelectModel
+func (r ApiApiV2TagsDeleteRequest) SelectTagsApiModel(selectTagsApiModel SelectTagsApiModel) ApiApiV2TagsDeleteRequest {
+	r.selectTagsApiModel = &selectTagsApiModel
 	return r
 }
 
@@ -95,7 +95,7 @@ func (a *TagsAPIService) ApiV2TagsDeleteExecute(r ApiApiV2TagsDeleteRequest) (*h
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tagSelectModel
+	localVarPostBody = r.selectTagsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -201,192 +201,6 @@ func (a *TagsAPIService) ApiV2TagsDeleteExecute(r ApiApiV2TagsDeleteRequest) (*h
 	}
 
 	return localVarHTTPResponse, nil
-}
-
-type ApiApiV2TagsGetRequest struct {
-	ctx context.Context
-	ApiService *TagsAPIService
-}
-
-func (r ApiApiV2TagsGetRequest) Execute() ([]TagModel, *http.Response, error) {
-	return r.ApiService.ApiV2TagsGetExecute(r)
-}
-
-/*
-ApiV2TagsGet Get all Tags
-
-
-Use case
-
-User runs method execution
-
-System returns tags (listed in the response example)
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiV2TagsGetRequest
-
-Deprecated
-*/
-func (a *TagsAPIService) ApiV2TagsGet(ctx context.Context) ApiApiV2TagsGetRequest {
-	return ApiApiV2TagsGetRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return []TagModel
-// Deprecated
-func (a *TagsAPIService) ApiV2TagsGetExecute(r ApiApiV2TagsGetRequest) ([]TagModel, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []TagModel
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v2/tags"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ValidationProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiApiV2TagsIdDeleteRequest struct {
@@ -568,15 +382,15 @@ func (a *TagsAPIService) ApiV2TagsIdDeleteExecute(r ApiApiV2TagsIdDeleteRequest)
 type ApiApiV2TagsPostRequest struct {
 	ctx context.Context
 	ApiService *TagsAPIService
-	tagPostModel *TagPostModel
+	createTagApiModel *CreateTagApiModel
 }
 
-func (r ApiApiV2TagsPostRequest) TagPostModel(tagPostModel TagPostModel) ApiApiV2TagsPostRequest {
-	r.tagPostModel = &tagPostModel
+func (r ApiApiV2TagsPostRequest) CreateTagApiModel(createTagApiModel CreateTagApiModel) ApiApiV2TagsPostRequest {
+	r.createTagApiModel = &createTagApiModel
 	return r
 }
 
-func (r ApiApiV2TagsPostRequest) Execute() (*TagModel, *http.Response, error) {
+func (r ApiApiV2TagsPostRequest) Execute() (*TagApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TagsPostExecute(r)
 }
 
@@ -605,13 +419,13 @@ func (a *TagsAPIService) ApiV2TagsPost(ctx context.Context) ApiApiV2TagsPostRequ
 }
 
 // Execute executes the request
-//  @return TagModel
-func (a *TagsAPIService) ApiV2TagsPostExecute(r ApiApiV2TagsPostRequest) (*TagModel, *http.Response, error) {
+//  @return TagApiResult
+func (a *TagsAPIService) ApiV2TagsPostExecute(r ApiApiV2TagsPostRequest) (*TagApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TagModel
+		localVarReturnValue  *TagApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsPost")
@@ -643,7 +457,7 @@ func (a *TagsAPIService) ApiV2TagsPostExecute(r ApiApiV2TagsPostRequest) (*TagMo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tagPostModel
+	localVarPostBody = r.createTagApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -764,7 +578,7 @@ type ApiApiV2TagsPutRequest struct {
 	ctx context.Context
 	ApiService *TagsAPIService
 	id *string
-	tagPutModel *TagPutModel
+	updateTagApiModel *UpdateTagApiModel
 }
 
 func (r ApiApiV2TagsPutRequest) Id(id string) ApiApiV2TagsPutRequest {
@@ -772,12 +586,12 @@ func (r ApiApiV2TagsPutRequest) Id(id string) ApiApiV2TagsPutRequest {
 	return r
 }
 
-func (r ApiApiV2TagsPutRequest) TagPutModel(tagPutModel TagPutModel) ApiApiV2TagsPutRequest {
-	r.tagPutModel = &tagPutModel
+func (r ApiApiV2TagsPutRequest) UpdateTagApiModel(updateTagApiModel UpdateTagApiModel) ApiApiV2TagsPutRequest {
+	r.updateTagApiModel = &updateTagApiModel
 	return r
 }
 
-func (r ApiApiV2TagsPutRequest) Execute() (*TagModel, *http.Response, error) {
+func (r ApiApiV2TagsPutRequest) Execute() (*TagApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TagsPutExecute(r)
 }
 
@@ -806,13 +620,13 @@ func (a *TagsAPIService) ApiV2TagsPut(ctx context.Context) ApiApiV2TagsPutReques
 }
 
 // Execute executes the request
-//  @return TagModel
-func (a *TagsAPIService) ApiV2TagsPutExecute(r ApiApiV2TagsPutRequest) (*TagModel, *http.Response, error) {
+//  @return TagApiResult
+func (a *TagsAPIService) ApiV2TagsPutExecute(r ApiApiV2TagsPutRequest) (*TagApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TagModel
+		localVarReturnValue  *TagApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsPut")
@@ -847,7 +661,7 @@ func (a *TagsAPIService) ApiV2TagsPutExecute(r ApiApiV2TagsPutRequest) (*TagMode
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.tagPutModel
+	localVarPostBody = r.updateTagApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1004,7 +818,7 @@ func (r ApiApiV2TagsSearchGetRequest) SearchValue(searchValue string) ApiApiV2Ta
 	return r
 }
 
-func (r ApiApiV2TagsSearchGetRequest) Execute() ([]TagModel, *http.Response, error) {
+func (r ApiApiV2TagsSearchGetRequest) Execute() ([]TagApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TagsSearchGetExecute(r)
 }
 
@@ -1029,13 +843,13 @@ func (a *TagsAPIService) ApiV2TagsSearchGet(ctx context.Context) ApiApiV2TagsSea
 }
 
 // Execute executes the request
-//  @return []TagModel
-func (a *TagsAPIService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetRequest) ([]TagModel, *http.Response, error) {
+//  @return []TagApiResult
+func (a *TagsAPIService) ApiV2TagsSearchGetExecute(r ApiApiV2TagsSearchGetRequest) ([]TagApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TagModel
+		localVarReturnValue  []TagApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsSearchGet")
@@ -1237,7 +1051,7 @@ func (r ApiApiV2TagsTestPlansTagsGetRequest) SearchValue(searchValue string) Api
 	return r
 }
 
-func (r ApiApiV2TagsTestPlansTagsGetRequest) Execute() ([]TagModel, *http.Response, error) {
+func (r ApiApiV2TagsTestPlansTagsGetRequest) Execute() ([]TagApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TagsTestPlansTagsGetExecute(r)
 }
 
@@ -1262,13 +1076,13 @@ func (a *TagsAPIService) ApiV2TagsTestPlansTagsGet(ctx context.Context) ApiApiV2
 }
 
 // Execute executes the request
-//  @return []TagModel
-func (a *TagsAPIService) ApiV2TagsTestPlansTagsGetExecute(r ApiApiV2TagsTestPlansTagsGetRequest) ([]TagModel, *http.Response, error) {
+//  @return []TagApiResult
+func (a *TagsAPIService) ApiV2TagsTestPlansTagsGetExecute(r ApiApiV2TagsTestPlansTagsGetRequest) ([]TagApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TagModel
+		localVarReturnValue  []TagApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TagsAPIService.ApiV2TagsTestPlansTagsGet")

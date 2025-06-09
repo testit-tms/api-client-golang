@@ -26,12 +26,13 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** |  | [optional] 
 **State** | [**WorkItemStates**](WorkItemStates.md) |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**SourceType** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **Steps** | [**[]StepModel**](StepModel.md) |  | 
 **PreconditionSteps** | [**[]StepModel**](StepModel.md) |  | 
 **PostconditionSteps** | [**[]StepModel**](StepModel.md) |  | 
 **Duration** | **int32** |  | 
 **Attributes** | **map[string]interface{}** |  | 
-**Tags** | [**[]TagPutModel**](TagPutModel.md) |  | 
+**Tags** | [**[]TagModel**](TagModel.md) |  | 
 **Links** | [**[]LinkModel**](LinkModel.md) |  | 
 **Name** | **string** |  | 
 
@@ -39,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemModel
 
-`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagPutModel, links []LinkModel, name string, ) *WorkItemModel`
+`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
 
 NewWorkItemModel instantiates a new WorkItemModel object
 This constructor will assign default values to properties that have it defined,
@@ -614,6 +615,26 @@ and a boolean to check if the value has been set.
 SetPriority sets Priority field to given value.
 
 
+### GetSourceType
+
+`func (o *WorkItemModel) GetSourceType() WorkItemSourceTypeModel`
+
+GetSourceType returns the SourceType field if non-nil, zero value otherwise.
+
+### GetSourceTypeOk
+
+`func (o *WorkItemModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool)`
+
+GetSourceTypeOk returns a tuple with the SourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceType
+
+`func (o *WorkItemModel) SetSourceType(v WorkItemSourceTypeModel)`
+
+SetSourceType sets SourceType field to given value.
+
+
 ### GetSteps
 
 `func (o *WorkItemModel) GetSteps() []StepModel`
@@ -716,20 +737,20 @@ SetAttributes sets Attributes field to given value.
 
 ### GetTags
 
-`func (o *WorkItemModel) GetTags() []TagPutModel`
+`func (o *WorkItemModel) GetTags() []TagModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *WorkItemModel) GetTagsOk() (*[]TagPutModel, bool)`
+`func (o *WorkItemModel) GetTagsOk() (*[]TagModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *WorkItemModel) SetTags(v []TagPutModel)`
+`func (o *WorkItemModel) SetTags(v []TagModel)`
 
 SetTags sets Tags field to given value.
 

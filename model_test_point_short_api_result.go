@@ -31,7 +31,7 @@ type TestPointShortApiResult struct {
 	WorkItemId NullableString `json:"workItemId,omitempty"`
 	// Configuration to which test point relates unique identifier
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
-	// Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed
+	// Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed
 	// Deprecated
 	Status NullableString `json:"status,omitempty"`
 	// Test point status

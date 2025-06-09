@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to **NullableTime** | Date and time of the latest modification of Work Item | [optional] 
 **State** | [**WorkItemStates**](WorkItemStates.md) | The current state of Work Item | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) | Work Item priority level | 
+**SourceType** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Work Item priority level | 
 **IsDeleted** | **bool** | Flag determining whether Work Item is deleted | 
 **TagNames** | Pointer to **[]string** | Array of tag names of Work Item | [optional] 
 **Iterations** | [**[]IterationApiResult**](IterationApiResult.md) | Set of iterations related to Work Item | 
@@ -32,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemShortApiResult
 
-`func NewWorkItemShortApiResult(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationApiResult, links []LinkShortApiResult, ) *WorkItemShortApiResult`
+`func NewWorkItemShortApiResult(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationApiResult, links []LinkShortApiResult, ) *WorkItemShortApiResult`
 
 NewWorkItemShortApiResult instantiates a new WorkItemShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -500,6 +501,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemShortApiResult) SetPriority(v WorkItemPriorityModel)`
 
 SetPriority sets Priority field to given value.
+
+
+### GetSourceType
+
+`func (o *WorkItemShortApiResult) GetSourceType() WorkItemSourceTypeModel`
+
+GetSourceType returns the SourceType field if non-nil, zero value otherwise.
+
+### GetSourceTypeOk
+
+`func (o *WorkItemShortApiResult) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool)`
+
+GetSourceTypeOk returns a tuple with the SourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceType
+
+`func (o *WorkItemShortApiResult) SetSourceType(v WorkItemSourceTypeModel)`
+
+SetSourceType sets SourceType field to given value.
 
 
 ### GetIsDeleted

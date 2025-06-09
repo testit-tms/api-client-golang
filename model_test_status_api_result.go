@@ -23,7 +23,8 @@ var _ MappedNullable = &TestStatusApiResult{}
 type TestStatusApiResult struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
-	Type TestStatusType `json:"type"`
+	// Collection of possible status types
+	Type TestStatusApiType `json:"type"`
 	IsSystem bool `json:"isSystem"`
 	Code string `json:"code"`
 	Description NullableString `json:"description,omitempty"`
@@ -35,7 +36,7 @@ type _TestStatusApiResult TestStatusApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestStatusApiResult(id string, name string, type_ TestStatusType, isSystem bool, code string) *TestStatusApiResult {
+func NewTestStatusApiResult(id string, name string, type_ TestStatusApiType, isSystem bool, code string) *TestStatusApiResult {
 	this := TestStatusApiResult{}
 	this.Id = id
 	this.Name = name
@@ -102,9 +103,9 @@ func (o *TestStatusApiResult) SetName(v string) {
 }
 
 // GetType returns the Type field value
-func (o *TestStatusApiResult) GetType() TestStatusType {
+func (o *TestStatusApiResult) GetType() TestStatusApiType {
 	if o == nil {
-		var ret TestStatusType
+		var ret TestStatusApiType
 		return ret
 	}
 
@@ -113,7 +114,7 @@ func (o *TestStatusApiResult) GetType() TestStatusType {
 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-func (o *TestStatusApiResult) GetTypeOk() (*TestStatusType, bool) {
+func (o *TestStatusApiResult) GetTypeOk() (*TestStatusApiType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -121,7 +122,7 @@ func (o *TestStatusApiResult) GetTypeOk() (*TestStatusType, bool) {
 }
 
 // SetType sets field value
-func (o *TestStatusApiResult) SetType(v TestStatusType) {
+func (o *TestStatusApiResult) SetType(v TestStatusApiType) {
 	o.Type = v
 }
 

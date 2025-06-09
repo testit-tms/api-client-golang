@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ApiV2TagsDelete**](TagsAPI.md#ApiV2TagsDelete) | **Delete** /api/v2/tags | Delete tags
-[**ApiV2TagsGet**](TagsAPI.md#ApiV2TagsGet) | **Get** /api/v2/tags | Get all Tags
 [**ApiV2TagsIdDelete**](TagsAPI.md#ApiV2TagsIdDelete) | **Delete** /api/v2/tags/{id} | Delete tag
 [**ApiV2TagsPost**](TagsAPI.md#ApiV2TagsPost) | **Post** /api/v2/tags | Create tag
 [**ApiV2TagsPut**](TagsAPI.md#ApiV2TagsPut) | **Put** /api/v2/tags | Update tag
@@ -16,7 +15,7 @@ Method | HTTP request | Description
 
 ## ApiV2TagsDelete
 
-> ApiV2TagsDelete(ctx).TagSelectModel(tagSelectModel).Execute()
+> ApiV2TagsDelete(ctx).SelectTagsApiModel(selectTagsApiModel).Execute()
 
 Delete tags
 
@@ -35,11 +34,11 @@ import (
 )
 
 func main() {
-	tagSelectModel := *openapiclient.NewTagSelectModel() // TagSelectModel |  (optional)
+	selectTagsApiModel := *openapiclient.NewSelectTagsApiModel() // SelectTagsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.TagsAPI.ApiV2TagsDelete(context.Background()).TagSelectModel(tagSelectModel).Execute()
+	r, err := apiClient.TagsAPI.ApiV2TagsDelete(context.Background()).SelectTagsApiModel(selectTagsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsDelete``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,7 +57,7 @@ Other parameters are passed through a pointer to a apiApiV2TagsDeleteRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tagSelectModel** | [**TagSelectModel**](TagSelectModel.md) |  | 
+ **selectTagsApiModel** | [**SelectTagsApiModel**](SelectTagsApiModel.md) |  | 
 
 ### Return type
 
@@ -71,67 +70,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2TagsGet
-
-> []TagModel ApiV2TagsGet(ctx).Execute()
-
-Get all Tags
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TagsAPI.ApiV2TagsGet(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2TagsGet`: []TagModel
-	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2TagsGetRequest struct via the builder pattern
-
-
-### Return type
-
-[**[]TagModel**](TagModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -209,7 +147,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TagsPost
 
-> TagModel ApiV2TagsPost(ctx).TagPostModel(tagPostModel).Execute()
+> TagApiResult ApiV2TagsPost(ctx).CreateTagApiModel(createTagApiModel).Execute()
 
 Create tag
 
@@ -228,16 +166,16 @@ import (
 )
 
 func main() {
-	tagPostModel := *openapiclient.NewTagPostModel("Name_example") // TagPostModel |  (optional)
+	createTagApiModel := *openapiclient.NewCreateTagApiModel("Name_example") // CreateTagApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TagsAPI.ApiV2TagsPost(context.Background()).TagPostModel(tagPostModel).Execute()
+	resp, r, err := apiClient.TagsAPI.ApiV2TagsPost(context.Background()).CreateTagApiModel(createTagApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TagsPost`: TagModel
+	// response from `ApiV2TagsPost`: TagApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsPost`: %v\n", resp)
 }
 ```
@@ -253,11 +191,11 @@ Other parameters are passed through a pointer to a apiApiV2TagsPostRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tagPostModel** | [**TagPostModel**](TagPostModel.md) |  | 
+ **createTagApiModel** | [**CreateTagApiModel**](CreateTagApiModel.md) |  | 
 
 ### Return type
 
-[**TagModel**](TagModel.md)
+[**TagApiResult**](TagApiResult.md)
 
 ### Authorization
 
@@ -275,7 +213,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TagsPut
 
-> TagModel ApiV2TagsPut(ctx).Id(id).TagPutModel(tagPutModel).Execute()
+> TagApiResult ApiV2TagsPut(ctx).Id(id).UpdateTagApiModel(updateTagApiModel).Execute()
 
 Update tag
 
@@ -295,16 +233,16 @@ import (
 
 func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	tagPutModel := *openapiclient.NewTagPutModel("Name_example") // TagPutModel |  (optional)
+	updateTagApiModel := *openapiclient.NewUpdateTagApiModel("Name_example") // UpdateTagApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TagsAPI.ApiV2TagsPut(context.Background()).Id(id).TagPutModel(tagPutModel).Execute()
+	resp, r, err := apiClient.TagsAPI.ApiV2TagsPut(context.Background()).Id(id).UpdateTagApiModel(updateTagApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TagsPut`: TagModel
+	// response from `ApiV2TagsPut`: TagApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsPut`: %v\n", resp)
 }
 ```
@@ -321,11 +259,11 @@ Other parameters are passed through a pointer to a apiApiV2TagsPutRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string** |  | 
- **tagPutModel** | [**TagPutModel**](TagPutModel.md) |  | 
+ **updateTagApiModel** | [**UpdateTagApiModel**](UpdateTagApiModel.md) |  | 
 
 ### Return type
 
-[**TagModel**](TagModel.md)
+[**TagApiResult**](TagApiResult.md)
 
 ### Authorization
 
@@ -343,7 +281,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TagsSearchGet
 
-> []TagModel ApiV2TagsSearchGet(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TagApiResult ApiV2TagsSearchGet(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Search tags
 
@@ -375,7 +313,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsSearchGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TagsSearchGet`: []TagModel
+	// response from `ApiV2TagsSearchGet`: []TagApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsSearchGet`: %v\n", resp)
 }
 ```
@@ -399,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TagModel**](TagModel.md)
+[**[]TagApiResult**](TagApiResult.md)
 
 ### Authorization
 
@@ -417,7 +355,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TagsTestPlansTagsGet
 
-> []TagModel ApiV2TagsTestPlansTagsGet(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []TagApiResult ApiV2TagsTestPlansTagsGet(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get all Tags that are used in TestPlans
 
@@ -449,7 +387,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ApiV2TagsTestPlansTagsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TagsTestPlansTagsGet`: []TagModel
+	// response from `ApiV2TagsTestPlansTagsGet`: []TagApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ApiV2TagsTestPlansTagsGet`: %v\n", resp)
 }
 ```
@@ -473,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TagModel**](TagModel.md)
+[**[]TagApiResult**](TagApiResult.md)
 
 ### Authorization
 

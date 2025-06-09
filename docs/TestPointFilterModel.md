@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Statuses** | Pointer to [**[]TestPointStatus**](TestPointStatus.md) | Specifies a test point statuses to search for | [optional] 
 **StatusCodes** | Pointer to **[]string** | Specifies a test point status codes to search for | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Specifies a test point priorities to search for | [optional] 
+**SourceTypes** | Pointer to [**[]WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Specifies a test point source types to search for | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Specifies a test point automation status to search for | [optional] 
 **Name** | Pointer to **NullableString** | Specifies a test point name to search for | [optional] 
 **ConfigurationIds** | Pointer to **[]string** | Specifies a test point configuration IDs to search for | [optional] 
@@ -328,6 +329,41 @@ HasPriorities returns a boolean if a field has been set.
 `func (o *TestPointFilterModel) UnsetPriorities()`
 
 UnsetPriorities ensures that no value is present for Priorities, not even an explicit nil
+### GetSourceTypes
+
+`func (o *TestPointFilterModel) GetSourceTypes() []WorkItemSourceTypeModel`
+
+GetSourceTypes returns the SourceTypes field if non-nil, zero value otherwise.
+
+### GetSourceTypesOk
+
+`func (o *TestPointFilterModel) GetSourceTypesOk() (*[]WorkItemSourceTypeModel, bool)`
+
+GetSourceTypesOk returns a tuple with the SourceTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceTypes
+
+`func (o *TestPointFilterModel) SetSourceTypes(v []WorkItemSourceTypeModel)`
+
+SetSourceTypes sets SourceTypes field to given value.
+
+### HasSourceTypes
+
+`func (o *TestPointFilterModel) HasSourceTypes() bool`
+
+HasSourceTypes returns a boolean if a field has been set.
+
+### SetSourceTypesNil
+
+`func (o *TestPointFilterModel) SetSourceTypesNil(b bool)`
+
+ SetSourceTypesNil sets the value for SourceTypes to be an explicit nil
+
+### UnsetSourceTypes
+`func (o *TestPointFilterModel) UnsetSourceTypes()`
+
+UnsetSourceTypes ensures that no value is present for SourceTypes, not even an explicit nil
 ### GetIsAutomated
 
 `func (o *TestPointFilterModel) GetIsAutomated() bool`

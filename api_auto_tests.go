@@ -2069,10 +2069,8 @@ User runs method execution
 
 System finds the autotest by the autotest identifier
 
-
-            [Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it
+[Optional] if workitem id is set by User, System finds the workitem by the workitem identifier and unlinks it
             from autotest.
-            
 
 [Optional] Otherwise, if workitem id is not specified, System unlinks all workitems linked to autotest.
 
@@ -2991,17 +2989,6 @@ func (a *AutoTestsAPIService) GetAutoTestByIdExecute(r ApiGetAutoTestByIdRequest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3035,6 +3022,17 @@ func (a *AutoTestsAPIService) GetAutoTestByIdExecute(r ApiGetAutoTestByIdRequest
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -3055,16 +3053,7 @@ func (a *AutoTestsAPIService) GetAutoTestByIdExecute(r ApiGetAutoTestByIdRequest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3109,6 +3098,8 @@ System returns test result chronology for autotest
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Autotest internal (UUID) or global (integer) identifier
  @return ApiGetAutoTestChronologyRequest
+
+Deprecated
 */
 func (a *AutoTestsAPIService) GetAutoTestChronology(ctx context.Context, id string) ApiGetAutoTestChronologyRequest {
 	return ApiGetAutoTestChronologyRequest{
@@ -3120,6 +3111,7 @@ func (a *AutoTestsAPIService) GetAutoTestChronology(ctx context.Context, id stri
 
 // Execute executes the request
 //  @return []TestResultChronologyModel
+// Deprecated
 func (a *AutoTestsAPIService) GetAutoTestChronologyExecute(r ApiGetAutoTestChronologyRequest) ([]TestResultChronologyModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -3492,24 +3484,20 @@ func (r ApiGetWorkItemsLinkedToAutoTestRequest) Execute() ([]WorkItemIdentifierM
 GetWorkItemsLinkedToAutoTest Get work items linked to autotest
 
 
-
-            This method links an autotest to a test case or a checklist.
+This method links an autotest to a test case or a checklist.
             A manual test case with a linked automated work item is marked in the test management system as an autotest.
             You can run it from graphical user interface (GUI). To do that:
-            
 
-
-            1. Open the project in GUI.
+1. Open the project in GUI.
 
             2. Go to <b>Test plans</b> section and switch to the <b>Execution</b> tab.
 
             3. Select the autotest(s) you want to run using checkboxes.
 
             4. In the toolbar above the test list, click <b>Run autotests</b>.
-            
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Specifies the autotest entity ID.   You can copy it from the address bar in your web browser or use autotest GUID.
+ @param id Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
  @return ApiGetWorkItemsLinkedToAutoTestRequest
 */
 func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTest(ctx context.Context, id string) ApiGetWorkItemsLinkedToAutoTestRequest {
@@ -3901,32 +3889,22 @@ User sets autotest updated parameters values (listed in the example) and runs me
 
 System finds the autotest by the identifier
 
-System updates autotest parameters 
+System updates autotest parameters
 
-
-            [Optional] If steps enumeration is set, system creates step items, relates them to autotest
+[Optional] If steps enumeration is set, system creates step items, relates them to autotest
             and deletes relations with current steps( if exist)
-            
 
-
-            [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
+[Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
             and deletes relations with current Setup items (if exist)
-            
 
-
-            [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
+[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
             and deletes relations with current teardown items (if exist)
-            
 
-
-            [Optional] If label enumeration is set, system creates labels and relates them to autotest
+[Optional] If label enumeration is set, system creates labels and relates them to autotest
             and deletes relations with current Labels (if exist)
-            
 
-
-            [Optional] If link enumeration is set, system creates links and relates them to autotest
+[Optional] If link enumeration is set, system creates links and relates them to autotest
             and deletes relations with current Links (if exist)
-            
 
 System updates autotest and returns no content response
 
@@ -4111,32 +4089,22 @@ User sets autotest updated parameters values (listed in the example) and runs me
 
 System finds the autotest by the identifier
 
-System updates autotest parameters 
+System updates autotest parameters
 
-
-            [Optional] If steps enumeration is set, system creates step items, relates them to autotest
+[Optional] If steps enumeration is set, system creates step items, relates them to autotest
             and deletes relations with current steps( if exist)
-            
 
-
-            [Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
+[Optional] If Setup enumeration is set, system creates setup items and relates them to autotest
             and deletes relations with current Setup items (if exist)
-            
 
-
-            [Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
+[Optional] If teardown enumeration is set, system creates teardown items and relates them to autotest
             and deletes relations with current teardown items (if exist)
-            
 
-
-            [Optional] If label enumeration is set, system creates labels and relates them to autotest
+[Optional] If label enumeration is set, system creates labels and relates them to autotest
             and deletes relations with current Labels (if exist)
-            
 
-
-            [Optional] If link enumeration is set, system creates links and relates them to autotest
+[Optional] If link enumeration is set, system creates links and relates them to autotest
             and deletes relations with current Links (if exist)
-            
 
 System updates autotest and returns no content response
 

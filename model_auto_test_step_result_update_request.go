@@ -35,8 +35,8 @@ type AutoTestStepResultUpdateRequest struct {
 	// Specifies the result of the autotest execution.
 	Outcome NullableAvailableTestResultOutcome `json:"outcome,omitempty"`
 	// Nested step results. The maximum nesting level is 15.
-	StepResults []AttachmentPutModelAutoTestStepResultsModel `json:"stepResults,omitempty"`
-	// /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>
+	StepResults []AutoTestStepResultUpdateRequest `json:"stepResults,omitempty"`
+	// /// <summary> Specifies an attachment GUID. Multiple values can be sent. </summary>
 	Attachments []AttachmentUpdateRequest `json:"attachments,omitempty"`
 	// \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.
 	Parameters map[string]string `json:"parameters,omitempty"`
@@ -354,9 +354,9 @@ func (o *AutoTestStepResultUpdateRequest) UnsetOutcome() {
 }
 
 // GetStepResults returns the StepResults field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestStepResultUpdateRequest) GetStepResults() []AttachmentPutModelAutoTestStepResultsModel {
+func (o *AutoTestStepResultUpdateRequest) GetStepResults() []AutoTestStepResultUpdateRequest {
 	if o == nil {
-		var ret []AttachmentPutModelAutoTestStepResultsModel
+		var ret []AutoTestStepResultUpdateRequest
 		return ret
 	}
 	return o.StepResults
@@ -365,7 +365,7 @@ func (o *AutoTestStepResultUpdateRequest) GetStepResults() []AttachmentPutModelA
 // GetStepResultsOk returns a tuple with the StepResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestStepResultUpdateRequest) GetStepResultsOk() ([]AttachmentPutModelAutoTestStepResultsModel, bool) {
+func (o *AutoTestStepResultUpdateRequest) GetStepResultsOk() ([]AutoTestStepResultUpdateRequest, bool) {
 	if o == nil || IsNil(o.StepResults) {
 		return nil, false
 	}
@@ -381,8 +381,8 @@ func (o *AutoTestStepResultUpdateRequest) HasStepResults() bool {
 	return false
 }
 
-// SetStepResults gets a reference to the given []AttachmentPutModelAutoTestStepResultsModel and assigns it to the StepResults field.
-func (o *AutoTestStepResultUpdateRequest) SetStepResults(v []AttachmentPutModelAutoTestStepResultsModel) {
+// SetStepResults gets a reference to the given []AutoTestStepResultUpdateRequest and assigns it to the StepResults field.
+func (o *AutoTestStepResultUpdateRequest) SetStepResults(v []AutoTestStepResultUpdateRequest) {
 	o.StepResults = v
 }
 

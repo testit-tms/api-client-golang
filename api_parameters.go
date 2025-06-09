@@ -27,15 +27,15 @@ type ParametersAPIService service
 type ApiApiV2ParametersBulkPostRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
-	parameterPostModel *[]ParameterPostModel
+	createParameterApiModel *[]CreateParameterApiModel
 }
 
-func (r ApiApiV2ParametersBulkPostRequest) ParameterPostModel(parameterPostModel []ParameterPostModel) ApiApiV2ParametersBulkPostRequest {
-	r.parameterPostModel = &parameterPostModel
+func (r ApiApiV2ParametersBulkPostRequest) CreateParameterApiModel(createParameterApiModel []CreateParameterApiModel) ApiApiV2ParametersBulkPostRequest {
+	r.createParameterApiModel = &createParameterApiModel
 	return r
 }
 
-func (r ApiApiV2ParametersBulkPostRequest) Execute() ([]ParameterModel, *http.Response, error) {
+func (r ApiApiV2ParametersBulkPostRequest) Execute() ([]ParameterApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ParametersBulkPostExecute(r)
 }
 
@@ -64,13 +64,13 @@ func (a *ParametersAPIService) ApiV2ParametersBulkPost(ctx context.Context) ApiA
 }
 
 // Execute executes the request
-//  @return []ParameterModel
-func (a *ParametersAPIService) ApiV2ParametersBulkPostExecute(r ApiApiV2ParametersBulkPostRequest) ([]ParameterModel, *http.Response, error) {
+//  @return []ParameterApiResult
+func (a *ParametersAPIService) ApiV2ParametersBulkPostExecute(r ApiApiV2ParametersBulkPostRequest) ([]ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ParameterModel
+		localVarReturnValue  []ParameterApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersAPIService.ApiV2ParametersBulkPost")
@@ -102,7 +102,7 @@ func (a *ParametersAPIService) ApiV2ParametersBulkPostExecute(r ApiApiV2Paramete
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterPostModel
+	localVarPostBody = r.createParameterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -222,11 +222,11 @@ func (a *ParametersAPIService) ApiV2ParametersBulkPostExecute(r ApiApiV2Paramete
 type ApiApiV2ParametersBulkPutRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
-	parameterPutModel *[]ParameterPutModel
+	updateParameterApiModel *[]UpdateParameterApiModel
 }
 
-func (r ApiApiV2ParametersBulkPutRequest) ParameterPutModel(parameterPutModel []ParameterPutModel) ApiApiV2ParametersBulkPutRequest {
-	r.parameterPutModel = &parameterPutModel
+func (r ApiApiV2ParametersBulkPutRequest) UpdateParameterApiModel(updateParameterApiModel []UpdateParameterApiModel) ApiApiV2ParametersBulkPutRequest {
+	r.updateParameterApiModel = &updateParameterApiModel
 	return r
 }
 
@@ -293,7 +293,7 @@ func (a *ParametersAPIService) ApiV2ParametersBulkPutExecute(r ApiApiV2Parameter
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterPutModel
+	localVarPostBody = r.updateParameterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -404,8 +404,9 @@ func (a *ParametersAPIService) ApiV2ParametersBulkPutExecute(r ApiApiV2Parameter
 type ApiApiV2ParametersGroupsGetRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
-	isDeleted *bool
 	parameterKeyIds *[]string
+	name *string
+	isDeleted *bool
 	skip *int32
 	take *int32
 	orderBy *string
@@ -413,13 +414,18 @@ type ApiApiV2ParametersGroupsGetRequest struct {
 	searchValue *string
 }
 
-func (r ApiApiV2ParametersGroupsGetRequest) IsDeleted(isDeleted bool) ApiApiV2ParametersGroupsGetRequest {
-	r.isDeleted = &isDeleted
+func (r ApiApiV2ParametersGroupsGetRequest) ParameterKeyIds(parameterKeyIds []string) ApiApiV2ParametersGroupsGetRequest {
+	r.parameterKeyIds = &parameterKeyIds
 	return r
 }
 
-func (r ApiApiV2ParametersGroupsGetRequest) ParameterKeyIds(parameterKeyIds []string) ApiApiV2ParametersGroupsGetRequest {
-	r.parameterKeyIds = &parameterKeyIds
+func (r ApiApiV2ParametersGroupsGetRequest) Name(name string) ApiApiV2ParametersGroupsGetRequest {
+	r.name = &name
+	return r
+}
+
+func (r ApiApiV2ParametersGroupsGetRequest) IsDeleted(isDeleted bool) ApiApiV2ParametersGroupsGetRequest {
+	r.isDeleted = &isDeleted
 	return r
 }
 
@@ -453,7 +459,7 @@ func (r ApiApiV2ParametersGroupsGetRequest) SearchValue(searchValue string) ApiA
 	return r
 }
 
-func (r ApiApiV2ParametersGroupsGetRequest) Execute() ([]ParameterGroupModel, *http.Response, error) {
+func (r ApiApiV2ParametersGroupsGetRequest) Execute() ([]ParameterGroupApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ParametersGroupsGetExecute(r)
 }
 
@@ -480,13 +486,13 @@ func (a *ParametersAPIService) ApiV2ParametersGroupsGet(ctx context.Context) Api
 }
 
 // Execute executes the request
-//  @return []ParameterGroupModel
-func (a *ParametersAPIService) ApiV2ParametersGroupsGetExecute(r ApiApiV2ParametersGroupsGetRequest) ([]ParameterGroupModel, *http.Response, error) {
+//  @return []ParameterGroupApiResult
+func (a *ParametersAPIService) ApiV2ParametersGroupsGetExecute(r ApiApiV2ParametersGroupsGetRequest) ([]ParameterGroupApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ParameterGroupModel
+		localVarReturnValue  []ParameterGroupApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersAPIService.ApiV2ParametersGroupsGet")
@@ -500,9 +506,6 @@ func (a *ParametersAPIService) ApiV2ParametersGroupsGetExecute(r ApiApiV2Paramet
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if r.isDeleted != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
-	}
 	if r.parameterKeyIds != nil {
 		t := *r.parameterKeyIds
 		if reflect.TypeOf(t).Kind() == reflect.Slice {
@@ -513,6 +516,12 @@ func (a *ParametersAPIService) ApiV2ParametersGroupsGetExecute(r ApiApiV2Paramet
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "parameterKeyIds", t, "form", "multi")
 		}
+	}
+	if r.name != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "form", "")
+	}
+	if r.isDeleted != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
@@ -1237,7 +1246,7 @@ type ApiApiV2ParametersSearchGroupsPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	parameterFilterModel *ParameterFilterModel
+	parameterGroupsFilterApiModel *ParameterGroupsFilterApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -1270,12 +1279,12 @@ func (r ApiApiV2ParametersSearchGroupsPostRequest) SearchValue(searchValue strin
 	return r
 }
 
-func (r ApiApiV2ParametersSearchGroupsPostRequest) ParameterFilterModel(parameterFilterModel ParameterFilterModel) ApiApiV2ParametersSearchGroupsPostRequest {
-	r.parameterFilterModel = &parameterFilterModel
+func (r ApiApiV2ParametersSearchGroupsPostRequest) ParameterGroupsFilterApiModel(parameterGroupsFilterApiModel ParameterGroupsFilterApiModel) ApiApiV2ParametersSearchGroupsPostRequest {
+	r.parameterGroupsFilterApiModel = &parameterGroupsFilterApiModel
 	return r
 }
 
-func (r ApiApiV2ParametersSearchGroupsPostRequest) Execute() ([]ParameterGroupModel, *http.Response, error) {
+func (r ApiApiV2ParametersSearchGroupsPostRequest) Execute() ([]ParameterGroupApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ParametersSearchGroupsPostExecute(r)
 }
 
@@ -1293,13 +1302,13 @@ func (a *ParametersAPIService) ApiV2ParametersSearchGroupsPost(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return []ParameterGroupModel
-func (a *ParametersAPIService) ApiV2ParametersSearchGroupsPostExecute(r ApiApiV2ParametersSearchGroupsPostRequest) ([]ParameterGroupModel, *http.Response, error) {
+//  @return []ParameterGroupApiResult
+func (a *ParametersAPIService) ApiV2ParametersSearchGroupsPostExecute(r ApiApiV2ParametersSearchGroupsPostRequest) ([]ParameterGroupApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ParameterGroupModel
+		localVarReturnValue  []ParameterGroupApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersAPIService.ApiV2ParametersSearchGroupsPost")
@@ -1346,7 +1355,7 @@ func (a *ParametersAPIService) ApiV2ParametersSearchGroupsPostExecute(r ApiApiV2
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterFilterModel
+	localVarPostBody = r.parameterGroupsFilterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1471,7 +1480,7 @@ type ApiApiV2ParametersSearchPostRequest struct {
 	orderBy *string
 	searchField *string
 	searchValue *string
-	parameterFilterModel *ParameterFilterModel
+	parametersFilterApiModel *ParametersFilterApiModel
 }
 
 // Amount of items to be skipped (offset)
@@ -1504,12 +1513,12 @@ func (r ApiApiV2ParametersSearchPostRequest) SearchValue(searchValue string) Api
 	return r
 }
 
-func (r ApiApiV2ParametersSearchPostRequest) ParameterFilterModel(parameterFilterModel ParameterFilterModel) ApiApiV2ParametersSearchPostRequest {
-	r.parameterFilterModel = &parameterFilterModel
+func (r ApiApiV2ParametersSearchPostRequest) ParametersFilterApiModel(parametersFilterApiModel ParametersFilterApiModel) ApiApiV2ParametersSearchPostRequest {
+	r.parametersFilterApiModel = &parametersFilterApiModel
 	return r
 }
 
-func (r ApiApiV2ParametersSearchPostRequest) Execute() ([]ParameterModel, *http.Response, error) {
+func (r ApiApiV2ParametersSearchPostRequest) Execute() ([]ParameterApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ParametersSearchPostExecute(r)
 }
 
@@ -1527,13 +1536,13 @@ func (a *ParametersAPIService) ApiV2ParametersSearchPost(ctx context.Context) Ap
 }
 
 // Execute executes the request
-//  @return []ParameterModel
-func (a *ParametersAPIService) ApiV2ParametersSearchPostExecute(r ApiApiV2ParametersSearchPostRequest) ([]ParameterModel, *http.Response, error) {
+//  @return []ParameterApiResult
+func (a *ParametersAPIService) ApiV2ParametersSearchPostExecute(r ApiApiV2ParametersSearchPostRequest) ([]ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ParameterModel
+		localVarReturnValue  []ParameterApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersAPIService.ApiV2ParametersSearchPost")
@@ -1580,7 +1589,7 @@ func (a *ParametersAPIService) ApiV2ParametersSearchPostExecute(r ApiApiV2Parame
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterFilterModel
+	localVarPostBody = r.parametersFilterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1700,15 +1709,15 @@ func (a *ParametersAPIService) ApiV2ParametersSearchPostExecute(r ApiApiV2Parame
 type ApiCreateParameterRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
-	parameterPostModel *ParameterPostModel
+	createParameterApiModel *CreateParameterApiModel
 }
 
-func (r ApiCreateParameterRequest) ParameterPostModel(parameterPostModel ParameterPostModel) ApiCreateParameterRequest {
-	r.parameterPostModel = &parameterPostModel
+func (r ApiCreateParameterRequest) CreateParameterApiModel(createParameterApiModel CreateParameterApiModel) ApiCreateParameterRequest {
+	r.createParameterApiModel = &createParameterApiModel
 	return r
 }
 
-func (r ApiCreateParameterRequest) Execute() (*ParameterModel, *http.Response, error) {
+func (r ApiCreateParameterRequest) Execute() (*ParameterApiResult, *http.Response, error) {
 	return r.ApiService.CreateParameterExecute(r)
 }
 
@@ -1737,13 +1746,13 @@ func (a *ParametersAPIService) CreateParameter(ctx context.Context) ApiCreatePar
 }
 
 // Execute executes the request
-//  @return ParameterModel
-func (a *ParametersAPIService) CreateParameterExecute(r ApiCreateParameterRequest) (*ParameterModel, *http.Response, error) {
+//  @return ParameterApiResult
+func (a *ParametersAPIService) CreateParameterExecute(r ApiCreateParameterRequest) (*ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ParameterModel
+		localVarReturnValue  *ParameterApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersAPIService.CreateParameter")
@@ -1775,7 +1784,7 @@ func (a *ParametersAPIService) CreateParameterExecute(r ApiCreateParameterReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterPostModel
+	localVarPostBody = r.createParameterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2347,19 +2356,8 @@ func (a *ParametersAPIService) DeleteParameterExecute(r ApiDeleteParameterReques
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v ProblemDetails
+			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2391,6 +2389,17 @@ func (a *ParametersAPIService) DeleteParameterExecute(r ApiDeleteParameterReques
 					newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2411,16 +2420,7 @@ func (a *ParametersAPIService) DeleteParameterExecute(r ApiDeleteParameterReques
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
@@ -2474,7 +2474,7 @@ func (r ApiGetAllParametersRequest) SearchValue(searchValue string) ApiGetAllPar
 	return r
 }
 
-func (r ApiGetAllParametersRequest) Execute() ([]ParameterModel, *http.Response, error) {
+func (r ApiGetAllParametersRequest) Execute() ([]ParameterApiResult, *http.Response, error) {
 	return r.ApiService.GetAllParametersExecute(r)
 }
 
@@ -2505,13 +2505,13 @@ func (a *ParametersAPIService) GetAllParameters(ctx context.Context) ApiGetAllPa
 }
 
 // Execute executes the request
-//  @return []ParameterModel
-func (a *ParametersAPIService) GetAllParametersExecute(r ApiGetAllParametersRequest) ([]ParameterModel, *http.Response, error) {
+//  @return []ParameterApiResult
+func (a *ParametersAPIService) GetAllParametersExecute(r ApiGetAllParametersRequest) ([]ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ParameterModel
+		localVarReturnValue  []ParameterApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersAPIService.GetAllParameters")
@@ -2682,7 +2682,7 @@ type ApiGetParameterByIdRequest struct {
 	id string
 }
 
-func (r ApiGetParameterByIdRequest) Execute() (*ParameterModel, *http.Response, error) {
+func (r ApiGetParameterByIdRequest) Execute() (*ParameterApiResult, *http.Response, error) {
 	return r.ApiService.GetParameterByIdExecute(r)
 }
 
@@ -2713,13 +2713,13 @@ func (a *ParametersAPIService) GetParameterById(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return ParameterModel
-func (a *ParametersAPIService) GetParameterByIdExecute(r ApiGetParameterByIdRequest) (*ParameterModel, *http.Response, error) {
+//  @return ParameterApiResult
+func (a *ParametersAPIService) GetParameterByIdExecute(r ApiGetParameterByIdRequest) (*ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ParameterModel
+		localVarReturnValue  *ParameterApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ParametersAPIService.GetParameterById")
@@ -2870,11 +2870,11 @@ func (a *ParametersAPIService) GetParameterByIdExecute(r ApiGetParameterByIdRequ
 type ApiUpdateParameterRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
-	parameterPutModel *ParameterPutModel
+	updateParameterApiModel *UpdateParameterApiModel
 }
 
-func (r ApiUpdateParameterRequest) ParameterPutModel(parameterPutModel ParameterPutModel) ApiUpdateParameterRequest {
-	r.parameterPutModel = &parameterPutModel
+func (r ApiUpdateParameterRequest) UpdateParameterApiModel(updateParameterApiModel UpdateParameterApiModel) ApiUpdateParameterRequest {
+	r.updateParameterApiModel = &updateParameterApiModel
 	return r
 }
 
@@ -2943,7 +2943,7 @@ func (a *ParametersAPIService) UpdateParameterExecute(r ApiUpdateParameterReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.parameterPutModel
+	localVarPostBody = r.updateParameterApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

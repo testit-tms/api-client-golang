@@ -47,12 +47,13 @@ type WorkItemModel struct {
 	Description NullableString `json:"description,omitempty"`
 	State WorkItemStates `json:"state"`
 	Priority WorkItemPriorityModel `json:"priority"`
+	SourceType WorkItemSourceTypeModel `json:"sourceType"`
 	Steps []StepModel `json:"steps"`
 	PreconditionSteps []StepModel `json:"preconditionSteps"`
 	PostconditionSteps []StepModel `json:"postconditionSteps"`
 	Duration int32 `json:"duration"`
 	Attributes map[string]interface{} `json:"attributes"`
-	Tags []TagPutModel `json:"tags"`
+	Tags []TagModel `json:"tags"`
 	Links []LinkModel `json:"links"`
 	Name string `json:"name"`
 }
@@ -63,7 +64,7 @@ type _WorkItemModel WorkItemModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagPutModel, links []LinkModel, name string) *WorkItemModel {
+func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string) *WorkItemModel {
 	this := WorkItemModel{}
 	this.VersionId = versionId
 	this.MedianDuration = medianDuration
@@ -79,6 +80,7 @@ func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, pr
 	this.SectionId = sectionId
 	this.State = state
 	this.Priority = priority
+	this.SourceType = sourceType
 	this.Steps = steps
 	this.PreconditionSteps = preconditionSteps
 	this.PostconditionSteps = postconditionSteps
@@ -725,6 +727,30 @@ func (o *WorkItemModel) SetPriority(v WorkItemPriorityModel) {
 	o.Priority = v
 }
 
+// GetSourceType returns the SourceType field value
+func (o *WorkItemModel) GetSourceType() WorkItemSourceTypeModel {
+	if o == nil {
+		var ret WorkItemSourceTypeModel
+		return ret
+	}
+
+	return o.SourceType
+}
+
+// GetSourceTypeOk returns a tuple with the SourceType field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SourceType, true
+}
+
+// SetSourceType sets field value
+func (o *WorkItemModel) SetSourceType(v WorkItemSourceTypeModel) {
+	o.SourceType = v
+}
+
 // GetSteps returns the Steps field value
 func (o *WorkItemModel) GetSteps() []StepModel {
 	if o == nil {
@@ -846,9 +872,9 @@ func (o *WorkItemModel) SetAttributes(v map[string]interface{}) {
 }
 
 // GetTags returns the Tags field value
-func (o *WorkItemModel) GetTags() []TagPutModel {
+func (o *WorkItemModel) GetTags() []TagModel {
 	if o == nil {
-		var ret []TagPutModel
+		var ret []TagModel
 		return ret
 	}
 
@@ -857,7 +883,7 @@ func (o *WorkItemModel) GetTags() []TagPutModel {
 
 // GetTagsOk returns a tuple with the Tags field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemModel) GetTagsOk() ([]TagPutModel, bool) {
+func (o *WorkItemModel) GetTagsOk() ([]TagModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -865,7 +891,7 @@ func (o *WorkItemModel) GetTagsOk() ([]TagPutModel, bool) {
 }
 
 // SetTags sets field value
-func (o *WorkItemModel) SetTags(v []TagPutModel) {
+func (o *WorkItemModel) SetTags(v []TagModel) {
 	o.Tags = v
 }
 
@@ -965,6 +991,7 @@ func (o WorkItemModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["state"] = o.State
 	toSerialize["priority"] = o.Priority
+	toSerialize["sourceType"] = o.SourceType
 	toSerialize["steps"] = o.Steps
 	toSerialize["preconditionSteps"] = o.PreconditionSteps
 	toSerialize["postconditionSteps"] = o.PostconditionSteps
@@ -995,6 +1022,7 @@ func (o *WorkItemModel) UnmarshalJSON(data []byte) (err error) {
 		"sectionId",
 		"state",
 		"priority",
+		"sourceType",
 		"steps",
 		"preconditionSteps",
 		"postconditionSteps",

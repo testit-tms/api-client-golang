@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **CompletedOn** | Pointer to **NullableTime** | Step end date. | [optional] 
 **Duration** | Pointer to **NullableInt64** | Expected or actual duration of the test run execution in milliseconds. | [optional] 
 **Outcome** | Pointer to [**NullableAvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | [optional] 
-**StepResults** | Pointer to [**[]AttachmentPutModelAutoTestStepResultsModel**](AttachmentPutModelAutoTestStepResultsModel.md) | Nested step results. The maximum nesting level is 15. | [optional] 
-**Attachments** | Pointer to [**[]AttachmentUpdateRequest**](AttachmentUpdateRequest.md) | /// &lt;summary&gt;  Specifies an attachment GUID. Multiple values can be sent.  &lt;/summary&gt; | [optional] 
+**StepResults** | Pointer to [**[]AutoTestStepResultUpdateRequest**](AutoTestStepResultUpdateRequest.md) | Nested step results. The maximum nesting level is 15. | [optional] 
+**Attachments** | Pointer to [**[]AttachmentUpdateRequest**](AttachmentUpdateRequest.md) | /// &lt;summary&gt; Specifies an attachment GUID. Multiple values can be sent. &lt;/summary&gt; | [optional] 
 **Parameters** | Pointer to **map[string]string** | \&quot;&lt;b&gt;parameter&lt;/b&gt;\&quot;: \&quot;&lt;b&gt;value&lt;/b&gt;\&quot; pair with arbitrary custom parameters. Multiple parameters can be sent. | [optional] 
 
 ## Methods
@@ -281,20 +281,20 @@ HasOutcome returns a boolean if a field has been set.
 UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
 ### GetStepResults
 
-`func (o *AutoTestStepResultUpdateRequest) GetStepResults() []AttachmentPutModelAutoTestStepResultsModel`
+`func (o *AutoTestStepResultUpdateRequest) GetStepResults() []AutoTestStepResultUpdateRequest`
 
 GetStepResults returns the StepResults field if non-nil, zero value otherwise.
 
 ### GetStepResultsOk
 
-`func (o *AutoTestStepResultUpdateRequest) GetStepResultsOk() (*[]AttachmentPutModelAutoTestStepResultsModel, bool)`
+`func (o *AutoTestStepResultUpdateRequest) GetStepResultsOk() (*[]AutoTestStepResultUpdateRequest, bool)`
 
 GetStepResultsOk returns a tuple with the StepResults field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStepResults
 
-`func (o *AutoTestStepResultUpdateRequest) SetStepResults(v []AttachmentPutModelAutoTestStepResultsModel)`
+`func (o *AutoTestStepResultUpdateRequest) SetStepResults(v []AutoTestStepResultUpdateRequest)`
 
 SetStepResults sets StepResults field to given value.
 

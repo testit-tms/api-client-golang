@@ -29,7 +29,7 @@ type TestPointByTestSuiteModel struct {
 	WorkItemId NullableString `json:"workItemId,omitempty"`
 	// Configuration to which test point relates unique identifier
 	ConfigurationId NullableString `json:"configurationId,omitempty"`
-	// Test point status   Applies one of these values: Blocked, NoResults, Failed, Passed
+	// Test point status  Applies one of these values: Blocked, NoResults, Failed, Passed
 	Status NullableString `json:"status,omitempty"`
 	// Last test result unique identifier
 	LastTestResultId NullableString `json:"lastTestResultId,omitempty"`

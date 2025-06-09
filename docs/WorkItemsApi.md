@@ -1153,7 +1153,7 @@ Name | Type | Description  | Notes
 
 ## CreateWorkItem
 
-> WorkItemModel CreateWorkItem(ctx).WorkItemPostModel(workItemPostModel).Execute()
+> WorkItemModel CreateWorkItem(ctx).CreateWorkItemApiModel(createWorkItemApiModel).Execute()
 
 Create Test Case, Checklist or Shared Step
 
@@ -1172,11 +1172,11 @@ import (
 )
 
 func main() {
-	workItemPostModel := *openapiclient.NewWorkItemPostModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, []openapiclient.StepPostModel{*openapiclient.NewStepPostModel()}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPostModel{*openapiclient.NewTagPostModel("Name_example")}, []openapiclient.LinkPostModel{*openapiclient.NewLinkPostModel("Url_example", false)}, "Basic template", "0812e703-0018-4836-886c-a8b12648d919", "0812e703-0018-4836-886c-a8b12648d919") // WorkItemPostModel |  (optional)
+	createWorkItemApiModel := *openapiclient.NewCreateWorkItemApiModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, int32(123), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagModel{*openapiclient.NewTagModel("Name_example")}, []openapiclient.CreateLinkApiModel{*openapiclient.NewCreateLinkApiModel("Url_example", false)}, "Name_example", "ProjectId_example", "SectionId_example") // CreateWorkItemApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.CreateWorkItem(context.Background()).WorkItemPostModel(workItemPostModel).Execute()
+	resp, r, err := apiClient.WorkItemsAPI.CreateWorkItem(context.Background()).CreateWorkItemApiModel(createWorkItemApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.CreateWorkItem``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1197,7 +1197,7 @@ Other parameters are passed through a pointer to a apiCreateWorkItemRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemPostModel** | [**WorkItemPostModel**](WorkItemPostModel.md) |  | 
+ **createWorkItemApiModel** | [**CreateWorkItemApiModel**](CreateWorkItemApiModel.md) |  | 
 
 ### Return type
 
@@ -1238,7 +1238,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1256,7 +1256,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1306,7 +1306,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1324,7 +1324,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1374,7 +1374,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1394,7 +1394,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1442,7 +1442,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
 	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier (optional)
 	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1464,7 +1464,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1516,7 +1516,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
 	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier\" (optional)
 	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1538,7 +1538,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1660,9 +1660,9 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
-	workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format)  identifier\" (optional)
-	versionNumber := int32(1) // int32 | WorkItem version (integer format)  number\" (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format) identifier\" (optional)
+	versionNumber := int32(1) // int32 | WorkItem version (integer format) number\" (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1682,7 +1682,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1692,8 +1692,8 @@ Other parameters are passed through a pointer to a apiGetWorkItemVersionsRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemVersionId** | **string** | WorkItem version (guid format)  identifier\&quot; | 
- **versionNumber** | **int32** | WorkItem version (integer format)  number\&quot; | 
+ **workItemVersionId** | **string** | WorkItem version (guid format) identifier\&quot; | 
+ **versionNumber** | **int32** | WorkItem version (integer format) number\&quot; | 
 
 ### Return type
 
@@ -1847,7 +1847,7 @@ Name | Type | Description  | Notes
 
 ## UpdateWorkItem
 
-> UpdateWorkItem(ctx).WorkItemPutModel(workItemPutModel).Execute()
+> UpdateWorkItem(ctx).UpdateWorkItemApiModel(updateWorkItemApiModel).Execute()
 
 Update Test Case, Checklist or Shared Step
 
@@ -1866,11 +1866,11 @@ import (
 )
 
 func main() {
-	workItemPutModel := *openapiclient.NewWorkItemPutModel([]openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}, "0812e703-0018-4836-886c-a8b12648d919", "0812e703-0018-4836-886c-a8b12648d919", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0812e703-0018-4836-886c-a8b12648d919")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0812e703-0018-4836-886c-a8b12648d919")}, []openapiclient.StepPutModel{*openapiclient.NewStepPutModel("0812e703-0018-4836-886c-a8b12648d919")}, int32(10000), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagPutModel{*openapiclient.NewTagPutModel("Name_example")}, []openapiclient.LinkPutModel{*openapiclient.NewLinkPutModel("Url_example", false)}, "Basic template") // WorkItemPutModel |  (optional)
+	updateWorkItemApiModel := *openapiclient.NewUpdateWorkItemApiModel("Id_example", "SectionId_example", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.UpdateStepApiModel{*openapiclient.NewUpdateStepApiModel("Id_example")}, []openapiclient.UpdateStepApiModel{*openapiclient.NewUpdateStepApiModel("Id_example")}, []openapiclient.UpdateStepApiModel{*openapiclient.NewUpdateStepApiModel("Id_example")}, int32(123), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagModel{*openapiclient.NewTagModel("Name_example")}, []openapiclient.UpdateLinkApiModel{*openapiclient.NewUpdateLinkApiModel("Url_example", false)}, "Name_example", []openapiclient.AssignAttachmentApiModel{*openapiclient.NewAssignAttachmentApiModel("Id_example")}) // UpdateWorkItemApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.UpdateWorkItem(context.Background()).WorkItemPutModel(workItemPutModel).Execute()
+	r, err := apiClient.WorkItemsAPI.UpdateWorkItem(context.Background()).UpdateWorkItemApiModel(updateWorkItemApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.UpdateWorkItem``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1889,7 +1889,7 @@ Other parameters are passed through a pointer to a apiUpdateWorkItemRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemPutModel** | [**WorkItemPutModel**](WorkItemPutModel.md) |  | 
+ **updateWorkItemApiModel** | [**UpdateWorkItemApiModel**](UpdateWorkItemApiModel.md) |  | 
 
 ### Return type
 

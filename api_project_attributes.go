@@ -435,7 +435,7 @@ User runs method execution
 
 System search project
 
-System search project attribute 
+System search project attribute
 
 System returns project attribute (listed in response model)
 
