@@ -15,12 +15,12 @@
 | 5.2     | 2.1.0           |
 | 5.2.2   | 2.2.0-tms-5.2.2 |
 | 5.3     | 3.0.1-tms-5.3   |
-| Cloud   | 3.1.0           |
+| Cloud   | 3.1.1           |
 
 ### Installation
 
 ```sh
-go get github.com/testit-tms/api-client-golang/v2
+go get github.com/testit-tms/api-client-golang/v3
 ```
 
 ## Examples
