@@ -232,7 +232,7 @@ Use case
 
 User sets attribute template internal identifier
 
-User sets attribute internal identifiers 
+User sets attribute internal identifiers
 
 User runs method execution
 
@@ -420,7 +420,7 @@ Use case
 
 User sets attribute template internal identifier
 
-User sets attribute internal identifiers 
+User sets attribute internal identifiers
 
 User runs method execution
 
@@ -780,7 +780,7 @@ ApiV2CustomAttributesTemplatesIdGet Get CustomAttributeTemplate by ID
 
 Use case
 
-User sets attribute template internal identifier 
+User sets attribute template internal identifier
 
 User runs method execution
 

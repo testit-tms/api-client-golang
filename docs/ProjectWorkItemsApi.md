@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsProjectIdWorkItemsTagsGet
 
-> []TagShortModel ApiV2ProjectsProjectIdWorkItemsTagsGet(ctx, projectId).IsDeleted(isDeleted).Execute()
+> []TagShortApiResult ApiV2ProjectsProjectIdWorkItemsTagsGet(ctx, projectId).IsDeleted(isDeleted).Execute()
 
 Get WorkItems Tags
 
@@ -283,7 +283,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsTagsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsProjectIdWorkItemsTagsGet`: []TagShortModel
+	// response from `ApiV2ProjectsProjectIdWorkItemsTagsGet`: []TagShortApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsTagsGet`: %v\n", resp)
 }
 ```
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TagShortModel**](TagShortModel.md)
+[**[]TagShortApiResult**](TagShortApiResult.md)
 
 ### Authorization
 

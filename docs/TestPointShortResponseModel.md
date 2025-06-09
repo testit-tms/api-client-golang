@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **Status** | [**TestPointStatus**](TestPointStatus.md) | Status of the test point | 
 **StatusModel** | [**TestStatusApiResult**](TestStatusApiResult.md) | Status of the test point | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) | Priority of the test point | 
+**SourceType** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Source type of the test point | 
 **IsAutomated** | **bool** | Indicates if the test point represents an autotest | 
 **Name** | **string** | Name of the test point | 
 **ConfigurationId** | **string** | Unique ID of the test point configuration | 
@@ -43,7 +44,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointShortResponseModel
 
-`func NewTestPointShortResponseModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, statusModel TestStatusApiResult, priority WorkItemPriorityModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortResponseModel`
+`func NewTestPointShortResponseModel(id string, createdDate time.Time, createdById string, attributes map[string]interface{}, tags []string, links []string, testSuiteId string, testSuiteName string, workItemId string, workItemGlobalId int64, workItemVersionId string, workItemVersionNumber int32, status TestPointStatus, statusModel TestStatusApiResult, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isAutomated bool, name string, configurationId string, duration int32, sectionId string, projectId string, iterationId string, workItemState WorkItemState, workItemCreatedById string, workItemCreatedDate time.Time, ) *TestPointShortResponseModel`
 
 NewTestPointShortResponseModel instantiates a new TestPointShortResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -531,6 +532,26 @@ and a boolean to check if the value has been set.
 `func (o *TestPointShortResponseModel) SetPriority(v WorkItemPriorityModel)`
 
 SetPriority sets Priority field to given value.
+
+
+### GetSourceType
+
+`func (o *TestPointShortResponseModel) GetSourceType() WorkItemSourceTypeModel`
+
+GetSourceType returns the SourceType field if non-nil, zero value otherwise.
+
+### GetSourceTypeOk
+
+`func (o *TestPointShortResponseModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool)`
+
+GetSourceTypeOk returns a tuple with the SourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceType
+
+`func (o *TestPointShortResponseModel) SetSourceType(v WorkItemSourceTypeModel)`
+
+SetSourceType sets SourceType field to given value.
 
 
 ### GetIsAutomated

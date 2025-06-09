@@ -490,7 +490,7 @@ ApiV2ProjectsProjectIdTestPlansNameExistsGet Checks if TestPlan exists with the 
 
 Use case
 
-User sets project internal or global identifier 
+User sets project internal or global identifier
 
 User runs method execution
 
@@ -1094,9 +1094,9 @@ ApiV2ProjectsProjectIdTestPlansSearchPost Get Project TestPlans with analytics
 
 Use case
 
-User sets project internal or global identifier 
+User sets project internal or global identifier
 
-User sets request body 
+User sets request body
 
 User runs method execution
 

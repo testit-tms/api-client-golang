@@ -60,6 +60,8 @@ type WorkItemShortApiResult struct {
 	State WorkItemStates `json:"state"`
 	// Work Item priority level
 	Priority WorkItemPriorityModel `json:"priority"`
+	// Work Item priority level
+	SourceType WorkItemSourceTypeModel `json:"sourceType"`
 	// Flag determining whether Work Item is deleted
 	IsDeleted bool `json:"isDeleted"`
 	// Array of tag names of Work Item
@@ -76,7 +78,7 @@ type _WorkItemShortApiResult WorkItemShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemShortApiResult(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, isDeleted bool, iterations []IterationApiResult, links []LinkShortApiResult) *WorkItemShortApiResult {
+func NewWorkItemShortApiResult(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationApiResult, links []LinkShortApiResult) *WorkItemShortApiResult {
 	this := WorkItemShortApiResult{}
 	this.Id = id
 	this.VersionId = versionId
@@ -92,6 +94,7 @@ func NewWorkItemShortApiResult(id string, versionId string, versionNumber int32,
 	this.CreatedById = createdById
 	this.State = state
 	this.Priority = priority
+	this.SourceType = sourceType
 	this.IsDeleted = isDeleted
 	this.Iterations = iterations
 	this.Links = links
@@ -643,6 +646,30 @@ func (o *WorkItemShortApiResult) SetPriority(v WorkItemPriorityModel) {
 	o.Priority = v
 }
 
+// GetSourceType returns the SourceType field value
+func (o *WorkItemShortApiResult) GetSourceType() WorkItemSourceTypeModel {
+	if o == nil {
+		var ret WorkItemSourceTypeModel
+		return ret
+	}
+
+	return o.SourceType
+}
+
+// GetSourceTypeOk returns a tuple with the SourceType field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemShortApiResult) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SourceType, true
+}
+
+// SetSourceType sets field value
+func (o *WorkItemShortApiResult) SetSourceType(v WorkItemSourceTypeModel) {
+	o.SourceType = v
+}
+
 // GetIsDeleted returns the IsDeleted field value
 func (o *WorkItemShortApiResult) GetIsDeleted() bool {
 	if o == nil {
@@ -787,6 +814,7 @@ func (o WorkItemShortApiResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["state"] = o.State
 	toSerialize["priority"] = o.Priority
+	toSerialize["sourceType"] = o.SourceType
 	toSerialize["isDeleted"] = o.IsDeleted
 	if o.TagNames != nil {
 		toSerialize["tagNames"] = o.TagNames
@@ -815,6 +843,7 @@ func (o *WorkItemShortApiResult) UnmarshalJSON(data []byte) (err error) {
 		"createdById",
 		"state",
 		"priority",
+		"sourceType",
 		"isDeleted",
 		"iterations",
 		"links",

@@ -35,6 +35,7 @@ type SharedStepReferenceModel struct {
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	State string `json:"state"`
 	Priority WorkItemPriorityModel `json:"priority"`
+	SourceType WorkItemSourceTypeModel `json:"sourceType"`
 	IsDeleted bool `json:"isDeleted"`
 	// used for versioning changes in workitem
 	VersionId string `json:"versionId"`
@@ -49,7 +50,7 @@ type _SharedStepReferenceModel SharedStepReferenceModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSharedStepReferenceModel(id string, globalId int64, name string, entityTypeName string, hasThisSharedStepAsStep bool, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, state string, priority WorkItemPriorityModel, isDeleted bool, versionId string, isAutomated bool, sectionId string) *SharedStepReferenceModel {
+func NewSharedStepReferenceModel(id string, globalId int64, name string, entityTypeName string, hasThisSharedStepAsStep bool, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, state string, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, versionId string, isAutomated bool, sectionId string) *SharedStepReferenceModel {
 	this := SharedStepReferenceModel{}
 	this.Id = id
 	this.GlobalId = globalId
@@ -61,6 +62,7 @@ func NewSharedStepReferenceModel(id string, globalId int64, name string, entityT
 	this.CreatedById = createdById
 	this.State = state
 	this.Priority = priority
+	this.SourceType = sourceType
 	this.IsDeleted = isDeleted
 	this.VersionId = versionId
 	this.IsAutomated = isAutomated
@@ -442,6 +444,30 @@ func (o *SharedStepReferenceModel) SetPriority(v WorkItemPriorityModel) {
 	o.Priority = v
 }
 
+// GetSourceType returns the SourceType field value
+func (o *SharedStepReferenceModel) GetSourceType() WorkItemSourceTypeModel {
+	if o == nil {
+		var ret WorkItemSourceTypeModel
+		return ret
+	}
+
+	return o.SourceType
+}
+
+// GetSourceTypeOk returns a tuple with the SourceType field value
+// and a boolean to check if the value has been set.
+func (o *SharedStepReferenceModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SourceType, true
+}
+
+// SetSourceType sets field value
+func (o *SharedStepReferenceModel) SetSourceType(v WorkItemSourceTypeModel) {
+	o.SourceType = v
+}
+
 // GetIsDeleted returns the IsDeleted field value
 func (o *SharedStepReferenceModel) GetIsDeleted() bool {
 	if o == nil {
@@ -600,6 +626,7 @@ func (o SharedStepReferenceModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["state"] = o.State
 	toSerialize["priority"] = o.Priority
+	toSerialize["sourceType"] = o.SourceType
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["versionId"] = o.VersionId
 	toSerialize["isAutomated"] = o.IsAutomated
@@ -625,6 +652,7 @@ func (o *SharedStepReferenceModel) UnmarshalJSON(data []byte) (err error) {
 		"createdById",
 		"state",
 		"priority",
+		"sourceType",
 		"isDeleted",
 		"versionId",
 		"isAutomated",

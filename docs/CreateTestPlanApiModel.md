@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tags** | Pointer to [**[]TagPostModel**](TagPostModel.md) | Test plan tag names collection | [optional] 
+**Tags** | Pointer to [**[]TagApiModel**](TagApiModel.md) | Test plan tag names collection | [optional] 
 **Name** | **string** | Test plan name | 
 **StartDate** | Pointer to **NullableTime** | Date and time of test plan start | [optional] 
 **EndDate** | Pointer to **NullableTime** | Date and time of test plan end | [optional] 
@@ -37,20 +37,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTags
 
-`func (o *CreateTestPlanApiModel) GetTags() []TagPostModel`
+`func (o *CreateTestPlanApiModel) GetTags() []TagApiModel`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *CreateTestPlanApiModel) GetTagsOk() (*[]TagPostModel, bool)`
+`func (o *CreateTestPlanApiModel) GetTagsOk() (*[]TagApiModel, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *CreateTestPlanApiModel) SetTags(v []TagPostModel)`
+`func (o *CreateTestPlanApiModel) SetTags(v []TagApiModel)`
 
 SetTags sets Tags field to given value.
 

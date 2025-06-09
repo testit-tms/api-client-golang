@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**Type** | [**TestStatusType**](TestStatusType.md) |  | 
+**Type** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
 **IsSystem** | **bool** |  | 
 **Code** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewTestStatusApiResult
 
-`func NewTestStatusApiResult(id string, name string, type_ TestStatusType, isSystem bool, code string, ) *TestStatusApiResult`
+`func NewTestStatusApiResult(id string, name string, type_ TestStatusApiType, isSystem bool, code string, ) *TestStatusApiResult`
 
 NewTestStatusApiResult instantiates a new TestStatusApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -72,20 +72,20 @@ SetName sets Name field to given value.
 
 ### GetType
 
-`func (o *TestStatusApiResult) GetType() TestStatusType`
+`func (o *TestStatusApiResult) GetType() TestStatusApiType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *TestStatusApiResult) GetTypeOk() (*TestStatusType, bool)`
+`func (o *TestStatusApiResult) GetTypeOk() (*TestStatusApiType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *TestStatusApiResult) SetType(v TestStatusType)`
+`func (o *TestStatusApiResult) SetType(v TestStatusApiType)`
 
 SetType sets Type field to given value.
 

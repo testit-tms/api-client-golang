@@ -24,6 +24,7 @@ type GetXlsxTestPointsByTestPlanModel struct {
 	IncludeName bool `json:"includeName"`
 	IncludeSection bool `json:"includeSection"`
 	IncludePriority bool `json:"includePriority"`
+	IncludeSourceType bool `json:"includeSourceType"`
 	IncludeAutomated bool `json:"includeAutomated"`
 	IncludeStatus bool `json:"includeStatus"`
 	IncludeDuration bool `json:"includeDuration"`
@@ -43,11 +44,12 @@ type _GetXlsxTestPointsByTestPlanModel GetXlsxTestPointsByTestPlanModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetXlsxTestPointsByTestPlanModel(includeName bool, includeSection bool, includePriority bool, includeAutomated bool, includeStatus bool, includeDuration bool, includeCreationDate bool, includeAuthor bool, includeModificationDate bool, includeModifiedBy bool, includeTags bool, includeIterations bool) *GetXlsxTestPointsByTestPlanModel {
+func NewGetXlsxTestPointsByTestPlanModel(includeName bool, includeSection bool, includePriority bool, includeSourceType bool, includeAutomated bool, includeStatus bool, includeDuration bool, includeCreationDate bool, includeAuthor bool, includeModificationDate bool, includeModifiedBy bool, includeTags bool, includeIterations bool) *GetXlsxTestPointsByTestPlanModel {
 	this := GetXlsxTestPointsByTestPlanModel{}
 	this.IncludeName = includeName
 	this.IncludeSection = includeSection
 	this.IncludePriority = includePriority
+	this.IncludeSourceType = includeSourceType
 	this.IncludeAutomated = includeAutomated
 	this.IncludeStatus = includeStatus
 	this.IncludeDuration = includeDuration
@@ -138,6 +140,30 @@ func (o *GetXlsxTestPointsByTestPlanModel) GetIncludePriorityOk() (*bool, bool) 
 // SetIncludePriority sets field value
 func (o *GetXlsxTestPointsByTestPlanModel) SetIncludePriority(v bool) {
 	o.IncludePriority = v
+}
+
+// GetIncludeSourceType returns the IncludeSourceType field value
+func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeSourceType() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IncludeSourceType
+}
+
+// GetIncludeSourceTypeOk returns a tuple with the IncludeSourceType field value
+// and a boolean to check if the value has been set.
+func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeSourceTypeOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IncludeSourceType, true
+}
+
+// SetIncludeSourceType sets field value
+func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeSourceType(v bool) {
+	o.IncludeSourceType = v
 }
 
 // GetIncludeAutomated returns the IncludeAutomated field value
@@ -435,6 +461,7 @@ func (o GetXlsxTestPointsByTestPlanModel) ToMap() (map[string]interface{}, error
 	toSerialize["includeName"] = o.IncludeName
 	toSerialize["includeSection"] = o.IncludeSection
 	toSerialize["includePriority"] = o.IncludePriority
+	toSerialize["includeSourceType"] = o.IncludeSourceType
 	toSerialize["includeAutomated"] = o.IncludeAutomated
 	toSerialize["includeStatus"] = o.IncludeStatus
 	toSerialize["includeDuration"] = o.IncludeDuration
@@ -461,6 +488,7 @@ func (o *GetXlsxTestPointsByTestPlanModel) UnmarshalJSON(data []byte) (err error
 		"includeName",
 		"includeSection",
 		"includePriority",
+		"includeSourceType",
 		"includeAutomated",
 		"includeStatus",
 		"includeDuration",

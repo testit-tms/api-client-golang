@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **Links** | Pointer to [**[]LinkPostModel**](LinkPostModel.md) | Specifies the links in the autotest. | [optional] 
 **FailureReasonNames** | Pointer to [**[]FailureCategoryModel**](FailureCategoryModel.md) | Specifies the cause of autotest failure. | [optional] 
 **AutoTestExternalId** | **string** | Specifies the external ID of the autotest, which was specified when the test run was created. | 
-**Outcome** | [**AvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | 
+**Outcome** | Pointer to [**NullableAvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | [optional] 
+**StatusCode** | Pointer to **NullableString** | Specifies the result of the autotest execution. | [optional] 
 **Message** | Pointer to **NullableString** | A comment for the result. | [optional] 
 **Traces** | Pointer to **NullableString** | An extended comment or a stack trace. | [optional] 
 **StartedOn** | Pointer to **NullableTime** | Test run start date. | [optional] 
@@ -25,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewAutoTestResultsForTestRunModel
 
-`func NewAutoTestResultsForTestRunModel(configurationId string, autoTestExternalId string, outcome AvailableTestResultOutcome, ) *AutoTestResultsForTestRunModel`
+`func NewAutoTestResultsForTestRunModel(configurationId string, autoTestExternalId string, ) *AutoTestResultsForTestRunModel`
 
 NewAutoTestResultsForTestRunModel instantiates a new AutoTestResultsForTestRunModel object
 This constructor will assign default values to properties that have it defined,
@@ -169,7 +170,57 @@ and a boolean to check if the value has been set.
 
 SetOutcome sets Outcome field to given value.
 
+### HasOutcome
 
+`func (o *AutoTestResultsForTestRunModel) HasOutcome() bool`
+
+HasOutcome returns a boolean if a field has been set.
+
+### SetOutcomeNil
+
+`func (o *AutoTestResultsForTestRunModel) SetOutcomeNil(b bool)`
+
+ SetOutcomeNil sets the value for Outcome to be an explicit nil
+
+### UnsetOutcome
+`func (o *AutoTestResultsForTestRunModel) UnsetOutcome()`
+
+UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+### GetStatusCode
+
+`func (o *AutoTestResultsForTestRunModel) GetStatusCode() string`
+
+GetStatusCode returns the StatusCode field if non-nil, zero value otherwise.
+
+### GetStatusCodeOk
+
+`func (o *AutoTestResultsForTestRunModel) GetStatusCodeOk() (*string, bool)`
+
+GetStatusCodeOk returns a tuple with the StatusCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusCode
+
+`func (o *AutoTestResultsForTestRunModel) SetStatusCode(v string)`
+
+SetStatusCode sets StatusCode field to given value.
+
+### HasStatusCode
+
+`func (o *AutoTestResultsForTestRunModel) HasStatusCode() bool`
+
+HasStatusCode returns a boolean if a field has been set.
+
+### SetStatusCodeNil
+
+`func (o *AutoTestResultsForTestRunModel) SetStatusCodeNil(b bool)`
+
+ SetStatusCodeNil sets the value for StatusCode to be an explicit nil
+
+### UnsetStatusCode
+`func (o *AutoTestResultsForTestRunModel) UnsetStatusCode()`
+
+UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
 ### GetMessage
 
 `func (o *AutoTestResultsForTestRunModel) GetMessage() string`

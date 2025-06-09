@@ -2117,9 +2117,7 @@ System search test points related to the test suite
 
 System search work items related to the test points
 
-
-                    [Optional] User sets filter, system applies filter
-                
+[Optional] User sets filter, system applies filter
 
 System returns work items array
 

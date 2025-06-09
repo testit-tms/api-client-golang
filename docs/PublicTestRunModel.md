@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **AutoTests** | [**[]AutoTestModel**](AutoTestModel.md) |  | 
 **TestPoints** | [**[]PublicTestPointModel**](PublicTestPointModel.md) |  | 
 **Status** | **string** |  | 
+**StatusModel** | [**TestStatusModel**](TestStatusModel.md) |  | 
 **CustomParameters** | Pointer to **map[string]string** |  | [optional] 
 **TestRunDescription** | Pointer to **NullableString** |  | [optional] 
 
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewPublicTestRunModel
 
-`func NewPublicTestRunModel(testRunId string, testPlanGlobalId int64, name string, configurations []ConfigurationModel, autoTests []AutoTestModel, testPoints []PublicTestPointModel, status string, ) *PublicTestRunModel`
+`func NewPublicTestRunModel(testRunId string, testPlanGlobalId int64, name string, configurations []ConfigurationModel, autoTests []AutoTestModel, testPoints []PublicTestPointModel, status string, statusModel TestStatusModel, ) *PublicTestRunModel`
 
 NewPublicTestRunModel instantiates a new PublicTestRunModel object
 This constructor will assign default values to properties that have it defined,
@@ -279,6 +280,26 @@ and a boolean to check if the value has been set.
 `func (o *PublicTestRunModel) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
+
+
+### GetStatusModel
+
+`func (o *PublicTestRunModel) GetStatusModel() TestStatusModel`
+
+GetStatusModel returns the StatusModel field if non-nil, zero value otherwise.
+
+### GetStatusModelOk
+
+`func (o *PublicTestRunModel) GetStatusModelOk() (*TestStatusModel, bool)`
+
+GetStatusModelOk returns a tuple with the StatusModel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusModel
+
+`func (o *PublicTestRunModel) SetStatusModel(v TestStatusModel)`
+
+SetStatusModel sets StatusModel field to given value.
 
 
 ### GetCustomParameters

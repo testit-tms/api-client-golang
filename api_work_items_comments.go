@@ -43,7 +43,7 @@ User sets comment identifier
 
 User runs method execution
 
-System delete comment 
+System delete comment
 
 System returns success status code
 
@@ -228,7 +228,7 @@ User sets comment properties (listed in request parameters)
 
 User runs method execution
 
-System creates comment 
+System creates comment
 
 System returns comment model (listed in response parameters)
 

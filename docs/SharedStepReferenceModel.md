@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **State** | **string** |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**SourceType** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **IsDeleted** | **bool** |  | 
 **VersionId** | **string** | used for versioning changes in workitem | 
 **IsAutomated** | **bool** |  | 
@@ -27,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewSharedStepReferenceModel
 
-`func NewSharedStepReferenceModel(id string, globalId int64, name string, entityTypeName string, hasThisSharedStepAsStep bool, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, state string, priority WorkItemPriorityModel, isDeleted bool, versionId string, isAutomated bool, sectionId string, ) *SharedStepReferenceModel`
+`func NewSharedStepReferenceModel(id string, globalId int64, name string, entityTypeName string, hasThisSharedStepAsStep bool, hasThisSharedStepAsPrecondition bool, hasThisSharedStepAsPostcondition bool, createdById string, state string, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, versionId string, isAutomated bool, sectionId string, ) *SharedStepReferenceModel`
 
 NewSharedStepReferenceModel instantiates a new SharedStepReferenceModel object
 This constructor will assign default values to properties that have it defined,
@@ -345,6 +346,26 @@ and a boolean to check if the value has been set.
 `func (o *SharedStepReferenceModel) SetPriority(v WorkItemPriorityModel)`
 
 SetPriority sets Priority field to given value.
+
+
+### GetSourceType
+
+`func (o *SharedStepReferenceModel) GetSourceType() WorkItemSourceTypeModel`
+
+GetSourceType returns the SourceType field if non-nil, zero value otherwise.
+
+### GetSourceTypeOk
+
+`func (o *SharedStepReferenceModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool)`
+
+GetSourceTypeOk returns a tuple with the SourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceType
+
+`func (o *SharedStepReferenceModel) SetSourceType(v WorkItemSourceTypeModel)`
+
+SetSourceType sets SourceType field to given value.
 
 
 ### GetIsDeleted

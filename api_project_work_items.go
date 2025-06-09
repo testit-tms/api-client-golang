@@ -750,7 +750,7 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) IsDeleted(isDeleted bo
 	return r
 }
 
-func (r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) Execute() ([]TagShortModel, *http.Response, error) {
+func (r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) Execute() ([]TagShortApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r)
 }
 
@@ -760,7 +760,7 @@ ApiV2ProjectsProjectIdWorkItemsTagsGet Get WorkItems Tags
 
 Use case
 
-User sets project internal identifier 
+User sets project internal identifier
 
 User runs method execution
 
@@ -779,13 +779,13 @@ func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsTagsGet(ctx 
 }
 
 // Execute executes the request
-//  @return []TagShortModel
-func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) ([]TagShortModel, *http.Response, error) {
+//  @return []TagShortApiResult
+func (a *ProjectWorkItemsAPIService) ApiV2ProjectsProjectIdWorkItemsTagsGetExecute(r ApiApiV2ProjectsProjectIdWorkItemsTagsGetRequest) ([]TagShortApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TagShortModel
+		localVarReturnValue  []TagShortApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectWorkItemsAPIService.ApiV2ProjectsProjectIdWorkItemsTagsGet")

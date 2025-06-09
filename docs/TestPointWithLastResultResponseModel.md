@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **TagNames** | Pointer to **[]string** |  | [optional] 
 **Duration** | **int32** |  | 
 **Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
+**SourceType** | [**WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | 
 **TestSuiteNameBreadCrumbs** | Pointer to **[]string** |  | [optional] 
 **GroupCount** | Pointer to **NullableInt32** |  | [optional] 
 **Iteration** | Pointer to [**NullableIterationModel**](IterationModel.md) |  | [optional] 
@@ -34,7 +35,7 @@ Name | Type | Description | Notes
 
 ### NewTestPointWithLastResultResponseModel
 
-`func NewTestPointWithLastResultResponseModel(id string, isAutomated bool, workItemId string, testSuiteId string, sectionId string, createdById string, duration int32, priority WorkItemPriorityModel, ) *TestPointWithLastResultResponseModel`
+`func NewTestPointWithLastResultResponseModel(id string, isAutomated bool, workItemId string, testSuiteId string, sectionId string, createdById string, duration int32, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, ) *TestPointWithLastResultResponseModel`
 
 NewTestPointWithLastResultResponseModel instantiates a new TestPointWithLastResultResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -697,6 +698,26 @@ and a boolean to check if the value has been set.
 `func (o *TestPointWithLastResultResponseModel) SetPriority(v WorkItemPriorityModel)`
 
 SetPriority sets Priority field to given value.
+
+
+### GetSourceType
+
+`func (o *TestPointWithLastResultResponseModel) GetSourceType() WorkItemSourceTypeModel`
+
+GetSourceType returns the SourceType field if non-nil, zero value otherwise.
+
+### GetSourceTypeOk
+
+`func (o *TestPointWithLastResultResponseModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool)`
+
+GetSourceTypeOk returns a tuple with the SourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceType
+
+`func (o *TestPointWithLastResultResponseModel) SetSourceType(v WorkItemSourceTypeModel)`
+
+SetSourceType sets SourceType field to given value.
 
 
 ### GetTestSuiteNameBreadCrumbs

@@ -21,7 +21,7 @@ var _ MappedNullable = &CustomAttributePostModel{}
 
 // CustomAttributePostModel struct for CustomAttributePostModel
 type CustomAttributePostModel struct {
-	// Collection of attribute options     Available for attributes of type `options` and `multiple options` only
+	// Collection of attribute options   Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionPostModel `json:"options,omitempty"`
 	// Type of attribute
 	Type CustomAttributeTypesEnum `json:"type"`

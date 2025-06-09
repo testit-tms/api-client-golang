@@ -1405,7 +1405,7 @@ import (
 
 func main() {
 	id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | Test Run internal identifier (GUID format)
-	autoTestResultsForTestRunModel := []openapiclient.AutoTestResultsForTestRunModel{*openapiclient.NewAutoTestResultsForTestRunModel("ConfigurationId_example", "AutoTestExternalId_example", openapiclient.AvailableTestResultOutcome("Passed"))} // []AutoTestResultsForTestRunModel |  (optional)
+	autoTestResultsForTestRunModel := []openapiclient.AutoTestResultsForTestRunModel{*openapiclient.NewAutoTestResultsForTestRunModel("ConfigurationId_example", "AutoTestExternalId_example")} // []AutoTestResultsForTestRunModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

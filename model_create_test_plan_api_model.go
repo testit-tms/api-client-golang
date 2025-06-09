@@ -23,7 +23,7 @@ var _ MappedNullable = &CreateTestPlanApiModel{}
 // CreateTestPlanApiModel struct for CreateTestPlanApiModel
 type CreateTestPlanApiModel struct {
 	// Test plan tag names collection
-	Tags []TagPostModel `json:"tags,omitempty"`
+	Tags []TagApiModel `json:"tags,omitempty"`
 	// Test plan name
 	Name string `json:"name"`
 	// Date and time of test plan start
@@ -68,9 +68,9 @@ func NewCreateTestPlanApiModelWithDefaults() *CreateTestPlanApiModel {
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateTestPlanApiModel) GetTags() []TagPostModel {
+func (o *CreateTestPlanApiModel) GetTags() []TagApiModel {
 	if o == nil {
-		var ret []TagPostModel
+		var ret []TagApiModel
 		return ret
 	}
 	return o.Tags
@@ -79,7 +79,7 @@ func (o *CreateTestPlanApiModel) GetTags() []TagPostModel {
 // GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateTestPlanApiModel) GetTagsOk() ([]TagPostModel, bool) {
+func (o *CreateTestPlanApiModel) GetTagsOk() ([]TagApiModel, bool) {
 	if o == nil || IsNil(o.Tags) {
 		return nil, false
 	}
@@ -95,8 +95,8 @@ func (o *CreateTestPlanApiModel) HasTags() bool {
 	return false
 }
 
-// SetTags gets a reference to the given []TagPostModel and assigns it to the Tags field.
-func (o *CreateTestPlanApiModel) SetTags(v []TagPostModel) {
+// SetTags gets a reference to the given []TagApiModel and assigns it to the Tags field.
+func (o *CreateTestPlanApiModel) SetTags(v []TagApiModel) {
 	o.Tags = v
 }
 

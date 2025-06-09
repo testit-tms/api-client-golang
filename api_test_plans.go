@@ -45,7 +45,7 @@ func (r ApiAddTestPointsWithSectionsRequest) Execute() (*http.Response, error) {
 AddTestPointsWithSections Add test-points to TestPlan with sections
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiAddTestPointsWithSectionsRequest
 */
 func (a *TestPlansAPIService) AddTestPointsWithSections(ctx context.Context, id string) ApiAddTestPointsWithSectionsRequest {
@@ -235,7 +235,7 @@ System added WorkItems and Sections to TestPlan
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiAddWorkItemsWithSectionsRequest
 */
 func (a *TestPlansAPIService) AddWorkItemsWithSections(ctx context.Context, id string) ApiAddWorkItemsWithSectionsRequest {
@@ -415,7 +415,7 @@ User runs method execution
 System returns analytics by test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdAnalyticsGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdAnalyticsGet(ctx context.Context, id string) ApiApiV2TestPlansIdAnalyticsGetRequest {
@@ -604,6 +604,8 @@ ApiV2TestPlansIdAutobalancePost Distribute test points between the users
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Test plan unique or global ID
  @return ApiApiV2TestPlansIdAutobalancePostRequest
+
+Deprecated
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdAutobalancePost(ctx context.Context, id string) ApiApiV2TestPlansIdAutobalancePostRequest {
 	return ApiApiV2TestPlansIdAutobalancePostRequest{
@@ -615,6 +617,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdAutobalancePost(ctx context.Contex
 
 // Execute executes the request
 //  @return TestPlanWithTestSuiteTreeModel
+// Deprecated
 func (a *TestPlansAPIService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2TestPlansIdAutobalancePostRequest) (*TestPlanWithTestSuiteTreeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -802,7 +805,7 @@ User runs method execution
 System return test plan configurations
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdConfigurationsGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdConfigurationsGet(ctx context.Context, id string) ApiApiV2TestPlansIdConfigurationsGetRequest {
@@ -1005,7 +1008,7 @@ User runs method execution
 System return export xlsx file
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestPointsXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
@@ -1214,7 +1217,7 @@ User runs method execution
 System return export xlsx file
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestResultHistoryXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest {
@@ -1439,7 +1442,7 @@ User runs method execution
 System return test plan history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdHistoryGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdHistoryGet(ctx context.Context, id string) ApiApiV2TestPlansIdHistoryGetRequest {
@@ -1663,7 +1666,7 @@ User runs method execution
 System returns links of TestPlan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdLinksGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdLinksGet(ctx context.Context, id string) ApiApiV2TestPlansIdLinksGetRequest {
@@ -2040,7 +2043,7 @@ User runs method execution
 System returns summary by test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdSummariesGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdSummariesGet(ctx context.Context, id string) ApiApiV2TestPlansIdSummariesGetRequest {
@@ -2272,7 +2275,7 @@ User runs method execution
 System return test points with last result from test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdTestPointsLastResultsGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsLastResultsGetRequest {
@@ -2487,7 +2490,7 @@ User runs method execution
 System reset test points statuses of test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdTestPointsResetPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsResetPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsResetPostRequest {
@@ -3108,7 +3111,7 @@ User runs method execution
 System returns TestRuns for TestPlan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdTestRunsGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsGetRequest {
@@ -3367,7 +3370,7 @@ User runs method execution
 System returns TestRuns for TestPlan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdTestRunsSearchPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
@@ -3743,7 +3746,7 @@ User runs method execution
 System send unlock test plan notification
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdUnlockRequestPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdUnlockRequestPost(ctx context.Context, id string) ApiApiV2TestPlansIdUnlockRequestPostRequest {
@@ -4134,7 +4137,7 @@ System clones test plan
 System returns test plan (listed in response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiCloneRequest
 */
 func (a *TestPlansAPIService) Clone(ctx context.Context, id string) ApiCloneRequest {
@@ -4325,7 +4328,7 @@ System completes the test plan and updates test plan status
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiCompleteRequest
 */
 func (a *TestPlansAPIService) Complete(ctx context.Context, id string) ApiCompleteRequest {
@@ -4700,7 +4703,7 @@ System delete test plan
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiDeleteTestPlanRequest
 */
 func (a *TestPlansAPIService) DeleteTestPlan(ctx context.Context, id string) ApiDeleteTestPlanRequest {
@@ -4880,7 +4883,7 @@ System search  test plan by the identifier
 System returns test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiGetTestPlanByIdRequest
 */
 func (a *TestPlansAPIService) GetTestPlanById(ctx context.Context, id string) ApiGetTestPlanByIdRequest {
@@ -5080,7 +5083,7 @@ System finds test suites related to the test plan
 System returns test suites as a tree model (listed in response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiGetTestSuitesByIdRequest
 */
 func (a *TestPlansAPIService) GetTestSuitesById(ctx context.Context, id string) ApiGetTestSuitesByIdRequest {
@@ -5271,7 +5274,7 @@ System pauses the test plan and updates test plan status
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiPauseRequest
 */
 func (a *TestPlansAPIService) Pause(ctx context.Context, id string) ApiPauseRequest {
@@ -5620,7 +5623,7 @@ System restores test plan
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiRestoreTestPlanRequest
 */
 func (a *TestPlansAPIService) RestoreTestPlan(ctx context.Context, id string) ApiRestoreTestPlanRequest {
@@ -5800,7 +5803,7 @@ System starts the test plan and updates test plan status
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int  format) identifier
+ @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiStartRequest
 */
 func (a *TestPlansAPIService) Start(ctx context.Context, id string) ApiStartRequest {

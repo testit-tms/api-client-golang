@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **DurationInMs** | Pointer to **NullableInt64** |  | [optional] 
 **Duration** | Pointer to **NullableInt64** |  | [optional] 
 **StepComments** | Pointer to [**[]TestResultStepCommentUpdateRequest**](TestResultStepCommentUpdateRequest.md) |  | [optional] 
-**SetupResults** | Pointer to [**[]AttachmentPutModelAutoTestStepResultsModel**](AttachmentPutModelAutoTestStepResultsModel.md) |  | [optional] 
-**TeardownResults** | Pointer to [**[]AttachmentPutModelAutoTestStepResultsModel**](AttachmentPutModelAutoTestStepResultsModel.md) |  | [optional] 
+**SetupResults** | Pointer to [**[]AutoTestStepResultUpdateRequest**](AutoTestStepResultUpdateRequest.md) |  | [optional] 
+**TeardownResults** | Pointer to [**[]AutoTestStepResultUpdateRequest**](AutoTestStepResultUpdateRequest.md) |  | [optional] 
 **Message** | Pointer to **NullableString** |  | [optional] 
 **Trace** | Pointer to **NullableString** |  | [optional] 
 
@@ -390,20 +390,20 @@ HasStepComments returns a boolean if a field has been set.
 UnsetStepComments ensures that no value is present for StepComments, not even an explicit nil
 ### GetSetupResults
 
-`func (o *TestResultUpdateV2Request) GetSetupResults() []AttachmentPutModelAutoTestStepResultsModel`
+`func (o *TestResultUpdateV2Request) GetSetupResults() []AutoTestStepResultUpdateRequest`
 
 GetSetupResults returns the SetupResults field if non-nil, zero value otherwise.
 
 ### GetSetupResultsOk
 
-`func (o *TestResultUpdateV2Request) GetSetupResultsOk() (*[]AttachmentPutModelAutoTestStepResultsModel, bool)`
+`func (o *TestResultUpdateV2Request) GetSetupResultsOk() (*[]AutoTestStepResultUpdateRequest, bool)`
 
 GetSetupResultsOk returns a tuple with the SetupResults field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSetupResults
 
-`func (o *TestResultUpdateV2Request) SetSetupResults(v []AttachmentPutModelAutoTestStepResultsModel)`
+`func (o *TestResultUpdateV2Request) SetSetupResults(v []AutoTestStepResultUpdateRequest)`
 
 SetSetupResults sets SetupResults field to given value.
 
@@ -425,20 +425,20 @@ HasSetupResults returns a boolean if a field has been set.
 UnsetSetupResults ensures that no value is present for SetupResults, not even an explicit nil
 ### GetTeardownResults
 
-`func (o *TestResultUpdateV2Request) GetTeardownResults() []AttachmentPutModelAutoTestStepResultsModel`
+`func (o *TestResultUpdateV2Request) GetTeardownResults() []AutoTestStepResultUpdateRequest`
 
 GetTeardownResults returns the TeardownResults field if non-nil, zero value otherwise.
 
 ### GetTeardownResultsOk
 
-`func (o *TestResultUpdateV2Request) GetTeardownResultsOk() (*[]AttachmentPutModelAutoTestStepResultsModel, bool)`
+`func (o *TestResultUpdateV2Request) GetTeardownResultsOk() (*[]AutoTestStepResultUpdateRequest, bool)`
 
 GetTeardownResultsOk returns a tuple with the TeardownResults field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTeardownResults
 
-`func (o *TestResultUpdateV2Request) SetTeardownResults(v []AttachmentPutModelAutoTestStepResultsModel)`
+`func (o *TestResultUpdateV2Request) SetTeardownResults(v []AutoTestStepResultUpdateRequest)`
 
 SetTeardownResults sets TeardownResults field to given value.
 

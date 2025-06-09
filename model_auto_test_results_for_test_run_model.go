@@ -31,7 +31,10 @@ type AutoTestResultsForTestRunModel struct {
 	// Specifies the external ID of the autotest, which was specified when the test run was created.
 	AutoTestExternalId string `json:"autoTestExternalId"`
 	// Specifies the result of the autotest execution.
-	Outcome AvailableTestResultOutcome `json:"outcome"`
+	// Deprecated
+	Outcome NullableAvailableTestResultOutcome `json:"outcome,omitempty"`
+	// Specifies the result of the autotest execution.
+	StatusCode NullableString `json:"statusCode,omitempty"`
 	// A comment for the result.
 	Message NullableString `json:"message,omitempty"`
 	// An extended comment or a stack trace.
@@ -62,11 +65,10 @@ type _AutoTestResultsForTestRunModel AutoTestResultsForTestRunModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestResultsForTestRunModel(configurationId string, autoTestExternalId string, outcome AvailableTestResultOutcome) *AutoTestResultsForTestRunModel {
+func NewAutoTestResultsForTestRunModel(configurationId string, autoTestExternalId string) *AutoTestResultsForTestRunModel {
 	this := AutoTestResultsForTestRunModel{}
 	this.ConfigurationId = configurationId
 	this.AutoTestExternalId = autoTestExternalId
-	this.Outcome = outcome
 	return &this
 }
 
@@ -192,28 +194,91 @@ func (o *AutoTestResultsForTestRunModel) SetAutoTestExternalId(v string) {
 	o.AutoTestExternalId = v
 }
 
-// GetOutcome returns the Outcome field value
+// GetOutcome returns the Outcome field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *AutoTestResultsForTestRunModel) GetOutcome() AvailableTestResultOutcome {
-	if o == nil {
+	if o == nil || IsNil(o.Outcome.Get()) {
 		var ret AvailableTestResultOutcome
 		return ret
 	}
-
-	return o.Outcome
+	return *o.Outcome.Get()
 }
 
-// GetOutcomeOk returns a tuple with the Outcome field value
+// GetOutcomeOk returns a tuple with the Outcome field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *AutoTestResultsForTestRunModel) GetOutcomeOk() (*AvailableTestResultOutcome, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Outcome, true
+	return o.Outcome.Get(), o.Outcome.IsSet()
 }
 
-// SetOutcome sets field value
+// HasOutcome returns a boolean if a field has been set.
+func (o *AutoTestResultsForTestRunModel) HasOutcome() bool {
+	if o != nil && o.Outcome.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOutcome gets a reference to the given NullableAvailableTestResultOutcome and assigns it to the Outcome field.
+// Deprecated
 func (o *AutoTestResultsForTestRunModel) SetOutcome(v AvailableTestResultOutcome) {
-	o.Outcome = v
+	o.Outcome.Set(&v)
+}
+// SetOutcomeNil sets the value for Outcome to be an explicit nil
+func (o *AutoTestResultsForTestRunModel) SetOutcomeNil() {
+	o.Outcome.Set(nil)
+}
+
+// UnsetOutcome ensures that no value is present for Outcome, not even an explicit nil
+func (o *AutoTestResultsForTestRunModel) UnsetOutcome() {
+	o.Outcome.Unset()
+}
+
+// GetStatusCode returns the StatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestResultsForTestRunModel) GetStatusCode() string {
+	if o == nil || IsNil(o.StatusCode.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.StatusCode.Get()
+}
+
+// GetStatusCodeOk returns a tuple with the StatusCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestResultsForTestRunModel) GetStatusCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StatusCode.Get(), o.StatusCode.IsSet()
+}
+
+// HasStatusCode returns a boolean if a field has been set.
+func (o *AutoTestResultsForTestRunModel) HasStatusCode() bool {
+	if o != nil && o.StatusCode.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusCode gets a reference to the given NullableString and assigns it to the StatusCode field.
+func (o *AutoTestResultsForTestRunModel) SetStatusCode(v string) {
+	o.StatusCode.Set(&v)
+}
+// SetStatusCodeNil sets the value for StatusCode to be an explicit nil
+func (o *AutoTestResultsForTestRunModel) SetStatusCodeNil() {
+	o.StatusCode.Set(nil)
+}
+
+// UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
+func (o *AutoTestResultsForTestRunModel) UnsetStatusCode() {
+	o.StatusCode.Unset()
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -642,7 +707,12 @@ func (o AutoTestResultsForTestRunModel) ToMap() (map[string]interface{}, error) 
 		toSerialize["failureReasonNames"] = o.FailureReasonNames
 	}
 	toSerialize["autoTestExternalId"] = o.AutoTestExternalId
-	toSerialize["outcome"] = o.Outcome
+	if o.Outcome.IsSet() {
+		toSerialize["outcome"] = o.Outcome.Get()
+	}
+	if o.StatusCode.IsSet() {
+		toSerialize["statusCode"] = o.StatusCode.Get()
+	}
 	if o.Message.IsSet() {
 		toSerialize["message"] = o.Message.Get()
 	}
@@ -686,7 +756,6 @@ func (o *AutoTestResultsForTestRunModel) UnmarshalJSON(data []byte) (err error) 
 	requiredProperties := []string{
 		"configurationId",
 		"autoTestExternalId",
-		"outcome",
 	}
 
 	allProperties := make(map[string]interface{})

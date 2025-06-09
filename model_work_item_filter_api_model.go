@@ -47,6 +47,8 @@ type WorkItemFilterApiModel struct {
 	States []WorkItemStates `json:"states,omitempty"`
 	// Collection of priorities of work item
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
+	// Source type of work item (manual creation or AI generated)
+	SourceTypes []WorkItemSourceTypeModel `json:"sourceTypes,omitempty"`
 	// Collection of types of work item
 	Types []WorkItemEntityTypes `json:"types,omitempty"`
 	// Specifies a work item range of creation date to search for
@@ -575,6 +577,39 @@ func (o *WorkItemFilterApiModel) SetPriorities(v []WorkItemPriorityModel) {
 	o.Priorities = v
 }
 
+// GetSourceTypes returns the SourceTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemFilterApiModel) GetSourceTypes() []WorkItemSourceTypeModel {
+	if o == nil {
+		var ret []WorkItemSourceTypeModel
+		return ret
+	}
+	return o.SourceTypes
+}
+
+// GetSourceTypesOk returns a tuple with the SourceTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemFilterApiModel) GetSourceTypesOk() ([]WorkItemSourceTypeModel, bool) {
+	if o == nil || IsNil(o.SourceTypes) {
+		return nil, false
+	}
+	return o.SourceTypes, true
+}
+
+// HasSourceTypes returns a boolean if a field has been set.
+func (o *WorkItemFilterApiModel) HasSourceTypes() bool {
+	if o != nil && !IsNil(o.SourceTypes) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceTypes gets a reference to the given []WorkItemSourceTypeModel and assigns it to the SourceTypes field.
+func (o *WorkItemFilterApiModel) SetSourceTypes(v []WorkItemSourceTypeModel) {
+	o.SourceTypes = v
+}
+
 // GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemFilterApiModel) GetTypes() []WorkItemEntityTypes {
 	if o == nil {
@@ -1010,6 +1045,9 @@ func (o WorkItemFilterApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Priorities != nil {
 		toSerialize["priorities"] = o.Priorities
+	}
+	if o.SourceTypes != nil {
+		toSerialize["sourceTypes"] = o.SourceTypes
 	}
 	if o.Types != nil {
 		toSerialize["types"] = o.Types

@@ -30,7 +30,9 @@ type PublicTestRunModel struct {
 	Configurations []ConfigurationModel `json:"configurations"`
 	AutoTests []AutoTestModel `json:"autoTests"`
 	TestPoints []PublicTestPointModel `json:"testPoints"`
+	// Deprecated
 	Status string `json:"status"`
+	StatusModel TestStatusModel `json:"statusModel"`
 	CustomParameters map[string]string `json:"customParameters,omitempty"`
 	TestRunDescription NullableString `json:"testRunDescription,omitempty"`
 }
@@ -41,7 +43,7 @@ type _PublicTestRunModel PublicTestRunModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPublicTestRunModel(testRunId string, testPlanGlobalId int64, name string, configurations []ConfigurationModel, autoTests []AutoTestModel, testPoints []PublicTestPointModel, status string) *PublicTestRunModel {
+func NewPublicTestRunModel(testRunId string, testPlanGlobalId int64, name string, configurations []ConfigurationModel, autoTests []AutoTestModel, testPoints []PublicTestPointModel, status string, statusModel TestStatusModel) *PublicTestRunModel {
 	this := PublicTestRunModel{}
 	this.TestRunId = testRunId
 	this.TestPlanGlobalId = testPlanGlobalId
@@ -50,6 +52,7 @@ func NewPublicTestRunModel(testRunId string, testPlanGlobalId int64, name string
 	this.AutoTests = autoTests
 	this.TestPoints = testPoints
 	this.Status = status
+	this.StatusModel = statusModel
 	return &this
 }
 
@@ -332,6 +335,7 @@ func (o *PublicTestRunModel) SetTestPoints(v []PublicTestPointModel) {
 }
 
 // GetStatus returns the Status field value
+// Deprecated
 func (o *PublicTestRunModel) GetStatus() string {
 	if o == nil {
 		var ret string
@@ -343,6 +347,7 @@ func (o *PublicTestRunModel) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *PublicTestRunModel) GetStatusOk() (*string, bool) {
 	if o == nil {
 		return nil, false
@@ -351,8 +356,33 @@ func (o *PublicTestRunModel) GetStatusOk() (*string, bool) {
 }
 
 // SetStatus sets field value
+// Deprecated
 func (o *PublicTestRunModel) SetStatus(v string) {
 	o.Status = v
+}
+
+// GetStatusModel returns the StatusModel field value
+func (o *PublicTestRunModel) GetStatusModel() TestStatusModel {
+	if o == nil {
+		var ret TestStatusModel
+		return ret
+	}
+
+	return o.StatusModel
+}
+
+// GetStatusModelOk returns a tuple with the StatusModel field value
+// and a boolean to check if the value has been set.
+func (o *PublicTestRunModel) GetStatusModelOk() (*TestStatusModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StatusModel, true
+}
+
+// SetStatusModel sets field value
+func (o *PublicTestRunModel) SetStatusModel(v TestStatusModel) {
+	o.StatusModel = v
 }
 
 // GetCustomParameters returns the CustomParameters field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -456,6 +486,7 @@ func (o PublicTestRunModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["autoTests"] = o.AutoTests
 	toSerialize["testPoints"] = o.TestPoints
 	toSerialize["status"] = o.Status
+	toSerialize["statusModel"] = o.StatusModel
 	if o.CustomParameters != nil {
 		toSerialize["customParameters"] = o.CustomParameters
 	}
@@ -477,6 +508,7 @@ func (o *PublicTestRunModel) UnmarshalJSON(data []byte) (err error) {
 		"autoTests",
 		"testPoints",
 		"status",
+		"statusModel",
 	}
 
 	allProperties := make(map[string]interface{})

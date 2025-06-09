@@ -278,9 +278,9 @@ ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdDelete Delete CustomAttribute
 
 Use case
 
-User sets project internal or global identifier 
+User sets project internal or global identifier
 
-User sets attribute template internal identifier 
+User sets attribute template internal identifier
 
 User runs method execution
 
@@ -462,9 +462,9 @@ ApiV2ProjectsProjectIdAttributesTemplatesTemplateIdPost Add CustomAttributeTempl
 
 Use case
 
-User sets project internal or global identifier 
+User sets project internal or global identifier
 
-User sets attribute template internal identifier 
+User sets attribute template internal identifier
 
 User runs method execution
 

@@ -31,8 +31,8 @@ type TestResultUpdateV2Request struct {
 	DurationInMs NullableInt64 `json:"durationInMs,omitempty"`
 	Duration NullableInt64 `json:"duration,omitempty"`
 	StepComments []TestResultStepCommentUpdateRequest `json:"stepComments,omitempty"`
-	SetupResults []AttachmentPutModelAutoTestStepResultsModel `json:"setupResults,omitempty"`
-	TeardownResults []AttachmentPutModelAutoTestStepResultsModel `json:"teardownResults,omitempty"`
+	SetupResults []AutoTestStepResultUpdateRequest `json:"setupResults,omitempty"`
+	TeardownResults []AutoTestStepResultUpdateRequest `json:"teardownResults,omitempty"`
 	Message NullableString `json:"message,omitempty"`
 	Trace NullableString `json:"trace,omitempty"`
 }
@@ -436,9 +436,9 @@ func (o *TestResultUpdateV2Request) SetStepComments(v []TestResultStepCommentUpd
 }
 
 // GetSetupResults returns the SetupResults field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultUpdateV2Request) GetSetupResults() []AttachmentPutModelAutoTestStepResultsModel {
+func (o *TestResultUpdateV2Request) GetSetupResults() []AutoTestStepResultUpdateRequest {
 	if o == nil {
-		var ret []AttachmentPutModelAutoTestStepResultsModel
+		var ret []AutoTestStepResultUpdateRequest
 		return ret
 	}
 	return o.SetupResults
@@ -447,7 +447,7 @@ func (o *TestResultUpdateV2Request) GetSetupResults() []AttachmentPutModelAutoTe
 // GetSetupResultsOk returns a tuple with the SetupResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultUpdateV2Request) GetSetupResultsOk() ([]AttachmentPutModelAutoTestStepResultsModel, bool) {
+func (o *TestResultUpdateV2Request) GetSetupResultsOk() ([]AutoTestStepResultUpdateRequest, bool) {
 	if o == nil || IsNil(o.SetupResults) {
 		return nil, false
 	}
@@ -463,15 +463,15 @@ func (o *TestResultUpdateV2Request) HasSetupResults() bool {
 	return false
 }
 
-// SetSetupResults gets a reference to the given []AttachmentPutModelAutoTestStepResultsModel and assigns it to the SetupResults field.
-func (o *TestResultUpdateV2Request) SetSetupResults(v []AttachmentPutModelAutoTestStepResultsModel) {
+// SetSetupResults gets a reference to the given []AutoTestStepResultUpdateRequest and assigns it to the SetupResults field.
+func (o *TestResultUpdateV2Request) SetSetupResults(v []AutoTestStepResultUpdateRequest) {
 	o.SetupResults = v
 }
 
 // GetTeardownResults returns the TeardownResults field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultUpdateV2Request) GetTeardownResults() []AttachmentPutModelAutoTestStepResultsModel {
+func (o *TestResultUpdateV2Request) GetTeardownResults() []AutoTestStepResultUpdateRequest {
 	if o == nil {
-		var ret []AttachmentPutModelAutoTestStepResultsModel
+		var ret []AutoTestStepResultUpdateRequest
 		return ret
 	}
 	return o.TeardownResults
@@ -480,7 +480,7 @@ func (o *TestResultUpdateV2Request) GetTeardownResults() []AttachmentPutModelAut
 // GetTeardownResultsOk returns a tuple with the TeardownResults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultUpdateV2Request) GetTeardownResultsOk() ([]AttachmentPutModelAutoTestStepResultsModel, bool) {
+func (o *TestResultUpdateV2Request) GetTeardownResultsOk() ([]AutoTestStepResultUpdateRequest, bool) {
 	if o == nil || IsNil(o.TeardownResults) {
 		return nil, false
 	}
@@ -496,8 +496,8 @@ func (o *TestResultUpdateV2Request) HasTeardownResults() bool {
 	return false
 }
 
-// SetTeardownResults gets a reference to the given []AttachmentPutModelAutoTestStepResultsModel and assigns it to the TeardownResults field.
-func (o *TestResultUpdateV2Request) SetTeardownResults(v []AttachmentPutModelAutoTestStepResultsModel) {
+// SetTeardownResults gets a reference to the given []AutoTestStepResultUpdateRequest and assigns it to the TeardownResults field.
+func (o *TestResultUpdateV2Request) SetTeardownResults(v []AutoTestStepResultUpdateRequest) {
 	o.TeardownResults = v
 }
 

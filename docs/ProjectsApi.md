@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**ApiV2ProjectsPurgeBulkPost**](ProjectsAPI.md#ApiV2ProjectsPurgeBulkPost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
 [**ApiV2ProjectsRestoreBulkPost**](ProjectsAPI.md#ApiV2ProjectsRestoreBulkPost) | **Post** /api/v2/projects/restore/bulk | Restore multiple projects
 [**ApiV2ProjectsSearchPost**](ProjectsAPI.md#ApiV2ProjectsSearchPost) | **Post** /api/v2/projects/search | Search for projects
+[**ApiV2ProjectsShortsPost**](ProjectsAPI.md#ApiV2ProjectsShortsPost) | **Post** /api/v2/projects/shorts | Get projects short models
 [**CreateProject**](ProjectsAPI.md#CreateProject) | **Post** /api/v2/projects | Create project
 [**DeleteProjectAutoTests**](ProjectsAPI.md#DeleteProjectAutoTests) | **Delete** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 [**GetAllProjects**](ProjectsAPI.md#GetAllProjects) | **Get** /api/v2/projects | Get all projects
@@ -1205,6 +1206,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ProjectShortModel**](ProjectShortModel.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsShortsPost
+
+> ProjectShortApiResultReply ApiV2ProjectsShortsPost(ctx).GetShortProjectsApiModel(getShortProjectsApiModel).Execute()
+
+Get projects short models
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	getShortProjectsApiModel := *openapiclient.NewGetShortProjectsApiModel() // GetShortProjectsApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsShortsPost(context.Background()).GetShortProjectsApiModel(getShortProjectsApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsShortsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsShortsPost`: ProjectShortApiResultReply
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsShortsPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsShortsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **getShortProjectsApiModel** | [**GetShortProjectsApiModel**](GetShortProjectsApiModel.md) |  | 
+
+### Return type
+
+[**ProjectShortApiResultReply**](ProjectShortApiResultReply.md)
 
 ### Authorization
 

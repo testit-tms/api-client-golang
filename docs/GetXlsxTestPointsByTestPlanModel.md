@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **IncludeName** | **bool** |  | 
 **IncludeSection** | **bool** |  | 
 **IncludePriority** | **bool** |  | 
+**IncludeSourceType** | **bool** |  | 
 **IncludeAutomated** | **bool** |  | 
 **IncludeStatus** | **bool** |  | 
 **IncludeDuration** | **bool** |  | 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewGetXlsxTestPointsByTestPlanModel
 
-`func NewGetXlsxTestPointsByTestPlanModel(includeName bool, includeSection bool, includePriority bool, includeAutomated bool, includeStatus bool, includeDuration bool, includeCreationDate bool, includeAuthor bool, includeModificationDate bool, includeModifiedBy bool, includeTags bool, includeIterations bool, ) *GetXlsxTestPointsByTestPlanModel`
+`func NewGetXlsxTestPointsByTestPlanModel(includeName bool, includeSection bool, includePriority bool, includeSourceType bool, includeAutomated bool, includeStatus bool, includeDuration bool, includeCreationDate bool, includeAuthor bool, includeModificationDate bool, includeModifiedBy bool, includeTags bool, includeIterations bool, ) *GetXlsxTestPointsByTestPlanModel`
 
 NewGetXlsxTestPointsByTestPlanModel instantiates a new GetXlsxTestPointsByTestPlanModel object
 This constructor will assign default values to properties that have it defined,
@@ -96,6 +97,26 @@ and a boolean to check if the value has been set.
 `func (o *GetXlsxTestPointsByTestPlanModel) SetIncludePriority(v bool)`
 
 SetIncludePriority sets IncludePriority field to given value.
+
+
+### GetIncludeSourceType
+
+`func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeSourceType() bool`
+
+GetIncludeSourceType returns the IncludeSourceType field if non-nil, zero value otherwise.
+
+### GetIncludeSourceTypeOk
+
+`func (o *GetXlsxTestPointsByTestPlanModel) GetIncludeSourceTypeOk() (*bool, bool)`
+
+GetIncludeSourceTypeOk returns a tuple with the IncludeSourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludeSourceType
+
+`func (o *GetXlsxTestPointsByTestPlanModel) SetIncludeSourceType(v bool)`
+
+SetIncludeSourceType sets IncludeSourceType field to given value.
 
 
 ### GetIncludeAutomated

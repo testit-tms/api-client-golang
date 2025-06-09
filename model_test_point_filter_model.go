@@ -36,6 +36,8 @@ type TestPointFilterModel struct {
 	StatusCodes []string `json:"statusCodes,omitempty"`
 	// Specifies a test point priorities to search for
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
+	// Specifies a test point source types to search for
+	SourceTypes []WorkItemSourceTypeModel `json:"sourceTypes,omitempty"`
 	// Specifies a test point automation status to search for
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Specifies a test point name to search for
@@ -370,6 +372,39 @@ func (o *TestPointFilterModel) HasPriorities() bool {
 // SetPriorities gets a reference to the given []WorkItemPriorityModel and assigns it to the Priorities field.
 func (o *TestPointFilterModel) SetPriorities(v []WorkItemPriorityModel) {
 	o.Priorities = v
+}
+
+// GetSourceTypes returns the SourceTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPointFilterModel) GetSourceTypes() []WorkItemSourceTypeModel {
+	if o == nil {
+		var ret []WorkItemSourceTypeModel
+		return ret
+	}
+	return o.SourceTypes
+}
+
+// GetSourceTypesOk returns a tuple with the SourceTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPointFilterModel) GetSourceTypesOk() ([]WorkItemSourceTypeModel, bool) {
+	if o == nil || IsNil(o.SourceTypes) {
+		return nil, false
+	}
+	return o.SourceTypes, true
+}
+
+// HasSourceTypes returns a boolean if a field has been set.
+func (o *TestPointFilterModel) HasSourceTypes() bool {
+	if o != nil && !IsNil(o.SourceTypes) {
+		return true
+	}
+
+	return false
+}
+
+// SetSourceTypes gets a reference to the given []WorkItemSourceTypeModel and assigns it to the SourceTypes field.
+func (o *TestPointFilterModel) SetSourceTypes(v []WorkItemSourceTypeModel) {
+	o.SourceTypes = v
 }
 
 // GetIsAutomated returns the IsAutomated field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -996,6 +1031,9 @@ func (o TestPointFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Priorities != nil {
 		toSerialize["priorities"] = o.Priorities
+	}
+	if o.SourceTypes != nil {
+		toSerialize["sourceTypes"] = o.SourceTypes
 	}
 	if o.IsAutomated.IsSet() {
 		toSerialize["isAutomated"] = o.IsAutomated.Get()
