@@ -50,7 +50,8 @@ type AutoTestModel struct {
 	// Deprecated
 	LastTestResultOutcome NullableString `json:"lastTestResultOutcome,omitempty"`
 	// Status of the autotest last test result
-	LastTestResultStatus TestStatusModel `json:"lastTestResultStatus"`
+	// omitempty is needed to avoid error when lastTestResultStatus is null
+	LastTestResultStatus NullableTestStatusModel `json:"lastTestResultStatus,omitempty"`
 	// Stability percentage of the autotest
 	StabilityPercentage NullableInt32 `json:"stabilityPercentage,omitempty"`
 	// External ID of the autotest
@@ -97,7 +98,7 @@ func NewAutoTestModel(globalId int64, isDeleted bool, mustBeApproved bool, id st
 	this.Id = id
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
-	this.LastTestResultStatus = lastTestResultStatus
+	this.LastTestResultStatus = NullableTestStatusModel{value: &lastTestResultStatus, isSet: true}
 	this.ExternalId = externalId
 	this.ProjectId = projectId
 	this.Name = name
@@ -560,7 +561,7 @@ func (o *AutoTestModel) GetLastTestResultStatus() TestStatusModel {
 		return ret
 	}
 
-	return o.LastTestResultStatus
+	return *o.LastTestResultStatus.Get()
 }
 
 // GetLastTestResultStatusOk returns a tuple with the LastTestResultStatus field value
@@ -569,12 +570,12 @@ func (o *AutoTestModel) GetLastTestResultStatusOk() (*TestStatusModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.LastTestResultStatus, true
+	return o.LastTestResultStatus.Get(), o.LastTestResultStatus.IsSet()
 }
 
 // SetLastTestResultStatus sets field value
 func (o *AutoTestModel) SetLastTestResultStatus(v TestStatusModel) {
-	o.LastTestResultStatus = v
+	o.LastTestResultStatus = NullableTestStatusModel{value: &v, isSet: true}
 }
 
 // GetStabilityPercentage returns the StabilityPercentage field value if set, zero value otherwise (both if not set or set to explicit null).
