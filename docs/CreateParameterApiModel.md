@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Key of the parameter | 
 **Value** | **string** | Value of the parameter | 
+**ProjectIds** | Pointer to **[]string** | List of projects where parameter should be available | [optional] 
 
 ## Methods
 
@@ -66,6 +67,41 @@ and a boolean to check if the value has been set.
 SetValue sets Value field to given value.
 
 
+### GetProjectIds
+
+`func (o *CreateParameterApiModel) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *CreateParameterApiModel) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *CreateParameterApiModel) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
+
+### HasProjectIds
+
+`func (o *CreateParameterApiModel) HasProjectIds() bool`
+
+HasProjectIds returns a boolean if a field has been set.
+
+### SetProjectIdsNil
+
+`func (o *CreateParameterApiModel) SetProjectIdsNil(b bool)`
+
+ SetProjectIdsNil sets the value for ProjectIds to be an explicit nil
+
+### UnsetProjectIds
+`func (o *CreateParameterApiModel) UnsetProjectIds()`
+
+UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

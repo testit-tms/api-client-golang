@@ -27,6 +27,7 @@ type ParameterShortModel struct {
 	Value string `json:"value"`
 	// Key of the parameter
 	Name string `json:"name"`
+	ProjectIds []string `json:"projectIds"`
 }
 
 type _ParameterShortModel ParameterShortModel
@@ -35,12 +36,13 @@ type _ParameterShortModel ParameterShortModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewParameterShortModel(id string, parameterKeyId string, value string, name string) *ParameterShortModel {
+func NewParameterShortModel(id string, parameterKeyId string, value string, name string, projectIds []string) *ParameterShortModel {
 	this := ParameterShortModel{}
 	this.Id = id
 	this.ParameterKeyId = parameterKeyId
 	this.Value = value
 	this.Name = name
+	this.ProjectIds = projectIds
 	return &this
 }
 
@@ -148,6 +150,30 @@ func (o *ParameterShortModel) SetName(v string) {
 	o.Name = v
 }
 
+// GetProjectIds returns the ProjectIds field value
+func (o *ParameterShortModel) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value
+// and a boolean to check if the value has been set.
+func (o *ParameterShortModel) GetProjectIdsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// SetProjectIds sets field value
+func (o *ParameterShortModel) SetProjectIds(v []string) {
+	o.ProjectIds = v
+}
+
 func (o ParameterShortModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -162,6 +188,7 @@ func (o ParameterShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["parameterKeyId"] = o.ParameterKeyId
 	toSerialize["value"] = o.Value
 	toSerialize["name"] = o.Name
+	toSerialize["projectIds"] = o.ProjectIds
 	return toSerialize, nil
 }
 
@@ -174,6 +201,7 @@ func (o *ParameterShortModel) UnmarshalJSON(data []byte) (err error) {
 		"parameterKeyId",
 		"value",
 		"name",
+		"projectIds",
 	}
 
 	allProperties := make(map[string]interface{})

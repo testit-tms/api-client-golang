@@ -407,6 +407,7 @@ type ApiApiV2ParametersGroupsGetRequest struct {
 	parameterKeyIds *[]string
 	name *string
 	isDeleted *bool
+	projectIds *[]string
 	skip *int32
 	take *int32
 	orderBy *string
@@ -426,6 +427,11 @@ func (r ApiApiV2ParametersGroupsGetRequest) Name(name string) ApiApiV2Parameters
 
 func (r ApiApiV2ParametersGroupsGetRequest) IsDeleted(isDeleted bool) ApiApiV2ParametersGroupsGetRequest {
 	r.isDeleted = &isDeleted
+	return r
+}
+
+func (r ApiApiV2ParametersGroupsGetRequest) ProjectIds(projectIds []string) ApiApiV2ParametersGroupsGetRequest {
+	r.projectIds = &projectIds
 	return r
 }
 
@@ -522,6 +528,17 @@ func (a *ParametersAPIService) ApiV2ParametersGroupsGetExecute(r ApiApiV2Paramet
 	}
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
+	}
+	if r.projectIds != nil {
+		t := *r.projectIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "projectIds", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "projectIds", t, "form", "multi")
+		}
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
@@ -1056,6 +1073,12 @@ func (a *ParametersAPIService) ApiV2ParametersKeyValuesGetExecute(r ApiApiV2Para
 type ApiApiV2ParametersKeysGetRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
+	projectIds *[]string
+}
+
+func (r ApiApiV2ParametersKeysGetRequest) ProjectIds(projectIds []string) ApiApiV2ParametersKeysGetRequest {
+	r.projectIds = &projectIds
+	return r
 }
 
 func (r ApiApiV2ParametersKeysGetRequest) Execute() ([]string, *http.Response, error) {
@@ -1105,6 +1128,17 @@ func (a *ParametersAPIService) ApiV2ParametersKeysGetExecute(r ApiApiV2Parameter
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.projectIds != nil {
+		t := *r.projectIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "projectIds", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "projectIds", t, "form", "multi")
+		}
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

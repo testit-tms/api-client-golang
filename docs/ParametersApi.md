@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ParametersGroupsGet
 
-> []ParameterGroupApiResult ApiV2ParametersGroupsGet(ctx).ParameterKeyIds(parameterKeyIds).Name(name).IsDeleted(isDeleted).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []ParameterGroupApiResult ApiV2ParametersGroupsGet(ctx).ParameterKeyIds(parameterKeyIds).Name(name).IsDeleted(isDeleted).ProjectIds(projectIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get parameters as group
 
@@ -176,6 +176,7 @@ func main() {
 	parameterKeyIds := []string{"Inner_example"} // []string |  (optional)
 	name := "name_example" // string |  (optional)
 	isDeleted := true // bool |  (optional)
+	projectIds := []string{"Inner_example"} // []string |  (optional)
 	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
 	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
 	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -184,7 +185,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersGroupsGet(context.Background()).ParameterKeyIds(parameterKeyIds).Name(name).IsDeleted(isDeleted).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersGroupsGet(context.Background()).ParameterKeyIds(parameterKeyIds).Name(name).IsDeleted(isDeleted).ProjectIds(projectIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersGroupsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -208,6 +209,7 @@ Name | Type | Description  | Notes
  **parameterKeyIds** | **[]string** |  | 
  **name** | **string** |  | 
  **isDeleted** | **bool** |  | 
+ **projectIds** | **[]string** |  | 
  **skip** | **int32** | Amount of items to be skipped (offset) | 
  **take** | **int32** | Amount of items to be taken (limit) | 
  **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
@@ -374,7 +376,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ParametersKeysGet
 
-> []string ApiV2ParametersKeysGet(ctx).Execute()
+> []string ApiV2ParametersKeysGet(ctx).ProjectIds(projectIds).Execute()
 
 Get all parameter keys
 
@@ -393,10 +395,11 @@ import (
 )
 
 func main() {
+	projectIds := []string{"Inner_example"} // []string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersKeysGet(context.Background()).Execute()
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersKeysGet(context.Background()).ProjectIds(projectIds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersKeysGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -408,12 +411,16 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApiV2ParametersKeysGetRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectIds** | **[]string** |  | 
 
 ### Return type
 

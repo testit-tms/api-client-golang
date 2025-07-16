@@ -24,6 +24,7 @@ type ParameterGroupApiResult struct {
 	ParameterKeyId string `json:"parameterKeyId"`
 	Name string `json:"name"`
 	Values map[string]string `json:"values"`
+	ProjectIds []string `json:"projectIds"`
 }
 
 type _ParameterGroupApiResult ParameterGroupApiResult
@@ -32,11 +33,12 @@ type _ParameterGroupApiResult ParameterGroupApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewParameterGroupApiResult(parameterKeyId string, name string, values map[string]string) *ParameterGroupApiResult {
+func NewParameterGroupApiResult(parameterKeyId string, name string, values map[string]string, projectIds []string) *ParameterGroupApiResult {
 	this := ParameterGroupApiResult{}
 	this.ParameterKeyId = parameterKeyId
 	this.Name = name
 	this.Values = values
+	this.ProjectIds = projectIds
 	return &this
 }
 
@@ -120,6 +122,30 @@ func (o *ParameterGroupApiResult) SetValues(v map[string]string) {
 	o.Values = v
 }
 
+// GetProjectIds returns the ProjectIds field value
+func (o *ParameterGroupApiResult) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value
+// and a boolean to check if the value has been set.
+func (o *ParameterGroupApiResult) GetProjectIdsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// SetProjectIds sets field value
+func (o *ParameterGroupApiResult) SetProjectIds(v []string) {
+	o.ProjectIds = v
+}
+
 func (o ParameterGroupApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,6 +159,7 @@ func (o ParameterGroupApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["parameterKeyId"] = o.ParameterKeyId
 	toSerialize["name"] = o.Name
 	toSerialize["values"] = o.Values
+	toSerialize["projectIds"] = o.ProjectIds
 	return toSerialize, nil
 }
 
@@ -144,6 +171,7 @@ func (o *ParameterGroupApiResult) UnmarshalJSON(data []byte) (err error) {
 		"parameterKeyId",
 		"name",
 		"values",
+		"projectIds",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -50,7 +50,6 @@ type AutoTestModel struct {
 	// Deprecated
 	LastTestResultOutcome NullableString `json:"lastTestResultOutcome,omitempty"`
 	// Status of the autotest last test result
-	// omitempty is needed to avoid error when lastTestResultStatus is null
 	LastTestResultStatus NullableTestStatusModel `json:"lastTestResultStatus,omitempty"`
 	// Stability percentage of the autotest
 	StabilityPercentage NullableInt32 `json:"stabilityPercentage,omitempty"`
@@ -90,7 +89,7 @@ type _AutoTestModel AutoTestModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestModel(globalId int64, isDeleted bool, mustBeApproved bool, id string, createdDate time.Time, createdById string, lastTestResultStatus TestStatusModel, externalId string, projectId string, name string) *AutoTestModel {
+func NewAutoTestModel(globalId int64, isDeleted bool, mustBeApproved bool, id string, createdDate time.Time, createdById string, externalId string, projectId string, name string) *AutoTestModel {
 	this := AutoTestModel{}
 	this.GlobalId = globalId
 	this.IsDeleted = isDeleted
@@ -98,7 +97,6 @@ func NewAutoTestModel(globalId int64, isDeleted bool, mustBeApproved bool, id st
 	this.Id = id
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
-	this.LastTestResultStatus = NullableTestStatusModel{value: &lastTestResultStatus, isSet: true}
 	this.ExternalId = externalId
 	this.ProjectId = projectId
 	this.Name = name
@@ -554,18 +552,18 @@ func (o *AutoTestModel) UnsetLastTestResultOutcome() {
 	o.LastTestResultOutcome.Unset()
 }
 
-// GetLastTestResultStatus returns the LastTestResultStatus field value
+// GetLastTestResultStatus returns the LastTestResultStatus field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutoTestModel) GetLastTestResultStatus() TestStatusModel {
-	if o == nil {
+	if o == nil || IsNil(o.LastTestResultStatus.Get()) {
 		var ret TestStatusModel
 		return ret
 	}
-
 	return *o.LastTestResultStatus.Get()
 }
 
-// GetLastTestResultStatusOk returns a tuple with the LastTestResultStatus field value
+// GetLastTestResultStatusOk returns a tuple with the LastTestResultStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AutoTestModel) GetLastTestResultStatusOk() (*TestStatusModel, bool) {
 	if o == nil {
 		return nil, false
@@ -573,9 +571,27 @@ func (o *AutoTestModel) GetLastTestResultStatusOk() (*TestStatusModel, bool) {
 	return o.LastTestResultStatus.Get(), o.LastTestResultStatus.IsSet()
 }
 
-// SetLastTestResultStatus sets field value
+// HasLastTestResultStatus returns a boolean if a field has been set.
+func (o *AutoTestModel) HasLastTestResultStatus() bool {
+	if o != nil && o.LastTestResultStatus.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastTestResultStatus gets a reference to the given NullableTestStatusModel and assigns it to the LastTestResultStatus field.
 func (o *AutoTestModel) SetLastTestResultStatus(v TestStatusModel) {
-	o.LastTestResultStatus = NullableTestStatusModel{value: &v, isSet: true}
+	o.LastTestResultStatus.Set(&v)
+}
+// SetLastTestResultStatusNil sets the value for LastTestResultStatus to be an explicit nil
+func (o *AutoTestModel) SetLastTestResultStatusNil() {
+	o.LastTestResultStatus.Set(nil)
+}
+
+// UnsetLastTestResultStatus ensures that no value is present for LastTestResultStatus, not even an explicit nil
+func (o *AutoTestModel) UnsetLastTestResultStatus() {
+	o.LastTestResultStatus.Unset()
 }
 
 // GetStabilityPercentage returns the StabilityPercentage field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1146,7 +1162,9 @@ func (o AutoTestModel) ToMap() (map[string]interface{}, error) {
 	if o.LastTestResultOutcome.IsSet() {
 		toSerialize["lastTestResultOutcome"] = o.LastTestResultOutcome.Get()
 	}
-	toSerialize["lastTestResultStatus"] = o.LastTestResultStatus
+	if o.LastTestResultStatus.IsSet() {
+		toSerialize["lastTestResultStatus"] = o.LastTestResultStatus.Get()
+	}
 	if o.StabilityPercentage.IsSet() {
 		toSerialize["stabilityPercentage"] = o.StabilityPercentage.Get()
 	}
@@ -1200,7 +1218,6 @@ func (o *AutoTestModel) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"createdDate",
 		"createdById",
-		"lastTestResultStatus",
 		"externalId",
 		"projectId",
 		"name",

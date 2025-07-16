@@ -25,6 +25,8 @@ type CreateParameterApiModel struct {
 	Name string `json:"name"`
 	// Value of the parameter
 	Value string `json:"value"`
+	// List of projects where parameter should be available
+	ProjectIds []string `json:"projectIds,omitempty"`
 }
 
 type _CreateParameterApiModel CreateParameterApiModel
@@ -96,6 +98,39 @@ func (o *CreateParameterApiModel) SetValue(v string) {
 	o.Value = v
 }
 
+// GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateParameterApiModel) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateParameterApiModel) GetProjectIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ProjectIds) {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// HasProjectIds returns a boolean if a field has been set.
+func (o *CreateParameterApiModel) HasProjectIds() bool {
+	if o != nil && !IsNil(o.ProjectIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
+func (o *CreateParameterApiModel) SetProjectIds(v []string) {
+	o.ProjectIds = v
+}
+
 func (o CreateParameterApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -108,6 +143,9 @@ func (o CreateParameterApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["value"] = o.Value
+	if o.ProjectIds != nil {
+		toSerialize["projectIds"] = o.ProjectIds
+	}
 	return toSerialize, nil
 }
 

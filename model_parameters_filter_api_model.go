@@ -21,6 +21,7 @@ var _ MappedNullable = &ParametersFilterApiModel{}
 type ParametersFilterApiModel struct {
 	Name NullableString `json:"name,omitempty"`
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
+	ProjectIds []string `json:"projectIds,omitempty"`
 }
 
 // NewParametersFilterApiModel instantiates a new ParametersFilterApiModel object
@@ -124,6 +125,39 @@ func (o *ParametersFilterApiModel) UnsetIsDeleted() {
 	o.IsDeleted.Unset()
 }
 
+// GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ParametersFilterApiModel) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ParametersFilterApiModel) GetProjectIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ProjectIds) {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// HasProjectIds returns a boolean if a field has been set.
+func (o *ParametersFilterApiModel) HasProjectIds() bool {
+	if o != nil && !IsNil(o.ProjectIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
+func (o *ParametersFilterApiModel) SetProjectIds(v []string) {
+	o.ProjectIds = v
+}
+
 func (o ParametersFilterApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -139,6 +173,9 @@ func (o ParametersFilterApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IsDeleted.IsSet() {
 		toSerialize["isDeleted"] = o.IsDeleted.Get()
+	}
+	if o.ProjectIds != nil {
+		toSerialize["projectIds"] = o.ProjectIds
 	}
 	return toSerialize, nil
 }

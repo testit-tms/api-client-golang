@@ -13,12 +13,13 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **IsDeleted** | **bool** |  | 
+**ProjectIds** | **[]string** |  | 
 
 ## Methods
 
 ### NewParameterApiResult
 
-`func NewParameterApiResult(id string, parameterKeyId string, name string, value string, createdDate time.Time, createdById string, isDeleted bool, ) *ParameterApiResult`
+`func NewParameterApiResult(id string, parameterKeyId string, name string, value string, createdDate time.Time, createdById string, isDeleted bool, projectIds []string, ) *ParameterApiResult`
 
 NewParameterApiResult instantiates a new ParameterApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -241,6 +242,26 @@ and a boolean to check if the value has been set.
 `func (o *ParameterApiResult) SetIsDeleted(v bool)`
 
 SetIsDeleted sets IsDeleted field to given value.
+
+
+### GetProjectIds
+
+`func (o *ParameterApiResult) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *ParameterApiResult) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *ParameterApiResult) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
 
 
 

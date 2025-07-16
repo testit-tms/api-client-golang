@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ParameterKeyIds** | Pointer to **[]string** |  | [optional] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **IsDeleted** | Pointer to **NullableBool** |  | [optional] 
+**ProjectIds** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -132,6 +133,41 @@ HasIsDeleted returns a boolean if a field has been set.
 `func (o *ParameterGroupsFilterApiModel) UnsetIsDeleted()`
 
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
+### GetProjectIds
+
+`func (o *ParameterGroupsFilterApiModel) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *ParameterGroupsFilterApiModel) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *ParameterGroupsFilterApiModel) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
+
+### HasProjectIds
+
+`func (o *ParameterGroupsFilterApiModel) HasProjectIds() bool`
+
+HasProjectIds returns a boolean if a field has been set.
+
+### SetProjectIdsNil
+
+`func (o *ParameterGroupsFilterApiModel) SetProjectIdsNil(b bool)`
+
+ SetProjectIdsNil sets the value for ProjectIds to be an explicit nil
+
+### UnsetProjectIds
+`func (o *ParameterGroupsFilterApiModel) UnsetProjectIds()`
+
+UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
