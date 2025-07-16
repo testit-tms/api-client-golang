@@ -31,6 +31,7 @@ type ParameterApiResult struct {
 	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	IsDeleted bool `json:"isDeleted"`
+	ProjectIds []string `json:"projectIds"`
 }
 
 type _ParameterApiResult ParameterApiResult
@@ -39,7 +40,7 @@ type _ParameterApiResult ParameterApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewParameterApiResult(id string, parameterKeyId string, name string, value string, createdDate time.Time, createdById string, isDeleted bool) *ParameterApiResult {
+func NewParameterApiResult(id string, parameterKeyId string, name string, value string, createdDate time.Time, createdById string, isDeleted bool, projectIds []string) *ParameterApiResult {
 	this := ParameterApiResult{}
 	this.Id = id
 	this.ParameterKeyId = parameterKeyId
@@ -48,6 +49,7 @@ func NewParameterApiResult(id string, parameterKeyId string, name string, value 
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
 	this.IsDeleted = isDeleted
+	this.ProjectIds = projectIds
 	return &this
 }
 
@@ -311,6 +313,30 @@ func (o *ParameterApiResult) SetIsDeleted(v bool) {
 	o.IsDeleted = v
 }
 
+// GetProjectIds returns the ProjectIds field value
+func (o *ParameterApiResult) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value
+// and a boolean to check if the value has been set.
+func (o *ParameterApiResult) GetProjectIdsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// SetProjectIds sets field value
+func (o *ParameterApiResult) SetProjectIds(v []string) {
+	o.ProjectIds = v
+}
+
 func (o ParameterApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -334,6 +360,7 @@ func (o ParameterApiResult) ToMap() (map[string]interface{}, error) {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
 	toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["projectIds"] = o.ProjectIds
 	return toSerialize, nil
 }
 
@@ -349,6 +376,7 @@ func (o *ParameterApiResult) UnmarshalJSON(data []byte) (err error) {
 		"createdDate",
 		"createdById",
 		"isDeleted",
+		"projectIds",
 	}
 
 	allProperties := make(map[string]interface{})

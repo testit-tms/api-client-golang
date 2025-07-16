@@ -984,7 +984,7 @@ func (r ApiApiV2CustomAttributesSearchPostRequest) CustomAttributeSearchQueryMod
 	return r
 }
 
-func (r ApiApiV2CustomAttributesSearchPostRequest) Execute() ([]CustomAttributeModel, *http.Response, error) {
+func (r ApiApiV2CustomAttributesSearchPostRequest) Execute() ([]CustomAttributeSearchResponseModel, *http.Response, error) {
 	return r.ApiService.ApiV2CustomAttributesSearchPostExecute(r)
 }
 
@@ -1002,13 +1002,13 @@ func (a *CustomAttributesAPIService) ApiV2CustomAttributesSearchPost(ctx context
 }
 
 // Execute executes the request
-//  @return []CustomAttributeModel
-func (a *CustomAttributesAPIService) ApiV2CustomAttributesSearchPostExecute(r ApiApiV2CustomAttributesSearchPostRequest) ([]CustomAttributeModel, *http.Response, error) {
+//  @return []CustomAttributeSearchResponseModel
+func (a *CustomAttributesAPIService) ApiV2CustomAttributesSearchPostExecute(r ApiApiV2CustomAttributesSearchPostRequest) ([]CustomAttributeSearchResponseModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CustomAttributeModel
+		localVarReturnValue  []CustomAttributeSearchResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CustomAttributesAPIService.ApiV2CustomAttributesSearchPost")

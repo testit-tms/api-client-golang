@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **ParameterKeyId** | **string** |  | 
 **Value** | **string** | Value of the parameter | 
 **Name** | **string** | Key of the parameter | 
+**ProjectIds** | **[]string** |  | 
 
 ## Methods
 
 ### NewParameterShortModel
 
-`func NewParameterShortModel(id string, parameterKeyId string, value string, name string, ) *ParameterShortModel`
+`func NewParameterShortModel(id string, parameterKeyId string, value string, name string, projectIds []string, ) *ParameterShortModel`
 
 NewParameterShortModel instantiates a new ParameterShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *ParameterShortModel) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetProjectIds
+
+`func (o *ParameterShortModel) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *ParameterShortModel) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *ParameterShortModel) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
 
 
 

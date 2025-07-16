@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2CustomAttributesSearchPost
 
-> []CustomAttributeModel ApiV2CustomAttributesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeSearchQueryModel(customAttributeSearchQueryModel).Execute()
+> []CustomAttributeSearchResponseModel ApiV2CustomAttributesSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).CustomAttributeSearchQueryModel(customAttributeSearchQueryModel).Execute()
 
 Search for attributes
 
@@ -380,7 +380,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomAttributesAPI.ApiV2CustomAttributesSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2CustomAttributesSearchPost`: []CustomAttributeModel
+	// response from `ApiV2CustomAttributesSearchPost`: []CustomAttributeSearchResponseModel
 	fmt.Fprintf(os.Stdout, "Response from `CustomAttributesAPI.ApiV2CustomAttributesSearchPost`: %v\n", resp)
 }
 ```
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CustomAttributeModel**](CustomAttributeModel.md)
+[**[]CustomAttributeSearchResponseModel**](CustomAttributeSearchResponseModel.md)
 
 ### Authorization
 

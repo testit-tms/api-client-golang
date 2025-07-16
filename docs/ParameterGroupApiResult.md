@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **ParameterKeyId** | **string** |  | 
 **Name** | **string** |  | 
 **Values** | **map[string]string** |  | 
+**ProjectIds** | **[]string** |  | 
 
 ## Methods
 
 ### NewParameterGroupApiResult
 
-`func NewParameterGroupApiResult(parameterKeyId string, name string, values map[string]string, ) *ParameterGroupApiResult`
+`func NewParameterGroupApiResult(parameterKeyId string, name string, values map[string]string, projectIds []string, ) *ParameterGroupApiResult`
 
 NewParameterGroupApiResult instantiates a new ParameterGroupApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *ParameterGroupApiResult) SetValues(v map[string]string)`
 
 SetValues sets Values field to given value.
+
+
+### GetProjectIds
+
+`func (o *ParameterGroupApiResult) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *ParameterGroupApiResult) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *ParameterGroupApiResult) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
 
 
 
