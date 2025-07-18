@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **IsCustomValueAllowed** | **bool** |  | 
 **AutoCompleteUrl** | Pointer to **NullableString** |  | [optional] 
 **ControlType** | Pointer to **NullableString** |  | [optional] 
-**MinLength** | Pointer to **NullableInt32** |  | [optional] 
-**MaxLength** | Pointer to **NullableInt32** |  | [optional] 
+**MinLength** | Pointer to **NullableFloat64** |  | [optional] 
+**MaxLength** | Pointer to **NullableFloat64** |  | [optional] 
 **IsRequired** | Pointer to **NullableBool** |  | [optional] 
 **Min** | Pointer to **interface{}** |  | [optional] 
 **Max** | Pointer to **interface{}** |  | [optional] 
@@ -340,20 +340,20 @@ HasControlType returns a boolean if a field has been set.
 UnsetControlType ensures that no value is present for ControlType, not even an explicit nil
 ### GetMinLength
 
-`func (o *ExternalFormFieldModel) GetMinLength() int32`
+`func (o *ExternalFormFieldModel) GetMinLength() float64`
 
 GetMinLength returns the MinLength field if non-nil, zero value otherwise.
 
 ### GetMinLengthOk
 
-`func (o *ExternalFormFieldModel) GetMinLengthOk() (*int32, bool)`
+`func (o *ExternalFormFieldModel) GetMinLengthOk() (*float64, bool)`
 
 GetMinLengthOk returns a tuple with the MinLength field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinLength
 
-`func (o *ExternalFormFieldModel) SetMinLength(v int32)`
+`func (o *ExternalFormFieldModel) SetMinLength(v float64)`
 
 SetMinLength sets MinLength field to given value.
 
@@ -375,20 +375,20 @@ HasMinLength returns a boolean if a field has been set.
 UnsetMinLength ensures that no value is present for MinLength, not even an explicit nil
 ### GetMaxLength
 
-`func (o *ExternalFormFieldModel) GetMaxLength() int32`
+`func (o *ExternalFormFieldModel) GetMaxLength() float64`
 
 GetMaxLength returns the MaxLength field if non-nil, zero value otherwise.
 
 ### GetMaxLengthOk
 
-`func (o *ExternalFormFieldModel) GetMaxLengthOk() (*int32, bool)`
+`func (o *ExternalFormFieldModel) GetMaxLengthOk() (*float64, bool)`
 
 GetMaxLengthOk returns a tuple with the MaxLength field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaxLength
 
-`func (o *ExternalFormFieldModel) SetMaxLength(v int32)`
+`func (o *ExternalFormFieldModel) SetMaxLength(v float64)`
 
 SetMaxLength sets MaxLength field to given value.
 

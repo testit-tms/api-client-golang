@@ -22,12 +22,13 @@ Name | Type | Description | Notes
 **GlobalId** | **int64** | Global ID of the project | 
 **Type** | [**ProjectTypeModel**](ProjectTypeModel.md) | Type of the project | 
 **IsFlakyAuto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
+**WorkflowId** | **string** |  | 
 
 ## Methods
 
 ### NewProjectModel
 
-`func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool, ) *ProjectModel`
+`func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool, workflowId string, ) *ProjectModel`
 
 NewProjectModel instantiates a new ProjectModel object
 This constructor will assign default values to properties that have it defined,
@@ -535,6 +536,26 @@ and a boolean to check if the value has been set.
 `func (o *ProjectModel) SetIsFlakyAuto(v bool)`
 
 SetIsFlakyAuto sets IsFlakyAuto field to given value.
+
+
+### GetWorkflowId
+
+`func (o *ProjectModel) GetWorkflowId() string`
+
+GetWorkflowId returns the WorkflowId field if non-nil, zero value otherwise.
+
+### GetWorkflowIdOk
+
+`func (o *ProjectModel) GetWorkflowIdOk() (*string, bool)`
+
+GetWorkflowIdOk returns a tuple with the WorkflowId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkflowId
+
+`func (o *ProjectModel) SetWorkflowId(v string)`
+
+SetWorkflowId sets WorkflowId field to given value.
 
 
 
