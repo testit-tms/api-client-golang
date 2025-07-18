@@ -55,6 +55,7 @@ type ProjectShortModel struct {
 	// Indicates if the status \"Flaky/Stable\" sets automatically
 	// Deprecated
 	IsFlakyAuto bool `json:"isFlakyAuto"`
+	WorkflowId string `json:"workflowId"`
 }
 
 type _ProjectShortModel ProjectShortModel
@@ -63,7 +64,7 @@ type _ProjectShortModel ProjectShortModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool) *ProjectShortModel {
+func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool, workflowId string) *ProjectShortModel {
 	this := ProjectShortModel{}
 	this.Id = id
 	this.Name = name
@@ -74,6 +75,7 @@ func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted boo
 	this.GlobalId = globalId
 	this.Type = type_
 	this.IsFlakyAuto = isFlakyAuto
+	this.WorkflowId = workflowId
 	return &this
 }
 
@@ -598,6 +600,30 @@ func (o *ProjectShortModel) SetIsFlakyAuto(v bool) {
 	o.IsFlakyAuto = v
 }
 
+// GetWorkflowId returns the WorkflowId field value
+func (o *ProjectShortModel) GetWorkflowId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.WorkflowId
+}
+
+// GetWorkflowIdOk returns a tuple with the WorkflowId field value
+// and a boolean to check if the value has been set.
+func (o *ProjectShortModel) GetWorkflowIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkflowId, true
+}
+
+// SetWorkflowId sets field value
+func (o *ProjectShortModel) SetWorkflowId(v string) {
+	o.WorkflowId = v
+}
+
 func (o ProjectShortModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -638,6 +664,7 @@ func (o ProjectShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["type"] = o.Type
 	toSerialize["isFlakyAuto"] = o.IsFlakyAuto
+	toSerialize["workflowId"] = o.WorkflowId
 	return toSerialize, nil
 }
 
@@ -655,6 +682,7 @@ func (o *ProjectShortModel) UnmarshalJSON(data []byte) (err error) {
 		"globalId",
 		"type",
 		"isFlakyAuto",
+		"workflowId",
 	}
 
 	allProperties := make(map[string]interface{})
