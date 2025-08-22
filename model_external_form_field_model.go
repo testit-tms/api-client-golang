@@ -30,8 +30,8 @@ type ExternalFormFieldModel struct {
 	IsCustomValueAllowed bool `json:"isCustomValueAllowed"`
 	AutoCompleteUrl NullableString `json:"autoCompleteUrl,omitempty"`
 	ControlType NullableString `json:"controlType,omitempty"`
-	MinLength NullableFloat64 `json:"minLength,omitempty"`
-	MaxLength NullableFloat64 `json:"maxLength,omitempty"`
+	MinLength NullableInt32 `json:"minLength,omitempty"`
+	MaxLength NullableInt32 `json:"maxLength,omitempty"`
 	IsRequired NullableBool `json:"isRequired,omitempty"`
 	Min interface{} `json:"min,omitempty"`
 	Max interface{} `json:"max,omitempty"`
@@ -409,9 +409,9 @@ func (o *ExternalFormFieldModel) UnsetControlType() {
 }
 
 // GetMinLength returns the MinLength field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExternalFormFieldModel) GetMinLength() float64 {
+func (o *ExternalFormFieldModel) GetMinLength() int32 {
 	if o == nil || IsNil(o.MinLength.Get()) {
-		var ret float64
+		var ret int32
 		return ret
 	}
 	return *o.MinLength.Get()
@@ -420,7 +420,7 @@ func (o *ExternalFormFieldModel) GetMinLength() float64 {
 // GetMinLengthOk returns a tuple with the MinLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExternalFormFieldModel) GetMinLengthOk() (*float64, bool) {
+func (o *ExternalFormFieldModel) GetMinLengthOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -436,8 +436,8 @@ func (o *ExternalFormFieldModel) HasMinLength() bool {
 	return false
 }
 
-// SetMinLength gets a reference to the given NullableFloat64 and assigns it to the MinLength field.
-func (o *ExternalFormFieldModel) SetMinLength(v float64) {
+// SetMinLength gets a reference to the given NullableInt32 and assigns it to the MinLength field.
+func (o *ExternalFormFieldModel) SetMinLength(v int32) {
 	o.MinLength.Set(&v)
 }
 // SetMinLengthNil sets the value for MinLength to be an explicit nil
@@ -451,9 +451,9 @@ func (o *ExternalFormFieldModel) UnsetMinLength() {
 }
 
 // GetMaxLength returns the MaxLength field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ExternalFormFieldModel) GetMaxLength() float64 {
+func (o *ExternalFormFieldModel) GetMaxLength() int32 {
 	if o == nil || IsNil(o.MaxLength.Get()) {
-		var ret float64
+		var ret int32
 		return ret
 	}
 	return *o.MaxLength.Get()
@@ -462,7 +462,7 @@ func (o *ExternalFormFieldModel) GetMaxLength() float64 {
 // GetMaxLengthOk returns a tuple with the MaxLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ExternalFormFieldModel) GetMaxLengthOk() (*float64, bool) {
+func (o *ExternalFormFieldModel) GetMaxLengthOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -478,8 +478,8 @@ func (o *ExternalFormFieldModel) HasMaxLength() bool {
 	return false
 }
 
-// SetMaxLength gets a reference to the given NullableFloat64 and assigns it to the MaxLength field.
-func (o *ExternalFormFieldModel) SetMaxLength(v float64) {
+// SetMaxLength gets a reference to the given NullableInt32 and assigns it to the MaxLength field.
+func (o *ExternalFormFieldModel) SetMaxLength(v int32) {
 	o.MaxLength.Set(&v)
 }
 // SetMaxLengthNil sets the value for MaxLength to be an explicit nil

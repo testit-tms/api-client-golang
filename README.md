@@ -16,7 +16,7 @@
 | 5.2.2   | 2.2.0-tms-5.2.2 |
 | 5.3     | 3.0.1-tms-5.3   |
 | 5.4     | 3.2.0-tms-5.4   |
-| 5.4.1   | 3.2.1-tms-5.4.1 |
+| 5.4.1   | 3.2.2-tms-5.4.1 |
 | Cloud   | 3.2.1           |
 
 ### Installation
@@ -179,7 +179,6 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsTagsGet**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemstagsget) | **Get** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsAPI* | [**GetWorkItemsByProjectId**](docs/ProjectWorkItemsAPI.md#getworkitemsbyprojectid) | **Get** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsAPI* | [**AddGlobaAttributesToProject**](docs/ProjectsAPI.md#addglobaattributestoproject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsAPI* | [**ApiV2ProjectsDemoPost**](docs/ProjectsAPI.md#apiv2projectsdemopost) | **Post** /api/v2/projects/demo | 
 *ProjectsAPI* | [**ApiV2ProjectsIdDelete**](docs/ProjectsAPI.md#apiv2projectsiddelete) | **Delete** /api/v2/projects/{id} | Archive project
 *ProjectsAPI* | [**ApiV2ProjectsIdFailureClassesGet**](docs/ProjectsAPI.md#apiv2projectsidfailureclassesget) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsAPI* | [**ApiV2ProjectsIdFavoritePut**](docs/ProjectsAPI.md#apiv2projectsidfavoriteput) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite

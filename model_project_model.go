@@ -59,7 +59,6 @@ type ProjectModel struct {
 	// Indicates if the status \"Flaky/Stable\" sets automatically
 	// Deprecated
 	IsFlakyAuto bool `json:"isFlakyAuto"`
-	WorkflowId string `json:"workflowId"`
 }
 
 type _ProjectModel ProjectModel
@@ -68,7 +67,7 @@ type _ProjectModel ProjectModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool, workflowId string) *ProjectModel {
+func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool) *ProjectModel {
 	this := ProjectModel{}
 	this.Id = id
 	this.Name = name
@@ -79,7 +78,6 @@ func NewProjectModel(id string, name string, isFavorite bool, isDeleted bool, cr
 	this.GlobalId = globalId
 	this.Type = type_
 	this.IsFlakyAuto = isFlakyAuto
-	this.WorkflowId = workflowId
 	return &this
 }
 
@@ -670,30 +668,6 @@ func (o *ProjectModel) SetIsFlakyAuto(v bool) {
 	o.IsFlakyAuto = v
 }
 
-// GetWorkflowId returns the WorkflowId field value
-func (o *ProjectModel) GetWorkflowId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.WorkflowId
-}
-
-// GetWorkflowIdOk returns a tuple with the WorkflowId field value
-// and a boolean to check if the value has been set.
-func (o *ProjectModel) GetWorkflowIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.WorkflowId, true
-}
-
-// SetWorkflowId sets field value
-func (o *ProjectModel) SetWorkflowId(v string) {
-	o.WorkflowId = v
-}
-
 func (o ProjectModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -740,7 +714,6 @@ func (o ProjectModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["type"] = o.Type
 	toSerialize["isFlakyAuto"] = o.IsFlakyAuto
-	toSerialize["workflowId"] = o.WorkflowId
 	return toSerialize, nil
 }
 
@@ -758,7 +731,6 @@ func (o *ProjectModel) UnmarshalJSON(data []byte) (err error) {
 		"globalId",
 		"type",
 		"isFlakyAuto",
-		"workflowId",
 	}
 
 	allProperties := make(map[string]interface{})
