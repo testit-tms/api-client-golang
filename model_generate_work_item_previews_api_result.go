@@ -22,7 +22,6 @@ var _ MappedNullable = &GenerateWorkItemPreviewsApiResult{}
 // GenerateWorkItemPreviewsApiResult struct for GenerateWorkItemPreviewsApiResult
 type GenerateWorkItemPreviewsApiResult struct {
 	Previews []WorkItemPreviewApiModel `json:"previews"`
-	Link NullablePreviewsIssueLinkApiResult `json:"link,omitempty"`
 }
 
 type _GenerateWorkItemPreviewsApiResult GenerateWorkItemPreviewsApiResult
@@ -69,48 +68,6 @@ func (o *GenerateWorkItemPreviewsApiResult) SetPreviews(v []WorkItemPreviewApiMo
 	o.Previews = v
 }
 
-// GetLink returns the Link field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *GenerateWorkItemPreviewsApiResult) GetLink() PreviewsIssueLinkApiResult {
-	if o == nil || IsNil(o.Link.Get()) {
-		var ret PreviewsIssueLinkApiResult
-		return ret
-	}
-	return *o.Link.Get()
-}
-
-// GetLinkOk returns a tuple with the Link field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GenerateWorkItemPreviewsApiResult) GetLinkOk() (*PreviewsIssueLinkApiResult, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Link.Get(), o.Link.IsSet()
-}
-
-// HasLink returns a boolean if a field has been set.
-func (o *GenerateWorkItemPreviewsApiResult) HasLink() bool {
-	if o != nil && o.Link.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLink gets a reference to the given NullablePreviewsIssueLinkApiResult and assigns it to the Link field.
-func (o *GenerateWorkItemPreviewsApiResult) SetLink(v PreviewsIssueLinkApiResult) {
-	o.Link.Set(&v)
-}
-// SetLinkNil sets the value for Link to be an explicit nil
-func (o *GenerateWorkItemPreviewsApiResult) SetLinkNil() {
-	o.Link.Set(nil)
-}
-
-// UnsetLink ensures that no value is present for Link, not even an explicit nil
-func (o *GenerateWorkItemPreviewsApiResult) UnsetLink() {
-	o.Link.Unset()
-}
-
 func (o GenerateWorkItemPreviewsApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -122,9 +79,6 @@ func (o GenerateWorkItemPreviewsApiResult) MarshalJSON() ([]byte, error) {
 func (o GenerateWorkItemPreviewsApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["previews"] = o.Previews
-	if o.Link.IsSet() {
-		toSerialize["link"] = o.Link.Get()
-	}
 	return toSerialize, nil
 }
 
