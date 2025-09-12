@@ -3567,7 +3567,7 @@ func (r ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest
 ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet Get last modification date of test plan's test results
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan unique or global ID
+ @param id
  @return ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsTestResultsLastModifiedModifiedDateGetRequest {
@@ -3715,7 +3715,6 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedMod
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarHTTPResponse, newErr
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -5046,7 +5045,7 @@ type ApiGetTestSuitesByIdRequest struct {
 	id string
 }
 
-func (r ApiGetTestSuitesByIdRequest) Execute() ([]TestSuiteV2TreeModel, *http.Response, error) {
+func (r ApiGetTestSuitesByIdRequest) Execute() ([]TestSuiteHierarchyApiResult, *http.Response, error) {
 	return r.ApiService.GetTestSuitesByIdExecute(r)
 }
 
@@ -5077,13 +5076,13 @@ func (a *TestPlansAPIService) GetTestSuitesById(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return []TestSuiteV2TreeModel
-func (a *TestPlansAPIService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdRequest) ([]TestSuiteV2TreeModel, *http.Response, error) {
+//  @return []TestSuiteHierarchyApiResult
+func (a *TestPlansAPIService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdRequest) ([]TestSuiteHierarchyApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []TestSuiteV2TreeModel
+		localVarReturnValue  []TestSuiteHierarchyApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestPlansAPIService.GetTestSuitesById")

@@ -15,11 +15,11 @@ Method | HTTP request | Description
 [**ApiV2WorkItemsIdVersionVersionIdActualPost**](WorkItemsAPI.md#ApiV2WorkItemsIdVersionVersionIdActualPost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
 [**ApiV2WorkItemsLinksUrlsSearchPost**](WorkItemsAPI.md#ApiV2WorkItemsLinksUrlsSearchPost) | **Post** /api/v2/workItems/links/urls/search | 
 [**ApiV2WorkItemsMovePost**](WorkItemsAPI.md#ApiV2WorkItemsMovePost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
+[**ApiV2WorkItemsPost**](WorkItemsAPI.md#ApiV2WorkItemsPost) | **Post** /api/v2/workItems | Creates work item
 [**ApiV2WorkItemsSearchPost**](WorkItemsAPI.md#ApiV2WorkItemsSearchPost) | **Post** /api/v2/workItems/search | Search for work items
 [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepIdReferencesSectionsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
 [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
 [**ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet) | **Get** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
-[**CreateWorkItem**](WorkItemsAPI.md#CreateWorkItem) | **Post** /api/v2/workItems | Create Test Case, Checklist or Shared Step
 [**DeleteAllWorkItemsFromAutoTest**](WorkItemsAPI.md#DeleteAllWorkItemsFromAutoTest) | **Delete** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
 [**DeleteWorkItem**](WorkItemsAPI.md#DeleteWorkItem) | **Delete** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
 [**GetAutoTestsForWorkItem**](WorkItemsAPI.md#GetAutoTestsForWorkItem) | **Get** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
@@ -843,6 +843,70 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ApiV2WorkItemsPost
+
+> WorkItemApiResult ApiV2WorkItemsPost(ctx).CreateWorkItemApiModel(createWorkItemApiModel).Execute()
+
+Creates work item
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	createWorkItemApiModel := *openapiclient.NewCreateWorkItemApiModel("ProjectId_example", "Name_example", openapiclient.WorkItemEntityTypeApiModel("TestCases"), int32(123), openapiclient.WorkItemStateApiModel("NeedsWork"), openapiclient.WorkItemPriorityApiModel("Lowest"), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagModel{*openapiclient.NewTagModel("Name_example")}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateLinkApiModel{*openapiclient.NewCreateLinkApiModel("Url_example", false)}) // CreateWorkItemApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsPost(context.Background()).CreateWorkItemApiModel(createWorkItemApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2WorkItemsPost`: WorkItemApiResult
+	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.ApiV2WorkItemsPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2WorkItemsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createWorkItemApiModel** | [**CreateWorkItemApiModel**](CreateWorkItemApiModel.md) |  | 
+
+### Return type
+
+[**WorkItemApiResult**](WorkItemApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ApiV2WorkItemsSearchPost
 
 > []WorkItemShortApiResult ApiV2WorkItemsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectApiModel(workItemSelectApiModel).Execute()
@@ -1144,72 +1208,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CreateWorkItem
-
-> WorkItemModel CreateWorkItem(ctx).CreateWorkItemApiModel(createWorkItemApiModel).Execute()
-
-Create Test Case, Checklist or Shared Step
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	createWorkItemApiModel := *openapiclient.NewCreateWorkItemApiModel(openapiclient.WorkItemEntityTypes("TestCases"), openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, int32(123), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagModel{*openapiclient.NewTagModel("Name_example")}, []openapiclient.CreateLinkApiModel{*openapiclient.NewCreateLinkApiModel("Url_example", false)}, "Name_example", "ProjectId_example", "SectionId_example") // CreateWorkItemApiModel |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsAPI.CreateWorkItem(context.Background()).CreateWorkItemApiModel(createWorkItemApiModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.CreateWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateWorkItem`: WorkItemModel
-	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.CreateWorkItem`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateWorkItemRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createWorkItemApiModel** | [**CreateWorkItemApiModel**](CreateWorkItemApiModel.md) |  | 
-
-### Return type
-
-[**WorkItemModel**](WorkItemModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

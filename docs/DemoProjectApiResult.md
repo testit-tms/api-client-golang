@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **string** | Demo project ID | 
-**ProjectGlobalId** | **int64** | Demo project global ID | 
 **JobId** | **string** | Job ID | 
 
 ## Methods
 
 ### NewDemoProjectApiResult
 
-`func NewDemoProjectApiResult(projectId string, projectGlobalId int64, jobId string, ) *DemoProjectApiResult`
+`func NewDemoProjectApiResult(jobId string, ) *DemoProjectApiResult`
 
 NewDemoProjectApiResult instantiates a new DemoProjectApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -26,46 +24,6 @@ will change when the set of required properties is changed
 NewDemoProjectApiResultWithDefaults instantiates a new DemoProjectApiResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetProjectId
-
-`func (o *DemoProjectApiResult) GetProjectId() string`
-
-GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
-
-### GetProjectIdOk
-
-`func (o *DemoProjectApiResult) GetProjectIdOk() (*string, bool)`
-
-GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProjectId
-
-`func (o *DemoProjectApiResult) SetProjectId(v string)`
-
-SetProjectId sets ProjectId field to given value.
-
-
-### GetProjectGlobalId
-
-`func (o *DemoProjectApiResult) GetProjectGlobalId() int64`
-
-GetProjectGlobalId returns the ProjectGlobalId field if non-nil, zero value otherwise.
-
-### GetProjectGlobalIdOk
-
-`func (o *DemoProjectApiResult) GetProjectGlobalIdOk() (*int64, bool)`
-
-GetProjectGlobalIdOk returns a tuple with the ProjectGlobalId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProjectGlobalId
-
-`func (o *DemoProjectApiResult) SetProjectGlobalId(v int64)`
-
-SetProjectGlobalId sets ProjectGlobalId field to given value.
-
 
 ### GetJobId
 

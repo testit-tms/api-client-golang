@@ -17,7 +17,7 @@
 | 5.3     | 3.0.1-tms-5.3   |
 | 5.4     | 3.2.0-tms-5.4   |
 | 5.4.1   | 3.2.2-tms-5.4.1 |
-| Cloud   | 3.2.1           |
+| Cloud   | 3.3.0           |
 
 ### Installation
 
@@ -331,11 +331,11 @@ Class | Method | HTTP request | Description
 *WorkItemsAPI* | [**ApiV2WorkItemsIdVersionVersionIdActualPost**](docs/WorkItemsAPI.md#apiv2workitemsidversionversionidactualpost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
 *WorkItemsAPI* | [**ApiV2WorkItemsLinksUrlsSearchPost**](docs/WorkItemsAPI.md#apiv2workitemslinksurlssearchpost) | **Post** /api/v2/workItems/links/urls/search | 
 *WorkItemsAPI* | [**ApiV2WorkItemsMovePost**](docs/WorkItemsAPI.md#apiv2workitemsmovepost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
+*WorkItemsAPI* | [**ApiV2WorkItemsPost**](docs/WorkItemsAPI.md#apiv2workitemspost) | **Post** /api/v2/workItems | Creates work item
 *WorkItemsAPI* | [**ApiV2WorkItemsSearchPost**](docs/WorkItemsAPI.md#apiv2workitemssearchpost) | **Post** /api/v2/workItems/search | Search for work items
 *WorkItemsAPI* | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](docs/WorkItemsAPI.md#apiv2workitemssharedstepidreferencessectionspost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
 *WorkItemsAPI* | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](docs/WorkItemsAPI.md#apiv2workitemssharedstepidreferencesworkitemspost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
 *WorkItemsAPI* | [**ApiV2WorkItemsSharedStepsSharedStepIdReferencesGet**](docs/WorkItemsAPI.md#apiv2workitemssharedstepssharedstepidreferencesget) | **Get** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
-*WorkItemsAPI* | [**CreateWorkItem**](docs/WorkItemsAPI.md#createworkitem) | **Post** /api/v2/workItems | Create Test Case, Checklist or Shared Step
 *WorkItemsAPI* | [**DeleteAllWorkItemsFromAutoTest**](docs/WorkItemsAPI.md#deleteallworkitemsfromautotest) | **Delete** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
 *WorkItemsAPI* | [**DeleteWorkItem**](docs/WorkItemsAPI.md#deleteworkitem) | **Delete** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
 *WorkItemsAPI* | [**GetAutoTestsForWorkItem**](docs/WorkItemsAPI.md#getautotestsforworkitem) | **Get** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId

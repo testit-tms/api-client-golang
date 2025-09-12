@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ParametersKeysGet
 
-> []string ApiV2ParametersKeysGet(ctx).ProjectIds(projectIds).Execute()
+> []string ApiV2ParametersKeysGet(ctx).ProjectIds(projectIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get all parameter keys
 
@@ -396,10 +396,15 @@ import (
 
 func main() {
 	projectIds := []string{"Inner_example"} // []string |  (optional)
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersKeysGet(context.Background()).ProjectIds(projectIds).Execute()
+	resp, r, err := apiClient.ParametersAPI.ApiV2ParametersKeysGet(context.Background()).ProjectIds(projectIds).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ParametersAPI.ApiV2ParametersKeysGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -421,6 +426,11 @@ Other parameters are passed through a pointer to a apiApiV2ParametersKeysGetRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectIds** | **[]string** |  | 
+ **skip** | **int32** | Amount of items to be skipped (offset) | 
+ **take** | **int32** | Amount of items to be taken (limit) | 
+ **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
+ **searchField** | **string** | Property name for searching | 
+ **searchValue** | **string** | Value for searching | 
 
 ### Return type
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **WorkItemIdsForLinkWithAutoTest** | Pointer to **[]string** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
+**WorkItemIds** | Pointer to **[]string** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
 **ShouldCreateWorkItem** | Pointer to **NullableBool** | Creates a test case linked to the autotest. | [optional] 
 **Attributes** | Pointer to **map[string]interface{}** | Key value pair of custom work item attributes | [optional] 
 **ExternalId** | **string** | External ID of the autotest | 
@@ -76,6 +77,41 @@ HasWorkItemIdsForLinkWithAutoTest returns a boolean if a field has been set.
 `func (o *AutoTestPostModel) UnsetWorkItemIdsForLinkWithAutoTest()`
 
 UnsetWorkItemIdsForLinkWithAutoTest ensures that no value is present for WorkItemIdsForLinkWithAutoTest, not even an explicit nil
+### GetWorkItemIds
+
+`func (o *AutoTestPostModel) GetWorkItemIds() []string`
+
+GetWorkItemIds returns the WorkItemIds field if non-nil, zero value otherwise.
+
+### GetWorkItemIdsOk
+
+`func (o *AutoTestPostModel) GetWorkItemIdsOk() (*[]string, bool)`
+
+GetWorkItemIdsOk returns a tuple with the WorkItemIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemIds
+
+`func (o *AutoTestPostModel) SetWorkItemIds(v []string)`
+
+SetWorkItemIds sets WorkItemIds field to given value.
+
+### HasWorkItemIds
+
+`func (o *AutoTestPostModel) HasWorkItemIds() bool`
+
+HasWorkItemIds returns a boolean if a field has been set.
+
+### SetWorkItemIdsNil
+
+`func (o *AutoTestPostModel) SetWorkItemIdsNil(b bool)`
+
+ SetWorkItemIdsNil sets the value for WorkItemIds to be an explicit nil
+
+### UnsetWorkItemIds
+`func (o *AutoTestPostModel) UnsetWorkItemIds()`
+
+UnsetWorkItemIds ensures that no value is present for WorkItemIds, not even an explicit nil
 ### GetShouldCreateWorkItem
 
 `func (o *AutoTestPostModel) GetShouldCreateWorkItem() bool`

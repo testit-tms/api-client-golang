@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **NullableString** | Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId | [optional] 
 **WorkItemIdsForLinkWithAutoTest** | Pointer to **[]string** |  | [optional] 
+**WorkItemIds** | Pointer to **[]string** |  | [optional] 
 **ExternalId** | **string** | External ID of the autotest | 
 **Links** | Pointer to [**[]LinkPutModel**](LinkPutModel.md) | Collection of the autotest links | [optional] 
 **ProjectId** | **string** | Unique ID of the autotest project | 
@@ -110,6 +111,41 @@ HasWorkItemIdsForLinkWithAutoTest returns a boolean if a field has been set.
 `func (o *AutoTestPutModel) UnsetWorkItemIdsForLinkWithAutoTest()`
 
 UnsetWorkItemIdsForLinkWithAutoTest ensures that no value is present for WorkItemIdsForLinkWithAutoTest, not even an explicit nil
+### GetWorkItemIds
+
+`func (o *AutoTestPutModel) GetWorkItemIds() []string`
+
+GetWorkItemIds returns the WorkItemIds field if non-nil, zero value otherwise.
+
+### GetWorkItemIdsOk
+
+`func (o *AutoTestPutModel) GetWorkItemIdsOk() (*[]string, bool)`
+
+GetWorkItemIdsOk returns a tuple with the WorkItemIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemIds
+
+`func (o *AutoTestPutModel) SetWorkItemIds(v []string)`
+
+SetWorkItemIds sets WorkItemIds field to given value.
+
+### HasWorkItemIds
+
+`func (o *AutoTestPutModel) HasWorkItemIds() bool`
+
+HasWorkItemIds returns a boolean if a field has been set.
+
+### SetWorkItemIdsNil
+
+`func (o *AutoTestPutModel) SetWorkItemIdsNil(b bool)`
+
+ SetWorkItemIdsNil sets the value for WorkItemIds to be an explicit nil
+
+### UnsetWorkItemIds
+`func (o *AutoTestPutModel) UnsetWorkItemIds()`
+
+UnsetWorkItemIds ensures that no value is present for WorkItemIds, not even an explicit nil
 ### GetExternalId
 
 `func (o *AutoTestPutModel) GetExternalId() string`

@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 ## GetTestSuiteById
 
-> TestSuiteV2GetModel GetTestSuiteById(ctx, id).Execute()
+> TestSuiteApiResult GetTestSuiteById(ctx, id).Execute()
 
 Get TestSuite by Id
 
@@ -726,7 +726,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestSuitesAPI.GetTestSuiteById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTestSuiteById`: TestSuiteV2GetModel
+	// response from `GetTestSuiteById`: TestSuiteApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestSuitesAPI.GetTestSuiteById`: %v\n", resp)
 }
 ```
@@ -750,7 +750,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestSuiteV2GetModel**](TestSuiteV2GetModel.md)
+[**TestSuiteApiResult**](TestSuiteApiResult.md)
 
 ### Authorization
 

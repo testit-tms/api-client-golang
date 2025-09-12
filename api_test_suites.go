@@ -1854,7 +1854,7 @@ type ApiGetTestSuiteByIdRequest struct {
 	id string
 }
 
-func (r ApiGetTestSuiteByIdRequest) Execute() (*TestSuiteV2GetModel, *http.Response, error) {
+func (r ApiGetTestSuiteByIdRequest) Execute() (*TestSuiteApiResult, *http.Response, error) {
 	return r.ApiService.GetTestSuiteByIdExecute(r)
 }
 
@@ -1885,13 +1885,13 @@ func (a *TestSuitesAPIService) GetTestSuiteById(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return TestSuiteV2GetModel
-func (a *TestSuitesAPIService) GetTestSuiteByIdExecute(r ApiGetTestSuiteByIdRequest) (*TestSuiteV2GetModel, *http.Response, error) {
+//  @return TestSuiteApiResult
+func (a *TestSuitesAPIService) GetTestSuiteByIdExecute(r ApiGetTestSuiteByIdRequest) (*TestSuiteApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestSuiteV2GetModel
+		localVarReturnValue  *TestSuiteApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestSuitesAPIService.GetTestSuiteById")
@@ -1959,17 +1959,6 @@ func (a *TestSuitesAPIService) GetTestSuiteByIdExecute(r ApiGetTestSuiteByIdRequ
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2003,6 +1992,17 @@ func (a *TestSuitesAPIService) GetTestSuiteByIdExecute(r ApiGetTestSuiteByIdRequ
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2023,16 +2023,7 @@ func (a *TestSuitesAPIService) GetTestSuiteByIdExecute(r ApiGetTestSuiteByIdRequ
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
