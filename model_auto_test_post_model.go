@@ -22,7 +22,10 @@ var _ MappedNullable = &AutoTestPostModel{}
 // AutoTestPostModel struct for AutoTestPostModel
 type AutoTestPostModel struct {
 	// Specifies the IDs of work items to link your autotest to. You can specify several IDs.
+	// Deprecated
 	WorkItemIdsForLinkWithAutoTest []string `json:"workItemIdsForLinkWithAutoTest,omitempty"`
+	// Specifies the IDs of work items to link your autotest to. You can specify several IDs.
+	WorkItemIds []string `json:"workItemIds,omitempty"`
 	// Creates a test case linked to the autotest.
 	ShouldCreateWorkItem NullableBool `json:"shouldCreateWorkItem,omitempty"`
 	// Key value pair of custom work item attributes
@@ -80,6 +83,7 @@ func NewAutoTestPostModelWithDefaults() *AutoTestPostModel {
 }
 
 // GetWorkItemIdsForLinkWithAutoTest returns the WorkItemIdsForLinkWithAutoTest field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *AutoTestPostModel) GetWorkItemIdsForLinkWithAutoTest() []string {
 	if o == nil {
 		var ret []string
@@ -91,6 +95,7 @@ func (o *AutoTestPostModel) GetWorkItemIdsForLinkWithAutoTest() []string {
 // GetWorkItemIdsForLinkWithAutoTestOk returns a tuple with the WorkItemIdsForLinkWithAutoTest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *AutoTestPostModel) GetWorkItemIdsForLinkWithAutoTestOk() ([]string, bool) {
 	if o == nil || IsNil(o.WorkItemIdsForLinkWithAutoTest) {
 		return nil, false
@@ -108,8 +113,42 @@ func (o *AutoTestPostModel) HasWorkItemIdsForLinkWithAutoTest() bool {
 }
 
 // SetWorkItemIdsForLinkWithAutoTest gets a reference to the given []string and assigns it to the WorkItemIdsForLinkWithAutoTest field.
+// Deprecated
 func (o *AutoTestPostModel) SetWorkItemIdsForLinkWithAutoTest(v []string) {
 	o.WorkItemIdsForLinkWithAutoTest = v
+}
+
+// GetWorkItemIds returns the WorkItemIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestPostModel) GetWorkItemIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemIds
+}
+
+// GetWorkItemIdsOk returns a tuple with the WorkItemIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestPostModel) GetWorkItemIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemIds) {
+		return nil, false
+	}
+	return o.WorkItemIds, true
+}
+
+// HasWorkItemIds returns a boolean if a field has been set.
+func (o *AutoTestPostModel) HasWorkItemIds() bool {
+	if o != nil && !IsNil(o.WorkItemIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemIds gets a reference to the given []string and assigns it to the WorkItemIds field.
+func (o *AutoTestPostModel) SetWorkItemIds(v []string) {
+	o.WorkItemIds = v
 }
 
 // GetShouldCreateWorkItem returns the ShouldCreateWorkItem field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -688,6 +727,9 @@ func (o AutoTestPostModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.WorkItemIdsForLinkWithAutoTest != nil {
 		toSerialize["workItemIdsForLinkWithAutoTest"] = o.WorkItemIdsForLinkWithAutoTest
+	}
+	if o.WorkItemIds != nil {
+		toSerialize["workItemIds"] = o.WorkItemIds
 	}
 	if o.ShouldCreateWorkItem.IsSet() {
 		toSerialize["shouldCreateWorkItem"] = o.ShouldCreateWorkItem.Get()

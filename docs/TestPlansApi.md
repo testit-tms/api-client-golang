@@ -1314,7 +1314,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | Test plan unique or global ID
+	id := "id_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1332,7 +1332,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Test plan unique or global ID | 
+**id** | **string** |  | 
 
 ### Other Parameters
 
@@ -1841,7 +1841,7 @@ Name | Type | Description  | Notes
 
 ## GetTestSuitesById
 
-> []TestSuiteV2TreeModel GetTestSuitesById(ctx, id).Execute()
+> []TestSuiteHierarchyApiResult GetTestSuitesById(ctx, id).Execute()
 
 Get TestSuites Tree By Id
 
@@ -1869,7 +1869,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestPlansAPI.GetTestSuitesById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetTestSuitesById`: []TestSuiteV2TreeModel
+	// response from `GetTestSuitesById`: []TestSuiteHierarchyApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestPlansAPI.GetTestSuitesById`: %v\n", resp)
 }
 ```
@@ -1893,7 +1893,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]TestSuiteV2TreeModel**](TestSuiteV2TreeModel.md)
+[**[]TestSuiteHierarchyApiResult**](TestSuiteHierarchyApiResult.md)
 
 ### Authorization
 

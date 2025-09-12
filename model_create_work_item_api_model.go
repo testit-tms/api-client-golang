@@ -21,37 +21,40 @@ var _ MappedNullable = &CreateWorkItemApiModel{}
 
 // CreateWorkItemApiModel struct for CreateWorkItemApiModel
 type CreateWorkItemApiModel struct {
-	EntityTypeName WorkItemEntityTypes `json:"entityTypeName"`
-	// Workitem description
-	Description NullableString `json:"description,omitempty"`
-	State WorkItemStates `json:"state"`
-	Priority WorkItemPriorityModel `json:"priority"`
-	// Collection of workitem steps
-	Steps []CreateStepApiModel `json:"steps"`
-	// Collection of workitem precondition steps
-	PreconditionSteps []CreateStepApiModel `json:"preconditionSteps"`
-	// Collection of workitem postcondition steps
-	PostconditionSteps []CreateStepApiModel `json:"postconditionSteps"`
-	// WorkItem duration in milliseconds, must be 0 for shared steps and greater than 0 for the other types of work items
-	Duration int32 `json:"duration"`
-	// Key value pair of custom workitem attributes
-	Attributes map[string]interface{} `json:"attributes"`
-	// Collection of workitem tags
-	Tags []TagModel `json:"tags"`
-	// Collection of workitem attachments
-	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
-	// Collection of parameter sets
-	Iterations []AssignIterationApiModel `json:"iterations,omitempty"`
-	// Collection of workitem links
-	Links []CreateLinkApiModel `json:"links"`
-	// Workitem name
-	Name string `json:"name"`
-	// Project unique identifier - used to link workitem with project
+	// Unique identifier of the project
 	ProjectId string `json:"projectId"`
-	// Internal identifier of section where workitem is located
-	SectionId string `json:"sectionId"`
-	// Collection of autotest internal ids
+	// Unique identifier of the section within a project
+	SectionId NullableString `json:"sectionId,omitempty"`
+	// Name of the work item
+	Name string `json:"name"`
+	// Description of the work item
+	Description NullableString `json:"description,omitempty"`
+	// Type of entity associated with this work item
+	EntityTypeName WorkItemEntityTypeApiModel `json:"entityTypeName"`
+	// Duration of the work item in milliseconds
+	Duration int32 `json:"duration"`
+	// State of the work item
+	State WorkItemStateApiModel `json:"state"`
+	// Priority level of the work item
+	Priority WorkItemPriorityApiModel `json:"priority"`
+	// Set of custom attributes associated with the work item
+	Attributes map[string]interface{} `json:"attributes"`
+	// Set of tags applied to the work item
+	Tags []TagModel `json:"tags"`
+	// Set of precondition steps that need to be executed before starting the main steps
+	PreconditionSteps []CreateStepApiModel `json:"preconditionSteps"`
+	// Main steps or actions defined for the work item
+	Steps []CreateStepApiModel `json:"steps"`
+	// Set of postcondition steps that are executed after completing the main steps
+	PostconditionSteps []CreateStepApiModel `json:"postconditionSteps"`
+	// Associated iterations linked to the work item
+	Iterations []AssignIterationApiModel `json:"iterations,omitempty"`
+	// Automated tests associated with the work item
 	AutoTests []AutoTestIdModel `json:"autoTests,omitempty"`
+	// Files attached to the work item
+	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
+	// Set of links related to the work item
+	Links []CreateLinkApiModel `json:"links"`
 }
 
 type _CreateWorkItemApiModel CreateWorkItemApiModel
@@ -60,21 +63,20 @@ type _CreateWorkItemApiModel CreateWorkItemApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateWorkItemApiModel(entityTypeName WorkItemEntityTypes, state WorkItemStates, priority WorkItemPriorityModel, steps []CreateStepApiModel, preconditionSteps []CreateStepApiModel, postconditionSteps []CreateStepApiModel, duration int32, attributes map[string]interface{}, tags []TagModel, links []CreateLinkApiModel, name string, projectId string, sectionId string) *CreateWorkItemApiModel {
+func NewCreateWorkItemApiModel(projectId string, name string, entityTypeName WorkItemEntityTypeApiModel, duration int32, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, attributes map[string]interface{}, tags []TagModel, preconditionSteps []CreateStepApiModel, steps []CreateStepApiModel, postconditionSteps []CreateStepApiModel, links []CreateLinkApiModel) *CreateWorkItemApiModel {
 	this := CreateWorkItemApiModel{}
+	this.ProjectId = projectId
+	this.Name = name
 	this.EntityTypeName = entityTypeName
+	this.Duration = duration
 	this.State = state
 	this.Priority = priority
-	this.Steps = steps
-	this.PreconditionSteps = preconditionSteps
-	this.PostconditionSteps = postconditionSteps
-	this.Duration = duration
 	this.Attributes = attributes
 	this.Tags = tags
+	this.PreconditionSteps = preconditionSteps
+	this.Steps = steps
+	this.PostconditionSteps = postconditionSteps
 	this.Links = links
-	this.Name = name
-	this.ProjectId = projectId
-	this.SectionId = sectionId
 	return &this
 }
 
@@ -86,28 +88,94 @@ func NewCreateWorkItemApiModelWithDefaults() *CreateWorkItemApiModel {
 	return &this
 }
 
-// GetEntityTypeName returns the EntityTypeName field value
-func (o *CreateWorkItemApiModel) GetEntityTypeName() WorkItemEntityTypes {
+// GetProjectId returns the ProjectId field value
+func (o *CreateWorkItemApiModel) GetProjectId() string {
 	if o == nil {
-		var ret WorkItemEntityTypes
+		var ret string
 		return ret
 	}
 
-	return o.EntityTypeName
+	return o.ProjectId
 }
 
-// GetEntityTypeNameOk returns a tuple with the EntityTypeName field value
+// GetProjectIdOk returns a tuple with the ProjectId field value
 // and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetEntityTypeNameOk() (*WorkItemEntityTypes, bool) {
+func (o *CreateWorkItemApiModel) GetProjectIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.EntityTypeName, true
+	return &o.ProjectId, true
 }
 
-// SetEntityTypeName sets field value
-func (o *CreateWorkItemApiModel) SetEntityTypeName(v WorkItemEntityTypes) {
-	o.EntityTypeName = v
+// SetProjectId sets field value
+func (o *CreateWorkItemApiModel) SetProjectId(v string) {
+	o.ProjectId = v
+}
+
+// GetSectionId returns the SectionId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateWorkItemApiModel) GetSectionId() string {
+	if o == nil || IsNil(o.SectionId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SectionId.Get()
+}
+
+// GetSectionIdOk returns a tuple with the SectionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateWorkItemApiModel) GetSectionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SectionId.Get(), o.SectionId.IsSet()
+}
+
+// HasSectionId returns a boolean if a field has been set.
+func (o *CreateWorkItemApiModel) HasSectionId() bool {
+	if o != nil && o.SectionId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSectionId gets a reference to the given NullableString and assigns it to the SectionId field.
+func (o *CreateWorkItemApiModel) SetSectionId(v string) {
+	o.SectionId.Set(&v)
+}
+// SetSectionIdNil sets the value for SectionId to be an explicit nil
+func (o *CreateWorkItemApiModel) SetSectionIdNil() {
+	o.SectionId.Set(nil)
+}
+
+// UnsetSectionId ensures that no value is present for SectionId, not even an explicit nil
+func (o *CreateWorkItemApiModel) UnsetSectionId() {
+	o.SectionId.Unset()
+}
+
+// GetName returns the Name field value
+func (o *CreateWorkItemApiModel) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *CreateWorkItemApiModel) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *CreateWorkItemApiModel) SetName(v string) {
+	o.Name = v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -152,124 +220,28 @@ func (o *CreateWorkItemApiModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetState returns the State field value
-func (o *CreateWorkItemApiModel) GetState() WorkItemStates {
+// GetEntityTypeName returns the EntityTypeName field value
+func (o *CreateWorkItemApiModel) GetEntityTypeName() WorkItemEntityTypeApiModel {
 	if o == nil {
-		var ret WorkItemStates
+		var ret WorkItemEntityTypeApiModel
 		return ret
 	}
 
-	return o.State
+	return o.EntityTypeName
 }
 
-// GetStateOk returns a tuple with the State field value
+// GetEntityTypeNameOk returns a tuple with the EntityTypeName field value
 // and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetStateOk() (*WorkItemStates, bool) {
+func (o *CreateWorkItemApiModel) GetEntityTypeNameOk() (*WorkItemEntityTypeApiModel, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.State, true
+	return &o.EntityTypeName, true
 }
 
-// SetState sets field value
-func (o *CreateWorkItemApiModel) SetState(v WorkItemStates) {
-	o.State = v
-}
-
-// GetPriority returns the Priority field value
-func (o *CreateWorkItemApiModel) GetPriority() WorkItemPriorityModel {
-	if o == nil {
-		var ret WorkItemPriorityModel
-		return ret
-	}
-
-	return o.Priority
-}
-
-// GetPriorityOk returns a tuple with the Priority field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetPriorityOk() (*WorkItemPriorityModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Priority, true
-}
-
-// SetPriority sets field value
-func (o *CreateWorkItemApiModel) SetPriority(v WorkItemPriorityModel) {
-	o.Priority = v
-}
-
-// GetSteps returns the Steps field value
-func (o *CreateWorkItemApiModel) GetSteps() []CreateStepApiModel {
-	if o == nil {
-		var ret []CreateStepApiModel
-		return ret
-	}
-
-	return o.Steps
-}
-
-// GetStepsOk returns a tuple with the Steps field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetStepsOk() ([]CreateStepApiModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Steps, true
-}
-
-// SetSteps sets field value
-func (o *CreateWorkItemApiModel) SetSteps(v []CreateStepApiModel) {
-	o.Steps = v
-}
-
-// GetPreconditionSteps returns the PreconditionSteps field value
-func (o *CreateWorkItemApiModel) GetPreconditionSteps() []CreateStepApiModel {
-	if o == nil {
-		var ret []CreateStepApiModel
-		return ret
-	}
-
-	return o.PreconditionSteps
-}
-
-// GetPreconditionStepsOk returns a tuple with the PreconditionSteps field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetPreconditionStepsOk() ([]CreateStepApiModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.PreconditionSteps, true
-}
-
-// SetPreconditionSteps sets field value
-func (o *CreateWorkItemApiModel) SetPreconditionSteps(v []CreateStepApiModel) {
-	o.PreconditionSteps = v
-}
-
-// GetPostconditionSteps returns the PostconditionSteps field value
-func (o *CreateWorkItemApiModel) GetPostconditionSteps() []CreateStepApiModel {
-	if o == nil {
-		var ret []CreateStepApiModel
-		return ret
-	}
-
-	return o.PostconditionSteps
-}
-
-// GetPostconditionStepsOk returns a tuple with the PostconditionSteps field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetPostconditionStepsOk() ([]CreateStepApiModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.PostconditionSteps, true
-}
-
-// SetPostconditionSteps sets field value
-func (o *CreateWorkItemApiModel) SetPostconditionSteps(v []CreateStepApiModel) {
-	o.PostconditionSteps = v
+// SetEntityTypeName sets field value
+func (o *CreateWorkItemApiModel) SetEntityTypeName(v WorkItemEntityTypeApiModel) {
+	o.EntityTypeName = v
 }
 
 // GetDuration returns the Duration field value
@@ -294,6 +266,54 @@ func (o *CreateWorkItemApiModel) GetDurationOk() (*int32, bool) {
 // SetDuration sets field value
 func (o *CreateWorkItemApiModel) SetDuration(v int32) {
 	o.Duration = v
+}
+
+// GetState returns the State field value
+func (o *CreateWorkItemApiModel) GetState() WorkItemStateApiModel {
+	if o == nil {
+		var ret WorkItemStateApiModel
+		return ret
+	}
+
+	return o.State
+}
+
+// GetStateOk returns a tuple with the State field value
+// and a boolean to check if the value has been set.
+func (o *CreateWorkItemApiModel) GetStateOk() (*WorkItemStateApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.State, true
+}
+
+// SetState sets field value
+func (o *CreateWorkItemApiModel) SetState(v WorkItemStateApiModel) {
+	o.State = v
+}
+
+// GetPriority returns the Priority field value
+func (o *CreateWorkItemApiModel) GetPriority() WorkItemPriorityApiModel {
+	if o == nil {
+		var ret WorkItemPriorityApiModel
+		return ret
+	}
+
+	return o.Priority
+}
+
+// GetPriorityOk returns a tuple with the Priority field value
+// and a boolean to check if the value has been set.
+func (o *CreateWorkItemApiModel) GetPriorityOk() (*WorkItemPriorityApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Priority, true
+}
+
+// SetPriority sets field value
+func (o *CreateWorkItemApiModel) SetPriority(v WorkItemPriorityApiModel) {
+	o.Priority = v
 }
 
 // GetAttributes returns the Attributes field value
@@ -344,37 +364,76 @@ func (o *CreateWorkItemApiModel) SetTags(v []TagModel) {
 	o.Tags = v
 }
 
-// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel {
+// GetPreconditionSteps returns the PreconditionSteps field value
+func (o *CreateWorkItemApiModel) GetPreconditionSteps() []CreateStepApiModel {
 	if o == nil {
-		var ret []AssignAttachmentApiModel
+		var ret []CreateStepApiModel
 		return ret
 	}
-	return o.Attachments
+
+	return o.PreconditionSteps
 }
 
-// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// GetPreconditionStepsOk returns a tuple with the PreconditionSteps field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateWorkItemApiModel) GetAttachmentsOk() ([]AssignAttachmentApiModel, bool) {
-	if o == nil || IsNil(o.Attachments) {
+func (o *CreateWorkItemApiModel) GetPreconditionStepsOk() ([]CreateStepApiModel, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Attachments, true
+	return o.PreconditionSteps, true
 }
 
-// HasAttachments returns a boolean if a field has been set.
-func (o *CreateWorkItemApiModel) HasAttachments() bool {
-	if o != nil && !IsNil(o.Attachments) {
-		return true
+// SetPreconditionSteps sets field value
+func (o *CreateWorkItemApiModel) SetPreconditionSteps(v []CreateStepApiModel) {
+	o.PreconditionSteps = v
+}
+
+// GetSteps returns the Steps field value
+func (o *CreateWorkItemApiModel) GetSteps() []CreateStepApiModel {
+	if o == nil {
+		var ret []CreateStepApiModel
+		return ret
 	}
 
-	return false
+	return o.Steps
 }
 
-// SetAttachments gets a reference to the given []AssignAttachmentApiModel and assigns it to the Attachments field.
-func (o *CreateWorkItemApiModel) SetAttachments(v []AssignAttachmentApiModel) {
-	o.Attachments = v
+// GetStepsOk returns a tuple with the Steps field value
+// and a boolean to check if the value has been set.
+func (o *CreateWorkItemApiModel) GetStepsOk() ([]CreateStepApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Steps, true
+}
+
+// SetSteps sets field value
+func (o *CreateWorkItemApiModel) SetSteps(v []CreateStepApiModel) {
+	o.Steps = v
+}
+
+// GetPostconditionSteps returns the PostconditionSteps field value
+func (o *CreateWorkItemApiModel) GetPostconditionSteps() []CreateStepApiModel {
+	if o == nil {
+		var ret []CreateStepApiModel
+		return ret
+	}
+
+	return o.PostconditionSteps
+}
+
+// GetPostconditionStepsOk returns a tuple with the PostconditionSteps field value
+// and a boolean to check if the value has been set.
+func (o *CreateWorkItemApiModel) GetPostconditionStepsOk() ([]CreateStepApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PostconditionSteps, true
+}
+
+// SetPostconditionSteps sets field value
+func (o *CreateWorkItemApiModel) SetPostconditionSteps(v []CreateStepApiModel) {
+	o.PostconditionSteps = v
 }
 
 // GetIterations returns the Iterations field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -410,102 +469,6 @@ func (o *CreateWorkItemApiModel) SetIterations(v []AssignIterationApiModel) {
 	o.Iterations = v
 }
 
-// GetLinks returns the Links field value
-func (o *CreateWorkItemApiModel) GetLinks() []CreateLinkApiModel {
-	if o == nil {
-		var ret []CreateLinkApiModel
-		return ret
-	}
-
-	return o.Links
-}
-
-// GetLinksOk returns a tuple with the Links field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetLinksOk() ([]CreateLinkApiModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Links, true
-}
-
-// SetLinks sets field value
-func (o *CreateWorkItemApiModel) SetLinks(v []CreateLinkApiModel) {
-	o.Links = v
-}
-
-// GetName returns the Name field value
-func (o *CreateWorkItemApiModel) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *CreateWorkItemApiModel) SetName(v string) {
-	o.Name = v
-}
-
-// GetProjectId returns the ProjectId field value
-func (o *CreateWorkItemApiModel) GetProjectId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ProjectId
-}
-
-// GetProjectIdOk returns a tuple with the ProjectId field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetProjectIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ProjectId, true
-}
-
-// SetProjectId sets field value
-func (o *CreateWorkItemApiModel) SetProjectId(v string) {
-	o.ProjectId = v
-}
-
-// GetSectionId returns the SectionId field value
-func (o *CreateWorkItemApiModel) GetSectionId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SectionId
-}
-
-// GetSectionIdOk returns a tuple with the SectionId field value
-// and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetSectionIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SectionId, true
-}
-
-// SetSectionId sets field value
-func (o *CreateWorkItemApiModel) SetSectionId(v string) {
-	o.SectionId = v
-}
-
 // GetAutoTests returns the AutoTests field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateWorkItemApiModel) GetAutoTests() []AutoTestIdModel {
 	if o == nil {
@@ -539,6 +502,63 @@ func (o *CreateWorkItemApiModel) SetAutoTests(v []AutoTestIdModel) {
 	o.AutoTests = v
 }
 
+// GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel {
+	if o == nil {
+		var ret []AssignAttachmentApiModel
+		return ret
+	}
+	return o.Attachments
+}
+
+// GetAttachmentsOk returns a tuple with the Attachments field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateWorkItemApiModel) GetAttachmentsOk() ([]AssignAttachmentApiModel, bool) {
+	if o == nil || IsNil(o.Attachments) {
+		return nil, false
+	}
+	return o.Attachments, true
+}
+
+// HasAttachments returns a boolean if a field has been set.
+func (o *CreateWorkItemApiModel) HasAttachments() bool {
+	if o != nil && !IsNil(o.Attachments) {
+		return true
+	}
+
+	return false
+}
+
+// SetAttachments gets a reference to the given []AssignAttachmentApiModel and assigns it to the Attachments field.
+func (o *CreateWorkItemApiModel) SetAttachments(v []AssignAttachmentApiModel) {
+	o.Attachments = v
+}
+
+// GetLinks returns the Links field value
+func (o *CreateWorkItemApiModel) GetLinks() []CreateLinkApiModel {
+	if o == nil {
+		var ret []CreateLinkApiModel
+		return ret
+	}
+
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value
+// and a boolean to check if the value has been set.
+func (o *CreateWorkItemApiModel) GetLinksOk() ([]CreateLinkApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// SetLinks sets field value
+func (o *CreateWorkItemApiModel) SetLinks(v []CreateLinkApiModel) {
+	o.Links = v
+}
+
 func (o CreateWorkItemApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -549,31 +569,33 @@ func (o CreateWorkItemApiModel) MarshalJSON() ([]byte, error) {
 
 func (o CreateWorkItemApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["entityTypeName"] = o.EntityTypeName
+	toSerialize["projectId"] = o.ProjectId
+	if o.SectionId.IsSet() {
+		toSerialize["sectionId"] = o.SectionId.Get()
+	}
+	toSerialize["name"] = o.Name
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
+	toSerialize["entityTypeName"] = o.EntityTypeName
+	toSerialize["duration"] = o.Duration
 	toSerialize["state"] = o.State
 	toSerialize["priority"] = o.Priority
-	toSerialize["steps"] = o.Steps
-	toSerialize["preconditionSteps"] = o.PreconditionSteps
-	toSerialize["postconditionSteps"] = o.PostconditionSteps
-	toSerialize["duration"] = o.Duration
 	toSerialize["attributes"] = o.Attributes
 	toSerialize["tags"] = o.Tags
-	if o.Attachments != nil {
-		toSerialize["attachments"] = o.Attachments
-	}
+	toSerialize["preconditionSteps"] = o.PreconditionSteps
+	toSerialize["steps"] = o.Steps
+	toSerialize["postconditionSteps"] = o.PostconditionSteps
 	if o.Iterations != nil {
 		toSerialize["iterations"] = o.Iterations
 	}
-	toSerialize["links"] = o.Links
-	toSerialize["name"] = o.Name
-	toSerialize["projectId"] = o.ProjectId
-	toSerialize["sectionId"] = o.SectionId
 	if o.AutoTests != nil {
 		toSerialize["autoTests"] = o.AutoTests
 	}
+	if o.Attachments != nil {
+		toSerialize["attachments"] = o.Attachments
+	}
+	toSerialize["links"] = o.Links
 	return toSerialize, nil
 }
 
@@ -582,19 +604,18 @@ func (o *CreateWorkItemApiModel) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"projectId",
+		"name",
 		"entityTypeName",
+		"duration",
 		"state",
 		"priority",
-		"steps",
-		"preconditionSteps",
-		"postconditionSteps",
-		"duration",
 		"attributes",
 		"tags",
+		"preconditionSteps",
+		"steps",
+		"postconditionSteps",
 		"links",
-		"name",
-		"projectId",
-		"sectionId",
 	}
 
 	allProperties := make(map[string]interface{})

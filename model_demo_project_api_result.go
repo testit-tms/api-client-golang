@@ -21,10 +21,6 @@ var _ MappedNullable = &DemoProjectApiResult{}
 
 // DemoProjectApiResult struct for DemoProjectApiResult
 type DemoProjectApiResult struct {
-	// Demo project ID
-	ProjectId string `json:"projectId"`
-	// Demo project global ID
-	ProjectGlobalId int64 `json:"projectGlobalId"`
 	// Job ID
 	JobId string `json:"jobId"`
 }
@@ -35,10 +31,8 @@ type _DemoProjectApiResult DemoProjectApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDemoProjectApiResult(projectId string, projectGlobalId int64, jobId string) *DemoProjectApiResult {
+func NewDemoProjectApiResult(jobId string) *DemoProjectApiResult {
 	this := DemoProjectApiResult{}
-	this.ProjectId = projectId
-	this.ProjectGlobalId = projectGlobalId
 	this.JobId = jobId
 	return &this
 }
@@ -49,54 +43,6 @@ func NewDemoProjectApiResult(projectId string, projectGlobalId int64, jobId stri
 func NewDemoProjectApiResultWithDefaults() *DemoProjectApiResult {
 	this := DemoProjectApiResult{}
 	return &this
-}
-
-// GetProjectId returns the ProjectId field value
-func (o *DemoProjectApiResult) GetProjectId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ProjectId
-}
-
-// GetProjectIdOk returns a tuple with the ProjectId field value
-// and a boolean to check if the value has been set.
-func (o *DemoProjectApiResult) GetProjectIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ProjectId, true
-}
-
-// SetProjectId sets field value
-func (o *DemoProjectApiResult) SetProjectId(v string) {
-	o.ProjectId = v
-}
-
-// GetProjectGlobalId returns the ProjectGlobalId field value
-func (o *DemoProjectApiResult) GetProjectGlobalId() int64 {
-	if o == nil {
-		var ret int64
-		return ret
-	}
-
-	return o.ProjectGlobalId
-}
-
-// GetProjectGlobalIdOk returns a tuple with the ProjectGlobalId field value
-// and a boolean to check if the value has been set.
-func (o *DemoProjectApiResult) GetProjectGlobalIdOk() (*int64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ProjectGlobalId, true
-}
-
-// SetProjectGlobalId sets field value
-func (o *DemoProjectApiResult) SetProjectGlobalId(v int64) {
-	o.ProjectGlobalId = v
 }
 
 // GetJobId returns the JobId field value
@@ -133,8 +79,6 @@ func (o DemoProjectApiResult) MarshalJSON() ([]byte, error) {
 
 func (o DemoProjectApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["projectId"] = o.ProjectId
-	toSerialize["projectGlobalId"] = o.ProjectGlobalId
 	toSerialize["jobId"] = o.JobId
 	return toSerialize, nil
 }
@@ -144,8 +88,6 @@ func (o *DemoProjectApiResult) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"projectId",
-		"projectGlobalId",
 		"jobId",
 	}
 

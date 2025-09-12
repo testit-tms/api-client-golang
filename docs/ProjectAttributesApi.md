@@ -251,7 +251,7 @@ import (
 
 func main() {
 	projectId := "projectId_example" // string | Project internal (UUID) or global (integer) identifier
-	isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional) (default to "NotDeleted")
+	isDeleted := openapiclient.DeletionState("Any") // DeletionState |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -281,7 +281,7 @@ Other parameters are passed through a pointer to a apiGetAttributesByProjectIdRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **isDeleted** | [**DeletionState**](DeletionState.md) |  | [default to &quot;NotDeleted&quot;]
+ **isDeleted** | [**DeletionState**](DeletionState.md) |  | 
 
 ### Return type
 

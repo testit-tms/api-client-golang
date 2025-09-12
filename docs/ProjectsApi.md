@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsDemoPost
 
-> DemoProjectApiResult ApiV2ProjectsDemoPost(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
+> DemoProjectApiResult ApiV2ProjectsDemoPost(ctx).Execute()
 
 
 
@@ -122,11 +122,10 @@ import (
 )
 
 func main() {
-	createProjectApiModel := *openapiclient.NewCreateProjectApiModel("Name_example") // CreateProjectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsDemoPost(context.Background()).CreateProjectApiModel(createProjectApiModel).Execute()
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsDemoPost(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsDemoPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -138,16 +137,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApiV2ProjectsDemoPostRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createProjectApiModel** | [**CreateProjectApiModel**](CreateProjectApiModel.md) |  | 
 
 ### Return type
 
@@ -159,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -235,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdFailureClassesGet
 
-> []FailureClassModel ApiV2ProjectsIdFailureClassesGet(ctx, id).IsDeleted(isDeleted).Execute()
+> []AutoTestResultReasonProjectApiResult ApiV2ProjectsIdFailureClassesGet(ctx, id).IsDeleted(isDeleted).Execute()
 
 Get failure classes
 
@@ -262,7 +257,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdFailureClassesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsIdFailureClassesGet`: []FailureClassModel
+	// response from `ApiV2ProjectsIdFailureClassesGet`: []AutoTestResultReasonProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdFailureClassesGet`: %v\n", resp)
 }
 ```
@@ -287,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]FailureClassModel**](FailureClassModel.md)
+[**[]AutoTestResultReasonProjectApiResult**](AutoTestResultReasonProjectApiResult.md)
 
 ### Authorization
 
@@ -1289,7 +1284,7 @@ Name | Type | Description  | Notes
 
 ## CreateProject
 
-> ProjectModel CreateProject(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
+> ProjectApiResult CreateProject(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
 
 Create project
 
@@ -1317,7 +1312,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CreateProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateProject`: ProjectModel
+	// response from `CreateProject`: ProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.CreateProject`: %v\n", resp)
 }
 ```
@@ -1337,7 +1332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 

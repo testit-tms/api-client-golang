@@ -30,6 +30,7 @@ type TestPointAnalyticResult struct {
 	CountGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus `json:"countGroupByTesterAndStatus"`
 	CountGroupByStatusCode []TestPlanGroupByStatusCode `json:"countGroupByStatusCode"`
 	CountGroupByTesterAndStatusCode []TestPlanGroupByTesterAndStatusCode `json:"countGroupByTesterAndStatusCode"`
+	CountGroupByStatusType []TestPlanGroupByStatusType `json:"countGroupByStatusType"`
 }
 
 type _TestPointAnalyticResult TestPointAnalyticResult
@@ -38,7 +39,7 @@ type _TestPointAnalyticResult TestPointAnalyticResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointAnalyticResult(countGroupByStatus []TestPlanGroupByStatus, sumGroupByTester []TestPlanGroupByTester, countGroupByTester []TestPlanGroupByTester, countGroupByTestSuite []TestPlanGroupByTestSuite, countGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus, countGroupByStatusCode []TestPlanGroupByStatusCode, countGroupByTesterAndStatusCode []TestPlanGroupByTesterAndStatusCode) *TestPointAnalyticResult {
+func NewTestPointAnalyticResult(countGroupByStatus []TestPlanGroupByStatus, sumGroupByTester []TestPlanGroupByTester, countGroupByTester []TestPlanGroupByTester, countGroupByTestSuite []TestPlanGroupByTestSuite, countGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus, countGroupByStatusCode []TestPlanGroupByStatusCode, countGroupByTesterAndStatusCode []TestPlanGroupByTesterAndStatusCode, countGroupByStatusType []TestPlanGroupByStatusType) *TestPointAnalyticResult {
 	this := TestPointAnalyticResult{}
 	this.CountGroupByStatus = countGroupByStatus
 	this.SumGroupByTester = sumGroupByTester
@@ -47,6 +48,7 @@ func NewTestPointAnalyticResult(countGroupByStatus []TestPlanGroupByStatus, sumG
 	this.CountGroupByTesterAndStatus = countGroupByTesterAndStatus
 	this.CountGroupByStatusCode = countGroupByStatusCode
 	this.CountGroupByTesterAndStatusCode = countGroupByTesterAndStatusCode
+	this.CountGroupByStatusType = countGroupByStatusType
 	return &this
 }
 
@@ -232,6 +234,30 @@ func (o *TestPointAnalyticResult) SetCountGroupByTesterAndStatusCode(v []TestPla
 	o.CountGroupByTesterAndStatusCode = v
 }
 
+// GetCountGroupByStatusType returns the CountGroupByStatusType field value
+func (o *TestPointAnalyticResult) GetCountGroupByStatusType() []TestPlanGroupByStatusType {
+	if o == nil {
+		var ret []TestPlanGroupByStatusType
+		return ret
+	}
+
+	return o.CountGroupByStatusType
+}
+
+// GetCountGroupByStatusTypeOk returns a tuple with the CountGroupByStatusType field value
+// and a boolean to check if the value has been set.
+func (o *TestPointAnalyticResult) GetCountGroupByStatusTypeOk() ([]TestPlanGroupByStatusType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CountGroupByStatusType, true
+}
+
+// SetCountGroupByStatusType sets field value
+func (o *TestPointAnalyticResult) SetCountGroupByStatusType(v []TestPlanGroupByStatusType) {
+	o.CountGroupByStatusType = v
+}
+
 func (o TestPointAnalyticResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -249,6 +275,7 @@ func (o TestPointAnalyticResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["countGroupByTesterAndStatus"] = o.CountGroupByTesterAndStatus
 	toSerialize["countGroupByStatusCode"] = o.CountGroupByStatusCode
 	toSerialize["countGroupByTesterAndStatusCode"] = o.CountGroupByTesterAndStatusCode
+	toSerialize["countGroupByStatusType"] = o.CountGroupByStatusType
 	return toSerialize, nil
 }
 
@@ -264,6 +291,7 @@ func (o *TestPointAnalyticResult) UnmarshalJSON(data []byte) (err error) {
 		"countGroupByTesterAndStatus",
 		"countGroupByStatusCode",
 		"countGroupByTesterAndStatusCode",
+		"countGroupByStatusType",
 	}
 
 	allProperties := make(map[string]interface{})

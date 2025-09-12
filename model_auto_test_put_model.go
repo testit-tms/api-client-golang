@@ -23,7 +23,9 @@ var _ MappedNullable = &AutoTestPutModel{}
 type AutoTestPutModel struct {
 	// Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId
 	Id NullableString `json:"id,omitempty"`
+	// Deprecated
 	WorkItemIdsForLinkWithAutoTest []string `json:"workItemIdsForLinkWithAutoTest,omitempty"`
+	WorkItemIds []string `json:"workItemIds,omitempty"`
 	// External ID of the autotest
 	ExternalId string `json:"externalId"`
 	// Collection of the autotest links
@@ -119,6 +121,7 @@ func (o *AutoTestPutModel) UnsetId() {
 }
 
 // GetWorkItemIdsForLinkWithAutoTest returns the WorkItemIdsForLinkWithAutoTest field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *AutoTestPutModel) GetWorkItemIdsForLinkWithAutoTest() []string {
 	if o == nil {
 		var ret []string
@@ -130,6 +133,7 @@ func (o *AutoTestPutModel) GetWorkItemIdsForLinkWithAutoTest() []string {
 // GetWorkItemIdsForLinkWithAutoTestOk returns a tuple with the WorkItemIdsForLinkWithAutoTest field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *AutoTestPutModel) GetWorkItemIdsForLinkWithAutoTestOk() ([]string, bool) {
 	if o == nil || IsNil(o.WorkItemIdsForLinkWithAutoTest) {
 		return nil, false
@@ -147,8 +151,42 @@ func (o *AutoTestPutModel) HasWorkItemIdsForLinkWithAutoTest() bool {
 }
 
 // SetWorkItemIdsForLinkWithAutoTest gets a reference to the given []string and assigns it to the WorkItemIdsForLinkWithAutoTest field.
+// Deprecated
 func (o *AutoTestPutModel) SetWorkItemIdsForLinkWithAutoTest(v []string) {
 	o.WorkItemIdsForLinkWithAutoTest = v
+}
+
+// GetWorkItemIds returns the WorkItemIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestPutModel) GetWorkItemIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WorkItemIds
+}
+
+// GetWorkItemIdsOk returns a tuple with the WorkItemIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestPutModel) GetWorkItemIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WorkItemIds) {
+		return nil, false
+	}
+	return o.WorkItemIds, true
+}
+
+// HasWorkItemIds returns a boolean if a field has been set.
+func (o *AutoTestPutModel) HasWorkItemIds() bool {
+	if o != nil && !IsNil(o.WorkItemIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemIds gets a reference to the given []string and assigns it to the WorkItemIds field.
+func (o *AutoTestPutModel) SetWorkItemIds(v []string) {
+	o.WorkItemIds = v
 }
 
 // GetExternalId returns the ExternalId field value
@@ -655,6 +693,9 @@ func (o AutoTestPutModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.WorkItemIdsForLinkWithAutoTest != nil {
 		toSerialize["workItemIdsForLinkWithAutoTest"] = o.WorkItemIdsForLinkWithAutoTest
+	}
+	if o.WorkItemIds != nil {
+		toSerialize["workItemIds"] = o.WorkItemIds
 	}
 	toSerialize["externalId"] = o.ExternalId
 	if o.Links != nil {

@@ -55,6 +55,8 @@ System returns list of parameter model (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ParametersBulkPostRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersBulkPost(ctx context.Context) ApiApiV2ParametersBulkPostRequest {
 	return ApiApiV2ParametersBulkPostRequest{
@@ -65,6 +67,7 @@ func (a *ParametersAPIService) ApiV2ParametersBulkPost(ctx context.Context) ApiA
 
 // Execute executes the request
 //  @return []ParameterApiResult
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersBulkPostExecute(r ApiApiV2ParametersBulkPostRequest) ([]ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -248,6 +251,8 @@ System updates parameters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ParametersBulkPutRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersBulkPut(ctx context.Context) ApiApiV2ParametersBulkPutRequest {
 	return ApiApiV2ParametersBulkPutRequest{
@@ -257,6 +262,7 @@ func (a *ParametersAPIService) ApiV2ParametersBulkPut(ctx context.Context) ApiAp
 }
 
 // Execute executes the request
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersBulkPutExecute(r ApiApiV2ParametersBulkPutRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
@@ -483,6 +489,8 @@ System returns parameters models as groups (listed in the response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ParametersGroupsGetRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersGroupsGet(ctx context.Context) ApiApiV2ParametersGroupsGetRequest {
 	return ApiApiV2ParametersGroupsGetRequest{
@@ -493,6 +501,7 @@ func (a *ParametersAPIService) ApiV2ParametersGroupsGet(ctx context.Context) Api
 
 // Execute executes the request
 //  @return []ParameterGroupApiResult
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersGroupsGetExecute(r ApiApiV2ParametersGroupsGetRequest) ([]ParameterGroupApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -715,6 +724,8 @@ System returns the flag for the existence of the parameter key in the system
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param name
  @return ApiApiV2ParametersKeyNameNameExistsGetRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersKeyNameNameExistsGet(ctx context.Context, name string) ApiApiV2ParametersKeyNameNameExistsGetRequest {
 	return ApiApiV2ParametersKeyNameNameExistsGetRequest{
@@ -726,6 +737,7 @@ func (a *ParametersAPIService) ApiV2ParametersKeyNameNameExistsGet(ctx context.C
 
 // Execute executes the request
 //  @return bool
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersKeyNameNameExistsGetExecute(r ApiApiV2ParametersKeyNameNameExistsGetRequest) (bool, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -906,6 +918,8 @@ System returns parameter
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param key Parameter key (string format)
  @return ApiApiV2ParametersKeyValuesGetRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersKeyValuesGet(ctx context.Context, key string) ApiApiV2ParametersKeyValuesGetRequest {
 	return ApiApiV2ParametersKeyValuesGetRequest{
@@ -917,6 +931,7 @@ func (a *ParametersAPIService) ApiV2ParametersKeyValuesGet(ctx context.Context, 
 
 // Execute executes the request
 //  @return []string
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersKeyValuesGetExecute(r ApiApiV2ParametersKeyValuesGetRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -1074,10 +1089,45 @@ type ApiApiV2ParametersKeysGetRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
 	projectIds *[]string
+	skip *int32
+	take *int32
+	orderBy *string
+	searchField *string
+	searchValue *string
 }
 
 func (r ApiApiV2ParametersKeysGetRequest) ProjectIds(projectIds []string) ApiApiV2ParametersKeysGetRequest {
 	r.projectIds = &projectIds
+	return r
+}
+
+// Amount of items to be skipped (offset)
+func (r ApiApiV2ParametersKeysGetRequest) Skip(skip int32) ApiApiV2ParametersKeysGetRequest {
+	r.skip = &skip
+	return r
+}
+
+// Amount of items to be taken (limit)
+func (r ApiApiV2ParametersKeysGetRequest) Take(take int32) ApiApiV2ParametersKeysGetRequest {
+	r.take = &take
+	return r
+}
+
+// SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)
+func (r ApiApiV2ParametersKeysGetRequest) OrderBy(orderBy string) ApiApiV2ParametersKeysGetRequest {
+	r.orderBy = &orderBy
+	return r
+}
+
+// Property name for searching
+func (r ApiApiV2ParametersKeysGetRequest) SearchField(searchField string) ApiApiV2ParametersKeysGetRequest {
+	r.searchField = &searchField
+	return r
+}
+
+// Value for searching
+func (r ApiApiV2ParametersKeysGetRequest) SearchValue(searchValue string) ApiApiV2ParametersKeysGetRequest {
+	r.searchValue = &searchValue
 	return r
 }
 
@@ -1099,6 +1149,8 @@ System returns parameter keys
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ParametersKeysGetRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersKeysGet(ctx context.Context) ApiApiV2ParametersKeysGetRequest {
 	return ApiApiV2ParametersKeysGetRequest{
@@ -1109,6 +1161,7 @@ func (a *ParametersAPIService) ApiV2ParametersKeysGet(ctx context.Context) ApiAp
 
 // Execute executes the request
 //  @return []string
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersKeysGetExecute(r ApiApiV2ParametersKeysGetRequest) ([]string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -1138,6 +1191,21 @@ func (a *ParametersAPIService) ApiV2ParametersKeysGetExecute(r ApiApiV2Parameter
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "projectIds", t, "form", "multi")
 		}
+	}
+	if r.skip != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
+	}
+	if r.take != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "Take", r.take, "form", "")
+	}
+	if r.orderBy != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "OrderBy", r.orderBy, "form", "")
+	}
+	if r.searchField != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchField", r.searchField, "form", "")
+	}
+	if r.searchValue != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "SearchValue", r.searchValue, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1327,6 +1395,8 @@ ApiV2ParametersSearchGroupsPost Search for parameters as group
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ParametersSearchGroupsPostRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersSearchGroupsPost(ctx context.Context) ApiApiV2ParametersSearchGroupsPostRequest {
 	return ApiApiV2ParametersSearchGroupsPostRequest{
@@ -1337,6 +1407,7 @@ func (a *ParametersAPIService) ApiV2ParametersSearchGroupsPost(ctx context.Conte
 
 // Execute executes the request
 //  @return []ParameterGroupApiResult
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersSearchGroupsPostExecute(r ApiApiV2ParametersSearchGroupsPostRequest) ([]ParameterGroupApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -1561,6 +1632,8 @@ ApiV2ParametersSearchPost Search for parameters
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2ParametersSearchPostRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) ApiV2ParametersSearchPost(ctx context.Context) ApiApiV2ParametersSearchPostRequest {
 	return ApiApiV2ParametersSearchPostRequest{
@@ -1571,6 +1644,7 @@ func (a *ParametersAPIService) ApiV2ParametersSearchPost(ctx context.Context) Ap
 
 // Execute executes the request
 //  @return []ParameterApiResult
+// Deprecated
 func (a *ParametersAPIService) ApiV2ParametersSearchPostExecute(r ApiApiV2ParametersSearchPostRequest) ([]ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -1771,6 +1845,8 @@ System returns parameter model
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCreateParameterRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) CreateParameter(ctx context.Context) ApiCreateParameterRequest {
 	return ApiCreateParameterRequest{
@@ -1781,6 +1857,7 @@ func (a *ParametersAPIService) CreateParameter(ctx context.Context) ApiCreatePar
 
 // Execute executes the request
 //  @return ParameterApiResult
+// Deprecated
 func (a *ParametersAPIService) CreateParameterExecute(r ApiCreateParameterRequest) (*ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -1953,6 +2030,8 @@ Deletes parameter and all it's values
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param name Name of the parameter
  @return ApiDeleteByNameRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) DeleteByName(ctx context.Context, name string) ApiDeleteByNameRequest {
 	return ApiDeleteByNameRequest{
@@ -1963,6 +2042,7 @@ func (a *ParametersAPIService) DeleteByName(ctx context.Context, name string) Ap
 }
 
 // Execute executes the request
+// Deprecated
 func (a *ParametersAPIService) DeleteByNameExecute(r ApiDeleteByNameRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
@@ -2130,6 +2210,8 @@ Deletes parameter and all it's values by parameter key identifier
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param keyId Identifier of the parameter key
  @return ApiDeleteByParameterKeyIdRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) DeleteByParameterKeyId(ctx context.Context, keyId string) ApiDeleteByParameterKeyIdRequest {
 	return ApiDeleteByParameterKeyIdRequest{
@@ -2140,6 +2222,7 @@ func (a *ParametersAPIService) DeleteByParameterKeyId(ctx context.Context, keyId
 }
 
 // Execute executes the request
+// Deprecated
 func (a *ParametersAPIService) DeleteByParameterKeyIdExecute(r ApiDeleteByParameterKeyIdRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
@@ -2308,6 +2391,8 @@ System returns deleted parameter
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Parameter internal (UUID) identifier
  @return ApiDeleteParameterRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) DeleteParameter(ctx context.Context, id string) ApiDeleteParameterRequest {
 	return ApiDeleteParameterRequest{
@@ -2318,6 +2403,7 @@ func (a *ParametersAPIService) DeleteParameter(ctx context.Context, id string) A
 }
 
 // Execute executes the request
+// Deprecated
 func (a *ParametersAPIService) DeleteParameterExecute(r ApiDeleteParameterRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
@@ -2530,6 +2616,8 @@ System returns array of all found parameters(listed in response model)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAllParametersRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) GetAllParameters(ctx context.Context) ApiGetAllParametersRequest {
 	return ApiGetAllParametersRequest{
@@ -2540,6 +2628,7 @@ func (a *ParametersAPIService) GetAllParameters(ctx context.Context) ApiGetAllPa
 
 // Execute executes the request
 //  @return []ParameterApiResult
+// Deprecated
 func (a *ParametersAPIService) GetAllParametersExecute(r ApiGetAllParametersRequest) ([]ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -2737,6 +2826,8 @@ System returns parameter
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Parameter internal (UUID) identifier
  @return ApiGetParameterByIdRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) GetParameterById(ctx context.Context, id string) ApiGetParameterByIdRequest {
 	return ApiGetParameterByIdRequest{
@@ -2748,6 +2839,7 @@ func (a *ParametersAPIService) GetParameterById(ctx context.Context, id string) 
 
 // Execute executes the request
 //  @return ParameterApiResult
+// Deprecated
 func (a *ParametersAPIService) GetParameterByIdExecute(r ApiGetParameterByIdRequest) (*ParameterApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -2932,6 +3024,8 @@ System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUpdateParameterRequest
+
+Deprecated
 */
 func (a *ParametersAPIService) UpdateParameter(ctx context.Context) ApiUpdateParameterRequest {
 	return ApiUpdateParameterRequest{
@@ -2941,6 +3035,7 @@ func (a *ParametersAPIService) UpdateParameter(ctx context.Context) ApiUpdatePar
 }
 
 // Execute executes the request
+// Deprecated
 func (a *ParametersAPIService) UpdateParameterExecute(r ApiUpdateParameterRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut

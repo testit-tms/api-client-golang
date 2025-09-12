@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **CountGroupByTesterAndStatus** | [**[]TestPlanGroupByTesterAndStatus**](TestPlanGroupByTesterAndStatus.md) |  | 
 **CountGroupByStatusCode** | [**[]TestPlanGroupByStatusCode**](TestPlanGroupByStatusCode.md) |  | 
 **CountGroupByTesterAndStatusCode** | [**[]TestPlanGroupByTesterAndStatusCode**](TestPlanGroupByTesterAndStatusCode.md) |  | 
+**CountGroupByStatusType** | [**[]TestPlanGroupByStatusType**](TestPlanGroupByStatusType.md) |  | 
 
 ## Methods
 
 ### NewTestPointAnalyticResult
 
-`func NewTestPointAnalyticResult(countGroupByStatus []TestPlanGroupByStatus, sumGroupByTester []TestPlanGroupByTester, countGroupByTester []TestPlanGroupByTester, countGroupByTestSuite []TestPlanGroupByTestSuite, countGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus, countGroupByStatusCode []TestPlanGroupByStatusCode, countGroupByTesterAndStatusCode []TestPlanGroupByTesterAndStatusCode, ) *TestPointAnalyticResult`
+`func NewTestPointAnalyticResult(countGroupByStatus []TestPlanGroupByStatus, sumGroupByTester []TestPlanGroupByTester, countGroupByTester []TestPlanGroupByTester, countGroupByTestSuite []TestPlanGroupByTestSuite, countGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus, countGroupByStatusCode []TestPlanGroupByStatusCode, countGroupByTesterAndStatusCode []TestPlanGroupByTesterAndStatusCode, countGroupByStatusType []TestPlanGroupByStatusType, ) *TestPointAnalyticResult`
 
 NewTestPointAnalyticResult instantiates a new TestPointAnalyticResult object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +170,26 @@ and a boolean to check if the value has been set.
 `func (o *TestPointAnalyticResult) SetCountGroupByTesterAndStatusCode(v []TestPlanGroupByTesterAndStatusCode)`
 
 SetCountGroupByTesterAndStatusCode sets CountGroupByTesterAndStatusCode field to given value.
+
+
+### GetCountGroupByStatusType
+
+`func (o *TestPointAnalyticResult) GetCountGroupByStatusType() []TestPlanGroupByStatusType`
+
+GetCountGroupByStatusType returns the CountGroupByStatusType field if non-nil, zero value otherwise.
+
+### GetCountGroupByStatusTypeOk
+
+`func (o *TestPointAnalyticResult) GetCountGroupByStatusTypeOk() (*[]TestPlanGroupByStatusType, bool)`
+
+GetCountGroupByStatusTypeOk returns a tuple with the CountGroupByStatusType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountGroupByStatusType
+
+`func (o *TestPointAnalyticResult) SetCountGroupByStatusType(v []TestPlanGroupByStatusType)`
+
+SetCountGroupByStatusType sets CountGroupByStatusType field to given value.
 
 
 

@@ -683,9 +683,6 @@ func (a *ProjectAttributesAPIService) GetAttributesByProjectIdExecute(r ApiGetAt
 
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
-	} else {
-		var defaultValue DeletionState = "NotDeleted"
-		r.isDeleted = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
