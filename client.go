@@ -77,6 +77,8 @@ type APIClient struct {
 
 	ProjectTestPlanAttributesAPI *ProjectTestPlanAttributesAPIService
 
+	ProjectTestPlanTestPointsAPI *ProjectTestPlanTestPointsAPIService
+
 	ProjectTestPlansAPI *ProjectTestPlansAPIService
 
 	ProjectWorkItemsAPI *ProjectWorkItemsAPIService
@@ -140,6 +142,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ProjectSectionsAPI = (*ProjectSectionsAPIService)(&c.common)
 	c.ProjectSettingsAPI = (*ProjectSettingsAPIService)(&c.common)
 	c.ProjectTestPlanAttributesAPI = (*ProjectTestPlanAttributesAPIService)(&c.common)
+	c.ProjectTestPlanTestPointsAPI = (*ProjectTestPlanTestPointsAPIService)(&c.common)
 	c.ProjectTestPlansAPI = (*ProjectTestPlansAPIService)(&c.common)
 	c.ProjectWorkItemsAPI = (*ProjectWorkItemsAPIService)(&c.common)
 	c.ProjectsAPI = (*ProjectsAPIService)(&c.common)

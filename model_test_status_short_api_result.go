@@ -24,6 +24,8 @@ type TestStatusShortApiResult struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Code string `json:"code"`
+	// Collection of possible status types
+	Type TestStatusApiType `json:"type"`
 }
 
 type _TestStatusShortApiResult TestStatusShortApiResult
@@ -32,11 +34,12 @@ type _TestStatusShortApiResult TestStatusShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestStatusShortApiResult(id string, name string, code string) *TestStatusShortApiResult {
+func NewTestStatusShortApiResult(id string, name string, code string, type_ TestStatusApiType) *TestStatusShortApiResult {
 	this := TestStatusShortApiResult{}
 	this.Id = id
 	this.Name = name
 	this.Code = code
+	this.Type = type_
 	return &this
 }
 
@@ -120,6 +123,30 @@ func (o *TestStatusShortApiResult) SetCode(v string) {
 	o.Code = v
 }
 
+// GetType returns the Type field value
+func (o *TestStatusShortApiResult) GetType() TestStatusApiType {
+	if o == nil {
+		var ret TestStatusApiType
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *TestStatusShortApiResult) GetTypeOk() (*TestStatusApiType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *TestStatusShortApiResult) SetType(v TestStatusApiType) {
+	o.Type = v
+}
+
 func (o TestStatusShortApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,6 +160,7 @@ func (o TestStatusShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["code"] = o.Code
+	toSerialize["type"] = o.Type
 	return toSerialize, nil
 }
 
@@ -144,6 +172,7 @@ func (o *TestStatusShortApiResult) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"code",
+		"type",
 	}
 
 	allProperties := make(map[string]interface{})

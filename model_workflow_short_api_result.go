@@ -25,6 +25,7 @@ type WorkflowShortApiResult struct {
 	Name string `json:"name"`
 	IsSystem bool `json:"isSystem"`
 	IsDefault bool `json:"isDefault"`
+	Projects WorkflowProjectApiResultApiCollectionPreview `json:"projects"`
 }
 
 type _WorkflowShortApiResult WorkflowShortApiResult
@@ -33,12 +34,13 @@ type _WorkflowShortApiResult WorkflowShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool) *WorkflowShortApiResult {
+func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool, projects WorkflowProjectApiResultApiCollectionPreview) *WorkflowShortApiResult {
 	this := WorkflowShortApiResult{}
 	this.Id = id
 	this.Name = name
 	this.IsSystem = isSystem
 	this.IsDefault = isDefault
+	this.Projects = projects
 	return &this
 }
 
@@ -146,6 +148,30 @@ func (o *WorkflowShortApiResult) SetIsDefault(v bool) {
 	o.IsDefault = v
 }
 
+// GetProjects returns the Projects field value
+func (o *WorkflowShortApiResult) GetProjects() WorkflowProjectApiResultApiCollectionPreview {
+	if o == nil {
+		var ret WorkflowProjectApiResultApiCollectionPreview
+		return ret
+	}
+
+	return o.Projects
+}
+
+// GetProjectsOk returns a tuple with the Projects field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowShortApiResult) GetProjectsOk() (*WorkflowProjectApiResultApiCollectionPreview, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Projects, true
+}
+
+// SetProjects sets field value
+func (o *WorkflowShortApiResult) SetProjects(v WorkflowProjectApiResultApiCollectionPreview) {
+	o.Projects = v
+}
+
 func (o WorkflowShortApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -160,6 +186,7 @@ func (o WorkflowShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["isSystem"] = o.IsSystem
 	toSerialize["isDefault"] = o.IsDefault
+	toSerialize["projects"] = o.Projects
 	return toSerialize, nil
 }
 
@@ -172,6 +199,7 @@ func (o *WorkflowShortApiResult) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"isSystem",
 		"isDefault",
+		"projects",
 	}
 
 	allProperties := make(map[string]interface{})

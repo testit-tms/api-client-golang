@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **IsDefault** | **bool** |  | 
 **Statuses** | [**[]WorkflowStatusApiModel**](WorkflowStatusApiModel.md) |  | 
+**ProjectIds** | **[]string** |  | 
 
 ## Methods
 
 ### NewUpdateWorkflowApiModel
 
-`func NewUpdateWorkflowApiModel(name string, isDefault bool, statuses []WorkflowStatusApiModel, ) *UpdateWorkflowApiModel`
+`func NewUpdateWorkflowApiModel(name string, isDefault bool, statuses []WorkflowStatusApiModel, projectIds []string, ) *UpdateWorkflowApiModel`
 
 NewUpdateWorkflowApiModel instantiates a new UpdateWorkflowApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *UpdateWorkflowApiModel) SetStatuses(v []WorkflowStatusApiModel)`
 
 SetStatuses sets Statuses field to given value.
+
+
+### GetProjectIds
+
+`func (o *UpdateWorkflowApiModel) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *UpdateWorkflowApiModel) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *UpdateWorkflowApiModel) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
 
 
 

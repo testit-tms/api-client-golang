@@ -28,6 +28,8 @@ type TestResultShortResponse struct {
 	Name string `json:"name"`
 	// Global ID of autotest represented by the test result
 	AutotestGlobalId int64 `json:"autotestGlobalId"`
+	// External ID of autotest represented by the test result
+	AutotestExternalId NullableString `json:"autotestExternalId,omitempty"`
 	// Unique ID of test run where the test result is located
 	TestRunId string `json:"testRunId"`
 	// Unique ID of configuration which the test result uses
@@ -164,6 +166,48 @@ func (o *TestResultShortResponse) GetAutotestGlobalIdOk() (*int64, bool) {
 // SetAutotestGlobalId sets field value
 func (o *TestResultShortResponse) SetAutotestGlobalId(v int64) {
 	o.AutotestGlobalId = v
+}
+
+// GetAutotestExternalId returns the AutotestExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultShortResponse) GetAutotestExternalId() string {
+	if o == nil || IsNil(o.AutotestExternalId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AutotestExternalId.Get()
+}
+
+// GetAutotestExternalIdOk returns a tuple with the AutotestExternalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultShortResponse) GetAutotestExternalIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutotestExternalId.Get(), o.AutotestExternalId.IsSet()
+}
+
+// HasAutotestExternalId returns a boolean if a field has been set.
+func (o *TestResultShortResponse) HasAutotestExternalId() bool {
+	if o != nil && o.AutotestExternalId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutotestExternalId gets a reference to the given NullableString and assigns it to the AutotestExternalId field.
+func (o *TestResultShortResponse) SetAutotestExternalId(v string) {
+	o.AutotestExternalId.Set(&v)
+}
+// SetAutotestExternalIdNil sets the value for AutotestExternalId to be an explicit nil
+func (o *TestResultShortResponse) SetAutotestExternalIdNil() {
+	o.AutotestExternalId.Set(nil)
+}
+
+// UnsetAutotestExternalId ensures that no value is present for AutotestExternalId, not even an explicit nil
+func (o *TestResultShortResponse) UnsetAutotestExternalId() {
+	o.AutotestExternalId.Unset()
 }
 
 // GetTestRunId returns the TestRunId field value
@@ -695,6 +739,9 @@ func (o TestResultShortResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
 	toSerialize["autotestGlobalId"] = o.AutotestGlobalId
+	if o.AutotestExternalId.IsSet() {
+		toSerialize["autotestExternalId"] = o.AutotestExternalId.Get()
+	}
 	toSerialize["testRunId"] = o.TestRunId
 	toSerialize["configurationId"] = o.ConfigurationId
 	toSerialize["configurationName"] = o.ConfigurationName

@@ -1284,7 +1284,7 @@ Name | Type | Description  | Notes
 
 ## CreateProject
 
-> ProjectApiResult CreateProject(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
+> ProjectModel CreateProject(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
 
 Create project
 
@@ -1312,7 +1312,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CreateProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateProject`: ProjectApiResult
+	// response from `CreateProject`: ProjectModel
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.CreateProject`: %v\n", resp)
 }
 ```
@@ -1332,7 +1332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectApiResult**](ProjectApiResult.md)
+[**ProjectModel**](ProjectModel.md)
 
 ### Authorization
 

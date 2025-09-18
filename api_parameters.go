@@ -413,7 +413,7 @@ type ApiApiV2ParametersGroupsGetRequest struct {
 	parameterKeyIds *[]string
 	name *string
 	isDeleted *bool
-	projectIds *[]string
+	projectIds *[]*string
 	skip *int32
 	take *int32
 	orderBy *string
@@ -436,7 +436,7 @@ func (r ApiApiV2ParametersGroupsGetRequest) IsDeleted(isDeleted bool) ApiApiV2Pa
 	return r
 }
 
-func (r ApiApiV2ParametersGroupsGetRequest) ProjectIds(projectIds []string) ApiApiV2ParametersGroupsGetRequest {
+func (r ApiApiV2ParametersGroupsGetRequest) ProjectIds(projectIds []*string) ApiApiV2ParametersGroupsGetRequest {
 	r.projectIds = &projectIds
 	return r
 }
@@ -1088,7 +1088,7 @@ func (a *ParametersAPIService) ApiV2ParametersKeyValuesGetExecute(r ApiApiV2Para
 type ApiApiV2ParametersKeysGetRequest struct {
 	ctx context.Context
 	ApiService *ParametersAPIService
-	projectIds *[]string
+	projectIds *[]*string
 	skip *int32
 	take *int32
 	orderBy *string
@@ -1096,7 +1096,7 @@ type ApiApiV2ParametersKeysGetRequest struct {
 	searchValue *string
 }
 
-func (r ApiApiV2ParametersKeysGetRequest) ProjectIds(projectIds []string) ApiApiV2ParametersKeysGetRequest {
+func (r ApiApiV2ParametersKeysGetRequest) ProjectIds(projectIds []*string) ApiApiV2ParametersKeysGetRequest {
 	r.projectIds = &projectIds
 	return r
 }

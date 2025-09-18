@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **IsSystem** | **bool** |  | 
 **IsDefault** | **bool** |  | 
+**Projects** | [**WorkflowProjectApiResultApiCollectionPreview**](WorkflowProjectApiResultApiCollectionPreview.md) |  | 
 
 ## Methods
 
 ### NewWorkflowShortApiResult
 
-`func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool, ) *WorkflowShortApiResult`
+`func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool, projects WorkflowProjectApiResultApiCollectionPreview, ) *WorkflowShortApiResult`
 
 NewWorkflowShortApiResult instantiates a new WorkflowShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkflowShortApiResult) SetIsDefault(v bool)`
 
 SetIsDefault sets IsDefault field to given value.
+
+
+### GetProjects
+
+`func (o *WorkflowShortApiResult) GetProjects() WorkflowProjectApiResultApiCollectionPreview`
+
+GetProjects returns the Projects field if non-nil, zero value otherwise.
+
+### GetProjectsOk
+
+`func (o *WorkflowShortApiResult) GetProjectsOk() (*WorkflowProjectApiResultApiCollectionPreview, bool)`
+
+GetProjectsOk returns a tuple with the Projects field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjects
+
+`func (o *WorkflowShortApiResult) SetProjects(v WorkflowProjectApiResultApiCollectionPreview)`
+
+SetProjects sets Projects field to given value.
 
 
 

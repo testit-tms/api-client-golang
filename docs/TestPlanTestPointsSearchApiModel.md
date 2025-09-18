@@ -363,20 +363,20 @@ HasConfigurationIds returns a boolean if a field has been set.
 UnsetConfigurationIds ensures that no value is present for ConfigurationIds, not even an explicit nil
 ### GetTesterIds
 
-`func (o *TestPlanTestPointsSearchApiModel) GetTesterIds() []string`
+`func (o *TestPlanTestPointsSearchApiModel) GetTesterIds() []*string`
 
 GetTesterIds returns the TesterIds field if non-nil, zero value otherwise.
 
 ### GetTesterIdsOk
 
-`func (o *TestPlanTestPointsSearchApiModel) GetTesterIdsOk() (*[]string, bool)`
+`func (o *TestPlanTestPointsSearchApiModel) GetTesterIdsOk() (*[]*string, bool)`
 
 GetTesterIdsOk returns a tuple with the TesterIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTesterIds
 
-`func (o *TestPlanTestPointsSearchApiModel) SetTesterIds(v []string)`
+`func (o *TestPlanTestPointsSearchApiModel) SetTesterIds(v []*string)`
 
 SetTesterIds sets TesterIds field to given value.
 

@@ -5,15 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CountGroupByStatus** | [**[]TestPlanTestPointsStatusGroupApiResult**](TestPlanTestPointsStatusGroupApiResult.md) |  | 
+**CountGroupByTesterAndStatus** | [**[]TestPlanTestPointsTesterAndStatusGroupApiResult**](TestPlanTestPointsTesterAndStatusGroupApiResult.md) |  | 
 **SumGroupByTester** | [**[]TestPlanTestPointsTesterGroupApiResult**](TestPlanTestPointsTesterGroupApiResult.md) |  | 
 **CountGroupByTester** | [**[]TestPlanTestPointsTesterGroupApiResult**](TestPlanTestPointsTesterGroupApiResult.md) |  | 
-**CountGroupByTesterAndStatus** | [**[]TestPlanTestPointsTesterAndStatusGroupApiResult**](TestPlanTestPointsTesterAndStatusGroupApiResult.md) |  | 
+**CountGroupByStatusType** | [**[]TestPlanTestPointsStatusTypeGroupApiResult**](TestPlanTestPointsStatusTypeGroupApiResult.md) |  | 
+**CountGroupByTesterAndStatusType** | [**[]TestPlanTestPointsTesterAndStatusTypeGroupApiResult**](TestPlanTestPointsTesterAndStatusTypeGroupApiResult.md) |  | 
 
 ## Methods
 
 ### NewTestPlanTestPointsAnalyticsApiResult
 
-`func NewTestPlanTestPointsAnalyticsApiResult(countGroupByStatus []TestPlanTestPointsStatusGroupApiResult, sumGroupByTester []TestPlanTestPointsTesterGroupApiResult, countGroupByTester []TestPlanTestPointsTesterGroupApiResult, countGroupByTesterAndStatus []TestPlanTestPointsTesterAndStatusGroupApiResult, ) *TestPlanTestPointsAnalyticsApiResult`
+`func NewTestPlanTestPointsAnalyticsApiResult(countGroupByStatus []TestPlanTestPointsStatusGroupApiResult, countGroupByTesterAndStatus []TestPlanTestPointsTesterAndStatusGroupApiResult, sumGroupByTester []TestPlanTestPointsTesterGroupApiResult, countGroupByTester []TestPlanTestPointsTesterGroupApiResult, countGroupByStatusType []TestPlanTestPointsStatusTypeGroupApiResult, countGroupByTesterAndStatusType []TestPlanTestPointsTesterAndStatusTypeGroupApiResult, ) *TestPlanTestPointsAnalyticsApiResult`
 
 NewTestPlanTestPointsAnalyticsApiResult instantiates a new TestPlanTestPointsAnalyticsApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -46,6 +48,26 @@ and a boolean to check if the value has been set.
 `func (o *TestPlanTestPointsAnalyticsApiResult) SetCountGroupByStatus(v []TestPlanTestPointsStatusGroupApiResult)`
 
 SetCountGroupByStatus sets CountGroupByStatus field to given value.
+
+
+### GetCountGroupByTesterAndStatus
+
+`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByTesterAndStatus() []TestPlanTestPointsTesterAndStatusGroupApiResult`
+
+GetCountGroupByTesterAndStatus returns the CountGroupByTesterAndStatus field if non-nil, zero value otherwise.
+
+### GetCountGroupByTesterAndStatusOk
+
+`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByTesterAndStatusOk() (*[]TestPlanTestPointsTesterAndStatusGroupApiResult, bool)`
+
+GetCountGroupByTesterAndStatusOk returns a tuple with the CountGroupByTesterAndStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountGroupByTesterAndStatus
+
+`func (o *TestPlanTestPointsAnalyticsApiResult) SetCountGroupByTesterAndStatus(v []TestPlanTestPointsTesterAndStatusGroupApiResult)`
+
+SetCountGroupByTesterAndStatus sets CountGroupByTesterAndStatus field to given value.
 
 
 ### GetSumGroupByTester
@@ -88,24 +110,44 @@ and a boolean to check if the value has been set.
 SetCountGroupByTester sets CountGroupByTester field to given value.
 
 
-### GetCountGroupByTesterAndStatus
+### GetCountGroupByStatusType
 
-`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByTesterAndStatus() []TestPlanTestPointsTesterAndStatusGroupApiResult`
+`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByStatusType() []TestPlanTestPointsStatusTypeGroupApiResult`
 
-GetCountGroupByTesterAndStatus returns the CountGroupByTesterAndStatus field if non-nil, zero value otherwise.
+GetCountGroupByStatusType returns the CountGroupByStatusType field if non-nil, zero value otherwise.
 
-### GetCountGroupByTesterAndStatusOk
+### GetCountGroupByStatusTypeOk
 
-`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByTesterAndStatusOk() (*[]TestPlanTestPointsTesterAndStatusGroupApiResult, bool)`
+`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByStatusTypeOk() (*[]TestPlanTestPointsStatusTypeGroupApiResult, bool)`
 
-GetCountGroupByTesterAndStatusOk returns a tuple with the CountGroupByTesterAndStatus field if it's non-nil, zero value otherwise
+GetCountGroupByStatusTypeOk returns a tuple with the CountGroupByStatusType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCountGroupByTesterAndStatus
+### SetCountGroupByStatusType
 
-`func (o *TestPlanTestPointsAnalyticsApiResult) SetCountGroupByTesterAndStatus(v []TestPlanTestPointsTesterAndStatusGroupApiResult)`
+`func (o *TestPlanTestPointsAnalyticsApiResult) SetCountGroupByStatusType(v []TestPlanTestPointsStatusTypeGroupApiResult)`
 
-SetCountGroupByTesterAndStatus sets CountGroupByTesterAndStatus field to given value.
+SetCountGroupByStatusType sets CountGroupByStatusType field to given value.
+
+
+### GetCountGroupByTesterAndStatusType
+
+`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByTesterAndStatusType() []TestPlanTestPointsTesterAndStatusTypeGroupApiResult`
+
+GetCountGroupByTesterAndStatusType returns the CountGroupByTesterAndStatusType field if non-nil, zero value otherwise.
+
+### GetCountGroupByTesterAndStatusTypeOk
+
+`func (o *TestPlanTestPointsAnalyticsApiResult) GetCountGroupByTesterAndStatusTypeOk() (*[]TestPlanTestPointsTesterAndStatusTypeGroupApiResult, bool)`
+
+GetCountGroupByTesterAndStatusTypeOk returns a tuple with the CountGroupByTesterAndStatusType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountGroupByTesterAndStatusType
+
+`func (o *TestPlanTestPointsAnalyticsApiResult) SetCountGroupByTesterAndStatusType(v []TestPlanTestPointsTesterAndStatusTypeGroupApiResult)`
+
+SetCountGroupByTesterAndStatusType sets CountGroupByTesterAndStatusType field to given value.
 
 
 
