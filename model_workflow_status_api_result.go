@@ -26,7 +26,7 @@ type WorkflowStatusApiResult struct {
 	Code string `json:"code"`
 	// Collection of possible status types
 	Type TestStatusApiType `json:"type"`
-	Description NullableString `json:"description,omitempty"`
+	Description NullableString `json:"description"`
 	IsSystem bool `json:"isSystem"`
 	Priority int32 `json:"priority"`
 }
@@ -37,12 +37,13 @@ type _WorkflowStatusApiResult WorkflowStatusApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkflowStatusApiResult(id string, name string, code string, type_ TestStatusApiType, isSystem bool, priority int32) *WorkflowStatusApiResult {
+func NewWorkflowStatusApiResult(id string, name string, code string, type_ TestStatusApiType, description NullableString, isSystem bool, priority int32) *WorkflowStatusApiResult {
 	this := WorkflowStatusApiResult{}
 	this.Id = id
 	this.Name = name
 	this.Code = code
 	this.Type = type_
+	this.Description = description
 	this.IsSystem = isSystem
 	this.Priority = priority
 	return &this
@@ -152,16 +153,18 @@ func (o *WorkflowStatusApiResult) SetType(v TestStatusApiType) {
 	o.Type = v
 }
 
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDescription returns the Description field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *WorkflowStatusApiResult) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
+	if o == nil || o.Description.Get() == nil {
 		var ret string
 		return ret
 	}
+
 	return *o.Description.Get()
 }
 
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkflowStatusApiResult) GetDescriptionOk() (*string, bool) {
@@ -171,27 +174,9 @@ func (o *WorkflowStatusApiResult) GetDescriptionOk() (*string, bool) {
 	return o.Description.Get(), o.Description.IsSet()
 }
 
-// HasDescription returns a boolean if a field has been set.
-func (o *WorkflowStatusApiResult) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+// SetDescription sets field value
 func (o *WorkflowStatusApiResult) SetDescription(v string) {
 	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *WorkflowStatusApiResult) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *WorkflowStatusApiResult) UnsetDescription() {
-	o.Description.Unset()
 }
 
 // GetIsSystem returns the IsSystem field value
@@ -256,9 +241,7 @@ func (o WorkflowStatusApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["code"] = o.Code
 	toSerialize["type"] = o.Type
-	if o.Description.IsSet() {
-		toSerialize["description"] = o.Description.Get()
-	}
+	toSerialize["description"] = o.Description.Get()
 	toSerialize["isSystem"] = o.IsSystem
 	toSerialize["priority"] = o.Priority
 	return toSerialize, nil
@@ -273,6 +256,7 @@ func (o *WorkflowStatusApiResult) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"code",
 		"type",
+		"description",
 		"isSystem",
 		"priority",
 	}

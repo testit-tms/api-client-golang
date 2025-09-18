@@ -24,6 +24,7 @@ type UpdateWorkflowApiModel struct {
 	Name string `json:"name"`
 	IsDefault bool `json:"isDefault"`
 	Statuses []WorkflowStatusApiModel `json:"statuses"`
+	ProjectIds []string `json:"projectIds"`
 }
 
 type _UpdateWorkflowApiModel UpdateWorkflowApiModel
@@ -32,11 +33,12 @@ type _UpdateWorkflowApiModel UpdateWorkflowApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateWorkflowApiModel(name string, isDefault bool, statuses []WorkflowStatusApiModel) *UpdateWorkflowApiModel {
+func NewUpdateWorkflowApiModel(name string, isDefault bool, statuses []WorkflowStatusApiModel, projectIds []string) *UpdateWorkflowApiModel {
 	this := UpdateWorkflowApiModel{}
 	this.Name = name
 	this.IsDefault = isDefault
 	this.Statuses = statuses
+	this.ProjectIds = projectIds
 	return &this
 }
 
@@ -120,6 +122,30 @@ func (o *UpdateWorkflowApiModel) SetStatuses(v []WorkflowStatusApiModel) {
 	o.Statuses = v
 }
 
+// GetProjectIds returns the ProjectIds field value
+func (o *UpdateWorkflowApiModel) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value
+// and a boolean to check if the value has been set.
+func (o *UpdateWorkflowApiModel) GetProjectIdsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// SetProjectIds sets field value
+func (o *UpdateWorkflowApiModel) SetProjectIds(v []string) {
+	o.ProjectIds = v
+}
+
 func (o UpdateWorkflowApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,6 +159,7 @@ func (o UpdateWorkflowApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["isDefault"] = o.IsDefault
 	toSerialize["statuses"] = o.Statuses
+	toSerialize["projectIds"] = o.ProjectIds
 	return toSerialize, nil
 }
 
@@ -144,6 +171,7 @@ func (o *UpdateWorkflowApiModel) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"isDefault",
 		"statuses",
+		"projectIds",
 	}
 
 	allProperties := make(map[string]interface{})

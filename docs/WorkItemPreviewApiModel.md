@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
+**Description** | **string** |  | 
+**Steps** | [**[]WorkItemPreviewStepApiModel**](WorkItemPreviewStepApiModel.md) |  | 
 **Action** | **string** |  | 
 **Expected** | **string** |  | 
 
@@ -12,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemPreviewApiModel
 
-`func NewWorkItemPreviewApiModel(name string, action string, expected string, ) *WorkItemPreviewApiModel`
+`func NewWorkItemPreviewApiModel(name string, description string, steps []WorkItemPreviewStepApiModel, action string, expected string, ) *WorkItemPreviewApiModel`
 
 NewWorkItemPreviewApiModel instantiates a new WorkItemPreviewApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +47,46 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemPreviewApiModel) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetDescription
+
+`func (o *WorkItemPreviewApiModel) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *WorkItemPreviewApiModel) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *WorkItemPreviewApiModel) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+
+### GetSteps
+
+`func (o *WorkItemPreviewApiModel) GetSteps() []WorkItemPreviewStepApiModel`
+
+GetSteps returns the Steps field if non-nil, zero value otherwise.
+
+### GetStepsOk
+
+`func (o *WorkItemPreviewApiModel) GetStepsOk() (*[]WorkItemPreviewStepApiModel, bool)`
+
+GetStepsOk returns a tuple with the Steps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSteps
+
+`func (o *WorkItemPreviewApiModel) SetSteps(v []WorkItemPreviewStepApiModel)`
+
+SetSteps sets Steps field to given value.
 
 
 ### GetAction

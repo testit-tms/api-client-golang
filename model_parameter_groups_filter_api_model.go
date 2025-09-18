@@ -22,7 +22,7 @@ type ParameterGroupsFilterApiModel struct {
 	ParameterKeyIds []string `json:"parameterKeyIds,omitempty"`
 	Name NullableString `json:"name,omitempty"`
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
-	ProjectIds []string `json:"projectIds,omitempty"`
+	ProjectIds []*string `json:"projectIds,omitempty"`
 }
 
 // NewParameterGroupsFilterApiModel instantiates a new ParameterGroupsFilterApiModel object
@@ -160,9 +160,9 @@ func (o *ParameterGroupsFilterApiModel) UnsetIsDeleted() {
 }
 
 // GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ParameterGroupsFilterApiModel) GetProjectIds() []string {
+func (o *ParameterGroupsFilterApiModel) GetProjectIds() []*string {
 	if o == nil {
-		var ret []string
+		var ret []*string
 		return ret
 	}
 	return o.ProjectIds
@@ -171,7 +171,7 @@ func (o *ParameterGroupsFilterApiModel) GetProjectIds() []string {
 // GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ParameterGroupsFilterApiModel) GetProjectIdsOk() ([]string, bool) {
+func (o *ParameterGroupsFilterApiModel) GetProjectIdsOk() ([]*string, bool) {
 	if o == nil || IsNil(o.ProjectIds) {
 		return nil, false
 	}
@@ -187,8 +187,8 @@ func (o *ParameterGroupsFilterApiModel) HasProjectIds() bool {
 	return false
 }
 
-// SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
-func (o *ParameterGroupsFilterApiModel) SetProjectIds(v []string) {
+// SetProjectIds gets a reference to the given []*string and assigns it to the ProjectIds field.
+func (o *ParameterGroupsFilterApiModel) SetProjectIds(v []*string) {
 	o.ProjectIds = v
 }
 

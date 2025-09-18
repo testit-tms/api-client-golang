@@ -39,7 +39,7 @@ type TestPlanTestPointsSearchApiModel struct {
 	// Specifies a test point configuration IDs to search for
 	ConfigurationIds []string `json:"configurationIds,omitempty"`
 	// Specifies a test point assigned user IDs to search for
-	TesterIds []string `json:"testerIds,omitempty"`
+	TesterIds []*string `json:"testerIds,omitempty"`
 	// Specifies a test point range of duration to search for
 	Duration NullableInt64RangeSelectorModel `json:"duration,omitempty"`
 	// Specifies a test point work item section IDs to search for
@@ -411,9 +411,9 @@ func (o *TestPlanTestPointsSearchApiModel) SetConfigurationIds(v []string) {
 }
 
 // GetTesterIds returns the TesterIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestPlanTestPointsSearchApiModel) GetTesterIds() []string {
+func (o *TestPlanTestPointsSearchApiModel) GetTesterIds() []*string {
 	if o == nil {
-		var ret []string
+		var ret []*string
 		return ret
 	}
 	return o.TesterIds
@@ -422,7 +422,7 @@ func (o *TestPlanTestPointsSearchApiModel) GetTesterIds() []string {
 // GetTesterIdsOk returns a tuple with the TesterIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestPlanTestPointsSearchApiModel) GetTesterIdsOk() ([]string, bool) {
+func (o *TestPlanTestPointsSearchApiModel) GetTesterIdsOk() ([]*string, bool) {
 	if o == nil || IsNil(o.TesterIds) {
 		return nil, false
 	}
@@ -438,8 +438,8 @@ func (o *TestPlanTestPointsSearchApiModel) HasTesterIds() bool {
 	return false
 }
 
-// SetTesterIds gets a reference to the given []string and assigns it to the TesterIds field.
-func (o *TestPlanTestPointsSearchApiModel) SetTesterIds(v []string) {
+// SetTesterIds gets a reference to the given []*string and assigns it to the TesterIds field.
+func (o *TestPlanTestPointsSearchApiModel) SetTesterIds(v []*string) {
 	o.TesterIds = v
 }
 

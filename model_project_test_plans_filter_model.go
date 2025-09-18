@@ -27,7 +27,7 @@ type ProjectTestPlansFilterModel struct {
 	GlobalIds []int64 `json:"globalIds,omitempty"`
 	IsLocked NullableBool `json:"isLocked,omitempty"`
 	LockedDate NullableDateTimeRangeSelectorModel `json:"lockedDate,omitempty"`
-	AutomaticDurationTimer []bool `json:"automaticDurationTimer,omitempty"`
+	AutomaticDurationTimer []*bool `json:"automaticDurationTimer,omitempty"`
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 	StartDate NullableDateTimeRangeSelectorModel `json:"startDate,omitempty"`
@@ -373,9 +373,9 @@ func (o *ProjectTestPlansFilterModel) UnsetLockedDate() {
 }
 
 // GetAutomaticDurationTimer returns the AutomaticDurationTimer field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimer() []bool {
+func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimer() []*bool {
 	if o == nil {
-		var ret []bool
+		var ret []*bool
 		return ret
 	}
 	return o.AutomaticDurationTimer
@@ -384,7 +384,7 @@ func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimer() []bool {
 // GetAutomaticDurationTimerOk returns a tuple with the AutomaticDurationTimer field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimerOk() ([]bool, bool) {
+func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimerOk() ([]*bool, bool) {
 	if o == nil || IsNil(o.AutomaticDurationTimer) {
 		return nil, false
 	}
@@ -400,8 +400,8 @@ func (o *ProjectTestPlansFilterModel) HasAutomaticDurationTimer() bool {
 	return false
 }
 
-// SetAutomaticDurationTimer gets a reference to the given []bool and assigns it to the AutomaticDurationTimer field.
-func (o *ProjectTestPlansFilterModel) SetAutomaticDurationTimer(v []bool) {
+// SetAutomaticDurationTimer gets a reference to the given []*bool and assigns it to the AutomaticDurationTimer field.
+func (o *ProjectTestPlansFilterModel) SetAutomaticDurationTimer(v []*bool) {
 	o.AutomaticDurationTimer = v
 }
 

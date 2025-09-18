@@ -22,7 +22,11 @@ var _ MappedNullable = &WorkItemPreviewApiModel{}
 // WorkItemPreviewApiModel struct for WorkItemPreviewApiModel
 type WorkItemPreviewApiModel struct {
 	Name string `json:"name"`
+	Description string `json:"description"`
+	Steps []WorkItemPreviewStepApiModel `json:"steps"`
+	// Deprecated
 	Action string `json:"action"`
+	// Deprecated
 	Expected string `json:"expected"`
 }
 
@@ -32,9 +36,11 @@ type _WorkItemPreviewApiModel WorkItemPreviewApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemPreviewApiModel(name string, action string, expected string) *WorkItemPreviewApiModel {
+func NewWorkItemPreviewApiModel(name string, description string, steps []WorkItemPreviewStepApiModel, action string, expected string) *WorkItemPreviewApiModel {
 	this := WorkItemPreviewApiModel{}
 	this.Name = name
+	this.Description = description
+	this.Steps = steps
 	this.Action = action
 	this.Expected = expected
 	return &this
@@ -72,7 +78,56 @@ func (o *WorkItemPreviewApiModel) SetName(v string) {
 	o.Name = v
 }
 
+// GetDescription returns the Description field value
+func (o *WorkItemPreviewApiModel) GetDescription() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Description
+}
+
+// GetDescriptionOk returns a tuple with the Description field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemPreviewApiModel) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Description, true
+}
+
+// SetDescription sets field value
+func (o *WorkItemPreviewApiModel) SetDescription(v string) {
+	o.Description = v
+}
+
+// GetSteps returns the Steps field value
+func (o *WorkItemPreviewApiModel) GetSteps() []WorkItemPreviewStepApiModel {
+	if o == nil {
+		var ret []WorkItemPreviewStepApiModel
+		return ret
+	}
+
+	return o.Steps
+}
+
+// GetStepsOk returns a tuple with the Steps field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemPreviewApiModel) GetStepsOk() ([]WorkItemPreviewStepApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Steps, true
+}
+
+// SetSteps sets field value
+func (o *WorkItemPreviewApiModel) SetSteps(v []WorkItemPreviewStepApiModel) {
+	o.Steps = v
+}
+
 // GetAction returns the Action field value
+// Deprecated
 func (o *WorkItemPreviewApiModel) GetAction() string {
 	if o == nil {
 		var ret string
@@ -84,6 +139,7 @@ func (o *WorkItemPreviewApiModel) GetAction() string {
 
 // GetActionOk returns a tuple with the Action field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *WorkItemPreviewApiModel) GetActionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
@@ -92,11 +148,13 @@ func (o *WorkItemPreviewApiModel) GetActionOk() (*string, bool) {
 }
 
 // SetAction sets field value
+// Deprecated
 func (o *WorkItemPreviewApiModel) SetAction(v string) {
 	o.Action = v
 }
 
 // GetExpected returns the Expected field value
+// Deprecated
 func (o *WorkItemPreviewApiModel) GetExpected() string {
 	if o == nil {
 		var ret string
@@ -108,6 +166,7 @@ func (o *WorkItemPreviewApiModel) GetExpected() string {
 
 // GetExpectedOk returns a tuple with the Expected field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *WorkItemPreviewApiModel) GetExpectedOk() (*string, bool) {
 	if o == nil {
 		return nil, false
@@ -116,6 +175,7 @@ func (o *WorkItemPreviewApiModel) GetExpectedOk() (*string, bool) {
 }
 
 // SetExpected sets field value
+// Deprecated
 func (o *WorkItemPreviewApiModel) SetExpected(v string) {
 	o.Expected = v
 }
@@ -131,6 +191,8 @@ func (o WorkItemPreviewApiModel) MarshalJSON() ([]byte, error) {
 func (o WorkItemPreviewApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
+	toSerialize["description"] = o.Description
+	toSerialize["steps"] = o.Steps
 	toSerialize["action"] = o.Action
 	toSerialize["expected"] = o.Expected
 	return toSerialize, nil
@@ -142,6 +204,8 @@ func (o *WorkItemPreviewApiModel) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"name",
+		"description",
+		"steps",
 		"action",
 		"expected",
 	}

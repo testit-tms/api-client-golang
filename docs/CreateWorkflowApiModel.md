@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **IsDefault** | Pointer to **NullableBool** |  | [optional] 
 **Statuses** | [**[]WorkflowStatusApiModel**](WorkflowStatusApiModel.md) |  | 
+**ProjectIds** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -102,6 +103,41 @@ and a boolean to check if the value has been set.
 SetStatuses sets Statuses field to given value.
 
 
+### GetProjectIds
+
+`func (o *CreateWorkflowApiModel) GetProjectIds() []string`
+
+GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
+
+### GetProjectIdsOk
+
+`func (o *CreateWorkflowApiModel) GetProjectIdsOk() (*[]string, bool)`
+
+GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectIds
+
+`func (o *CreateWorkflowApiModel) SetProjectIds(v []string)`
+
+SetProjectIds sets ProjectIds field to given value.
+
+### HasProjectIds
+
+`func (o *CreateWorkflowApiModel) HasProjectIds() bool`
+
+HasProjectIds returns a boolean if a field has been set.
+
+### SetProjectIdsNil
+
+`func (o *CreateWorkflowApiModel) SetProjectIdsNil(b bool)`
+
+ SetProjectIdsNil sets the value for ProjectIds to be an explicit nil
+
+### UnsetProjectIds
+`func (o *CreateWorkflowApiModel) UnsetProjectIds()`
+
+UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

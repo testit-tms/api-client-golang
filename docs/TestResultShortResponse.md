@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Unique ID of the test result | 
 **Name** | **string** | Name of autotest represented by the test result | 
 **AutotestGlobalId** | **int64** | Global ID of autotest represented by the test result | 
+**AutotestExternalId** | Pointer to **NullableString** | External ID of autotest represented by the test result | [optional] 
 **TestRunId** | **string** | Unique ID of test run where the test result is located | 
 **ConfigurationId** | **string** | Unique ID of configuration which the test result uses | 
 **ConfigurationName** | **string** | Name of configuration which the test result uses | 
@@ -103,6 +104,41 @@ and a boolean to check if the value has been set.
 SetAutotestGlobalId sets AutotestGlobalId field to given value.
 
 
+### GetAutotestExternalId
+
+`func (o *TestResultShortResponse) GetAutotestExternalId() string`
+
+GetAutotestExternalId returns the AutotestExternalId field if non-nil, zero value otherwise.
+
+### GetAutotestExternalIdOk
+
+`func (o *TestResultShortResponse) GetAutotestExternalIdOk() (*string, bool)`
+
+GetAutotestExternalIdOk returns a tuple with the AutotestExternalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutotestExternalId
+
+`func (o *TestResultShortResponse) SetAutotestExternalId(v string)`
+
+SetAutotestExternalId sets AutotestExternalId field to given value.
+
+### HasAutotestExternalId
+
+`func (o *TestResultShortResponse) HasAutotestExternalId() bool`
+
+HasAutotestExternalId returns a boolean if a field has been set.
+
+### SetAutotestExternalIdNil
+
+`func (o *TestResultShortResponse) SetAutotestExternalIdNil(b bool)`
+
+ SetAutotestExternalIdNil sets the value for AutotestExternalId to be an explicit nil
+
+### UnsetAutotestExternalId
+`func (o *TestResultShortResponse) UnsetAutotestExternalId()`
+
+UnsetAutotestExternalId ensures that no value is present for AutotestExternalId, not even an explicit nil
 ### GetTestRunId
 
 `func (o *TestResultShortResponse) GetTestRunId() string`

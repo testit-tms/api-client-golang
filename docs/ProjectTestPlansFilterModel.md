@@ -322,20 +322,20 @@ HasLockedDate returns a boolean if a field has been set.
 UnsetLockedDate ensures that no value is present for LockedDate, not even an explicit nil
 ### GetAutomaticDurationTimer
 
-`func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimer() []bool`
+`func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimer() []*bool`
 
 GetAutomaticDurationTimer returns the AutomaticDurationTimer field if non-nil, zero value otherwise.
 
 ### GetAutomaticDurationTimerOk
 
-`func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimerOk() (*[]bool, bool)`
+`func (o *ProjectTestPlansFilterModel) GetAutomaticDurationTimerOk() (*[]*bool, bool)`
 
 GetAutomaticDurationTimerOk returns a tuple with the AutomaticDurationTimer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutomaticDurationTimer
 
-`func (o *ProjectTestPlansFilterModel) SetAutomaticDurationTimer(v []bool)`
+`func (o *ProjectTestPlansFilterModel) SetAutomaticDurationTimer(v []*bool)`
 
 SetAutomaticDurationTimer sets AutomaticDurationTimer field to given value.
 

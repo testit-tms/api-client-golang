@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 **Id** | **string** |  | 
 **Name** | **string** |  | 
 **Code** | **string** |  | 
+**Type** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
 
 ## Methods
 
 ### NewTestStatusShortApiResult
 
-`func NewTestStatusShortApiResult(id string, name string, code string, ) *TestStatusShortApiResult`
+`func NewTestStatusShortApiResult(id string, name string, code string, type_ TestStatusApiType, ) *TestStatusShortApiResult`
 
 NewTestStatusShortApiResult instantiates a new TestStatusShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *TestStatusShortApiResult) SetCode(v string)`
 
 SetCode sets Code field to given value.
+
+
+### GetType
+
+`func (o *TestStatusShortApiResult) GetType() TestStatusApiType`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *TestStatusShortApiResult) GetTypeOk() (*TestStatusApiType, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *TestStatusShortApiResult) SetType(v TestStatusApiType)`
+
+SetType sets Type field to given value.
 
 
 

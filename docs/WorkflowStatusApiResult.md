@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Code** | **string** |  | 
 **Type** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
-**Description** | Pointer to **NullableString** |  | [optional] 
+**Description** | **NullableString** |  | 
 **IsSystem** | **bool** |  | 
 **Priority** | **int32** |  | 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewWorkflowStatusApiResult
 
-`func NewWorkflowStatusApiResult(id string, name string, code string, type_ TestStatusApiType, isSystem bool, priority int32, ) *WorkflowStatusApiResult`
+`func NewWorkflowStatusApiResult(id string, name string, code string, type_ TestStatusApiType, description NullableString, isSystem bool, priority int32, ) *WorkflowStatusApiResult`
 
 NewWorkflowStatusApiResult instantiates a new WorkflowStatusApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -130,11 +130,6 @@ and a boolean to check if the value has been set.
 
 SetDescription sets Description field to given value.
 
-### HasDescription
-
-`func (o *WorkflowStatusApiResult) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
 
 ### SetDescriptionNil
 

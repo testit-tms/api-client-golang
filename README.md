@@ -17,7 +17,7 @@
 | 5.3     | 3.0.1-tms-5.3   |
 | 5.4     | 3.2.0-tms-5.4   |
 | 5.4.1   | 3.2.2-tms-5.4.1 |
-| Cloud   | 3.3.0           |
+| Cloud   | 3.3.1           |
 
 ### Installation
 
@@ -167,6 +167,8 @@ Class | Method | HTTP request | Description
 *ProjectTestPlanAttributesAPI* | [**GetCustomAttributeTestPlanProjectRelations**](docs/ProjectTestPlanAttributesAPI.md#getcustomattributetestplanprojectrelations) | **Get** /api/v2/projects/{projectId}/testPlans/attributes | Get project&#39;s test plan attributes
 *ProjectTestPlanAttributesAPI* | [**SearchTestPlanAttributesInProject**](docs/ProjectTestPlanAttributesAPI.md#searchtestplanattributesinproject) | **Post** /api/v2/projects/{projectId}/testPlans/attributes/search | Search for attributes used in the project test plans
 *ProjectTestPlanAttributesAPI* | [**UpdateCustomAttributeTestPlanProjectRelations**](docs/ProjectTestPlanAttributesAPI.md#updatecustomattributetestplanprojectrelations) | **Put** /api/v2/projects/{projectId}/testPlans/attributes | Update attribute of project&#39;s test plans
+*ProjectTestPlanTestPointsAPI* | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPost**](docs/ProjectTestPlanTestPointsAPI.md#apiv2projectsprojectidtestplanstestplanidtestpointsautotestsrerunpost) | **Post** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/rerun | Rerun autotests.
+*ProjectTestPlanTestPointsAPI* | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPost**](docs/ProjectTestPlanTestPointsAPI.md#apiv2projectsprojectidtestplanstestplanidtestpointsautotestsrunpost) | **Post** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/run | Run autotests.
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansAnalyticsGet**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplansanalyticsget) | **Get** /api/v2/projects/{projectId}/testPlans/analytics | Get TestPlans analytics
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPost**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplansdeletebulkpost) | **Post** /api/v2/projects/{projectId}/testPlans/delete/bulk | Delete multiple test plans
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansNameExistsGet**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplansnameexistsget) | **Get** /api/v2/projects/{projectId}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project

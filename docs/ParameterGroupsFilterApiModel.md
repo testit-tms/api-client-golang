@@ -135,20 +135,20 @@ HasIsDeleted returns a boolean if a field has been set.
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 ### GetProjectIds
 
-`func (o *ParameterGroupsFilterApiModel) GetProjectIds() []string`
+`func (o *ParameterGroupsFilterApiModel) GetProjectIds() []*string`
 
 GetProjectIds returns the ProjectIds field if non-nil, zero value otherwise.
 
 ### GetProjectIdsOk
 
-`func (o *ParameterGroupsFilterApiModel) GetProjectIdsOk() (*[]string, bool)`
+`func (o *ParameterGroupsFilterApiModel) GetProjectIdsOk() (*[]*string, bool)`
 
 GetProjectIdsOk returns a tuple with the ProjectIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectIds
 
-`func (o *ParameterGroupsFilterApiModel) SetProjectIds(v []string)`
+`func (o *ParameterGroupsFilterApiModel) SetProjectIds(v []*string)`
 
 SetProjectIds sets ProjectIds field to given value.
 
