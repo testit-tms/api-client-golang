@@ -73,6 +73,8 @@ type WorkItemApiResult struct {
 	Attachments []AttachmentModel `json:"attachments"`
 	// Set of links related to the work item
 	Links []LinkModel `json:"links"`
+	// Set of external issues related to the work item
+	ExternalIssues []ExternalIssueApiResult `json:"externalIssues"`
 	// Creation date of the work item
 	CreatedDate time.Time `json:"createdDate"`
 	// Unique identifier of the work item creator
@@ -91,7 +93,7 @@ type _WorkItemApiResult WorkItemApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, createdDate time.Time, createdById string, isDeleted bool) *WorkItemApiResult {
+func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, createdDate time.Time, createdById string, isDeleted bool) *WorkItemApiResult {
 	this := WorkItemApiResult{}
 	this.Id = id
 	this.GlobalId = globalId
@@ -118,6 +120,7 @@ func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNu
 	this.AutoTests = autoTests
 	this.Attachments = attachments
 	this.Links = links
+	this.ExternalIssues = externalIssues
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
 	this.IsDeleted = isDeleted
@@ -774,6 +777,30 @@ func (o *WorkItemApiResult) SetLinks(v []LinkModel) {
 	o.Links = v
 }
 
+// GetExternalIssues returns the ExternalIssues field value
+func (o *WorkItemApiResult) GetExternalIssues() []ExternalIssueApiResult {
+	if o == nil {
+		var ret []ExternalIssueApiResult
+		return ret
+	}
+
+	return o.ExternalIssues
+}
+
+// GetExternalIssuesOk returns a tuple with the ExternalIssues field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemApiResult) GetExternalIssuesOk() ([]ExternalIssueApiResult, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalIssues, true
+}
+
+// SetExternalIssues sets field value
+func (o *WorkItemApiResult) SetExternalIssues(v []ExternalIssueApiResult) {
+	o.ExternalIssues = v
+}
+
 // GetCreatedDate returns the CreatedDate field value
 func (o *WorkItemApiResult) GetCreatedDate() time.Time {
 	if o == nil {
@@ -968,6 +995,7 @@ func (o WorkItemApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["autoTests"] = o.AutoTests
 	toSerialize["attachments"] = o.Attachments
 	toSerialize["links"] = o.Links
+	toSerialize["externalIssues"] = o.ExternalIssues
 	toSerialize["createdDate"] = o.CreatedDate
 	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedDate.IsSet() {
@@ -1010,6 +1038,7 @@ func (o *WorkItemApiResult) UnmarshalJSON(data []byte) (err error) {
 		"autoTests",
 		"attachments",
 		"links",
+		"externalIssues",
 		"createdDate",
 		"createdById",
 		"isDeleted",

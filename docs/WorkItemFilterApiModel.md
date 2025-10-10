@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
 **WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
 **Links** | Pointer to [**NullableWorkItemLinkFilterApiModel**](WorkItemLinkFilterApiModel.md) | Specifies a work item filter by its links | [optional] 
+**ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterApiModel**](WorkItemExternalMetadataFilterApiModel.md) | Specifies work item filter by its external metadata | [optional] 
 
 ## Methods
 
@@ -924,6 +925,41 @@ HasLinks returns a boolean if a field has been set.
 `func (o *WorkItemFilterApiModel) UnsetLinks()`
 
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetExternalMetadata
+
+`func (o *WorkItemFilterApiModel) GetExternalMetadata() WorkItemExternalMetadataFilterApiModel`
+
+GetExternalMetadata returns the ExternalMetadata field if non-nil, zero value otherwise.
+
+### GetExternalMetadataOk
+
+`func (o *WorkItemFilterApiModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterApiModel, bool)`
+
+GetExternalMetadataOk returns a tuple with the ExternalMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalMetadata
+
+`func (o *WorkItemFilterApiModel) SetExternalMetadata(v WorkItemExternalMetadataFilterApiModel)`
+
+SetExternalMetadata sets ExternalMetadata field to given value.
+
+### HasExternalMetadata
+
+`func (o *WorkItemFilterApiModel) HasExternalMetadata() bool`
+
+HasExternalMetadata returns a boolean if a field has been set.
+
+### SetExternalMetadataNil
+
+`func (o *WorkItemFilterApiModel) SetExternalMetadataNil(b bool)`
+
+ SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+
+### UnsetExternalMetadata
+`func (o *WorkItemFilterApiModel) UnsetExternalMetadata()`
+
+UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

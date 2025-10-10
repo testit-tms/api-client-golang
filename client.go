@@ -61,6 +61,8 @@ type APIClient struct {
 
 	CustomAttributesAPI *CustomAttributesAPIService
 
+	ExternalIssuesAPI *ExternalIssuesAPIService
+
 	NotificationsAPI *NotificationsAPIService
 
 	ParametersAPI *ParametersAPIService
@@ -134,6 +136,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ConfigurationsAPI = (*ConfigurationsAPIService)(&c.common)
 	c.CustomAttributeTemplatesAPI = (*CustomAttributeTemplatesAPIService)(&c.common)
 	c.CustomAttributesAPI = (*CustomAttributesAPIService)(&c.common)
+	c.ExternalIssuesAPI = (*ExternalIssuesAPIService)(&c.common)
 	c.NotificationsAPI = (*NotificationsAPIService)(&c.common)
 	c.ParametersAPI = (*ParametersAPIService)(&c.common)
 	c.ProjectAttributeTemplatesAPI = (*ProjectAttributeTemplatesAPIService)(&c.common)

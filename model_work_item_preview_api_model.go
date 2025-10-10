@@ -24,10 +24,6 @@ type WorkItemPreviewApiModel struct {
 	Name string `json:"name"`
 	Description string `json:"description"`
 	Steps []WorkItemPreviewStepApiModel `json:"steps"`
-	// Deprecated
-	Action string `json:"action"`
-	// Deprecated
-	Expected string `json:"expected"`
 }
 
 type _WorkItemPreviewApiModel WorkItemPreviewApiModel
@@ -36,13 +32,11 @@ type _WorkItemPreviewApiModel WorkItemPreviewApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemPreviewApiModel(name string, description string, steps []WorkItemPreviewStepApiModel, action string, expected string) *WorkItemPreviewApiModel {
+func NewWorkItemPreviewApiModel(name string, description string, steps []WorkItemPreviewStepApiModel) *WorkItemPreviewApiModel {
 	this := WorkItemPreviewApiModel{}
 	this.Name = name
 	this.Description = description
 	this.Steps = steps
-	this.Action = action
-	this.Expected = expected
 	return &this
 }
 
@@ -126,60 +120,6 @@ func (o *WorkItemPreviewApiModel) SetSteps(v []WorkItemPreviewStepApiModel) {
 	o.Steps = v
 }
 
-// GetAction returns the Action field value
-// Deprecated
-func (o *WorkItemPreviewApiModel) GetAction() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Action
-}
-
-// GetActionOk returns a tuple with the Action field value
-// and a boolean to check if the value has been set.
-// Deprecated
-func (o *WorkItemPreviewApiModel) GetActionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Action, true
-}
-
-// SetAction sets field value
-// Deprecated
-func (o *WorkItemPreviewApiModel) SetAction(v string) {
-	o.Action = v
-}
-
-// GetExpected returns the Expected field value
-// Deprecated
-func (o *WorkItemPreviewApiModel) GetExpected() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Expected
-}
-
-// GetExpectedOk returns a tuple with the Expected field value
-// and a boolean to check if the value has been set.
-// Deprecated
-func (o *WorkItemPreviewApiModel) GetExpectedOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Expected, true
-}
-
-// SetExpected sets field value
-// Deprecated
-func (o *WorkItemPreviewApiModel) SetExpected(v string) {
-	o.Expected = v
-}
-
 func (o WorkItemPreviewApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -193,8 +133,6 @@ func (o WorkItemPreviewApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["description"] = o.Description
 	toSerialize["steps"] = o.Steps
-	toSerialize["action"] = o.Action
-	toSerialize["expected"] = o.Expected
 	return toSerialize, nil
 }
 
@@ -206,8 +144,6 @@ func (o *WorkItemPreviewApiModel) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"description",
 		"steps",
-		"action",
-		"expected",
 	}
 
 	allProperties := make(map[string]interface{})

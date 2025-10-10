@@ -70,12 +70,12 @@ func (r ApiApiV2WebhooksLogsGetRequest) SearchValue(searchValue string) ApiApiV2
 	return r
 }
 
-func (r ApiApiV2WebhooksLogsGetRequest) Execute() ([]WebHookLogModel, *http.Response, error) {
+func (r ApiApiV2WebhooksLogsGetRequest) Execute() ([]WebhookLogApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2WebhooksLogsGetExecute(r)
 }
 
 /*
-ApiV2WebhooksLogsGet Get all webhook logs
+ApiV2WebhooksLogsGet Get last webhook logs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2WebhooksLogsGetRequest
@@ -88,13 +88,13 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGet(ctx context.Context) ApiAp
 }
 
 // Execute executes the request
-//  @return []WebHookLogModel
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksLogsGetRequest) ([]WebHookLogModel, *http.Response, error) {
+//  @return []WebhookLogApiResult
+func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksLogsGetRequest) ([]WebhookLogApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []WebHookLogModel
+		localVarReturnValue  []WebhookLogApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsAPIService.ApiV2WebhooksLogsGet")
@@ -179,17 +179,6 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksL
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -223,6 +212,17 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksL
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -243,16 +243,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsGetExecute(r ApiApiV2WebhooksL
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -443,7 +434,7 @@ type ApiApiV2WebhooksLogsIdGetRequest struct {
 	id string
 }
 
-func (r ApiApiV2WebhooksLogsIdGetRequest) Execute() (*WebHookLogModel, *http.Response, error) {
+func (r ApiApiV2WebhooksLogsIdGetRequest) Execute() (*WebhookLogApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2WebhooksLogsIdGetExecute(r)
 }
 
@@ -463,13 +454,13 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGet(ctx context.Context, id 
 }
 
 // Execute executes the request
-//  @return WebHookLogModel
-func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2WebhooksLogsIdGetRequest) (*WebHookLogModel, *http.Response, error) {
+//  @return WebhookLogApiResult
+func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2WebhooksLogsIdGetRequest) (*WebhookLogApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WebHookLogModel
+		localVarReturnValue  *WebhookLogApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WebhooksLogsAPIService.ApiV2WebhooksLogsIdGet")
@@ -537,17 +528,6 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2Webhook
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -581,6 +561,17 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2Webhook
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -601,16 +592,7 @@ func (a *WebhooksLogsAPIService) ApiV2WebhooksLogsIdGetExecute(r ApiApiV2Webhook
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 

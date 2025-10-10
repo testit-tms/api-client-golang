@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filter** | Pointer to [**NullableTestResultsFilterApiModel**](TestResultsFilterApiModel.md) |  | [optional] 
-**ExtractionModel** | Pointer to [**NullableManualRerunTestResultApiModel**](ManualRerunTestResultApiModel.md) |  | [optional] 
+**Filter** | Pointer to [**NullableTestResultsFilterApiModel**](TestResultsFilterApiModel.md) | Test results filter. | [optional] 
+**ExtractionModel** | Pointer to [**NullableManualRerunTestResultApiModel**](ManualRerunTestResultApiModel.md) | Test results extraction model. | [optional] 
+**WebhookIds** | Pointer to **[]string** | Webhook ids to rerun. | [optional] 
 
 ## Methods
 
@@ -96,6 +97,41 @@ HasExtractionModel returns a boolean if a field has been set.
 `func (o *ManualRerunSelectTestResultsApiModel) UnsetExtractionModel()`
 
 UnsetExtractionModel ensures that no value is present for ExtractionModel, not even an explicit nil
+### GetWebhookIds
+
+`func (o *ManualRerunSelectTestResultsApiModel) GetWebhookIds() []string`
+
+GetWebhookIds returns the WebhookIds field if non-nil, zero value otherwise.
+
+### GetWebhookIdsOk
+
+`func (o *ManualRerunSelectTestResultsApiModel) GetWebhookIdsOk() (*[]string, bool)`
+
+GetWebhookIdsOk returns a tuple with the WebhookIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWebhookIds
+
+`func (o *ManualRerunSelectTestResultsApiModel) SetWebhookIds(v []string)`
+
+SetWebhookIds sets WebhookIds field to given value.
+
+### HasWebhookIds
+
+`func (o *ManualRerunSelectTestResultsApiModel) HasWebhookIds() bool`
+
+HasWebhookIds returns a boolean if a field has been set.
+
+### SetWebhookIdsNil
+
+`func (o *ManualRerunSelectTestResultsApiModel) SetWebhookIdsNil(b bool)`
+
+ SetWebhookIdsNil sets the value for WebhookIds to be an explicit nil
+
+### UnsetWebhookIds
+`func (o *ManualRerunSelectTestResultsApiModel) UnsetWebhookIds()`
+
+UnsetWebhookIds ensures that no value is present for WebhookIds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

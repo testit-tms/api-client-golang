@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **GlobalId** | **int64** |  | 
+**ExternalIssues** | [**[]ExternalIssueModel**](ExternalIssueModel.md) |  | 
 **Id** | **string** |  | 
 **SectionId** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -40,7 +41,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemModel
 
-`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
+`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
 
 NewWorkItemModel instantiates a new WorkItemModel object
 This constructor will assign default values to properties that have it defined,
@@ -498,6 +499,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemModel) SetGlobalId(v int64)`
 
 SetGlobalId sets GlobalId field to given value.
+
+
+### GetExternalIssues
+
+`func (o *WorkItemModel) GetExternalIssues() []ExternalIssueModel`
+
+GetExternalIssues returns the ExternalIssues field if non-nil, zero value otherwise.
+
+### GetExternalIssuesOk
+
+`func (o *WorkItemModel) GetExternalIssuesOk() (*[]ExternalIssueModel, bool)`
+
+GetExternalIssuesOk returns a tuple with the ExternalIssues field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalIssues
+
+`func (o *WorkItemModel) SetExternalIssues(v []ExternalIssueModel)`
+
+SetExternalIssues sets ExternalIssues field to given value.
 
 
 ### GetId

@@ -21,7 +21,10 @@ var _ MappedNullable = &ExternalIssueApiFieldSuggestion{}
 
 // ExternalIssueApiFieldSuggestion struct for ExternalIssueApiFieldSuggestion
 type ExternalIssueApiFieldSuggestion struct {
+	// Value of the external issue field
 	Value string `json:"value"`
+	// Associated external service with this value
+	ExternalService ExternalIssueExternalServiceApiResult `json:"externalService"`
 }
 
 type _ExternalIssueApiFieldSuggestion ExternalIssueApiFieldSuggestion
@@ -30,9 +33,10 @@ type _ExternalIssueApiFieldSuggestion ExternalIssueApiFieldSuggestion
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewExternalIssueApiFieldSuggestion(value string) *ExternalIssueApiFieldSuggestion {
+func NewExternalIssueApiFieldSuggestion(value string, externalService ExternalIssueExternalServiceApiResult) *ExternalIssueApiFieldSuggestion {
 	this := ExternalIssueApiFieldSuggestion{}
 	this.Value = value
+	this.ExternalService = externalService
 	return &this
 }
 
@@ -68,6 +72,30 @@ func (o *ExternalIssueApiFieldSuggestion) SetValue(v string) {
 	o.Value = v
 }
 
+// GetExternalService returns the ExternalService field value
+func (o *ExternalIssueApiFieldSuggestion) GetExternalService() ExternalIssueExternalServiceApiResult {
+	if o == nil {
+		var ret ExternalIssueExternalServiceApiResult
+		return ret
+	}
+
+	return o.ExternalService
+}
+
+// GetExternalServiceOk returns a tuple with the ExternalService field value
+// and a boolean to check if the value has been set.
+func (o *ExternalIssueApiFieldSuggestion) GetExternalServiceOk() (*ExternalIssueExternalServiceApiResult, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ExternalService, true
+}
+
+// SetExternalService sets field value
+func (o *ExternalIssueApiFieldSuggestion) SetExternalService(v ExternalIssueExternalServiceApiResult) {
+	o.ExternalService = v
+}
+
 func (o ExternalIssueApiFieldSuggestion) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -79,6 +107,7 @@ func (o ExternalIssueApiFieldSuggestion) MarshalJSON() ([]byte, error) {
 func (o ExternalIssueApiFieldSuggestion) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["value"] = o.Value
+	toSerialize["externalService"] = o.ExternalService
 	return toSerialize, nil
 }
 
@@ -88,6 +117,7 @@ func (o *ExternalIssueApiFieldSuggestion) UnmarshalJSON(data []byte) (err error)
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"value",
+		"externalService",
 	}
 
 	allProperties := make(map[string]interface{})
