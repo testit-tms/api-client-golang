@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test point range of last modification date to search for | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Specifies a test point last editor IDs to search for | [optional] 
 **Tags** | Pointer to **[]string** | Specifies a test point tags to search for | [optional] 
+**ExcludeTags** | Pointer to **[]string** | Specifies a test point tags to exclude to search for | [optional] 
 **Attributes** | Pointer to **map[string][]string** | Specifies a test point attributes to search for | [optional] 
 **WorkItemCreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **WorkItemCreatedByIds** | Pointer to **[]string** | Specifies a work item creator IDs to search for | [optional] 
@@ -641,6 +642,41 @@ HasTags returns a boolean if a field has been set.
 `func (o *TestPlanTestPointsSearchApiModel) UnsetTags()`
 
 UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetExcludeTags
+
+`func (o *TestPlanTestPointsSearchApiModel) GetExcludeTags() []string`
+
+GetExcludeTags returns the ExcludeTags field if non-nil, zero value otherwise.
+
+### GetExcludeTagsOk
+
+`func (o *TestPlanTestPointsSearchApiModel) GetExcludeTagsOk() (*[]string, bool)`
+
+GetExcludeTagsOk returns a tuple with the ExcludeTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeTags
+
+`func (o *TestPlanTestPointsSearchApiModel) SetExcludeTags(v []string)`
+
+SetExcludeTags sets ExcludeTags field to given value.
+
+### HasExcludeTags
+
+`func (o *TestPlanTestPointsSearchApiModel) HasExcludeTags() bool`
+
+HasExcludeTags returns a boolean if a field has been set.
+
+### SetExcludeTagsNil
+
+`func (o *TestPlanTestPointsSearchApiModel) SetExcludeTagsNil(b bool)`
+
+ SetExcludeTagsNil sets the value for ExcludeTags to be an explicit nil
+
+### UnsetExcludeTags
+`func (o *TestPlanTestPointsSearchApiModel) UnsetExcludeTags()`
+
+UnsetExcludeTags ensures that no value is present for ExcludeTags, not even an explicit nil
 ### GetAttributes
 
 `func (o *TestPlanTestPointsSearchApiModel) GetAttributes() map[string][]string`

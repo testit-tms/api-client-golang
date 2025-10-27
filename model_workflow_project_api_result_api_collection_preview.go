@@ -21,7 +21,9 @@ var _ MappedNullable = &WorkflowProjectApiResultApiCollectionPreview{}
 
 // WorkflowProjectApiResultApiCollectionPreview struct for WorkflowProjectApiResultApiCollectionPreview
 type WorkflowProjectApiResultApiCollectionPreview struct {
+	// Preview items
 	Data []WorkflowProjectApiResult `json:"data"`
+	// Total count
 	TotalCount int32 `json:"totalCount"`
 }
 

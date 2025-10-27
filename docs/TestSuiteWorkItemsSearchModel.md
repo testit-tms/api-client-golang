@@ -5,10 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TagNames** | Pointer to **[]string** | Collection of tags | [optional] 
-**EntityTypes** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**EntityTypes** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **NameOrId** | Pointer to **NullableString** | Name or identifier (UUID) of work item | [optional] 
 **IncludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **ExcludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
+**ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata | [optional] 
 **ProjectIds** | Pointer to **[]string** | Collection of project identifiers | [optional] 
 **Links** | Pointer to [**NullableWorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links | [optional] 
 **Name** | Pointer to **NullableString** | Name of work item | [optional] 
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 **MedianDuration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a work item median duration range to search for | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Is result must consist of only manual/automated work items | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags | [optional] 
+**ExcludeTags** | Pointer to **[]string** | Collection of tags to exclude | [optional] 
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
 **WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
 
@@ -226,6 +228,41 @@ HasExcludeIds returns a boolean if a field has been set.
 `func (o *TestSuiteWorkItemsSearchModel) UnsetExcludeIds()`
 
 UnsetExcludeIds ensures that no value is present for ExcludeIds, not even an explicit nil
+### GetExternalMetadata
+
+`func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel`
+
+GetExternalMetadata returns the ExternalMetadata field if non-nil, zero value otherwise.
+
+### GetExternalMetadataOk
+
+`func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool)`
+
+GetExternalMetadataOk returns a tuple with the ExternalMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalMetadata
+
+`func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel)`
+
+SetExternalMetadata sets ExternalMetadata field to given value.
+
+### HasExternalMetadata
+
+`func (o *TestSuiteWorkItemsSearchModel) HasExternalMetadata() bool`
+
+HasExternalMetadata returns a boolean if a field has been set.
+
+### SetExternalMetadataNil
+
+`func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadataNil(b bool)`
+
+ SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+
+### UnsetExternalMetadata
+`func (o *TestSuiteWorkItemsSearchModel) UnsetExternalMetadata()`
+
+UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
 ### GetProjectIds
 
 `func (o *TestSuiteWorkItemsSearchModel) GetProjectIds() []string`
@@ -926,6 +963,41 @@ HasTags returns a boolean if a field has been set.
 `func (o *TestSuiteWorkItemsSearchModel) UnsetTags()`
 
 UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetExcludeTags
+
+`func (o *TestSuiteWorkItemsSearchModel) GetExcludeTags() []string`
+
+GetExcludeTags returns the ExcludeTags field if non-nil, zero value otherwise.
+
+### GetExcludeTagsOk
+
+`func (o *TestSuiteWorkItemsSearchModel) GetExcludeTagsOk() (*[]string, bool)`
+
+GetExcludeTagsOk returns a tuple with the ExcludeTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeTags
+
+`func (o *TestSuiteWorkItemsSearchModel) SetExcludeTags(v []string)`
+
+SetExcludeTags sets ExcludeTags field to given value.
+
+### HasExcludeTags
+
+`func (o *TestSuiteWorkItemsSearchModel) HasExcludeTags() bool`
+
+HasExcludeTags returns a boolean if a field has been set.
+
+### SetExcludeTagsNil
+
+`func (o *TestSuiteWorkItemsSearchModel) SetExcludeTagsNil(b bool)`
+
+ SetExcludeTagsNil sets the value for ExcludeTags to be an explicit nil
+
+### UnsetExcludeTags
+`func (o *TestSuiteWorkItemsSearchModel) UnsetExcludeTags()`
+
+UnsetExcludeTags ensures that no value is present for ExcludeTags, not even an explicit nil
 ### GetAutoTestIds
 
 `func (o *TestSuiteWorkItemsSearchModel) GetAutoTestIds() []string`

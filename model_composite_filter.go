@@ -21,7 +21,7 @@ var _ MappedNullable = &CompositeFilter{}
 
 // CompositeFilter struct for CompositeFilter
 type CompositeFilter struct {
-	Filters []map[string]interface{} `json:"filters"`
+	Filters []IFilter `json:"filters"`
 	Operator LogicalOperator `json:"operator"`
 }
 
@@ -31,7 +31,7 @@ type _CompositeFilter CompositeFilter
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCompositeFilter(filters []map[string]interface{}, operator LogicalOperator) *CompositeFilter {
+func NewCompositeFilter(filters []IFilter, operator LogicalOperator) *CompositeFilter {
 	this := CompositeFilter{}
 	this.Filters = filters
 	this.Operator = operator
@@ -47,9 +47,9 @@ func NewCompositeFilterWithDefaults() *CompositeFilter {
 }
 
 // GetFilters returns the Filters field value
-func (o *CompositeFilter) GetFilters() []map[string]interface{} {
+func (o *CompositeFilter) GetFilters() []IFilter {
 	if o == nil {
-		var ret []map[string]interface{}
+		var ret []IFilter
 		return ret
 	}
 
@@ -58,7 +58,7 @@ func (o *CompositeFilter) GetFilters() []map[string]interface{} {
 
 // GetFiltersOk returns a tuple with the Filters field value
 // and a boolean to check if the value has been set.
-func (o *CompositeFilter) GetFiltersOk() ([]map[string]interface{}, bool) {
+func (o *CompositeFilter) GetFiltersOk() ([]IFilter, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,7 +66,7 @@ func (o *CompositeFilter) GetFiltersOk() ([]map[string]interface{}, bool) {
 }
 
 // SetFilters sets field value
-func (o *CompositeFilter) SetFilters(v []map[string]interface{}) {
+func (o *CompositeFilter) SetFilters(v []IFilter) {
 	o.Filters = v
 }
 

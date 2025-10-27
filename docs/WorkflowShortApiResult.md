@@ -8,13 +8,17 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **IsSystem** | **bool** |  | 
 **IsDefault** | **bool** |  | 
+**CreatedDate** | **time.Time** |  | 
+**CreatedById** | **string** |  | 
+**ModifiedDate** | **time.Time** |  | 
+**ModifiedById** | **string** |  | 
 **Projects** | [**WorkflowProjectApiResultApiCollectionPreview**](WorkflowProjectApiResultApiCollectionPreview.md) |  | 
 
 ## Methods
 
 ### NewWorkflowShortApiResult
 
-`func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool, projects WorkflowProjectApiResultApiCollectionPreview, ) *WorkflowShortApiResult`
+`func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool, createdDate time.Time, createdById string, modifiedDate time.Time, modifiedById string, projects WorkflowProjectApiResultApiCollectionPreview, ) *WorkflowShortApiResult`
 
 NewWorkflowShortApiResult instantiates a new WorkflowShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -107,6 +111,86 @@ and a boolean to check if the value has been set.
 `func (o *WorkflowShortApiResult) SetIsDefault(v bool)`
 
 SetIsDefault sets IsDefault field to given value.
+
+
+### GetCreatedDate
+
+`func (o *WorkflowShortApiResult) GetCreatedDate() time.Time`
+
+GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
+
+### GetCreatedDateOk
+
+`func (o *WorkflowShortApiResult) GetCreatedDateOk() (*time.Time, bool)`
+
+GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedDate
+
+`func (o *WorkflowShortApiResult) SetCreatedDate(v time.Time)`
+
+SetCreatedDate sets CreatedDate field to given value.
+
+
+### GetCreatedById
+
+`func (o *WorkflowShortApiResult) GetCreatedById() string`
+
+GetCreatedById returns the CreatedById field if non-nil, zero value otherwise.
+
+### GetCreatedByIdOk
+
+`func (o *WorkflowShortApiResult) GetCreatedByIdOk() (*string, bool)`
+
+GetCreatedByIdOk returns a tuple with the CreatedById field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedById
+
+`func (o *WorkflowShortApiResult) SetCreatedById(v string)`
+
+SetCreatedById sets CreatedById field to given value.
+
+
+### GetModifiedDate
+
+`func (o *WorkflowShortApiResult) GetModifiedDate() time.Time`
+
+GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
+
+### GetModifiedDateOk
+
+`func (o *WorkflowShortApiResult) GetModifiedDateOk() (*time.Time, bool)`
+
+GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedDate
+
+`func (o *WorkflowShortApiResult) SetModifiedDate(v time.Time)`
+
+SetModifiedDate sets ModifiedDate field to given value.
+
+
+### GetModifiedById
+
+`func (o *WorkflowShortApiResult) GetModifiedById() string`
+
+GetModifiedById returns the ModifiedById field if non-nil, zero value otherwise.
+
+### GetModifiedByIdOk
+
+`func (o *WorkflowShortApiResult) GetModifiedByIdOk() (*string, bool)`
+
+GetModifiedByIdOk returns a tuple with the ModifiedById field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedById
+
+`func (o *WorkflowShortApiResult) SetModifiedById(v string)`
+
+SetModifiedById sets ModifiedById field to given value.
 
 
 ### GetProjects

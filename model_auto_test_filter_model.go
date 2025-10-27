@@ -36,7 +36,7 @@ type AutoTestFilterModel struct {
 	ClassName NullableString `json:"className,omitempty"`
 	IsEmptyClassName NullableBool `json:"isEmptyClassName,omitempty"`
 	LastTestResultOutcome NullableAutotestResultOutcome `json:"lastTestResultOutcome,omitempty"`
-	LastTestResultStatusCode NullableString `json:"lastTestResultStatusCode,omitempty"`
+	LastTestResultStatusCodes []string `json:"lastTestResultStatusCodes,omitempty"`
 	ExternalKey NullableString `json:"externalKey,omitempty"`
 	LastTestResultConfigurationIds []string `json:"lastTestResultConfigurationIds,omitempty"`
 }
@@ -727,46 +727,37 @@ func (o *AutoTestFilterModel) UnsetLastTestResultOutcome() {
 	o.LastTestResultOutcome.Unset()
 }
 
-// GetLastTestResultStatusCode returns the LastTestResultStatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestFilterModel) GetLastTestResultStatusCode() string {
-	if o == nil || IsNil(o.LastTestResultStatusCode.Get()) {
-		var ret string
+// GetLastTestResultStatusCodes returns the LastTestResultStatusCodes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestFilterModel) GetLastTestResultStatusCodes() []string {
+	if o == nil {
+		var ret []string
 		return ret
 	}
-	return *o.LastTestResultStatusCode.Get()
+	return o.LastTestResultStatusCodes
 }
 
-// GetLastTestResultStatusCodeOk returns a tuple with the LastTestResultStatusCode field value if set, nil otherwise
+// GetLastTestResultStatusCodesOk returns a tuple with the LastTestResultStatusCodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestFilterModel) GetLastTestResultStatusCodeOk() (*string, bool) {
-	if o == nil {
+func (o *AutoTestFilterModel) GetLastTestResultStatusCodesOk() ([]string, bool) {
+	if o == nil || IsNil(o.LastTestResultStatusCodes) {
 		return nil, false
 	}
-	return o.LastTestResultStatusCode.Get(), o.LastTestResultStatusCode.IsSet()
+	return o.LastTestResultStatusCodes, true
 }
 
-// HasLastTestResultStatusCode returns a boolean if a field has been set.
-func (o *AutoTestFilterModel) HasLastTestResultStatusCode() bool {
-	if o != nil && o.LastTestResultStatusCode.IsSet() {
+// HasLastTestResultStatusCodes returns a boolean if a field has been set.
+func (o *AutoTestFilterModel) HasLastTestResultStatusCodes() bool {
+	if o != nil && !IsNil(o.LastTestResultStatusCodes) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastTestResultStatusCode gets a reference to the given NullableString and assigns it to the LastTestResultStatusCode field.
-func (o *AutoTestFilterModel) SetLastTestResultStatusCode(v string) {
-	o.LastTestResultStatusCode.Set(&v)
-}
-// SetLastTestResultStatusCodeNil sets the value for LastTestResultStatusCode to be an explicit nil
-func (o *AutoTestFilterModel) SetLastTestResultStatusCodeNil() {
-	o.LastTestResultStatusCode.Set(nil)
-}
-
-// UnsetLastTestResultStatusCode ensures that no value is present for LastTestResultStatusCode, not even an explicit nil
-func (o *AutoTestFilterModel) UnsetLastTestResultStatusCode() {
-	o.LastTestResultStatusCode.Unset()
+// SetLastTestResultStatusCodes gets a reference to the given []string and assigns it to the LastTestResultStatusCodes field.
+func (o *AutoTestFilterModel) SetLastTestResultStatusCodes(v []string) {
+	o.LastTestResultStatusCodes = v
 }
 
 // GetExternalKey returns the ExternalKey field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -905,8 +896,8 @@ func (o AutoTestFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.LastTestResultOutcome.IsSet() {
 		toSerialize["lastTestResultOutcome"] = o.LastTestResultOutcome.Get()
 	}
-	if o.LastTestResultStatusCode.IsSet() {
-		toSerialize["lastTestResultStatusCode"] = o.LastTestResultStatusCode.Get()
+	if o.LastTestResultStatusCodes != nil {
+		toSerialize["lastTestResultStatusCodes"] = o.LastTestResultStatusCodes
 	}
 	if o.ExternalKey.IsSet() {
 		toSerialize["externalKey"] = o.ExternalKey.Get()

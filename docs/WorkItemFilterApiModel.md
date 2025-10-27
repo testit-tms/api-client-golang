@@ -26,9 +26,11 @@ Name | Type | Description | Notes
 **MedianDuration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a work item median duration range to search for | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Is result must consist of only manual/automated work items | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags | [optional] 
+**ExcludeTags** | Pointer to **[]string** | Collection of tags to exclude | [optional] 
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
 **WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
 **Links** | Pointer to [**NullableWorkItemLinkFilterApiModel**](WorkItemLinkFilterApiModel.md) | Specifies a work item filter by its links | [optional] 
+**ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterApiModel**](WorkItemExternalMetadataFilterApiModel.md) | Specifies work item filter by its external metadata | [optional] 
 
 ## Methods
 
@@ -819,6 +821,41 @@ HasTags returns a boolean if a field has been set.
 `func (o *WorkItemFilterApiModel) UnsetTags()`
 
 UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetExcludeTags
+
+`func (o *WorkItemFilterApiModel) GetExcludeTags() []string`
+
+GetExcludeTags returns the ExcludeTags field if non-nil, zero value otherwise.
+
+### GetExcludeTagsOk
+
+`func (o *WorkItemFilterApiModel) GetExcludeTagsOk() (*[]string, bool)`
+
+GetExcludeTagsOk returns a tuple with the ExcludeTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeTags
+
+`func (o *WorkItemFilterApiModel) SetExcludeTags(v []string)`
+
+SetExcludeTags sets ExcludeTags field to given value.
+
+### HasExcludeTags
+
+`func (o *WorkItemFilterApiModel) HasExcludeTags() bool`
+
+HasExcludeTags returns a boolean if a field has been set.
+
+### SetExcludeTagsNil
+
+`func (o *WorkItemFilterApiModel) SetExcludeTagsNil(b bool)`
+
+ SetExcludeTagsNil sets the value for ExcludeTags to be an explicit nil
+
+### UnsetExcludeTags
+`func (o *WorkItemFilterApiModel) UnsetExcludeTags()`
+
+UnsetExcludeTags ensures that no value is present for ExcludeTags, not even an explicit nil
 ### GetAutoTestIds
 
 `func (o *WorkItemFilterApiModel) GetAutoTestIds() []string`
@@ -924,6 +961,41 @@ HasLinks returns a boolean if a field has been set.
 `func (o *WorkItemFilterApiModel) UnsetLinks()`
 
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetExternalMetadata
+
+`func (o *WorkItemFilterApiModel) GetExternalMetadata() WorkItemExternalMetadataFilterApiModel`
+
+GetExternalMetadata returns the ExternalMetadata field if non-nil, zero value otherwise.
+
+### GetExternalMetadataOk
+
+`func (o *WorkItemFilterApiModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterApiModel, bool)`
+
+GetExternalMetadataOk returns a tuple with the ExternalMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalMetadata
+
+`func (o *WorkItemFilterApiModel) SetExternalMetadata(v WorkItemExternalMetadataFilterApiModel)`
+
+SetExternalMetadata sets ExternalMetadata field to given value.
+
+### HasExternalMetadata
+
+`func (o *WorkItemFilterApiModel) HasExternalMetadata() bool`
+
+HasExternalMetadata returns a boolean if a field has been set.
+
+### SetExternalMetadataNil
+
+`func (o *WorkItemFilterApiModel) SetExternalMetadataNil(b bool)`
+
+ SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+
+### UnsetExternalMetadata
+`func (o *WorkItemFilterApiModel) UnsetExternalMetadata()`
+
+UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

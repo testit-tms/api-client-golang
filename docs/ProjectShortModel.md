@@ -19,14 +19,14 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
 **GlobalId** | **int64** | Global ID of the project | 
 **Type** | [**ProjectTypeModel**](ProjectTypeModel.md) | Type of the project | 
-**IsFlakyAuto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
+**IsFlakyAuto** | Pointer to **NullableBool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | [optional] 
 **WorkflowId** | **string** |  | 
 
 ## Methods
 
 ### NewProjectShortModel
 
-`func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool, workflowId string, ) *ProjectShortModel`
+`func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, workflowId string, ) *ProjectShortModel`
 
 NewProjectShortModel instantiates a new ProjectShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -465,7 +465,22 @@ and a boolean to check if the value has been set.
 
 SetIsFlakyAuto sets IsFlakyAuto field to given value.
 
+### HasIsFlakyAuto
 
+`func (o *ProjectShortModel) HasIsFlakyAuto() bool`
+
+HasIsFlakyAuto returns a boolean if a field has been set.
+
+### SetIsFlakyAutoNil
+
+`func (o *ProjectShortModel) SetIsFlakyAutoNil(b bool)`
+
+ SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
+
+### UnsetIsFlakyAuto
+`func (o *ProjectShortModel) UnsetIsFlakyAuto()`
+
+UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
 ### GetWorkflowId
 
 `func (o *ProjectShortModel) GetWorkflowId() string`

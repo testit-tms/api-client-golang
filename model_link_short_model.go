@@ -23,6 +23,7 @@ var _ MappedNullable = &LinkShortModel{}
 type LinkShortModel struct {
 	Id string `json:"id"`
 	Title string `json:"title"`
+	Type NullableString `json:"type,omitempty"`
 	Url string `json:"url"`
 }
 
@@ -96,6 +97,48 @@ func (o *LinkShortModel) SetTitle(v string) {
 	o.Title = v
 }
 
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LinkShortModel) GetType() string {
+	if o == nil || IsNil(o.Type.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Type.Get()
+}
+
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LinkShortModel) GetTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Type.Get(), o.Type.IsSet()
+}
+
+// HasType returns a boolean if a field has been set.
+func (o *LinkShortModel) HasType() bool {
+	if o != nil && o.Type.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
+func (o *LinkShortModel) SetType(v string) {
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *LinkShortModel) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *LinkShortModel) UnsetType() {
+	o.Type.Unset()
+}
+
 // GetUrl returns the Url field value
 func (o *LinkShortModel) GetUrl() string {
 	if o == nil {
@@ -132,6 +175,9 @@ func (o LinkShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["title"] = o.Title
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
+	}
 	toSerialize["url"] = o.Url
 	return toSerialize, nil
 }

@@ -2793,17 +2793,6 @@ func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTest
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v ValidationProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2837,6 +2826,17 @@ func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTest
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 409 {
 			var v ProblemDetails
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2857,16 +2857,7 @@ func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTest
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-			var v ProblemDetails
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -3497,7 +3488,7 @@ This method links an autotest to a test case or a checklist.
             4. In the toolbar above the test list, click <b>Run autotests</b>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
+ @param id Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
  @return ApiGetWorkItemsLinkedToAutoTestRequest
 */
 func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTest(ctx context.Context, id string) ApiGetWorkItemsLinkedToAutoTestRequest {
@@ -3676,11 +3667,11 @@ type ApiLinkAutoTestToWorkItemRequest struct {
 	ctx context.Context
 	ApiService *AutoTestsAPIService
 	id string
-	workItemIdModel *WorkItemIdModel
+	workItemIdApiModel *WorkItemIdApiModel
 }
 
-func (r ApiLinkAutoTestToWorkItemRequest) WorkItemIdModel(workItemIdModel WorkItemIdModel) ApiLinkAutoTestToWorkItemRequest {
-	r.workItemIdModel = &workItemIdModel
+func (r ApiLinkAutoTestToWorkItemRequest) WorkItemIdApiModel(workItemIdApiModel WorkItemIdApiModel) ApiLinkAutoTestToWorkItemRequest {
+	r.workItemIdApiModel = &workItemIdApiModel
 	return r
 }
 
@@ -3756,7 +3747,7 @@ func (a *AutoTestsAPIService) LinkAutoTestToWorkItemExecute(r ApiLinkAutoTestToW
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.workItemIdModel
+	localVarPostBody = r.workItemIdApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

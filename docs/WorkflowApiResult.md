@@ -8,13 +8,18 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **IsSystem** | **bool** |  | 
 **IsDefault** | **bool** |  | 
+**CreatedDate** | **time.Time** |  | 
+**CreatedById** | **string** |  | 
+**ModifiedDate** | **time.Time** |  | 
+**ModifiedById** | **string** |  | 
 **Statuses** | [**[]WorkflowStatusApiResult**](WorkflowStatusApiResult.md) |  | 
+**Projects** | [**[]WorkflowProjectApiResult**](WorkflowProjectApiResult.md) |  | 
 
 ## Methods
 
 ### NewWorkflowApiResult
 
-`func NewWorkflowApiResult(id string, name string, isSystem bool, isDefault bool, statuses []WorkflowStatusApiResult, ) *WorkflowApiResult`
+`func NewWorkflowApiResult(id string, name string, isSystem bool, isDefault bool, createdDate time.Time, createdById string, modifiedDate time.Time, modifiedById string, statuses []WorkflowStatusApiResult, projects []WorkflowProjectApiResult, ) *WorkflowApiResult`
 
 NewWorkflowApiResult instantiates a new WorkflowApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -109,6 +114,86 @@ and a boolean to check if the value has been set.
 SetIsDefault sets IsDefault field to given value.
 
 
+### GetCreatedDate
+
+`func (o *WorkflowApiResult) GetCreatedDate() time.Time`
+
+GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
+
+### GetCreatedDateOk
+
+`func (o *WorkflowApiResult) GetCreatedDateOk() (*time.Time, bool)`
+
+GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedDate
+
+`func (o *WorkflowApiResult) SetCreatedDate(v time.Time)`
+
+SetCreatedDate sets CreatedDate field to given value.
+
+
+### GetCreatedById
+
+`func (o *WorkflowApiResult) GetCreatedById() string`
+
+GetCreatedById returns the CreatedById field if non-nil, zero value otherwise.
+
+### GetCreatedByIdOk
+
+`func (o *WorkflowApiResult) GetCreatedByIdOk() (*string, bool)`
+
+GetCreatedByIdOk returns a tuple with the CreatedById field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreatedById
+
+`func (o *WorkflowApiResult) SetCreatedById(v string)`
+
+SetCreatedById sets CreatedById field to given value.
+
+
+### GetModifiedDate
+
+`func (o *WorkflowApiResult) GetModifiedDate() time.Time`
+
+GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
+
+### GetModifiedDateOk
+
+`func (o *WorkflowApiResult) GetModifiedDateOk() (*time.Time, bool)`
+
+GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedDate
+
+`func (o *WorkflowApiResult) SetModifiedDate(v time.Time)`
+
+SetModifiedDate sets ModifiedDate field to given value.
+
+
+### GetModifiedById
+
+`func (o *WorkflowApiResult) GetModifiedById() string`
+
+GetModifiedById returns the ModifiedById field if non-nil, zero value otherwise.
+
+### GetModifiedByIdOk
+
+`func (o *WorkflowApiResult) GetModifiedByIdOk() (*string, bool)`
+
+GetModifiedByIdOk returns a tuple with the ModifiedById field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedById
+
+`func (o *WorkflowApiResult) SetModifiedById(v string)`
+
+SetModifiedById sets ModifiedById field to given value.
+
+
 ### GetStatuses
 
 `func (o *WorkflowApiResult) GetStatuses() []WorkflowStatusApiResult`
@@ -127,6 +212,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkflowApiResult) SetStatuses(v []WorkflowStatusApiResult)`
 
 SetStatuses sets Statuses field to given value.
+
+
+### GetProjects
+
+`func (o *WorkflowApiResult) GetProjects() []WorkflowProjectApiResult`
+
+GetProjects returns the Projects field if non-nil, zero value otherwise.
+
+### GetProjectsOk
+
+`func (o *WorkflowApiResult) GetProjectsOk() (*[]WorkflowProjectApiResult, bool)`
+
+GetProjectsOk returns a tuple with the Projects field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjects
+
+`func (o *WorkflowApiResult) SetProjects(v []WorkflowProjectApiResult)`
+
+SetProjects sets Projects field to given value.
 
 
 

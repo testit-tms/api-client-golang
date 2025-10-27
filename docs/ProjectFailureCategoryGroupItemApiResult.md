@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Group** | Pointer to [**NullableAutoTestResultReasonGroupApiResult**](AutoTestResultReasonGroupApiResult.md) | Group details | [optional] 
+**Group** | Pointer to [**NullableFailureCategoryGroupApiResult**](FailureCategoryGroupApiResult.md) | Group details | [optional] 
 **Items** | [**[]ProjectFailureCategoryApiResult**](ProjectFailureCategoryApiResult.md) | Group data | 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetGroup
 
-`func (o *ProjectFailureCategoryGroupItemApiResult) GetGroup() AutoTestResultReasonGroupApiResult`
+`func (o *ProjectFailureCategoryGroupItemApiResult) GetGroup() FailureCategoryGroupApiResult`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *ProjectFailureCategoryGroupItemApiResult) GetGroupOk() (*AutoTestResultReasonGroupApiResult, bool)`
+`func (o *ProjectFailureCategoryGroupItemApiResult) GetGroupOk() (*FailureCategoryGroupApiResult, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *ProjectFailureCategoryGroupItemApiResult) SetGroup(v AutoTestResultReasonGroupApiResult)`
+`func (o *ProjectFailureCategoryGroupItemApiResult) SetGroup(v FailureCategoryGroupApiResult)`
 
 SetGroup sets Group field to given value.
 

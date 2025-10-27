@@ -12,6 +12,7 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"time"
 	"bytes"
 	"fmt"
 )
@@ -25,6 +26,10 @@ type WorkflowShortApiResult struct {
 	Name string `json:"name"`
 	IsSystem bool `json:"isSystem"`
 	IsDefault bool `json:"isDefault"`
+	CreatedDate time.Time `json:"createdDate"`
+	CreatedById string `json:"createdById"`
+	ModifiedDate time.Time `json:"modifiedDate"`
+	ModifiedById string `json:"modifiedById"`
 	Projects WorkflowProjectApiResultApiCollectionPreview `json:"projects"`
 }
 
@@ -34,12 +39,16 @@ type _WorkflowShortApiResult WorkflowShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool, projects WorkflowProjectApiResultApiCollectionPreview) *WorkflowShortApiResult {
+func NewWorkflowShortApiResult(id string, name string, isSystem bool, isDefault bool, createdDate time.Time, createdById string, modifiedDate time.Time, modifiedById string, projects WorkflowProjectApiResultApiCollectionPreview) *WorkflowShortApiResult {
 	this := WorkflowShortApiResult{}
 	this.Id = id
 	this.Name = name
 	this.IsSystem = isSystem
 	this.IsDefault = isDefault
+	this.CreatedDate = createdDate
+	this.CreatedById = createdById
+	this.ModifiedDate = modifiedDate
+	this.ModifiedById = modifiedById
 	this.Projects = projects
 	return &this
 }
@@ -148,6 +157,102 @@ func (o *WorkflowShortApiResult) SetIsDefault(v bool) {
 	o.IsDefault = v
 }
 
+// GetCreatedDate returns the CreatedDate field value
+func (o *WorkflowShortApiResult) GetCreatedDate() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.CreatedDate
+}
+
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowShortApiResult) GetCreatedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedDate, true
+}
+
+// SetCreatedDate sets field value
+func (o *WorkflowShortApiResult) SetCreatedDate(v time.Time) {
+	o.CreatedDate = v
+}
+
+// GetCreatedById returns the CreatedById field value
+func (o *WorkflowShortApiResult) GetCreatedById() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CreatedById
+}
+
+// GetCreatedByIdOk returns a tuple with the CreatedById field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowShortApiResult) GetCreatedByIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreatedById, true
+}
+
+// SetCreatedById sets field value
+func (o *WorkflowShortApiResult) SetCreatedById(v string) {
+	o.CreatedById = v
+}
+
+// GetModifiedDate returns the ModifiedDate field value
+func (o *WorkflowShortApiResult) GetModifiedDate() time.Time {
+	if o == nil {
+		var ret time.Time
+		return ret
+	}
+
+	return o.ModifiedDate
+}
+
+// GetModifiedDateOk returns a tuple with the ModifiedDate field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowShortApiResult) GetModifiedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ModifiedDate, true
+}
+
+// SetModifiedDate sets field value
+func (o *WorkflowShortApiResult) SetModifiedDate(v time.Time) {
+	o.ModifiedDate = v
+}
+
+// GetModifiedById returns the ModifiedById field value
+func (o *WorkflowShortApiResult) GetModifiedById() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ModifiedById
+}
+
+// GetModifiedByIdOk returns a tuple with the ModifiedById field value
+// and a boolean to check if the value has been set.
+func (o *WorkflowShortApiResult) GetModifiedByIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ModifiedById, true
+}
+
+// SetModifiedById sets field value
+func (o *WorkflowShortApiResult) SetModifiedById(v string) {
+	o.ModifiedById = v
+}
+
 // GetProjects returns the Projects field value
 func (o *WorkflowShortApiResult) GetProjects() WorkflowProjectApiResultApiCollectionPreview {
 	if o == nil {
@@ -186,6 +291,10 @@ func (o WorkflowShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["name"] = o.Name
 	toSerialize["isSystem"] = o.IsSystem
 	toSerialize["isDefault"] = o.IsDefault
+	toSerialize["createdDate"] = o.CreatedDate
+	toSerialize["createdById"] = o.CreatedById
+	toSerialize["modifiedDate"] = o.ModifiedDate
+	toSerialize["modifiedById"] = o.ModifiedById
 	toSerialize["projects"] = o.Projects
 	return toSerialize, nil
 }
@@ -199,6 +308,10 @@ func (o *WorkflowShortApiResult) UnmarshalJSON(data []byte) (err error) {
 		"name",
 		"isSystem",
 		"isDefault",
+		"createdDate",
+		"createdById",
+		"modifiedDate",
+		"modifiedById",
 		"projects",
 	}
 

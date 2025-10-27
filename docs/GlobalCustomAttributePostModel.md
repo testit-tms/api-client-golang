@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of attribute | 
 **IsEnabled** | Pointer to **NullableBool** | Indicates whether the attribute is available | [optional] 
 **IsRequired** | Pointer to **NullableBool** | Indicates whether the attribute value is mandatory to specify | [optional] 
-**Options** | Pointer to [**[]CustomAttributeOptionPostModel**](CustomAttributeOptionPostModel.md) | Collection of attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
+**Options** | Pointer to [**[]CustomAttributeOptionPostModel**](CustomAttributeOptionPostModel.md) | Collection of attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | [optional] 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of attribute | 
 
 ## Methods

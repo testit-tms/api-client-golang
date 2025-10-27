@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## ApiV2ProjectsProjectIdSettingsAutotestsPost
 
-> ApiV2ProjectsProjectIdSettingsAutotestsPost(ctx, projectId).AutoTestProjectSettingsPostModel(autoTestProjectSettingsPostModel).Execute()
+> ApiV2ProjectsProjectIdSettingsAutotestsPost(ctx, projectId).AutoTestProjectSettingsApiModel(autoTestProjectSettingsApiModel).Execute()
 
 Set autotest project settings.
 
@@ -28,12 +28,12 @@ import (
 )
 
 func main() {
-	projectId := "projectId_example" // string | 
-	autoTestProjectSettingsPostModel := *openapiclient.NewAutoTestProjectSettingsPostModel(false, int32(123)) // AutoTestProjectSettingsPostModel |  (optional)
+	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
+	autoTestProjectSettingsApiModel := *openapiclient.NewAutoTestProjectSettingsApiModel(false, int32(123)) // AutoTestProjectSettingsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProjectSettingsAPI.ApiV2ProjectsProjectIdSettingsAutotestsPost(context.Background(), projectId).AutoTestProjectSettingsPostModel(autoTestProjectSettingsPostModel).Execute()
+	r, err := apiClient.ProjectSettingsAPI.ApiV2ProjectsProjectIdSettingsAutotestsPost(context.Background(), projectId).AutoTestProjectSettingsApiModel(autoTestProjectSettingsApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectSettingsAPI.ApiV2ProjectsProjectIdSettingsAutotestsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -47,7 +47,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
+**projectId** | **string** | Internal (UUID) or global (integer) identifier | 
 
 ### Other Parameters
 
@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsProjectIdSett
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **autoTestProjectSettingsPostModel** | [**AutoTestProjectSettingsPostModel**](AutoTestProjectSettingsPostModel.md) |  | 
+ **autoTestProjectSettingsApiModel** | [**AutoTestProjectSettingsApiModel**](AutoTestProjectSettingsApiModel.md) |  | 
 
 ### Return type
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## GetAutotestProjectSettings
 
-> AutoTestProjectSettingsGetModel GetAutotestProjectSettings(ctx, projectId).Execute()
+> AutoTestProjectSettingsApiResult GetAutotestProjectSettings(ctx, projectId).Execute()
 
 Get autotest project settings.
 
@@ -96,7 +96,7 @@ import (
 )
 
 func main() {
-	projectId := "projectId_example" // string | 
+	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -105,7 +105,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectSettingsAPI.GetAutotestProjectSettings``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAutotestProjectSettings`: AutoTestProjectSettingsGetModel
+	// response from `GetAutotestProjectSettings`: AutoTestProjectSettingsApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectSettingsAPI.GetAutotestProjectSettings`: %v\n", resp)
 }
 ```
@@ -116,7 +116,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
+**projectId** | **string** | Internal (UUID) or global (integer) identifier | 
 
 ### Other Parameters
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AutoTestProjectSettingsGetModel**](AutoTestProjectSettingsGetModel.md)
+[**AutoTestProjectSettingsApiResult**](AutoTestProjectSettingsApiResult.md)
 
 ### Authorization
 

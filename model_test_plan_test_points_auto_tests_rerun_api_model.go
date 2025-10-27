@@ -19,8 +19,12 @@ var _ MappedNullable = &TestPlanTestPointsAutoTestsRerunApiModel{}
 
 // TestPlanTestPointsAutoTestsRerunApiModel struct for TestPlanTestPointsAutoTestsRerunApiModel
 type TestPlanTestPointsAutoTestsRerunApiModel struct {
+	// Test points filters.
 	Filter NullableTestPlanTestPointsSearchApiModel `json:"filter,omitempty"`
+	// Test points extraction model.
 	ExtractionModel NullableTestPlanTestPointsExtractionApiModel `json:"extractionModel,omitempty"`
+	// Webhook ids to rerun.
+	WebhookIds []string `json:"webhookIds,omitempty"`
 }
 
 // NewTestPlanTestPointsAutoTestsRerunApiModel instantiates a new TestPlanTestPointsAutoTestsRerunApiModel object
@@ -124,6 +128,39 @@ func (o *TestPlanTestPointsAutoTestsRerunApiModel) UnsetExtractionModel() {
 	o.ExtractionModel.Unset()
 }
 
+// GetWebhookIds returns the WebhookIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanTestPointsAutoTestsRerunApiModel) GetWebhookIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.WebhookIds
+}
+
+// GetWebhookIdsOk returns a tuple with the WebhookIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanTestPointsAutoTestsRerunApiModel) GetWebhookIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.WebhookIds) {
+		return nil, false
+	}
+	return o.WebhookIds, true
+}
+
+// HasWebhookIds returns a boolean if a field has been set.
+func (o *TestPlanTestPointsAutoTestsRerunApiModel) HasWebhookIds() bool {
+	if o != nil && !IsNil(o.WebhookIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetWebhookIds gets a reference to the given []string and assigns it to the WebhookIds field.
+func (o *TestPlanTestPointsAutoTestsRerunApiModel) SetWebhookIds(v []string) {
+	o.WebhookIds = v
+}
+
 func (o TestPlanTestPointsAutoTestsRerunApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -139,6 +176,9 @@ func (o TestPlanTestPointsAutoTestsRerunApiModel) ToMap() (map[string]interface{
 	}
 	if o.ExtractionModel.IsSet() {
 		toSerialize["extractionModel"] = o.ExtractionModel.Get()
+	}
+	if o.WebhookIds != nil {
+		toSerialize["webhookIds"] = o.WebhookIds
 	}
 	return toSerialize, nil
 }

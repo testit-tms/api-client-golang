@@ -1217,7 +1217,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
+	id := "id_example" // string | Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
 	isDeleted := true // bool | Specifies that a test is deleted or still relevant. (optional)
 	isWorkItemDeleted := true // bool | OBSOLETE: Use `isDeleted` instead (optional) (default to false)
 
@@ -1239,7 +1239,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. | 
+**id** | **string** | Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID. | 
 
 ### Other Parameters
 
@@ -1272,7 +1272,7 @@ Name | Type | Description  | Notes
 
 ## LinkAutoTestToWorkItem
 
-> LinkAutoTestToWorkItem(ctx, id).WorkItemIdModel(workItemIdModel).Execute()
+> LinkAutoTestToWorkItem(ctx, id).WorkItemIdApiModel(workItemIdApiModel).Execute()
 
 Link autotest with work items
 
@@ -1292,11 +1292,11 @@ import (
 
 func main() {
 	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-	workItemIdModel := *openapiclient.NewWorkItemIdModel("02887a0f-276a-4a9c-bfc0-1f33a3c07a13") // WorkItemIdModel |  (optional)
+	workItemIdApiModel := *openapiclient.NewWorkItemIdApiModel("Id_example") // WorkItemIdApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.LinkAutoTestToWorkItem(context.Background(), id).WorkItemIdModel(workItemIdModel).Execute()
+	r, err := apiClient.AutoTestsAPI.LinkAutoTestToWorkItem(context.Background(), id).WorkItemIdApiModel(workItemIdApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.LinkAutoTestToWorkItem``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1320,7 +1320,7 @@ Other parameters are passed through a pointer to a apiLinkAutoTestToWorkItemRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemIdModel** | [**WorkItemIdModel**](WorkItemIdModel.md) |  | 
+ **workItemIdApiModel** | [**WorkItemIdApiModel**](WorkItemIdApiModel.md) |  | 
 
 ### Return type
 

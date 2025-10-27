@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InProgress** | **int32** | Number of test results which is running currently | 
 **Passed** | **int32** | Number of test results which successfully passed | 
+**Succeeded** | **int32** | Number of successful test results | 
 **Failed** | **int32** | Number of test results which failed with an error | 
 **Skipped** | **int32** | Number of test results which did not run and were skipped | 
 **Blocked** | **int32** | Number of test results which cannot be launched | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultsStatisticsStatusesApiResult
 
-`func NewTestResultsStatisticsStatusesApiResult(inProgress int32, passed int32, failed int32, skipped int32, blocked int32, incomplete int32, ) *TestResultsStatisticsStatusesApiResult`
+`func NewTestResultsStatisticsStatusesApiResult(inProgress int32, passed int32, succeeded int32, failed int32, skipped int32, blocked int32, incomplete int32, ) *TestResultsStatisticsStatusesApiResult`
 
 NewTestResultsStatisticsStatusesApiResult instantiates a new TestResultsStatisticsStatusesApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -68,6 +69,26 @@ and a boolean to check if the value has been set.
 `func (o *TestResultsStatisticsStatusesApiResult) SetPassed(v int32)`
 
 SetPassed sets Passed field to given value.
+
+
+### GetSucceeded
+
+`func (o *TestResultsStatisticsStatusesApiResult) GetSucceeded() int32`
+
+GetSucceeded returns the Succeeded field if non-nil, zero value otherwise.
+
+### GetSucceededOk
+
+`func (o *TestResultsStatisticsStatusesApiResult) GetSucceededOk() (*int32, bool)`
+
+GetSucceededOk returns a tuple with the Succeeded field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSucceeded
+
+`func (o *TestResultsStatisticsStatusesApiResult) SetSucceeded(v int32)`
+
+SetSucceeded sets Succeeded field to given value.
 
 
 ### GetFailed

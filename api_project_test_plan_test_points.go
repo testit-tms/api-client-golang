@@ -44,7 +44,7 @@ func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPost
 ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPost Rerun autotests.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
+ @param projectId Internal (UUID) or global (integer) identifier
  @param testPlanId
  @return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPostRequest
 */
@@ -225,7 +225,7 @@ func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRe
 ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPost Run autotests.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
+ @param projectId Internal (UUID) or global (integer) identifier
  @param testPlanId
  @return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPostRequest
 */

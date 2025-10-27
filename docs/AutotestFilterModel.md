@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ClassName** | Pointer to **NullableString** |  | [optional] 
 **IsEmptyClassName** | Pointer to **NullableBool** |  | [optional] 
 **LastTestResultOutcome** | Pointer to [**NullableAutotestResultOutcome**](AutotestResultOutcome.md) |  | [optional] 
-**LastTestResultStatusCode** | Pointer to **NullableString** |  | [optional] 
+**LastTestResultStatusCodes** | Pointer to **[]string** |  | [optional] 
 **ExternalKey** | Pointer to **NullableString** |  | [optional] 
 **LastTestResultConfigurationIds** | Pointer to **[]string** |  | [optional] 
 
@@ -639,41 +639,41 @@ HasLastTestResultOutcome returns a boolean if a field has been set.
 `func (o *AutoTestFilterModel) UnsetLastTestResultOutcome()`
 
 UnsetLastTestResultOutcome ensures that no value is present for LastTestResultOutcome, not even an explicit nil
-### GetLastTestResultStatusCode
+### GetLastTestResultStatusCodes
 
-`func (o *AutoTestFilterModel) GetLastTestResultStatusCode() string`
+`func (o *AutoTestFilterModel) GetLastTestResultStatusCodes() []string`
 
-GetLastTestResultStatusCode returns the LastTestResultStatusCode field if non-nil, zero value otherwise.
+GetLastTestResultStatusCodes returns the LastTestResultStatusCodes field if non-nil, zero value otherwise.
 
-### GetLastTestResultStatusCodeOk
+### GetLastTestResultStatusCodesOk
 
-`func (o *AutoTestFilterModel) GetLastTestResultStatusCodeOk() (*string, bool)`
+`func (o *AutoTestFilterModel) GetLastTestResultStatusCodesOk() (*[]string, bool)`
 
-GetLastTestResultStatusCodeOk returns a tuple with the LastTestResultStatusCode field if it's non-nil, zero value otherwise
+GetLastTestResultStatusCodesOk returns a tuple with the LastTestResultStatusCodes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLastTestResultStatusCode
+### SetLastTestResultStatusCodes
 
-`func (o *AutoTestFilterModel) SetLastTestResultStatusCode(v string)`
+`func (o *AutoTestFilterModel) SetLastTestResultStatusCodes(v []string)`
 
-SetLastTestResultStatusCode sets LastTestResultStatusCode field to given value.
+SetLastTestResultStatusCodes sets LastTestResultStatusCodes field to given value.
 
-### HasLastTestResultStatusCode
+### HasLastTestResultStatusCodes
 
-`func (o *AutoTestFilterModel) HasLastTestResultStatusCode() bool`
+`func (o *AutoTestFilterModel) HasLastTestResultStatusCodes() bool`
 
-HasLastTestResultStatusCode returns a boolean if a field has been set.
+HasLastTestResultStatusCodes returns a boolean if a field has been set.
 
-### SetLastTestResultStatusCodeNil
+### SetLastTestResultStatusCodesNil
 
-`func (o *AutoTestFilterModel) SetLastTestResultStatusCodeNil(b bool)`
+`func (o *AutoTestFilterModel) SetLastTestResultStatusCodesNil(b bool)`
 
- SetLastTestResultStatusCodeNil sets the value for LastTestResultStatusCode to be an explicit nil
+ SetLastTestResultStatusCodesNil sets the value for LastTestResultStatusCodes to be an explicit nil
 
-### UnsetLastTestResultStatusCode
-`func (o *AutoTestFilterModel) UnsetLastTestResultStatusCode()`
+### UnsetLastTestResultStatusCodes
+`func (o *AutoTestFilterModel) UnsetLastTestResultStatusCodes()`
 
-UnsetLastTestResultStatusCode ensures that no value is present for LastTestResultStatusCode, not even an explicit nil
+UnsetLastTestResultStatusCodes ensures that no value is present for LastTestResultStatusCodes, not even an explicit nil
 ### GetExternalKey
 
 `func (o *AutoTestFilterModel) GetExternalKey() string`

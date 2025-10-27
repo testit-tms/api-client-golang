@@ -23,11 +23,16 @@ var _ MappedNullable = &UserRankModel{}
 type UserRankModel struct {
 	Score int32 `json:"score"`
 	WorkItemsCreated int32 `json:"workItemsCreated"`
+	// Deprecated
 	PassedTestPoints int32 `json:"passedTestPoints"`
 	FailedTestPoints int32 `json:"failedTestPoints"`
+	// Deprecated
 	SkippedTestPoints int32 `json:"skippedTestPoints"`
+	// Deprecated
 	BlockedTestPoints int32 `json:"blockedTestPoints"`
 	LevelAvatarEnabled bool `json:"levelAvatarEnabled"`
+	SucceededTestPoints int32 `json:"succeededTestPoints"`
+	IncompleteTestPoints int32 `json:"incompleteTestPoints"`
 }
 
 type _UserRankModel UserRankModel
@@ -36,7 +41,7 @@ type _UserRankModel UserRankModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, levelAvatarEnabled bool) *UserRankModel {
+func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, levelAvatarEnabled bool, succeededTestPoints int32, incompleteTestPoints int32) *UserRankModel {
 	this := UserRankModel{}
 	this.Score = score
 	this.WorkItemsCreated = workItemsCreated
@@ -45,6 +50,8 @@ func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int3
 	this.SkippedTestPoints = skippedTestPoints
 	this.BlockedTestPoints = blockedTestPoints
 	this.LevelAvatarEnabled = levelAvatarEnabled
+	this.SucceededTestPoints = succeededTestPoints
+	this.IncompleteTestPoints = incompleteTestPoints
 	return &this
 }
 
@@ -105,6 +112,7 @@ func (o *UserRankModel) SetWorkItemsCreated(v int32) {
 }
 
 // GetPassedTestPoints returns the PassedTestPoints field value
+// Deprecated
 func (o *UserRankModel) GetPassedTestPoints() int32 {
 	if o == nil {
 		var ret int32
@@ -116,6 +124,7 @@ func (o *UserRankModel) GetPassedTestPoints() int32 {
 
 // GetPassedTestPointsOk returns a tuple with the PassedTestPoints field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *UserRankModel) GetPassedTestPointsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
@@ -124,6 +133,7 @@ func (o *UserRankModel) GetPassedTestPointsOk() (*int32, bool) {
 }
 
 // SetPassedTestPoints sets field value
+// Deprecated
 func (o *UserRankModel) SetPassedTestPoints(v int32) {
 	o.PassedTestPoints = v
 }
@@ -153,6 +163,7 @@ func (o *UserRankModel) SetFailedTestPoints(v int32) {
 }
 
 // GetSkippedTestPoints returns the SkippedTestPoints field value
+// Deprecated
 func (o *UserRankModel) GetSkippedTestPoints() int32 {
 	if o == nil {
 		var ret int32
@@ -164,6 +175,7 @@ func (o *UserRankModel) GetSkippedTestPoints() int32 {
 
 // GetSkippedTestPointsOk returns a tuple with the SkippedTestPoints field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *UserRankModel) GetSkippedTestPointsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
@@ -172,11 +184,13 @@ func (o *UserRankModel) GetSkippedTestPointsOk() (*int32, bool) {
 }
 
 // SetSkippedTestPoints sets field value
+// Deprecated
 func (o *UserRankModel) SetSkippedTestPoints(v int32) {
 	o.SkippedTestPoints = v
 }
 
 // GetBlockedTestPoints returns the BlockedTestPoints field value
+// Deprecated
 func (o *UserRankModel) GetBlockedTestPoints() int32 {
 	if o == nil {
 		var ret int32
@@ -188,6 +202,7 @@ func (o *UserRankModel) GetBlockedTestPoints() int32 {
 
 // GetBlockedTestPointsOk returns a tuple with the BlockedTestPoints field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *UserRankModel) GetBlockedTestPointsOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
@@ -196,6 +211,7 @@ func (o *UserRankModel) GetBlockedTestPointsOk() (*int32, bool) {
 }
 
 // SetBlockedTestPoints sets field value
+// Deprecated
 func (o *UserRankModel) SetBlockedTestPoints(v int32) {
 	o.BlockedTestPoints = v
 }
@@ -224,6 +240,54 @@ func (o *UserRankModel) SetLevelAvatarEnabled(v bool) {
 	o.LevelAvatarEnabled = v
 }
 
+// GetSucceededTestPoints returns the SucceededTestPoints field value
+func (o *UserRankModel) GetSucceededTestPoints() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.SucceededTestPoints
+}
+
+// GetSucceededTestPointsOk returns a tuple with the SucceededTestPoints field value
+// and a boolean to check if the value has been set.
+func (o *UserRankModel) GetSucceededTestPointsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SucceededTestPoints, true
+}
+
+// SetSucceededTestPoints sets field value
+func (o *UserRankModel) SetSucceededTestPoints(v int32) {
+	o.SucceededTestPoints = v
+}
+
+// GetIncompleteTestPoints returns the IncompleteTestPoints field value
+func (o *UserRankModel) GetIncompleteTestPoints() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.IncompleteTestPoints
+}
+
+// GetIncompleteTestPointsOk returns a tuple with the IncompleteTestPoints field value
+// and a boolean to check if the value has been set.
+func (o *UserRankModel) GetIncompleteTestPointsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IncompleteTestPoints, true
+}
+
+// SetIncompleteTestPoints sets field value
+func (o *UserRankModel) SetIncompleteTestPoints(v int32) {
+	o.IncompleteTestPoints = v
+}
+
 func (o UserRankModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -241,6 +305,8 @@ func (o UserRankModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["skippedTestPoints"] = o.SkippedTestPoints
 	toSerialize["blockedTestPoints"] = o.BlockedTestPoints
 	toSerialize["levelAvatarEnabled"] = o.LevelAvatarEnabled
+	toSerialize["succeededTestPoints"] = o.SucceededTestPoints
+	toSerialize["incompleteTestPoints"] = o.IncompleteTestPoints
 	return toSerialize, nil
 }
 
@@ -256,6 +322,8 @@ func (o *UserRankModel) UnmarshalJSON(data []byte) (err error) {
 		"skippedTestPoints",
 		"blockedTestPoints",
 		"levelAvatarEnabled",
+		"succeededTestPoints",
+		"incompleteTestPoints",
 	}
 
 	allProperties := make(map[string]interface{})

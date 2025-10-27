@@ -25,6 +25,8 @@ type WorkItemFilterModel struct {
 	IncludeIds []string `json:"includeIds,omitempty"`
 	// Collection of identifiers of work items which need to be excluded from result regardless of filtering
 	ExcludeIds []string `json:"excludeIds,omitempty"`
+	// Specifies work item filter by its external metadata
+	ExternalMetadata NullableWorkItemExternalMetadataFilterModel `json:"externalMetadata,omitempty"`
 	// Collection of project identifiers
 	ProjectIds []string `json:"projectIds,omitempty"`
 	// Specifies a work item filter by its links
@@ -65,6 +67,8 @@ type WorkItemFilterModel struct {
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Collection of tags
 	Tags []string `json:"tags,omitempty"`
+	// Collection of tags to exclude
+	ExcludeTags []string `json:"excludeTags,omitempty"`
 	// Collection of identifiers of linked autotests
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
 	// Collection of identifiers work items versions.
@@ -194,6 +198,48 @@ func (o *WorkItemFilterModel) HasExcludeIds() bool {
 // SetExcludeIds gets a reference to the given []string and assigns it to the ExcludeIds field.
 func (o *WorkItemFilterModel) SetExcludeIds(v []string) {
 	o.ExcludeIds = v
+}
+
+// GetExternalMetadata returns the ExternalMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemFilterModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel {
+	if o == nil || IsNil(o.ExternalMetadata.Get()) {
+		var ret WorkItemExternalMetadataFilterModel
+		return ret
+	}
+	return *o.ExternalMetadata.Get()
+}
+
+// GetExternalMetadataOk returns a tuple with the ExternalMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemFilterModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalMetadata.Get(), o.ExternalMetadata.IsSet()
+}
+
+// HasExternalMetadata returns a boolean if a field has been set.
+func (o *WorkItemFilterModel) HasExternalMetadata() bool {
+	if o != nil && o.ExternalMetadata.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalMetadata gets a reference to the given NullableWorkItemExternalMetadataFilterModel and assigns it to the ExternalMetadata field.
+func (o *WorkItemFilterModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel) {
+	o.ExternalMetadata.Set(&v)
+}
+// SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+func (o *WorkItemFilterModel) SetExternalMetadataNil() {
+	o.ExternalMetadata.Set(nil)
+}
+
+// UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
+func (o *WorkItemFilterModel) UnsetExternalMetadata() {
+	o.ExternalMetadata.Unset()
 }
 
 // GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -928,6 +974,39 @@ func (o *WorkItemFilterModel) SetTags(v []string) {
 	o.Tags = v
 }
 
+// GetExcludeTags returns the ExcludeTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemFilterModel) GetExcludeTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ExcludeTags
+}
+
+// GetExcludeTagsOk returns a tuple with the ExcludeTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemFilterModel) GetExcludeTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExcludeTags) {
+		return nil, false
+	}
+	return o.ExcludeTags, true
+}
+
+// HasExcludeTags returns a boolean if a field has been set.
+func (o *WorkItemFilterModel) HasExcludeTags() bool {
+	if o != nil && !IsNil(o.ExcludeTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeTags gets a reference to the given []string and assigns it to the ExcludeTags field.
+func (o *WorkItemFilterModel) SetExcludeTags(v []string) {
+	o.ExcludeTags = v
+}
+
 // GetAutoTestIds returns the AutoTestIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WorkItemFilterModel) GetAutoTestIds() []string {
 	if o == nil {
@@ -1013,6 +1092,9 @@ func (o WorkItemFilterModel) ToMap() (map[string]interface{}, error) {
 	if o.ExcludeIds != nil {
 		toSerialize["excludeIds"] = o.ExcludeIds
 	}
+	if o.ExternalMetadata.IsSet() {
+		toSerialize["externalMetadata"] = o.ExternalMetadata.Get()
+	}
 	if o.ProjectIds != nil {
 		toSerialize["projectIds"] = o.ProjectIds
 	}
@@ -1072,6 +1154,9 @@ func (o WorkItemFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.ExcludeTags != nil {
+		toSerialize["excludeTags"] = o.ExcludeTags
 	}
 	if o.AutoTestIds != nil {
 		toSerialize["autoTestIds"] = o.AutoTestIds

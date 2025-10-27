@@ -21,8 +21,12 @@ var _ MappedNullable = &GetExternalIssueSuggestionsApiModel{}
 
 // GetExternalIssueSuggestionsApiModel struct for GetExternalIssueSuggestionsApiModel
 type GetExternalIssueSuggestionsApiModel struct {
+	// Field of external issue metadata to get
 	Field ExternalIssueApiField `json:"field"`
-	Inquiry NullableInquiry `json:"inquiry"`
+	// List of project identifiers where external issue is available
+	ProjectIds []string `json:"projectIds,omitempty"`
+	// Inquiry
+	Inquiry NullableInquiry `json:"inquiry,omitempty"`
 }
 
 type _GetExternalIssueSuggestionsApiModel GetExternalIssueSuggestionsApiModel
@@ -31,10 +35,9 @@ type _GetExternalIssueSuggestionsApiModel GetExternalIssueSuggestionsApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetExternalIssueSuggestionsApiModel(field ExternalIssueApiField, inquiry NullableInquiry) *GetExternalIssueSuggestionsApiModel {
+func NewGetExternalIssueSuggestionsApiModel(field ExternalIssueApiField) *GetExternalIssueSuggestionsApiModel {
 	this := GetExternalIssueSuggestionsApiModel{}
 	this.Field = field
-	this.Inquiry = inquiry
 	return &this
 }
 
@@ -70,18 +73,49 @@ func (o *GetExternalIssueSuggestionsApiModel) SetField(v ExternalIssueApiField) 
 	o.Field = v
 }
 
-// GetInquiry returns the Inquiry field value
-// If the value is explicit nil, the zero value for Inquiry will be returned
+// GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetExternalIssueSuggestionsApiModel) GetProjectIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ProjectIds
+}
+
+// GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetExternalIssueSuggestionsApiModel) GetProjectIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ProjectIds) {
+		return nil, false
+	}
+	return o.ProjectIds, true
+}
+
+// HasProjectIds returns a boolean if a field has been set.
+func (o *GetExternalIssueSuggestionsApiModel) HasProjectIds() bool {
+	if o != nil && !IsNil(o.ProjectIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
+func (o *GetExternalIssueSuggestionsApiModel) SetProjectIds(v []string) {
+	o.ProjectIds = v
+}
+
+// GetInquiry returns the Inquiry field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *GetExternalIssueSuggestionsApiModel) GetInquiry() Inquiry {
-	if o == nil || o.Inquiry.Get() == nil {
+	if o == nil || IsNil(o.Inquiry.Get()) {
 		var ret Inquiry
 		return ret
 	}
-
 	return *o.Inquiry.Get()
 }
 
-// GetInquiryOk returns a tuple with the Inquiry field value
+// GetInquiryOk returns a tuple with the Inquiry field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *GetExternalIssueSuggestionsApiModel) GetInquiryOk() (*Inquiry, bool) {
@@ -91,9 +125,27 @@ func (o *GetExternalIssueSuggestionsApiModel) GetInquiryOk() (*Inquiry, bool) {
 	return o.Inquiry.Get(), o.Inquiry.IsSet()
 }
 
-// SetInquiry sets field value
+// HasInquiry returns a boolean if a field has been set.
+func (o *GetExternalIssueSuggestionsApiModel) HasInquiry() bool {
+	if o != nil && o.Inquiry.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetInquiry gets a reference to the given NullableInquiry and assigns it to the Inquiry field.
 func (o *GetExternalIssueSuggestionsApiModel) SetInquiry(v Inquiry) {
 	o.Inquiry.Set(&v)
+}
+// SetInquiryNil sets the value for Inquiry to be an explicit nil
+func (o *GetExternalIssueSuggestionsApiModel) SetInquiryNil() {
+	o.Inquiry.Set(nil)
+}
+
+// UnsetInquiry ensures that no value is present for Inquiry, not even an explicit nil
+func (o *GetExternalIssueSuggestionsApiModel) UnsetInquiry() {
+	o.Inquiry.Unset()
 }
 
 func (o GetExternalIssueSuggestionsApiModel) MarshalJSON() ([]byte, error) {
@@ -107,7 +159,12 @@ func (o GetExternalIssueSuggestionsApiModel) MarshalJSON() ([]byte, error) {
 func (o GetExternalIssueSuggestionsApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["field"] = o.Field
-	toSerialize["inquiry"] = o.Inquiry.Get()
+	if o.ProjectIds != nil {
+		toSerialize["projectIds"] = o.ProjectIds
+	}
+	if o.Inquiry.IsSet() {
+		toSerialize["inquiry"] = o.Inquiry.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -117,7 +174,6 @@ func (o *GetExternalIssueSuggestionsApiModel) UnmarshalJSON(data []byte) (err er
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"field",
-		"inquiry",
 	}
 
 	allProperties := make(map[string]interface{})
