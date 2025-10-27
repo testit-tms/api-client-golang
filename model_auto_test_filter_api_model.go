@@ -53,8 +53,8 @@ type AutoTestFilterApiModel struct {
 	IsEmptyClassName NullableBool `json:"isEmptyClassName,omitempty"`
 	// Specifies an autotest outcome of the last test result to search for
 	LastTestResultOutcome NullableAutotestResultOutcome `json:"lastTestResultOutcome,omitempty"`
-	// Specifies an autotest status code of the last test result to search for
-	LastTestResultStatusCode NullableString `json:"lastTestResultStatusCode,omitempty"`
+	// Specifies an autotest status codes of the last test result to search for
+	LastTestResultStatusCodes []string `json:"lastTestResultStatusCodes,omitempty"`
 	// Specifies an autotest external key to search for
 	ExternalKey NullableString `json:"externalKey,omitempty"`
 	// Specifies an autotest configuration IDs of the last test result to search for
@@ -747,46 +747,37 @@ func (o *AutoTestFilterApiModel) UnsetLastTestResultOutcome() {
 	o.LastTestResultOutcome.Unset()
 }
 
-// GetLastTestResultStatusCode returns the LastTestResultStatusCode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestFilterApiModel) GetLastTestResultStatusCode() string {
-	if o == nil || IsNil(o.LastTestResultStatusCode.Get()) {
-		var ret string
+// GetLastTestResultStatusCodes returns the LastTestResultStatusCodes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestFilterApiModel) GetLastTestResultStatusCodes() []string {
+	if o == nil {
+		var ret []string
 		return ret
 	}
-	return *o.LastTestResultStatusCode.Get()
+	return o.LastTestResultStatusCodes
 }
 
-// GetLastTestResultStatusCodeOk returns a tuple with the LastTestResultStatusCode field value if set, nil otherwise
+// GetLastTestResultStatusCodesOk returns a tuple with the LastTestResultStatusCodes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestFilterApiModel) GetLastTestResultStatusCodeOk() (*string, bool) {
-	if o == nil {
+func (o *AutoTestFilterApiModel) GetLastTestResultStatusCodesOk() ([]string, bool) {
+	if o == nil || IsNil(o.LastTestResultStatusCodes) {
 		return nil, false
 	}
-	return o.LastTestResultStatusCode.Get(), o.LastTestResultStatusCode.IsSet()
+	return o.LastTestResultStatusCodes, true
 }
 
-// HasLastTestResultStatusCode returns a boolean if a field has been set.
-func (o *AutoTestFilterApiModel) HasLastTestResultStatusCode() bool {
-	if o != nil && o.LastTestResultStatusCode.IsSet() {
+// HasLastTestResultStatusCodes returns a boolean if a field has been set.
+func (o *AutoTestFilterApiModel) HasLastTestResultStatusCodes() bool {
+	if o != nil && !IsNil(o.LastTestResultStatusCodes) {
 		return true
 	}
 
 	return false
 }
 
-// SetLastTestResultStatusCode gets a reference to the given NullableString and assigns it to the LastTestResultStatusCode field.
-func (o *AutoTestFilterApiModel) SetLastTestResultStatusCode(v string) {
-	o.LastTestResultStatusCode.Set(&v)
-}
-// SetLastTestResultStatusCodeNil sets the value for LastTestResultStatusCode to be an explicit nil
-func (o *AutoTestFilterApiModel) SetLastTestResultStatusCodeNil() {
-	o.LastTestResultStatusCode.Set(nil)
-}
-
-// UnsetLastTestResultStatusCode ensures that no value is present for LastTestResultStatusCode, not even an explicit nil
-func (o *AutoTestFilterApiModel) UnsetLastTestResultStatusCode() {
-	o.LastTestResultStatusCode.Unset()
+// SetLastTestResultStatusCodes gets a reference to the given []string and assigns it to the LastTestResultStatusCodes field.
+func (o *AutoTestFilterApiModel) SetLastTestResultStatusCodes(v []string) {
+	o.LastTestResultStatusCodes = v
 }
 
 // GetExternalKey returns the ExternalKey field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -925,8 +916,8 @@ func (o AutoTestFilterApiModel) ToMap() (map[string]interface{}, error) {
 	if o.LastTestResultOutcome.IsSet() {
 		toSerialize["lastTestResultOutcome"] = o.LastTestResultOutcome.Get()
 	}
-	if o.LastTestResultStatusCode.IsSet() {
-		toSerialize["lastTestResultStatusCode"] = o.LastTestResultStatusCode.Get()
+	if o.LastTestResultStatusCodes != nil {
+		toSerialize["lastTestResultStatusCodes"] = o.LastTestResultStatusCodes
 	}
 	if o.ExternalKey.IsSet() {
 		toSerialize["externalKey"] = o.ExternalKey.Get()

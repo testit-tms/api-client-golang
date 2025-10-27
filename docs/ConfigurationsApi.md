@@ -38,7 +38,7 @@ import (
 )
 
 func main() {
-	configurationByParametersModel := *openapiclient.NewConfigurationByParametersModel("b63772c7-7c31-4748-8ff9-cc13975a106c", []string{"ParameterIds_example"}) // ConfigurationByParametersModel |  (optional)
+	configurationByParametersModel := *openapiclient.NewConfigurationByParametersModel("f227dd23-3343-4352-9c44-2f77031ccf1e", []string{"ParameterIds_example"}) // ConfigurationByParametersModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ConfigurationsPurgeBulkPost
 
-> ApiV2ConfigurationsPurgeBulkPost(ctx).ConfigurationSelectModel(configurationSelectModel).Execute()
+> int32 ApiV2ConfigurationsPurgeBulkPost(ctx).ConfigurationSelectModel(configurationSelectModel).Execute()
 
 Permanently delete multiple archived configurations
 
@@ -438,11 +438,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsPurgeBulkPost(context.Background()).ConfigurationSelectModel(configurationSelectModel).Execute()
+	resp, r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsPurgeBulkPost(context.Background()).ConfigurationSelectModel(configurationSelectModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsPurgeBulkPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `ApiV2ConfigurationsPurgeBulkPost`: int32
+	fmt.Fprintf(os.Stdout, "Response from `ConfigurationsAPI.ApiV2ConfigurationsPurgeBulkPost`: %v\n", resp)
 }
 ```
 
@@ -461,7 +463,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**int32**
 
 ### Authorization
 
@@ -496,7 +498,7 @@ import (
 )
 
 func main() {
-	configurationPutModel := *openapiclient.NewConfigurationPutModel("b63772c7-7c31-4748-8ff9-cc13975a106c", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ConfigurationPutModel |  (optional)
+	configurationPutModel := *openapiclient.NewConfigurationPutModel("f227dd23-3343-4352-9c44-2f77031ccf1e", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ConfigurationPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

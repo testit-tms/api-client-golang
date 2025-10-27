@@ -1,145 +1,151 @@
-# AutoTestProjectSettingsPostModel
+# AutoTestProjectSettingsApiResult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IsFlakyAuto** | Pointer to **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | [optional] [default to false]
-**FlakyStabilityPercentage** | Pointer to **int32** | Stability percentage for autotest flaky computing | [optional] [default to 100]
-**FlakyTestRunCount** | Pointer to **int32** | Last test run count for autotest flaky computing | [optional] [default to 100]
+**ProjectId** | **string** | Unique ID of the project. | 
+**IsFlakyAuto** | **bool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | 
+**FlakyStabilityPercentage** | **int32** | Stability percentage for autotest flaky computing | 
+**FlakyTestRunCount** | **int32** | Last test run count for autotest flaky computing | 
 **RerunEnabled** | **bool** | Auto rerun enabled | 
 **RerunAttemptsCount** | **int32** | Auto rerun attempt count | 
 
 ## Methods
 
-### NewAutoTestProjectSettingsPostModel
+### NewAutoTestProjectSettingsApiResult
 
-`func NewAutoTestProjectSettingsPostModel(rerunEnabled bool, rerunAttemptsCount int32, ) *AutoTestProjectSettingsPostModel`
+`func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, flakyStabilityPercentage int32, flakyTestRunCount int32, rerunEnabled bool, rerunAttemptsCount int32, ) *AutoTestProjectSettingsApiResult`
 
-NewAutoTestProjectSettingsPostModel instantiates a new AutoTestProjectSettingsPostModel object
+NewAutoTestProjectSettingsApiResult instantiates a new AutoTestProjectSettingsApiResult object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAutoTestProjectSettingsPostModelWithDefaults
+### NewAutoTestProjectSettingsApiResultWithDefaults
 
-`func NewAutoTestProjectSettingsPostModelWithDefaults() *AutoTestProjectSettingsPostModel`
+`func NewAutoTestProjectSettingsApiResultWithDefaults() *AutoTestProjectSettingsApiResult`
 
-NewAutoTestProjectSettingsPostModelWithDefaults instantiates a new AutoTestProjectSettingsPostModel object
+NewAutoTestProjectSettingsApiResultWithDefaults instantiates a new AutoTestProjectSettingsApiResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetProjectId
+
+`func (o *AutoTestProjectSettingsApiResult) GetProjectId() string`
+
+GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
+
+### GetProjectIdOk
+
+`func (o *AutoTestProjectSettingsApiResult) GetProjectIdOk() (*string, bool)`
+
+GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProjectId
+
+`func (o *AutoTestProjectSettingsApiResult) SetProjectId(v string)`
+
+SetProjectId sets ProjectId field to given value.
+
+
 ### GetIsFlakyAuto
 
-`func (o *AutoTestProjectSettingsPostModel) GetIsFlakyAuto() bool`
+`func (o *AutoTestProjectSettingsApiResult) GetIsFlakyAuto() bool`
 
 GetIsFlakyAuto returns the IsFlakyAuto field if non-nil, zero value otherwise.
 
 ### GetIsFlakyAutoOk
 
-`func (o *AutoTestProjectSettingsPostModel) GetIsFlakyAutoOk() (*bool, bool)`
+`func (o *AutoTestProjectSettingsApiResult) GetIsFlakyAutoOk() (*bool, bool)`
 
 GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsFlakyAuto
 
-`func (o *AutoTestProjectSettingsPostModel) SetIsFlakyAuto(v bool)`
+`func (o *AutoTestProjectSettingsApiResult) SetIsFlakyAuto(v bool)`
 
 SetIsFlakyAuto sets IsFlakyAuto field to given value.
 
-### HasIsFlakyAuto
-
-`func (o *AutoTestProjectSettingsPostModel) HasIsFlakyAuto() bool`
-
-HasIsFlakyAuto returns a boolean if a field has been set.
 
 ### GetFlakyStabilityPercentage
 
-`func (o *AutoTestProjectSettingsPostModel) GetFlakyStabilityPercentage() int32`
+`func (o *AutoTestProjectSettingsApiResult) GetFlakyStabilityPercentage() int32`
 
 GetFlakyStabilityPercentage returns the FlakyStabilityPercentage field if non-nil, zero value otherwise.
 
 ### GetFlakyStabilityPercentageOk
 
-`func (o *AutoTestProjectSettingsPostModel) GetFlakyStabilityPercentageOk() (*int32, bool)`
+`func (o *AutoTestProjectSettingsApiResult) GetFlakyStabilityPercentageOk() (*int32, bool)`
 
 GetFlakyStabilityPercentageOk returns a tuple with the FlakyStabilityPercentage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFlakyStabilityPercentage
 
-`func (o *AutoTestProjectSettingsPostModel) SetFlakyStabilityPercentage(v int32)`
+`func (o *AutoTestProjectSettingsApiResult) SetFlakyStabilityPercentage(v int32)`
 
 SetFlakyStabilityPercentage sets FlakyStabilityPercentage field to given value.
 
-### HasFlakyStabilityPercentage
-
-`func (o *AutoTestProjectSettingsPostModel) HasFlakyStabilityPercentage() bool`
-
-HasFlakyStabilityPercentage returns a boolean if a field has been set.
 
 ### GetFlakyTestRunCount
 
-`func (o *AutoTestProjectSettingsPostModel) GetFlakyTestRunCount() int32`
+`func (o *AutoTestProjectSettingsApiResult) GetFlakyTestRunCount() int32`
 
 GetFlakyTestRunCount returns the FlakyTestRunCount field if non-nil, zero value otherwise.
 
 ### GetFlakyTestRunCountOk
 
-`func (o *AutoTestProjectSettingsPostModel) GetFlakyTestRunCountOk() (*int32, bool)`
+`func (o *AutoTestProjectSettingsApiResult) GetFlakyTestRunCountOk() (*int32, bool)`
 
 GetFlakyTestRunCountOk returns a tuple with the FlakyTestRunCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFlakyTestRunCount
 
-`func (o *AutoTestProjectSettingsPostModel) SetFlakyTestRunCount(v int32)`
+`func (o *AutoTestProjectSettingsApiResult) SetFlakyTestRunCount(v int32)`
 
 SetFlakyTestRunCount sets FlakyTestRunCount field to given value.
 
-### HasFlakyTestRunCount
-
-`func (o *AutoTestProjectSettingsPostModel) HasFlakyTestRunCount() bool`
-
-HasFlakyTestRunCount returns a boolean if a field has been set.
 
 ### GetRerunEnabled
 
-`func (o *AutoTestProjectSettingsPostModel) GetRerunEnabled() bool`
+`func (o *AutoTestProjectSettingsApiResult) GetRerunEnabled() bool`
 
 GetRerunEnabled returns the RerunEnabled field if non-nil, zero value otherwise.
 
 ### GetRerunEnabledOk
 
-`func (o *AutoTestProjectSettingsPostModel) GetRerunEnabledOk() (*bool, bool)`
+`func (o *AutoTestProjectSettingsApiResult) GetRerunEnabledOk() (*bool, bool)`
 
 GetRerunEnabledOk returns a tuple with the RerunEnabled field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRerunEnabled
 
-`func (o *AutoTestProjectSettingsPostModel) SetRerunEnabled(v bool)`
+`func (o *AutoTestProjectSettingsApiResult) SetRerunEnabled(v bool)`
 
 SetRerunEnabled sets RerunEnabled field to given value.
 
 
 ### GetRerunAttemptsCount
 
-`func (o *AutoTestProjectSettingsPostModel) GetRerunAttemptsCount() int32`
+`func (o *AutoTestProjectSettingsApiResult) GetRerunAttemptsCount() int32`
 
 GetRerunAttemptsCount returns the RerunAttemptsCount field if non-nil, zero value otherwise.
 
 ### GetRerunAttemptsCountOk
 
-`func (o *AutoTestProjectSettingsPostModel) GetRerunAttemptsCountOk() (*int32, bool)`
+`func (o *AutoTestProjectSettingsApiResult) GetRerunAttemptsCountOk() (*int32, bool)`
 
 GetRerunAttemptsCountOk returns a tuple with the RerunAttemptsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRerunAttemptsCount
 
-`func (o *AutoTestProjectSettingsPostModel) SetRerunAttemptsCount(v int32)`
+`func (o *AutoTestProjectSettingsApiResult) SetRerunAttemptsCount(v int32)`
 
 SetRerunAttemptsCount sets RerunAttemptsCount field to given value.
 

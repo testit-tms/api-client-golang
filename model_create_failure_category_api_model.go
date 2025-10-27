@@ -16,11 +16,11 @@ import (
 	"fmt"
 )
 
-// checks if the CreateAutoTestResultReasonProjectApiModel type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &CreateAutoTestResultReasonProjectApiModel{}
+// checks if the CreateFailureCategoryApiModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &CreateFailureCategoryApiModel{}
 
-// CreateAutoTestResultReasonProjectApiModel struct for CreateAutoTestResultReasonProjectApiModel
-type CreateAutoTestResultReasonProjectApiModel struct {
+// CreateFailureCategoryApiModel struct for CreateFailureCategoryApiModel
+type CreateFailureCategoryApiModel struct {
 	// Failure category name
 	Name string `json:"name"`
 	// Category type
@@ -31,29 +31,29 @@ type CreateAutoTestResultReasonProjectApiModel struct {
 	ProjectIds []string `json:"projectIds,omitempty"`
 }
 
-type _CreateAutoTestResultReasonProjectApiModel CreateAutoTestResultReasonProjectApiModel
+type _CreateFailureCategoryApiModel CreateFailureCategoryApiModel
 
-// NewCreateAutoTestResultReasonProjectApiModel instantiates a new CreateAutoTestResultReasonProjectApiModel object
+// NewCreateFailureCategoryApiModel instantiates a new CreateFailureCategoryApiModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateAutoTestResultReasonProjectApiModel(name string, failureCategory FailureCategory) *CreateAutoTestResultReasonProjectApiModel {
-	this := CreateAutoTestResultReasonProjectApiModel{}
+func NewCreateFailureCategoryApiModel(name string, failureCategory FailureCategory) *CreateFailureCategoryApiModel {
+	this := CreateFailureCategoryApiModel{}
 	this.Name = name
 	this.FailureCategory = failureCategory
 	return &this
 }
 
-// NewCreateAutoTestResultReasonProjectApiModelWithDefaults instantiates a new CreateAutoTestResultReasonProjectApiModel object
+// NewCreateFailureCategoryApiModelWithDefaults instantiates a new CreateFailureCategoryApiModel object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewCreateAutoTestResultReasonProjectApiModelWithDefaults() *CreateAutoTestResultReasonProjectApiModel {
-	this := CreateAutoTestResultReasonProjectApiModel{}
+func NewCreateFailureCategoryApiModelWithDefaults() *CreateFailureCategoryApiModel {
+	this := CreateFailureCategoryApiModel{}
 	return &this
 }
 
 // GetName returns the Name field value
-func (o *CreateAutoTestResultReasonProjectApiModel) GetName() string {
+func (o *CreateFailureCategoryApiModel) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -64,7 +64,7 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *CreateAutoTestResultReasonProjectApiModel) GetNameOk() (*string, bool) {
+func (o *CreateFailureCategoryApiModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,12 +72,12 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetNameOk() (*string, bool) 
 }
 
 // SetName sets field value
-func (o *CreateAutoTestResultReasonProjectApiModel) SetName(v string) {
+func (o *CreateFailureCategoryApiModel) SetName(v string) {
 	o.Name = v
 }
 
 // GetFailureCategory returns the FailureCategory field value
-func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureCategory() FailureCategory {
+func (o *CreateFailureCategoryApiModel) GetFailureCategory() FailureCategory {
 	if o == nil {
 		var ret FailureCategory
 		return ret
@@ -88,7 +88,7 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureCategory() Failure
 
 // GetFailureCategoryOk returns a tuple with the FailureCategory field value
 // and a boolean to check if the value has been set.
-func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureCategoryOk() (*FailureCategory, bool) {
+func (o *CreateFailureCategoryApiModel) GetFailureCategoryOk() (*FailureCategory, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -96,12 +96,12 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureCategoryOk() (*Fai
 }
 
 // SetFailureCategory sets field value
-func (o *CreateAutoTestResultReasonProjectApiModel) SetFailureCategory(v FailureCategory) {
+func (o *CreateFailureCategoryApiModel) SetFailureCategory(v FailureCategory) {
 	o.FailureCategory = v
 }
 
 // GetFailureClassRegexes returns the FailureClassRegexes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureClassRegexes() []CreateFailureClassRegexApiModel {
+func (o *CreateFailureCategoryApiModel) GetFailureClassRegexes() []CreateFailureClassRegexApiModel {
 	if o == nil {
 		var ret []CreateFailureClassRegexApiModel
 		return ret
@@ -112,7 +112,7 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureClassRegexes() []C
 // GetFailureClassRegexesOk returns a tuple with the FailureClassRegexes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureClassRegexesOk() ([]CreateFailureClassRegexApiModel, bool) {
+func (o *CreateFailureCategoryApiModel) GetFailureClassRegexesOk() ([]CreateFailureClassRegexApiModel, bool) {
 	if o == nil || IsNil(o.FailureClassRegexes) {
 		return nil, false
 	}
@@ -120,7 +120,7 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetFailureClassRegexesOk() (
 }
 
 // HasFailureClassRegexes returns a boolean if a field has been set.
-func (o *CreateAutoTestResultReasonProjectApiModel) HasFailureClassRegexes() bool {
+func (o *CreateFailureCategoryApiModel) HasFailureClassRegexes() bool {
 	if o != nil && !IsNil(o.FailureClassRegexes) {
 		return true
 	}
@@ -129,12 +129,12 @@ func (o *CreateAutoTestResultReasonProjectApiModel) HasFailureClassRegexes() boo
 }
 
 // SetFailureClassRegexes gets a reference to the given []CreateFailureClassRegexApiModel and assigns it to the FailureClassRegexes field.
-func (o *CreateAutoTestResultReasonProjectApiModel) SetFailureClassRegexes(v []CreateFailureClassRegexApiModel) {
+func (o *CreateFailureCategoryApiModel) SetFailureClassRegexes(v []CreateFailureClassRegexApiModel) {
 	o.FailureClassRegexes = v
 }
 
 // GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateAutoTestResultReasonProjectApiModel) GetProjectIds() []string {
+func (o *CreateFailureCategoryApiModel) GetProjectIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -145,7 +145,7 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetProjectIds() []string {
 // GetProjectIdsOk returns a tuple with the ProjectIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateAutoTestResultReasonProjectApiModel) GetProjectIdsOk() ([]string, bool) {
+func (o *CreateFailureCategoryApiModel) GetProjectIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.ProjectIds) {
 		return nil, false
 	}
@@ -153,7 +153,7 @@ func (o *CreateAutoTestResultReasonProjectApiModel) GetProjectIdsOk() ([]string,
 }
 
 // HasProjectIds returns a boolean if a field has been set.
-func (o *CreateAutoTestResultReasonProjectApiModel) HasProjectIds() bool {
+func (o *CreateFailureCategoryApiModel) HasProjectIds() bool {
 	if o != nil && !IsNil(o.ProjectIds) {
 		return true
 	}
@@ -162,11 +162,11 @@ func (o *CreateAutoTestResultReasonProjectApiModel) HasProjectIds() bool {
 }
 
 // SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
-func (o *CreateAutoTestResultReasonProjectApiModel) SetProjectIds(v []string) {
+func (o *CreateFailureCategoryApiModel) SetProjectIds(v []string) {
 	o.ProjectIds = v
 }
 
-func (o CreateAutoTestResultReasonProjectApiModel) MarshalJSON() ([]byte, error) {
+func (o CreateFailureCategoryApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -174,7 +174,7 @@ func (o CreateAutoTestResultReasonProjectApiModel) MarshalJSON() ([]byte, error)
 	return json.Marshal(toSerialize)
 }
 
-func (o CreateAutoTestResultReasonProjectApiModel) ToMap() (map[string]interface{}, error) {
+func (o CreateFailureCategoryApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["name"] = o.Name
 	toSerialize["failureCategory"] = o.FailureCategory
@@ -187,7 +187,7 @@ func (o CreateAutoTestResultReasonProjectApiModel) ToMap() (map[string]interface
 	return toSerialize, nil
 }
 
-func (o *CreateAutoTestResultReasonProjectApiModel) UnmarshalJSON(data []byte) (err error) {
+func (o *CreateFailureCategoryApiModel) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -210,53 +210,53 @@ func (o *CreateAutoTestResultReasonProjectApiModel) UnmarshalJSON(data []byte) (
 		}
 	}
 
-	varCreateAutoTestResultReasonProjectApiModel := _CreateAutoTestResultReasonProjectApiModel{}
+	varCreateFailureCategoryApiModel := _CreateFailureCategoryApiModel{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCreateAutoTestResultReasonProjectApiModel)
+	err = decoder.Decode(&varCreateFailureCategoryApiModel)
 
 	if err != nil {
 		return err
 	}
 
-	*o = CreateAutoTestResultReasonProjectApiModel(varCreateAutoTestResultReasonProjectApiModel)
+	*o = CreateFailureCategoryApiModel(varCreateFailureCategoryApiModel)
 
 	return err
 }
 
-type NullableCreateAutoTestResultReasonProjectApiModel struct {
-	value *CreateAutoTestResultReasonProjectApiModel
+type NullableCreateFailureCategoryApiModel struct {
+	value *CreateFailureCategoryApiModel
 	isSet bool
 }
 
-func (v NullableCreateAutoTestResultReasonProjectApiModel) Get() *CreateAutoTestResultReasonProjectApiModel {
+func (v NullableCreateFailureCategoryApiModel) Get() *CreateFailureCategoryApiModel {
 	return v.value
 }
 
-func (v *NullableCreateAutoTestResultReasonProjectApiModel) Set(val *CreateAutoTestResultReasonProjectApiModel) {
+func (v *NullableCreateFailureCategoryApiModel) Set(val *CreateFailureCategoryApiModel) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableCreateAutoTestResultReasonProjectApiModel) IsSet() bool {
+func (v NullableCreateFailureCategoryApiModel) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableCreateAutoTestResultReasonProjectApiModel) Unset() {
+func (v *NullableCreateFailureCategoryApiModel) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableCreateAutoTestResultReasonProjectApiModel(val *CreateAutoTestResultReasonProjectApiModel) *NullableCreateAutoTestResultReasonProjectApiModel {
-	return &NullableCreateAutoTestResultReasonProjectApiModel{value: val, isSet: true}
+func NewNullableCreateFailureCategoryApiModel(val *CreateFailureCategoryApiModel) *NullableCreateFailureCategoryApiModel {
+	return &NullableCreateFailureCategoryApiModel{value: val, isSet: true}
 }
 
-func (v NullableCreateAutoTestResultReasonProjectApiModel) MarshalJSON() ([]byte, error) {
+func (v NullableCreateFailureCategoryApiModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableCreateAutoTestResultReasonProjectApiModel) UnmarshalJSON(src []byte) error {
+func (v *NullableCreateFailureCategoryApiModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

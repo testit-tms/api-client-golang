@@ -272,7 +272,7 @@ import (
 )
 
 func main() {
-	projectId := "projectId_example" // string | 
+	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
 	workItemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
 	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
@@ -299,7 +299,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
+**projectId** | **string** | Internal (UUID) or global (integer) identifier | 
 **workItemId** | **string** |  | 
 
 ### Other Parameters

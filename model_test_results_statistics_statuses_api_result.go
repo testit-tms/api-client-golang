@@ -24,7 +24,10 @@ type TestResultsStatisticsStatusesApiResult struct {
 	// Number of test results which is running currently
 	InProgress int32 `json:"inProgress"`
 	// Number of test results which successfully passed
+	// Deprecated
 	Passed int32 `json:"passed"`
+	// Number of successful test results
+	Succeeded int32 `json:"succeeded"`
 	// Number of test results which failed with an error
 	Failed int32 `json:"failed"`
 	// Number of test results which did not run and were skipped
@@ -43,10 +46,11 @@ type _TestResultsStatisticsStatusesApiResult TestResultsStatisticsStatusesApiRes
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultsStatisticsStatusesApiResult(inProgress int32, passed int32, failed int32, skipped int32, blocked int32, incomplete int32) *TestResultsStatisticsStatusesApiResult {
+func NewTestResultsStatisticsStatusesApiResult(inProgress int32, passed int32, succeeded int32, failed int32, skipped int32, blocked int32, incomplete int32) *TestResultsStatisticsStatusesApiResult {
 	this := TestResultsStatisticsStatusesApiResult{}
 	this.InProgress = inProgress
 	this.Passed = passed
+	this.Succeeded = succeeded
 	this.Failed = failed
 	this.Skipped = skipped
 	this.Blocked = blocked
@@ -87,6 +91,7 @@ func (o *TestResultsStatisticsStatusesApiResult) SetInProgress(v int32) {
 }
 
 // GetPassed returns the Passed field value
+// Deprecated
 func (o *TestResultsStatisticsStatusesApiResult) GetPassed() int32 {
 	if o == nil {
 		var ret int32
@@ -98,6 +103,7 @@ func (o *TestResultsStatisticsStatusesApiResult) GetPassed() int32 {
 
 // GetPassedOk returns a tuple with the Passed field value
 // and a boolean to check if the value has been set.
+// Deprecated
 func (o *TestResultsStatisticsStatusesApiResult) GetPassedOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
@@ -106,8 +112,33 @@ func (o *TestResultsStatisticsStatusesApiResult) GetPassedOk() (*int32, bool) {
 }
 
 // SetPassed sets field value
+// Deprecated
 func (o *TestResultsStatisticsStatusesApiResult) SetPassed(v int32) {
 	o.Passed = v
+}
+
+// GetSucceeded returns the Succeeded field value
+func (o *TestResultsStatisticsStatusesApiResult) GetSucceeded() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Succeeded
+}
+
+// GetSucceededOk returns a tuple with the Succeeded field value
+// and a boolean to check if the value has been set.
+func (o *TestResultsStatisticsStatusesApiResult) GetSucceededOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Succeeded, true
+}
+
+// SetSucceeded sets field value
+func (o *TestResultsStatisticsStatusesApiResult) SetSucceeded(v int32) {
+	o.Succeeded = v
 }
 
 // GetFailed returns the Failed field value
@@ -224,6 +255,7 @@ func (o TestResultsStatisticsStatusesApiResult) ToMap() (map[string]interface{},
 	toSerialize := map[string]interface{}{}
 	toSerialize["inProgress"] = o.InProgress
 	toSerialize["passed"] = o.Passed
+	toSerialize["succeeded"] = o.Succeeded
 	toSerialize["failed"] = o.Failed
 	toSerialize["skipped"] = o.Skipped
 	toSerialize["blocked"] = o.Blocked
@@ -238,6 +270,7 @@ func (o *TestResultsStatisticsStatusesApiResult) UnmarshalJSON(data []byte) (err
 	requiredProperties := []string{
 		"inProgress",
 		"passed",
+		"succeeded",
 		"failed",
 		"skipped",
 		"blocked",

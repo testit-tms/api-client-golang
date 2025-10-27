@@ -16,11 +16,11 @@ import (
 	"fmt"
 )
 
-// checks if the AutoTestResultReasonGroupApiResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AutoTestResultReasonGroupApiResult{}
+// checks if the FailureCategoryGroupApiResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FailureCategoryGroupApiResult{}
 
-// AutoTestResultReasonGroupApiResult struct for AutoTestResultReasonGroupApiResult
-type AutoTestResultReasonGroupApiResult struct {
+// FailureCategoryGroupApiResult struct for FailureCategoryGroupApiResult
+type FailureCategoryGroupApiResult struct {
 	// Group field value
 	FieldValue interface{} `json:"fieldValue,omitempty"`
 	// Group display field value
@@ -29,28 +29,28 @@ type AutoTestResultReasonGroupApiResult struct {
 	Count int32 `json:"count"`
 }
 
-type _AutoTestResultReasonGroupApiResult AutoTestResultReasonGroupApiResult
+type _FailureCategoryGroupApiResult FailureCategoryGroupApiResult
 
-// NewAutoTestResultReasonGroupApiResult instantiates a new AutoTestResultReasonGroupApiResult object
+// NewFailureCategoryGroupApiResult instantiates a new FailureCategoryGroupApiResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestResultReasonGroupApiResult(count int32) *AutoTestResultReasonGroupApiResult {
-	this := AutoTestResultReasonGroupApiResult{}
+func NewFailureCategoryGroupApiResult(count int32) *FailureCategoryGroupApiResult {
+	this := FailureCategoryGroupApiResult{}
 	this.Count = count
 	return &this
 }
 
-// NewAutoTestResultReasonGroupApiResultWithDefaults instantiates a new AutoTestResultReasonGroupApiResult object
+// NewFailureCategoryGroupApiResultWithDefaults instantiates a new FailureCategoryGroupApiResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAutoTestResultReasonGroupApiResultWithDefaults() *AutoTestResultReasonGroupApiResult {
-	this := AutoTestResultReasonGroupApiResult{}
+func NewFailureCategoryGroupApiResultWithDefaults() *FailureCategoryGroupApiResult {
+	this := FailureCategoryGroupApiResult{}
 	return &this
 }
 
 // GetFieldValue returns the FieldValue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestResultReasonGroupApiResult) GetFieldValue() interface{} {
+func (o *FailureCategoryGroupApiResult) GetFieldValue() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -61,7 +61,7 @@ func (o *AutoTestResultReasonGroupApiResult) GetFieldValue() interface{} {
 // GetFieldValueOk returns a tuple with the FieldValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestResultReasonGroupApiResult) GetFieldValueOk() (*interface{}, bool) {
+func (o *FailureCategoryGroupApiResult) GetFieldValueOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.FieldValue) {
 		return nil, false
 	}
@@ -69,7 +69,7 @@ func (o *AutoTestResultReasonGroupApiResult) GetFieldValueOk() (*interface{}, bo
 }
 
 // HasFieldValue returns a boolean if a field has been set.
-func (o *AutoTestResultReasonGroupApiResult) HasFieldValue() bool {
+func (o *FailureCategoryGroupApiResult) HasFieldValue() bool {
 	if o != nil && !IsNil(o.FieldValue) {
 		return true
 	}
@@ -78,12 +78,12 @@ func (o *AutoTestResultReasonGroupApiResult) HasFieldValue() bool {
 }
 
 // SetFieldValue gets a reference to the given interface{} and assigns it to the FieldValue field.
-func (o *AutoTestResultReasonGroupApiResult) SetFieldValue(v interface{}) {
+func (o *FailureCategoryGroupApiResult) SetFieldValue(v interface{}) {
 	o.FieldValue = v
 }
 
 // GetDisplayFieldValue returns the DisplayFieldValue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestResultReasonGroupApiResult) GetDisplayFieldValue() interface{} {
+func (o *FailureCategoryGroupApiResult) GetDisplayFieldValue() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
@@ -94,7 +94,7 @@ func (o *AutoTestResultReasonGroupApiResult) GetDisplayFieldValue() interface{} 
 // GetDisplayFieldValueOk returns a tuple with the DisplayFieldValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestResultReasonGroupApiResult) GetDisplayFieldValueOk() (*interface{}, bool) {
+func (o *FailureCategoryGroupApiResult) GetDisplayFieldValueOk() (*interface{}, bool) {
 	if o == nil || IsNil(o.DisplayFieldValue) {
 		return nil, false
 	}
@@ -102,7 +102,7 @@ func (o *AutoTestResultReasonGroupApiResult) GetDisplayFieldValueOk() (*interfac
 }
 
 // HasDisplayFieldValue returns a boolean if a field has been set.
-func (o *AutoTestResultReasonGroupApiResult) HasDisplayFieldValue() bool {
+func (o *FailureCategoryGroupApiResult) HasDisplayFieldValue() bool {
 	if o != nil && !IsNil(o.DisplayFieldValue) {
 		return true
 	}
@@ -111,12 +111,12 @@ func (o *AutoTestResultReasonGroupApiResult) HasDisplayFieldValue() bool {
 }
 
 // SetDisplayFieldValue gets a reference to the given interface{} and assigns it to the DisplayFieldValue field.
-func (o *AutoTestResultReasonGroupApiResult) SetDisplayFieldValue(v interface{}) {
+func (o *FailureCategoryGroupApiResult) SetDisplayFieldValue(v interface{}) {
 	o.DisplayFieldValue = v
 }
 
 // GetCount returns the Count field value
-func (o *AutoTestResultReasonGroupApiResult) GetCount() int32 {
+func (o *FailureCategoryGroupApiResult) GetCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -127,7 +127,7 @@ func (o *AutoTestResultReasonGroupApiResult) GetCount() int32 {
 
 // GetCountOk returns a tuple with the Count field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonGroupApiResult) GetCountOk() (*int32, bool) {
+func (o *FailureCategoryGroupApiResult) GetCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -135,11 +135,11 @@ func (o *AutoTestResultReasonGroupApiResult) GetCountOk() (*int32, bool) {
 }
 
 // SetCount sets field value
-func (o *AutoTestResultReasonGroupApiResult) SetCount(v int32) {
+func (o *FailureCategoryGroupApiResult) SetCount(v int32) {
 	o.Count = v
 }
 
-func (o AutoTestResultReasonGroupApiResult) MarshalJSON() ([]byte, error) {
+func (o FailureCategoryGroupApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -147,7 +147,7 @@ func (o AutoTestResultReasonGroupApiResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AutoTestResultReasonGroupApiResult) ToMap() (map[string]interface{}, error) {
+func (o FailureCategoryGroupApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.FieldValue != nil {
 		toSerialize["fieldValue"] = o.FieldValue
@@ -159,7 +159,7 @@ func (o AutoTestResultReasonGroupApiResult) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
-func (o *AutoTestResultReasonGroupApiResult) UnmarshalJSON(data []byte) (err error) {
+func (o *FailureCategoryGroupApiResult) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -181,53 +181,53 @@ func (o *AutoTestResultReasonGroupApiResult) UnmarshalJSON(data []byte) (err err
 		}
 	}
 
-	varAutoTestResultReasonGroupApiResult := _AutoTestResultReasonGroupApiResult{}
+	varFailureCategoryGroupApiResult := _FailureCategoryGroupApiResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoTestResultReasonGroupApiResult)
+	err = decoder.Decode(&varFailureCategoryGroupApiResult)
 
 	if err != nil {
 		return err
 	}
 
-	*o = AutoTestResultReasonGroupApiResult(varAutoTestResultReasonGroupApiResult)
+	*o = FailureCategoryGroupApiResult(varFailureCategoryGroupApiResult)
 
 	return err
 }
 
-type NullableAutoTestResultReasonGroupApiResult struct {
-	value *AutoTestResultReasonGroupApiResult
+type NullableFailureCategoryGroupApiResult struct {
+	value *FailureCategoryGroupApiResult
 	isSet bool
 }
 
-func (v NullableAutoTestResultReasonGroupApiResult) Get() *AutoTestResultReasonGroupApiResult {
+func (v NullableFailureCategoryGroupApiResult) Get() *FailureCategoryGroupApiResult {
 	return v.value
 }
 
-func (v *NullableAutoTestResultReasonGroupApiResult) Set(val *AutoTestResultReasonGroupApiResult) {
+func (v *NullableFailureCategoryGroupApiResult) Set(val *FailureCategoryGroupApiResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAutoTestResultReasonGroupApiResult) IsSet() bool {
+func (v NullableFailureCategoryGroupApiResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAutoTestResultReasonGroupApiResult) Unset() {
+func (v *NullableFailureCategoryGroupApiResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAutoTestResultReasonGroupApiResult(val *AutoTestResultReasonGroupApiResult) *NullableAutoTestResultReasonGroupApiResult {
-	return &NullableAutoTestResultReasonGroupApiResult{value: val, isSet: true}
+func NewNullableFailureCategoryGroupApiResult(val *FailureCategoryGroupApiResult) *NullableFailureCategoryGroupApiResult {
+	return &NullableFailureCategoryGroupApiResult{value: val, isSet: true}
 }
 
-func (v NullableAutoTestResultReasonGroupApiResult) MarshalJSON() ([]byte, error) {
+func (v NullableFailureCategoryGroupApiResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAutoTestResultReasonGroupApiResult) UnmarshalJSON(src []byte) error {
+func (v *NullableFailureCategoryGroupApiResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -17,11 +17,11 @@ import (
 	"fmt"
 )
 
-// checks if the AutoTestResultReasonsProjectApiResult type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AutoTestResultReasonsProjectApiResult{}
+// checks if the FailureCategoryItemApiResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &FailureCategoryItemApiResult{}
 
-// AutoTestResultReasonsProjectApiResult struct for AutoTestResultReasonsProjectApiResult
-type AutoTestResultReasonsProjectApiResult struct {
+// FailureCategoryItemApiResult struct for FailureCategoryItemApiResult
+type FailureCategoryItemApiResult struct {
 	// Failure category identifier
 	Id string `json:"id"`
 	// Failure category name
@@ -46,14 +46,14 @@ type AutoTestResultReasonsProjectApiResult struct {
 	ProjectIds []string `json:"projectIds"`
 }
 
-type _AutoTestResultReasonsProjectApiResult AutoTestResultReasonsProjectApiResult
+type _FailureCategoryItemApiResult FailureCategoryItemApiResult
 
-// NewAutoTestResultReasonsProjectApiResult instantiates a new AutoTestResultReasonsProjectApiResult object
+// NewFailureCategoryItemApiResult instantiates a new FailureCategoryItemApiResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestResultReasonsProjectApiResult(id string, failureCategory FailureCategory, createdDate time.Time, createdById string, failureCategoryId int32, regexCount int32, projects []ProjectNameApiResult, projectIds []string) *AutoTestResultReasonsProjectApiResult {
-	this := AutoTestResultReasonsProjectApiResult{}
+func NewFailureCategoryItemApiResult(id string, failureCategory FailureCategory, createdDate time.Time, createdById string, failureCategoryId int32, regexCount int32, projects []ProjectNameApiResult, projectIds []string) *FailureCategoryItemApiResult {
+	this := FailureCategoryItemApiResult{}
 	this.Id = id
 	this.FailureCategory = failureCategory
 	this.CreatedDate = createdDate
@@ -65,16 +65,16 @@ func NewAutoTestResultReasonsProjectApiResult(id string, failureCategory Failure
 	return &this
 }
 
-// NewAutoTestResultReasonsProjectApiResultWithDefaults instantiates a new AutoTestResultReasonsProjectApiResult object
+// NewFailureCategoryItemApiResultWithDefaults instantiates a new FailureCategoryItemApiResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAutoTestResultReasonsProjectApiResultWithDefaults() *AutoTestResultReasonsProjectApiResult {
-	this := AutoTestResultReasonsProjectApiResult{}
+func NewFailureCategoryItemApiResultWithDefaults() *FailureCategoryItemApiResult {
+	this := FailureCategoryItemApiResult{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *AutoTestResultReasonsProjectApiResult) GetId() string {
+func (o *FailureCategoryItemApiResult) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -85,7 +85,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetIdOk() (*string, bool) {
+func (o *FailureCategoryItemApiResult) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -93,12 +93,12 @@ func (o *AutoTestResultReasonsProjectApiResult) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetId(v string) {
+func (o *FailureCategoryItemApiResult) SetId(v string) {
 	o.Id = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestResultReasonsProjectApiResult) GetName() string {
+func (o *FailureCategoryItemApiResult) GetName() string {
 	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
@@ -109,7 +109,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetName() string {
 // GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestResultReasonsProjectApiResult) GetNameOk() (*string, bool) {
+func (o *FailureCategoryItemApiResult) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -117,7 +117,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetNameOk() (*string, bool) {
 }
 
 // HasName returns a boolean if a field has been set.
-func (o *AutoTestResultReasonsProjectApiResult) HasName() bool {
+func (o *FailureCategoryItemApiResult) HasName() bool {
 	if o != nil && o.Name.IsSet() {
 		return true
 	}
@@ -126,21 +126,21 @@ func (o *AutoTestResultReasonsProjectApiResult) HasName() bool {
 }
 
 // SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *AutoTestResultReasonsProjectApiResult) SetName(v string) {
+func (o *FailureCategoryItemApiResult) SetName(v string) {
 	o.Name.Set(&v)
 }
 // SetNameNil sets the value for Name to be an explicit nil
-func (o *AutoTestResultReasonsProjectApiResult) SetNameNil() {
+func (o *FailureCategoryItemApiResult) SetNameNil() {
 	o.Name.Set(nil)
 }
 
 // UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *AutoTestResultReasonsProjectApiResult) UnsetName() {
+func (o *FailureCategoryItemApiResult) UnsetName() {
 	o.Name.Unset()
 }
 
 // GetFailureCategory returns the FailureCategory field value
-func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategory() FailureCategory {
+func (o *FailureCategoryItemApiResult) GetFailureCategory() FailureCategory {
 	if o == nil {
 		var ret FailureCategory
 		return ret
@@ -151,7 +151,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategory() FailureCate
 
 // GetFailureCategoryOk returns a tuple with the FailureCategory field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategoryOk() (*FailureCategory, bool) {
+func (o *FailureCategoryItemApiResult) GetFailureCategoryOk() (*FailureCategory, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -159,12 +159,12 @@ func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategoryOk() (*Failure
 }
 
 // SetFailureCategory sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetFailureCategory(v FailureCategory) {
+func (o *FailureCategoryItemApiResult) SetFailureCategory(v FailureCategory) {
 	o.FailureCategory = v
 }
 
 // GetCreatedDate returns the CreatedDate field value
-func (o *AutoTestResultReasonsProjectApiResult) GetCreatedDate() time.Time {
+func (o *FailureCategoryItemApiResult) GetCreatedDate() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -175,7 +175,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetCreatedDate() time.Time {
 
 // GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetCreatedDateOk() (*time.Time, bool) {
+func (o *FailureCategoryItemApiResult) GetCreatedDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -183,12 +183,12 @@ func (o *AutoTestResultReasonsProjectApiResult) GetCreatedDateOk() (*time.Time, 
 }
 
 // SetCreatedDate sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetCreatedDate(v time.Time) {
+func (o *FailureCategoryItemApiResult) SetCreatedDate(v time.Time) {
 	o.CreatedDate = v
 }
 
 // GetCreatedById returns the CreatedById field value
-func (o *AutoTestResultReasonsProjectApiResult) GetCreatedById() string {
+func (o *FailureCategoryItemApiResult) GetCreatedById() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -199,7 +199,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetCreatedById() string {
 
 // GetCreatedByIdOk returns a tuple with the CreatedById field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetCreatedByIdOk() (*string, bool) {
+func (o *FailureCategoryItemApiResult) GetCreatedByIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -207,12 +207,12 @@ func (o *AutoTestResultReasonsProjectApiResult) GetCreatedByIdOk() (*string, boo
 }
 
 // SetCreatedById sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetCreatedById(v string) {
+func (o *FailureCategoryItemApiResult) SetCreatedById(v string) {
 	o.CreatedById = v
 }
 
 // GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestResultReasonsProjectApiResult) GetModifiedDate() time.Time {
+func (o *FailureCategoryItemApiResult) GetModifiedDate() time.Time {
 	if o == nil || IsNil(o.ModifiedDate.Get()) {
 		var ret time.Time
 		return ret
@@ -223,7 +223,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetModifiedDate() time.Time {
 // GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestResultReasonsProjectApiResult) GetModifiedDateOk() (*time.Time, bool) {
+func (o *FailureCategoryItemApiResult) GetModifiedDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -231,7 +231,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetModifiedDateOk() (*time.Time,
 }
 
 // HasModifiedDate returns a boolean if a field has been set.
-func (o *AutoTestResultReasonsProjectApiResult) HasModifiedDate() bool {
+func (o *FailureCategoryItemApiResult) HasModifiedDate() bool {
 	if o != nil && o.ModifiedDate.IsSet() {
 		return true
 	}
@@ -240,21 +240,21 @@ func (o *AutoTestResultReasonsProjectApiResult) HasModifiedDate() bool {
 }
 
 // SetModifiedDate gets a reference to the given NullableTime and assigns it to the ModifiedDate field.
-func (o *AutoTestResultReasonsProjectApiResult) SetModifiedDate(v time.Time) {
+func (o *FailureCategoryItemApiResult) SetModifiedDate(v time.Time) {
 	o.ModifiedDate.Set(&v)
 }
 // SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
-func (o *AutoTestResultReasonsProjectApiResult) SetModifiedDateNil() {
+func (o *FailureCategoryItemApiResult) SetModifiedDateNil() {
 	o.ModifiedDate.Set(nil)
 }
 
 // UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
-func (o *AutoTestResultReasonsProjectApiResult) UnsetModifiedDate() {
+func (o *FailureCategoryItemApiResult) UnsetModifiedDate() {
 	o.ModifiedDate.Unset()
 }
 
 // GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestResultReasonsProjectApiResult) GetModifiedById() string {
+func (o *FailureCategoryItemApiResult) GetModifiedById() string {
 	if o == nil || IsNil(o.ModifiedById.Get()) {
 		var ret string
 		return ret
@@ -265,7 +265,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetModifiedById() string {
 // GetModifiedByIdOk returns a tuple with the ModifiedById field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestResultReasonsProjectApiResult) GetModifiedByIdOk() (*string, bool) {
+func (o *FailureCategoryItemApiResult) GetModifiedByIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -273,7 +273,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetModifiedByIdOk() (*string, bo
 }
 
 // HasModifiedById returns a boolean if a field has been set.
-func (o *AutoTestResultReasonsProjectApiResult) HasModifiedById() bool {
+func (o *FailureCategoryItemApiResult) HasModifiedById() bool {
 	if o != nil && o.ModifiedById.IsSet() {
 		return true
 	}
@@ -282,21 +282,21 @@ func (o *AutoTestResultReasonsProjectApiResult) HasModifiedById() bool {
 }
 
 // SetModifiedById gets a reference to the given NullableString and assigns it to the ModifiedById field.
-func (o *AutoTestResultReasonsProjectApiResult) SetModifiedById(v string) {
+func (o *FailureCategoryItemApiResult) SetModifiedById(v string) {
 	o.ModifiedById.Set(&v)
 }
 // SetModifiedByIdNil sets the value for ModifiedById to be an explicit nil
-func (o *AutoTestResultReasonsProjectApiResult) SetModifiedByIdNil() {
+func (o *FailureCategoryItemApiResult) SetModifiedByIdNil() {
 	o.ModifiedById.Set(nil)
 }
 
 // UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
-func (o *AutoTestResultReasonsProjectApiResult) UnsetModifiedById() {
+func (o *FailureCategoryItemApiResult) UnsetModifiedById() {
 	o.ModifiedById.Unset()
 }
 
 // GetFailureCategoryId returns the FailureCategoryId field value
-func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategoryId() int32 {
+func (o *FailureCategoryItemApiResult) GetFailureCategoryId() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -307,7 +307,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategoryId() int32 {
 
 // GetFailureCategoryIdOk returns a tuple with the FailureCategoryId field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategoryIdOk() (*int32, bool) {
+func (o *FailureCategoryItemApiResult) GetFailureCategoryIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -315,12 +315,12 @@ func (o *AutoTestResultReasonsProjectApiResult) GetFailureCategoryIdOk() (*int32
 }
 
 // SetFailureCategoryId sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetFailureCategoryId(v int32) {
+func (o *FailureCategoryItemApiResult) SetFailureCategoryId(v int32) {
 	o.FailureCategoryId = v
 }
 
 // GetRegexCount returns the RegexCount field value
-func (o *AutoTestResultReasonsProjectApiResult) GetRegexCount() int32 {
+func (o *FailureCategoryItemApiResult) GetRegexCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -331,7 +331,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetRegexCount() int32 {
 
 // GetRegexCountOk returns a tuple with the RegexCount field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetRegexCountOk() (*int32, bool) {
+func (o *FailureCategoryItemApiResult) GetRegexCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -339,12 +339,12 @@ func (o *AutoTestResultReasonsProjectApiResult) GetRegexCountOk() (*int32, bool)
 }
 
 // SetRegexCount sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetRegexCount(v int32) {
+func (o *FailureCategoryItemApiResult) SetRegexCount(v int32) {
 	o.RegexCount = v
 }
 
 // GetProjects returns the Projects field value
-func (o *AutoTestResultReasonsProjectApiResult) GetProjects() []ProjectNameApiResult {
+func (o *FailureCategoryItemApiResult) GetProjects() []ProjectNameApiResult {
 	if o == nil {
 		var ret []ProjectNameApiResult
 		return ret
@@ -355,7 +355,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetProjects() []ProjectNameApiRe
 
 // GetProjectsOk returns a tuple with the Projects field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetProjectsOk() ([]ProjectNameApiResult, bool) {
+func (o *FailureCategoryItemApiResult) GetProjectsOk() ([]ProjectNameApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -363,12 +363,12 @@ func (o *AutoTestResultReasonsProjectApiResult) GetProjectsOk() ([]ProjectNameAp
 }
 
 // SetProjects sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetProjects(v []ProjectNameApiResult) {
+func (o *FailureCategoryItemApiResult) SetProjects(v []ProjectNameApiResult) {
 	o.Projects = v
 }
 
 // GetProjectIds returns the ProjectIds field value
-func (o *AutoTestResultReasonsProjectApiResult) GetProjectIds() []string {
+func (o *FailureCategoryItemApiResult) GetProjectIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -379,7 +379,7 @@ func (o *AutoTestResultReasonsProjectApiResult) GetProjectIds() []string {
 
 // GetProjectIdsOk returns a tuple with the ProjectIds field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestResultReasonsProjectApiResult) GetProjectIdsOk() ([]string, bool) {
+func (o *FailureCategoryItemApiResult) GetProjectIdsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -387,11 +387,11 @@ func (o *AutoTestResultReasonsProjectApiResult) GetProjectIdsOk() ([]string, boo
 }
 
 // SetProjectIds sets field value
-func (o *AutoTestResultReasonsProjectApiResult) SetProjectIds(v []string) {
+func (o *FailureCategoryItemApiResult) SetProjectIds(v []string) {
 	o.ProjectIds = v
 }
 
-func (o AutoTestResultReasonsProjectApiResult) MarshalJSON() ([]byte, error) {
+func (o FailureCategoryItemApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -399,7 +399,7 @@ func (o AutoTestResultReasonsProjectApiResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AutoTestResultReasonsProjectApiResult) ToMap() (map[string]interface{}, error) {
+func (o FailureCategoryItemApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	if o.Name.IsSet() {
@@ -421,7 +421,7 @@ func (o AutoTestResultReasonsProjectApiResult) ToMap() (map[string]interface{}, 
 	return toSerialize, nil
 }
 
-func (o *AutoTestResultReasonsProjectApiResult) UnmarshalJSON(data []byte) (err error) {
+func (o *FailureCategoryItemApiResult) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -450,53 +450,53 @@ func (o *AutoTestResultReasonsProjectApiResult) UnmarshalJSON(data []byte) (err 
 		}
 	}
 
-	varAutoTestResultReasonsProjectApiResult := _AutoTestResultReasonsProjectApiResult{}
+	varFailureCategoryItemApiResult := _FailureCategoryItemApiResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoTestResultReasonsProjectApiResult)
+	err = decoder.Decode(&varFailureCategoryItemApiResult)
 
 	if err != nil {
 		return err
 	}
 
-	*o = AutoTestResultReasonsProjectApiResult(varAutoTestResultReasonsProjectApiResult)
+	*o = FailureCategoryItemApiResult(varFailureCategoryItemApiResult)
 
 	return err
 }
 
-type NullableAutoTestResultReasonsProjectApiResult struct {
-	value *AutoTestResultReasonsProjectApiResult
+type NullableFailureCategoryItemApiResult struct {
+	value *FailureCategoryItemApiResult
 	isSet bool
 }
 
-func (v NullableAutoTestResultReasonsProjectApiResult) Get() *AutoTestResultReasonsProjectApiResult {
+func (v NullableFailureCategoryItemApiResult) Get() *FailureCategoryItemApiResult {
 	return v.value
 }
 
-func (v *NullableAutoTestResultReasonsProjectApiResult) Set(val *AutoTestResultReasonsProjectApiResult) {
+func (v *NullableFailureCategoryItemApiResult) Set(val *FailureCategoryItemApiResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAutoTestResultReasonsProjectApiResult) IsSet() bool {
+func (v NullableFailureCategoryItemApiResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAutoTestResultReasonsProjectApiResult) Unset() {
+func (v *NullableFailureCategoryItemApiResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAutoTestResultReasonsProjectApiResult(val *AutoTestResultReasonsProjectApiResult) *NullableAutoTestResultReasonsProjectApiResult {
-	return &NullableAutoTestResultReasonsProjectApiResult{value: val, isSet: true}
+func NewNullableFailureCategoryItemApiResult(val *FailureCategoryItemApiResult) *NullableFailureCategoryItemApiResult {
+	return &NullableFailureCategoryItemApiResult{value: val, isSet: true}
 }
 
-func (v NullableAutoTestResultReasonsProjectApiResult) MarshalJSON() ([]byte, error) {
+func (v NullableFailureCategoryItemApiResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAutoTestResultReasonsProjectApiResult) UnmarshalJSON(src []byte) error {
+func (v *NullableFailureCategoryItemApiResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

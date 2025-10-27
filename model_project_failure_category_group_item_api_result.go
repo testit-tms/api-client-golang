@@ -22,7 +22,7 @@ var _ MappedNullable = &ProjectFailureCategoryGroupItemApiResult{}
 // ProjectFailureCategoryGroupItemApiResult struct for ProjectFailureCategoryGroupItemApiResult
 type ProjectFailureCategoryGroupItemApiResult struct {
 	// Group details
-	Group NullableAutoTestResultReasonGroupApiResult `json:"group,omitempty"`
+	Group NullableFailureCategoryGroupApiResult `json:"group,omitempty"`
 	// Group data
 	Items []ProjectFailureCategoryApiResult `json:"items"`
 }
@@ -48,9 +48,9 @@ func NewProjectFailureCategoryGroupItemApiResultWithDefaults() *ProjectFailureCa
 }
 
 // GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectFailureCategoryGroupItemApiResult) GetGroup() AutoTestResultReasonGroupApiResult {
+func (o *ProjectFailureCategoryGroupItemApiResult) GetGroup() FailureCategoryGroupApiResult {
 	if o == nil || IsNil(o.Group.Get()) {
-		var ret AutoTestResultReasonGroupApiResult
+		var ret FailureCategoryGroupApiResult
 		return ret
 	}
 	return *o.Group.Get()
@@ -59,7 +59,7 @@ func (o *ProjectFailureCategoryGroupItemApiResult) GetGroup() AutoTestResultReas
 // GetGroupOk returns a tuple with the Group field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectFailureCategoryGroupItemApiResult) GetGroupOk() (*AutoTestResultReasonGroupApiResult, bool) {
+func (o *ProjectFailureCategoryGroupItemApiResult) GetGroupOk() (*FailureCategoryGroupApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -75,8 +75,8 @@ func (o *ProjectFailureCategoryGroupItemApiResult) HasGroup() bool {
 	return false
 }
 
-// SetGroup gets a reference to the given NullableAutoTestResultReasonGroupApiResult and assigns it to the Group field.
-func (o *ProjectFailureCategoryGroupItemApiResult) SetGroup(v AutoTestResultReasonGroupApiResult) {
+// SetGroup gets a reference to the given NullableFailureCategoryGroupApiResult and assigns it to the Group field.
+func (o *ProjectFailureCategoryGroupItemApiResult) SetGroup(v FailureCategoryGroupApiResult) {
 	o.Group.Set(&v)
 }
 // SetGroupNil sets the value for Group to be an explicit nil

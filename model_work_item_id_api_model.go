@@ -16,37 +16,37 @@ import (
 	"fmt"
 )
 
-// checks if the WorkItemIdModel type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &WorkItemIdModel{}
+// checks if the WorkItemIdApiModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &WorkItemIdApiModel{}
 
-// WorkItemIdModel struct for WorkItemIdModel
-type WorkItemIdModel struct {
-	// Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format
+// WorkItemIdApiModel struct for WorkItemIdApiModel
+type WorkItemIdApiModel struct {
+	// Work Item ID or Global ID
 	Id string `json:"id"`
 }
 
-type _WorkItemIdModel WorkItemIdModel
+type _WorkItemIdApiModel WorkItemIdApiModel
 
-// NewWorkItemIdModel instantiates a new WorkItemIdModel object
+// NewWorkItemIdApiModel instantiates a new WorkItemIdApiModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemIdModel(id string) *WorkItemIdModel {
-	this := WorkItemIdModel{}
+func NewWorkItemIdApiModel(id string) *WorkItemIdApiModel {
+	this := WorkItemIdApiModel{}
 	this.Id = id
 	return &this
 }
 
-// NewWorkItemIdModelWithDefaults instantiates a new WorkItemIdModel object
+// NewWorkItemIdApiModelWithDefaults instantiates a new WorkItemIdApiModel object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewWorkItemIdModelWithDefaults() *WorkItemIdModel {
-	this := WorkItemIdModel{}
+func NewWorkItemIdApiModelWithDefaults() *WorkItemIdApiModel {
+	this := WorkItemIdApiModel{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *WorkItemIdModel) GetId() string {
+func (o *WorkItemIdApiModel) GetId() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -57,7 +57,7 @@ func (o *WorkItemIdModel) GetId() string {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemIdModel) GetIdOk() (*string, bool) {
+func (o *WorkItemIdApiModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,11 +65,11 @@ func (o *WorkItemIdModel) GetIdOk() (*string, bool) {
 }
 
 // SetId sets field value
-func (o *WorkItemIdModel) SetId(v string) {
+func (o *WorkItemIdApiModel) SetId(v string) {
 	o.Id = v
 }
 
-func (o WorkItemIdModel) MarshalJSON() ([]byte, error) {
+func (o WorkItemIdApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -77,13 +77,13 @@ func (o WorkItemIdModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o WorkItemIdModel) ToMap() (map[string]interface{}, error) {
+func (o WorkItemIdApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	return toSerialize, nil
 }
 
-func (o *WorkItemIdModel) UnmarshalJSON(data []byte) (err error) {
+func (o *WorkItemIdApiModel) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -105,53 +105,53 @@ func (o *WorkItemIdModel) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varWorkItemIdModel := _WorkItemIdModel{}
+	varWorkItemIdApiModel := _WorkItemIdApiModel{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varWorkItemIdModel)
+	err = decoder.Decode(&varWorkItemIdApiModel)
 
 	if err != nil {
 		return err
 	}
 
-	*o = WorkItemIdModel(varWorkItemIdModel)
+	*o = WorkItemIdApiModel(varWorkItemIdApiModel)
 
 	return err
 }
 
-type NullableWorkItemIdModel struct {
-	value *WorkItemIdModel
+type NullableWorkItemIdApiModel struct {
+	value *WorkItemIdApiModel
 	isSet bool
 }
 
-func (v NullableWorkItemIdModel) Get() *WorkItemIdModel {
+func (v NullableWorkItemIdApiModel) Get() *WorkItemIdApiModel {
 	return v.value
 }
 
-func (v *NullableWorkItemIdModel) Set(val *WorkItemIdModel) {
+func (v *NullableWorkItemIdApiModel) Set(val *WorkItemIdApiModel) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableWorkItemIdModel) IsSet() bool {
+func (v NullableWorkItemIdApiModel) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableWorkItemIdModel) Unset() {
+func (v *NullableWorkItemIdApiModel) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableWorkItemIdModel(val *WorkItemIdModel) *NullableWorkItemIdModel {
-	return &NullableWorkItemIdModel{value: val, isSet: true}
+func NewNullableWorkItemIdApiModel(val *WorkItemIdApiModel) *NullableWorkItemIdApiModel {
+	return &NullableWorkItemIdApiModel{value: val, isSet: true}
 }
 
-func (v NullableWorkItemIdModel) MarshalJSON() ([]byte, error) {
+func (v NullableWorkItemIdApiModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableWorkItemIdModel) UnmarshalJSON(src []byte) error {
+func (v *NullableWorkItemIdApiModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

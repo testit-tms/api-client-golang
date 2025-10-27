@@ -28,7 +28,7 @@ import (
 )
 
 func main() {
-	projectId := "projectId_example" // string | 
+	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
 	testPlanId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	testPlanTestPointsAutoTestsRerunApiModel := *openapiclient.NewTestPlanTestPointsAutoTestsRerunApiModel() // TestPlanTestPointsAutoTestsRerunApiModel |  (optional)
 
@@ -48,7 +48,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
+**projectId** | **string** | Internal (UUID) or global (integer) identifier | 
 **testPlanId** | **string** |  | 
 
 ### Other Parameters
@@ -99,7 +99,7 @@ import (
 )
 
 func main() {
-	projectId := "projectId_example" // string | 
+	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
 	testPlanId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
 	testPlanTestPointsAutoTestsRunApiModel := *openapiclient.NewTestPlanTestPointsAutoTestsRunApiModel([]string{"WebhookIds_example"}, false) // TestPlanTestPointsAutoTestsRunApiModel |  (optional)
 
@@ -121,7 +121,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**projectId** | **string** |  | 
+**projectId** | **string** | Internal (UUID) or global (integer) identifier | 
 **testPlanId** | **string** |  | 
 
 ### Other Parameters

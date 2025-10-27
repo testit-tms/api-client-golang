@@ -54,7 +54,7 @@ type ProjectShortModel struct {
 	Type ProjectTypeModel `json:"type"`
 	// Indicates if the status \"Flaky/Stable\" sets automatically
 	// Deprecated
-	IsFlakyAuto bool `json:"isFlakyAuto"`
+	IsFlakyAuto NullableBool `json:"isFlakyAuto,omitempty"`
 	WorkflowId string `json:"workflowId"`
 }
 
@@ -64,7 +64,7 @@ type _ProjectShortModel ProjectShortModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, isFlakyAuto bool, workflowId string) *ProjectShortModel {
+func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectTypeModel, workflowId string) *ProjectShortModel {
 	this := ProjectShortModel{}
 	this.Id = id
 	this.Name = name
@@ -74,7 +74,6 @@ func NewProjectShortModel(id string, name string, isFavorite bool, isDeleted boo
 	this.CreatedById = createdById
 	this.GlobalId = globalId
 	this.Type = type_
-	this.IsFlakyAuto = isFlakyAuto
 	this.WorkflowId = workflowId
 	return &this
 }
@@ -573,31 +572,49 @@ func (o *ProjectShortModel) SetType(v ProjectTypeModel) {
 	o.Type = v
 }
 
-// GetIsFlakyAuto returns the IsFlakyAuto field value
+// GetIsFlakyAuto returns the IsFlakyAuto field value if set, zero value otherwise (both if not set or set to explicit null).
 // Deprecated
 func (o *ProjectShortModel) GetIsFlakyAuto() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsFlakyAuto.Get()) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsFlakyAuto
+	return *o.IsFlakyAuto.Get()
 }
 
-// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value
+// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 // Deprecated
 func (o *ProjectShortModel) GetIsFlakyAutoOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.IsFlakyAuto, true
+	return o.IsFlakyAuto.Get(), o.IsFlakyAuto.IsSet()
 }
 
-// SetIsFlakyAuto sets field value
+// HasIsFlakyAuto returns a boolean if a field has been set.
+func (o *ProjectShortModel) HasIsFlakyAuto() bool {
+	if o != nil && o.IsFlakyAuto.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsFlakyAuto gets a reference to the given NullableBool and assigns it to the IsFlakyAuto field.
 // Deprecated
 func (o *ProjectShortModel) SetIsFlakyAuto(v bool) {
-	o.IsFlakyAuto = v
+	o.IsFlakyAuto.Set(&v)
+}
+// SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
+func (o *ProjectShortModel) SetIsFlakyAutoNil() {
+	o.IsFlakyAuto.Set(nil)
+}
+
+// UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
+func (o *ProjectShortModel) UnsetIsFlakyAuto() {
+	o.IsFlakyAuto.Unset()
 }
 
 // GetWorkflowId returns the WorkflowId field value
@@ -663,7 +680,9 @@ func (o ProjectShortModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["type"] = o.Type
-	toSerialize["isFlakyAuto"] = o.IsFlakyAuto
+	if o.IsFlakyAuto.IsSet() {
+		toSerialize["isFlakyAuto"] = o.IsFlakyAuto.Get()
+	}
 	toSerialize["workflowId"] = o.WorkflowId
 	return toSerialize, nil
 }
@@ -681,7 +700,6 @@ func (o *ProjectShortModel) UnmarshalJSON(data []byte) (err error) {
 		"createdById",
 		"globalId",
 		"type",
-		"isFlakyAuto",
 		"workflowId",
 	}
 

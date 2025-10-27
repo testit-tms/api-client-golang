@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Filters** | **[]map[string]interface{}** |  | 
+**Filters** | [**[]IFilter**](IFilter.md) |  | 
 **Operator** | [**LogicalOperator**](LogicalOperator.md) |  | 
 
 ## Methods
 
 ### NewCompositeFilter
 
-`func NewCompositeFilter(filters []map[string]interface{}, operator LogicalOperator, ) *CompositeFilter`
+`func NewCompositeFilter(filters []IFilter, operator LogicalOperator, ) *CompositeFilter`
 
 NewCompositeFilter instantiates a new CompositeFilter object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetFilters
 
-`func (o *CompositeFilter) GetFilters() []map[string]interface{}`
+`func (o *CompositeFilter) GetFilters() []IFilter`
 
 GetFilters returns the Filters field if non-nil, zero value otherwise.
 
 ### GetFiltersOk
 
-`func (o *CompositeFilter) GetFiltersOk() (*[]map[string]interface{}, bool)`
+`func (o *CompositeFilter) GetFiltersOk() (*[]IFilter, bool)`
 
 GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilters
 
-`func (o *CompositeFilter) SetFilters(v []map[string]interface{})`
+`func (o *CompositeFilter) SetFilters(v []IFilter)`
 
 SetFilters sets Filters field to given value.
 

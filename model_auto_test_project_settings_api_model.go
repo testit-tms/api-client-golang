@@ -16,11 +16,11 @@ import (
 	"fmt"
 )
 
-// checks if the AutoTestProjectSettingsPostModel type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AutoTestProjectSettingsPostModel{}
+// checks if the AutoTestProjectSettingsApiModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AutoTestProjectSettingsApiModel{}
 
-// AutoTestProjectSettingsPostModel struct for AutoTestProjectSettingsPostModel
-type AutoTestProjectSettingsPostModel struct {
+// AutoTestProjectSettingsApiModel struct for AutoTestProjectSettingsApiModel
+type AutoTestProjectSettingsApiModel struct {
 	// Indicates if the status \"Flaky/Stable\" sets automatically
 	IsFlakyAuto *bool `json:"isFlakyAuto,omitempty"`
 	// Stability percentage for autotest flaky computing
@@ -33,14 +33,14 @@ type AutoTestProjectSettingsPostModel struct {
 	RerunAttemptsCount int32 `json:"rerunAttemptsCount"`
 }
 
-type _AutoTestProjectSettingsPostModel AutoTestProjectSettingsPostModel
+type _AutoTestProjectSettingsApiModel AutoTestProjectSettingsApiModel
 
-// NewAutoTestProjectSettingsPostModel instantiates a new AutoTestProjectSettingsPostModel object
+// NewAutoTestProjectSettingsApiModel instantiates a new AutoTestProjectSettingsApiModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestProjectSettingsPostModel(rerunEnabled bool, rerunAttemptsCount int32) *AutoTestProjectSettingsPostModel {
-	this := AutoTestProjectSettingsPostModel{}
+func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount int32) *AutoTestProjectSettingsApiModel {
+	this := AutoTestProjectSettingsApiModel{}
 	var isFlakyAuto bool = false
 	this.IsFlakyAuto = &isFlakyAuto
 	var flakyStabilityPercentage int32 = 100
@@ -52,11 +52,11 @@ func NewAutoTestProjectSettingsPostModel(rerunEnabled bool, rerunAttemptsCount i
 	return &this
 }
 
-// NewAutoTestProjectSettingsPostModelWithDefaults instantiates a new AutoTestProjectSettingsPostModel object
+// NewAutoTestProjectSettingsApiModelWithDefaults instantiates a new AutoTestProjectSettingsApiModel object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAutoTestProjectSettingsPostModelWithDefaults() *AutoTestProjectSettingsPostModel {
-	this := AutoTestProjectSettingsPostModel{}
+func NewAutoTestProjectSettingsApiModelWithDefaults() *AutoTestProjectSettingsApiModel {
+	this := AutoTestProjectSettingsApiModel{}
 	var isFlakyAuto bool = false
 	this.IsFlakyAuto = &isFlakyAuto
 	var flakyStabilityPercentage int32 = 100
@@ -67,7 +67,7 @@ func NewAutoTestProjectSettingsPostModelWithDefaults() *AutoTestProjectSettingsP
 }
 
 // GetIsFlakyAuto returns the IsFlakyAuto field value if set, zero value otherwise.
-func (o *AutoTestProjectSettingsPostModel) GetIsFlakyAuto() bool {
+func (o *AutoTestProjectSettingsApiModel) GetIsFlakyAuto() bool {
 	if o == nil || IsNil(o.IsFlakyAuto) {
 		var ret bool
 		return ret
@@ -77,7 +77,7 @@ func (o *AutoTestProjectSettingsPostModel) GetIsFlakyAuto() bool {
 
 // GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutoTestProjectSettingsPostModel) GetIsFlakyAutoOk() (*bool, bool) {
+func (o *AutoTestProjectSettingsApiModel) GetIsFlakyAutoOk() (*bool, bool) {
 	if o == nil || IsNil(o.IsFlakyAuto) {
 		return nil, false
 	}
@@ -85,7 +85,7 @@ func (o *AutoTestProjectSettingsPostModel) GetIsFlakyAutoOk() (*bool, bool) {
 }
 
 // HasIsFlakyAuto returns a boolean if a field has been set.
-func (o *AutoTestProjectSettingsPostModel) HasIsFlakyAuto() bool {
+func (o *AutoTestProjectSettingsApiModel) HasIsFlakyAuto() bool {
 	if o != nil && !IsNil(o.IsFlakyAuto) {
 		return true
 	}
@@ -94,12 +94,12 @@ func (o *AutoTestProjectSettingsPostModel) HasIsFlakyAuto() bool {
 }
 
 // SetIsFlakyAuto gets a reference to the given bool and assigns it to the IsFlakyAuto field.
-func (o *AutoTestProjectSettingsPostModel) SetIsFlakyAuto(v bool) {
+func (o *AutoTestProjectSettingsApiModel) SetIsFlakyAuto(v bool) {
 	o.IsFlakyAuto = &v
 }
 
 // GetFlakyStabilityPercentage returns the FlakyStabilityPercentage field value if set, zero value otherwise.
-func (o *AutoTestProjectSettingsPostModel) GetFlakyStabilityPercentage() int32 {
+func (o *AutoTestProjectSettingsApiModel) GetFlakyStabilityPercentage() int32 {
 	if o == nil || IsNil(o.FlakyStabilityPercentage) {
 		var ret int32
 		return ret
@@ -109,7 +109,7 @@ func (o *AutoTestProjectSettingsPostModel) GetFlakyStabilityPercentage() int32 {
 
 // GetFlakyStabilityPercentageOk returns a tuple with the FlakyStabilityPercentage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutoTestProjectSettingsPostModel) GetFlakyStabilityPercentageOk() (*int32, bool) {
+func (o *AutoTestProjectSettingsApiModel) GetFlakyStabilityPercentageOk() (*int32, bool) {
 	if o == nil || IsNil(o.FlakyStabilityPercentage) {
 		return nil, false
 	}
@@ -117,7 +117,7 @@ func (o *AutoTestProjectSettingsPostModel) GetFlakyStabilityPercentageOk() (*int
 }
 
 // HasFlakyStabilityPercentage returns a boolean if a field has been set.
-func (o *AutoTestProjectSettingsPostModel) HasFlakyStabilityPercentage() bool {
+func (o *AutoTestProjectSettingsApiModel) HasFlakyStabilityPercentage() bool {
 	if o != nil && !IsNil(o.FlakyStabilityPercentage) {
 		return true
 	}
@@ -126,12 +126,12 @@ func (o *AutoTestProjectSettingsPostModel) HasFlakyStabilityPercentage() bool {
 }
 
 // SetFlakyStabilityPercentage gets a reference to the given int32 and assigns it to the FlakyStabilityPercentage field.
-func (o *AutoTestProjectSettingsPostModel) SetFlakyStabilityPercentage(v int32) {
+func (o *AutoTestProjectSettingsApiModel) SetFlakyStabilityPercentage(v int32) {
 	o.FlakyStabilityPercentage = &v
 }
 
 // GetFlakyTestRunCount returns the FlakyTestRunCount field value if set, zero value otherwise.
-func (o *AutoTestProjectSettingsPostModel) GetFlakyTestRunCount() int32 {
+func (o *AutoTestProjectSettingsApiModel) GetFlakyTestRunCount() int32 {
 	if o == nil || IsNil(o.FlakyTestRunCount) {
 		var ret int32
 		return ret
@@ -141,7 +141,7 @@ func (o *AutoTestProjectSettingsPostModel) GetFlakyTestRunCount() int32 {
 
 // GetFlakyTestRunCountOk returns a tuple with the FlakyTestRunCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AutoTestProjectSettingsPostModel) GetFlakyTestRunCountOk() (*int32, bool) {
+func (o *AutoTestProjectSettingsApiModel) GetFlakyTestRunCountOk() (*int32, bool) {
 	if o == nil || IsNil(o.FlakyTestRunCount) {
 		return nil, false
 	}
@@ -149,7 +149,7 @@ func (o *AutoTestProjectSettingsPostModel) GetFlakyTestRunCountOk() (*int32, boo
 }
 
 // HasFlakyTestRunCount returns a boolean if a field has been set.
-func (o *AutoTestProjectSettingsPostModel) HasFlakyTestRunCount() bool {
+func (o *AutoTestProjectSettingsApiModel) HasFlakyTestRunCount() bool {
 	if o != nil && !IsNil(o.FlakyTestRunCount) {
 		return true
 	}
@@ -158,12 +158,12 @@ func (o *AutoTestProjectSettingsPostModel) HasFlakyTestRunCount() bool {
 }
 
 // SetFlakyTestRunCount gets a reference to the given int32 and assigns it to the FlakyTestRunCount field.
-func (o *AutoTestProjectSettingsPostModel) SetFlakyTestRunCount(v int32) {
+func (o *AutoTestProjectSettingsApiModel) SetFlakyTestRunCount(v int32) {
 	o.FlakyTestRunCount = &v
 }
 
 // GetRerunEnabled returns the RerunEnabled field value
-func (o *AutoTestProjectSettingsPostModel) GetRerunEnabled() bool {
+func (o *AutoTestProjectSettingsApiModel) GetRerunEnabled() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -174,7 +174,7 @@ func (o *AutoTestProjectSettingsPostModel) GetRerunEnabled() bool {
 
 // GetRerunEnabledOk returns a tuple with the RerunEnabled field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestProjectSettingsPostModel) GetRerunEnabledOk() (*bool, bool) {
+func (o *AutoTestProjectSettingsApiModel) GetRerunEnabledOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -182,12 +182,12 @@ func (o *AutoTestProjectSettingsPostModel) GetRerunEnabledOk() (*bool, bool) {
 }
 
 // SetRerunEnabled sets field value
-func (o *AutoTestProjectSettingsPostModel) SetRerunEnabled(v bool) {
+func (o *AutoTestProjectSettingsApiModel) SetRerunEnabled(v bool) {
 	o.RerunEnabled = v
 }
 
 // GetRerunAttemptsCount returns the RerunAttemptsCount field value
-func (o *AutoTestProjectSettingsPostModel) GetRerunAttemptsCount() int32 {
+func (o *AutoTestProjectSettingsApiModel) GetRerunAttemptsCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -198,7 +198,7 @@ func (o *AutoTestProjectSettingsPostModel) GetRerunAttemptsCount() int32 {
 
 // GetRerunAttemptsCountOk returns a tuple with the RerunAttemptsCount field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestProjectSettingsPostModel) GetRerunAttemptsCountOk() (*int32, bool) {
+func (o *AutoTestProjectSettingsApiModel) GetRerunAttemptsCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -206,11 +206,11 @@ func (o *AutoTestProjectSettingsPostModel) GetRerunAttemptsCountOk() (*int32, bo
 }
 
 // SetRerunAttemptsCount sets field value
-func (o *AutoTestProjectSettingsPostModel) SetRerunAttemptsCount(v int32) {
+func (o *AutoTestProjectSettingsApiModel) SetRerunAttemptsCount(v int32) {
 	o.RerunAttemptsCount = v
 }
 
-func (o AutoTestProjectSettingsPostModel) MarshalJSON() ([]byte, error) {
+func (o AutoTestProjectSettingsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -218,7 +218,7 @@ func (o AutoTestProjectSettingsPostModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AutoTestProjectSettingsPostModel) ToMap() (map[string]interface{}, error) {
+func (o AutoTestProjectSettingsApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.IsFlakyAuto) {
 		toSerialize["isFlakyAuto"] = o.IsFlakyAuto
@@ -234,7 +234,7 @@ func (o AutoTestProjectSettingsPostModel) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
-func (o *AutoTestProjectSettingsPostModel) UnmarshalJSON(data []byte) (err error) {
+func (o *AutoTestProjectSettingsApiModel) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -257,53 +257,53 @@ func (o *AutoTestProjectSettingsPostModel) UnmarshalJSON(data []byte) (err error
 		}
 	}
 
-	varAutoTestProjectSettingsPostModel := _AutoTestProjectSettingsPostModel{}
+	varAutoTestProjectSettingsApiModel := _AutoTestProjectSettingsApiModel{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoTestProjectSettingsPostModel)
+	err = decoder.Decode(&varAutoTestProjectSettingsApiModel)
 
 	if err != nil {
 		return err
 	}
 
-	*o = AutoTestProjectSettingsPostModel(varAutoTestProjectSettingsPostModel)
+	*o = AutoTestProjectSettingsApiModel(varAutoTestProjectSettingsApiModel)
 
 	return err
 }
 
-type NullableAutoTestProjectSettingsPostModel struct {
-	value *AutoTestProjectSettingsPostModel
+type NullableAutoTestProjectSettingsApiModel struct {
+	value *AutoTestProjectSettingsApiModel
 	isSet bool
 }
 
-func (v NullableAutoTestProjectSettingsPostModel) Get() *AutoTestProjectSettingsPostModel {
+func (v NullableAutoTestProjectSettingsApiModel) Get() *AutoTestProjectSettingsApiModel {
 	return v.value
 }
 
-func (v *NullableAutoTestProjectSettingsPostModel) Set(val *AutoTestProjectSettingsPostModel) {
+func (v *NullableAutoTestProjectSettingsApiModel) Set(val *AutoTestProjectSettingsApiModel) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAutoTestProjectSettingsPostModel) IsSet() bool {
+func (v NullableAutoTestProjectSettingsApiModel) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAutoTestProjectSettingsPostModel) Unset() {
+func (v *NullableAutoTestProjectSettingsApiModel) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAutoTestProjectSettingsPostModel(val *AutoTestProjectSettingsPostModel) *NullableAutoTestProjectSettingsPostModel {
-	return &NullableAutoTestProjectSettingsPostModel{value: val, isSet: true}
+func NewNullableAutoTestProjectSettingsApiModel(val *AutoTestProjectSettingsApiModel) *NullableAutoTestProjectSettingsApiModel {
+	return &NullableAutoTestProjectSettingsApiModel{value: val, isSet: true}
 }
 
-func (v NullableAutoTestProjectSettingsPostModel) MarshalJSON() ([]byte, error) {
+func (v NullableAutoTestProjectSettingsApiModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAutoTestProjectSettingsPostModel) UnmarshalJSON(src []byte) error {
+func (v *NullableAutoTestProjectSettingsApiModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

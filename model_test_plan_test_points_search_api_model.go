@@ -54,6 +54,8 @@ type TestPlanTestPointsSearchApiModel struct {
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
 	// Specifies a test point tags to search for
 	Tags []string `json:"tags,omitempty"`
+	// Specifies a test point tags to exclude to search for
+	ExcludeTags []string `json:"excludeTags,omitempty"`
 	// Specifies a test point attributes to search for
 	Attributes map[string][]string `json:"attributes,omitempty"`
 	// Specifies a work item range of creation date to search for
@@ -701,6 +703,39 @@ func (o *TestPlanTestPointsSearchApiModel) SetTags(v []string) {
 	o.Tags = v
 }
 
+// GetExcludeTags returns the ExcludeTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestPlanTestPointsSearchApiModel) GetExcludeTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ExcludeTags
+}
+
+// GetExcludeTagsOk returns a tuple with the ExcludeTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestPlanTestPointsSearchApiModel) GetExcludeTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExcludeTags) {
+		return nil, false
+	}
+	return o.ExcludeTags, true
+}
+
+// HasExcludeTags returns a boolean if a field has been set.
+func (o *TestPlanTestPointsSearchApiModel) HasExcludeTags() bool {
+	if o != nil && !IsNil(o.ExcludeTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeTags gets a reference to the given []string and assigns it to the ExcludeTags field.
+func (o *TestPlanTestPointsSearchApiModel) SetExcludeTags(v []string) {
+	o.ExcludeTags = v
+}
+
 // GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestPlanTestPointsSearchApiModel) GetAttributes() map[string][]string {
 	if o == nil {
@@ -944,6 +979,9 @@ func (o TestPlanTestPointsSearchApiModel) ToMap() (map[string]interface{}, error
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.ExcludeTags != nil {
+		toSerialize["excludeTags"] = o.ExcludeTags
 	}
 	if o.Attributes != nil {
 		toSerialize["attributes"] = o.Attributes

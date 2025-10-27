@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddGlobaAttributesToProject**](ProjectsAPI.md#AddGlobaAttributesToProject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
+[**AddGlobalAttributesToProject**](ProjectsAPI.md#AddGlobalAttributesToProject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
 [**ApiV2ProjectsIdDelete**](ProjectsAPI.md#ApiV2ProjectsIdDelete) | **Delete** /api/v2/projects/{id} | Archive project
 [**ApiV2ProjectsIdFailureClassesGet**](ProjectsAPI.md#ApiV2ProjectsIdFailureClassesGet) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 [**ApiV2ProjectsIdFavoritePut**](ProjectsAPI.md#ApiV2ProjectsIdFavoritePut) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -32,9 +32,9 @@ Method | HTTP request | Description
 
 
 
-## AddGlobaAttributesToProject
+## AddGlobalAttributesToProject
 
-> AddGlobaAttributesToProject(ctx, id).RequestBody(requestBody).Execute()
+> AddGlobalAttributesToProject(ctx, id).RequestBody(requestBody).Execute()
 
 Add global attributes to project
 
@@ -58,9 +58,9 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ProjectsAPI.AddGlobaAttributesToProject(context.Background(), id).RequestBody(requestBody).Execute()
+	r, err := apiClient.ProjectsAPI.AddGlobalAttributesToProject(context.Background(), id).RequestBody(requestBody).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.AddGlobaAttributesToProject``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.AddGlobalAttributesToProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 }
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAddGlobaAttributesToProjectRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAddGlobalAttributesToProjectRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsIdFailureClassesGet
 
-> []AutoTestResultReasonProjectApiResult ApiV2ProjectsIdFailureClassesGet(ctx, id).IsDeleted(isDeleted).Execute()
+> []FailureCategoryApiResult ApiV2ProjectsIdFailureClassesGet(ctx, id).IsDeleted(isDeleted).Execute()
 
 Get failure classes
 
@@ -197,7 +197,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdFailureClassesGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsIdFailureClassesGet`: []AutoTestResultReasonProjectApiResult
+	// response from `ApiV2ProjectsIdFailureClassesGet`: []FailureCategoryApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdFailureClassesGet`: %v\n", resp)
 }
 ```
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]AutoTestResultReasonProjectApiResult**](AutoTestResultReasonProjectApiResult.md)
+[**[]FailureCategoryApiResult**](FailureCategoryApiResult.md)
 
 ### Authorization
 

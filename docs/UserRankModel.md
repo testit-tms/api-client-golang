@@ -11,12 +11,14 @@ Name | Type | Description | Notes
 **SkippedTestPoints** | **int32** |  | 
 **BlockedTestPoints** | **int32** |  | 
 **LevelAvatarEnabled** | **bool** |  | 
+**SucceededTestPoints** | **int32** |  | 
+**IncompleteTestPoints** | **int32** |  | 
 
 ## Methods
 
 ### NewUserRankModel
 
-`func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, levelAvatarEnabled bool, ) *UserRankModel`
+`func NewUserRankModel(score int32, workItemsCreated int32, passedTestPoints int32, failedTestPoints int32, skippedTestPoints int32, blockedTestPoints int32, levelAvatarEnabled bool, succeededTestPoints int32, incompleteTestPoints int32, ) *UserRankModel`
 
 NewUserRankModel instantiates a new UserRankModel object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +171,46 @@ and a boolean to check if the value has been set.
 `func (o *UserRankModel) SetLevelAvatarEnabled(v bool)`
 
 SetLevelAvatarEnabled sets LevelAvatarEnabled field to given value.
+
+
+### GetSucceededTestPoints
+
+`func (o *UserRankModel) GetSucceededTestPoints() int32`
+
+GetSucceededTestPoints returns the SucceededTestPoints field if non-nil, zero value otherwise.
+
+### GetSucceededTestPointsOk
+
+`func (o *UserRankModel) GetSucceededTestPointsOk() (*int32, bool)`
+
+GetSucceededTestPointsOk returns a tuple with the SucceededTestPoints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSucceededTestPoints
+
+`func (o *UserRankModel) SetSucceededTestPoints(v int32)`
+
+SetSucceededTestPoints sets SucceededTestPoints field to given value.
+
+
+### GetIncompleteTestPoints
+
+`func (o *UserRankModel) GetIncompleteTestPoints() int32`
+
+GetIncompleteTestPoints returns the IncompleteTestPoints field if non-nil, zero value otherwise.
+
+### GetIncompleteTestPointsOk
+
+`func (o *UserRankModel) GetIncompleteTestPointsOk() (*int32, bool)`
+
+GetIncompleteTestPointsOk returns a tuple with the IncompleteTestPoints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncompleteTestPoints
+
+`func (o *UserRankModel) SetIncompleteTestPoints(v int32)`
+
+SetIncompleteTestPoints sets IncompleteTestPoints field to given value.
 
 
 

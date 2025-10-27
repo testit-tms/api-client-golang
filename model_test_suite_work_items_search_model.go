@@ -20,10 +20,8 @@ var _ MappedNullable = &TestSuiteWorkItemsSearchModel{}
 // TestSuiteWorkItemsSearchModel struct for TestSuiteWorkItemsSearchModel
 type TestSuiteWorkItemsSearchModel struct {
 	// Collection of tags
-	// Deprecated
 	TagNames []string `json:"tagNames,omitempty"`
-	// Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
-	// Deprecated
+	// Collection of types of work item    Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
 	EntityTypes []WorkItemEntityTypes `json:"entityTypes,omitempty"`
 	// Name or identifier (UUID) of work item
 	NameOrId NullableString `json:"nameOrId,omitempty"`
@@ -73,6 +71,8 @@ type TestSuiteWorkItemsSearchModel struct {
 	IsAutomated NullableBool `json:"isAutomated,omitempty"`
 	// Collection of tags
 	Tags []string `json:"tags,omitempty"`
+	// Collection of tags to exclude
+	ExcludeTags []string `json:"excludeTags,omitempty"`
 	// Collection of identifiers of linked autotests
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
 	// Collection of identifiers work items versions.
@@ -97,7 +97,6 @@ func NewTestSuiteWorkItemsSearchModelWithDefaults() *TestSuiteWorkItemsSearchMod
 }
 
 // GetTagNames returns the TagNames field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
 func (o *TestSuiteWorkItemsSearchModel) GetTagNames() []string {
 	if o == nil {
 		var ret []string
@@ -109,7 +108,6 @@ func (o *TestSuiteWorkItemsSearchModel) GetTagNames() []string {
 // GetTagNamesOk returns a tuple with the TagNames field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
 func (o *TestSuiteWorkItemsSearchModel) GetTagNamesOk() ([]string, bool) {
 	if o == nil || IsNil(o.TagNames) {
 		return nil, false
@@ -127,13 +125,11 @@ func (o *TestSuiteWorkItemsSearchModel) HasTagNames() bool {
 }
 
 // SetTagNames gets a reference to the given []string and assigns it to the TagNames field.
-// Deprecated
 func (o *TestSuiteWorkItemsSearchModel) SetTagNames(v []string) {
 	o.TagNames = v
 }
 
 // GetEntityTypes returns the EntityTypes field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
 func (o *TestSuiteWorkItemsSearchModel) GetEntityTypes() []WorkItemEntityTypes {
 	if o == nil {
 		var ret []WorkItemEntityTypes
@@ -145,7 +141,6 @@ func (o *TestSuiteWorkItemsSearchModel) GetEntityTypes() []WorkItemEntityTypes {
 // GetEntityTypesOk returns a tuple with the EntityTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
 func (o *TestSuiteWorkItemsSearchModel) GetEntityTypesOk() ([]WorkItemEntityTypes, bool) {
 	if o == nil || IsNil(o.EntityTypes) {
 		return nil, false
@@ -163,7 +158,6 @@ func (o *TestSuiteWorkItemsSearchModel) HasEntityTypes() bool {
 }
 
 // SetEntityTypes gets a reference to the given []WorkItemEntityTypes and assigns it to the EntityTypes field.
-// Deprecated
 func (o *TestSuiteWorkItemsSearchModel) SetEntityTypes(v []WorkItemEntityTypes) {
 	o.EntityTypes = v
 }
@@ -1050,6 +1044,39 @@ func (o *TestSuiteWorkItemsSearchModel) SetTags(v []string) {
 	o.Tags = v
 }
 
+// GetExcludeTags returns the ExcludeTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetExcludeTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ExcludeTags
+}
+
+// GetExcludeTagsOk returns a tuple with the ExcludeTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetExcludeTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExcludeTags) {
+		return nil, false
+	}
+	return o.ExcludeTags, true
+}
+
+// HasExcludeTags returns a boolean if a field has been set.
+func (o *TestSuiteWorkItemsSearchModel) HasExcludeTags() bool {
+	if o != nil && !IsNil(o.ExcludeTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeTags gets a reference to the given []string and assigns it to the ExcludeTags field.
+func (o *TestSuiteWorkItemsSearchModel) SetExcludeTags(v []string) {
+	o.ExcludeTags = v
+}
+
 // GetAutoTestIds returns the AutoTestIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestSuiteWorkItemsSearchModel) GetAutoTestIds() []string {
 	if o == nil {
@@ -1203,6 +1230,9 @@ func (o TestSuiteWorkItemsSearchModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.ExcludeTags != nil {
+		toSerialize["excludeTags"] = o.ExcludeTags
 	}
 	if o.AutoTestIds != nil {
 		toSerialize["autoTestIds"] = o.AutoTestIds

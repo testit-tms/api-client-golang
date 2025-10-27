@@ -794,7 +794,7 @@ func (r ApiApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPostRequest) Exec
 ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost Get work item index (position) in a collection by its id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
+ @param projectId Internal (UUID) or global (integer) identifier
  @param workItemId
  @return ApiApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPostRequest
 */

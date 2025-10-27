@@ -1,46 +1,46 @@
-# WorkItemIdModel
+# WorkItemIdApiModel
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Used for search WorkItem. Internal identifier has a Guid data format. Global identifier has an integer data format | 
+**Id** | **string** | Work Item ID or Global ID | 
 
 ## Methods
 
-### NewWorkItemIdModel
+### NewWorkItemIdApiModel
 
-`func NewWorkItemIdModel(id string, ) *WorkItemIdModel`
+`func NewWorkItemIdApiModel(id string, ) *WorkItemIdApiModel`
 
-NewWorkItemIdModel instantiates a new WorkItemIdModel object
+NewWorkItemIdApiModel instantiates a new WorkItemIdApiModel object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewWorkItemIdModelWithDefaults
+### NewWorkItemIdApiModelWithDefaults
 
-`func NewWorkItemIdModelWithDefaults() *WorkItemIdModel`
+`func NewWorkItemIdApiModelWithDefaults() *WorkItemIdApiModel`
 
-NewWorkItemIdModelWithDefaults instantiates a new WorkItemIdModel object
+NewWorkItemIdApiModelWithDefaults instantiates a new WorkItemIdApiModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *WorkItemIdModel) GetId() string`
+`func (o *WorkItemIdApiModel) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *WorkItemIdModel) GetIdOk() (*string, bool)`
+`func (o *WorkItemIdApiModel) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *WorkItemIdModel) SetId(v string)`
+`func (o *WorkItemIdApiModel) SetId(v string)`
 
 SetId sets Id field to given value.
 

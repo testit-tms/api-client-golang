@@ -24,24 +24,24 @@ import (
 // ProjectsAPIService ProjectsAPI service
 type ProjectsAPIService service
 
-type ApiAddGlobaAttributesToProjectRequest struct {
+type ApiAddGlobalAttributesToProjectRequest struct {
 	ctx context.Context
 	ApiService *ProjectsAPIService
 	id string
 	requestBody *[]string
 }
 
-func (r ApiAddGlobaAttributesToProjectRequest) RequestBody(requestBody []string) ApiAddGlobaAttributesToProjectRequest {
+func (r ApiAddGlobalAttributesToProjectRequest) RequestBody(requestBody []string) ApiAddGlobalAttributesToProjectRequest {
 	r.requestBody = &requestBody
 	return r
 }
 
-func (r ApiAddGlobaAttributesToProjectRequest) Execute() (*http.Response, error) {
-	return r.ApiService.AddGlobaAttributesToProjectExecute(r)
+func (r ApiAddGlobalAttributesToProjectRequest) Execute() (*http.Response, error) {
+	return r.ApiService.AddGlobalAttributesToProjectExecute(r)
 }
 
 /*
-AddGlobaAttributesToProject Add global attributes to project
+AddGlobalAttributesToProject Add global attributes to project
 
 
 Use case
@@ -56,10 +56,10 @@ System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Project internal (UUID) or global (integer) identifier
- @return ApiAddGlobaAttributesToProjectRequest
+ @return ApiAddGlobalAttributesToProjectRequest
 */
-func (a *ProjectsAPIService) AddGlobaAttributesToProject(ctx context.Context, id string) ApiAddGlobaAttributesToProjectRequest {
-	return ApiAddGlobaAttributesToProjectRequest{
+func (a *ProjectsAPIService) AddGlobalAttributesToProject(ctx context.Context, id string) ApiAddGlobalAttributesToProjectRequest {
+	return ApiAddGlobalAttributesToProjectRequest{
 		ApiService: a,
 		ctx: ctx,
 		id: id,
@@ -67,14 +67,14 @@ func (a *ProjectsAPIService) AddGlobaAttributesToProject(ctx context.Context, id
 }
 
 // Execute executes the request
-func (a *ProjectsAPIService) AddGlobaAttributesToProjectExecute(r ApiAddGlobaAttributesToProjectRequest) (*http.Response, error) {
+func (a *ProjectsAPIService) AddGlobalAttributesToProjectExecute(r ApiAddGlobalAttributesToProjectRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.AddGlobaAttributesToProject")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.AddGlobalAttributesToProject")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -393,7 +393,7 @@ func (r ApiApiV2ProjectsIdFailureClassesGetRequest) IsDeleted(isDeleted bool) Ap
 	return r
 }
 
-func (r ApiApiV2ProjectsIdFailureClassesGetRequest) Execute() ([]AutoTestResultReasonProjectApiResult, *http.Response, error) {
+func (r ApiApiV2ProjectsIdFailureClassesGetRequest) Execute() ([]FailureCategoryApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsIdFailureClassesGetExecute(r)
 }
 
@@ -403,6 +403,8 @@ ApiV2ProjectsIdFailureClassesGet Get failure classes
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Unique or global ID of the project
  @return ApiApiV2ProjectsIdFailureClassesGetRequest
+
+Deprecated
 */
 func (a *ProjectsAPIService) ApiV2ProjectsIdFailureClassesGet(ctx context.Context, id string) ApiApiV2ProjectsIdFailureClassesGetRequest {
 	return ApiApiV2ProjectsIdFailureClassesGetRequest{
@@ -413,13 +415,14 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdFailureClassesGet(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return []AutoTestResultReasonProjectApiResult
-func (a *ProjectsAPIService) ApiV2ProjectsIdFailureClassesGetExecute(r ApiApiV2ProjectsIdFailureClassesGetRequest) ([]AutoTestResultReasonProjectApiResult, *http.Response, error) {
+//  @return []FailureCategoryApiResult
+// Deprecated
+func (a *ProjectsAPIService) ApiV2ProjectsIdFailureClassesGetExecute(r ApiApiV2ProjectsIdFailureClassesGetRequest) ([]FailureCategoryApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []AutoTestResultReasonProjectApiResult
+		localVarReturnValue  []FailureCategoryApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.ApiV2ProjectsIdFailureClassesGet")

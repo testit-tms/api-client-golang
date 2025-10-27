@@ -1236,7 +1236,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1254,7 +1254,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1304,7 +1304,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1322,7 +1322,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1372,7 +1372,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1392,7 +1392,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1440,7 +1440,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier (optional)
 	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1462,7 +1462,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1514,7 +1514,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier\" (optional)
 	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1536,7 +1536,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1588,7 +1588,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | 
+	id := "id_example" // string | Internal (UUID) or global (integer) identifier
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1608,7 +1608,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** |  | 
+**id** | **string** | Internal (UUID) or global (integer) identifier | 
 
 ### Other Parameters
 
@@ -1658,9 +1658,9 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
-	workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format) identifier\" (optional)
-	versionNumber := int32(1) // int32 | WorkItem version (integer format) number\" (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format)  identifier\" (optional)
+	versionNumber := int32(1) // int32 | WorkItem version (integer format)  number\" (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1680,7 +1680,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1690,8 +1690,8 @@ Other parameters are passed through a pointer to a apiGetWorkItemVersionsRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemVersionId** | **string** | WorkItem version (guid format) identifier\&quot; | 
- **versionNumber** | **int32** | WorkItem version (integer format) number\&quot; | 
+ **workItemVersionId** | **string** | WorkItem version (guid format)  identifier\&quot; | 
+ **versionNumber** | **int32** | WorkItem version (integer format)  number\&quot; | 
 
 ### Return type
 

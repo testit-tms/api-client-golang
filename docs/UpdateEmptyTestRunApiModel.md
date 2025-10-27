@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Test run unique identifier | 
 **Name** | **string** | Test run name | 
 **Description** | Pointer to **NullableString** | Test run description | [optional] 
-**LaunchSource** | Pointer to **NullableString** | Test run launch source              Once launch source is specified it cannot be updated | [optional] 
+**LaunchSource** | Pointer to **NullableString** | Test run launch source                Once launch source is specified it cannot be updated | [optional] 
 **Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Collection of attachments related to the test run | [optional] 
 **Links** | Pointer to [**[]UpdateLinkApiModel**](UpdateLinkApiModel.md) | Collection of links related to the test run | [optional] 
 

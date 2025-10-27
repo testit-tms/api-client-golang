@@ -78,7 +78,7 @@ func (r ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest) Execute()
 ApiV2ProjectsProjectIdAttributesTemplatesSearchPost Search for custom attributes templates
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
+ @param projectId Internal (UUID) or global (integer) identifier
  @return ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
 */
 func (a *ProjectAttributeTemplatesAPIService) ApiV2ProjectsProjectIdAttributesTemplatesSearchPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest {

@@ -27,11 +27,11 @@ type ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest struct {
 	ctx context.Context
 	ApiService *ProjectSettingsAPIService
 	projectId string
-	autoTestProjectSettingsPostModel *AutoTestProjectSettingsPostModel
+	autoTestProjectSettingsApiModel *AutoTestProjectSettingsApiModel
 }
 
-func (r ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest) AutoTestProjectSettingsPostModel(autoTestProjectSettingsPostModel AutoTestProjectSettingsPostModel) ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest {
-	r.autoTestProjectSettingsPostModel = &autoTestProjectSettingsPostModel
+func (r ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest) AutoTestProjectSettingsApiModel(autoTestProjectSettingsApiModel AutoTestProjectSettingsApiModel) ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest {
+	r.autoTestProjectSettingsApiModel = &autoTestProjectSettingsApiModel
 	return r
 }
 
@@ -43,7 +43,7 @@ func (r ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest) Execute() (*http.
 ApiV2ProjectsProjectIdSettingsAutotestsPost Set autotest project settings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
+ @param projectId Internal (UUID) or global (integer) identifier
  @return ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest
 */
 func (a *ProjectSettingsAPIService) ApiV2ProjectsProjectIdSettingsAutotestsPost(ctx context.Context, projectId string) ApiApiV2ProjectsProjectIdSettingsAutotestsPostRequest {
@@ -92,7 +92,7 @@ func (a *ProjectSettingsAPIService) ApiV2ProjectsProjectIdSettingsAutotestsPostE
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.autoTestProjectSettingsPostModel
+	localVarPostBody = r.autoTestProjectSettingsApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -206,7 +206,7 @@ type ApiGetAutotestProjectSettingsRequest struct {
 	projectId string
 }
 
-func (r ApiGetAutotestProjectSettingsRequest) Execute() (*AutoTestProjectSettingsGetModel, *http.Response, error) {
+func (r ApiGetAutotestProjectSettingsRequest) Execute() (*AutoTestProjectSettingsApiResult, *http.Response, error) {
 	return r.ApiService.GetAutotestProjectSettingsExecute(r)
 }
 
@@ -214,7 +214,7 @@ func (r ApiGetAutotestProjectSettingsRequest) Execute() (*AutoTestProjectSetting
 GetAutotestProjectSettings Get autotest project settings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param projectId
+ @param projectId Internal (UUID) or global (integer) identifier
  @return ApiGetAutotestProjectSettingsRequest
 */
 func (a *ProjectSettingsAPIService) GetAutotestProjectSettings(ctx context.Context, projectId string) ApiGetAutotestProjectSettingsRequest {
@@ -226,13 +226,13 @@ func (a *ProjectSettingsAPIService) GetAutotestProjectSettings(ctx context.Conte
 }
 
 // Execute executes the request
-//  @return AutoTestProjectSettingsGetModel
-func (a *ProjectSettingsAPIService) GetAutotestProjectSettingsExecute(r ApiGetAutotestProjectSettingsRequest) (*AutoTestProjectSettingsGetModel, *http.Response, error) {
+//  @return AutoTestProjectSettingsApiResult
+func (a *ProjectSettingsAPIService) GetAutotestProjectSettingsExecute(r ApiGetAutotestProjectSettingsRequest) (*AutoTestProjectSettingsApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AutoTestProjectSettingsGetModel
+		localVarReturnValue  *AutoTestProjectSettingsApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectSettingsAPIService.GetAutotestProjectSettings")
