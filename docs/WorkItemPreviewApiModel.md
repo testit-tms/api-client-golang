@@ -7,14 +7,12 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Description** | **string** |  | 
 **Steps** | [**[]WorkItemPreviewStepApiModel**](WorkItemPreviewStepApiModel.md) |  | 
-**Action** | **string** |  | 
-**Expected** | **string** |  | 
 
 ## Methods
 
 ### NewWorkItemPreviewApiModel
 
-`func NewWorkItemPreviewApiModel(name string, description string, steps []WorkItemPreviewStepApiModel, action string, expected string, ) *WorkItemPreviewApiModel`
+`func NewWorkItemPreviewApiModel(name string, description string, steps []WorkItemPreviewStepApiModel, ) *WorkItemPreviewApiModel`
 
 NewWorkItemPreviewApiModel instantiates a new WorkItemPreviewApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,46 +85,6 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemPreviewApiModel) SetSteps(v []WorkItemPreviewStepApiModel)`
 
 SetSteps sets Steps field to given value.
-
-
-### GetAction
-
-`func (o *WorkItemPreviewApiModel) GetAction() string`
-
-GetAction returns the Action field if non-nil, zero value otherwise.
-
-### GetActionOk
-
-`func (o *WorkItemPreviewApiModel) GetActionOk() (*string, bool)`
-
-GetActionOk returns a tuple with the Action field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAction
-
-`func (o *WorkItemPreviewApiModel) SetAction(v string)`
-
-SetAction sets Action field to given value.
-
-
-### GetExpected
-
-`func (o *WorkItemPreviewApiModel) GetExpected() string`
-
-GetExpected returns the Expected field if non-nil, zero value otherwise.
-
-### GetExpectedOk
-
-`func (o *WorkItemPreviewApiModel) GetExpectedOk() (*string, bool)`
-
-GetExpectedOk returns a tuple with the Expected field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExpected
-
-`func (o *WorkItemPreviewApiModel) SetExpected(v string)`
-
-SetExpected sets Expected field to given value.
 
 
 

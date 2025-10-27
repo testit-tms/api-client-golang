@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **NameOrId** | Pointer to **NullableString** | Name or identifier (UUID) of work item | [optional] 
 **IncludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **ExcludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
+**ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata | [optional] 
 **ProjectIds** | Pointer to **[]string** | Collection of project identifiers | [optional] 
 **Links** | Pointer to [**NullableWorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links | [optional] 
 **Name** | Pointer to **NullableString** | Name of work item | [optional] 
@@ -154,6 +155,41 @@ HasExcludeIds returns a boolean if a field has been set.
 `func (o *WorkItemFilterModel) UnsetExcludeIds()`
 
 UnsetExcludeIds ensures that no value is present for ExcludeIds, not even an explicit nil
+### GetExternalMetadata
+
+`func (o *WorkItemFilterModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel`
+
+GetExternalMetadata returns the ExternalMetadata field if non-nil, zero value otherwise.
+
+### GetExternalMetadataOk
+
+`func (o *WorkItemFilterModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool)`
+
+GetExternalMetadataOk returns a tuple with the ExternalMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalMetadata
+
+`func (o *WorkItemFilterModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel)`
+
+SetExternalMetadata sets ExternalMetadata field to given value.
+
+### HasExternalMetadata
+
+`func (o *WorkItemFilterModel) HasExternalMetadata() bool`
+
+HasExternalMetadata returns a boolean if a field has been set.
+
+### SetExternalMetadataNil
+
+`func (o *WorkItemFilterModel) SetExternalMetadataNil(b bool)`
+
+ SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+
+### UnsetExternalMetadata
+`func (o *WorkItemFilterModel) UnsetExternalMetadata()`
+
+UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
 ### GetProjectIds
 
 `func (o *WorkItemFilterModel) GetProjectIds() []string`

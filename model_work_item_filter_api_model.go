@@ -69,6 +69,8 @@ type WorkItemFilterApiModel struct {
 	WorkItemVersionIds []string `json:"workItemVersionIds,omitempty"`
 	// Specifies a work item filter by its links
 	Links NullableWorkItemLinkFilterApiModel `json:"links,omitempty"`
+	// Specifies work item filter by its external metadata
+	ExternalMetadata NullableWorkItemExternalMetadataFilterApiModel `json:"externalMetadata,omitempty"`
 }
 
 // NewWorkItemFilterApiModel instantiates a new WorkItemFilterApiModel object
@@ -994,6 +996,48 @@ func (o *WorkItemFilterApiModel) UnsetLinks() {
 	o.Links.Unset()
 }
 
+// GetExternalMetadata returns the ExternalMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemFilterApiModel) GetExternalMetadata() WorkItemExternalMetadataFilterApiModel {
+	if o == nil || IsNil(o.ExternalMetadata.Get()) {
+		var ret WorkItemExternalMetadataFilterApiModel
+		return ret
+	}
+	return *o.ExternalMetadata.Get()
+}
+
+// GetExternalMetadataOk returns a tuple with the ExternalMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemFilterApiModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalMetadata.Get(), o.ExternalMetadata.IsSet()
+}
+
+// HasExternalMetadata returns a boolean if a field has been set.
+func (o *WorkItemFilterApiModel) HasExternalMetadata() bool {
+	if o != nil && o.ExternalMetadata.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalMetadata gets a reference to the given NullableWorkItemExternalMetadataFilterApiModel and assigns it to the ExternalMetadata field.
+func (o *WorkItemFilterApiModel) SetExternalMetadata(v WorkItemExternalMetadataFilterApiModel) {
+	o.ExternalMetadata.Set(&v)
+}
+// SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+func (o *WorkItemFilterApiModel) SetExternalMetadataNil() {
+	o.ExternalMetadata.Set(nil)
+}
+
+// UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
+func (o *WorkItemFilterApiModel) UnsetExternalMetadata() {
+	o.ExternalMetadata.Unset()
+}
+
 func (o WorkItemFilterApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1078,6 +1122,9 @@ func (o WorkItemFilterApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Links.IsSet() {
 		toSerialize["links"] = o.Links.Get()
+	}
+	if o.ExternalMetadata.IsSet() {
+		toSerialize["externalMetadata"] = o.ExternalMetadata.Get()
 	}
 	return toSerialize, nil
 }

@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ApiV2WebhooksLogsGet**](WebhooksLogsAPI.md#ApiV2WebhooksLogsGet) | **Get** /api/v2/webhooks/logs | Get all webhook logs
+[**ApiV2WebhooksLogsGet**](WebhooksLogsAPI.md#ApiV2WebhooksLogsGet) | **Get** /api/v2/webhooks/logs | Get last webhook logs
 [**ApiV2WebhooksLogsIdDelete**](WebhooksLogsAPI.md#ApiV2WebhooksLogsIdDelete) | **Delete** /api/v2/webhooks/logs/{id} | Delete webhook log by ID
 [**ApiV2WebhooksLogsIdGet**](WebhooksLogsAPI.md#ApiV2WebhooksLogsIdGet) | **Get** /api/v2/webhooks/logs/{id} | Get webhook log by ID
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 
 ## ApiV2WebhooksLogsGet
 
-> []WebHookLogModel ApiV2WebhooksLogsGet(ctx).ProjectId(projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []WebhookLogApiResult ApiV2WebhooksLogsGet(ctx).ProjectId(projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
-Get all webhook logs
+Get last webhook logs
 
 ### Example
 
@@ -43,7 +43,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksLogsAPI.ApiV2WebhooksLogsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WebhooksLogsGet`: []WebHookLogModel
+	// response from `ApiV2WebhooksLogsGet`: []WebhookLogApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WebhooksLogsAPI.ApiV2WebhooksLogsGet`: %v\n", resp)
 }
 ```
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]WebHookLogModel**](WebHookLogModel.md)
+[**[]WebhookLogApiResult**](WebhookLogApiResult.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WebhooksLogsIdGet
 
-> WebHookLogModel ApiV2WebhooksLogsIdGet(ctx, id).Execute()
+> WebhookLogApiResult ApiV2WebhooksLogsIdGet(ctx, id).Execute()
 
 Get webhook log by ID
 
@@ -178,7 +178,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksLogsAPI.ApiV2WebhooksLogsIdGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WebhooksLogsIdGet`: WebHookLogModel
+	// response from `ApiV2WebhooksLogsIdGet`: WebhookLogApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WebhooksLogsAPI.ApiV2WebhooksLogsIdGet`: %v\n", resp)
 }
 ```
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WebHookLogModel**](WebHookLogModel.md)
+[**WebhookLogApiResult**](WebhookLogApiResult.md)
 
 ### Authorization
 

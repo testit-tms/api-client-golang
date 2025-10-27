@@ -1292,7 +1292,7 @@ import (
 
 func main() {
 	id := "id_example" // string | Autotest internal (UUID) or global (integer) identifier
-	workItemIdModel := *openapiclient.NewWorkItemIdModel("02887a0f-276a-4a9c-bfc0-1f33a3c07a13") // WorkItemIdModel |  (optional)
+	workItemIdModel := *openapiclient.NewWorkItemIdModel("b63772c7-7c31-4748-8ff9-cc13975a106c") // WorkItemIdModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

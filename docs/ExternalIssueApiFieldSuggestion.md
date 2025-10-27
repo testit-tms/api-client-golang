@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **string** |  | 
+**Value** | **string** | Value of the external issue field | 
+**ExternalService** | [**ExternalIssueExternalServiceApiResult**](ExternalIssueExternalServiceApiResult.md) | Associated external service with this value | 
 
 ## Methods
 
 ### NewExternalIssueApiFieldSuggestion
 
-`func NewExternalIssueApiFieldSuggestion(value string, ) *ExternalIssueApiFieldSuggestion`
+`func NewExternalIssueApiFieldSuggestion(value string, externalService ExternalIssueExternalServiceApiResult, ) *ExternalIssueApiFieldSuggestion`
 
 NewExternalIssueApiFieldSuggestion instantiates a new ExternalIssueApiFieldSuggestion object
 This constructor will assign default values to properties that have it defined,
@@ -43,6 +44,26 @@ and a boolean to check if the value has been set.
 `func (o *ExternalIssueApiFieldSuggestion) SetValue(v string)`
 
 SetValue sets Value field to given value.
+
+
+### GetExternalService
+
+`func (o *ExternalIssueApiFieldSuggestion) GetExternalService() ExternalIssueExternalServiceApiResult`
+
+GetExternalService returns the ExternalService field if non-nil, zero value otherwise.
+
+### GetExternalServiceOk
+
+`func (o *ExternalIssueApiFieldSuggestion) GetExternalServiceOk() (*ExternalIssueExternalServiceApiResult, bool)`
+
+GetExternalServiceOk returns a tuple with the ExternalService field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalService
+
+`func (o *ExternalIssueApiFieldSuggestion) SetExternalService(v ExternalIssueExternalServiceApiResult)`
+
+SetExternalService sets ExternalService field to given value.
 
 
 

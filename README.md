@@ -130,6 +130,7 @@ Class | Method | HTTP request | Description
 *CustomAttributesAPI* | [**ApiV2CustomAttributesGlobalPost**](docs/CustomAttributesAPI.md#apiv2customattributesglobalpost) | **Post** /api/v2/customAttributes/global | Create global attribute
 *CustomAttributesAPI* | [**ApiV2CustomAttributesIdGet**](docs/CustomAttributesAPI.md#apiv2customattributesidget) | **Get** /api/v2/customAttributes/{id} | Get attribute
 *CustomAttributesAPI* | [**ApiV2CustomAttributesSearchPost**](docs/CustomAttributesAPI.md#apiv2customattributessearchpost) | **Post** /api/v2/customAttributes/search | Search for attributes
+*ExternalIssuesAPI* | [**ApiV2ExternalIssuesSuggestionsPost**](docs/ExternalIssuesAPI.md#apiv2externalissuessuggestionspost) | **Post** /api/v2/external-issues/suggestions | Returns list of suggestions from available external issues
 *NotificationsAPI* | [**ApiV2NotificationsCountGet**](docs/NotificationsAPI.md#apiv2notificationscountget) | **Get** /api/v2/notifications/count | Get unread Notifications total in last 7 days
 *NotificationsAPI* | [**ApiV2NotificationsGet**](docs/NotificationsAPI.md#apiv2notificationsget) | **Get** /api/v2/notifications | Get all Notifications for current User
 *NotificationsAPI* | [**ApiV2NotificationsIdReadPost**](docs/NotificationsAPI.md#apiv2notificationsidreadpost) | **Post** /api/v2/notifications/{id}/read | Set Notification as read
@@ -179,10 +180,10 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemssearchgroupedpost) | **Post** /api/v2/projects/{projectId}/workItems/search/grouped | Search for work items and group results by attribute
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsSearchIdPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemssearchidpost) | **Post** /api/v2/projects/{projectId}/workItems/search/id | Search for work items and extract IDs only
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsSearchPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemssearchpost) | **Post** /api/v2/projects/{projectId}/workItems/search | Search for work items
+*ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemssearchworkitemidindexpost) | **Post** /api/v2/projects/{projectId}/workItems/search/{workItemId}/index | Get work item index (position) in a collection by its id.
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsTagsGet**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemstagsget) | **Get** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsAPI* | [**GetWorkItemsByProjectId**](docs/ProjectWorkItemsAPI.md#getworkitemsbyprojectid) | **Get** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsAPI* | [**AddGlobaAttributesToProject**](docs/ProjectsAPI.md#addglobaattributestoproject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsAPI* | [**ApiV2ProjectsDemoPost**](docs/ProjectsAPI.md#apiv2projectsdemopost) | **Post** /api/v2/projects/demo | 
 *ProjectsAPI* | [**ApiV2ProjectsIdDelete**](docs/ProjectsAPI.md#apiv2projectsiddelete) | **Delete** /api/v2/projects/{id} | Archive project
 *ProjectsAPI* | [**ApiV2ProjectsIdFailureClassesGet**](docs/ProjectsAPI.md#apiv2projectsidfailureclassesget) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsAPI* | [**ApiV2ProjectsIdFavoritePut**](docs/ProjectsAPI.md#apiv2projectsidfavoriteput) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -320,7 +321,7 @@ Class | Method | HTTP request | Description
 *WebhooksAPI* | [**ApiV2WebhooksSearchPost**](docs/WebhooksAPI.md#apiv2webhookssearchpost) | **Post** /api/v2/webhooks/search | Search for webhooks
 *WebhooksAPI* | [**ApiV2WebhooksSpecialVariablesGet**](docs/WebhooksAPI.md#apiv2webhooksspecialvariablesget) | **Get** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
 *WebhooksAPI* | [**ApiV2WebhooksTestPost**](docs/WebhooksAPI.md#apiv2webhookstestpost) | **Post** /api/v2/webhooks/test | Test webhook&#39;s url
-*WebhooksLogsAPI* | [**ApiV2WebhooksLogsGet**](docs/WebhooksLogsAPI.md#apiv2webhookslogsget) | **Get** /api/v2/webhooks/logs | Get all webhook logs
+*WebhooksLogsAPI* | [**ApiV2WebhooksLogsGet**](docs/WebhooksLogsAPI.md#apiv2webhookslogsget) | **Get** /api/v2/webhooks/logs | Get last webhook logs
 *WebhooksLogsAPI* | [**ApiV2WebhooksLogsIdDelete**](docs/WebhooksLogsAPI.md#apiv2webhookslogsiddelete) | **Delete** /api/v2/webhooks/logs/{id} | Delete webhook log by ID
 *WebhooksLogsAPI* | [**ApiV2WebhooksLogsIdGet**](docs/WebhooksLogsAPI.md#apiv2webhookslogsidget) | **Get** /api/v2/webhooks/logs/{id} | Get webhook log by ID
 *WorkItemsAPI* | [**ApiV2WorkItemsIdAttachmentsPost**](docs/WorkItemsAPI.md#apiv2workitemsidattachmentspost) | **Post** /api/v2/workItems/{id}/attachments | Upload and link attachment to WorkItem

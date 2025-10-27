@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**[]WorkflowProjectApiResult**](WorkflowProjectApiResult.md) |  | 
-**TotalCount** | **int32** |  | 
+**Data** | [**[]WorkflowProjectApiResult**](WorkflowProjectApiResult.md) | Preview items | 
+**TotalCount** | **int32** | Total count | 
 
 ## Methods
 

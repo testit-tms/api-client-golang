@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost) | **Post** /api/v2/projects/{projectId}/workItems/search/grouped | Search for work items and group results by attribute
 [**ApiV2ProjectsProjectIdWorkItemsSearchIdPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsSearchIdPost) | **Post** /api/v2/projects/{projectId}/workItems/search/id | Search for work items and extract IDs only
 [**ApiV2ProjectsProjectIdWorkItemsSearchPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsSearchPost) | **Post** /api/v2/projects/{projectId}/workItems/search | Search for work items
+[**ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost) | **Post** /api/v2/projects/{projectId}/workItems/search/{workItemId}/index | Get work item index (position) in a collection by its id.
 [**ApiV2ProjectsProjectIdWorkItemsTagsGet**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsTagsGet) | **Get** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 [**GetWorkItemsByProjectId**](ProjectWorkItemsAPI.md#GetWorkItemsByProjectId) | **Get** /api/v2/projects/{projectId}/workItems | Get project work items
 
@@ -237,6 +238,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]WorkItemShortApiResult**](WorkItemShortApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost
+
+> WorkItemIndexApiResult ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost(ctx, projectId, workItemId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectApiModel(workItemSelectApiModel).Execute()
+
+Get work item index (position) in a collection by its id.
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "projectId_example" // string | 
+	workItemId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string | 
+	skip := int32(56) // int32 | Amount of items to be skipped (offset) (optional)
+	take := int32(56) // int32 | Amount of items to be taken (limit) (optional)
+	orderBy := "orderBy_example" // string | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
+	searchField := "searchField_example" // string | Property name for searching (optional)
+	searchValue := "searchValue_example" // string | Value for searching (optional)
+	workItemSelectApiModel := *openapiclient.NewWorkItemSelectApiModel(*openapiclient.NewWorkItemFilterApiModel()) // WorkItemSelectApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost(context.Background(), projectId, workItemId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).WorkItemSelectApiModel(workItemSelectApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost`: WorkItemIndexApiResult
+	fmt.Fprintf(os.Stdout, "Response from `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** |  | 
+**workItemId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsProjectIdWorkItemsSearchWorkItemIdIndexPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **skip** | **int32** | Amount of items to be skipped (offset) | 
+ **take** | **int32** | Amount of items to be taken (limit) | 
+ **orderBy** | **string** | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | 
+ **searchField** | **string** | Property name for searching | 
+ **searchValue** | **string** | Value for searching | 
+ **workItemSelectApiModel** | [**WorkItemSelectApiModel**](WorkItemSelectApiModel.md) |  | 
+
+### Return type
+
+[**WorkItemIndexApiResult**](WorkItemIndexApiResult.md)
 
 ### Authorization
 
