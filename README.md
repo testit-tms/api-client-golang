@@ -18,7 +18,11 @@
 | 5.4     | 3.2.0-tms-5.4   |
 | 5.4.1   | 3.2.2-tms-5.4.1 |
 | 5.5	  | 3.4.0-tms-5.5	|
-| Cloud   | 3.4.0           |
+| Cloud   | 3.4.0 +         |
+
+1. For current versions, see the releases tab. 
+2. Starting with 5.2, we have added a TMS postscript, which means that the utility is compatible with a specific enterprise version. 
+3. If you are in doubt about which version to use, check with the support staff. support@yoonion.ru
 
 ### Installation
 
