@@ -18,6 +18,7 @@
 | 5.4     | 3.2.0-tms-5.4   |
 | 5.4.1   | 3.2.2-tms-5.4.1 |
 | 5.5	  | 3.4.0-tms-5.5	|
+| 5.6	  | 3.5.0-tms-5.6	|
 | Cloud   | 3.4.0 +         |
 
 1. For current versions, see the releases tab. 
