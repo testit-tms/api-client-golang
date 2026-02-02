@@ -24,6 +24,8 @@ type GenerateWorkItemPreviewsApiModel struct {
 	ExternalServiceId string `json:"externalServiceId"`
 	TaskKey string `json:"taskKey"`
 	SectionId string `json:"sectionId"`
+	Temperature float32 `json:"temperature"`
+	PreviewLimit int32 `json:"previewLimit"`
 }
 
 type _GenerateWorkItemPreviewsApiModel GenerateWorkItemPreviewsApiModel
@@ -32,11 +34,13 @@ type _GenerateWorkItemPreviewsApiModel GenerateWorkItemPreviewsApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, taskKey string, sectionId string) *GenerateWorkItemPreviewsApiModel {
+func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, taskKey string, sectionId string, temperature float32, previewLimit int32) *GenerateWorkItemPreviewsApiModel {
 	this := GenerateWorkItemPreviewsApiModel{}
 	this.ExternalServiceId = externalServiceId
 	this.TaskKey = taskKey
 	this.SectionId = sectionId
+	this.Temperature = temperature
+	this.PreviewLimit = previewLimit
 	return &this
 }
 
@@ -120,6 +124,54 @@ func (o *GenerateWorkItemPreviewsApiModel) SetSectionId(v string) {
 	o.SectionId = v
 }
 
+// GetTemperature returns the Temperature field value
+func (o *GenerateWorkItemPreviewsApiModel) GetTemperature() float32 {
+	if o == nil {
+		var ret float32
+		return ret
+	}
+
+	return o.Temperature
+}
+
+// GetTemperatureOk returns a tuple with the Temperature field value
+// and a boolean to check if the value has been set.
+func (o *GenerateWorkItemPreviewsApiModel) GetTemperatureOk() (*float32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Temperature, true
+}
+
+// SetTemperature sets field value
+func (o *GenerateWorkItemPreviewsApiModel) SetTemperature(v float32) {
+	o.Temperature = v
+}
+
+// GetPreviewLimit returns the PreviewLimit field value
+func (o *GenerateWorkItemPreviewsApiModel) GetPreviewLimit() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.PreviewLimit
+}
+
+// GetPreviewLimitOk returns a tuple with the PreviewLimit field value
+// and a boolean to check if the value has been set.
+func (o *GenerateWorkItemPreviewsApiModel) GetPreviewLimitOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PreviewLimit, true
+}
+
+// SetPreviewLimit sets field value
+func (o *GenerateWorkItemPreviewsApiModel) SetPreviewLimit(v int32) {
+	o.PreviewLimit = v
+}
+
 func (o GenerateWorkItemPreviewsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -133,6 +185,8 @@ func (o GenerateWorkItemPreviewsApiModel) ToMap() (map[string]interface{}, error
 	toSerialize["externalServiceId"] = o.ExternalServiceId
 	toSerialize["taskKey"] = o.TaskKey
 	toSerialize["sectionId"] = o.SectionId
+	toSerialize["temperature"] = o.Temperature
+	toSerialize["previewLimit"] = o.PreviewLimit
 	return toSerialize, nil
 }
 
@@ -144,6 +198,8 @@ func (o *GenerateWorkItemPreviewsApiModel) UnmarshalJSON(data []byte) (err error
 		"externalServiceId",
 		"taskKey",
 		"sectionId",
+		"temperature",
+		"previewLimit",
 	}
 
 	allProperties := make(map[string]interface{})

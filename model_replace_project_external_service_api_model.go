@@ -24,7 +24,7 @@ type ReplaceProjectExternalServiceApiModel struct {
 	// The unique ID of the new external service that will replace the current one
 	NewExternalServiceId string `json:"newExternalServiceId"`
 	// External service settings
-	Settings interface{} `json:"settings,omitempty"`
+	Settings interface{} `json:"settings"`
 }
 
 type _ReplaceProjectExternalServiceApiModel ReplaceProjectExternalServiceApiModel
@@ -33,9 +33,10 @@ type _ReplaceProjectExternalServiceApiModel ReplaceProjectExternalServiceApiMode
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewReplaceProjectExternalServiceApiModel(newExternalServiceId string) *ReplaceProjectExternalServiceApiModel {
+func NewReplaceProjectExternalServiceApiModel(newExternalServiceId string, settings interface{}) *ReplaceProjectExternalServiceApiModel {
 	this := ReplaceProjectExternalServiceApiModel{}
 	this.NewExternalServiceId = newExternalServiceId
+	this.Settings = settings
 	return &this
 }
 
@@ -71,16 +72,18 @@ func (o *ReplaceProjectExternalServiceApiModel) SetNewExternalServiceId(v string
 	o.NewExternalServiceId = v
 }
 
-// GetSettings returns the Settings field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSettings returns the Settings field value
+// If the value is explicit nil, the zero value for interface{} will be returned
 func (o *ReplaceProjectExternalServiceApiModel) GetSettings() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
+
 	return o.Settings
 }
 
-// GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
+// GetSettingsOk returns a tuple with the Settings field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ReplaceProjectExternalServiceApiModel) GetSettingsOk() (*interface{}, bool) {
@@ -90,16 +93,7 @@ func (o *ReplaceProjectExternalServiceApiModel) GetSettingsOk() (*interface{}, b
 	return &o.Settings, true
 }
 
-// HasSettings returns a boolean if a field has been set.
-func (o *ReplaceProjectExternalServiceApiModel) HasSettings() bool {
-	if o != nil && !IsNil(o.Settings) {
-		return true
-	}
-
-	return false
-}
-
-// SetSettings gets a reference to the given interface{} and assigns it to the Settings field.
+// SetSettings sets field value
 func (o *ReplaceProjectExternalServiceApiModel) SetSettings(v interface{}) {
 	o.Settings = v
 }
@@ -127,6 +121,7 @@ func (o *ReplaceProjectExternalServiceApiModel) UnmarshalJSON(data []byte) (err 
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"newExternalServiceId",
+		"settings",
 	}
 
 	allProperties := make(map[string]interface{})

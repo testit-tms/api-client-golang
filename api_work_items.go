@@ -3540,7 +3540,7 @@ System search and delete all autotests, related to found work item
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id WorkItem internal (guid format) or  global(integer format) identifier\"
+ @param id WorkItem internal (guid format) or global(integer format) identifier\"
  @return ApiDeleteAllWorkItemsFromAutoTestRequest
 */
 func (a *WorkItemsAPIService) DeleteAllWorkItemsFromAutoTest(ctx context.Context, id string) ApiDeleteAllWorkItemsFromAutoTestRequest {
@@ -3721,7 +3721,7 @@ System deletes work item
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id WorkItem internal (guid format) or  global(integer format) identifier\"
+ @param id WorkItem internal (guid format) or global(integer format) identifier\"
  @return ApiDeleteWorkItemRequest
 */
 func (a *WorkItemsAPIService) DeleteWorkItem(ctx context.Context, id string) ApiDeleteWorkItemRequest {
@@ -3903,7 +3903,7 @@ System search all autotests, related to found work item
 System returns list of found autotests
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id WorkItem internal (guid format) or  global(integer format) identifier\"
+ @param id WorkItem internal (guid format) or global(integer format) identifier\"
  @return ApiGetAutoTestsForWorkItemRequest
 */
 func (a *WorkItemsAPIService) GetAutoTestsForWorkItem(ctx context.Context, id string) ApiGetAutoTestsForWorkItemRequest {
@@ -4097,7 +4097,7 @@ func (r ApiGetIterationsRequest) Execute() ([]IterationModel, *http.Response, er
 GetIterations Get iterations by work item Id or GlobalId
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id WorkItem internal (guid format) or  global(integer format) identifier\"
+ @param id WorkItem internal (guid format) or global(integer format) identifier\"
  @return ApiGetIterationsRequest
 */
 func (a *WorkItemsAPIService) GetIterations(ctx context.Context, id string) ApiGetIterationsRequest {
@@ -4318,7 +4318,7 @@ Otherwise, system search last work item version
 System returns work item
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id WorkItem internal (guid format) or  global(integer format) identifier\"
+ @param id WorkItem internal (guid format) or global(integer format) identifier\"
  @return ApiGetWorkItemByIdRequest
 */
 func (a *WorkItemsAPIService) GetWorkItemById(ctx context.Context, id string) ApiGetWorkItemByIdRequest {
@@ -4696,13 +4696,13 @@ type ApiGetWorkItemVersionsRequest struct {
 	versionNumber *int32
 }
 
-// WorkItem version (guid format)  identifier\&quot;
+// WorkItem version (guid format) identifier\&quot;
 func (r ApiGetWorkItemVersionsRequest) WorkItemVersionId(workItemVersionId string) ApiGetWorkItemVersionsRequest {
 	r.workItemVersionId = &workItemVersionId
 	return r
 }
 
-// WorkItem version (integer format)  number\&quot;
+// WorkItem version (integer format) number\&quot;
 func (r ApiGetWorkItemVersionsRequest) VersionNumber(versionNumber int32) ApiGetWorkItemVersionsRequest {
 	r.versionNumber = &versionNumber
 	return r
@@ -4732,7 +4732,7 @@ System search work item by identifier
 System returns array of work item version models (listed in response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id WorkItem internal (guid format) or  global(integer format) identifier\"
+ @param id WorkItem internal (guid format) or global(integer format) identifier\"
  @return ApiGetWorkItemVersionsRequest
 */
 func (a *WorkItemsAPIService) GetWorkItemVersions(ctx context.Context, id string) ApiGetWorkItemVersionsRequest {

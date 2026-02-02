@@ -23,7 +23,7 @@ var _ MappedNullable = &TestPlanTestPointsStatusTypeGroupApiResult{}
 type TestPlanTestPointsStatusTypeGroupApiResult struct {
 	// Collection of possible status types
 	StatusType TestStatusApiType `json:"statusType"`
-	Value int64 `json:"value"`
+	Statuses []TestPlanTestPointsStatusCodeGroupApiResult `json:"statuses"`
 }
 
 type _TestPlanTestPointsStatusTypeGroupApiResult TestPlanTestPointsStatusTypeGroupApiResult
@@ -32,10 +32,10 @@ type _TestPlanTestPointsStatusTypeGroupApiResult TestPlanTestPointsStatusTypeGro
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanTestPointsStatusTypeGroupApiResult(statusType TestStatusApiType, value int64) *TestPlanTestPointsStatusTypeGroupApiResult {
+func NewTestPlanTestPointsStatusTypeGroupApiResult(statusType TestStatusApiType, statuses []TestPlanTestPointsStatusCodeGroupApiResult) *TestPlanTestPointsStatusTypeGroupApiResult {
 	this := TestPlanTestPointsStatusTypeGroupApiResult{}
 	this.StatusType = statusType
-	this.Value = value
+	this.Statuses = statuses
 	return &this
 }
 
@@ -71,28 +71,28 @@ func (o *TestPlanTestPointsStatusTypeGroupApiResult) SetStatusType(v TestStatusA
 	o.StatusType = v
 }
 
-// GetValue returns the Value field value
-func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetValue() int64 {
+// GetStatuses returns the Statuses field value
+func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetStatuses() []TestPlanTestPointsStatusCodeGroupApiResult {
 	if o == nil {
-		var ret int64
+		var ret []TestPlanTestPointsStatusCodeGroupApiResult
 		return ret
 	}
 
-	return o.Value
+	return o.Statuses
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetStatusesOk returns a tuple with the Statuses field value
 // and a boolean to check if the value has been set.
-func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetValueOk() (*int64, bool) {
+func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetStatusesOk() ([]TestPlanTestPointsStatusCodeGroupApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Value, true
+	return o.Statuses, true
 }
 
-// SetValue sets field value
-func (o *TestPlanTestPointsStatusTypeGroupApiResult) SetValue(v int64) {
-	o.Value = v
+// SetStatuses sets field value
+func (o *TestPlanTestPointsStatusTypeGroupApiResult) SetStatuses(v []TestPlanTestPointsStatusCodeGroupApiResult) {
+	o.Statuses = v
 }
 
 func (o TestPlanTestPointsStatusTypeGroupApiResult) MarshalJSON() ([]byte, error) {
@@ -106,7 +106,7 @@ func (o TestPlanTestPointsStatusTypeGroupApiResult) MarshalJSON() ([]byte, error
 func (o TestPlanTestPointsStatusTypeGroupApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["statusType"] = o.StatusType
-	toSerialize["value"] = o.Value
+	toSerialize["statuses"] = o.Statuses
 	return toSerialize, nil
 }
 
@@ -116,7 +116,7 @@ func (o *TestPlanTestPointsStatusTypeGroupApiResult) UnmarshalJSON(data []byte) 
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"statusType",
-		"value",
+		"statuses",
 	}
 
 	allProperties := make(map[string]interface{})

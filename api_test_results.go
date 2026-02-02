@@ -762,7 +762,7 @@ type ApiApiV2TestResultsIdAttachmentsInfoGetRequest struct {
 	id string
 }
 
-func (r ApiApiV2TestResultsIdAttachmentsInfoGetRequest) Execute() ([]AttachmentModel, *http.Response, error) {
+func (r ApiApiV2TestResultsIdAttachmentsInfoGetRequest) Execute() ([]AttachmentApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestResultsIdAttachmentsInfoGetExecute(r)
 }
 
@@ -782,13 +782,13 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsInfoGet(ctx context
 }
 
 // Execute executes the request
-//  @return []AttachmentModel
-func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsInfoGetExecute(r ApiApiV2TestResultsIdAttachmentsInfoGetRequest) ([]AttachmentModel, *http.Response, error) {
+//  @return []AttachmentApiResult
+func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsInfoGetExecute(r ApiApiV2TestResultsIdAttachmentsInfoGetRequest) ([]AttachmentApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []AttachmentModel
+		localVarReturnValue  []AttachmentApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdAttachmentsInfoGet")
@@ -2539,7 +2539,7 @@ type ApiGetAttachmentRequest struct {
 	attachmentId string
 }
 
-func (r ApiGetAttachmentRequest) Execute() (*AttachmentModel, *http.Response, error) {
+func (r ApiGetAttachmentRequest) Execute() (*AttachmentApiResult, *http.Response, error) {
 	return r.ApiService.GetAttachmentExecute(r)
 }
 
@@ -2572,13 +2572,13 @@ func (a *TestResultsAPIService) GetAttachment(ctx context.Context, id string, at
 }
 
 // Execute executes the request
-//  @return AttachmentModel
-func (a *TestResultsAPIService) GetAttachmentExecute(r ApiGetAttachmentRequest) (*AttachmentModel, *http.Response, error) {
+//  @return AttachmentApiResult
+func (a *TestResultsAPIService) GetAttachmentExecute(r ApiGetAttachmentRequest) (*AttachmentApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AttachmentModel
+		localVarReturnValue  *AttachmentApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.GetAttachment")
@@ -2733,7 +2733,7 @@ type ApiGetAttachmentsRequest struct {
 	id string
 }
 
-func (r ApiGetAttachmentsRequest) Execute() ([]AttachmentModel, *http.Response, error) {
+func (r ApiGetAttachmentsRequest) Execute() ([]AttachmentApiResult, *http.Response, error) {
 	return r.ApiService.GetAttachmentsExecute(r)
 }
 
@@ -2764,13 +2764,13 @@ func (a *TestResultsAPIService) GetAttachments(ctx context.Context, id string) A
 }
 
 // Execute executes the request
-//  @return []AttachmentModel
-func (a *TestResultsAPIService) GetAttachmentsExecute(r ApiGetAttachmentsRequest) ([]AttachmentModel, *http.Response, error) {
+//  @return []AttachmentApiResult
+func (a *TestResultsAPIService) GetAttachmentsExecute(r ApiGetAttachmentsRequest) ([]AttachmentApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []AttachmentModel
+		localVarReturnValue  []AttachmentApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.GetAttachments")

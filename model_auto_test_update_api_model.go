@@ -16,20 +16,17 @@ import (
 	"fmt"
 )
 
-// checks if the AutoTestPutModel type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AutoTestPutModel{}
+// checks if the AutoTestUpdateApiModel type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AutoTestUpdateApiModel{}
 
-// AutoTestPutModel struct for AutoTestPutModel
-type AutoTestPutModel struct {
-	// Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId
+// AutoTestUpdateApiModel struct for AutoTestUpdateApiModel
+type AutoTestUpdateApiModel struct {
+	// Autotest unique internal identifier
 	Id NullableString `json:"id,omitempty"`
-	// Deprecated
-	WorkItemIdsForLinkWithAutoTest []string `json:"workItemIdsForLinkWithAutoTest,omitempty"`
-	WorkItemIds []string `json:"workItemIds,omitempty"`
 	// External ID of the autotest
 	ExternalId string `json:"externalId"`
-	// Collection of the autotest links
-	Links []LinkPutModel `json:"links,omitempty"`
+	// External key of the autotest
+	ExternalKey NullableString `json:"externalKey,omitempty"`
 	// Unique ID of the autotest project
 	ProjectId string `json:"projectId"`
 	// Name of the autotest
@@ -39,47 +36,52 @@ type AutoTestPutModel struct {
 	// Name of the autotest class
 	Classname NullableString `json:"classname,omitempty"`
 	// Collection of the autotest steps
-	Steps []AutoTestStepModel `json:"steps,omitempty"`
+	Steps []AutoTestStepApiModel `json:"steps,omitempty"`
 	// Collection of the autotest setup steps
-	Setup []AutoTestStepModel `json:"setup,omitempty"`
+	Setup []AutoTestStepApiModel `json:"setup,omitempty"`
 	// Collection of the autotest teardown steps
-	Teardown []AutoTestStepModel `json:"teardown,omitempty"`
+	Teardown []AutoTestStepApiModel `json:"teardown,omitempty"`
 	// Name of the autotest in autotest's card
 	Title NullableString `json:"title,omitempty"`
 	// Description of the autotest in autotest's card
 	Description NullableString `json:"description,omitempty"`
 	// Collection of the autotest labels
-	Labels []LabelPostModel `json:"labels,omitempty"`
+	Labels []LabelApiModel `json:"labels,omitempty"`
+	// Collection of the autotest links
+	Links []LinkUpdateApiModel `json:"links,omitempty"`
 	// Indicates if the autotest is marked as flaky
 	IsFlaky NullableBool `json:"isFlaky,omitempty"`
-	// External key of the autotest
-	ExternalKey NullableString `json:"externalKey,omitempty"`
+	// Specifies the IDs of work items to link your autotest to. You can specify several IDs.
+	// Deprecated
+	WorkItemIdsForLinkWithAutoTest []string `json:"workItemIdsForLinkWithAutoTest,omitempty"`
+	// Specifies the IDs of work items to link your autotest to. You can specify several IDs.
+	WorkItemIds []string `json:"workItemIds,omitempty"`
 }
 
-type _AutoTestPutModel AutoTestPutModel
+type _AutoTestUpdateApiModel AutoTestUpdateApiModel
 
-// NewAutoTestPutModel instantiates a new AutoTestPutModel object
+// NewAutoTestUpdateApiModel instantiates a new AutoTestUpdateApiModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestPutModel(externalId string, projectId string, name string) *AutoTestPutModel {
-	this := AutoTestPutModel{}
+func NewAutoTestUpdateApiModel(externalId string, projectId string, name string) *AutoTestUpdateApiModel {
+	this := AutoTestUpdateApiModel{}
 	this.ExternalId = externalId
 	this.ProjectId = projectId
 	this.Name = name
 	return &this
 }
 
-// NewAutoTestPutModelWithDefaults instantiates a new AutoTestPutModel object
+// NewAutoTestUpdateApiModelWithDefaults instantiates a new AutoTestUpdateApiModel object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAutoTestPutModelWithDefaults() *AutoTestPutModel {
-	this := AutoTestPutModel{}
+func NewAutoTestUpdateApiModelWithDefaults() *AutoTestUpdateApiModel {
+	this := AutoTestUpdateApiModel{}
 	return &this
 }
 
 // GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetId() string {
+func (o *AutoTestUpdateApiModel) GetId() string {
 	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
@@ -90,7 +92,7 @@ func (o *AutoTestPutModel) GetId() string {
 // GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetIdOk() (*string, bool) {
+func (o *AutoTestUpdateApiModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,7 +100,7 @@ func (o *AutoTestPutModel) GetIdOk() (*string, bool) {
 }
 
 // HasId returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasId() bool {
+func (o *AutoTestUpdateApiModel) HasId() bool {
 	if o != nil && o.Id.IsSet() {
 		return true
 	}
@@ -107,22 +109,511 @@ func (o *AutoTestPutModel) HasId() bool {
 }
 
 // SetId gets a reference to the given NullableString and assigns it to the Id field.
-func (o *AutoTestPutModel) SetId(v string) {
+func (o *AutoTestUpdateApiModel) SetId(v string) {
 	o.Id.Set(&v)
 }
 // SetIdNil sets the value for Id to be an explicit nil
-func (o *AutoTestPutModel) SetIdNil() {
+func (o *AutoTestUpdateApiModel) SetIdNil() {
 	o.Id.Set(nil)
 }
 
 // UnsetId ensures that no value is present for Id, not even an explicit nil
-func (o *AutoTestPutModel) UnsetId() {
+func (o *AutoTestUpdateApiModel) UnsetId() {
 	o.Id.Unset()
+}
+
+// GetExternalId returns the ExternalId field value
+func (o *AutoTestUpdateApiModel) GetExternalId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ExternalId
+}
+
+// GetExternalIdOk returns a tuple with the ExternalId field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestUpdateApiModel) GetExternalIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ExternalId, true
+}
+
+// SetExternalId sets field value
+func (o *AutoTestUpdateApiModel) SetExternalId(v string) {
+	o.ExternalId = v
+}
+
+// GetExternalKey returns the ExternalKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetExternalKey() string {
+	if o == nil || IsNil(o.ExternalKey.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalKey.Get()
+}
+
+// GetExternalKeyOk returns a tuple with the ExternalKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetExternalKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalKey.Get(), o.ExternalKey.IsSet()
+}
+
+// HasExternalKey returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasExternalKey() bool {
+	if o != nil && o.ExternalKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalKey gets a reference to the given NullableString and assigns it to the ExternalKey field.
+func (o *AutoTestUpdateApiModel) SetExternalKey(v string) {
+	o.ExternalKey.Set(&v)
+}
+// SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
+func (o *AutoTestUpdateApiModel) SetExternalKeyNil() {
+	o.ExternalKey.Set(nil)
+}
+
+// UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
+func (o *AutoTestUpdateApiModel) UnsetExternalKey() {
+	o.ExternalKey.Unset()
+}
+
+// GetProjectId returns the ProjectId field value
+func (o *AutoTestUpdateApiModel) GetProjectId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ProjectId
+}
+
+// GetProjectIdOk returns a tuple with the ProjectId field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestUpdateApiModel) GetProjectIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ProjectId, true
+}
+
+// SetProjectId sets field value
+func (o *AutoTestUpdateApiModel) SetProjectId(v string) {
+	o.ProjectId = v
+}
+
+// GetName returns the Name field value
+func (o *AutoTestUpdateApiModel) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestUpdateApiModel) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *AutoTestUpdateApiModel) SetName(v string) {
+	o.Name = v
+}
+
+// GetNamespace returns the Namespace field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetNamespace() string {
+	if o == nil || IsNil(o.Namespace.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Namespace.Get()
+}
+
+// GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetNamespaceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Namespace.Get(), o.Namespace.IsSet()
+}
+
+// HasNamespace returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasNamespace() bool {
+	if o != nil && o.Namespace.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNamespace gets a reference to the given NullableString and assigns it to the Namespace field.
+func (o *AutoTestUpdateApiModel) SetNamespace(v string) {
+	o.Namespace.Set(&v)
+}
+// SetNamespaceNil sets the value for Namespace to be an explicit nil
+func (o *AutoTestUpdateApiModel) SetNamespaceNil() {
+	o.Namespace.Set(nil)
+}
+
+// UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
+func (o *AutoTestUpdateApiModel) UnsetNamespace() {
+	o.Namespace.Unset()
+}
+
+// GetClassname returns the Classname field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetClassname() string {
+	if o == nil || IsNil(o.Classname.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Classname.Get()
+}
+
+// GetClassnameOk returns a tuple with the Classname field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetClassnameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Classname.Get(), o.Classname.IsSet()
+}
+
+// HasClassname returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasClassname() bool {
+	if o != nil && o.Classname.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClassname gets a reference to the given NullableString and assigns it to the Classname field.
+func (o *AutoTestUpdateApiModel) SetClassname(v string) {
+	o.Classname.Set(&v)
+}
+// SetClassnameNil sets the value for Classname to be an explicit nil
+func (o *AutoTestUpdateApiModel) SetClassnameNil() {
+	o.Classname.Set(nil)
+}
+
+// UnsetClassname ensures that no value is present for Classname, not even an explicit nil
+func (o *AutoTestUpdateApiModel) UnsetClassname() {
+	o.Classname.Unset()
+}
+
+// GetSteps returns the Steps field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetSteps() []AutoTestStepApiModel {
+	if o == nil {
+		var ret []AutoTestStepApiModel
+		return ret
+	}
+	return o.Steps
+}
+
+// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetStepsOk() ([]AutoTestStepApiModel, bool) {
+	if o == nil || IsNil(o.Steps) {
+		return nil, false
+	}
+	return o.Steps, true
+}
+
+// HasSteps returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasSteps() bool {
+	if o != nil && !IsNil(o.Steps) {
+		return true
+	}
+
+	return false
+}
+
+// SetSteps gets a reference to the given []AutoTestStepApiModel and assigns it to the Steps field.
+func (o *AutoTestUpdateApiModel) SetSteps(v []AutoTestStepApiModel) {
+	o.Steps = v
+}
+
+// GetSetup returns the Setup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetSetup() []AutoTestStepApiModel {
+	if o == nil {
+		var ret []AutoTestStepApiModel
+		return ret
+	}
+	return o.Setup
+}
+
+// GetSetupOk returns a tuple with the Setup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetSetupOk() ([]AutoTestStepApiModel, bool) {
+	if o == nil || IsNil(o.Setup) {
+		return nil, false
+	}
+	return o.Setup, true
+}
+
+// HasSetup returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasSetup() bool {
+	if o != nil && !IsNil(o.Setup) {
+		return true
+	}
+
+	return false
+}
+
+// SetSetup gets a reference to the given []AutoTestStepApiModel and assigns it to the Setup field.
+func (o *AutoTestUpdateApiModel) SetSetup(v []AutoTestStepApiModel) {
+	o.Setup = v
+}
+
+// GetTeardown returns the Teardown field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetTeardown() []AutoTestStepApiModel {
+	if o == nil {
+		var ret []AutoTestStepApiModel
+		return ret
+	}
+	return o.Teardown
+}
+
+// GetTeardownOk returns a tuple with the Teardown field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetTeardownOk() ([]AutoTestStepApiModel, bool) {
+	if o == nil || IsNil(o.Teardown) {
+		return nil, false
+	}
+	return o.Teardown, true
+}
+
+// HasTeardown returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasTeardown() bool {
+	if o != nil && !IsNil(o.Teardown) {
+		return true
+	}
+
+	return false
+}
+
+// SetTeardown gets a reference to the given []AutoTestStepApiModel and assigns it to the Teardown field.
+func (o *AutoTestUpdateApiModel) SetTeardown(v []AutoTestStepApiModel) {
+	o.Teardown = v
+}
+
+// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetTitle() string {
+	if o == nil || IsNil(o.Title.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Title.Get()
+}
+
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetTitleOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Title.Get(), o.Title.IsSet()
+}
+
+// HasTitle returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasTitle() bool {
+	if o != nil && o.Title.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+func (o *AutoTestUpdateApiModel) SetTitle(v string) {
+	o.Title.Set(&v)
+}
+// SetTitleNil sets the value for Title to be an explicit nil
+func (o *AutoTestUpdateApiModel) SetTitleNil() {
+	o.Title.Set(nil)
+}
+
+// UnsetTitle ensures that no value is present for Title, not even an explicit nil
+func (o *AutoTestUpdateApiModel) UnsetTitle() {
+	o.Title.Unset()
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *AutoTestUpdateApiModel) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *AutoTestUpdateApiModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *AutoTestUpdateApiModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetLabels returns the Labels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetLabels() []LabelApiModel {
+	if o == nil {
+		var ret []LabelApiModel
+		return ret
+	}
+	return o.Labels
+}
+
+// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetLabelsOk() ([]LabelApiModel, bool) {
+	if o == nil || IsNil(o.Labels) {
+		return nil, false
+	}
+	return o.Labels, true
+}
+
+// HasLabels returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasLabels() bool {
+	if o != nil && !IsNil(o.Labels) {
+		return true
+	}
+
+	return false
+}
+
+// SetLabels gets a reference to the given []LabelApiModel and assigns it to the Labels field.
+func (o *AutoTestUpdateApiModel) SetLabels(v []LabelApiModel) {
+	o.Labels = v
+}
+
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetLinks() []LinkUpdateApiModel {
+	if o == nil {
+		var ret []LinkUpdateApiModel
+		return ret
+	}
+	return o.Links
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetLinksOk() ([]LinkUpdateApiModel, bool) {
+	if o == nil || IsNil(o.Links) {
+		return nil, false
+	}
+	return o.Links, true
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasLinks() bool {
+	if o != nil && !IsNil(o.Links) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given []LinkUpdateApiModel and assigns it to the Links field.
+func (o *AutoTestUpdateApiModel) SetLinks(v []LinkUpdateApiModel) {
+	o.Links = v
+}
+
+// GetIsFlaky returns the IsFlaky field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetIsFlaky() bool {
+	if o == nil || IsNil(o.IsFlaky.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsFlaky.Get()
+}
+
+// GetIsFlakyOk returns a tuple with the IsFlaky field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetIsFlakyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsFlaky.Get(), o.IsFlaky.IsSet()
+}
+
+// HasIsFlaky returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasIsFlaky() bool {
+	if o != nil && o.IsFlaky.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsFlaky gets a reference to the given NullableBool and assigns it to the IsFlaky field.
+func (o *AutoTestUpdateApiModel) SetIsFlaky(v bool) {
+	o.IsFlaky.Set(&v)
+}
+// SetIsFlakyNil sets the value for IsFlaky to be an explicit nil
+func (o *AutoTestUpdateApiModel) SetIsFlakyNil() {
+	o.IsFlaky.Set(nil)
+}
+
+// UnsetIsFlaky ensures that no value is present for IsFlaky, not even an explicit nil
+func (o *AutoTestUpdateApiModel) UnsetIsFlaky() {
+	o.IsFlaky.Unset()
 }
 
 // GetWorkItemIdsForLinkWithAutoTest returns the WorkItemIdsForLinkWithAutoTest field value if set, zero value otherwise (both if not set or set to explicit null).
 // Deprecated
-func (o *AutoTestPutModel) GetWorkItemIdsForLinkWithAutoTest() []string {
+func (o *AutoTestUpdateApiModel) GetWorkItemIdsForLinkWithAutoTest() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -134,7 +625,7 @@ func (o *AutoTestPutModel) GetWorkItemIdsForLinkWithAutoTest() []string {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 // Deprecated
-func (o *AutoTestPutModel) GetWorkItemIdsForLinkWithAutoTestOk() ([]string, bool) {
+func (o *AutoTestUpdateApiModel) GetWorkItemIdsForLinkWithAutoTestOk() ([]string, bool) {
 	if o == nil || IsNil(o.WorkItemIdsForLinkWithAutoTest) {
 		return nil, false
 	}
@@ -142,7 +633,7 @@ func (o *AutoTestPutModel) GetWorkItemIdsForLinkWithAutoTestOk() ([]string, bool
 }
 
 // HasWorkItemIdsForLinkWithAutoTest returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasWorkItemIdsForLinkWithAutoTest() bool {
+func (o *AutoTestUpdateApiModel) HasWorkItemIdsForLinkWithAutoTest() bool {
 	if o != nil && !IsNil(o.WorkItemIdsForLinkWithAutoTest) {
 		return true
 	}
@@ -152,12 +643,12 @@ func (o *AutoTestPutModel) HasWorkItemIdsForLinkWithAutoTest() bool {
 
 // SetWorkItemIdsForLinkWithAutoTest gets a reference to the given []string and assigns it to the WorkItemIdsForLinkWithAutoTest field.
 // Deprecated
-func (o *AutoTestPutModel) SetWorkItemIdsForLinkWithAutoTest(v []string) {
+func (o *AutoTestUpdateApiModel) SetWorkItemIdsForLinkWithAutoTest(v []string) {
 	o.WorkItemIdsForLinkWithAutoTest = v
 }
 
 // GetWorkItemIds returns the WorkItemIds field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetWorkItemIds() []string {
+func (o *AutoTestUpdateApiModel) GetWorkItemIds() []string {
 	if o == nil {
 		var ret []string
 		return ret
@@ -168,7 +659,7 @@ func (o *AutoTestPutModel) GetWorkItemIds() []string {
 // GetWorkItemIdsOk returns a tuple with the WorkItemIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetWorkItemIdsOk() ([]string, bool) {
+func (o *AutoTestUpdateApiModel) GetWorkItemIdsOk() ([]string, bool) {
 	if o == nil || IsNil(o.WorkItemIds) {
 		return nil, false
 	}
@@ -176,7 +667,7 @@ func (o *AutoTestPutModel) GetWorkItemIdsOk() ([]string, bool) {
 }
 
 // HasWorkItemIds returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasWorkItemIds() bool {
+func (o *AutoTestUpdateApiModel) HasWorkItemIds() bool {
 	if o != nil && !IsNil(o.WorkItemIds) {
 		return true
 	}
@@ -185,500 +676,11 @@ func (o *AutoTestPutModel) HasWorkItemIds() bool {
 }
 
 // SetWorkItemIds gets a reference to the given []string and assigns it to the WorkItemIds field.
-func (o *AutoTestPutModel) SetWorkItemIds(v []string) {
+func (o *AutoTestUpdateApiModel) SetWorkItemIds(v []string) {
 	o.WorkItemIds = v
 }
 
-// GetExternalId returns the ExternalId field value
-func (o *AutoTestPutModel) GetExternalId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ExternalId
-}
-
-// GetExternalIdOk returns a tuple with the ExternalId field value
-// and a boolean to check if the value has been set.
-func (o *AutoTestPutModel) GetExternalIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ExternalId, true
-}
-
-// SetExternalId sets field value
-func (o *AutoTestPutModel) SetExternalId(v string) {
-	o.ExternalId = v
-}
-
-// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetLinks() []LinkPutModel {
-	if o == nil {
-		var ret []LinkPutModel
-		return ret
-	}
-	return o.Links
-}
-
-// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetLinksOk() ([]LinkPutModel, bool) {
-	if o == nil || IsNil(o.Links) {
-		return nil, false
-	}
-	return o.Links, true
-}
-
-// HasLinks returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasLinks() bool {
-	if o != nil && !IsNil(o.Links) {
-		return true
-	}
-
-	return false
-}
-
-// SetLinks gets a reference to the given []LinkPutModel and assigns it to the Links field.
-func (o *AutoTestPutModel) SetLinks(v []LinkPutModel) {
-	o.Links = v
-}
-
-// GetProjectId returns the ProjectId field value
-func (o *AutoTestPutModel) GetProjectId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ProjectId
-}
-
-// GetProjectIdOk returns a tuple with the ProjectId field value
-// and a boolean to check if the value has been set.
-func (o *AutoTestPutModel) GetProjectIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ProjectId, true
-}
-
-// SetProjectId sets field value
-func (o *AutoTestPutModel) SetProjectId(v string) {
-	o.ProjectId = v
-}
-
-// GetName returns the Name field value
-func (o *AutoTestPutModel) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *AutoTestPutModel) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *AutoTestPutModel) SetName(v string) {
-	o.Name = v
-}
-
-// GetNamespace returns the Namespace field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetNamespace() string {
-	if o == nil || IsNil(o.Namespace.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Namespace.Get()
-}
-
-// GetNamespaceOk returns a tuple with the Namespace field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetNamespaceOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Namespace.Get(), o.Namespace.IsSet()
-}
-
-// HasNamespace returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasNamespace() bool {
-	if o != nil && o.Namespace.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetNamespace gets a reference to the given NullableString and assigns it to the Namespace field.
-func (o *AutoTestPutModel) SetNamespace(v string) {
-	o.Namespace.Set(&v)
-}
-// SetNamespaceNil sets the value for Namespace to be an explicit nil
-func (o *AutoTestPutModel) SetNamespaceNil() {
-	o.Namespace.Set(nil)
-}
-
-// UnsetNamespace ensures that no value is present for Namespace, not even an explicit nil
-func (o *AutoTestPutModel) UnsetNamespace() {
-	o.Namespace.Unset()
-}
-
-// GetClassname returns the Classname field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetClassname() string {
-	if o == nil || IsNil(o.Classname.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Classname.Get()
-}
-
-// GetClassnameOk returns a tuple with the Classname field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetClassnameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Classname.Get(), o.Classname.IsSet()
-}
-
-// HasClassname returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasClassname() bool {
-	if o != nil && o.Classname.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetClassname gets a reference to the given NullableString and assigns it to the Classname field.
-func (o *AutoTestPutModel) SetClassname(v string) {
-	o.Classname.Set(&v)
-}
-// SetClassnameNil sets the value for Classname to be an explicit nil
-func (o *AutoTestPutModel) SetClassnameNil() {
-	o.Classname.Set(nil)
-}
-
-// UnsetClassname ensures that no value is present for Classname, not even an explicit nil
-func (o *AutoTestPutModel) UnsetClassname() {
-	o.Classname.Unset()
-}
-
-// GetSteps returns the Steps field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetSteps() []AutoTestStepModel {
-	if o == nil {
-		var ret []AutoTestStepModel
-		return ret
-	}
-	return o.Steps
-}
-
-// GetStepsOk returns a tuple with the Steps field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetStepsOk() ([]AutoTestStepModel, bool) {
-	if o == nil || IsNil(o.Steps) {
-		return nil, false
-	}
-	return o.Steps, true
-}
-
-// HasSteps returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasSteps() bool {
-	if o != nil && !IsNil(o.Steps) {
-		return true
-	}
-
-	return false
-}
-
-// SetSteps gets a reference to the given []AutoTestStepModel and assigns it to the Steps field.
-func (o *AutoTestPutModel) SetSteps(v []AutoTestStepModel) {
-	o.Steps = v
-}
-
-// GetSetup returns the Setup field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetSetup() []AutoTestStepModel {
-	if o == nil {
-		var ret []AutoTestStepModel
-		return ret
-	}
-	return o.Setup
-}
-
-// GetSetupOk returns a tuple with the Setup field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetSetupOk() ([]AutoTestStepModel, bool) {
-	if o == nil || IsNil(o.Setup) {
-		return nil, false
-	}
-	return o.Setup, true
-}
-
-// HasSetup returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasSetup() bool {
-	if o != nil && !IsNil(o.Setup) {
-		return true
-	}
-
-	return false
-}
-
-// SetSetup gets a reference to the given []AutoTestStepModel and assigns it to the Setup field.
-func (o *AutoTestPutModel) SetSetup(v []AutoTestStepModel) {
-	o.Setup = v
-}
-
-// GetTeardown returns the Teardown field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetTeardown() []AutoTestStepModel {
-	if o == nil {
-		var ret []AutoTestStepModel
-		return ret
-	}
-	return o.Teardown
-}
-
-// GetTeardownOk returns a tuple with the Teardown field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetTeardownOk() ([]AutoTestStepModel, bool) {
-	if o == nil || IsNil(o.Teardown) {
-		return nil, false
-	}
-	return o.Teardown, true
-}
-
-// HasTeardown returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasTeardown() bool {
-	if o != nil && !IsNil(o.Teardown) {
-		return true
-	}
-
-	return false
-}
-
-// SetTeardown gets a reference to the given []AutoTestStepModel and assigns it to the Teardown field.
-func (o *AutoTestPutModel) SetTeardown(v []AutoTestStepModel) {
-	o.Teardown = v
-}
-
-// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetTitle() string {
-	if o == nil || IsNil(o.Title.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Title.Get()
-}
-
-// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetTitleOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Title.Get(), o.Title.IsSet()
-}
-
-// HasTitle returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasTitle() bool {
-	if o != nil && o.Title.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
-func (o *AutoTestPutModel) SetTitle(v string) {
-	o.Title.Set(&v)
-}
-// SetTitleNil sets the value for Title to be an explicit nil
-func (o *AutoTestPutModel) SetTitleNil() {
-	o.Title.Set(nil)
-}
-
-// UnsetTitle ensures that no value is present for Title, not even an explicit nil
-func (o *AutoTestPutModel) UnsetTitle() {
-	o.Title.Unset()
-}
-
-// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetDescription() string {
-	if o == nil || IsNil(o.Description.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Description.Get()
-}
-
-// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Description.Get(), o.Description.IsSet()
-}
-
-// HasDescription returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasDescription() bool {
-	if o != nil && o.Description.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
-func (o *AutoTestPutModel) SetDescription(v string) {
-	o.Description.Set(&v)
-}
-// SetDescriptionNil sets the value for Description to be an explicit nil
-func (o *AutoTestPutModel) SetDescriptionNil() {
-	o.Description.Set(nil)
-}
-
-// UnsetDescription ensures that no value is present for Description, not even an explicit nil
-func (o *AutoTestPutModel) UnsetDescription() {
-	o.Description.Unset()
-}
-
-// GetLabels returns the Labels field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetLabels() []LabelPostModel {
-	if o == nil {
-		var ret []LabelPostModel
-		return ret
-	}
-	return o.Labels
-}
-
-// GetLabelsOk returns a tuple with the Labels field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetLabelsOk() ([]LabelPostModel, bool) {
-	if o == nil || IsNil(o.Labels) {
-		return nil, false
-	}
-	return o.Labels, true
-}
-
-// HasLabels returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasLabels() bool {
-	if o != nil && !IsNil(o.Labels) {
-		return true
-	}
-
-	return false
-}
-
-// SetLabels gets a reference to the given []LabelPostModel and assigns it to the Labels field.
-func (o *AutoTestPutModel) SetLabels(v []LabelPostModel) {
-	o.Labels = v
-}
-
-// GetIsFlaky returns the IsFlaky field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetIsFlaky() bool {
-	if o == nil || IsNil(o.IsFlaky.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.IsFlaky.Get()
-}
-
-// GetIsFlakyOk returns a tuple with the IsFlaky field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetIsFlakyOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.IsFlaky.Get(), o.IsFlaky.IsSet()
-}
-
-// HasIsFlaky returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasIsFlaky() bool {
-	if o != nil && o.IsFlaky.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIsFlaky gets a reference to the given NullableBool and assigns it to the IsFlaky field.
-func (o *AutoTestPutModel) SetIsFlaky(v bool) {
-	o.IsFlaky.Set(&v)
-}
-// SetIsFlakyNil sets the value for IsFlaky to be an explicit nil
-func (o *AutoTestPutModel) SetIsFlakyNil() {
-	o.IsFlaky.Set(nil)
-}
-
-// UnsetIsFlaky ensures that no value is present for IsFlaky, not even an explicit nil
-func (o *AutoTestPutModel) UnsetIsFlaky() {
-	o.IsFlaky.Unset()
-}
-
-// GetExternalKey returns the ExternalKey field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTestPutModel) GetExternalKey() string {
-	if o == nil || IsNil(o.ExternalKey.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ExternalKey.Get()
-}
-
-// GetExternalKeyOk returns a tuple with the ExternalKey field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTestPutModel) GetExternalKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ExternalKey.Get(), o.ExternalKey.IsSet()
-}
-
-// HasExternalKey returns a boolean if a field has been set.
-func (o *AutoTestPutModel) HasExternalKey() bool {
-	if o != nil && o.ExternalKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExternalKey gets a reference to the given NullableString and assigns it to the ExternalKey field.
-func (o *AutoTestPutModel) SetExternalKey(v string) {
-	o.ExternalKey.Set(&v)
-}
-// SetExternalKeyNil sets the value for ExternalKey to be an explicit nil
-func (o *AutoTestPutModel) SetExternalKeyNil() {
-	o.ExternalKey.Set(nil)
-}
-
-// UnsetExternalKey ensures that no value is present for ExternalKey, not even an explicit nil
-func (o *AutoTestPutModel) UnsetExternalKey() {
-	o.ExternalKey.Unset()
-}
-
-func (o AutoTestPutModel) MarshalJSON() ([]byte, error) {
+func (o AutoTestUpdateApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -686,20 +688,14 @@ func (o AutoTestPutModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AutoTestPutModel) ToMap() (map[string]interface{}, error) {
+func (o AutoTestUpdateApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Id.IsSet() {
 		toSerialize["id"] = o.Id.Get()
 	}
-	if o.WorkItemIdsForLinkWithAutoTest != nil {
-		toSerialize["workItemIdsForLinkWithAutoTest"] = o.WorkItemIdsForLinkWithAutoTest
-	}
-	if o.WorkItemIds != nil {
-		toSerialize["workItemIds"] = o.WorkItemIds
-	}
 	toSerialize["externalId"] = o.ExternalId
-	if o.Links != nil {
-		toSerialize["links"] = o.Links
+	if o.ExternalKey.IsSet() {
+		toSerialize["externalKey"] = o.ExternalKey.Get()
 	}
 	toSerialize["projectId"] = o.ProjectId
 	toSerialize["name"] = o.Name
@@ -727,16 +723,22 @@ func (o AutoTestPutModel) ToMap() (map[string]interface{}, error) {
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
 	}
+	if o.Links != nil {
+		toSerialize["links"] = o.Links
+	}
 	if o.IsFlaky.IsSet() {
 		toSerialize["isFlaky"] = o.IsFlaky.Get()
 	}
-	if o.ExternalKey.IsSet() {
-		toSerialize["externalKey"] = o.ExternalKey.Get()
+	if o.WorkItemIdsForLinkWithAutoTest != nil {
+		toSerialize["workItemIdsForLinkWithAutoTest"] = o.WorkItemIdsForLinkWithAutoTest
+	}
+	if o.WorkItemIds != nil {
+		toSerialize["workItemIds"] = o.WorkItemIds
 	}
 	return toSerialize, nil
 }
 
-func (o *AutoTestPutModel) UnmarshalJSON(data []byte) (err error) {
+func (o *AutoTestUpdateApiModel) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -760,53 +762,53 @@ func (o *AutoTestPutModel) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varAutoTestPutModel := _AutoTestPutModel{}
+	varAutoTestUpdateApiModel := _AutoTestUpdateApiModel{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoTestPutModel)
+	err = decoder.Decode(&varAutoTestUpdateApiModel)
 
 	if err != nil {
 		return err
 	}
 
-	*o = AutoTestPutModel(varAutoTestPutModel)
+	*o = AutoTestUpdateApiModel(varAutoTestUpdateApiModel)
 
 	return err
 }
 
-type NullableAutoTestPutModel struct {
-	value *AutoTestPutModel
+type NullableAutoTestUpdateApiModel struct {
+	value *AutoTestUpdateApiModel
 	isSet bool
 }
 
-func (v NullableAutoTestPutModel) Get() *AutoTestPutModel {
+func (v NullableAutoTestUpdateApiModel) Get() *AutoTestUpdateApiModel {
 	return v.value
 }
 
-func (v *NullableAutoTestPutModel) Set(val *AutoTestPutModel) {
+func (v *NullableAutoTestUpdateApiModel) Set(val *AutoTestUpdateApiModel) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAutoTestPutModel) IsSet() bool {
+func (v NullableAutoTestUpdateApiModel) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAutoTestPutModel) Unset() {
+func (v *NullableAutoTestUpdateApiModel) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAutoTestPutModel(val *AutoTestPutModel) *NullableAutoTestPutModel {
-	return &NullableAutoTestPutModel{value: val, isSet: true}
+func NewNullableAutoTestUpdateApiModel(val *AutoTestUpdateApiModel) *NullableAutoTestUpdateApiModel {
+	return &NullableAutoTestUpdateApiModel{value: val, isSet: true}
 }
 
-func (v NullableAutoTestPutModel) MarshalJSON() ([]byte, error) {
+func (v NullableAutoTestUpdateApiModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAutoTestPutModel) UnmarshalJSON(src []byte) error {
+func (v *NullableAutoTestUpdateApiModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

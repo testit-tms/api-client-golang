@@ -101,8 +101,6 @@ type APIClient struct {
 
 	TestRunsAPI *TestRunsAPIService
 
-	TestStatusesAPI *TestStatusesAPIService
-
 	TestSuitesAPI *TestSuitesAPIService
 
 	UsersAPI *UsersAPIService
@@ -114,8 +112,6 @@ type APIClient struct {
 	WorkItemsAPI *WorkItemsAPIService
 
 	WorkItemsCommentsAPI *WorkItemsCommentsAPIService
-
-	WorkflowsAPI *WorkflowsAPIService
 }
 
 type service struct {
@@ -160,14 +156,12 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TestPointsAPI = (*TestPointsAPIService)(&c.common)
 	c.TestResultsAPI = (*TestResultsAPIService)(&c.common)
 	c.TestRunsAPI = (*TestRunsAPIService)(&c.common)
-	c.TestStatusesAPI = (*TestStatusesAPIService)(&c.common)
 	c.TestSuitesAPI = (*TestSuitesAPIService)(&c.common)
 	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)
 	c.WebhooksLogsAPI = (*WebhooksLogsAPIService)(&c.common)
 	c.WorkItemsAPI = (*WorkItemsAPIService)(&c.common)
 	c.WorkItemsCommentsAPI = (*WorkItemsCommentsAPIService)(&c.common)
-	c.WorkflowsAPI = (*WorkflowsAPIService)(&c.common)
 
 	return c
 }

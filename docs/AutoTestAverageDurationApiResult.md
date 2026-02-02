@@ -1,67 +1,67 @@
-# AutoTestAverageDurationModel
+# AutoTestAverageDurationApiResult
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PassedAverageDuration** | **float64** |  | 
-**FailedAverageDuration** | **float64** |  | 
+**PassedAverageDuration** | **float64** | Pass average duration of autotest from all related test results | 
+**FailedAverageDuration** | **float64** | Fail average duration of autotest from all related test results | 
 
 ## Methods
 
-### NewAutoTestAverageDurationModel
+### NewAutoTestAverageDurationApiResult
 
-`func NewAutoTestAverageDurationModel(passedAverageDuration float64, failedAverageDuration float64, ) *AutoTestAverageDurationModel`
+`func NewAutoTestAverageDurationApiResult(passedAverageDuration float64, failedAverageDuration float64, ) *AutoTestAverageDurationApiResult`
 
-NewAutoTestAverageDurationModel instantiates a new AutoTestAverageDurationModel object
+NewAutoTestAverageDurationApiResult instantiates a new AutoTestAverageDurationApiResult object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAutoTestAverageDurationModelWithDefaults
+### NewAutoTestAverageDurationApiResultWithDefaults
 
-`func NewAutoTestAverageDurationModelWithDefaults() *AutoTestAverageDurationModel`
+`func NewAutoTestAverageDurationApiResultWithDefaults() *AutoTestAverageDurationApiResult`
 
-NewAutoTestAverageDurationModelWithDefaults instantiates a new AutoTestAverageDurationModel object
+NewAutoTestAverageDurationApiResultWithDefaults instantiates a new AutoTestAverageDurationApiResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetPassedAverageDuration
 
-`func (o *AutoTestAverageDurationModel) GetPassedAverageDuration() float64`
+`func (o *AutoTestAverageDurationApiResult) GetPassedAverageDuration() float64`
 
 GetPassedAverageDuration returns the PassedAverageDuration field if non-nil, zero value otherwise.
 
 ### GetPassedAverageDurationOk
 
-`func (o *AutoTestAverageDurationModel) GetPassedAverageDurationOk() (*float64, bool)`
+`func (o *AutoTestAverageDurationApiResult) GetPassedAverageDurationOk() (*float64, bool)`
 
 GetPassedAverageDurationOk returns a tuple with the PassedAverageDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPassedAverageDuration
 
-`func (o *AutoTestAverageDurationModel) SetPassedAverageDuration(v float64)`
+`func (o *AutoTestAverageDurationApiResult) SetPassedAverageDuration(v float64)`
 
 SetPassedAverageDuration sets PassedAverageDuration field to given value.
 
 
 ### GetFailedAverageDuration
 
-`func (o *AutoTestAverageDurationModel) GetFailedAverageDuration() float64`
+`func (o *AutoTestAverageDurationApiResult) GetFailedAverageDuration() float64`
 
 GetFailedAverageDuration returns the FailedAverageDuration field if non-nil, zero value otherwise.
 
 ### GetFailedAverageDurationOk
 
-`func (o *AutoTestAverageDurationModel) GetFailedAverageDurationOk() (*float64, bool)`
+`func (o *AutoTestAverageDurationApiResult) GetFailedAverageDurationOk() (*float64, bool)`
 
 GetFailedAverageDurationOk returns a tuple with the FailedAverageDuration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFailedAverageDuration
 
-`func (o *AutoTestAverageDurationModel) SetFailedAverageDuration(v float64)`
+`func (o *AutoTestAverageDurationApiResult) SetFailedAverageDuration(v float64)`
 
 SetFailedAverageDuration sets FailedAverageDuration field to given value.
 

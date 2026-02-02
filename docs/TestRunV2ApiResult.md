@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Id** | **string** | Test run unique identifier | 
 **Name** | **string** | Test run name | 
 **Description** | Pointer to **NullableString** | Test run description | [optional] 
-**LaunchSource** | Pointer to **NullableString** | Test run launch source                Once launch source is specified it cannot be updated. | [optional] 
+**LaunchSource** | Pointer to **NullableString** | Test run launch source              Once launch source is specified it cannot be updated. | [optional] 
 **StartedOn** | Pointer to **NullableTime** | Date and time of test run start | [optional] 
 **CompletedOn** | Pointer to **NullableTime** | Date and time of test run end | [optional] 
 **StateName** | [**TestRunState**](TestRunState.md) | Test run state | 
 **Status** | [**TestStatusApiResult**](TestStatusApiResult.md) | Test run status | 
-**ProjectId** | **string** | Project unique identifier                This property is used to link test run with project. | 
-**TestPlanId** | Pointer to **NullableString** | Test plan unique identifier                This property is used to link test run with test plan. | [optional] 
+**ProjectId** | **string** | Project unique identifier              This property is used to link test run with project. | 
+**TestPlanId** | Pointer to **NullableString** | Test plan unique identifier              This property is used to link test run with test plan. | [optional] 
 **TestResults** | Pointer to [**[]TestResultV2GetModel**](TestResultV2GetModel.md) | Enumeration of test results related to test run | [optional] 
 **CreatedDate** | **time.Time** | Date and time of test run creation | 
 **ModifiedDate** | Pointer to **NullableTime** | Date and time of last test run  modification | [optional] 

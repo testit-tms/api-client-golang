@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Settings** | Pointer to **interface{}** | External service settings | [optional] 
+**Settings** | **interface{}** | External service settings | 
 
 ## Methods
 
 ### NewEnableProjectExternalServiceApiModel
 
-`func NewEnableProjectExternalServiceApiModel() *EnableProjectExternalServiceApiModel`
+`func NewEnableProjectExternalServiceApiModel(settings interface{}, ) *EnableProjectExternalServiceApiModel`
 
 NewEnableProjectExternalServiceApiModel instantiates a new EnableProjectExternalServiceApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetSettings sets Settings field to given value.
 
-### HasSettings
-
-`func (o *EnableProjectExternalServiceApiModel) HasSettings() bool`
-
-HasSettings returns a boolean if a field has been set.
 
 ### SetSettingsNil
 

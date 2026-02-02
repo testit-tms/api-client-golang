@@ -12,6 +12,8 @@ package tmsclient
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the EnableProjectExternalServiceApiModel type satisfies the MappedNullable interface at compile time
@@ -20,15 +22,18 @@ var _ MappedNullable = &EnableProjectExternalServiceApiModel{}
 // EnableProjectExternalServiceApiModel struct for EnableProjectExternalServiceApiModel
 type EnableProjectExternalServiceApiModel struct {
 	// External service settings
-	Settings interface{} `json:"settings,omitempty"`
+	Settings interface{} `json:"settings"`
 }
+
+type _EnableProjectExternalServiceApiModel EnableProjectExternalServiceApiModel
 
 // NewEnableProjectExternalServiceApiModel instantiates a new EnableProjectExternalServiceApiModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnableProjectExternalServiceApiModel() *EnableProjectExternalServiceApiModel {
+func NewEnableProjectExternalServiceApiModel(settings interface{}) *EnableProjectExternalServiceApiModel {
 	this := EnableProjectExternalServiceApiModel{}
+	this.Settings = settings
 	return &this
 }
 
@@ -40,16 +45,18 @@ func NewEnableProjectExternalServiceApiModelWithDefaults() *EnableProjectExterna
 	return &this
 }
 
-// GetSettings returns the Settings field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetSettings returns the Settings field value
+// If the value is explicit nil, the zero value for interface{} will be returned
 func (o *EnableProjectExternalServiceApiModel) GetSettings() interface{} {
 	if o == nil {
 		var ret interface{}
 		return ret
 	}
+
 	return o.Settings
 }
 
-// GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
+// GetSettingsOk returns a tuple with the Settings field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnableProjectExternalServiceApiModel) GetSettingsOk() (*interface{}, bool) {
@@ -59,16 +66,7 @@ func (o *EnableProjectExternalServiceApiModel) GetSettingsOk() (*interface{}, bo
 	return &o.Settings, true
 }
 
-// HasSettings returns a boolean if a field has been set.
-func (o *EnableProjectExternalServiceApiModel) HasSettings() bool {
-	if o != nil && !IsNil(o.Settings) {
-		return true
-	}
-
-	return false
-}
-
-// SetSettings gets a reference to the given interface{} and assigns it to the Settings field.
+// SetSettings sets field value
 func (o *EnableProjectExternalServiceApiModel) SetSettings(v interface{}) {
 	o.Settings = v
 }
@@ -87,6 +85,43 @@ func (o EnableProjectExternalServiceApiModel) ToMap() (map[string]interface{}, e
 		toSerialize["settings"] = o.Settings
 	}
 	return toSerialize, nil
+}
+
+func (o *EnableProjectExternalServiceApiModel) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"settings",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varEnableProjectExternalServiceApiModel := _EnableProjectExternalServiceApiModel{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varEnableProjectExternalServiceApiModel)
+
+	if err != nil {
+		return err
+	}
+
+	*o = EnableProjectExternalServiceApiModel(varEnableProjectExternalServiceApiModel)
+
+	return err
 }
 
 type NullableEnableProjectExternalServiceApiModel struct {

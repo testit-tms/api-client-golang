@@ -52,9 +52,6 @@ type ProjectShortModel struct {
 	GlobalId int64 `json:"globalId"`
 	// Type of the project
 	Type ProjectTypeModel `json:"type"`
-	// Indicates if the status \"Flaky/Stable\" sets automatically
-	// Deprecated
-	IsFlakyAuto NullableBool `json:"isFlakyAuto,omitempty"`
 	WorkflowId string `json:"workflowId"`
 }
 
@@ -572,51 +569,6 @@ func (o *ProjectShortModel) SetType(v ProjectTypeModel) {
 	o.Type = v
 }
 
-// GetIsFlakyAuto returns the IsFlakyAuto field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
-func (o *ProjectShortModel) GetIsFlakyAuto() bool {
-	if o == nil || IsNil(o.IsFlakyAuto.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.IsFlakyAuto.Get()
-}
-
-// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
-func (o *ProjectShortModel) GetIsFlakyAutoOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.IsFlakyAuto.Get(), o.IsFlakyAuto.IsSet()
-}
-
-// HasIsFlakyAuto returns a boolean if a field has been set.
-func (o *ProjectShortModel) HasIsFlakyAuto() bool {
-	if o != nil && o.IsFlakyAuto.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIsFlakyAuto gets a reference to the given NullableBool and assigns it to the IsFlakyAuto field.
-// Deprecated
-func (o *ProjectShortModel) SetIsFlakyAuto(v bool) {
-	o.IsFlakyAuto.Set(&v)
-}
-// SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
-func (o *ProjectShortModel) SetIsFlakyAutoNil() {
-	o.IsFlakyAuto.Set(nil)
-}
-
-// UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
-func (o *ProjectShortModel) UnsetIsFlakyAuto() {
-	o.IsFlakyAuto.Unset()
-}
-
 // GetWorkflowId returns the WorkflowId field value
 func (o *ProjectShortModel) GetWorkflowId() string {
 	if o == nil {
@@ -680,9 +632,6 @@ func (o ProjectShortModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["type"] = o.Type
-	if o.IsFlakyAuto.IsSet() {
-		toSerialize["isFlakyAuto"] = o.IsFlakyAuto.Get()
-	}
 	toSerialize["workflowId"] = o.WorkflowId
 	return toSerialize, nil
 }

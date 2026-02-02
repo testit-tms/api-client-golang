@@ -27,7 +27,7 @@ type GlobalCustomAttributePostModel struct {
 	IsEnabled NullableBool `json:"isEnabled,omitempty"`
 	// Indicates whether the attribute value is mandatory to specify
 	IsRequired NullableBool `json:"isRequired,omitempty"`
-	// Collection of attribute options      Available for attributes of type `options` and `multiple options` only
+	// Collection of attribute options   Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionPostModel `json:"options,omitempty"`
 	// Type of attribute
 	Type CustomAttributeTypesEnum `json:"type"`

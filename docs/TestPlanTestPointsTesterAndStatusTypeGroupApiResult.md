@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserId** | **NullableString** |  | 
 **StatusType** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
-**Value** | **int64** |  | 
+**Statuses** | [**[]TestPlanTestPointsStatusCodeGroupApiResult**](TestPlanTestPointsStatusCodeGroupApiResult.md) |  | 
 
 ## Methods
 
 ### NewTestPlanTestPointsTesterAndStatusTypeGroupApiResult
 
-`func NewTestPlanTestPointsTesterAndStatusTypeGroupApiResult(userId NullableString, statusType TestStatusApiType, value int64, ) *TestPlanTestPointsTesterAndStatusTypeGroupApiResult`
+`func NewTestPlanTestPointsTesterAndStatusTypeGroupApiResult(userId NullableString, statusType TestStatusApiType, statuses []TestPlanTestPointsStatusCodeGroupApiResult, ) *TestPlanTestPointsTesterAndStatusTypeGroupApiResult`
 
 NewTestPlanTestPointsTesterAndStatusTypeGroupApiResult instantiates a new TestPlanTestPointsTesterAndStatusTypeGroupApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -77,24 +77,24 @@ and a boolean to check if the value has been set.
 SetStatusType sets StatusType field to given value.
 
 
-### GetValue
+### GetStatuses
 
-`func (o *TestPlanTestPointsTesterAndStatusTypeGroupApiResult) GetValue() int64`
+`func (o *TestPlanTestPointsTesterAndStatusTypeGroupApiResult) GetStatuses() []TestPlanTestPointsStatusCodeGroupApiResult`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetStatuses returns the Statuses field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetStatusesOk
 
-`func (o *TestPlanTestPointsTesterAndStatusTypeGroupApiResult) GetValueOk() (*int64, bool)`
+`func (o *TestPlanTestPointsTesterAndStatusTypeGroupApiResult) GetStatusesOk() (*[]TestPlanTestPointsStatusCodeGroupApiResult, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetStatusesOk returns a tuple with the Statuses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetStatuses
 
-`func (o *TestPlanTestPointsTesterAndStatusTypeGroupApiResult) SetValue(v int64)`
+`func (o *TestPlanTestPointsTesterAndStatusTypeGroupApiResult) SetStatuses(v []TestPlanTestPointsStatusCodeGroupApiResult)`
 
-SetValue sets Value field to given value.
+SetStatuses sets Statuses field to given value.
 
 
 

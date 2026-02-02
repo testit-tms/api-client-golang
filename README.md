@@ -18,6 +18,7 @@
 | 5.4     | 3.2.0-tms-5.4   |
 | 5.4.1   | 3.2.2-tms-5.4.1 |
 | 5.5	  | 3.4.0-tms-5.5	|
+| 5.6	  | 3.5.0-tms-5.6	|
 | Cloud   | 3.4.0 +         |
 
 1. For current versions, see the releases tab. 
@@ -197,7 +198,6 @@ Class | Method | HTTP request | Description
 *ProjectsAPI* | [**ApiV2ProjectsIdRestorePost**](docs/ProjectsAPI.md#apiv2projectsidrestorepost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
 *ProjectsAPI* | [**ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](docs/ProjectsAPI.md#apiv2projectsidtestplansattributeattributeiddelete) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
 *ProjectsAPI* | [**ApiV2ProjectsIdTestPlansAttributePut**](docs/ProjectsAPI.md#apiv2projectsidtestplansattributeput) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
-*ProjectsAPI* | [**ApiV2ProjectsIdTestRunsActiveGet**](docs/ProjectsAPI.md#apiv2projectsidtestrunsactiveget) | **Get** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
 *ProjectsAPI* | [**ApiV2ProjectsIdTestRunsFullGet**](docs/ProjectsAPI.md#apiv2projectsidtestrunsfullget) | **Get** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
 *ProjectsAPI* | [**ApiV2ProjectsNameNameExistsGet**](docs/ProjectsAPI.md#apiv2projectsnamenameexistsget) | **Get** /api/v2/projects/name/{name}/exists | 
 *ProjectsAPI* | [**ApiV2ProjectsPurgeBulkPost**](docs/ProjectsAPI.md#apiv2projectspurgebulkpost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
@@ -301,13 +301,6 @@ Class | Method | HTTP request | Description
 *TestRunsAPI* | [**StartTestRun**](docs/TestRunsAPI.md#starttestrun) | **Post** /api/v2/testRuns/{id}/start | Start TestRun
 *TestRunsAPI* | [**StopTestRun**](docs/TestRunsAPI.md#stoptestrun) | **Post** /api/v2/testRuns/{id}/stop | Stop TestRun
 *TestRunsAPI* | [**UpdateEmpty**](docs/TestRunsAPI.md#updateempty) | **Put** /api/v2/testRuns | Update empty TestRun
-*TestStatusesAPI* | [**ApiV2TestStatusesCodeCodeExistsGet**](docs/TestStatusesAPI.md#apiv2teststatusescodecodeexistsget) | **Get** /api/v2/testStatuses/code/{code}/exists | 
-*TestStatusesAPI* | [**ApiV2TestStatusesIdDelete**](docs/TestStatusesAPI.md#apiv2teststatusesiddelete) | **Delete** /api/v2/testStatuses/{id} | 
-*TestStatusesAPI* | [**ApiV2TestStatusesIdGet**](docs/TestStatusesAPI.md#apiv2teststatusesidget) | **Get** /api/v2/testStatuses/{id} | 
-*TestStatusesAPI* | [**ApiV2TestStatusesIdPut**](docs/TestStatusesAPI.md#apiv2teststatusesidput) | **Put** /api/v2/testStatuses/{id} | 
-*TestStatusesAPI* | [**ApiV2TestStatusesNameNameExistsGet**](docs/TestStatusesAPI.md#apiv2teststatusesnamenameexistsget) | **Get** /api/v2/testStatuses/name/{name}/exists | 
-*TestStatusesAPI* | [**ApiV2TestStatusesPost**](docs/TestStatusesAPI.md#apiv2teststatusespost) | **Post** /api/v2/testStatuses | 
-*TestStatusesAPI* | [**ApiV2TestStatusesSearchPost**](docs/TestStatusesAPI.md#apiv2teststatusessearchpost) | **Post** /api/v2/testStatuses/search | 
 *TestSuitesAPI* | [**AddTestPointsToTestSuite**](docs/TestSuitesAPI.md#addtestpointstotestsuite) | **Post** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesAPI* | [**ApiV2TestSuitesIdPatch**](docs/TestSuitesAPI.md#apiv2testsuitesidpatch) | **Patch** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesAPI* | [**ApiV2TestSuitesIdRefreshPost**](docs/TestSuitesAPI.md#apiv2testsuitesidrefreshpost) | **Post** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
@@ -366,14 +359,6 @@ Class | Method | HTTP request | Description
 *WorkItemsCommentsAPI* | [**ApiV2WorkItemsCommentsPut**](docs/WorkItemsCommentsAPI.md#apiv2workitemscommentsput) | **Put** /api/v2/workItems/comments | Update work item comment
 *WorkItemsCommentsAPI* | [**ApiV2WorkItemsIdCommentsCountGet**](docs/WorkItemsCommentsAPI.md#apiv2workitemsidcommentscountget) | **Get** /api/v2/workItems/{id}/comments/count | Get work item comments count
 *WorkItemsCommentsAPI* | [**ApiV2WorkItemsIdCommentsGet**](docs/WorkItemsCommentsAPI.md#apiv2workitemsidcommentsget) | **Get** /api/v2/workItems/{id}/comments | Get work item comments
-*WorkflowsAPI* | [**ApiV2WorkflowsIdDelete**](docs/WorkflowsAPI.md#apiv2workflowsiddelete) | **Delete** /api/v2/workflows/{id} | 
-*WorkflowsAPI* | [**ApiV2WorkflowsIdGet**](docs/WorkflowsAPI.md#apiv2workflowsidget) | **Get** /api/v2/workflows/{id} | 
-*WorkflowsAPI* | [**ApiV2WorkflowsIdPatch**](docs/WorkflowsAPI.md#apiv2workflowsidpatch) | **Patch** /api/v2/workflows/{id} | 
-*WorkflowsAPI* | [**ApiV2WorkflowsIdProjectsSearchPost**](docs/WorkflowsAPI.md#apiv2workflowsidprojectssearchpost) | **Post** /api/v2/workflows/{id}/projects/search | 
-*WorkflowsAPI* | [**ApiV2WorkflowsIdPut**](docs/WorkflowsAPI.md#apiv2workflowsidput) | **Put** /api/v2/workflows/{id} | 
-*WorkflowsAPI* | [**ApiV2WorkflowsNameNameExistsGet**](docs/WorkflowsAPI.md#apiv2workflowsnamenameexistsget) | **Get** /api/v2/workflows/name/{name}/exists | 
-*WorkflowsAPI* | [**ApiV2WorkflowsPost**](docs/WorkflowsAPI.md#apiv2workflowspost) | **Post** /api/v2/workflows | 
-*WorkflowsAPI* | [**ApiV2WorkflowsSearchPost**](docs/WorkflowsAPI.md#apiv2workflowssearchpost) | **Post** /api/v2/workflows/search | 
 
 
 ## Documentation for Models

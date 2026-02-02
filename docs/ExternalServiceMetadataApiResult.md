@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the external service | 
 **Code** | **string** | The code of the external service | 
 **IconUrl** | **string** | The icon URL of the external service | 
-**Category** | [**ExternalServiceCategoryApiResult**](ExternalServiceCategoryApiResult.md) | The category of the external service | 
+**Category** | [**ApiExternalServiceCategory**](ApiExternalServiceCategory.md) | The category of the external service | 
 
 ## Methods
 
 ### NewExternalServiceMetadataApiResult
 
-`func NewExternalServiceMetadataApiResult(name string, code string, iconUrl string, category ExternalServiceCategoryApiResult, ) *ExternalServiceMetadataApiResult`
+`func NewExternalServiceMetadataApiResult(name string, code string, iconUrl string, category ApiExternalServiceCategory, ) *ExternalServiceMetadataApiResult`
 
 NewExternalServiceMetadataApiResult instantiates a new ExternalServiceMetadataApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetIconUrl sets IconUrl field to given value.
 
 ### GetCategory
 
-`func (o *ExternalServiceMetadataApiResult) GetCategory() ExternalServiceCategoryApiResult`
+`func (o *ExternalServiceMetadataApiResult) GetCategory() ApiExternalServiceCategory`
 
 GetCategory returns the Category field if non-nil, zero value otherwise.
 
 ### GetCategoryOk
 
-`func (o *ExternalServiceMetadataApiResult) GetCategoryOk() (*ExternalServiceCategoryApiResult, bool)`
+`func (o *ExternalServiceMetadataApiResult) GetCategoryOk() (*ApiExternalServiceCategory, bool)`
 
 GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCategory
 
-`func (o *ExternalServiceMetadataApiResult) SetCategory(v ExternalServiceCategoryApiResult)`
+`func (o *ExternalServiceMetadataApiResult) SetCategory(v ApiExternalServiceCategory)`
 
 SetCategory sets Category field to given value.
 
