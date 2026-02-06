@@ -52,7 +52,7 @@ type WorkItemModel struct {
 	Steps []StepModel `json:"steps"`
 	PreconditionSteps []StepModel `json:"preconditionSteps"`
 	PostconditionSteps []StepModel `json:"postconditionSteps"`
-	Duration int32 `json:"duration"`
+	Duration int64 `json:"duration"`
 	Attributes map[string]interface{} `json:"attributes"`
 	Tags []TagModel `json:"tags"`
 	Links []LinkModel `json:"links"`
@@ -65,7 +65,7 @@ type _WorkItemModel WorkItemModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string) *WorkItemModel {
+func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string) *WorkItemModel {
 	this := WorkItemModel{}
 	this.VersionId = versionId
 	this.MedianDuration = medianDuration
@@ -850,9 +850,9 @@ func (o *WorkItemModel) SetPostconditionSteps(v []StepModel) {
 }
 
 // GetDuration returns the Duration field value
-func (o *WorkItemModel) GetDuration() int32 {
+func (o *WorkItemModel) GetDuration() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -861,7 +861,7 @@ func (o *WorkItemModel) GetDuration() int32 {
 
 // GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemModel) GetDurationOk() (*int32, bool) {
+func (o *WorkItemModel) GetDurationOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -869,7 +869,7 @@ func (o *WorkItemModel) GetDurationOk() (*int32, bool) {
 }
 
 // SetDuration sets field value
-func (o *WorkItemModel) SetDuration(v int32) {
+func (o *WorkItemModel) SetDuration(v int64) {
 	o.Duration = v
 }
 

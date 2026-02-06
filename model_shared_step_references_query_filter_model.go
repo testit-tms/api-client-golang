@@ -33,7 +33,7 @@ type SharedStepReferencesQueryFilterModel struct {
 	States []WorkItemStates `json:"states,omitempty"`
 	// Collection of priorities of work item
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
-	// Collection of types of work item    Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
+	// Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
 	EntityTypes []string `json:"entityTypes,omitempty"`
 	// Date and time of work item creation
 	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`

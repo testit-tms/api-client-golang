@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ## CreateAutoTest
 
-> AutoTestModel CreateAutoTest(ctx).AutoTestPostModel(autoTestPostModel).Execute()
+> AutoTestApiResult CreateAutoTest(ctx).AutoTestCreateApiModel(autoTestCreateApiModel).Execute()
 
 Create autotest
 
@@ -553,16 +553,16 @@ import (
 )
 
 func main() {
-	autoTestPostModel := *openapiclient.NewAutoTestPostModel("ExternalId_example", "ProjectId_example", "Name_example") // AutoTestPostModel |  (optional)
+	autoTestCreateApiModel := *openapiclient.NewAutoTestCreateApiModel("ProjectId_example", "ExternalId_example", "Name_example") // AutoTestCreateApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.CreateAutoTest(context.Background()).AutoTestPostModel(autoTestPostModel).Execute()
+	resp, r, err := apiClient.AutoTestsAPI.CreateAutoTest(context.Background()).AutoTestCreateApiModel(autoTestCreateApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.CreateAutoTest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateAutoTest`: AutoTestModel
+	// response from `CreateAutoTest`: AutoTestApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.CreateAutoTest`: %v\n", resp)
 }
 ```
@@ -578,11 +578,11 @@ Other parameters are passed through a pointer to a apiCreateAutoTestRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPostModel** | [**AutoTestPostModel**](AutoTestPostModel.md) |  | 
+ **autoTestCreateApiModel** | [**AutoTestCreateApiModel**](AutoTestCreateApiModel.md) |  | 
 
 ### Return type
 
-[**AutoTestModel**](AutoTestModel.md)
+[**AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -600,7 +600,7 @@ Name | Type | Description  | Notes
 
 ## CreateMultiple
 
-> []AutoTestModel CreateMultiple(ctx).AutoTestPostModel(autoTestPostModel).Execute()
+> []AutoTestApiResult CreateMultiple(ctx).AutoTestCreateApiModel(autoTestCreateApiModel).Execute()
 
 Create multiple autotests
 
@@ -619,16 +619,16 @@ import (
 )
 
 func main() {
-	autoTestPostModel := []openapiclient.AutoTestPostModel{*openapiclient.NewAutoTestPostModel("ExternalId_example", "ProjectId_example", "Name_example")} // []AutoTestPostModel |  (optional)
+	autoTestCreateApiModel := []openapiclient.AutoTestCreateApiModel{*openapiclient.NewAutoTestCreateApiModel("ProjectId_example", "ExternalId_example", "Name_example")} // []AutoTestCreateApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AutoTestsAPI.CreateMultiple(context.Background()).AutoTestPostModel(autoTestPostModel).Execute()
+	resp, r, err := apiClient.AutoTestsAPI.CreateMultiple(context.Background()).AutoTestCreateApiModel(autoTestCreateApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.CreateMultiple``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateMultiple`: []AutoTestModel
+	// response from `CreateMultiple`: []AutoTestApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.CreateMultiple`: %v\n", resp)
 }
 ```
@@ -644,11 +644,11 @@ Other parameters are passed through a pointer to a apiCreateMultipleRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPostModel** | [**[]AutoTestPostModel**](AutoTestPostModel.md) |  | 
+ **autoTestCreateApiModel** | [**[]AutoTestCreateApiModel**](AutoTestCreateApiModel.md) |  | 
 
 ### Return type
 
-[**[]AutoTestModel**](AutoTestModel.md)
+[**[]AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 
 ## GetAutoTestAverageDuration
 
-> AutoTestAverageDurationModel GetAutoTestAverageDuration(ctx, id).Execute()
+> AutoTestAverageDurationApiResult GetAutoTestAverageDuration(ctx, id).Execute()
 
 Get average autotest duration
 
@@ -946,7 +946,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetAutoTestAverageDuration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAutoTestAverageDuration`: AutoTestAverageDurationModel
+	// response from `GetAutoTestAverageDuration`: AutoTestAverageDurationApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetAutoTestAverageDuration`: %v\n", resp)
 }
 ```
@@ -970,7 +970,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AutoTestAverageDurationModel**](AutoTestAverageDurationModel.md)
+[**AutoTestAverageDurationApiResult**](AutoTestAverageDurationApiResult.md)
 
 ### Authorization
 
@@ -988,7 +988,7 @@ Name | Type | Description  | Notes
 
 ## GetAutoTestById
 
-> AutoTestModel GetAutoTestById(ctx, id).Execute()
+> AutoTestApiResult GetAutoTestById(ctx, id).Execute()
 
 Get autotest by internal or global ID
 
@@ -1016,7 +1016,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetAutoTestById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAutoTestById`: AutoTestModel
+	// response from `GetAutoTestById`: AutoTestApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetAutoTestById`: %v\n", resp)
 }
 ```
@@ -1040,7 +1040,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AutoTestModel**](AutoTestModel.md)
+[**AutoTestApiResult**](AutoTestApiResult.md)
 
 ### Authorization
 
@@ -1198,7 +1198,7 @@ Name | Type | Description  | Notes
 
 ## GetWorkItemsLinkedToAutoTest
 
-> []WorkItemIdentifierModel GetWorkItemsLinkedToAutoTest(ctx, id).IsDeleted(isDeleted).IsWorkItemDeleted(isWorkItemDeleted).Execute()
+> []AutoTestWorkItemIdentifierApiResult GetWorkItemsLinkedToAutoTest(ctx, id).IsDeleted(isDeleted).IsWorkItemDeleted(isWorkItemDeleted).Execute()
 
 Get work items linked to autotest
 
@@ -1217,7 +1217,7 @@ import (
 )
 
 func main() {
-	id := "id_example" // string | Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
+	id := "id_example" // string | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
 	isDeleted := true // bool | Specifies that a test is deleted or still relevant. (optional)
 	isWorkItemDeleted := true // bool | OBSOLETE: Use `isDeleted` instead (optional) (default to false)
 
@@ -1228,7 +1228,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.GetWorkItemsLinkedToAutoTest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetWorkItemsLinkedToAutoTest`: []WorkItemIdentifierModel
+	// response from `GetWorkItemsLinkedToAutoTest`: []AutoTestWorkItemIdentifierApiResult
 	fmt.Fprintf(os.Stdout, "Response from `AutoTestsAPI.GetWorkItemsLinkedToAutoTest`: %v\n", resp)
 }
 ```
@@ -1239,7 +1239,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID. | 
+**id** | **string** | Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID. | 
 
 ### Other Parameters
 
@@ -1254,7 +1254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]WorkItemIdentifierModel**](WorkItemIdentifierModel.md)
+[**[]AutoTestWorkItemIdentifierApiResult**](AutoTestWorkItemIdentifierApiResult.md)
 
 ### Authorization
 
@@ -1342,7 +1342,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAutoTest
 
-> UpdateAutoTest(ctx).AutoTestPutModel(autoTestPutModel).Execute()
+> UpdateAutoTest(ctx).AutoTestUpdateApiModel(autoTestUpdateApiModel).Execute()
 
 Update autotest
 
@@ -1361,11 +1361,11 @@ import (
 )
 
 func main() {
-	autoTestPutModel := *openapiclient.NewAutoTestPutModel("ExternalId_example", "ProjectId_example", "Name_example") // AutoTestPutModel |  (optional)
+	autoTestUpdateApiModel := *openapiclient.NewAutoTestUpdateApiModel("ProjectId_example", "ExternalId_example", "Name_example") // AutoTestUpdateApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.UpdateAutoTest(context.Background()).AutoTestPutModel(autoTestPutModel).Execute()
+	r, err := apiClient.AutoTestsAPI.UpdateAutoTest(context.Background()).AutoTestUpdateApiModel(autoTestUpdateApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.UpdateAutoTest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1384,7 +1384,7 @@ Other parameters are passed through a pointer to a apiUpdateAutoTestRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPutModel** | [**AutoTestPutModel**](AutoTestPutModel.md) |  | 
+ **autoTestUpdateApiModel** | [**AutoTestUpdateApiModel**](AutoTestUpdateApiModel.md) |  | 
 
 ### Return type
 
@@ -1406,7 +1406,7 @@ Name | Type | Description  | Notes
 
 ## UpdateMultiple
 
-> UpdateMultiple(ctx).AutoTestPutModel(autoTestPutModel).Execute()
+> UpdateMultiple(ctx).AutoTestUpdateApiModel(autoTestUpdateApiModel).Execute()
 
 Update multiple autotests
 
@@ -1425,11 +1425,11 @@ import (
 )
 
 func main() {
-	autoTestPutModel := []openapiclient.AutoTestPutModel{*openapiclient.NewAutoTestPutModel("ExternalId_example", "ProjectId_example", "Name_example")} // []AutoTestPutModel |  (optional)
+	autoTestUpdateApiModel := []openapiclient.AutoTestUpdateApiModel{*openapiclient.NewAutoTestUpdateApiModel("ProjectId_example", "ExternalId_example", "Name_example")} // []AutoTestUpdateApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AutoTestsAPI.UpdateMultiple(context.Background()).AutoTestPutModel(autoTestPutModel).Execute()
+	r, err := apiClient.AutoTestsAPI.UpdateMultiple(context.Background()).AutoTestUpdateApiModel(autoTestUpdateApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AutoTestsAPI.UpdateMultiple``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1448,7 +1448,7 @@ Other parameters are passed through a pointer to a apiUpdateMultipleRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **autoTestPutModel** | [**[]AutoTestPutModel**](AutoTestPutModel.md) |  | 
+ **autoTestUpdateApiModel** | [**[]AutoTestUpdateApiModel**](AutoTestUpdateApiModel.md) |  | 
 
 ### Return type
 

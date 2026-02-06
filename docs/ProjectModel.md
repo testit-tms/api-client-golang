@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
 **GlobalId** | **int64** | Global ID of the project | 
 **Type** | [**ProjectTypeModel**](ProjectTypeModel.md) | Type of the project | 
-**IsFlakyAuto** | Pointer to **NullableBool** | Indicates if the status \&quot;Flaky/Stable\&quot; sets automatically | [optional] 
 **WorkflowId** | **string** |  | 
 
 ## Methods
@@ -518,41 +517,6 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
-### GetIsFlakyAuto
-
-`func (o *ProjectModel) GetIsFlakyAuto() bool`
-
-GetIsFlakyAuto returns the IsFlakyAuto field if non-nil, zero value otherwise.
-
-### GetIsFlakyAutoOk
-
-`func (o *ProjectModel) GetIsFlakyAutoOk() (*bool, bool)`
-
-GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsFlakyAuto
-
-`func (o *ProjectModel) SetIsFlakyAuto(v bool)`
-
-SetIsFlakyAuto sets IsFlakyAuto field to given value.
-
-### HasIsFlakyAuto
-
-`func (o *ProjectModel) HasIsFlakyAuto() bool`
-
-HasIsFlakyAuto returns a boolean if a field has been set.
-
-### SetIsFlakyAutoNil
-
-`func (o *ProjectModel) SetIsFlakyAutoNil(b bool)`
-
- SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
-
-### UnsetIsFlakyAuto
-`func (o *ProjectModel) UnsetIsFlakyAuto()`
-
-UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
 ### GetWorkflowId
 
 `func (o *ProjectModel) GetWorkflowId() string`

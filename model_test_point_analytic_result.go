@@ -25,7 +25,6 @@ type TestPointAnalyticResult struct {
 	CountGroupByStatus []TestPlanGroupByStatus `json:"countGroupByStatus"`
 	SumGroupByTester []TestPlanGroupByTester `json:"sumGroupByTester"`
 	CountGroupByTester []TestPlanGroupByTester `json:"countGroupByTester"`
-	CountGroupByTestSuite []TestPlanGroupByTestSuite `json:"countGroupByTestSuite"`
 	// Deprecated
 	CountGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus `json:"countGroupByTesterAndStatus"`
 	CountGroupByStatusCode []TestPlanGroupByStatusCode `json:"countGroupByStatusCode"`
@@ -39,12 +38,11 @@ type _TestPointAnalyticResult TestPointAnalyticResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPointAnalyticResult(countGroupByStatus []TestPlanGroupByStatus, sumGroupByTester []TestPlanGroupByTester, countGroupByTester []TestPlanGroupByTester, countGroupByTestSuite []TestPlanGroupByTestSuite, countGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus, countGroupByStatusCode []TestPlanGroupByStatusCode, countGroupByTesterAndStatusCode []TestPlanGroupByTesterAndStatusCode, countGroupByStatusType []TestPlanGroupByStatusType) *TestPointAnalyticResult {
+func NewTestPointAnalyticResult(countGroupByStatus []TestPlanGroupByStatus, sumGroupByTester []TestPlanGroupByTester, countGroupByTester []TestPlanGroupByTester, countGroupByTesterAndStatus []TestPlanGroupByTesterAndStatus, countGroupByStatusCode []TestPlanGroupByStatusCode, countGroupByTesterAndStatusCode []TestPlanGroupByTesterAndStatusCode, countGroupByStatusType []TestPlanGroupByStatusType) *TestPointAnalyticResult {
 	this := TestPointAnalyticResult{}
 	this.CountGroupByStatus = countGroupByStatus
 	this.SumGroupByTester = sumGroupByTester
 	this.CountGroupByTester = countGroupByTester
-	this.CountGroupByTestSuite = countGroupByTestSuite
 	this.CountGroupByTesterAndStatus = countGroupByTesterAndStatus
 	this.CountGroupByStatusCode = countGroupByStatusCode
 	this.CountGroupByTesterAndStatusCode = countGroupByTesterAndStatusCode
@@ -133,30 +131,6 @@ func (o *TestPointAnalyticResult) GetCountGroupByTesterOk() ([]TestPlanGroupByTe
 // SetCountGroupByTester sets field value
 func (o *TestPointAnalyticResult) SetCountGroupByTester(v []TestPlanGroupByTester) {
 	o.CountGroupByTester = v
-}
-
-// GetCountGroupByTestSuite returns the CountGroupByTestSuite field value
-func (o *TestPointAnalyticResult) GetCountGroupByTestSuite() []TestPlanGroupByTestSuite {
-	if o == nil {
-		var ret []TestPlanGroupByTestSuite
-		return ret
-	}
-
-	return o.CountGroupByTestSuite
-}
-
-// GetCountGroupByTestSuiteOk returns a tuple with the CountGroupByTestSuite field value
-// and a boolean to check if the value has been set.
-func (o *TestPointAnalyticResult) GetCountGroupByTestSuiteOk() ([]TestPlanGroupByTestSuite, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CountGroupByTestSuite, true
-}
-
-// SetCountGroupByTestSuite sets field value
-func (o *TestPointAnalyticResult) SetCountGroupByTestSuite(v []TestPlanGroupByTestSuite) {
-	o.CountGroupByTestSuite = v
 }
 
 // GetCountGroupByTesterAndStatus returns the CountGroupByTesterAndStatus field value
@@ -271,7 +245,6 @@ func (o TestPointAnalyticResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["countGroupByStatus"] = o.CountGroupByStatus
 	toSerialize["sumGroupByTester"] = o.SumGroupByTester
 	toSerialize["countGroupByTester"] = o.CountGroupByTester
-	toSerialize["countGroupByTestSuite"] = o.CountGroupByTestSuite
 	toSerialize["countGroupByTesterAndStatus"] = o.CountGroupByTesterAndStatus
 	toSerialize["countGroupByStatusCode"] = o.CountGroupByStatusCode
 	toSerialize["countGroupByTesterAndStatusCode"] = o.CountGroupByTesterAndStatusCode
@@ -287,7 +260,6 @@ func (o *TestPointAnalyticResult) UnmarshalJSON(data []byte) (err error) {
 		"countGroupByStatus",
 		"sumGroupByTester",
 		"countGroupByTester",
-		"countGroupByTestSuite",
 		"countGroupByTesterAndStatus",
 		"countGroupByStatusCode",
 		"countGroupByTesterAndStatusCode",

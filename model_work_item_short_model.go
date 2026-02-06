@@ -43,7 +43,7 @@ type WorkItemShortModel struct {
 	// Work Item global identifier
 	GlobalId int64 `json:"globalId"`
 	// Work Item duration
-	Duration int32 `json:"duration"`
+	Duration int64 `json:"duration"`
 	// Work Item median duration
 	MedianDuration NullableInt64 `json:"medianDuration,omitempty"`
 	// Work Item attributes
@@ -78,7 +78,7 @@ type _WorkItemShortModel WorkItemShortModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel) *WorkItemShortModel {
+func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int64, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel) *WorkItemShortModel {
 	this := WorkItemShortModel{}
 	this.Id = id
 	this.VersionId = versionId
@@ -350,9 +350,9 @@ func (o *WorkItemShortModel) SetGlobalId(v int64) {
 }
 
 // GetDuration returns the Duration field value
-func (o *WorkItemShortModel) GetDuration() int32 {
+func (o *WorkItemShortModel) GetDuration() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -361,7 +361,7 @@ func (o *WorkItemShortModel) GetDuration() int32 {
 
 // GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemShortModel) GetDurationOk() (*int32, bool) {
+func (o *WorkItemShortModel) GetDurationOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -369,7 +369,7 @@ func (o *WorkItemShortModel) GetDurationOk() (*int32, bool) {
 }
 
 // SetDuration sets field value
-func (o *WorkItemShortModel) SetDuration(v int32) {
+func (o *WorkItemShortModel) SetDuration(v int64) {
 	o.Duration = v
 }
 

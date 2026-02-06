@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NewExternalServiceId** | **string** | The unique ID of the new external service that will replace the current one | 
-**Settings** | Pointer to **interface{}** | External service settings | [optional] 
+**Settings** | **interface{}** | External service settings | 
 
 ## Methods
 
 ### NewReplaceProjectExternalServiceApiModel
 
-`func NewReplaceProjectExternalServiceApiModel(newExternalServiceId string, ) *ReplaceProjectExternalServiceApiModel`
+`func NewReplaceProjectExternalServiceApiModel(newExternalServiceId string, settings interface{}, ) *ReplaceProjectExternalServiceApiModel`
 
 NewReplaceProjectExternalServiceApiModel instantiates a new ReplaceProjectExternalServiceApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -65,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetSettings sets Settings field to given value.
 
-### HasSettings
-
-`func (o *ReplaceProjectExternalServiceApiModel) HasSettings() bool`
-
-HasSettings returns a boolean if a field has been set.
 
 ### SetSettingsNil
 

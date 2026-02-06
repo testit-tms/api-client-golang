@@ -431,6 +431,8 @@ System returns no content response
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Section internal (UUID) identifier
  @return ApiDeleteSectionRequest
+
+Deprecated
 */
 func (a *SectionsAPIService) DeleteSection(ctx context.Context, id string) ApiDeleteSectionRequest {
 	return ApiDeleteSectionRequest{
@@ -441,6 +443,7 @@ func (a *SectionsAPIService) DeleteSection(ctx context.Context, id string) ApiDe
 }
 
 // Execute executes the request
+// Deprecated
 func (a *SectionsAPIService) DeleteSectionExecute(r ApiDeleteSectionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
@@ -653,9 +656,6 @@ func (a *SectionsAPIService) GetSectionByIdExecute(r ApiGetSectionByIdRequest) (
 
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
-	} else {
-		var defaultValue DeletionState = "NotDeleted"
-		r.isDeleted = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

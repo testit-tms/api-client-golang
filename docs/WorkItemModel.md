@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **Steps** | [**[]StepModel**](StepModel.md) |  | 
 **PreconditionSteps** | [**[]StepModel**](StepModel.md) |  | 
 **PostconditionSteps** | [**[]StepModel**](StepModel.md) |  | 
-**Duration** | **int32** |  | 
+**Duration** | **int64** |  | 
 **Attributes** | **map[string]interface{}** |  | 
 **Tags** | [**[]TagModel**](TagModel.md) |  | 
 **Links** | [**[]LinkModel**](LinkModel.md) |  | 
@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemModel
 
-`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int32, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
+`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
 
 NewWorkItemModel instantiates a new WorkItemModel object
 This constructor will assign default values to properties that have it defined,
@@ -718,20 +718,20 @@ SetPostconditionSteps sets PostconditionSteps field to given value.
 
 ### GetDuration
 
-`func (o *WorkItemModel) GetDuration() int32`
+`func (o *WorkItemModel) GetDuration() int64`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *WorkItemModel) GetDurationOk() (*int32, bool)`
+`func (o *WorkItemModel) GetDurationOk() (*int64, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *WorkItemModel) SetDuration(v int32)`
+`func (o *WorkItemModel) SetDuration(v int64)`
 
 SetDuration sets Duration field to given value.
 

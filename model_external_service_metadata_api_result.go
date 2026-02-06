@@ -28,7 +28,7 @@ type ExternalServiceMetadataApiResult struct {
 	// The icon URL of the external service
 	IconUrl string `json:"iconUrl"`
 	// The category of the external service
-	Category ExternalServiceCategoryApiResult `json:"category"`
+	Category ApiExternalServiceCategory `json:"category"`
 }
 
 type _ExternalServiceMetadataApiResult ExternalServiceMetadataApiResult
@@ -37,7 +37,7 @@ type _ExternalServiceMetadataApiResult ExternalServiceMetadataApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewExternalServiceMetadataApiResult(name string, code string, iconUrl string, category ExternalServiceCategoryApiResult) *ExternalServiceMetadataApiResult {
+func NewExternalServiceMetadataApiResult(name string, code string, iconUrl string, category ApiExternalServiceCategory) *ExternalServiceMetadataApiResult {
 	this := ExternalServiceMetadataApiResult{}
 	this.Name = name
 	this.Code = code
@@ -127,9 +127,9 @@ func (o *ExternalServiceMetadataApiResult) SetIconUrl(v string) {
 }
 
 // GetCategory returns the Category field value
-func (o *ExternalServiceMetadataApiResult) GetCategory() ExternalServiceCategoryApiResult {
+func (o *ExternalServiceMetadataApiResult) GetCategory() ApiExternalServiceCategory {
 	if o == nil {
-		var ret ExternalServiceCategoryApiResult
+		var ret ApiExternalServiceCategory
 		return ret
 	}
 
@@ -138,7 +138,7 @@ func (o *ExternalServiceMetadataApiResult) GetCategory() ExternalServiceCategory
 
 // GetCategoryOk returns a tuple with the Category field value
 // and a boolean to check if the value has been set.
-func (o *ExternalServiceMetadataApiResult) GetCategoryOk() (*ExternalServiceCategoryApiResult, bool) {
+func (o *ExternalServiceMetadataApiResult) GetCategoryOk() (*ApiExternalServiceCategory, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -146,7 +146,7 @@ func (o *ExternalServiceMetadataApiResult) GetCategoryOk() (*ExternalServiceCate
 }
 
 // SetCategory sets field value
-func (o *ExternalServiceMetadataApiResult) SetCategory(v ExternalServiceCategoryApiResult) {
+func (o *ExternalServiceMetadataApiResult) SetCategory(v ApiExternalServiceCategory) {
 	o.Category = v
 }
 

@@ -19,7 +19,7 @@
 | 5.4.1   | 3.2.2-tms-5.4.1 |
 | 5.5	  | 3.4.0-tms-5.5	|
 | 5.6	  | 3.5.0-tms-5.6	|
-| Cloud   | 3.4.0 +         |
+| Cloud   | 3.6.0 +         |
 
 1. For current versions, see the releases tab. 
 2. Starting with 5.2, we have added a TMS postscript, which means that the utility is compatible with a specific enterprise version. 
@@ -189,6 +189,7 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsTagsGet**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemstagsget) | **Get** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsAPI* | [**GetWorkItemsByProjectId**](docs/ProjectWorkItemsAPI.md#getworkitemsbyprojectid) | **Get** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsAPI* | [**AddGlobalAttributesToProject**](docs/ProjectsAPI.md#addglobalattributestoproject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
+*ProjectsAPI* | [**ApiV2ProjectsDemoPost**](docs/ProjectsAPI.md#apiv2projectsdemopost) | **Post** /api/v2/projects/demo | 
 *ProjectsAPI* | [**ApiV2ProjectsIdDelete**](docs/ProjectsAPI.md#apiv2projectsiddelete) | **Delete** /api/v2/projects/{id} | Archive project
 *ProjectsAPI* | [**ApiV2ProjectsIdFailureClassesGet**](docs/ProjectsAPI.md#apiv2projectsidfailureclassesget) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsAPI* | [**ApiV2ProjectsIdFavoritePut**](docs/ProjectsAPI.md#apiv2projectsidfavoriteput) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -198,7 +199,6 @@ Class | Method | HTTP request | Description
 *ProjectsAPI* | [**ApiV2ProjectsIdRestorePost**](docs/ProjectsAPI.md#apiv2projectsidrestorepost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
 *ProjectsAPI* | [**ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](docs/ProjectsAPI.md#apiv2projectsidtestplansattributeattributeiddelete) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
 *ProjectsAPI* | [**ApiV2ProjectsIdTestPlansAttributePut**](docs/ProjectsAPI.md#apiv2projectsidtestplansattributeput) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
-*ProjectsAPI* | [**ApiV2ProjectsIdTestRunsActiveGet**](docs/ProjectsAPI.md#apiv2projectsidtestrunsactiveget) | **Get** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
 *ProjectsAPI* | [**ApiV2ProjectsIdTestRunsFullGet**](docs/ProjectsAPI.md#apiv2projectsidtestrunsfullget) | **Get** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
 *ProjectsAPI* | [**ApiV2ProjectsNameNameExistsGet**](docs/ProjectsAPI.md#apiv2projectsnamenameexistsget) | **Get** /api/v2/projects/name/{name}/exists | 
 *ProjectsAPI* | [**ApiV2ProjectsPurgeBulkPost**](docs/ProjectsAPI.md#apiv2projectspurgebulkpost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects

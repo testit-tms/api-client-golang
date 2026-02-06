@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **StabilityPercentage** | Pointer to **NullableInt64** |  | [optional] 
 **Links** | Pointer to [**[]LinkApiResult**](LinkApiResult.md) |  | [optional] 
 **Labels** | Pointer to [**[]LabelApiResult**](LabelApiResult.md) |  | [optional] 
+**Tags** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -933,6 +934,41 @@ HasLabels returns a boolean if a field has been set.
 `func (o *AutoTestApiResult) UnsetLabels()`
 
 UnsetLabels ensures that no value is present for Labels, not even an explicit nil
+### GetTags
+
+`func (o *AutoTestApiResult) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *AutoTestApiResult) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *AutoTestApiResult) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *AutoTestApiResult) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *AutoTestApiResult) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *AutoTestApiResult) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

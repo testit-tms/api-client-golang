@@ -24,6 +24,7 @@ const (
 	AVAILABLETESTRESULTOUTCOME_FAILED AvailableTestResultOutcome = "Failed"
 	AVAILABLETESTRESULTOUTCOME_BLOCKED AvailableTestResultOutcome = "Blocked"
 	AVAILABLETESTRESULTOUTCOME_SKIPPED AvailableTestResultOutcome = "Skipped"
+	AVAILABLETESTRESULTOUTCOME_IN_PROGRESS AvailableTestResultOutcome = "InProgress"
 )
 
 // All allowed values of AvailableTestResultOutcome enum
@@ -32,6 +33,7 @@ var AllowedAvailableTestResultOutcomeEnumValues = []AvailableTestResultOutcome{
 	"Failed",
 	"Blocked",
 	"Skipped",
+	"InProgress",
 }
 
 func (v *AvailableTestResultOutcome) UnmarshalJSON(src []byte) error {

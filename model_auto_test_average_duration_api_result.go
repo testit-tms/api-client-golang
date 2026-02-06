@@ -16,38 +16,40 @@ import (
 	"fmt"
 )
 
-// checks if the AutoTestAverageDurationModel type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AutoTestAverageDurationModel{}
+// checks if the AutoTestAverageDurationApiResult type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AutoTestAverageDurationApiResult{}
 
-// AutoTestAverageDurationModel struct for AutoTestAverageDurationModel
-type AutoTestAverageDurationModel struct {
+// AutoTestAverageDurationApiResult struct for AutoTestAverageDurationApiResult
+type AutoTestAverageDurationApiResult struct {
+	// Pass average duration of autotest from all related test results
 	PassedAverageDuration float64 `json:"passedAverageDuration"`
+	// Fail average duration of autotest from all related test results
 	FailedAverageDuration float64 `json:"failedAverageDuration"`
 }
 
-type _AutoTestAverageDurationModel AutoTestAverageDurationModel
+type _AutoTestAverageDurationApiResult AutoTestAverageDurationApiResult
 
-// NewAutoTestAverageDurationModel instantiates a new AutoTestAverageDurationModel object
+// NewAutoTestAverageDurationApiResult instantiates a new AutoTestAverageDurationApiResult object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestAverageDurationModel(passedAverageDuration float64, failedAverageDuration float64) *AutoTestAverageDurationModel {
-	this := AutoTestAverageDurationModel{}
+func NewAutoTestAverageDurationApiResult(passedAverageDuration float64, failedAverageDuration float64) *AutoTestAverageDurationApiResult {
+	this := AutoTestAverageDurationApiResult{}
 	this.PassedAverageDuration = passedAverageDuration
 	this.FailedAverageDuration = failedAverageDuration
 	return &this
 }
 
-// NewAutoTestAverageDurationModelWithDefaults instantiates a new AutoTestAverageDurationModel object
+// NewAutoTestAverageDurationApiResultWithDefaults instantiates a new AutoTestAverageDurationApiResult object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAutoTestAverageDurationModelWithDefaults() *AutoTestAverageDurationModel {
-	this := AutoTestAverageDurationModel{}
+func NewAutoTestAverageDurationApiResultWithDefaults() *AutoTestAverageDurationApiResult {
+	this := AutoTestAverageDurationApiResult{}
 	return &this
 }
 
 // GetPassedAverageDuration returns the PassedAverageDuration field value
-func (o *AutoTestAverageDurationModel) GetPassedAverageDuration() float64 {
+func (o *AutoTestAverageDurationApiResult) GetPassedAverageDuration() float64 {
 	if o == nil {
 		var ret float64
 		return ret
@@ -58,7 +60,7 @@ func (o *AutoTestAverageDurationModel) GetPassedAverageDuration() float64 {
 
 // GetPassedAverageDurationOk returns a tuple with the PassedAverageDuration field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestAverageDurationModel) GetPassedAverageDurationOk() (*float64, bool) {
+func (o *AutoTestAverageDurationApiResult) GetPassedAverageDurationOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,12 +68,12 @@ func (o *AutoTestAverageDurationModel) GetPassedAverageDurationOk() (*float64, b
 }
 
 // SetPassedAverageDuration sets field value
-func (o *AutoTestAverageDurationModel) SetPassedAverageDuration(v float64) {
+func (o *AutoTestAverageDurationApiResult) SetPassedAverageDuration(v float64) {
 	o.PassedAverageDuration = v
 }
 
 // GetFailedAverageDuration returns the FailedAverageDuration field value
-func (o *AutoTestAverageDurationModel) GetFailedAverageDuration() float64 {
+func (o *AutoTestAverageDurationApiResult) GetFailedAverageDuration() float64 {
 	if o == nil {
 		var ret float64
 		return ret
@@ -82,7 +84,7 @@ func (o *AutoTestAverageDurationModel) GetFailedAverageDuration() float64 {
 
 // GetFailedAverageDurationOk returns a tuple with the FailedAverageDuration field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestAverageDurationModel) GetFailedAverageDurationOk() (*float64, bool) {
+func (o *AutoTestAverageDurationApiResult) GetFailedAverageDurationOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,11 +92,11 @@ func (o *AutoTestAverageDurationModel) GetFailedAverageDurationOk() (*float64, b
 }
 
 // SetFailedAverageDuration sets field value
-func (o *AutoTestAverageDurationModel) SetFailedAverageDuration(v float64) {
+func (o *AutoTestAverageDurationApiResult) SetFailedAverageDuration(v float64) {
 	o.FailedAverageDuration = v
 }
 
-func (o AutoTestAverageDurationModel) MarshalJSON() ([]byte, error) {
+func (o AutoTestAverageDurationApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -102,14 +104,14 @@ func (o AutoTestAverageDurationModel) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AutoTestAverageDurationModel) ToMap() (map[string]interface{}, error) {
+func (o AutoTestAverageDurationApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["passedAverageDuration"] = o.PassedAverageDuration
 	toSerialize["failedAverageDuration"] = o.FailedAverageDuration
 	return toSerialize, nil
 }
 
-func (o *AutoTestAverageDurationModel) UnmarshalJSON(data []byte) (err error) {
+func (o *AutoTestAverageDurationApiResult) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -132,53 +134,53 @@ func (o *AutoTestAverageDurationModel) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varAutoTestAverageDurationModel := _AutoTestAverageDurationModel{}
+	varAutoTestAverageDurationApiResult := _AutoTestAverageDurationApiResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAutoTestAverageDurationModel)
+	err = decoder.Decode(&varAutoTestAverageDurationApiResult)
 
 	if err != nil {
 		return err
 	}
 
-	*o = AutoTestAverageDurationModel(varAutoTestAverageDurationModel)
+	*o = AutoTestAverageDurationApiResult(varAutoTestAverageDurationApiResult)
 
 	return err
 }
 
-type NullableAutoTestAverageDurationModel struct {
-	value *AutoTestAverageDurationModel
+type NullableAutoTestAverageDurationApiResult struct {
+	value *AutoTestAverageDurationApiResult
 	isSet bool
 }
 
-func (v NullableAutoTestAverageDurationModel) Get() *AutoTestAverageDurationModel {
+func (v NullableAutoTestAverageDurationApiResult) Get() *AutoTestAverageDurationApiResult {
 	return v.value
 }
 
-func (v *NullableAutoTestAverageDurationModel) Set(val *AutoTestAverageDurationModel) {
+func (v *NullableAutoTestAverageDurationApiResult) Set(val *AutoTestAverageDurationApiResult) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAutoTestAverageDurationModel) IsSet() bool {
+func (v NullableAutoTestAverageDurationApiResult) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAutoTestAverageDurationModel) Unset() {
+func (v *NullableAutoTestAverageDurationApiResult) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAutoTestAverageDurationModel(val *AutoTestAverageDurationModel) *NullableAutoTestAverageDurationModel {
-	return &NullableAutoTestAverageDurationModel{value: val, isSet: true}
+func NewNullableAutoTestAverageDurationApiResult(val *AutoTestAverageDurationApiResult) *NullableAutoTestAverageDurationApiResult {
+	return &NullableAutoTestAverageDurationApiResult{value: val, isSet: true}
 }
 
-func (v NullableAutoTestAverageDurationModel) MarshalJSON() ([]byte, error) {
+func (v NullableAutoTestAverageDurationApiResult) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAutoTestAverageDurationModel) UnmarshalJSON(src []byte) error {
+func (v *NullableAutoTestAverageDurationApiResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

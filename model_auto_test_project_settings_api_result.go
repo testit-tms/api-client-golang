@@ -33,6 +33,10 @@ type AutoTestProjectSettingsApiResult struct {
 	RerunEnabled bool `json:"rerunEnabled"`
 	// Auto rerun attempt count
 	RerunAttemptsCount int32 `json:"rerunAttemptsCount"`
+	// Autotest to work item updating enabled
+	WorkItemUpdatingEnabled bool `json:"workItemUpdatingEnabled"`
+	// Autotest to work item updating fields
+	WorkItemUpdatingFields WorkItemUpdatingFieldsApiResult `json:"workItemUpdatingFields"`
 }
 
 type _AutoTestProjectSettingsApiResult AutoTestProjectSettingsApiResult
@@ -41,7 +45,7 @@ type _AutoTestProjectSettingsApiResult AutoTestProjectSettingsApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, flakyStabilityPercentage int32, flakyTestRunCount int32, rerunEnabled bool, rerunAttemptsCount int32) *AutoTestProjectSettingsApiResult {
+func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, flakyStabilityPercentage int32, flakyTestRunCount int32, rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingEnabled bool, workItemUpdatingFields WorkItemUpdatingFieldsApiResult) *AutoTestProjectSettingsApiResult {
 	this := AutoTestProjectSettingsApiResult{}
 	this.ProjectId = projectId
 	this.IsFlakyAuto = isFlakyAuto
@@ -49,6 +53,8 @@ func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, fla
 	this.FlakyTestRunCount = flakyTestRunCount
 	this.RerunEnabled = rerunEnabled
 	this.RerunAttemptsCount = rerunAttemptsCount
+	this.WorkItemUpdatingEnabled = workItemUpdatingEnabled
+	this.WorkItemUpdatingFields = workItemUpdatingFields
 	return &this
 }
 
@@ -204,6 +210,54 @@ func (o *AutoTestProjectSettingsApiResult) SetRerunAttemptsCount(v int32) {
 	o.RerunAttemptsCount = v
 }
 
+// GetWorkItemUpdatingEnabled returns the WorkItemUpdatingEnabled field value
+func (o *AutoTestProjectSettingsApiResult) GetWorkItemUpdatingEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.WorkItemUpdatingEnabled
+}
+
+// GetWorkItemUpdatingEnabledOk returns a tuple with the WorkItemUpdatingEnabled field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiResult) GetWorkItemUpdatingEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkItemUpdatingEnabled, true
+}
+
+// SetWorkItemUpdatingEnabled sets field value
+func (o *AutoTestProjectSettingsApiResult) SetWorkItemUpdatingEnabled(v bool) {
+	o.WorkItemUpdatingEnabled = v
+}
+
+// GetWorkItemUpdatingFields returns the WorkItemUpdatingFields field value
+func (o *AutoTestProjectSettingsApiResult) GetWorkItemUpdatingFields() WorkItemUpdatingFieldsApiResult {
+	if o == nil {
+		var ret WorkItemUpdatingFieldsApiResult
+		return ret
+	}
+
+	return o.WorkItemUpdatingFields
+}
+
+// GetWorkItemUpdatingFieldsOk returns a tuple with the WorkItemUpdatingFields field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiResult) GetWorkItemUpdatingFieldsOk() (*WorkItemUpdatingFieldsApiResult, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkItemUpdatingFields, true
+}
+
+// SetWorkItemUpdatingFields sets field value
+func (o *AutoTestProjectSettingsApiResult) SetWorkItemUpdatingFields(v WorkItemUpdatingFieldsApiResult) {
+	o.WorkItemUpdatingFields = v
+}
+
 func (o AutoTestProjectSettingsApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -220,6 +274,8 @@ func (o AutoTestProjectSettingsApiResult) ToMap() (map[string]interface{}, error
 	toSerialize["flakyTestRunCount"] = o.FlakyTestRunCount
 	toSerialize["rerunEnabled"] = o.RerunEnabled
 	toSerialize["rerunAttemptsCount"] = o.RerunAttemptsCount
+	toSerialize["workItemUpdatingEnabled"] = o.WorkItemUpdatingEnabled
+	toSerialize["workItemUpdatingFields"] = o.WorkItemUpdatingFields
 	return toSerialize, nil
 }
 
@@ -234,6 +290,8 @@ func (o *AutoTestProjectSettingsApiResult) UnmarshalJSON(data []byte) (err error
 		"flakyTestRunCount",
 		"rerunEnabled",
 		"rerunAttemptsCount",
+		"workItemUpdatingEnabled",
+		"workItemUpdatingFields",
 	}
 
 	allProperties := make(map[string]interface{})

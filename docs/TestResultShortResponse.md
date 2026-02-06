@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ConfigurationId** | **string** | Unique ID of configuration which the test result uses | 
 **ConfigurationName** | **string** | Name of configuration which the test result uses | 
 **Outcome** | Pointer to **NullableString** | Outcome of the test result | [optional] 
-**Status** | Pointer to [**NullableTestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
+**Status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | 
 **ResultReasons** | [**[]AutoTestResultReasonShort**](AutoTestResultReasonShort.md) | Collection of result reasons which the test result have | 
 **Comment** | Pointer to **NullableString** | Comment to the test result | [optional] 
 **Date** | **time.Time** | Date when the test result was completed or started or created | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultShortResponse
 
-`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32, ) *TestResultShortResponse`
+`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32, ) *TestResultShortResponse`
 
 NewTestResultShortResponse instantiates a new TestResultShortResponse object
 This constructor will assign default values to properties that have it defined,
@@ -253,22 +253,7 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
 
-`func (o *TestResultShortResponse) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
-
-### SetStatusNil
-
-`func (o *TestResultShortResponse) SetStatusNil(b bool)`
-
- SetStatusNil sets the value for Status to be an explicit nil
-
-### UnsetStatus
-`func (o *TestResultShortResponse) UnsetStatus()`
-
-UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetResultReasons
 
 `func (o *TestResultShortResponse) GetResultReasons() []AutoTestResultReasonShort`

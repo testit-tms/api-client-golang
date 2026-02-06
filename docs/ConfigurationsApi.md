@@ -38,7 +38,7 @@ import (
 )
 
 func main() {
-	configurationByParametersModel := *openapiclient.NewConfigurationByParametersModel("f227dd23-3343-4352-9c44-2f77031ccf1e", []string{"ParameterIds_example"}) // ConfigurationByParametersModel |  (optional)
+	configurationByParametersModel := *openapiclient.NewConfigurationByParametersModel("a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5", []string{"ParameterIds_example"}) // ConfigurationByParametersModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ConfigurationsDeleteBulkPost
 
-> int32 ApiV2ConfigurationsDeleteBulkPost(ctx).ConfigurationSelectModel(configurationSelectModel).Execute()
+> int32 ApiV2ConfigurationsDeleteBulkPost(ctx).ConfigurationSelectApiModel(configurationSelectApiModel).Execute()
 
 Delete multiple configurations
 
@@ -102,11 +102,11 @@ import (
 )
 
 func main() {
-	configurationSelectModel := *openapiclient.NewConfigurationSelectModel() // ConfigurationSelectModel |  (optional)
+	configurationSelectApiModel := *openapiclient.NewConfigurationSelectApiModel() // ConfigurationSelectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsDeleteBulkPost(context.Background()).ConfigurationSelectModel(configurationSelectModel).Execute()
+	resp, r, err := apiClient.ConfigurationsAPI.ApiV2ConfigurationsDeleteBulkPost(context.Background()).ConfigurationSelectApiModel(configurationSelectApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationsAPI.ApiV2ConfigurationsDeleteBulkPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,7 +127,7 @@ Other parameters are passed through a pointer to a apiApiV2ConfigurationsDeleteB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **configurationSelectModel** | [**ConfigurationSelectModel**](ConfigurationSelectModel.md) |  | 
+ **configurationSelectApiModel** | [**ConfigurationSelectApiModel**](ConfigurationSelectApiModel.md) |  | 
 
 ### Return type
 
@@ -498,7 +498,7 @@ import (
 )
 
 func main() {
-	configurationPutModel := *openapiclient.NewConfigurationPutModel("f227dd23-3343-4352-9c44-2f77031ccf1e", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ConfigurationPutModel |  (optional)
+	configurationPutModel := *openapiclient.NewConfigurationPutModel("a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5", map[string]string{"key": "Inner_example"}, "ProjectId_example", true, "Default") // ConfigurationPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

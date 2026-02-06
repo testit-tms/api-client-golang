@@ -39,7 +39,7 @@ type TestResultShortResponse struct {
 	// Outcome of the test result
 	// Deprecated
 	Outcome NullableString `json:"outcome,omitempty"`
-	Status NullableTestStatusApiResult `json:"status,omitempty"`
+	Status TestStatusApiResult `json:"status"`
 	// Collection of result reasons which the test result have
 	ResultReasons []AutoTestResultReasonShort `json:"resultReasons"`
 	// Comment to the test result
@@ -71,7 +71,7 @@ type _TestResultShortResponse TestResultShortResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32) *TestResultShortResponse {
+func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32) *TestResultShortResponse {
 	this := TestResultShortResponse{}
 	this.Id = id
 	this.Name = name
@@ -79,6 +79,7 @@ func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, 
 	this.TestRunId = testRunId
 	this.ConfigurationId = configurationId
 	this.ConfigurationName = configurationName
+	this.Status = status
 	this.ResultReasons = resultReasons
 	this.Date = date
 	this.CreatedDate = createdDate
@@ -327,46 +328,28 @@ func (o *TestResultShortResponse) UnsetOutcome() {
 	o.Outcome.Unset()
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetStatus returns the Status field value
 func (o *TestResultShortResponse) GetStatus() TestStatusApiResult {
-	if o == nil || IsNil(o.Status.Get()) {
+	if o == nil {
 		var ret TestStatusApiResult
 		return ret
 	}
-	return *o.Status.Get()
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *TestResultShortResponse) GetStatusOk() (*TestStatusApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Status.Get(), o.Status.IsSet()
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *TestResultShortResponse) HasStatus() bool {
-	if o != nil && o.Status.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given NullableTestStatusApiResult and assigns it to the Status field.
+// SetStatus sets field value
 func (o *TestResultShortResponse) SetStatus(v TestStatusApiResult) {
-	o.Status.Set(&v)
-}
-// SetStatusNil sets the value for Status to be an explicit nil
-func (o *TestResultShortResponse) SetStatusNil() {
-	o.Status.Set(nil)
-}
-
-// UnsetStatus ensures that no value is present for Status, not even an explicit nil
-func (o *TestResultShortResponse) UnsetStatus() {
-	o.Status.Unset()
+	o.Status = v
 }
 
 // GetResultReasons returns the ResultReasons field value
@@ -748,9 +731,7 @@ func (o TestResultShortResponse) ToMap() (map[string]interface{}, error) {
 	if o.Outcome.IsSet() {
 		toSerialize["outcome"] = o.Outcome.Get()
 	}
-	if o.Status.IsSet() {
-		toSerialize["status"] = o.Status.Get()
-	}
+	toSerialize["status"] = o.Status
 	toSerialize["resultReasons"] = o.ResultReasons
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()
@@ -786,6 +767,7 @@ func (o *TestResultShortResponse) UnmarshalJSON(data []byte) (err error) {
 		"testRunId",
 		"configurationId",
 		"configurationName",
+		"status",
 		"resultReasons",
 		"date",
 		"createdDate",
