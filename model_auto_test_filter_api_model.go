@@ -59,6 +59,8 @@ type AutoTestFilterApiModel struct {
 	ExternalKey NullableString `json:"externalKey,omitempty"`
 	// Specifies an autotest configuration IDs of the last test result to search for
 	LastTestResultConfigurationIds []string `json:"lastTestResultConfigurationIds,omitempty"`
+	// Specifies an autotest tags to search for
+	Tags []string `json:"tags,omitempty"`
 }
 
 // NewAutoTestFilterApiModel instantiates a new AutoTestFilterApiModel object
@@ -855,6 +857,39 @@ func (o *AutoTestFilterApiModel) SetLastTestResultConfigurationIds(v []string) {
 	o.LastTestResultConfigurationIds = v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestFilterApiModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestFilterApiModel) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *AutoTestFilterApiModel) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *AutoTestFilterApiModel) SetTags(v []string) {
+	o.Tags = v
+}
+
 func (o AutoTestFilterApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -924,6 +959,9 @@ func (o AutoTestFilterApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LastTestResultConfigurationIds != nil {
 		toSerialize["lastTestResultConfigurationIds"] = o.LastTestResultConfigurationIds
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
 	}
 	return toSerialize, nil
 }

@@ -21,7 +21,7 @@ var _ MappedNullable = &TestSuiteWorkItemsSearchModel{}
 type TestSuiteWorkItemsSearchModel struct {
 	// Collection of tags
 	TagNames []string `json:"tagNames,omitempty"`
-	// Collection of types of work item    Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
+	// Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
 	EntityTypes []WorkItemEntityTypes `json:"entityTypes,omitempty"`
 	// Name or identifier (UUID) of work item
 	NameOrId NullableString `json:"nameOrId,omitempty"`

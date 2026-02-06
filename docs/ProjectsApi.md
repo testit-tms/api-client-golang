@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddGlobalAttributesToProject**](ProjectsAPI.md#AddGlobalAttributesToProject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
+[**ApiV2ProjectsDemoPost**](ProjectsAPI.md#ApiV2ProjectsDemoPost) | **Post** /api/v2/projects/demo | 
 [**ApiV2ProjectsIdDelete**](ProjectsAPI.md#ApiV2ProjectsIdDelete) | **Delete** /api/v2/projects/{id} | Archive project
 [**ApiV2ProjectsIdFailureClassesGet**](ProjectsAPI.md#ApiV2ProjectsIdFailureClassesGet) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 [**ApiV2ProjectsIdFavoritePut**](ProjectsAPI.md#ApiV2ProjectsIdFavoritePut) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -14,7 +15,6 @@ Method | HTTP request | Description
 [**ApiV2ProjectsIdRestorePost**](ProjectsAPI.md#ApiV2ProjectsIdRestorePost) | **Post** /api/v2/projects/{id}/restore | Restore archived project
 [**ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete**](ProjectsAPI.md#ApiV2ProjectsIdTestPlansAttributeAttributeIdDelete) | **Delete** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
 [**ApiV2ProjectsIdTestPlansAttributePut**](ProjectsAPI.md#ApiV2ProjectsIdTestPlansAttributePut) | **Put** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
-[**ApiV2ProjectsIdTestRunsActiveGet**](ProjectsAPI.md#ApiV2ProjectsIdTestRunsActiveGet) | **Get** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
 [**ApiV2ProjectsIdTestRunsFullGet**](ProjectsAPI.md#ApiV2ProjectsIdTestRunsFullGet) | **Get** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
 [**ApiV2ProjectsNameNameExistsGet**](ProjectsAPI.md#ApiV2ProjectsNameNameExistsGet) | **Get** /api/v2/projects/name/{name}/exists | 
 [**ApiV2ProjectsPurgeBulkPost**](ProjectsAPI.md#ApiV2ProjectsPurgeBulkPost) | **Post** /api/v2/projects/purge/bulk | Purge multiple projects
@@ -95,6 +95,65 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsDemoPost
+
+> DemoProjectApiResult ApiV2ProjectsDemoPost(ctx).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsDemoPost(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsDemoPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsDemoPost`: DemoProjectApiResult
+	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsDemoPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsDemoPostRequest struct via the builder pattern
+
+
+### Return type
+
+[**DemoProjectApiResult**](DemoProjectApiResult.md)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -717,76 +776,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ApiV2ProjectsIdTestRunsActiveGet
-
-> []PublicTestRunModel ApiV2ProjectsIdTestRunsActiveGet(ctx, id).Execute()
-
-Get active Project TestRuns
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	id := "id_example" // string | Project internal (UUID) or global (integer) identifier
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsIdTestRunsActiveGet(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsIdTestRunsActiveGet``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ProjectsIdTestRunsActiveGet`: []PublicTestRunModel
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsIdTestRunsActiveGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Project internal (UUID) or global (integer) identifier | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2ProjectsIdTestRunsActiveGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**[]PublicTestRunModel**](PublicTestRunModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ApiV2ProjectsIdTestRunsFullGet
 
 > []TestRunApiResult ApiV2ProjectsIdTestRunsFullGet(ctx, id).IncludeTestResults(includeTestResults).MustAggregateTestResults(mustAggregateTestResults).NotStarted(notStarted).InProgress(inProgress).Stopped(stopped).Completed(completed).CreatedDateFrom(createdDateFrom).CreatedDateTo(createdDateTo).TestPlanId(testPlanId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
@@ -1224,7 +1213,7 @@ Name | Type | Description  | Notes
 
 ## CreateProject
 
-> ProjectModel CreateProject(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
+> ProjectApiResult CreateProject(ctx).CreateProjectApiModel(createProjectApiModel).Execute()
 
 Create project
 
@@ -1252,7 +1241,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.CreateProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `CreateProject`: ProjectModel
+	// response from `CreateProject`: ProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.CreateProject`: %v\n", resp)
 }
 ```
@@ -1272,7 +1261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 
@@ -1434,7 +1423,7 @@ Name | Type | Description  | Notes
 
 ## GetAutoTestsNamespaces
 
-> []AutoTestNamespaceModel GetAutoTestsNamespaces(ctx, id).Execute()
+> []AutoTestNamespaceApiResult GetAutoTestsNamespaces(ctx, id).Execute()
 
 Get namespaces of autotests in project
 
@@ -1462,7 +1451,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetAutoTestsNamespaces``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAutoTestsNamespaces`: []AutoTestNamespaceModel
+	// response from `GetAutoTestsNamespaces`: []AutoTestNamespaceApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetAutoTestsNamespaces`: %v\n", resp)
 }
 ```
@@ -1486,7 +1475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]AutoTestNamespaceModel**](AutoTestNamespaceModel.md)
+[**[]AutoTestNamespaceApiResult**](AutoTestNamespaceApiResult.md)
 
 ### Authorization
 

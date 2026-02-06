@@ -1469,15 +1469,15 @@ func (a *AutoTestsAPIService) ApiV2AutoTestsSearchPostExecute(r ApiApiV2AutoTest
 type ApiCreateAutoTestRequest struct {
 	ctx context.Context
 	ApiService *AutoTestsAPIService
-	autoTestPostModel *AutoTestPostModel
+	autoTestCreateApiModel *AutoTestCreateApiModel
 }
 
-func (r ApiCreateAutoTestRequest) AutoTestPostModel(autoTestPostModel AutoTestPostModel) ApiCreateAutoTestRequest {
-	r.autoTestPostModel = &autoTestPostModel
+func (r ApiCreateAutoTestRequest) AutoTestCreateApiModel(autoTestCreateApiModel AutoTestCreateApiModel) ApiCreateAutoTestRequest {
+	r.autoTestCreateApiModel = &autoTestCreateApiModel
 	return r
 }
 
-func (r ApiCreateAutoTestRequest) Execute() (*AutoTestModel, *http.Response, error) {
+func (r ApiCreateAutoTestRequest) Execute() (*AutoTestApiResult, *http.Response, error) {
 	return r.ApiService.CreateAutoTestExecute(r)
 }
 
@@ -1502,13 +1502,13 @@ func (a *AutoTestsAPIService) CreateAutoTest(ctx context.Context) ApiCreateAutoT
 }
 
 // Execute executes the request
-//  @return AutoTestModel
-func (a *AutoTestsAPIService) CreateAutoTestExecute(r ApiCreateAutoTestRequest) (*AutoTestModel, *http.Response, error) {
+//  @return AutoTestApiResult
+func (a *AutoTestsAPIService) CreateAutoTestExecute(r ApiCreateAutoTestRequest) (*AutoTestApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AutoTestModel
+		localVarReturnValue  *AutoTestApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.CreateAutoTest")
@@ -1540,7 +1540,7 @@ func (a *AutoTestsAPIService) CreateAutoTestExecute(r ApiCreateAutoTestRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.autoTestPostModel
+	localVarPostBody = r.autoTestCreateApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1660,15 +1660,15 @@ func (a *AutoTestsAPIService) CreateAutoTestExecute(r ApiCreateAutoTestRequest) 
 type ApiCreateMultipleRequest struct {
 	ctx context.Context
 	ApiService *AutoTestsAPIService
-	autoTestPostModel *[]AutoTestPostModel
+	autoTestCreateApiModel *[]AutoTestCreateApiModel
 }
 
-func (r ApiCreateMultipleRequest) AutoTestPostModel(autoTestPostModel []AutoTestPostModel) ApiCreateMultipleRequest {
-	r.autoTestPostModel = &autoTestPostModel
+func (r ApiCreateMultipleRequest) AutoTestCreateApiModel(autoTestCreateApiModel []AutoTestCreateApiModel) ApiCreateMultipleRequest {
+	r.autoTestCreateApiModel = &autoTestCreateApiModel
 	return r
 }
 
-func (r ApiCreateMultipleRequest) Execute() ([]AutoTestModel, *http.Response, error) {
+func (r ApiCreateMultipleRequest) Execute() ([]AutoTestApiResult, *http.Response, error) {
 	return r.ApiService.CreateMultipleExecute(r)
 }
 
@@ -1705,13 +1705,13 @@ func (a *AutoTestsAPIService) CreateMultiple(ctx context.Context) ApiCreateMulti
 }
 
 // Execute executes the request
-//  @return []AutoTestModel
-func (a *AutoTestsAPIService) CreateMultipleExecute(r ApiCreateMultipleRequest) ([]AutoTestModel, *http.Response, error) {
+//  @return []AutoTestApiResult
+func (a *AutoTestsAPIService) CreateMultipleExecute(r ApiCreateMultipleRequest) ([]AutoTestApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []AutoTestModel
+		localVarReturnValue  []AutoTestApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.CreateMultiple")
@@ -1743,7 +1743,7 @@ func (a *AutoTestsAPIService) CreateMultipleExecute(r ApiCreateMultipleRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.autoTestPostModel
+	localVarPostBody = r.autoTestCreateApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2688,7 +2688,7 @@ type ApiGetAutoTestAverageDurationRequest struct {
 	id string
 }
 
-func (r ApiGetAutoTestAverageDurationRequest) Execute() (*AutoTestAverageDurationModel, *http.Response, error) {
+func (r ApiGetAutoTestAverageDurationRequest) Execute() (*AutoTestAverageDurationApiResult, *http.Response, error) {
 	return r.ApiService.GetAutoTestAverageDurationExecute(r)
 }
 
@@ -2719,13 +2719,13 @@ func (a *AutoTestsAPIService) GetAutoTestAverageDuration(ctx context.Context, id
 }
 
 // Execute executes the request
-//  @return AutoTestAverageDurationModel
-func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTestAverageDurationRequest) (*AutoTestAverageDurationModel, *http.Response, error) {
+//  @return AutoTestAverageDurationApiResult
+func (a *AutoTestsAPIService) GetAutoTestAverageDurationExecute(r ApiGetAutoTestAverageDurationRequest) (*AutoTestAverageDurationApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AutoTestAverageDurationModel
+		localVarReturnValue  *AutoTestAverageDurationApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.GetAutoTestAverageDuration")
@@ -2879,7 +2879,7 @@ type ApiGetAutoTestByIdRequest struct {
 	id string
 }
 
-func (r ApiGetAutoTestByIdRequest) Execute() (*AutoTestModel, *http.Response, error) {
+func (r ApiGetAutoTestByIdRequest) Execute() (*AutoTestApiResult, *http.Response, error) {
 	return r.ApiService.GetAutoTestByIdExecute(r)
 }
 
@@ -2906,13 +2906,13 @@ func (a *AutoTestsAPIService) GetAutoTestById(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-//  @return AutoTestModel
-func (a *AutoTestsAPIService) GetAutoTestByIdExecute(r ApiGetAutoTestByIdRequest) (*AutoTestModel, *http.Response, error) {
+//  @return AutoTestApiResult
+func (a *AutoTestsAPIService) GetAutoTestByIdExecute(r ApiGetAutoTestByIdRequest) (*AutoTestApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *AutoTestModel
+		localVarReturnValue  *AutoTestApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.GetAutoTestById")
@@ -3467,7 +3467,7 @@ func (r ApiGetWorkItemsLinkedToAutoTestRequest) IsWorkItemDeleted(isWorkItemDele
 	return r
 }
 
-func (r ApiGetWorkItemsLinkedToAutoTestRequest) Execute() ([]WorkItemIdentifierModel, *http.Response, error) {
+func (r ApiGetWorkItemsLinkedToAutoTestRequest) Execute() ([]AutoTestWorkItemIdentifierApiResult, *http.Response, error) {
 	return r.ApiService.GetWorkItemsLinkedToAutoTestExecute(r)
 }
 
@@ -3488,7 +3488,7 @@ This method links an autotest to a test case or a checklist.
             4. In the toolbar above the test list, click <b>Run autotests</b>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
+ @param id Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
  @return ApiGetWorkItemsLinkedToAutoTestRequest
 */
 func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTest(ctx context.Context, id string) ApiGetWorkItemsLinkedToAutoTestRequest {
@@ -3500,13 +3500,13 @@ func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTest(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return []WorkItemIdentifierModel
-func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTestExecute(r ApiGetWorkItemsLinkedToAutoTestRequest) ([]WorkItemIdentifierModel, *http.Response, error) {
+//  @return []AutoTestWorkItemIdentifierApiResult
+func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTestExecute(r ApiGetWorkItemsLinkedToAutoTestRequest) ([]AutoTestWorkItemIdentifierApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []WorkItemIdentifierModel
+		localVarReturnValue  []AutoTestWorkItemIdentifierApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutoTestsAPIService.GetWorkItemsLinkedToAutoTest")
@@ -3858,11 +3858,11 @@ func (a *AutoTestsAPIService) LinkAutoTestToWorkItemExecute(r ApiLinkAutoTestToW
 type ApiUpdateAutoTestRequest struct {
 	ctx context.Context
 	ApiService *AutoTestsAPIService
-	autoTestPutModel *AutoTestPutModel
+	autoTestUpdateApiModel *AutoTestUpdateApiModel
 }
 
-func (r ApiUpdateAutoTestRequest) AutoTestPutModel(autoTestPutModel AutoTestPutModel) ApiUpdateAutoTestRequest {
-	r.autoTestPutModel = &autoTestPutModel
+func (r ApiUpdateAutoTestRequest) AutoTestUpdateApiModel(autoTestUpdateApiModel AutoTestUpdateApiModel) ApiUpdateAutoTestRequest {
+	r.autoTestUpdateApiModel = &autoTestUpdateApiModel
 	return r
 }
 
@@ -3946,7 +3946,7 @@ func (a *AutoTestsAPIService) UpdateAutoTestExecute(r ApiUpdateAutoTestRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.autoTestPutModel
+	localVarPostBody = r.autoTestUpdateApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -4058,11 +4058,11 @@ func (a *AutoTestsAPIService) UpdateAutoTestExecute(r ApiUpdateAutoTestRequest) 
 type ApiUpdateMultipleRequest struct {
 	ctx context.Context
 	ApiService *AutoTestsAPIService
-	autoTestPutModel *[]AutoTestPutModel
+	autoTestUpdateApiModel *[]AutoTestUpdateApiModel
 }
 
-func (r ApiUpdateMultipleRequest) AutoTestPutModel(autoTestPutModel []AutoTestPutModel) ApiUpdateMultipleRequest {
-	r.autoTestPutModel = &autoTestPutModel
+func (r ApiUpdateMultipleRequest) AutoTestUpdateApiModel(autoTestUpdateApiModel []AutoTestUpdateApiModel) ApiUpdateMultipleRequest {
+	r.autoTestUpdateApiModel = &autoTestUpdateApiModel
 	return r
 }
 
@@ -4146,7 +4146,7 @@ func (a *AutoTestsAPIService) UpdateMultipleExecute(r ApiUpdateMultipleRequest) 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.autoTestPutModel
+	localVarPostBody = r.autoTestUpdateApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

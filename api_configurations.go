@@ -210,11 +210,11 @@ func (a *ConfigurationsAPIService) ApiV2ConfigurationsCreateByParametersPostExec
 type ApiApiV2ConfigurationsDeleteBulkPostRequest struct {
 	ctx context.Context
 	ApiService *ConfigurationsAPIService
-	configurationSelectModel *ConfigurationSelectModel
+	configurationSelectApiModel *ConfigurationSelectApiModel
 }
 
-func (r ApiApiV2ConfigurationsDeleteBulkPostRequest) ConfigurationSelectModel(configurationSelectModel ConfigurationSelectModel) ApiApiV2ConfigurationsDeleteBulkPostRequest {
-	r.configurationSelectModel = &configurationSelectModel
+func (r ApiApiV2ConfigurationsDeleteBulkPostRequest) ConfigurationSelectApiModel(configurationSelectApiModel ConfigurationSelectApiModel) ApiApiV2ConfigurationsDeleteBulkPostRequest {
+	r.configurationSelectApiModel = &configurationSelectApiModel
 	return r
 }
 
@@ -274,7 +274,7 @@ func (a *ConfigurationsAPIService) ApiV2ConfigurationsDeleteBulkPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.configurationSelectModel
+	localVarPostBody = r.configurationSelectApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

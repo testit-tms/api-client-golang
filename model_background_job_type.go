@@ -23,6 +23,7 @@ const (
 	BACKGROUNDJOBTYPE_EXPORT_XLSX_TEST_RESULTS_BY_TEST_PLAN BackgroundJobType = "ExportXlsxTestResultsByTestPlan"
 	BACKGROUNDJOBTYPE_EXPORT_XLSX_WORK_ITEMS_BY_PROJECT BackgroundJobType = "ExportXlsxWorkItemsByProject"
 	BACKGROUNDJOBTYPE_EXPORT_XLSX_TEST_POINTS_BY_TEST_PLAN BackgroundJobType = "ExportXlsxTestPointsByTestPlan"
+	BACKGROUNDJOBTYPE_EXPORT_XLSX_WORK_ITEM_LINKS BackgroundJobType = "ExportXlsxWorkItemLinks"
 	BACKGROUNDJOBTYPE_EXPORT_JSON_PROJECT BackgroundJobType = "ExportJsonProject"
 	BACKGROUNDJOBTYPE_EXPORT_ZIP_PROJECT BackgroundJobType = "ExportZipProject"
 	BACKGROUNDJOBTYPE_EXPORT_JSON_PROJECT_WITH_TEST_PLANS BackgroundJobType = "ExportJsonProjectWithTestPlans"
@@ -36,6 +37,8 @@ const (
 	BACKGROUNDJOBTYPE_IMPORT_PROJECTS BackgroundJobType = "ImportProjects"
 	BACKGROUNDJOBTYPE_PURGE_ENTITIES BackgroundJobType = "PurgeEntities"
 	BACKGROUNDJOBTYPE_DELETE_COMPLETED_JOBS BackgroundJobType = "DeleteCompletedJobs"
+	BACKGROUNDJOBTYPE_COPY_SECTIONS BackgroundJobType = "CopySections"
+	BACKGROUNDJOBTYPE_DELETE_SECTION BackgroundJobType = "DeleteSection"
 )
 
 // All allowed values of BackgroundJobType enum
@@ -43,6 +46,7 @@ var AllowedBackgroundJobTypeEnumValues = []BackgroundJobType{
 	"ExportXlsxTestResultsByTestPlan",
 	"ExportXlsxWorkItemsByProject",
 	"ExportXlsxTestPointsByTestPlan",
+	"ExportXlsxWorkItemLinks",
 	"ExportJsonProject",
 	"ExportZipProject",
 	"ExportJsonProjectWithTestPlans",
@@ -56,6 +60,8 @@ var AllowedBackgroundJobTypeEnumValues = []BackgroundJobType{
 	"ImportProjects",
 	"PurgeEntities",
 	"DeleteCompletedJobs",
+	"CopySections",
+	"DeleteSection",
 }
 
 func (v *BackgroundJobType) UnmarshalJSON(src []byte) error {

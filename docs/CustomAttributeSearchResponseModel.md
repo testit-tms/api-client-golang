@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **WorkItemUsage** | [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | 
 **TestPlanUsage** | [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | 
 **Id** | **string** | Unique ID of the attribute | 
-**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
+**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute | 
 **IsDeleted** | **bool** | Indicates if the attribute is deleted | 
 **Name** | **string** | Name of the attribute | 

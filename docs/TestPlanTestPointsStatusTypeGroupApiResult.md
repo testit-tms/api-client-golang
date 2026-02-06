@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StatusType** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
-**Value** | **int64** |  | 
+**Statuses** | [**[]TestPlanTestPointsStatusCodeGroupApiResult**](TestPlanTestPointsStatusCodeGroupApiResult.md) |  | 
 
 ## Methods
 
 ### NewTestPlanTestPointsStatusTypeGroupApiResult
 
-`func NewTestPlanTestPointsStatusTypeGroupApiResult(statusType TestStatusApiType, value int64, ) *TestPlanTestPointsStatusTypeGroupApiResult`
+`func NewTestPlanTestPointsStatusTypeGroupApiResult(statusType TestStatusApiType, statuses []TestPlanTestPointsStatusCodeGroupApiResult, ) *TestPlanTestPointsStatusTypeGroupApiResult`
 
 NewTestPlanTestPointsStatusTypeGroupApiResult instantiates a new TestPlanTestPointsStatusTypeGroupApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -46,24 +46,24 @@ and a boolean to check if the value has been set.
 SetStatusType sets StatusType field to given value.
 
 
-### GetValue
+### GetStatuses
 
-`func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetValue() int64`
+`func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetStatuses() []TestPlanTestPointsStatusCodeGroupApiResult`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetStatuses returns the Statuses field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetStatusesOk
 
-`func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetValueOk() (*int64, bool)`
+`func (o *TestPlanTestPointsStatusTypeGroupApiResult) GetStatusesOk() (*[]TestPlanTestPointsStatusCodeGroupApiResult, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetStatusesOk returns a tuple with the Statuses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetStatuses
 
-`func (o *TestPlanTestPointsStatusTypeGroupApiResult) SetValue(v int64)`
+`func (o *TestPlanTestPointsStatusTypeGroupApiResult) SetStatuses(v []TestPlanTestPointsStatusCodeGroupApiResult)`
 
-SetValue sets Value field to given value.
+SetStatuses sets Statuses field to given value.
 
 
 

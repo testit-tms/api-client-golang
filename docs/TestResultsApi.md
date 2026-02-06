@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsIdAttachmentsInfoGet
 
-> []AttachmentModel ApiV2TestResultsIdAttachmentsInfoGet(ctx, id).Execute()
+> []AttachmentApiResult ApiV2TestResultsIdAttachmentsInfoGet(ctx, id).Execute()
 
 Get test result attachments meta-information
 
@@ -327,7 +327,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsIdAttachmentsInfoGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestResultsIdAttachmentsInfoGet`: []AttachmentModel
+	// response from `ApiV2TestResultsIdAttachmentsInfoGet`: []AttachmentApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsIdAttachmentsInfoGet`: %v\n", resp)
 }
 ```
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]AttachmentModel**](AttachmentModel.md)
+[**[]AttachmentApiResult**](AttachmentApiResult.md)
 
 ### Authorization
 
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
 
 ## GetAttachment
 
-> AttachmentModel GetAttachment(ctx, id, attachmentId).Execute()
+> AttachmentApiResult GetAttachment(ctx, id, attachmentId).Execute()
 
 Get Metadata of TestResult's attachment
 
@@ -962,7 +962,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.GetAttachment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAttachment`: AttachmentModel
+	// response from `GetAttachment`: AttachmentApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.GetAttachment`: %v\n", resp)
 }
 ```
@@ -988,7 +988,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AttachmentModel**](AttachmentModel.md)
+[**AttachmentApiResult**](AttachmentApiResult.md)
 
 ### Authorization
 
@@ -1006,7 +1006,7 @@ Name | Type | Description  | Notes
 
 ## GetAttachments
 
-> []AttachmentModel GetAttachments(ctx, id).Execute()
+> []AttachmentApiResult GetAttachments(ctx, id).Execute()
 
 Get all attachments of TestResult
 
@@ -1034,7 +1034,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.GetAttachments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAttachments`: []AttachmentModel
+	// response from `GetAttachments`: []AttachmentApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.GetAttachments`: %v\n", resp)
 }
 ```
@@ -1058,7 +1058,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]AttachmentModel**](AttachmentModel.md)
+[**[]AttachmentApiResult**](AttachmentApiResult.md)
 
 ### Authorization
 

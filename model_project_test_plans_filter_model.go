@@ -33,6 +33,7 @@ type ProjectTestPlansFilterModel struct {
 	StartDate NullableDateTimeRangeSelectorModel `json:"startDate,omitempty"`
 	EndDate NullableDateTimeRangeSelectorModel `json:"endDate,omitempty"`
 	TagNames []string `json:"tagNames,omitempty"`
+	ExcludeTagNames []string `json:"excludeTagNames,omitempty"`
 	Attributes map[string][]string `json:"attributes,omitempty"`
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
 }
@@ -597,6 +598,39 @@ func (o *ProjectTestPlansFilterModel) SetTagNames(v []string) {
 	o.TagNames = v
 }
 
+// GetExcludeTagNames returns the ExcludeTagNames field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProjectTestPlansFilterModel) GetExcludeTagNames() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ExcludeTagNames
+}
+
+// GetExcludeTagNamesOk returns a tuple with the ExcludeTagNames field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProjectTestPlansFilterModel) GetExcludeTagNamesOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExcludeTagNames) {
+		return nil, false
+	}
+	return o.ExcludeTagNames, true
+}
+
+// HasExcludeTagNames returns a boolean if a field has been set.
+func (o *ProjectTestPlansFilterModel) HasExcludeTagNames() bool {
+	if o != nil && !IsNil(o.ExcludeTagNames) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeTagNames gets a reference to the given []string and assigns it to the ExcludeTagNames field.
+func (o *ProjectTestPlansFilterModel) SetExcludeTagNames(v []string) {
+	o.ExcludeTagNames = v
+}
+
 // GetAttributes returns the Attributes field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProjectTestPlansFilterModel) GetAttributes() map[string][]string {
 	if o == nil {
@@ -723,6 +757,9 @@ func (o ProjectTestPlansFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TagNames != nil {
 		toSerialize["tagNames"] = o.TagNames
+	}
+	if o.ExcludeTagNames != nil {
+		toSerialize["excludeTagNames"] = o.ExcludeTagNames
 	}
 	if o.Attributes != nil {
 		toSerialize["attributes"] = o.Attributes

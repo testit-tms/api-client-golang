@@ -29,7 +29,7 @@ import (
 
 func main() {
 	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
-	autoTestProjectSettingsApiModel := *openapiclient.NewAutoTestProjectSettingsApiModel(false, int32(123)) // AutoTestProjectSettingsApiModel |  (optional)
+	autoTestProjectSettingsApiModel := *openapiclient.NewAutoTestProjectSettingsApiModel(false, int32(123), *openapiclient.NewWorkItemUpdatingFieldsApiModel()) // AutoTestProjectSettingsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

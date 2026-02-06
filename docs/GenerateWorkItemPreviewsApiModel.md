@@ -7,12 +7,14 @@ Name | Type | Description | Notes
 **ExternalServiceId** | **string** |  | 
 **TaskKey** | **string** |  | 
 **SectionId** | **string** |  | 
+**Temperature** | **float32** |  | 
+**PreviewLimit** | **int32** |  | 
 
 ## Methods
 
 ### NewGenerateWorkItemPreviewsApiModel
 
-`func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, taskKey string, sectionId string, ) *GenerateWorkItemPreviewsApiModel`
+`func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, taskKey string, sectionId string, temperature float32, previewLimit int32, ) *GenerateWorkItemPreviewsApiModel`
 
 NewGenerateWorkItemPreviewsApiModel instantiates a new GenerateWorkItemPreviewsApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -85,6 +87,46 @@ and a boolean to check if the value has been set.
 `func (o *GenerateWorkItemPreviewsApiModel) SetSectionId(v string)`
 
 SetSectionId sets SectionId field to given value.
+
+
+### GetTemperature
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetTemperature() float32`
+
+GetTemperature returns the Temperature field if non-nil, zero value otherwise.
+
+### GetTemperatureOk
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetTemperatureOk() (*float32, bool)`
+
+GetTemperatureOk returns a tuple with the Temperature field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemperature
+
+`func (o *GenerateWorkItemPreviewsApiModel) SetTemperature(v float32)`
+
+SetTemperature sets Temperature field to given value.
+
+
+### GetPreviewLimit
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetPreviewLimit() int32`
+
+GetPreviewLimit returns the PreviewLimit field if non-nil, zero value otherwise.
+
+### GetPreviewLimitOk
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetPreviewLimitOk() (*int32, bool)`
+
+GetPreviewLimitOk returns a tuple with the PreviewLimit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPreviewLimit
+
+`func (o *GenerateWorkItemPreviewsApiModel) SetPreviewLimit(v int32)`
+
+SetPreviewLimit sets PreviewLimit field to given value.
 
 
 

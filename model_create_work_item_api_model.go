@@ -32,7 +32,7 @@ type CreateWorkItemApiModel struct {
 	// Type of entity associated with this work item
 	EntityTypeName WorkItemEntityTypeApiModel `json:"entityTypeName"`
 	// Duration of the work item in milliseconds
-	Duration int32 `json:"duration"`
+	Duration int64 `json:"duration"`
 	// State of the work item
 	State WorkItemStateApiModel `json:"state"`
 	// Priority level of the work item
@@ -63,7 +63,7 @@ type _CreateWorkItemApiModel CreateWorkItemApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateWorkItemApiModel(projectId string, name string, entityTypeName WorkItemEntityTypeApiModel, duration int32, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, attributes map[string]interface{}, tags []TagModel, preconditionSteps []CreateStepApiModel, steps []CreateStepApiModel, postconditionSteps []CreateStepApiModel, links []CreateLinkApiModel) *CreateWorkItemApiModel {
+func NewCreateWorkItemApiModel(projectId string, name string, entityTypeName WorkItemEntityTypeApiModel, duration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, attributes map[string]interface{}, tags []TagModel, preconditionSteps []CreateStepApiModel, steps []CreateStepApiModel, postconditionSteps []CreateStepApiModel, links []CreateLinkApiModel) *CreateWorkItemApiModel {
 	this := CreateWorkItemApiModel{}
 	this.ProjectId = projectId
 	this.Name = name
@@ -245,9 +245,9 @@ func (o *CreateWorkItemApiModel) SetEntityTypeName(v WorkItemEntityTypeApiModel)
 }
 
 // GetDuration returns the Duration field value
-func (o *CreateWorkItemApiModel) GetDuration() int32 {
+func (o *CreateWorkItemApiModel) GetDuration() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -256,7 +256,7 @@ func (o *CreateWorkItemApiModel) GetDuration() int32 {
 
 // GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
-func (o *CreateWorkItemApiModel) GetDurationOk() (*int32, bool) {
+func (o *CreateWorkItemApiModel) GetDurationOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -264,7 +264,7 @@ func (o *CreateWorkItemApiModel) GetDurationOk() (*int32, bool) {
 }
 
 // SetDuration sets field value
-func (o *CreateWorkItemApiModel) SetDuration(v int32) {
+func (o *CreateWorkItemApiModel) SetDuration(v int64) {
 	o.Duration = v
 }
 

@@ -1,4 +1,4 @@
-# ExternalServiceCategoryApiResult
+# ApiExternalServiceCategory
 
 ## Enum
 

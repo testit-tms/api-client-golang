@@ -31,6 +31,10 @@ type AutoTestProjectSettingsApiModel struct {
 	RerunEnabled bool `json:"rerunEnabled"`
 	// Auto rerun attempt count
 	RerunAttemptsCount int32 `json:"rerunAttemptsCount"`
+	// Autotest to work item updating enabled
+	WorkItemUpdatingEnabled *bool `json:"workItemUpdatingEnabled,omitempty"`
+	// Autotest to work item updating fields
+	WorkItemUpdatingFields WorkItemUpdatingFieldsApiModel `json:"workItemUpdatingFields"`
 }
 
 type _AutoTestProjectSettingsApiModel AutoTestProjectSettingsApiModel
@@ -39,7 +43,7 @@ type _AutoTestProjectSettingsApiModel AutoTestProjectSettingsApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount int32) *AutoTestProjectSettingsApiModel {
+func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingFields WorkItemUpdatingFieldsApiModel) *AutoTestProjectSettingsApiModel {
 	this := AutoTestProjectSettingsApiModel{}
 	var isFlakyAuto bool = false
 	this.IsFlakyAuto = &isFlakyAuto
@@ -49,6 +53,9 @@ func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount in
 	this.FlakyTestRunCount = &flakyTestRunCount
 	this.RerunEnabled = rerunEnabled
 	this.RerunAttemptsCount = rerunAttemptsCount
+	var workItemUpdatingEnabled bool = false
+	this.WorkItemUpdatingEnabled = &workItemUpdatingEnabled
+	this.WorkItemUpdatingFields = workItemUpdatingFields
 	return &this
 }
 
@@ -63,6 +70,8 @@ func NewAutoTestProjectSettingsApiModelWithDefaults() *AutoTestProjectSettingsAp
 	this.FlakyStabilityPercentage = &flakyStabilityPercentage
 	var flakyTestRunCount int32 = 100
 	this.FlakyTestRunCount = &flakyTestRunCount
+	var workItemUpdatingEnabled bool = false
+	this.WorkItemUpdatingEnabled = &workItemUpdatingEnabled
 	return &this
 }
 
@@ -210,6 +219,62 @@ func (o *AutoTestProjectSettingsApiModel) SetRerunAttemptsCount(v int32) {
 	o.RerunAttemptsCount = v
 }
 
+// GetWorkItemUpdatingEnabled returns the WorkItemUpdatingEnabled field value if set, zero value otherwise.
+func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingEnabled() bool {
+	if o == nil || IsNil(o.WorkItemUpdatingEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.WorkItemUpdatingEnabled
+}
+
+// GetWorkItemUpdatingEnabledOk returns a tuple with the WorkItemUpdatingEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.WorkItemUpdatingEnabled) {
+		return nil, false
+	}
+	return o.WorkItemUpdatingEnabled, true
+}
+
+// HasWorkItemUpdatingEnabled returns a boolean if a field has been set.
+func (o *AutoTestProjectSettingsApiModel) HasWorkItemUpdatingEnabled() bool {
+	if o != nil && !IsNil(o.WorkItemUpdatingEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetWorkItemUpdatingEnabled gets a reference to the given bool and assigns it to the WorkItemUpdatingEnabled field.
+func (o *AutoTestProjectSettingsApiModel) SetWorkItemUpdatingEnabled(v bool) {
+	o.WorkItemUpdatingEnabled = &v
+}
+
+// GetWorkItemUpdatingFields returns the WorkItemUpdatingFields field value
+func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingFields() WorkItemUpdatingFieldsApiModel {
+	if o == nil {
+		var ret WorkItemUpdatingFieldsApiModel
+		return ret
+	}
+
+	return o.WorkItemUpdatingFields
+}
+
+// GetWorkItemUpdatingFieldsOk returns a tuple with the WorkItemUpdatingFields field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingFieldsOk() (*WorkItemUpdatingFieldsApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WorkItemUpdatingFields, true
+}
+
+// SetWorkItemUpdatingFields sets field value
+func (o *AutoTestProjectSettingsApiModel) SetWorkItemUpdatingFields(v WorkItemUpdatingFieldsApiModel) {
+	o.WorkItemUpdatingFields = v
+}
+
 func (o AutoTestProjectSettingsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -231,6 +296,10 @@ func (o AutoTestProjectSettingsApiModel) ToMap() (map[string]interface{}, error)
 	}
 	toSerialize["rerunEnabled"] = o.RerunEnabled
 	toSerialize["rerunAttemptsCount"] = o.RerunAttemptsCount
+	if !IsNil(o.WorkItemUpdatingEnabled) {
+		toSerialize["workItemUpdatingEnabled"] = o.WorkItemUpdatingEnabled
+	}
+	toSerialize["workItemUpdatingFields"] = o.WorkItemUpdatingFields
 	return toSerialize, nil
 }
 
@@ -241,6 +310,7 @@ func (o *AutoTestProjectSettingsApiModel) UnmarshalJSON(data []byte) (err error)
 	requiredProperties := []string{
 		"rerunEnabled",
 		"rerunAttemptsCount",
+		"workItemUpdatingFields",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -9,12 +9,14 @@ Name | Type | Description | Notes
 **FlakyTestRunCount** | Pointer to **int32** | Last test run count for autotest flaky computing | [optional] [default to 100]
 **RerunEnabled** | **bool** | Auto rerun enabled | 
 **RerunAttemptsCount** | **int32** | Auto rerun attempt count | 
+**WorkItemUpdatingEnabled** | Pointer to **bool** | Autotest to work item updating enabled | [optional] [default to false]
+**WorkItemUpdatingFields** | [**WorkItemUpdatingFieldsApiModel**](WorkItemUpdatingFieldsApiModel.md) | Autotest to work item updating fields | 
 
 ## Methods
 
 ### NewAutoTestProjectSettingsApiModel
 
-`func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount int32, ) *AutoTestProjectSettingsApiModel`
+`func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingFields WorkItemUpdatingFieldsApiModel, ) *AutoTestProjectSettingsApiModel`
 
 NewAutoTestProjectSettingsApiModel instantiates a new AutoTestProjectSettingsApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -142,6 +144,51 @@ and a boolean to check if the value has been set.
 `func (o *AutoTestProjectSettingsApiModel) SetRerunAttemptsCount(v int32)`
 
 SetRerunAttemptsCount sets RerunAttemptsCount field to given value.
+
+
+### GetWorkItemUpdatingEnabled
+
+`func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingEnabled() bool`
+
+GetWorkItemUpdatingEnabled returns the WorkItemUpdatingEnabled field if non-nil, zero value otherwise.
+
+### GetWorkItemUpdatingEnabledOk
+
+`func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingEnabledOk() (*bool, bool)`
+
+GetWorkItemUpdatingEnabledOk returns a tuple with the WorkItemUpdatingEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemUpdatingEnabled
+
+`func (o *AutoTestProjectSettingsApiModel) SetWorkItemUpdatingEnabled(v bool)`
+
+SetWorkItemUpdatingEnabled sets WorkItemUpdatingEnabled field to given value.
+
+### HasWorkItemUpdatingEnabled
+
+`func (o *AutoTestProjectSettingsApiModel) HasWorkItemUpdatingEnabled() bool`
+
+HasWorkItemUpdatingEnabled returns a boolean if a field has been set.
+
+### GetWorkItemUpdatingFields
+
+`func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingFields() WorkItemUpdatingFieldsApiModel`
+
+GetWorkItemUpdatingFields returns the WorkItemUpdatingFields field if non-nil, zero value otherwise.
+
+### GetWorkItemUpdatingFieldsOk
+
+`func (o *AutoTestProjectSettingsApiModel) GetWorkItemUpdatingFieldsOk() (*WorkItemUpdatingFieldsApiModel, bool)`
+
+GetWorkItemUpdatingFieldsOk returns a tuple with the WorkItemUpdatingFields field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWorkItemUpdatingFields
+
+`func (o *AutoTestProjectSettingsApiModel) SetWorkItemUpdatingFields(v WorkItemUpdatingFieldsApiModel)`
+
+SetWorkItemUpdatingFields sets WorkItemUpdatingFields field to given value.
 
 
 

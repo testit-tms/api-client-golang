@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the work item | 
 **Description** | Pointer to **NullableString** | Description of the work item | [optional] 
 **EntityTypeName** | [**WorkItemEntityTypeApiModel**](WorkItemEntityTypeApiModel.md) | Type of entity associated with this work item | 
-**Duration** | **int32** | Duration of the work item in milliseconds | 
+**Duration** | **int64** | Duration of the work item in milliseconds | 
 **State** | [**WorkItemStateApiModel**](WorkItemStateApiModel.md) | State of the work item | 
 **Priority** | [**WorkItemPriorityApiModel**](WorkItemPriorityApiModel.md) | Priority level of the work item | 
 **Attributes** | **map[string]interface{}** | Set of custom attributes associated with the work item | 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewCreateWorkItemApiModel
 
-`func NewCreateWorkItemApiModel(projectId string, name string, entityTypeName WorkItemEntityTypeApiModel, duration int32, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, attributes map[string]interface{}, tags []TagModel, preconditionSteps []CreateStepApiModel, steps []CreateStepApiModel, postconditionSteps []CreateStepApiModel, links []CreateLinkApiModel, ) *CreateWorkItemApiModel`
+`func NewCreateWorkItemApiModel(projectId string, name string, entityTypeName WorkItemEntityTypeApiModel, duration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, attributes map[string]interface{}, tags []TagModel, preconditionSteps []CreateStepApiModel, steps []CreateStepApiModel, postconditionSteps []CreateStepApiModel, links []CreateLinkApiModel, ) *CreateWorkItemApiModel`
 
 NewCreateWorkItemApiModel instantiates a new CreateWorkItemApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -173,20 +173,20 @@ SetEntityTypeName sets EntityTypeName field to given value.
 
 ### GetDuration
 
-`func (o *CreateWorkItemApiModel) GetDuration() int32`
+`func (o *CreateWorkItemApiModel) GetDuration() int64`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *CreateWorkItemApiModel) GetDurationOk() (*int32, bool)`
+`func (o *CreateWorkItemApiModel) GetDurationOk() (*int64, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *CreateWorkItemApiModel) SetDuration(v int32)`
+`func (o *CreateWorkItemApiModel) SetDuration(v int64)`
 
 SetDuration sets Duration field to given value.
 

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **StartDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **EndDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **TagNames** | Pointer to **[]string** |  | [optional] 
+**ExcludeTagNames** | Pointer to **[]string** |  | [optional] 
 **Attributes** | Pointer to **map[string][]string** |  | [optional] 
 **IsDeleted** | Pointer to **NullableBool** |  | [optional] 
 
@@ -530,6 +531,41 @@ HasTagNames returns a boolean if a field has been set.
 `func (o *ProjectTestPlansFilterModel) UnsetTagNames()`
 
 UnsetTagNames ensures that no value is present for TagNames, not even an explicit nil
+### GetExcludeTagNames
+
+`func (o *ProjectTestPlansFilterModel) GetExcludeTagNames() []string`
+
+GetExcludeTagNames returns the ExcludeTagNames field if non-nil, zero value otherwise.
+
+### GetExcludeTagNamesOk
+
+`func (o *ProjectTestPlansFilterModel) GetExcludeTagNamesOk() (*[]string, bool)`
+
+GetExcludeTagNamesOk returns a tuple with the ExcludeTagNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeTagNames
+
+`func (o *ProjectTestPlansFilterModel) SetExcludeTagNames(v []string)`
+
+SetExcludeTagNames sets ExcludeTagNames field to given value.
+
+### HasExcludeTagNames
+
+`func (o *ProjectTestPlansFilterModel) HasExcludeTagNames() bool`
+
+HasExcludeTagNames returns a boolean if a field has been set.
+
+### SetExcludeTagNamesNil
+
+`func (o *ProjectTestPlansFilterModel) SetExcludeTagNamesNil(b bool)`
+
+ SetExcludeTagNamesNil sets the value for ExcludeTagNames to be an explicit nil
+
+### UnsetExcludeTagNames
+`func (o *ProjectTestPlansFilterModel) UnsetExcludeTagNames()`
+
+UnsetExcludeTagNames ensures that no value is present for ExcludeTagNames, not even an explicit nil
 ### GetAttributes
 
 `func (o *ProjectTestPlansFilterModel) GetAttributes() map[string][]string`

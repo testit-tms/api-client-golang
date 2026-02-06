@@ -51,6 +51,7 @@ type AutoTestApiResult struct {
 	StabilityPercentage NullableInt64 `json:"stabilityPercentage,omitempty"`
 	Links []LinkApiResult `json:"links,omitempty"`
 	Labels []LabelApiResult `json:"labels,omitempty"`
+	Tags []string `json:"tags,omitempty"`
 }
 
 type _AutoTestApiResult AutoTestApiResult
@@ -1092,6 +1093,39 @@ func (o *AutoTestApiResult) SetLabels(v []LabelApiResult) {
 	o.Labels = v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestApiResult) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestApiResult) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *AutoTestApiResult) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *AutoTestApiResult) SetTags(v []string) {
+	o.Tags = v
+}
+
 func (o AutoTestApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1170,6 +1204,9 @@ func (o AutoTestApiResult) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Labels != nil {
 		toSerialize["labels"] = o.Labels
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
 	}
 	return toSerialize, nil
 }
