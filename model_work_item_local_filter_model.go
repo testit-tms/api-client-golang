@@ -61,6 +61,10 @@ type WorkItemLocalFilterModel struct {
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
 	// Collection of identifiers work items versions.
 	WorkItemVersionIds []string `json:"workItemVersionIds,omitempty"`
+	// Specifies a work item filter by its links
+	Links NullableWorkItemLinkFilterModel `json:"links,omitempty"`
+	// Specifies work item filter by its external metadata
+	ExternalMetadata NullableWorkItemExternalMetadataFilterModel `json:"externalMetadata,omitempty"`
 }
 
 // NewWorkItemLocalFilterModel instantiates a new WorkItemLocalFilterModel object
@@ -836,6 +840,90 @@ func (o *WorkItemLocalFilterModel) SetWorkItemVersionIds(v []string) {
 	o.WorkItemVersionIds = v
 }
 
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemLocalFilterModel) GetLinks() WorkItemLinkFilterModel {
+	if o == nil || IsNil(o.Links.Get()) {
+		var ret WorkItemLinkFilterModel
+		return ret
+	}
+	return *o.Links.Get()
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemLocalFilterModel) GetLinksOk() (*WorkItemLinkFilterModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Links.Get(), o.Links.IsSet()
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *WorkItemLocalFilterModel) HasLinks() bool {
+	if o != nil && o.Links.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given NullableWorkItemLinkFilterModel and assigns it to the Links field.
+func (o *WorkItemLocalFilterModel) SetLinks(v WorkItemLinkFilterModel) {
+	o.Links.Set(&v)
+}
+// SetLinksNil sets the value for Links to be an explicit nil
+func (o *WorkItemLocalFilterModel) SetLinksNil() {
+	o.Links.Set(nil)
+}
+
+// UnsetLinks ensures that no value is present for Links, not even an explicit nil
+func (o *WorkItemLocalFilterModel) UnsetLinks() {
+	o.Links.Unset()
+}
+
+// GetExternalMetadata returns the ExternalMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemLocalFilterModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel {
+	if o == nil || IsNil(o.ExternalMetadata.Get()) {
+		var ret WorkItemExternalMetadataFilterModel
+		return ret
+	}
+	return *o.ExternalMetadata.Get()
+}
+
+// GetExternalMetadataOk returns a tuple with the ExternalMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemLocalFilterModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalMetadata.Get(), o.ExternalMetadata.IsSet()
+}
+
+// HasExternalMetadata returns a boolean if a field has been set.
+func (o *WorkItemLocalFilterModel) HasExternalMetadata() bool {
+	if o != nil && o.ExternalMetadata.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalMetadata gets a reference to the given NullableWorkItemExternalMetadataFilterModel and assigns it to the ExternalMetadata field.
+func (o *WorkItemLocalFilterModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel) {
+	o.ExternalMetadata.Set(&v)
+}
+// SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+func (o *WorkItemLocalFilterModel) SetExternalMetadataNil() {
+	o.ExternalMetadata.Set(nil)
+}
+
+// UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
+func (o *WorkItemLocalFilterModel) UnsetExternalMetadata() {
+	o.ExternalMetadata.Unset()
+}
+
 func (o WorkItemLocalFilterModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -908,6 +996,12 @@ func (o WorkItemLocalFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.WorkItemVersionIds != nil {
 		toSerialize["workItemVersionIds"] = o.WorkItemVersionIds
+	}
+	if o.Links.IsSet() {
+		toSerialize["links"] = o.Links.Get()
+	}
+	if o.ExternalMetadata.IsSet() {
+		toSerialize["externalMetadata"] = o.ExternalMetadata.Get()
 	}
 	return toSerialize, nil
 }

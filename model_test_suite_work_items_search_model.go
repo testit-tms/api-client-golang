@@ -29,12 +29,8 @@ type TestSuiteWorkItemsSearchModel struct {
 	IncludeIds []string `json:"includeIds,omitempty"`
 	// Collection of identifiers of work items which need to be excluded from result regardless of filtering
 	ExcludeIds []string `json:"excludeIds,omitempty"`
-	// Specifies work item filter by its external metadata
-	ExternalMetadata NullableWorkItemExternalMetadataFilterModel `json:"externalMetadata,omitempty"`
 	// Collection of project identifiers
 	ProjectIds []string `json:"projectIds,omitempty"`
-	// Specifies a work item filter by its links
-	Links NullableWorkItemLinkFilterModel `json:"links,omitempty"`
 	// Name of work item
 	Name NullableString `json:"name,omitempty"`
 	// Specifies a work item unique IDs to search for
@@ -77,6 +73,10 @@ type TestSuiteWorkItemsSearchModel struct {
 	AutoTestIds []string `json:"autoTestIds,omitempty"`
 	// Collection of identifiers work items versions.
 	WorkItemVersionIds []string `json:"workItemVersionIds,omitempty"`
+	// Specifies a work item filter by its links
+	Links NullableWorkItemLinkFilterModel `json:"links,omitempty"`
+	// Specifies work item filter by its external metadata
+	ExternalMetadata NullableWorkItemExternalMetadataFilterModel `json:"externalMetadata,omitempty"`
 }
 
 // NewTestSuiteWorkItemsSearchModel instantiates a new TestSuiteWorkItemsSearchModel object
@@ -270,48 +270,6 @@ func (o *TestSuiteWorkItemsSearchModel) SetExcludeIds(v []string) {
 	o.ExcludeIds = v
 }
 
-// GetExternalMetadata returns the ExternalMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel {
-	if o == nil || IsNil(o.ExternalMetadata.Get()) {
-		var ret WorkItemExternalMetadataFilterModel
-		return ret
-	}
-	return *o.ExternalMetadata.Get()
-}
-
-// GetExternalMetadataOk returns a tuple with the ExternalMetadata field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ExternalMetadata.Get(), o.ExternalMetadata.IsSet()
-}
-
-// HasExternalMetadata returns a boolean if a field has been set.
-func (o *TestSuiteWorkItemsSearchModel) HasExternalMetadata() bool {
-	if o != nil && o.ExternalMetadata.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetExternalMetadata gets a reference to the given NullableWorkItemExternalMetadataFilterModel and assigns it to the ExternalMetadata field.
-func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel) {
-	o.ExternalMetadata.Set(&v)
-}
-// SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
-func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadataNil() {
-	o.ExternalMetadata.Set(nil)
-}
-
-// UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
-func (o *TestSuiteWorkItemsSearchModel) UnsetExternalMetadata() {
-	o.ExternalMetadata.Unset()
-}
-
 // GetProjectIds returns the ProjectIds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TestSuiteWorkItemsSearchModel) GetProjectIds() []string {
 	if o == nil {
@@ -343,48 +301,6 @@ func (o *TestSuiteWorkItemsSearchModel) HasProjectIds() bool {
 // SetProjectIds gets a reference to the given []string and assigns it to the ProjectIds field.
 func (o *TestSuiteWorkItemsSearchModel) SetProjectIds(v []string) {
 	o.ProjectIds = v
-}
-
-// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetLinks() WorkItemLinkFilterModel {
-	if o == nil || IsNil(o.Links.Get()) {
-		var ret WorkItemLinkFilterModel
-		return ret
-	}
-	return *o.Links.Get()
-}
-
-// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetLinksOk() (*WorkItemLinkFilterModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Links.Get(), o.Links.IsSet()
-}
-
-// HasLinks returns a boolean if a field has been set.
-func (o *TestSuiteWorkItemsSearchModel) HasLinks() bool {
-	if o != nil && o.Links.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLinks gets a reference to the given NullableWorkItemLinkFilterModel and assigns it to the Links field.
-func (o *TestSuiteWorkItemsSearchModel) SetLinks(v WorkItemLinkFilterModel) {
-	o.Links.Set(&v)
-}
-// SetLinksNil sets the value for Links to be an explicit nil
-func (o *TestSuiteWorkItemsSearchModel) SetLinksNil() {
-	o.Links.Set(nil)
-}
-
-// UnsetLinks ensures that no value is present for Links, not even an explicit nil
-func (o *TestSuiteWorkItemsSearchModel) UnsetLinks() {
-	o.Links.Unset()
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1143,6 +1059,90 @@ func (o *TestSuiteWorkItemsSearchModel) SetWorkItemVersionIds(v []string) {
 	o.WorkItemVersionIds = v
 }
 
+// GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetLinks() WorkItemLinkFilterModel {
+	if o == nil || IsNil(o.Links.Get()) {
+		var ret WorkItemLinkFilterModel
+		return ret
+	}
+	return *o.Links.Get()
+}
+
+// GetLinksOk returns a tuple with the Links field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetLinksOk() (*WorkItemLinkFilterModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Links.Get(), o.Links.IsSet()
+}
+
+// HasLinks returns a boolean if a field has been set.
+func (o *TestSuiteWorkItemsSearchModel) HasLinks() bool {
+	if o != nil && o.Links.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLinks gets a reference to the given NullableWorkItemLinkFilterModel and assigns it to the Links field.
+func (o *TestSuiteWorkItemsSearchModel) SetLinks(v WorkItemLinkFilterModel) {
+	o.Links.Set(&v)
+}
+// SetLinksNil sets the value for Links to be an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) SetLinksNil() {
+	o.Links.Set(nil)
+}
+
+// UnsetLinks ensures that no value is present for Links, not even an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) UnsetLinks() {
+	o.Links.Unset()
+}
+
+// GetExternalMetadata returns the ExternalMetadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel {
+	if o == nil || IsNil(o.ExternalMetadata.Get()) {
+		var ret WorkItemExternalMetadataFilterModel
+		return ret
+	}
+	return *o.ExternalMetadata.Get()
+}
+
+// GetExternalMetadataOk returns a tuple with the ExternalMetadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalMetadata.Get(), o.ExternalMetadata.IsSet()
+}
+
+// HasExternalMetadata returns a boolean if a field has been set.
+func (o *TestSuiteWorkItemsSearchModel) HasExternalMetadata() bool {
+	if o != nil && o.ExternalMetadata.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalMetadata gets a reference to the given NullableWorkItemExternalMetadataFilterModel and assigns it to the ExternalMetadata field.
+func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel) {
+	o.ExternalMetadata.Set(&v)
+}
+// SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadataNil() {
+	o.ExternalMetadata.Set(nil)
+}
+
+// UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
+func (o *TestSuiteWorkItemsSearchModel) UnsetExternalMetadata() {
+	o.ExternalMetadata.Unset()
+}
+
 func (o TestSuiteWorkItemsSearchModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1168,14 +1168,8 @@ func (o TestSuiteWorkItemsSearchModel) ToMap() (map[string]interface{}, error) {
 	if o.ExcludeIds != nil {
 		toSerialize["excludeIds"] = o.ExcludeIds
 	}
-	if o.ExternalMetadata.IsSet() {
-		toSerialize["externalMetadata"] = o.ExternalMetadata.Get()
-	}
 	if o.ProjectIds != nil {
 		toSerialize["projectIds"] = o.ProjectIds
-	}
-	if o.Links.IsSet() {
-		toSerialize["links"] = o.Links.Get()
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
@@ -1239,6 +1233,12 @@ func (o TestSuiteWorkItemsSearchModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.WorkItemVersionIds != nil {
 		toSerialize["workItemVersionIds"] = o.WorkItemVersionIds
+	}
+	if o.Links.IsSet() {
+		toSerialize["links"] = o.Links.Get()
+	}
+	if o.ExternalMetadata.IsSet() {
+		toSerialize["externalMetadata"] = o.ExternalMetadata.Get()
 	}
 	return toSerialize, nil
 }

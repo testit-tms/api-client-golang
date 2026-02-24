@@ -1299,7 +1299,7 @@ type ApiApiV2TestResultsIdRerunsGetRequest struct {
 	id string
 }
 
-func (r ApiApiV2TestResultsIdRerunsGetRequest) Execute() (*RerunsModel, *http.Response, error) {
+func (r ApiApiV2TestResultsIdRerunsGetRequest) Execute() (*RerunsApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2TestResultsIdRerunsGetExecute(r)
 }
 
@@ -1319,13 +1319,13 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdRerunsGet(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return RerunsModel
-func (a *TestResultsAPIService) ApiV2TestResultsIdRerunsGetExecute(r ApiApiV2TestResultsIdRerunsGetRequest) (*RerunsModel, *http.Response, error) {
+//  @return RerunsApiResult
+func (a *TestResultsAPIService) ApiV2TestResultsIdRerunsGetExecute(r ApiApiV2TestResultsIdRerunsGetRequest) (*RerunsApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *RerunsModel
+		localVarReturnValue  *RerunsApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdRerunsGet")

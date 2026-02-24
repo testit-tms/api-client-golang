@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of autotest represented by the test result | 
 **AutotestGlobalId** | **int64** | Global ID of autotest represented by the test result | 
 **AutotestExternalId** | Pointer to **NullableString** | External ID of autotest represented by the test result | [optional] 
+**AutoTestTags** | **[]string** | Tags of the autotest represented by the test result | 
 **TestRunId** | **string** | Unique ID of test run where the test result is located | 
 **ConfigurationId** | **string** | Unique ID of configuration which the test result uses | 
 **ConfigurationName** | **string** | Name of configuration which the test result uses | 
@@ -29,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultShortResponse
 
-`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32, ) *TestResultShortResponse`
+`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, autoTestTags []string, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32, ) *TestResultShortResponse`
 
 NewTestResultShortResponse instantiates a new TestResultShortResponse object
 This constructor will assign default values to properties that have it defined,
@@ -139,6 +140,26 @@ HasAutotestExternalId returns a boolean if a field has been set.
 `func (o *TestResultShortResponse) UnsetAutotestExternalId()`
 
 UnsetAutotestExternalId ensures that no value is present for AutotestExternalId, not even an explicit nil
+### GetAutoTestTags
+
+`func (o *TestResultShortResponse) GetAutoTestTags() []string`
+
+GetAutoTestTags returns the AutoTestTags field if non-nil, zero value otherwise.
+
+### GetAutoTestTagsOk
+
+`func (o *TestResultShortResponse) GetAutoTestTagsOk() (*[]string, bool)`
+
+GetAutoTestTagsOk returns a tuple with the AutoTestTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestTags
+
+`func (o *TestResultShortResponse) SetAutoTestTags(v []string)`
+
+SetAutoTestTags sets AutoTestTags field to given value.
+
+
 ### GetTestRunId
 
 `func (o *TestResultShortResponse) GetTestRunId() string`

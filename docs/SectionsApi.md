@@ -106,7 +106,7 @@ import (
 )
 
 func main() {
-	sectionPostModel := *openapiclient.NewSectionPostModel("a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5", "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // SectionPostModel |  (optional)
+	sectionPostModel := *openapiclient.NewSectionPostModel("39d127a1-a511-473f-8b21-f75b747a9420", "39d127a1-a511-473f-8b21-f75b747a9420", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // SectionPostModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -460,7 +460,7 @@ import (
 )
 
 func main() {
-	sectionRenameModel := *openapiclient.NewSectionRenameModel("a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5", "New root section") // SectionRenameModel |  (optional)
+	sectionRenameModel := *openapiclient.NewSectionRenameModel("39d127a1-a511-473f-8b21-f75b747a9420", "New root section") // SectionRenameModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -524,7 +524,7 @@ import (
 )
 
 func main() {
-	sectionPutModel := *openapiclient.NewSectionPutModel("Id_example", "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5", "a58827bc-4fbb-4b8d-8ddc-bfaa97dbd0d5", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // SectionPutModel |  (optional)
+	sectionPutModel := *openapiclient.NewSectionPutModel("Id_example", "39d127a1-a511-473f-8b21-f75b747a9420", "39d127a1-a511-473f-8b21-f75b747a9420", []openapiclient.AttachmentPutModel{*openapiclient.NewAttachmentPutModel("Id_example")}) // SectionPutModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

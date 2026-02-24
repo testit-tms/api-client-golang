@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestResultsIdRerunsGet
 
-> RerunsModel ApiV2TestResultsIdRerunsGet(ctx, id).Execute()
+> RerunsApiResult ApiV2TestResultsIdRerunsGet(ctx, id).Execute()
 
 Get reruns
 
@@ -531,7 +531,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestResultsAPI.ApiV2TestResultsIdRerunsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestResultsIdRerunsGet`: RerunsModel
+	// response from `ApiV2TestResultsIdRerunsGet`: RerunsApiResult
 	fmt.Fprintf(os.Stdout, "Response from `TestResultsAPI.ApiV2TestResultsIdRerunsGet`: %v\n", resp)
 }
 ```
@@ -555,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RerunsModel**](RerunsModel.md)
+[**RerunsApiResult**](RerunsApiResult.md)
 
 ### Authorization
 

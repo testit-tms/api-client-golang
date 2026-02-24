@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **Namespace** | Pointer to **NullableString** | Specifies a test result namespace to search for | [optional] 
 **ClassName** | Pointer to **NullableString** | Specifies a test result class name to search for | [optional] 
 **AutoTestGlobalIds** | Pointer to **[]int64** | Specifies an autotest global IDs to search results for | [optional] 
+**AutoTestTags** | Pointer to **[]string** | Specifies autotest tags to include in the search. | [optional] 
+**ExcludeAutoTestTags** | Pointer to **[]string** | Specifies autotest tags to exclude from the search. | [optional] 
 **Name** | Pointer to **NullableString** | Specifies an autotest name to search results for | [optional] 
 **CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test result creation date and time range to search for | [optional] 
 **ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test result modified date and time range to search for | [optional] 
@@ -284,6 +286,76 @@ HasAutoTestGlobalIds returns a boolean if a field has been set.
 `func (o *TestResultsFilterApiModel) UnsetAutoTestGlobalIds()`
 
 UnsetAutoTestGlobalIds ensures that no value is present for AutoTestGlobalIds, not even an explicit nil
+### GetAutoTestTags
+
+`func (o *TestResultsFilterApiModel) GetAutoTestTags() []string`
+
+GetAutoTestTags returns the AutoTestTags field if non-nil, zero value otherwise.
+
+### GetAutoTestTagsOk
+
+`func (o *TestResultsFilterApiModel) GetAutoTestTagsOk() (*[]string, bool)`
+
+GetAutoTestTagsOk returns a tuple with the AutoTestTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestTags
+
+`func (o *TestResultsFilterApiModel) SetAutoTestTags(v []string)`
+
+SetAutoTestTags sets AutoTestTags field to given value.
+
+### HasAutoTestTags
+
+`func (o *TestResultsFilterApiModel) HasAutoTestTags() bool`
+
+HasAutoTestTags returns a boolean if a field has been set.
+
+### SetAutoTestTagsNil
+
+`func (o *TestResultsFilterApiModel) SetAutoTestTagsNil(b bool)`
+
+ SetAutoTestTagsNil sets the value for AutoTestTags to be an explicit nil
+
+### UnsetAutoTestTags
+`func (o *TestResultsFilterApiModel) UnsetAutoTestTags()`
+
+UnsetAutoTestTags ensures that no value is present for AutoTestTags, not even an explicit nil
+### GetExcludeAutoTestTags
+
+`func (o *TestResultsFilterApiModel) GetExcludeAutoTestTags() []string`
+
+GetExcludeAutoTestTags returns the ExcludeAutoTestTags field if non-nil, zero value otherwise.
+
+### GetExcludeAutoTestTagsOk
+
+`func (o *TestResultsFilterApiModel) GetExcludeAutoTestTagsOk() (*[]string, bool)`
+
+GetExcludeAutoTestTagsOk returns a tuple with the ExcludeAutoTestTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeAutoTestTags
+
+`func (o *TestResultsFilterApiModel) SetExcludeAutoTestTags(v []string)`
+
+SetExcludeAutoTestTags sets ExcludeAutoTestTags field to given value.
+
+### HasExcludeAutoTestTags
+
+`func (o *TestResultsFilterApiModel) HasExcludeAutoTestTags() bool`
+
+HasExcludeAutoTestTags returns a boolean if a field has been set.
+
+### SetExcludeAutoTestTagsNil
+
+`func (o *TestResultsFilterApiModel) SetExcludeAutoTestTagsNil(b bool)`
+
+ SetExcludeAutoTestTagsNil sets the value for ExcludeAutoTestTags to be an explicit nil
+
+### UnsetExcludeAutoTestTags
+`func (o *TestResultsFilterApiModel) UnsetExcludeAutoTestTags()`
+
+UnsetExcludeAutoTestTags ensures that no value is present for ExcludeAutoTestTags, not even an explicit nil
 ### GetName
 
 `func (o *TestResultsFilterApiModel) GetName() string`

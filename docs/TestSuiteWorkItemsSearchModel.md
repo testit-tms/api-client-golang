@@ -9,9 +9,7 @@ Name | Type | Description | Notes
 **NameOrId** | Pointer to **NullableString** | Name or identifier (UUID) of work item | [optional] 
 **IncludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **ExcludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
-**ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata | [optional] 
 **ProjectIds** | Pointer to **[]string** | Collection of project identifiers | [optional] 
-**Links** | Pointer to [**NullableWorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links | [optional] 
 **Name** | Pointer to **NullableString** | Name of work item | [optional] 
 **Ids** | Pointer to **[]string** | Specifies a work item unique IDs to search for | [optional] 
 **GlobalIds** | Pointer to **[]int64** | Collection of global (integer) identifiers | [optional] 
@@ -33,6 +31,8 @@ Name | Type | Description | Notes
 **ExcludeTags** | Pointer to **[]string** | Collection of tags to exclude | [optional] 
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
 **WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
+**Links** | Pointer to [**NullableWorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links | [optional] 
+**ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata | [optional] 
 
 ## Methods
 
@@ -228,41 +228,6 @@ HasExcludeIds returns a boolean if a field has been set.
 `func (o *TestSuiteWorkItemsSearchModel) UnsetExcludeIds()`
 
 UnsetExcludeIds ensures that no value is present for ExcludeIds, not even an explicit nil
-### GetExternalMetadata
-
-`func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel`
-
-GetExternalMetadata returns the ExternalMetadata field if non-nil, zero value otherwise.
-
-### GetExternalMetadataOk
-
-`func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool)`
-
-GetExternalMetadataOk returns a tuple with the ExternalMetadata field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExternalMetadata
-
-`func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel)`
-
-SetExternalMetadata sets ExternalMetadata field to given value.
-
-### HasExternalMetadata
-
-`func (o *TestSuiteWorkItemsSearchModel) HasExternalMetadata() bool`
-
-HasExternalMetadata returns a boolean if a field has been set.
-
-### SetExternalMetadataNil
-
-`func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadataNil(b bool)`
-
- SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
-
-### UnsetExternalMetadata
-`func (o *TestSuiteWorkItemsSearchModel) UnsetExternalMetadata()`
-
-UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
 ### GetProjectIds
 
 `func (o *TestSuiteWorkItemsSearchModel) GetProjectIds() []string`
@@ -298,41 +263,6 @@ HasProjectIds returns a boolean if a field has been set.
 `func (o *TestSuiteWorkItemsSearchModel) UnsetProjectIds()`
 
 UnsetProjectIds ensures that no value is present for ProjectIds, not even an explicit nil
-### GetLinks
-
-`func (o *TestSuiteWorkItemsSearchModel) GetLinks() WorkItemLinkFilterModel`
-
-GetLinks returns the Links field if non-nil, zero value otherwise.
-
-### GetLinksOk
-
-`func (o *TestSuiteWorkItemsSearchModel) GetLinksOk() (*WorkItemLinkFilterModel, bool)`
-
-GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLinks
-
-`func (o *TestSuiteWorkItemsSearchModel) SetLinks(v WorkItemLinkFilterModel)`
-
-SetLinks sets Links field to given value.
-
-### HasLinks
-
-`func (o *TestSuiteWorkItemsSearchModel) HasLinks() bool`
-
-HasLinks returns a boolean if a field has been set.
-
-### SetLinksNil
-
-`func (o *TestSuiteWorkItemsSearchModel) SetLinksNil(b bool)`
-
- SetLinksNil sets the value for Links to be an explicit nil
-
-### UnsetLinks
-`func (o *TestSuiteWorkItemsSearchModel) UnsetLinks()`
-
-UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetName
 
 `func (o *TestSuiteWorkItemsSearchModel) GetName() string`
@@ -1068,6 +998,76 @@ HasWorkItemVersionIds returns a boolean if a field has been set.
 `func (o *TestSuiteWorkItemsSearchModel) UnsetWorkItemVersionIds()`
 
 UnsetWorkItemVersionIds ensures that no value is present for WorkItemVersionIds, not even an explicit nil
+### GetLinks
+
+`func (o *TestSuiteWorkItemsSearchModel) GetLinks() WorkItemLinkFilterModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *TestSuiteWorkItemsSearchModel) GetLinksOk() (*WorkItemLinkFilterModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *TestSuiteWorkItemsSearchModel) SetLinks(v WorkItemLinkFilterModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *TestSuiteWorkItemsSearchModel) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *TestSuiteWorkItemsSearchModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *TestSuiteWorkItemsSearchModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetExternalMetadata
+
+`func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel`
+
+GetExternalMetadata returns the ExternalMetadata field if non-nil, zero value otherwise.
+
+### GetExternalMetadataOk
+
+`func (o *TestSuiteWorkItemsSearchModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool)`
+
+GetExternalMetadataOk returns a tuple with the ExternalMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalMetadata
+
+`func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel)`
+
+SetExternalMetadata sets ExternalMetadata field to given value.
+
+### HasExternalMetadata
+
+`func (o *TestSuiteWorkItemsSearchModel) HasExternalMetadata() bool`
+
+HasExternalMetadata returns a boolean if a field has been set.
+
+### SetExternalMetadataNil
+
+`func (o *TestSuiteWorkItemsSearchModel) SetExternalMetadataNil(b bool)`
+
+ SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+
+### UnsetExternalMetadata
+`func (o *TestSuiteWorkItemsSearchModel) UnsetExternalMetadata()`
+
+UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

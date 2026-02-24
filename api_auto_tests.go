@@ -3527,8 +3527,9 @@ func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTestExecute(r ApiGetWorkIt
 	if r.isWorkItemDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isWorkItemDeleted", r.isWorkItemDeleted, "form", "")
 	} else {
-		var defaultValue bool = false
-		r.isWorkItemDeleted = &defaultValue
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "isWorkItemDeleted", defaultValue, "form", "")
+        r.isWorkItemDeleted = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
