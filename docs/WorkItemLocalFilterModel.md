@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **ExcludeTags** | Pointer to **[]string** | Collection of tags to exclude | [optional] 
 **AutoTestIds** | Pointer to **[]string** | Collection of identifiers of linked autotests | [optional] 
 **WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
+**Links** | Pointer to [**NullableWorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links | [optional] 
+**ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata | [optional] 
 
 ## Methods
 
@@ -780,6 +782,76 @@ HasWorkItemVersionIds returns a boolean if a field has been set.
 `func (o *WorkItemLocalFilterModel) UnsetWorkItemVersionIds()`
 
 UnsetWorkItemVersionIds ensures that no value is present for WorkItemVersionIds, not even an explicit nil
+### GetLinks
+
+`func (o *WorkItemLocalFilterModel) GetLinks() WorkItemLinkFilterModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *WorkItemLocalFilterModel) GetLinksOk() (*WorkItemLinkFilterModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *WorkItemLocalFilterModel) SetLinks(v WorkItemLinkFilterModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *WorkItemLocalFilterModel) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *WorkItemLocalFilterModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *WorkItemLocalFilterModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetExternalMetadata
+
+`func (o *WorkItemLocalFilterModel) GetExternalMetadata() WorkItemExternalMetadataFilterModel`
+
+GetExternalMetadata returns the ExternalMetadata field if non-nil, zero value otherwise.
+
+### GetExternalMetadataOk
+
+`func (o *WorkItemLocalFilterModel) GetExternalMetadataOk() (*WorkItemExternalMetadataFilterModel, bool)`
+
+GetExternalMetadataOk returns a tuple with the ExternalMetadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalMetadata
+
+`func (o *WorkItemLocalFilterModel) SetExternalMetadata(v WorkItemExternalMetadataFilterModel)`
+
+SetExternalMetadata sets ExternalMetadata field to given value.
+
+### HasExternalMetadata
+
+`func (o *WorkItemLocalFilterModel) HasExternalMetadata() bool`
+
+HasExternalMetadata returns a boolean if a field has been set.
+
+### SetExternalMetadataNil
+
+`func (o *WorkItemLocalFilterModel) SetExternalMetadataNil(b bool)`
+
+ SetExternalMetadataNil sets the value for ExternalMetadata to be an explicit nil
+
+### UnsetExternalMetadata
+`func (o *WorkItemLocalFilterModel) UnsetExternalMetadata()`
+
+UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

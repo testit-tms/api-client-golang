@@ -30,6 +30,8 @@ type TestResultShortResponse struct {
 	AutotestGlobalId int64 `json:"autotestGlobalId"`
 	// External ID of autotest represented by the test result
 	AutotestExternalId NullableString `json:"autotestExternalId,omitempty"`
+	// Tags of the autotest represented by the test result
+	AutoTestTags []string `json:"autoTestTags"`
 	// Unique ID of test run where the test result is located
 	TestRunId string `json:"testRunId"`
 	// Unique ID of configuration which the test result uses
@@ -71,11 +73,12 @@ type _TestResultShortResponse TestResultShortResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32) *TestResultShortResponse {
+func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, autoTestTags []string, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32) *TestResultShortResponse {
 	this := TestResultShortResponse{}
 	this.Id = id
 	this.Name = name
 	this.AutotestGlobalId = autotestGlobalId
+	this.AutoTestTags = autoTestTags
 	this.TestRunId = testRunId
 	this.ConfigurationId = configurationId
 	this.ConfigurationName = configurationName
@@ -209,6 +212,30 @@ func (o *TestResultShortResponse) SetAutotestExternalIdNil() {
 // UnsetAutotestExternalId ensures that no value is present for AutotestExternalId, not even an explicit nil
 func (o *TestResultShortResponse) UnsetAutotestExternalId() {
 	o.AutotestExternalId.Unset()
+}
+
+// GetAutoTestTags returns the AutoTestTags field value
+func (o *TestResultShortResponse) GetAutoTestTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.AutoTestTags
+}
+
+// GetAutoTestTagsOk returns a tuple with the AutoTestTags field value
+// and a boolean to check if the value has been set.
+func (o *TestResultShortResponse) GetAutoTestTagsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoTestTags, true
+}
+
+// SetAutoTestTags sets field value
+func (o *TestResultShortResponse) SetAutoTestTags(v []string) {
+	o.AutoTestTags = v
 }
 
 // GetTestRunId returns the TestRunId field value
@@ -725,6 +752,7 @@ func (o TestResultShortResponse) ToMap() (map[string]interface{}, error) {
 	if o.AutotestExternalId.IsSet() {
 		toSerialize["autotestExternalId"] = o.AutotestExternalId.Get()
 	}
+	toSerialize["autoTestTags"] = o.AutoTestTags
 	toSerialize["testRunId"] = o.TestRunId
 	toSerialize["configurationId"] = o.ConfigurationId
 	toSerialize["configurationName"] = o.ConfigurationName
@@ -764,6 +792,7 @@ func (o *TestResultShortResponse) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"autotestGlobalId",
+		"autoTestTags",
 		"testRunId",
 		"configurationId",
 		"configurationName",

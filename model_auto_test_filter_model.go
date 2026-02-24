@@ -40,6 +40,7 @@ type AutoTestFilterModel struct {
 	ExternalKey NullableString `json:"externalKey,omitempty"`
 	LastTestResultConfigurationIds []string `json:"lastTestResultConfigurationIds,omitempty"`
 	Tags []string `json:"tags,omitempty"`
+	ExcludeTags []string `json:"excludeTags,omitempty"`
 }
 
 // NewAutoTestFilterModel instantiates a new AutoTestFilterModel object
@@ -869,6 +870,39 @@ func (o *AutoTestFilterModel) SetTags(v []string) {
 	o.Tags = v
 }
 
+// GetExcludeTags returns the ExcludeTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestFilterModel) GetExcludeTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ExcludeTags
+}
+
+// GetExcludeTagsOk returns a tuple with the ExcludeTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestFilterModel) GetExcludeTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExcludeTags) {
+		return nil, false
+	}
+	return o.ExcludeTags, true
+}
+
+// HasExcludeTags returns a boolean if a field has been set.
+func (o *AutoTestFilterModel) HasExcludeTags() bool {
+	if o != nil && !IsNil(o.ExcludeTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeTags gets a reference to the given []string and assigns it to the ExcludeTags field.
+func (o *AutoTestFilterModel) SetExcludeTags(v []string) {
+	o.ExcludeTags = v
+}
+
 func (o AutoTestFilterModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -941,6 +975,9 @@ func (o AutoTestFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.ExcludeTags != nil {
+		toSerialize["excludeTags"] = o.ExcludeTags
 	}
 	return toSerialize, nil
 }

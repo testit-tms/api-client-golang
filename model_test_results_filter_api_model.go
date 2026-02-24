@@ -34,6 +34,10 @@ type TestResultsFilterApiModel struct {
 	ClassName NullableString `json:"className,omitempty"`
 	// Specifies an autotest global IDs to search results for
 	AutoTestGlobalIds []int64 `json:"autoTestGlobalIds,omitempty"`
+	// Specifies autotest tags to include in the search.
+	AutoTestTags []string `json:"autoTestTags,omitempty"`
+	// Specifies autotest tags to exclude from the search.
+	ExcludeAutoTestTags []string `json:"excludeAutoTestTags,omitempty"`
 	// Specifies an autotest name to search results for
 	Name NullableString `json:"name,omitempty"`
 	// Specifies a test result creation date and time range to search for
@@ -319,6 +323,72 @@ func (o *TestResultsFilterApiModel) HasAutoTestGlobalIds() bool {
 // SetAutoTestGlobalIds gets a reference to the given []int64 and assigns it to the AutoTestGlobalIds field.
 func (o *TestResultsFilterApiModel) SetAutoTestGlobalIds(v []int64) {
 	o.AutoTestGlobalIds = v
+}
+
+// GetAutoTestTags returns the AutoTestTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterApiModel) GetAutoTestTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.AutoTestTags
+}
+
+// GetAutoTestTagsOk returns a tuple with the AutoTestTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterApiModel) GetAutoTestTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.AutoTestTags) {
+		return nil, false
+	}
+	return o.AutoTestTags, true
+}
+
+// HasAutoTestTags returns a boolean if a field has been set.
+func (o *TestResultsFilterApiModel) HasAutoTestTags() bool {
+	if o != nil && !IsNil(o.AutoTestTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestTags gets a reference to the given []string and assigns it to the AutoTestTags field.
+func (o *TestResultsFilterApiModel) SetAutoTestTags(v []string) {
+	o.AutoTestTags = v
+}
+
+// GetExcludeAutoTestTags returns the ExcludeAutoTestTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterApiModel) GetExcludeAutoTestTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ExcludeAutoTestTags
+}
+
+// GetExcludeAutoTestTagsOk returns a tuple with the ExcludeAutoTestTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterApiModel) GetExcludeAutoTestTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExcludeAutoTestTags) {
+		return nil, false
+	}
+	return o.ExcludeAutoTestTags, true
+}
+
+// HasExcludeAutoTestTags returns a boolean if a field has been set.
+func (o *TestResultsFilterApiModel) HasExcludeAutoTestTags() bool {
+	if o != nil && !IsNil(o.ExcludeAutoTestTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeAutoTestTags gets a reference to the given []string and assigns it to the ExcludeAutoTestTags field.
+func (o *TestResultsFilterApiModel) SetExcludeAutoTestTags(v []string) {
+	o.ExcludeAutoTestTags = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -669,6 +739,12 @@ func (o TestResultsFilterApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AutoTestGlobalIds != nil {
 		toSerialize["autoTestGlobalIds"] = o.AutoTestGlobalIds
+	}
+	if o.AutoTestTags != nil {
+		toSerialize["autoTestTags"] = o.AutoTestTags
+	}
+	if o.ExcludeAutoTestTags != nil {
+		toSerialize["excludeAutoTestTags"] = o.ExcludeAutoTestTags
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()

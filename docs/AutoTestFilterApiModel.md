@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **ExternalKey** | Pointer to **NullableString** | Specifies an autotest external key to search for | [optional] 
 **LastTestResultConfigurationIds** | Pointer to **[]string** | Specifies an autotest configuration IDs of the last test result to search for | [optional] 
 **Tags** | Pointer to **[]string** | Specifies an autotest tags to search for | [optional] 
+**ExcludeTags** | Pointer to **[]string** | Specifies an autotest tags to exclude | [optional] 
 
 ## Methods
 
@@ -780,6 +781,41 @@ HasTags returns a boolean if a field has been set.
 `func (o *AutoTestFilterApiModel) UnsetTags()`
 
 UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetExcludeTags
+
+`func (o *AutoTestFilterApiModel) GetExcludeTags() []string`
+
+GetExcludeTags returns the ExcludeTags field if non-nil, zero value otherwise.
+
+### GetExcludeTagsOk
+
+`func (o *AutoTestFilterApiModel) GetExcludeTagsOk() (*[]string, bool)`
+
+GetExcludeTagsOk returns a tuple with the ExcludeTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeTags
+
+`func (o *AutoTestFilterApiModel) SetExcludeTags(v []string)`
+
+SetExcludeTags sets ExcludeTags field to given value.
+
+### HasExcludeTags
+
+`func (o *AutoTestFilterApiModel) HasExcludeTags() bool`
+
+HasExcludeTags returns a boolean if a field has been set.
+
+### SetExcludeTagsNil
+
+`func (o *AutoTestFilterApiModel) SetExcludeTagsNil(b bool)`
+
+ SetExcludeTagsNil sets the value for ExcludeTags to be an explicit nil
+
+### UnsetExcludeTags
+`func (o *AutoTestFilterApiModel) UnsetExcludeTags()`
+
+UnsetExcludeTags ensures that no value is present for ExcludeTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

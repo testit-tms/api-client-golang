@@ -1583,8 +1583,9 @@ func (a *WebhooksAPIService) ApiV2WebhooksSpecialVariablesGetExecute(r ApiApiV2W
 	if r.variablesType != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "variablesType", r.variablesType, "form", "")
 	} else {
-		var defaultValue WebhookVariablesType = "VariablesForUrl"
-		r.variablesType = &defaultValue
+        var defaultValue WebhookVariablesType = "VariablesForUrl"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "variablesType", defaultValue, "form", "")
+        r.variablesType = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

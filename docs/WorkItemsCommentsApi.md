@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsCommentsPost
 
-> WorkItemCommentModel ApiV2WorkItemsCommentsPost(ctx).WorkItemCommentPostModel(workItemCommentPostModel).Execute()
+> WorkItemCommentApiResult ApiV2WorkItemsCommentsPost(ctx).CreateWorkItemCommentApiModel(createWorkItemCommentApiModel).Execute()
 
 Create WorkItem comment
 
@@ -101,16 +101,16 @@ import (
 )
 
 func main() {
-	workItemCommentPostModel := *openapiclient.NewWorkItemCommentPostModel("Text_example", "WorkItemId_example") // WorkItemCommentPostModel |  (optional)
+	createWorkItemCommentApiModel := *openapiclient.NewCreateWorkItemCommentApiModel("WorkItemId_example", "Text_example") // CreateWorkItemCommentApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPost(context.Background()).WorkItemCommentPostModel(workItemCommentPostModel).Execute()
+	resp, r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPost(context.Background()).CreateWorkItemCommentApiModel(createWorkItemCommentApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkItemsCommentsPost`: WorkItemCommentModel
+	// response from `ApiV2WorkItemsCommentsPost`: WorkItemCommentApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPost`: %v\n", resp)
 }
 ```
@@ -126,11 +126,11 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsCommentsPost
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemCommentPostModel** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md) |  | 
+ **createWorkItemCommentApiModel** | [**CreateWorkItemCommentApiModel**](CreateWorkItemCommentApiModel.md) |  | 
 
 ### Return type
 
-[**WorkItemCommentModel**](WorkItemCommentModel.md)
+[**WorkItemCommentApiResult**](WorkItemCommentApiResult.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsCommentsPut
 
-> ApiV2WorkItemsCommentsPut(ctx).WorkItemCommentPutModel(workItemCommentPutModel).Execute()
+> ApiV2WorkItemsCommentsPut(ctx).UpdateWorkItemCommentApiModel(updateWorkItemCommentApiModel).Execute()
 
 Update work item comment
 
@@ -165,11 +165,11 @@ import (
 )
 
 func main() {
-	workItemCommentPutModel := *openapiclient.NewWorkItemCommentPutModel("Text_example", "Id_example") // WorkItemCommentPutModel |  (optional)
+	updateWorkItemCommentApiModel := *openapiclient.NewUpdateWorkItemCommentApiModel("Id_example", "Text_example") // UpdateWorkItemCommentApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPut(context.Background()).WorkItemCommentPutModel(workItemCommentPutModel).Execute()
+	r, err := apiClient.WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPut(context.Background()).UpdateWorkItemCommentApiModel(updateWorkItemCommentApiModel).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsAPI.ApiV2WorkItemsCommentsPut``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -188,7 +188,7 @@ Other parameters are passed through a pointer to a apiApiV2WorkItemsCommentsPutR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workItemCommentPutModel** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md) |  | 
+ **updateWorkItemCommentApiModel** | [**UpdateWorkItemCommentApiModel**](UpdateWorkItemCommentApiModel.md) |  | 
 
 ### Return type
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkItemsIdCommentsGet
 
-> []WorkItemCommentModel ApiV2WorkItemsIdCommentsGet(ctx, id).Execute()
+> []WorkItemCommentApiResult ApiV2WorkItemsIdCommentsGet(ctx, id).Execute()
 
 Get work item comments
 
@@ -304,7 +304,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsCommentsAPI.ApiV2WorkItemsIdCommentsGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkItemsIdCommentsGet`: []WorkItemCommentModel
+	// response from `ApiV2WorkItemsIdCommentsGet`: []WorkItemCommentApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WorkItemsCommentsAPI.ApiV2WorkItemsIdCommentsGet`: %v\n", resp)
 }
 ```
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]WorkItemCommentModel**](WorkItemCommentModel.md)
+[**[]WorkItemCommentApiResult**](WorkItemCommentApiResult.md)
 
 ### Authorization
 

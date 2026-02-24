@@ -134,8 +134,9 @@ func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansAnalyticsGet
 	if r.mustUpdateCache != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "mustUpdateCache", r.mustUpdateCache, "form", "")
 	} else {
-		var defaultValue bool = false
-		r.mustUpdateCache = &defaultValue
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "mustUpdateCache", defaultValue, "form", "")
+        r.mustUpdateCache = &defaultValue
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
@@ -1139,8 +1140,9 @@ func (a *ProjectTestPlansAPIService) ApiV2ProjectsProjectIdTestPlansSearchPostEx
 	if r.mustUpdateCache != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "mustUpdateCache", r.mustUpdateCache, "form", "")
 	} else {
-		var defaultValue bool = false
-		r.mustUpdateCache = &defaultValue
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "mustUpdateCache", defaultValue, "form", "")
+        r.mustUpdateCache = &defaultValue
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")

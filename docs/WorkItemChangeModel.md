@@ -10,13 +10,15 @@ Name | Type | Description | Notes
 **NewVersionId** | **string** |  | 
 **WorkItemChangedFields** | [**WorkItemChangedFieldsViewModel**](WorkItemChangedFieldsViewModel.md) |  | 
 **CreatedById** | **string** |  | 
-**CreatedDate** | Pointer to **NullableTime** |  | [optional] 
+**CreatedDate** | **time.Time** |  | 
+**ModifiedById** | Pointer to **NullableString** |  | [optional] 
+**ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 
 ## Methods
 
 ### NewWorkItemChangeModel
 
-`func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangedFieldsViewModel, createdById string, ) *WorkItemChangeModel`
+`func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangedFieldsViewModel, createdById string, createdDate time.Time, ) *WorkItemChangeModel`
 
 NewWorkItemChangeModel instantiates a new WorkItemChangeModel object
 This constructor will assign default values to properties that have it defined,
@@ -170,22 +172,77 @@ and a boolean to check if the value has been set.
 
 SetCreatedDate sets CreatedDate field to given value.
 
-### HasCreatedDate
 
-`func (o *WorkItemChangeModel) HasCreatedDate() bool`
+### GetModifiedById
 
-HasCreatedDate returns a boolean if a field has been set.
+`func (o *WorkItemChangeModel) GetModifiedById() string`
 
-### SetCreatedDateNil
+GetModifiedById returns the ModifiedById field if non-nil, zero value otherwise.
 
-`func (o *WorkItemChangeModel) SetCreatedDateNil(b bool)`
+### GetModifiedByIdOk
 
- SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
+`func (o *WorkItemChangeModel) GetModifiedByIdOk() (*string, bool)`
 
-### UnsetCreatedDate
-`func (o *WorkItemChangeModel) UnsetCreatedDate()`
+GetModifiedByIdOk returns a tuple with the ModifiedById field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
 
-UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
+### SetModifiedById
+
+`func (o *WorkItemChangeModel) SetModifiedById(v string)`
+
+SetModifiedById sets ModifiedById field to given value.
+
+### HasModifiedById
+
+`func (o *WorkItemChangeModel) HasModifiedById() bool`
+
+HasModifiedById returns a boolean if a field has been set.
+
+### SetModifiedByIdNil
+
+`func (o *WorkItemChangeModel) SetModifiedByIdNil(b bool)`
+
+ SetModifiedByIdNil sets the value for ModifiedById to be an explicit nil
+
+### UnsetModifiedById
+`func (o *WorkItemChangeModel) UnsetModifiedById()`
+
+UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
+### GetModifiedDate
+
+`func (o *WorkItemChangeModel) GetModifiedDate() time.Time`
+
+GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
+
+### GetModifiedDateOk
+
+`func (o *WorkItemChangeModel) GetModifiedDateOk() (*time.Time, bool)`
+
+GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModifiedDate
+
+`func (o *WorkItemChangeModel) SetModifiedDate(v time.Time)`
+
+SetModifiedDate sets ModifiedDate field to given value.
+
+### HasModifiedDate
+
+`func (o *WorkItemChangeModel) HasModifiedDate() bool`
+
+HasModifiedDate returns a boolean if a field has been set.
+
+### SetModifiedDateNil
+
+`func (o *WorkItemChangeModel) SetModifiedDateNil(b bool)`
+
+ SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+
+### UnsetModifiedDate
+`func (o *WorkItemChangeModel) UnsetModifiedDate()`
+
+UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

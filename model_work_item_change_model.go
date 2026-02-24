@@ -28,7 +28,9 @@ type WorkItemChangeModel struct {
 	NewVersionId string `json:"newVersionId"`
 	WorkItemChangedFields WorkItemChangedFieldsViewModel `json:"workItemChangedFields"`
 	CreatedById string `json:"createdById"`
-	CreatedDate NullableTime `json:"createdDate,omitempty"`
+	CreatedDate time.Time `json:"createdDate"`
+	ModifiedById NullableString `json:"modifiedById,omitempty"`
+	ModifiedDate NullableTime `json:"modifiedDate,omitempty"`
 }
 
 type _WorkItemChangeModel WorkItemChangeModel
@@ -37,7 +39,7 @@ type _WorkItemChangeModel WorkItemChangeModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangedFieldsViewModel, createdById string) *WorkItemChangeModel {
+func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, newVersionId string, workItemChangedFields WorkItemChangedFieldsViewModel, createdById string, createdDate time.Time) *WorkItemChangeModel {
 	this := WorkItemChangeModel{}
 	this.Id = id
 	this.WorkItemId = workItemId
@@ -45,6 +47,7 @@ func NewWorkItemChangeModel(id string, workItemId string, oldVersionId string, n
 	this.NewVersionId = newVersionId
 	this.WorkItemChangedFields = workItemChangedFields
 	this.CreatedById = createdById
+	this.CreatedDate = createdDate
 	return &this
 }
 
@@ -200,46 +203,112 @@ func (o *WorkItemChangeModel) SetCreatedById(v string) {
 	o.CreatedById = v
 }
 
-// GetCreatedDate returns the CreatedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetCreatedDate returns the CreatedDate field value
 func (o *WorkItemChangeModel) GetCreatedDate() time.Time {
-	if o == nil || IsNil(o.CreatedDate.Get()) {
+	if o == nil {
 		var ret time.Time
 		return ret
 	}
-	return *o.CreatedDate.Get()
+
+	return o.CreatedDate
 }
 
-// GetCreatedDateOk returns a tuple with the CreatedDate field value if set, nil otherwise
+// GetCreatedDateOk returns a tuple with the CreatedDate field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *WorkItemChangeModel) GetCreatedDateOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.CreatedDate.Get(), o.CreatedDate.IsSet()
+	return &o.CreatedDate, true
 }
 
-// HasCreatedDate returns a boolean if a field has been set.
-func (o *WorkItemChangeModel) HasCreatedDate() bool {
-	if o != nil && o.CreatedDate.IsSet() {
+// SetCreatedDate sets field value
+func (o *WorkItemChangeModel) SetCreatedDate(v time.Time) {
+	o.CreatedDate = v
+}
+
+// GetModifiedById returns the ModifiedById field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemChangeModel) GetModifiedById() string {
+	if o == nil || IsNil(o.ModifiedById.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ModifiedById.Get()
+}
+
+// GetModifiedByIdOk returns a tuple with the ModifiedById field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemChangeModel) GetModifiedByIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedById.Get(), o.ModifiedById.IsSet()
+}
+
+// HasModifiedById returns a boolean if a field has been set.
+func (o *WorkItemChangeModel) HasModifiedById() bool {
+	if o != nil && o.ModifiedById.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCreatedDate gets a reference to the given NullableTime and assigns it to the CreatedDate field.
-func (o *WorkItemChangeModel) SetCreatedDate(v time.Time) {
-	o.CreatedDate.Set(&v)
+// SetModifiedById gets a reference to the given NullableString and assigns it to the ModifiedById field.
+func (o *WorkItemChangeModel) SetModifiedById(v string) {
+	o.ModifiedById.Set(&v)
 }
-// SetCreatedDateNil sets the value for CreatedDate to be an explicit nil
-func (o *WorkItemChangeModel) SetCreatedDateNil() {
-	o.CreatedDate.Set(nil)
+// SetModifiedByIdNil sets the value for ModifiedById to be an explicit nil
+func (o *WorkItemChangeModel) SetModifiedByIdNil() {
+	o.ModifiedById.Set(nil)
 }
 
-// UnsetCreatedDate ensures that no value is present for CreatedDate, not even an explicit nil
-func (o *WorkItemChangeModel) UnsetCreatedDate() {
-	o.CreatedDate.Unset()
+// UnsetModifiedById ensures that no value is present for ModifiedById, not even an explicit nil
+func (o *WorkItemChangeModel) UnsetModifiedById() {
+	o.ModifiedById.Unset()
+}
+
+// GetModifiedDate returns the ModifiedDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemChangeModel) GetModifiedDate() time.Time {
+	if o == nil || IsNil(o.ModifiedDate.Get()) {
+		var ret time.Time
+		return ret
+	}
+	return *o.ModifiedDate.Get()
+}
+
+// GetModifiedDateOk returns a tuple with the ModifiedDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemChangeModel) GetModifiedDateOk() (*time.Time, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ModifiedDate.Get(), o.ModifiedDate.IsSet()
+}
+
+// HasModifiedDate returns a boolean if a field has been set.
+func (o *WorkItemChangeModel) HasModifiedDate() bool {
+	if o != nil && o.ModifiedDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetModifiedDate gets a reference to the given NullableTime and assigns it to the ModifiedDate field.
+func (o *WorkItemChangeModel) SetModifiedDate(v time.Time) {
+	o.ModifiedDate.Set(&v)
+}
+// SetModifiedDateNil sets the value for ModifiedDate to be an explicit nil
+func (o *WorkItemChangeModel) SetModifiedDateNil() {
+	o.ModifiedDate.Set(nil)
+}
+
+// UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
+func (o *WorkItemChangeModel) UnsetModifiedDate() {
+	o.ModifiedDate.Unset()
 }
 
 func (o WorkItemChangeModel) MarshalJSON() ([]byte, error) {
@@ -258,8 +327,12 @@ func (o WorkItemChangeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["newVersionId"] = o.NewVersionId
 	toSerialize["workItemChangedFields"] = o.WorkItemChangedFields
 	toSerialize["createdById"] = o.CreatedById
-	if o.CreatedDate.IsSet() {
-		toSerialize["createdDate"] = o.CreatedDate.Get()
+	toSerialize["createdDate"] = o.CreatedDate
+	if o.ModifiedById.IsSet() {
+		toSerialize["modifiedById"] = o.ModifiedById.Get()
+	}
+	if o.ModifiedDate.IsSet() {
+		toSerialize["modifiedDate"] = o.ModifiedDate.Get()
 	}
 	return toSerialize, nil
 }
@@ -275,6 +348,7 @@ func (o *WorkItemChangeModel) UnmarshalJSON(data []byte) (err error) {
 		"newVersionId",
 		"workItemChangedFields",
 		"createdById",
+		"createdDate",
 	}
 
 	allProperties := make(map[string]interface{})

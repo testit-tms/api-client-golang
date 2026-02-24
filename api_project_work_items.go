@@ -1305,8 +1305,9 @@ func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 	if r.isDeleted != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", r.isDeleted, "form", "")
 	} else {
-		var defaultValue bool = false
-		r.isDeleted = &defaultValue
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "isDeleted", defaultValue, "form", "")
+        r.isDeleted = &defaultValue
 	}
 	if r.tagNames != nil {
 		t := *r.tagNames
@@ -1322,8 +1323,9 @@ func (a *ProjectWorkItemsAPIService) GetWorkItemsByProjectIdExecute(r ApiGetWork
 	if r.includeIterations != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", r.includeIterations, "form", "")
 	} else {
-		var defaultValue bool = true
-		r.includeIterations = &defaultValue
+        var defaultValue bool = true
+        parameterAddToHeaderOrQuery(localVarQueryParams, "includeIterations", defaultValue, "form", "")
+        r.includeIterations = &defaultValue
 	}
 	if r.skip != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "Skip", r.skip, "form", "")
