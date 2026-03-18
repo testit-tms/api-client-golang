@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Outcome** | **string** |  | 
-**Status** | [**TestStatusApiResult**](TestStatusApiResult.md) |  | 
-**RunNumber** | **int32** |  | 
+**Id** | **string** | Identifier of the rerun result. | 
+**Outcome** | **string** | Status of the autotest run. | 
+**Status** | [**TestStatusShortApiResult**](TestStatusShortApiResult.md) | Status of the autotest run. | 
+**RunNumber** | **int32** | Number of the run (e.g., 1 for the first attempt). | 
 
 ## Methods
 
 ### NewRerunTestResultApiResult
 
-`func NewRerunTestResultApiResult(id string, outcome string, status TestStatusApiResult, runNumber int32, ) *RerunTestResultApiResult`
+`func NewRerunTestResultApiResult(id string, outcome string, status TestStatusShortApiResult, runNumber int32, ) *RerunTestResultApiResult`
 
 NewRerunTestResultApiResult instantiates a new RerunTestResultApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetOutcome sets Outcome field to given value.
 
 ### GetStatus
 
-`func (o *RerunTestResultApiResult) GetStatus() TestStatusApiResult`
+`func (o *RerunTestResultApiResult) GetStatus() TestStatusShortApiResult`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *RerunTestResultApiResult) GetStatusOk() (*TestStatusApiResult, bool)`
+`func (o *RerunTestResultApiResult) GetStatusOk() (*TestStatusShortApiResult, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *RerunTestResultApiResult) SetStatus(v TestStatusApiResult)`
+`func (o *RerunTestResultApiResult) SetStatus(v TestStatusShortApiResult)`
 
 SetStatus sets Status field to given value.
 

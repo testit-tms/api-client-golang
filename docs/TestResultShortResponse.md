@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **StartedOn** | Pointer to **NullableTime** | Date when the test result has been started | [optional] 
 **CompletedOn** | Pointer to **NullableTime** | Date when the test result has been completed | [optional] 
 **Duration** | Pointer to **NullableInt64** | Time which it took to run the test | [optional] 
-**Links** | [**[]LinkShort**](LinkShort.md) | Collection of links attached to the test result | 
+**Links** | [**[]TestResultLinkApiResult**](TestResultLinkApiResult.md) | Collection of links attached to the test result | 
 **Attachments** | [**[]AttachmentApiResult**](AttachmentApiResult.md) | Collection of files attached to the test result | 
 **RerunCompletedCount** | **int32** | Run count | 
 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultShortResponse
 
-`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, autoTestTags []string, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32, ) *TestResultShortResponse`
+`func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, autoTestTags []string, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []TestResultLinkApiResult, attachments []AttachmentApiResult, rerunCompletedCount int32, ) *TestResultShortResponse`
 
 NewTestResultShortResponse instantiates a new TestResultShortResponse object
 This constructor will assign default values to properties that have it defined,
@@ -512,20 +512,20 @@ HasDuration returns a boolean if a field has been set.
 UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 ### GetLinks
 
-`func (o *TestResultShortResponse) GetLinks() []LinkShort`
+`func (o *TestResultShortResponse) GetLinks() []TestResultLinkApiResult`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *TestResultShortResponse) GetLinksOk() (*[]LinkShort, bool)`
+`func (o *TestResultShortResponse) GetLinksOk() (*[]TestResultLinkApiResult, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *TestResultShortResponse) SetLinks(v []LinkShort)`
+`func (o *TestResultShortResponse) SetLinks(v []TestResultLinkApiResult)`
 
 SetLinks sets Links field to given value.
 

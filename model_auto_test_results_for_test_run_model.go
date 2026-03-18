@@ -33,8 +33,10 @@ type AutoTestResultsForTestRunModel struct {
 	// Specifies the result of the autotest execution.
 	// Deprecated
 	Outcome NullableAvailableTestResultOutcome `json:"outcome,omitempty"`
-	// Specifies the result of the autotest execution.
+	// Specifies code of result status of the autotest execution.
 	StatusCode NullableString `json:"statusCode,omitempty"`
+	// Specifies type of result status of the autotest execution.
+	StatusType NullableTestStatusType `json:"statusType,omitempty"`
 	// A comment for the result.
 	Message NullableString `json:"message,omitempty"`
 	// An extended comment or a stack trace.
@@ -279,6 +281,48 @@ func (o *AutoTestResultsForTestRunModel) SetStatusCodeNil() {
 // UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
 func (o *AutoTestResultsForTestRunModel) UnsetStatusCode() {
 	o.StatusCode.Unset()
+}
+
+// GetStatusType returns the StatusType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestResultsForTestRunModel) GetStatusType() TestStatusType {
+	if o == nil || IsNil(o.StatusType.Get()) {
+		var ret TestStatusType
+		return ret
+	}
+	return *o.StatusType.Get()
+}
+
+// GetStatusTypeOk returns a tuple with the StatusType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestResultsForTestRunModel) GetStatusTypeOk() (*TestStatusType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StatusType.Get(), o.StatusType.IsSet()
+}
+
+// HasStatusType returns a boolean if a field has been set.
+func (o *AutoTestResultsForTestRunModel) HasStatusType() bool {
+	if o != nil && o.StatusType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusType gets a reference to the given NullableTestStatusType and assigns it to the StatusType field.
+func (o *AutoTestResultsForTestRunModel) SetStatusType(v TestStatusType) {
+	o.StatusType.Set(&v)
+}
+// SetStatusTypeNil sets the value for StatusType to be an explicit nil
+func (o *AutoTestResultsForTestRunModel) SetStatusTypeNil() {
+	o.StatusType.Set(nil)
+}
+
+// UnsetStatusType ensures that no value is present for StatusType, not even an explicit nil
+func (o *AutoTestResultsForTestRunModel) UnsetStatusType() {
+	o.StatusType.Unset()
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -712,6 +756,9 @@ func (o AutoTestResultsForTestRunModel) ToMap() (map[string]interface{}, error) 
 	}
 	if o.StatusCode.IsSet() {
 		toSerialize["statusCode"] = o.StatusCode.Get()
+	}
+	if o.StatusType.IsSet() {
+		toSerialize["statusType"] = o.StatusType.Get()
 	}
 	if o.Message.IsSet() {
 		toSerialize["message"] = o.Message.Get()

@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **FailureReasonNames** | Pointer to [**[]FailureCategoryModel**](FailureCategoryModel.md) | Specifies the cause of autotest failure. | [optional] 
 **AutoTestExternalId** | **string** | Specifies the external ID of the autotest, which was specified when the test run was created. | 
 **Outcome** | Pointer to [**NullableAvailableTestResultOutcome**](AvailableTestResultOutcome.md) | Specifies the result of the autotest execution. | [optional] 
-**StatusCode** | Pointer to **NullableString** | Specifies the result of the autotest execution. | [optional] 
+**StatusCode** | Pointer to **NullableString** | Specifies code of result status of the autotest execution. | [optional] 
+**StatusType** | Pointer to [**NullableTestStatusType**](TestStatusType.md) | Specifies type of result status of the autotest execution. | [optional] 
 **Message** | Pointer to **NullableString** | A comment for the result. | [optional] 
 **Traces** | Pointer to **NullableString** | An extended comment or a stack trace. | [optional] 
 **StartedOn** | Pointer to **NullableTime** | Test run start date. | [optional] 
@@ -221,6 +222,41 @@ HasStatusCode returns a boolean if a field has been set.
 `func (o *AutoTestResultsForTestRunModel) UnsetStatusCode()`
 
 UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
+### GetStatusType
+
+`func (o *AutoTestResultsForTestRunModel) GetStatusType() TestStatusType`
+
+GetStatusType returns the StatusType field if non-nil, zero value otherwise.
+
+### GetStatusTypeOk
+
+`func (o *AutoTestResultsForTestRunModel) GetStatusTypeOk() (*TestStatusType, bool)`
+
+GetStatusTypeOk returns a tuple with the StatusType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusType
+
+`func (o *AutoTestResultsForTestRunModel) SetStatusType(v TestStatusType)`
+
+SetStatusType sets StatusType field to given value.
+
+### HasStatusType
+
+`func (o *AutoTestResultsForTestRunModel) HasStatusType() bool`
+
+HasStatusType returns a boolean if a field has been set.
+
+### SetStatusTypeNil
+
+`func (o *AutoTestResultsForTestRunModel) SetStatusTypeNil(b bool)`
+
+ SetStatusTypeNil sets the value for StatusType to be an explicit nil
+
+### UnsetStatusType
+`func (o *AutoTestResultsForTestRunModel) UnsetStatusType()`
+
+UnsetStatusType ensures that no value is present for StatusType, not even an explicit nil
 ### GetMessage
 
 `func (o *AutoTestResultsForTestRunModel) GetMessage() string`

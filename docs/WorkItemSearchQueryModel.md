@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Types** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
 **CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
-**Duration** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a work item duration range to search for | [optional] 
+**Duration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a work item duration range to search for | [optional] 
 **MedianDuration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a work item median duration range to search for | [optional] 
 **IsAutomated** | Pointer to **NullableBool** | Is result must consist of only manual/automated work items | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags | [optional] 
@@ -575,20 +575,20 @@ HasModifiedDate returns a boolean if a field has been set.
 UnsetModifiedDate ensures that no value is present for ModifiedDate, not even an explicit nil
 ### GetDuration
 
-`func (o *WorkItemSearchQueryModel) GetDuration() Int32RangeSelectorModel`
+`func (o *WorkItemSearchQueryModel) GetDuration() Int64RangeSelectorModel`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *WorkItemSearchQueryModel) GetDurationOk() (*Int32RangeSelectorModel, bool)`
+`func (o *WorkItemSearchQueryModel) GetDurationOk() (*Int64RangeSelectorModel, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *WorkItemSearchQueryModel) SetDuration(v Int32RangeSelectorModel)`
+`func (o *WorkItemSearchQueryModel) SetDuration(v Int64RangeSelectorModel)`
 
 SetDuration sets Duration field to given value.
 

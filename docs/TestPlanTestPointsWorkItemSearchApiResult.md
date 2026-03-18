@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **VersionNumber** | **int32** |  | 
 **MedianDuration** | Pointer to **NullableInt64** |  | [optional] 
 **IsDeleted** | Pointer to **NullableBool** |  | [optional] 
-**Duration** | **int32** |  | 
+**Duration** | **int64** |  | 
 **State** | [**WorkItemState**](WorkItemState.md) |  | 
 **Tags** | **[]string** |  | 
 **Attributes** | **map[string]interface{}** |  | 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewTestPlanTestPointsWorkItemSearchApiResult
 
-`func NewTestPlanTestPointsWorkItemSearchApiResult(id string, globalId int64, versionId string, versionNumber int32, duration int32, state WorkItemState, tags []string, attributes map[string]interface{}, isAutomated bool, name string, priority WorkItemPriority, section TestPlanTestPointsSectionSearchApiResult, created AuditApiResult, ) *TestPlanTestPointsWorkItemSearchApiResult`
+`func NewTestPlanTestPointsWorkItemSearchApiResult(id string, globalId int64, versionId string, versionNumber int32, duration int64, state WorkItemState, tags []string, attributes map[string]interface{}, isAutomated bool, name string, priority WorkItemPriority, section TestPlanTestPointsSectionSearchApiResult, created AuditApiResult, ) *TestPlanTestPointsWorkItemSearchApiResult`
 
 NewTestPlanTestPointsWorkItemSearchApiResult instantiates a new TestPlanTestPointsWorkItemSearchApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -193,20 +193,20 @@ HasIsDeleted returns a boolean if a field has been set.
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 ### GetDuration
 
-`func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDuration() int32`
+`func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDuration() int64`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDurationOk() (*int32, bool)`
+`func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDurationOk() (*int64, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *TestPlanTestPointsWorkItemSearchApiResult) SetDuration(v int32)`
+`func (o *TestPlanTestPointsWorkItemSearchApiResult) SetDuration(v int64)`
 
 SetDuration sets Duration field to given value.
 

@@ -21,7 +21,9 @@ var _ MappedNullable = &ConfigurationShortApiResult{}
 
 // ConfigurationShortApiResult struct for ConfigurationShortApiResult
 type ConfigurationShortApiResult struct {
+	// Identifier of the configuration.
 	Id string `json:"id"`
+	// Name of the configuration.
 	Name string `json:"name"`
 }
 

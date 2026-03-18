@@ -23,6 +23,7 @@ type TestResultUpdateV2Request struct {
 	// Deprecated
 	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
 	StatusCode NullableString `json:"statusCode,omitempty"`
+	StatusType NullableTestStatusType `json:"statusType,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
 	Links []Link `json:"links,omitempty"`
 	StepResults []StepResultApiModel `json:"stepResults,omitempty"`
@@ -172,6 +173,48 @@ func (o *TestResultUpdateV2Request) SetStatusCodeNil() {
 // UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
 func (o *TestResultUpdateV2Request) UnsetStatusCode() {
 	o.StatusCode.Unset()
+}
+
+// GetStatusType returns the StatusType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultUpdateV2Request) GetStatusType() TestStatusType {
+	if o == nil || IsNil(o.StatusType.Get()) {
+		var ret TestStatusType
+		return ret
+	}
+	return *o.StatusType.Get()
+}
+
+// GetStatusTypeOk returns a tuple with the StatusType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultUpdateV2Request) GetStatusTypeOk() (*TestStatusType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.StatusType.Get(), o.StatusType.IsSet()
+}
+
+// HasStatusType returns a boolean if a field has been set.
+func (o *TestResultUpdateV2Request) HasStatusType() bool {
+	if o != nil && o.StatusType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusType gets a reference to the given NullableTestStatusType and assigns it to the StatusType field.
+func (o *TestResultUpdateV2Request) SetStatusType(v TestStatusType) {
+	o.StatusType.Set(&v)
+}
+// SetStatusTypeNil sets the value for StatusType to be an explicit nil
+func (o *TestResultUpdateV2Request) SetStatusTypeNil() {
+	o.StatusType.Set(nil)
+}
+
+// UnsetStatusType ensures that no value is present for StatusType, not even an explicit nil
+func (o *TestResultUpdateV2Request) UnsetStatusType() {
+	o.StatusType.Unset()
 }
 
 // GetComment returns the Comment field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -603,6 +646,9 @@ func (o TestResultUpdateV2Request) ToMap() (map[string]interface{}, error) {
 	}
 	if o.StatusCode.IsSet() {
 		toSerialize["statusCode"] = o.StatusCode.Get()
+	}
+	if o.StatusType.IsSet() {
+		toSerialize["statusType"] = o.StatusType.Get()
 	}
 	if o.Comment.IsSet() {
 		toSerialize["comment"] = o.Comment.Get()

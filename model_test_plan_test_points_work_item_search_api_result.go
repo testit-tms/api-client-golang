@@ -27,7 +27,7 @@ type TestPlanTestPointsWorkItemSearchApiResult struct {
 	VersionNumber int32 `json:"versionNumber"`
 	MedianDuration NullableInt64 `json:"medianDuration,omitempty"`
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
-	Duration int32 `json:"duration"`
+	Duration int64 `json:"duration"`
 	State WorkItemState `json:"state"`
 	Tags []string `json:"tags"`
 	Attributes map[string]interface{} `json:"attributes"`
@@ -46,7 +46,7 @@ type _TestPlanTestPointsWorkItemSearchApiResult TestPlanTestPointsWorkItemSearch
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestPlanTestPointsWorkItemSearchApiResult(id string, globalId int64, versionId string, versionNumber int32, duration int32, state WorkItemState, tags []string, attributes map[string]interface{}, isAutomated bool, name string, priority WorkItemPriority, section TestPlanTestPointsSectionSearchApiResult, created AuditApiResult) *TestPlanTestPointsWorkItemSearchApiResult {
+func NewTestPlanTestPointsWorkItemSearchApiResult(id string, globalId int64, versionId string, versionNumber int32, duration int64, state WorkItemState, tags []string, attributes map[string]interface{}, isAutomated bool, name string, priority WorkItemPriority, section TestPlanTestPointsSectionSearchApiResult, created AuditApiResult) *TestPlanTestPointsWorkItemSearchApiResult {
 	this := TestPlanTestPointsWorkItemSearchApiResult{}
 	this.Id = id
 	this.GlobalId = globalId
@@ -253,9 +253,9 @@ func (o *TestPlanTestPointsWorkItemSearchApiResult) UnsetIsDeleted() {
 }
 
 // GetDuration returns the Duration field value
-func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDuration() int32 {
+func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDuration() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -264,7 +264,7 @@ func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDuration() int32 {
 
 // GetDurationOk returns a tuple with the Duration field value
 // and a boolean to check if the value has been set.
-func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDurationOk() (*int32, bool) {
+func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDurationOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -272,7 +272,7 @@ func (o *TestPlanTestPointsWorkItemSearchApiResult) GetDurationOk() (*int32, boo
 }
 
 // SetDuration sets field value
-func (o *TestPlanTestPointsWorkItemSearchApiResult) SetDuration(v int32) {
+func (o *TestPlanTestPointsWorkItemSearchApiResult) SetDuration(v int64) {
 	o.Duration = v
 }
 

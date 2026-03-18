@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Name** | **string** |  | 
-**Code** | **string** |  | 
-**Type** | [**TestStatusApiType**](TestStatusApiType.md) | Collection of possible status types | 
+**Id** | **string** | Identifier of the test status. | 
+**Code** | **string** | Code representing the test status. | 
+**Name** | **string** | Name of the test status. | 
+**Type** | [**TestStatusApiType**](TestStatusApiType.md) | Type of the test status (e.g., Passed, Failed). | 
 
 ## Methods
 
 ### NewTestStatusShortApiResult
 
-`func NewTestStatusShortApiResult(id string, name string, code string, type_ TestStatusApiType, ) *TestStatusShortApiResult`
+`func NewTestStatusShortApiResult(id string, code string, name string, type_ TestStatusApiType, ) *TestStatusShortApiResult`
 
 NewTestStatusShortApiResult instantiates a new TestStatusShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -48,26 +48,6 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetName
-
-`func (o *TestStatusShortApiResult) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *TestStatusShortApiResult) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *TestStatusShortApiResult) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
 ### GetCode
 
 `func (o *TestStatusShortApiResult) GetCode() string`
@@ -86,6 +66,26 @@ and a boolean to check if the value has been set.
 `func (o *TestStatusShortApiResult) SetCode(v string)`
 
 SetCode sets Code field to given value.
+
+
+### GetName
+
+`func (o *TestStatusShortApiResult) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *TestStatusShortApiResult) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *TestStatusShortApiResult) SetName(v string)`
+
+SetName sets Name field to given value.
 
 
 ### GetType

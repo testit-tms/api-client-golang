@@ -50,7 +50,7 @@ type WorkItemSearchQueryModel struct {
 	// Specifies a work item range of last modification date to search for
 	ModifiedDate NullableDateTimeRangeSelectorModel `json:"modifiedDate,omitempty"`
 	// Specifies a work item duration range to search for
-	Duration NullableInt32RangeSelectorModel `json:"duration,omitempty"`
+	Duration NullableInt64RangeSelectorModel `json:"duration,omitempty"`
 	// Specifies a work item median duration range to search for
 	MedianDuration NullableInt64RangeSelectorModel `json:"medianDuration,omitempty"`
 	// Is result must consist of only manual/automated work items
@@ -618,9 +618,9 @@ func (o *WorkItemSearchQueryModel) UnsetModifiedDate() {
 }
 
 // GetDuration returns the Duration field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemSearchQueryModel) GetDuration() Int32RangeSelectorModel {
+func (o *WorkItemSearchQueryModel) GetDuration() Int64RangeSelectorModel {
 	if o == nil || IsNil(o.Duration.Get()) {
-		var ret Int32RangeSelectorModel
+		var ret Int64RangeSelectorModel
 		return ret
 	}
 	return *o.Duration.Get()
@@ -629,7 +629,7 @@ func (o *WorkItemSearchQueryModel) GetDuration() Int32RangeSelectorModel {
 // GetDurationOk returns a tuple with the Duration field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemSearchQueryModel) GetDurationOk() (*Int32RangeSelectorModel, bool) {
+func (o *WorkItemSearchQueryModel) GetDurationOk() (*Int64RangeSelectorModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -645,8 +645,8 @@ func (o *WorkItemSearchQueryModel) HasDuration() bool {
 	return false
 }
 
-// SetDuration gets a reference to the given NullableInt32RangeSelectorModel and assigns it to the Duration field.
-func (o *WorkItemSearchQueryModel) SetDuration(v Int32RangeSelectorModel) {
+// SetDuration gets a reference to the given NullableInt64RangeSelectorModel and assigns it to the Duration field.
+func (o *WorkItemSearchQueryModel) SetDuration(v Int64RangeSelectorModel) {
 	o.Duration.Set(&v)
 }
 // SetDurationNil sets the value for Duration to be an explicit nil

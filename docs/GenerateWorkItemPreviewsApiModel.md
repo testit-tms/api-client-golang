@@ -4,17 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExternalServiceId** | **string** |  | 
-**TaskKey** | **string** |  | 
-**SectionId** | **string** |  | 
-**Temperature** | **float32** |  | 
-**PreviewLimit** | **int32** |  | 
+**ExternalServiceId** | **string** | The ID of the external AI service to be used for generation. | 
+**TaskKey** | Pointer to **NullableString** | The key of the issue in an issue tracker (e.g., JIRA-123). | [optional] 
+**IssueKey** | Pointer to **NullableString** | The key of the issue in an issue tracker (e.g., JIRA-123). | [optional] 
+**UserContext** | Pointer to **NullableString** | Additional user context or description of the issue if no issue key is provided. | [optional] 
+**Temperature** | **float32** | Controls randomness of the AI model output. | 
+**PreviewLimit** | **int32** | Number of work item previews to generate. | 
 
 ## Methods
 
 ### NewGenerateWorkItemPreviewsApiModel
 
-`func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, taskKey string, sectionId string, temperature float32, previewLimit int32, ) *GenerateWorkItemPreviewsApiModel`
+`func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, temperature float32, previewLimit int32, ) *GenerateWorkItemPreviewsApiModel`
 
 NewGenerateWorkItemPreviewsApiModel instantiates a new GenerateWorkItemPreviewsApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -68,27 +69,92 @@ and a boolean to check if the value has been set.
 
 SetTaskKey sets TaskKey field to given value.
 
+### HasTaskKey
 
-### GetSectionId
+`func (o *GenerateWorkItemPreviewsApiModel) HasTaskKey() bool`
 
-`func (o *GenerateWorkItemPreviewsApiModel) GetSectionId() string`
+HasTaskKey returns a boolean if a field has been set.
 
-GetSectionId returns the SectionId field if non-nil, zero value otherwise.
+### SetTaskKeyNil
 
-### GetSectionIdOk
+`func (o *GenerateWorkItemPreviewsApiModel) SetTaskKeyNil(b bool)`
 
-`func (o *GenerateWorkItemPreviewsApiModel) GetSectionIdOk() (*string, bool)`
+ SetTaskKeyNil sets the value for TaskKey to be an explicit nil
 
-GetSectionIdOk returns a tuple with the SectionId field if it's non-nil, zero value otherwise
+### UnsetTaskKey
+`func (o *GenerateWorkItemPreviewsApiModel) UnsetTaskKey()`
+
+UnsetTaskKey ensures that no value is present for TaskKey, not even an explicit nil
+### GetIssueKey
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetIssueKey() string`
+
+GetIssueKey returns the IssueKey field if non-nil, zero value otherwise.
+
+### GetIssueKeyOk
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetIssueKeyOk() (*string, bool)`
+
+GetIssueKeyOk returns a tuple with the IssueKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSectionId
+### SetIssueKey
 
-`func (o *GenerateWorkItemPreviewsApiModel) SetSectionId(v string)`
+`func (o *GenerateWorkItemPreviewsApiModel) SetIssueKey(v string)`
 
-SetSectionId sets SectionId field to given value.
+SetIssueKey sets IssueKey field to given value.
 
+### HasIssueKey
 
+`func (o *GenerateWorkItemPreviewsApiModel) HasIssueKey() bool`
+
+HasIssueKey returns a boolean if a field has been set.
+
+### SetIssueKeyNil
+
+`func (o *GenerateWorkItemPreviewsApiModel) SetIssueKeyNil(b bool)`
+
+ SetIssueKeyNil sets the value for IssueKey to be an explicit nil
+
+### UnsetIssueKey
+`func (o *GenerateWorkItemPreviewsApiModel) UnsetIssueKey()`
+
+UnsetIssueKey ensures that no value is present for IssueKey, not even an explicit nil
+### GetUserContext
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetUserContext() string`
+
+GetUserContext returns the UserContext field if non-nil, zero value otherwise.
+
+### GetUserContextOk
+
+`func (o *GenerateWorkItemPreviewsApiModel) GetUserContextOk() (*string, bool)`
+
+GetUserContextOk returns a tuple with the UserContext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserContext
+
+`func (o *GenerateWorkItemPreviewsApiModel) SetUserContext(v string)`
+
+SetUserContext sets UserContext field to given value.
+
+### HasUserContext
+
+`func (o *GenerateWorkItemPreviewsApiModel) HasUserContext() bool`
+
+HasUserContext returns a boolean if a field has been set.
+
+### SetUserContextNil
+
+`func (o *GenerateWorkItemPreviewsApiModel) SetUserContextNil(b bool)`
+
+ SetUserContextNil sets the value for UserContext to be an explicit nil
+
+### UnsetUserContext
+`func (o *GenerateWorkItemPreviewsApiModel) UnsetUserContext()`
+
+UnsetUserContext ensures that no value is present for UserContext, not even an explicit nil
 ### GetTemperature
 
 `func (o *GenerateWorkItemPreviewsApiModel) GetTemperature() float32`
