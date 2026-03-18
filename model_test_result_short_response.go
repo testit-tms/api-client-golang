@@ -60,7 +60,7 @@ type TestResultShortResponse struct {
 	// Time which it took to run the test
 	Duration NullableInt64 `json:"duration,omitempty"`
 	// Collection of links attached to the test result
-	Links []LinkShort `json:"links"`
+	Links []TestResultLinkApiResult `json:"links"`
 	// Collection of files attached to the test result
 	Attachments []AttachmentApiResult `json:"attachments"`
 	// Run count
@@ -73,7 +73,7 @@ type _TestResultShortResponse TestResultShortResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, autoTestTags []string, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []LinkShort, attachments []AttachmentApiResult, rerunCompletedCount int32) *TestResultShortResponse {
+func NewTestResultShortResponse(id string, name string, autotestGlobalId int64, autoTestTags []string, testRunId string, configurationId string, configurationName string, status TestStatusApiResult, resultReasons []AutoTestResultReasonShort, date time.Time, createdDate time.Time, links []TestResultLinkApiResult, attachments []AttachmentApiResult, rerunCompletedCount int32) *TestResultShortResponse {
 	this := TestResultShortResponse{}
 	this.Id = id
 	this.Name = name
@@ -665,9 +665,9 @@ func (o *TestResultShortResponse) UnsetDuration() {
 }
 
 // GetLinks returns the Links field value
-func (o *TestResultShortResponse) GetLinks() []LinkShort {
+func (o *TestResultShortResponse) GetLinks() []TestResultLinkApiResult {
 	if o == nil {
-		var ret []LinkShort
+		var ret []TestResultLinkApiResult
 		return ret
 	}
 
@@ -676,7 +676,7 @@ func (o *TestResultShortResponse) GetLinks() []LinkShort {
 
 // GetLinksOk returns a tuple with the Links field value
 // and a boolean to check if the value has been set.
-func (o *TestResultShortResponse) GetLinksOk() ([]LinkShort, bool) {
+func (o *TestResultShortResponse) GetLinksOk() ([]TestResultLinkApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -684,7 +684,7 @@ func (o *TestResultShortResponse) GetLinksOk() ([]LinkShort, bool) {
 }
 
 // SetLinks sets field value
-func (o *TestResultShortResponse) SetLinks(v []LinkShort) {
+func (o *TestResultShortResponse) SetLinks(v []TestResultLinkApiResult) {
 	o.Links = v
 }
 

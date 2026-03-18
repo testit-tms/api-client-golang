@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **SectionName** | **string** | Section name of Work Item | 
 **IsAutomated** | **bool** | Boolean flag determining whether Work Item is automated | 
 **GlobalId** | **int64** | Work Item global identifier | 
-**Duration** | **int32** | Work Item duration | 
+**Duration** | **int64** | Work Item duration | 
 **MedianDuration** | Pointer to **NullableInt64** | Work Item median duration | [optional] 
 **Attributes** | Pointer to **map[string]interface{}** | Work Item attributes | [optional] 
 **CreatedById** | **string** | Unique identifier of user who created Work Item | 
@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemShortApiResult
 
-`func NewWorkItemShortApiResult(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int32, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationApiResult, links []LinkShortApiResult, ) *WorkItemShortApiResult`
+`func NewWorkItemShortApiResult(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int64, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationApiResult, links []LinkShortApiResult, ) *WorkItemShortApiResult`
 
 NewWorkItemShortApiResult instantiates a new WorkItemShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -250,20 +250,20 @@ SetGlobalId sets GlobalId field to given value.
 
 ### GetDuration
 
-`func (o *WorkItemShortApiResult) GetDuration() int32`
+`func (o *WorkItemShortApiResult) GetDuration() int64`
 
 GetDuration returns the Duration field if non-nil, zero value otherwise.
 
 ### GetDurationOk
 
-`func (o *WorkItemShortApiResult) GetDurationOk() (*int32, bool)`
+`func (o *WorkItemShortApiResult) GetDurationOk() (*int64, bool)`
 
 GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuration
 
-`func (o *WorkItemShortApiResult) SetDuration(v int32)`
+`func (o *WorkItemShortApiResult) SetDuration(v int64)`
 
 SetDuration sets Duration field to given value.
 

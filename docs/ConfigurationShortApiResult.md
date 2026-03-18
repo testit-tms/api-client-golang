@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
-**Name** | **string** |  | 
+**Id** | **string** | Identifier of the configuration. | 
+**Name** | **string** | Name of the configuration. | 
 
 ## Methods
 

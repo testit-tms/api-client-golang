@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **FailureClassIds** | Pointer to **[]string** |  | [optional] 
 **Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **StatusCode** | Pointer to **NullableString** |  | [optional] 
+**StatusType** | Pointer to [**NullableTestStatusType**](TestStatusType.md) |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
 **Links** | Pointer to [**[]Link**](Link.md) |  | [optional] 
 **StepResults** | Pointer to [**[]StepResultApiModel**](StepResultApiModel.md) |  | [optional] 
@@ -143,6 +144,41 @@ HasStatusCode returns a boolean if a field has been set.
 `func (o *TestResultUpdateV2Request) UnsetStatusCode()`
 
 UnsetStatusCode ensures that no value is present for StatusCode, not even an explicit nil
+### GetStatusType
+
+`func (o *TestResultUpdateV2Request) GetStatusType() TestStatusType`
+
+GetStatusType returns the StatusType field if non-nil, zero value otherwise.
+
+### GetStatusTypeOk
+
+`func (o *TestResultUpdateV2Request) GetStatusTypeOk() (*TestStatusType, bool)`
+
+GetStatusTypeOk returns a tuple with the StatusType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusType
+
+`func (o *TestResultUpdateV2Request) SetStatusType(v TestStatusType)`
+
+SetStatusType sets StatusType field to given value.
+
+### HasStatusType
+
+`func (o *TestResultUpdateV2Request) HasStatusType() bool`
+
+HasStatusType returns a boolean if a field has been set.
+
+### SetStatusTypeNil
+
+`func (o *TestResultUpdateV2Request) SetStatusTypeNil(b bool)`
+
+ SetStatusTypeNil sets the value for StatusType to be an explicit nil
+
+### UnsetStatusType
+`func (o *TestResultUpdateV2Request) UnsetStatusType()`
+
+UnsetStatusType ensures that no value is present for StatusType, not even an explicit nil
 ### GetComment
 
 `func (o *TestResultUpdateV2Request) GetComment() string`

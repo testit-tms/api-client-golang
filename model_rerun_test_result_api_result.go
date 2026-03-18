@@ -21,9 +21,13 @@ var _ MappedNullable = &RerunTestResultApiResult{}
 
 // RerunTestResultApiResult struct for RerunTestResultApiResult
 type RerunTestResultApiResult struct {
+	// Identifier of the rerun result.
 	Id string `json:"id"`
+	// Status of the autotest run.
 	Outcome string `json:"outcome"`
-	Status TestStatusApiResult `json:"status"`
+	// Status of the autotest run.
+	Status TestStatusShortApiResult `json:"status"`
+	// Number of the run (e.g., 1 for the first attempt).
 	RunNumber int32 `json:"runNumber"`
 }
 
@@ -33,7 +37,7 @@ type _RerunTestResultApiResult RerunTestResultApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRerunTestResultApiResult(id string, outcome string, status TestStatusApiResult, runNumber int32) *RerunTestResultApiResult {
+func NewRerunTestResultApiResult(id string, outcome string, status TestStatusShortApiResult, runNumber int32) *RerunTestResultApiResult {
 	this := RerunTestResultApiResult{}
 	this.Id = id
 	this.Outcome = outcome
@@ -99,9 +103,9 @@ func (o *RerunTestResultApiResult) SetOutcome(v string) {
 }
 
 // GetStatus returns the Status field value
-func (o *RerunTestResultApiResult) GetStatus() TestStatusApiResult {
+func (o *RerunTestResultApiResult) GetStatus() TestStatusShortApiResult {
 	if o == nil {
-		var ret TestStatusApiResult
+		var ret TestStatusShortApiResult
 		return ret
 	}
 
@@ -110,7 +114,7 @@ func (o *RerunTestResultApiResult) GetStatus() TestStatusApiResult {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *RerunTestResultApiResult) GetStatusOk() (*TestStatusApiResult, bool) {
+func (o *RerunTestResultApiResult) GetStatusOk() (*TestStatusShortApiResult, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,7 +122,7 @@ func (o *RerunTestResultApiResult) GetStatusOk() (*TestStatusApiResult, bool) {
 }
 
 // SetStatus sets field value
-func (o *RerunTestResultApiResult) SetStatus(v TestStatusApiResult) {
+func (o *RerunTestResultApiResult) SetStatus(v TestStatusShortApiResult) {
 	o.Status = v
 }
 

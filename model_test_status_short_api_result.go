@@ -21,10 +21,13 @@ var _ MappedNullable = &TestStatusShortApiResult{}
 
 // TestStatusShortApiResult struct for TestStatusShortApiResult
 type TestStatusShortApiResult struct {
+	// Identifier of the test status.
 	Id string `json:"id"`
-	Name string `json:"name"`
+	// Code representing the test status.
 	Code string `json:"code"`
-	// Collection of possible status types
+	// Name of the test status.
+	Name string `json:"name"`
+	// Type of the test status (e.g., Passed, Failed).
 	Type TestStatusApiType `json:"type"`
 }
 
@@ -34,11 +37,11 @@ type _TestStatusShortApiResult TestStatusShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestStatusShortApiResult(id string, name string, code string, type_ TestStatusApiType) *TestStatusShortApiResult {
+func NewTestStatusShortApiResult(id string, code string, name string, type_ TestStatusApiType) *TestStatusShortApiResult {
 	this := TestStatusShortApiResult{}
 	this.Id = id
-	this.Name = name
 	this.Code = code
+	this.Name = name
 	this.Type = type_
 	return &this
 }
@@ -75,30 +78,6 @@ func (o *TestStatusShortApiResult) SetId(v string) {
 	o.Id = v
 }
 
-// GetName returns the Name field value
-func (o *TestStatusShortApiResult) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *TestStatusShortApiResult) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *TestStatusShortApiResult) SetName(v string) {
-	o.Name = v
-}
-
 // GetCode returns the Code field value
 func (o *TestStatusShortApiResult) GetCode() string {
 	if o == nil {
@@ -121,6 +100,30 @@ func (o *TestStatusShortApiResult) GetCodeOk() (*string, bool) {
 // SetCode sets field value
 func (o *TestStatusShortApiResult) SetCode(v string) {
 	o.Code = v
+}
+
+// GetName returns the Name field value
+func (o *TestStatusShortApiResult) GetName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Name
+}
+
+// GetNameOk returns a tuple with the Name field value
+// and a boolean to check if the value has been set.
+func (o *TestStatusShortApiResult) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Name, true
+}
+
+// SetName sets field value
+func (o *TestStatusShortApiResult) SetName(v string) {
+	o.Name = v
 }
 
 // GetType returns the Type field value
@@ -158,8 +161,8 @@ func (o TestStatusShortApiResult) MarshalJSON() ([]byte, error) {
 func (o TestStatusShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["name"] = o.Name
 	toSerialize["code"] = o.Code
+	toSerialize["name"] = o.Name
 	toSerialize["type"] = o.Type
 	return toSerialize, nil
 }
@@ -170,8 +173,8 @@ func (o *TestStatusShortApiResult) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
-		"name",
 		"code",
+		"name",
 		"type",
 	}
 

@@ -21,10 +21,18 @@ var _ MappedNullable = &GenerateWorkItemPreviewsApiModel{}
 
 // GenerateWorkItemPreviewsApiModel struct for GenerateWorkItemPreviewsApiModel
 type GenerateWorkItemPreviewsApiModel struct {
+	// The ID of the external AI service to be used for generation.
 	ExternalServiceId string `json:"externalServiceId"`
-	TaskKey string `json:"taskKey"`
-	SectionId string `json:"sectionId"`
+	// The key of the issue in an issue tracker (e.g., JIRA-123).
+	// Deprecated
+	TaskKey NullableString `json:"taskKey,omitempty"`
+	// The key of the issue in an issue tracker (e.g., JIRA-123).
+	IssueKey NullableString `json:"issueKey,omitempty"`
+	// Additional user context or description of the issue if no issue key is provided.
+	UserContext NullableString `json:"userContext,omitempty"`
+	// Controls randomness of the AI model output.
 	Temperature float32 `json:"temperature"`
+	// Number of work item previews to generate.
 	PreviewLimit int32 `json:"previewLimit"`
 }
 
@@ -34,11 +42,9 @@ type _GenerateWorkItemPreviewsApiModel GenerateWorkItemPreviewsApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, taskKey string, sectionId string, temperature float32, previewLimit int32) *GenerateWorkItemPreviewsApiModel {
+func NewGenerateWorkItemPreviewsApiModel(externalServiceId string, temperature float32, previewLimit int32) *GenerateWorkItemPreviewsApiModel {
 	this := GenerateWorkItemPreviewsApiModel{}
 	this.ExternalServiceId = externalServiceId
-	this.TaskKey = taskKey
-	this.SectionId = sectionId
 	this.Temperature = temperature
 	this.PreviewLimit = previewLimit
 	return &this
@@ -76,52 +82,133 @@ func (o *GenerateWorkItemPreviewsApiModel) SetExternalServiceId(v string) {
 	o.ExternalServiceId = v
 }
 
-// GetTaskKey returns the TaskKey field value
+// GetTaskKey returns the TaskKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// Deprecated
 func (o *GenerateWorkItemPreviewsApiModel) GetTaskKey() string {
-	if o == nil {
+	if o == nil || IsNil(o.TaskKey.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.TaskKey
+	return *o.TaskKey.Get()
 }
 
-// GetTaskKeyOk returns a tuple with the TaskKey field value
+// GetTaskKeyOk returns a tuple with the TaskKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+// Deprecated
 func (o *GenerateWorkItemPreviewsApiModel) GetTaskKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TaskKey, true
+	return o.TaskKey.Get(), o.TaskKey.IsSet()
 }
 
-// SetTaskKey sets field value
+// HasTaskKey returns a boolean if a field has been set.
+func (o *GenerateWorkItemPreviewsApiModel) HasTaskKey() bool {
+	if o != nil && o.TaskKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTaskKey gets a reference to the given NullableString and assigns it to the TaskKey field.
+// Deprecated
 func (o *GenerateWorkItemPreviewsApiModel) SetTaskKey(v string) {
-	o.TaskKey = v
+	o.TaskKey.Set(&v)
+}
+// SetTaskKeyNil sets the value for TaskKey to be an explicit nil
+func (o *GenerateWorkItemPreviewsApiModel) SetTaskKeyNil() {
+	o.TaskKey.Set(nil)
 }
 
-// GetSectionId returns the SectionId field value
-func (o *GenerateWorkItemPreviewsApiModel) GetSectionId() string {
-	if o == nil {
+// UnsetTaskKey ensures that no value is present for TaskKey, not even an explicit nil
+func (o *GenerateWorkItemPreviewsApiModel) UnsetTaskKey() {
+	o.TaskKey.Unset()
+}
+
+// GetIssueKey returns the IssueKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenerateWorkItemPreviewsApiModel) GetIssueKey() string {
+	if o == nil || IsNil(o.IssueKey.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.SectionId
+	return *o.IssueKey.Get()
 }
 
-// GetSectionIdOk returns a tuple with the SectionId field value
+// GetIssueKeyOk returns a tuple with the IssueKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GenerateWorkItemPreviewsApiModel) GetSectionIdOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenerateWorkItemPreviewsApiModel) GetIssueKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.SectionId, true
+	return o.IssueKey.Get(), o.IssueKey.IsSet()
 }
 
-// SetSectionId sets field value
-func (o *GenerateWorkItemPreviewsApiModel) SetSectionId(v string) {
-	o.SectionId = v
+// HasIssueKey returns a boolean if a field has been set.
+func (o *GenerateWorkItemPreviewsApiModel) HasIssueKey() bool {
+	if o != nil && o.IssueKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIssueKey gets a reference to the given NullableString and assigns it to the IssueKey field.
+func (o *GenerateWorkItemPreviewsApiModel) SetIssueKey(v string) {
+	o.IssueKey.Set(&v)
+}
+// SetIssueKeyNil sets the value for IssueKey to be an explicit nil
+func (o *GenerateWorkItemPreviewsApiModel) SetIssueKeyNil() {
+	o.IssueKey.Set(nil)
+}
+
+// UnsetIssueKey ensures that no value is present for IssueKey, not even an explicit nil
+func (o *GenerateWorkItemPreviewsApiModel) UnsetIssueKey() {
+	o.IssueKey.Unset()
+}
+
+// GetUserContext returns the UserContext field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenerateWorkItemPreviewsApiModel) GetUserContext() string {
+	if o == nil || IsNil(o.UserContext.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.UserContext.Get()
+}
+
+// GetUserContextOk returns a tuple with the UserContext field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenerateWorkItemPreviewsApiModel) GetUserContextOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UserContext.Get(), o.UserContext.IsSet()
+}
+
+// HasUserContext returns a boolean if a field has been set.
+func (o *GenerateWorkItemPreviewsApiModel) HasUserContext() bool {
+	if o != nil && o.UserContext.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUserContext gets a reference to the given NullableString and assigns it to the UserContext field.
+func (o *GenerateWorkItemPreviewsApiModel) SetUserContext(v string) {
+	o.UserContext.Set(&v)
+}
+// SetUserContextNil sets the value for UserContext to be an explicit nil
+func (o *GenerateWorkItemPreviewsApiModel) SetUserContextNil() {
+	o.UserContext.Set(nil)
+}
+
+// UnsetUserContext ensures that no value is present for UserContext, not even an explicit nil
+func (o *GenerateWorkItemPreviewsApiModel) UnsetUserContext() {
+	o.UserContext.Unset()
 }
 
 // GetTemperature returns the Temperature field value
@@ -183,8 +270,15 @@ func (o GenerateWorkItemPreviewsApiModel) MarshalJSON() ([]byte, error) {
 func (o GenerateWorkItemPreviewsApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["externalServiceId"] = o.ExternalServiceId
-	toSerialize["taskKey"] = o.TaskKey
-	toSerialize["sectionId"] = o.SectionId
+	if o.TaskKey.IsSet() {
+		toSerialize["taskKey"] = o.TaskKey.Get()
+	}
+	if o.IssueKey.IsSet() {
+		toSerialize["issueKey"] = o.IssueKey.Get()
+	}
+	if o.UserContext.IsSet() {
+		toSerialize["userContext"] = o.UserContext.Get()
+	}
 	toSerialize["temperature"] = o.Temperature
 	toSerialize["previewLimit"] = o.PreviewLimit
 	return toSerialize, nil
@@ -196,8 +290,6 @@ func (o *GenerateWorkItemPreviewsApiModel) UnmarshalJSON(data []byte) (err error
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"externalServiceId",
-		"taskKey",
-		"sectionId",
 		"temperature",
 		"previewLimit",
 	}
