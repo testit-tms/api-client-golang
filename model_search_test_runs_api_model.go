@@ -27,6 +27,8 @@ type SearchTestRunsApiModel struct {
 	CompletedDate NullableDateTimeRangeSelectorModel `json:"completedDate,omitempty"`
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 	ModifiedByIds []string `json:"modifiedByIds,omitempty"`
+	Tags []string `json:"tags,omitempty"`
+	ExcludeTags []string `json:"excludeTags,omitempty"`
 }
 
 // NewSearchTestRunsApiModel instantiates a new SearchTestRunsApiModel object
@@ -307,6 +309,72 @@ func (o *SearchTestRunsApiModel) SetModifiedByIds(v []string) {
 	o.ModifiedByIds = v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SearchTestRunsApiModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SearchTestRunsApiModel) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *SearchTestRunsApiModel) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *SearchTestRunsApiModel) SetTags(v []string) {
+	o.Tags = v
+}
+
+// GetExcludeTags returns the ExcludeTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SearchTestRunsApiModel) GetExcludeTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ExcludeTags
+}
+
+// GetExcludeTagsOk returns a tuple with the ExcludeTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SearchTestRunsApiModel) GetExcludeTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ExcludeTags) {
+		return nil, false
+	}
+	return o.ExcludeTags, true
+}
+
+// HasExcludeTags returns a boolean if a field has been set.
+func (o *SearchTestRunsApiModel) HasExcludeTags() bool {
+	if o != nil && !IsNil(o.ExcludeTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeTags gets a reference to the given []string and assigns it to the ExcludeTags field.
+func (o *SearchTestRunsApiModel) SetExcludeTags(v []string) {
+	o.ExcludeTags = v
+}
+
 func (o SearchTestRunsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -337,6 +405,12 @@ func (o SearchTestRunsApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ModifiedByIds != nil {
 		toSerialize["modifiedByIds"] = o.ModifiedByIds
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
+	}
+	if o.ExcludeTags != nil {
+		toSerialize["excludeTags"] = o.ExcludeTags
 	}
 	return toSerialize, nil
 }

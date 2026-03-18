@@ -65,6 +65,8 @@ type TestRunV2ApiResult struct {
 	Webhooks []NamedEntityApiModel `json:"webhooks"`
 	// Run count
 	RunCount int32 `json:"runCount"`
+	// Collection of tags associated with the test run
+	Tags []string `json:"tags"`
 }
 
 type _TestRunV2ApiResult TestRunV2ApiResult
@@ -73,7 +75,7 @@ type _TestRunV2ApiResult TestRunV2ApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunV2ApiResult(id string, name string, stateName TestRunState, status TestStatusApiResult, projectId string, createdDate time.Time, createdById string, attachments []AttachmentApiResult, links []LinkApiResult, webhooks []NamedEntityApiModel, runCount int32) *TestRunV2ApiResult {
+func NewTestRunV2ApiResult(id string, name string, stateName TestRunState, status TestStatusApiResult, projectId string, createdDate time.Time, createdById string, attachments []AttachmentApiResult, links []LinkApiResult, webhooks []NamedEntityApiModel, runCount int32, tags []string) *TestRunV2ApiResult {
 	this := TestRunV2ApiResult{}
 	this.Id = id
 	this.Name = name
@@ -86,6 +88,7 @@ func NewTestRunV2ApiResult(id string, name string, stateName TestRunState, statu
 	this.Links = links
 	this.Webhooks = webhooks
 	this.RunCount = runCount
+	this.Tags = tags
 	return &this
 }
 
@@ -766,6 +769,30 @@ func (o *TestRunV2ApiResult) SetRunCount(v int32) {
 	o.RunCount = v
 }
 
+// GetTags returns the Tags field value
+func (o *TestRunV2ApiResult) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+func (o *TestRunV2ApiResult) GetTagsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *TestRunV2ApiResult) SetTags(v []string) {
+	o.Tags = v
+}
+
 func (o TestRunV2ApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -817,6 +844,7 @@ func (o TestRunV2ApiResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["webhooks"] = o.Webhooks
 	toSerialize["runCount"] = o.RunCount
+	toSerialize["tags"] = o.Tags
 	return toSerialize, nil
 }
 
@@ -836,6 +864,7 @@ func (o *TestRunV2ApiResult) UnmarshalJSON(data []byte) (err error) {
 		"links",
 		"webhooks",
 		"runCount",
+		"tags",
 	}
 
 	allProperties := make(map[string]interface{})

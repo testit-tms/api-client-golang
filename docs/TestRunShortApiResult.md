@@ -17,12 +17,13 @@ Name | Type | Description | Notes
 **AutoTestsCount** | **int32** | Number of AutoTests run in the test run | 
 **Statistics** | [**TestResultsStatisticsApiResult**](TestResultsStatisticsApiResult.md) | Statistics of the test run | 
 **TestResultsConfigurations** | [**[]ConfigurationShortApiResult**](ConfigurationShortApiResult.md) | Test results configurations | 
+**Tags** | **[]string** | Collection of tags associated with the test run | 
 
 ## Methods
 
 ### NewTestRunShortApiResult
 
-`func NewTestRunShortApiResult(id string, name string, state TestRunState, status TestStatusApiResult, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsApiResult, testResultsConfigurations []ConfigurationShortApiResult, ) *TestRunShortApiResult`
+`func NewTestRunShortApiResult(id string, name string, state TestRunState, status TestStatusApiResult, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsApiResult, testResultsConfigurations []ConfigurationShortApiResult, tags []string, ) *TestRunShortApiResult`
 
 NewTestRunShortApiResult instantiates a new TestRunShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -340,6 +341,26 @@ and a boolean to check if the value has been set.
 `func (o *TestRunShortApiResult) SetTestResultsConfigurations(v []ConfigurationShortApiResult)`
 
 SetTestResultsConfigurations sets TestResultsConfigurations field to given value.
+
+
+### GetTags
+
+`func (o *TestRunShortApiResult) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *TestRunShortApiResult) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *TestRunShortApiResult) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
 
 
 

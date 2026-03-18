@@ -29,6 +29,8 @@ type UpdateMultipleTestRunsApiModel struct {
 	AttachmentUpdateScheme NullableUpdateMultipleAttachmentsApiModel `json:"attachmentUpdateScheme,omitempty"`
 	// Set of links
 	LinkUpdateScheme NullableUpdateMultipleLinksApiModel `json:"linkUpdateScheme,omitempty"`
+	// Set of tags
+	TagUpdateScheme NullableUpdateMultipleTagsApiModel `json:"tagUpdateScheme,omitempty"`
 }
 
 type _UpdateMultipleTestRunsApiModel UpdateMultipleTestRunsApiModel
@@ -201,6 +203,48 @@ func (o *UpdateMultipleTestRunsApiModel) UnsetLinkUpdateScheme() {
 	o.LinkUpdateScheme.Unset()
 }
 
+// GetTagUpdateScheme returns the TagUpdateScheme field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMultipleTestRunsApiModel) GetTagUpdateScheme() UpdateMultipleTagsApiModel {
+	if o == nil || IsNil(o.TagUpdateScheme.Get()) {
+		var ret UpdateMultipleTagsApiModel
+		return ret
+	}
+	return *o.TagUpdateScheme.Get()
+}
+
+// GetTagUpdateSchemeOk returns a tuple with the TagUpdateScheme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMultipleTestRunsApiModel) GetTagUpdateSchemeOk() (*UpdateMultipleTagsApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TagUpdateScheme.Get(), o.TagUpdateScheme.IsSet()
+}
+
+// HasTagUpdateScheme returns a boolean if a field has been set.
+func (o *UpdateMultipleTestRunsApiModel) HasTagUpdateScheme() bool {
+	if o != nil && o.TagUpdateScheme.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTagUpdateScheme gets a reference to the given NullableUpdateMultipleTagsApiModel and assigns it to the TagUpdateScheme field.
+func (o *UpdateMultipleTestRunsApiModel) SetTagUpdateScheme(v UpdateMultipleTagsApiModel) {
+	o.TagUpdateScheme.Set(&v)
+}
+// SetTagUpdateSchemeNil sets the value for TagUpdateScheme to be an explicit nil
+func (o *UpdateMultipleTestRunsApiModel) SetTagUpdateSchemeNil() {
+	o.TagUpdateScheme.Set(nil)
+}
+
+// UnsetTagUpdateScheme ensures that no value is present for TagUpdateScheme, not even an explicit nil
+func (o *UpdateMultipleTestRunsApiModel) UnsetTagUpdateScheme() {
+	o.TagUpdateScheme.Unset()
+}
+
 func (o UpdateMultipleTestRunsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -220,6 +264,9 @@ func (o UpdateMultipleTestRunsApiModel) ToMap() (map[string]interface{}, error) 
 	}
 	if o.LinkUpdateScheme.IsSet() {
 		toSerialize["linkUpdateScheme"] = o.LinkUpdateScheme.Get()
+	}
+	if o.TagUpdateScheme.IsSet() {
+		toSerialize["tagUpdateScheme"] = o.TagUpdateScheme.Get()
 	}
 	return toSerialize, nil
 }

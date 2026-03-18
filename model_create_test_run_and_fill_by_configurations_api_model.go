@@ -35,6 +35,8 @@ type CreateTestRunAndFillByConfigurationsApiModel struct {
 	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
 	// Collection of links to relate to the test run
 	Links []CreateLinkApiModel `json:"links,omitempty"`
+	// Collection of tags to assign to the test run
+	Tags []string `json:"tags,omitempty"`
 	// Specifies an array of work items and configuration to create a test run for.
 	TestPointSelectors []TestPointSelector `json:"testPointSelectors"`
 }
@@ -301,6 +303,39 @@ func (o *CreateTestRunAndFillByConfigurationsApiModel) SetLinks(v []CreateLinkAp
 	o.Links = v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateTestRunAndFillByConfigurationsApiModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateTestRunAndFillByConfigurationsApiModel) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *CreateTestRunAndFillByConfigurationsApiModel) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *CreateTestRunAndFillByConfigurationsApiModel) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetTestPointSelectors returns the TestPointSelectors field value
 func (o *CreateTestRunAndFillByConfigurationsApiModel) GetTestPointSelectors() []TestPointSelector {
 	if o == nil {
@@ -351,6 +386,9 @@ func (o CreateTestRunAndFillByConfigurationsApiModel) ToMap() (map[string]interf
 	}
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
 	}
 	toSerialize["testPointSelectors"] = o.TestPointSelectors
 	return toSerialize, nil

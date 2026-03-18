@@ -35,6 +35,8 @@ type CreateTestRunAndFillByWorkItemsApiModel struct {
 	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
 	// Collection of links to relate to the test run
 	Links []CreateLinkApiModel `json:"links,omitempty"`
+	// Collection of tags to assign to the test run
+	Tags []string `json:"tags,omitempty"`
 	// Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs.
 	ConfigurationIds []string `json:"configurationIds"`
 	// Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
@@ -304,6 +306,39 @@ func (o *CreateTestRunAndFillByWorkItemsApiModel) SetLinks(v []CreateLinkApiMode
 	o.Links = v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateTestRunAndFillByWorkItemsApiModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateTestRunAndFillByWorkItemsApiModel) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *CreateTestRunAndFillByWorkItemsApiModel) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *CreateTestRunAndFillByWorkItemsApiModel) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetConfigurationIds returns the ConfigurationIds field value
 func (o *CreateTestRunAndFillByWorkItemsApiModel) GetConfigurationIds() []string {
 	if o == nil {
@@ -378,6 +413,9 @@ func (o CreateTestRunAndFillByWorkItemsApiModel) ToMap() (map[string]interface{}
 	}
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
 	}
 	toSerialize["configurationIds"] = o.ConfigurationIds
 	toSerialize["workItemIds"] = o.WorkItemIds

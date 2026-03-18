@@ -30,12 +30,13 @@ Name | Type | Description | Notes
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **CreatedByUserName** | Pointer to **NullableString** |  | [optional] 
+**Tags** | **[]string** |  | 
 
 ## Methods
 
 ### NewTestRunApiResult
 
-`func NewTestRunApiResult(id string, isDeleted bool, build string, stateName TestRunState, status TestStatusApiResult, projectId string, autoTests []AutoTestApiResult, autoTestsCount int32, testSuiteIds []string, isAutomated bool, analytic TestRunAnalyticApiResult, testResults []TestResultApiResult, createdDate time.Time, createdById string, ) *TestRunApiResult`
+`func NewTestRunApiResult(id string, isDeleted bool, build string, stateName TestRunState, status TestStatusApiResult, projectId string, autoTests []AutoTestApiResult, autoTestsCount int32, testSuiteIds []string, isAutomated bool, analytic TestRunAnalyticApiResult, testResults []TestResultApiResult, createdDate time.Time, createdById string, tags []string, ) *TestRunApiResult`
 
 NewTestRunApiResult instantiates a new TestRunApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -750,6 +751,26 @@ HasCreatedByUserName returns a boolean if a field has been set.
 `func (o *TestRunApiResult) UnsetCreatedByUserName()`
 
 UnsetCreatedByUserName ensures that no value is present for CreatedByUserName, not even an explicit nil
+### GetTags
+
+`func (o *TestRunApiResult) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *TestRunApiResult) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *TestRunApiResult) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
