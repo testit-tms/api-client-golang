@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **WebhookIds** | **[]string** | Webhook ids to run. | 
 **Build** | Pointer to **NullableString** | Specifies the test run build. | [optional] 
 **ResetNotActualAutomatedTestPoints** | **bool** | Reset test point status when actual work item does not automated. | 
+**Tags** | Pointer to **[]string** | Tags of the test run. | [optional] 
 
 ## Methods
 
@@ -174,6 +175,41 @@ and a boolean to check if the value has been set.
 SetResetNotActualAutomatedTestPoints sets ResetNotActualAutomatedTestPoints field to given value.
 
 
+### GetTags
+
+`func (o *TestPlanTestPointsAutoTestsRunApiModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *TestPlanTestPointsAutoTestsRunApiModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *TestPlanTestPointsAutoTestsRunApiModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *TestPlanTestPointsAutoTestsRunApiModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *TestPlanTestPointsAutoTestsRunApiModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *TestPlanTestPointsAutoTestsRunApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

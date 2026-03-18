@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **LaunchSource** | Pointer to **NullableString** | Specifies the test run launch source. | [optional] 
 **Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Collection of attachment ids to relate to the test run | [optional] 
 **Links** | Pointer to [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Collection of links to relate to the test run | [optional] 
+**Tags** | Pointer to **[]string** | Collection of tags to assign to the test run | [optional] 
 **TestPointSelectors** | [**[]TestPointSelector**](TestPointSelector.md) | Specifies an array of work items and configuration to create a test run for. | 
 
 ## Methods
@@ -247,6 +248,41 @@ HasLinks returns a boolean if a field has been set.
 `func (o *CreateTestRunAndFillByConfigurationsApiModel) UnsetLinks()`
 
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetTags
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetTestPointSelectors
 
 `func (o *CreateTestRunAndFillByConfigurationsApiModel) GetTestPointSelectors() []TestPointSelector`

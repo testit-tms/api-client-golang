@@ -33,6 +33,8 @@ type UpdateEmptyTestRunApiModel struct {
 	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
 	// Collection of links related to the test run
 	Links []UpdateLinkApiModel `json:"links,omitempty"`
+	// Collection of tags to assign to the test run
+	Tags []string `json:"tags,omitempty"`
 }
 
 type _UpdateEmptyTestRunApiModel UpdateEmptyTestRunApiModel
@@ -254,6 +256,39 @@ func (o *UpdateEmptyTestRunApiModel) SetLinks(v []UpdateLinkApiModel) {
 	o.Links = v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateEmptyTestRunApiModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateEmptyTestRunApiModel) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *UpdateEmptyTestRunApiModel) HasTags() bool {
+	if o != nil && !IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *UpdateEmptyTestRunApiModel) SetTags(v []string) {
+	o.Tags = v
+}
+
 func (o UpdateEmptyTestRunApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -277,6 +312,9 @@ func (o UpdateEmptyTestRunApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
+	}
+	if o.Tags != nil {
+		toSerialize["tags"] = o.Tags
 	}
 	return toSerialize, nil
 }

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Test run description | [optional] 
 **AttachmentUpdateScheme** | Pointer to [**NullableUpdateMultipleAttachmentsApiModel**](UpdateMultipleAttachmentsApiModel.md) | Set of attachment ids | [optional] 
 **LinkUpdateScheme** | Pointer to [**NullableUpdateMultipleLinksApiModel**](UpdateMultipleLinksApiModel.md) | Set of links | [optional] 
+**TagUpdateScheme** | Pointer to [**NullableUpdateMultipleTagsApiModel**](UpdateMultipleTagsApiModel.md) | Set of tags | [optional] 
 
 ## Methods
 
@@ -153,6 +154,41 @@ HasLinkUpdateScheme returns a boolean if a field has been set.
 `func (o *UpdateMultipleTestRunsApiModel) UnsetLinkUpdateScheme()`
 
 UnsetLinkUpdateScheme ensures that no value is present for LinkUpdateScheme, not even an explicit nil
+### GetTagUpdateScheme
+
+`func (o *UpdateMultipleTestRunsApiModel) GetTagUpdateScheme() UpdateMultipleTagsApiModel`
+
+GetTagUpdateScheme returns the TagUpdateScheme field if non-nil, zero value otherwise.
+
+### GetTagUpdateSchemeOk
+
+`func (o *UpdateMultipleTestRunsApiModel) GetTagUpdateSchemeOk() (*UpdateMultipleTagsApiModel, bool)`
+
+GetTagUpdateSchemeOk returns a tuple with the TagUpdateScheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTagUpdateScheme
+
+`func (o *UpdateMultipleTestRunsApiModel) SetTagUpdateScheme(v UpdateMultipleTagsApiModel)`
+
+SetTagUpdateScheme sets TagUpdateScheme field to given value.
+
+### HasTagUpdateScheme
+
+`func (o *UpdateMultipleTestRunsApiModel) HasTagUpdateScheme() bool`
+
+HasTagUpdateScheme returns a boolean if a field has been set.
+
+### SetTagUpdateSchemeNil
+
+`func (o *UpdateMultipleTestRunsApiModel) SetTagUpdateSchemeNil(b bool)`
+
+ SetTagUpdateSchemeNil sets the value for TagUpdateScheme to be an explicit nil
+
+### UnsetTagUpdateScheme
+`func (o *UpdateMultipleTestRunsApiModel) UnsetTagUpdateScheme()`
+
+UnsetTagUpdateScheme ensures that no value is present for TagUpdateScheme, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

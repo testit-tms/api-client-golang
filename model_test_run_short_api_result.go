@@ -49,6 +49,8 @@ type TestRunShortApiResult struct {
 	Statistics TestResultsStatisticsApiResult `json:"statistics"`
 	// Test results configurations
 	TestResultsConfigurations []ConfigurationShortApiResult `json:"testResultsConfigurations"`
+	// Collection of tags associated with the test run
+	Tags []string `json:"tags"`
 }
 
 type _TestRunShortApiResult TestRunShortApiResult
@@ -57,7 +59,7 @@ type _TestRunShortApiResult TestRunShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunShortApiResult(id string, name string, state TestRunState, status TestStatusApiResult, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsApiResult, testResultsConfigurations []ConfigurationShortApiResult) *TestRunShortApiResult {
+func NewTestRunShortApiResult(id string, name string, state TestRunState, status TestStatusApiResult, createdDate time.Time, createdById string, isDeleted bool, autoTestsCount int32, statistics TestResultsStatisticsApiResult, testResultsConfigurations []ConfigurationShortApiResult, tags []string) *TestRunShortApiResult {
 	this := TestRunShortApiResult{}
 	this.Id = id
 	this.Name = name
@@ -69,6 +71,7 @@ func NewTestRunShortApiResult(id string, name string, state TestRunState, status
 	this.AutoTestsCount = autoTestsCount
 	this.Statistics = statistics
 	this.TestResultsConfigurations = testResultsConfigurations
+	this.Tags = tags
 	return &this
 }
 
@@ -449,6 +452,30 @@ func (o *TestRunShortApiResult) SetTestResultsConfigurations(v []ConfigurationSh
 	o.TestResultsConfigurations = v
 }
 
+// GetTags returns the Tags field value
+func (o *TestRunShortApiResult) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+func (o *TestRunShortApiResult) GetTagsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *TestRunShortApiResult) SetTags(v []string) {
+	o.Tags = v
+}
+
 func (o TestRunShortApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -478,6 +505,7 @@ func (o TestRunShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["autoTestsCount"] = o.AutoTestsCount
 	toSerialize["statistics"] = o.Statistics
 	toSerialize["testResultsConfigurations"] = o.TestResultsConfigurations
+	toSerialize["tags"] = o.Tags
 	return toSerialize, nil
 }
 
@@ -496,6 +524,7 @@ func (o *TestRunShortApiResult) UnmarshalJSON(data []byte) (err error) {
 		"autoTestsCount",
 		"statistics",
 		"testResultsConfigurations",
+		"tags",
 	}
 
 	allProperties := make(map[string]interface{})

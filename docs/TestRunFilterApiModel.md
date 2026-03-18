@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **FailureCategory** | Pointer to [**[]FailureCategory**](FailureCategory.md) | Specifies failure categories | [optional] 
 **CompletedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a test run range of completed date to search for | [optional] 
 **TestResultsConfigurationIds** | Pointer to **[]string** | Specifies a test result configuration IDs to search for | [optional] 
+**Tags** | Pointer to **[]string** | Specifies a test run tags to search for | [optional] 
+**ExcludeTags** | Pointer to **[]string** | Specifies a test run excluded tags to search for | [optional] 
 
 ## Methods
 
@@ -564,6 +566,76 @@ HasTestResultsConfigurationIds returns a boolean if a field has been set.
 `func (o *TestRunFilterApiModel) UnsetTestResultsConfigurationIds()`
 
 UnsetTestResultsConfigurationIds ensures that no value is present for TestResultsConfigurationIds, not even an explicit nil
+### GetTags
+
+`func (o *TestRunFilterApiModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *TestRunFilterApiModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *TestRunFilterApiModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *TestRunFilterApiModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *TestRunFilterApiModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *TestRunFilterApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetExcludeTags
+
+`func (o *TestRunFilterApiModel) GetExcludeTags() []string`
+
+GetExcludeTags returns the ExcludeTags field if non-nil, zero value otherwise.
+
+### GetExcludeTagsOk
+
+`func (o *TestRunFilterApiModel) GetExcludeTagsOk() (*[]string, bool)`
+
+GetExcludeTagsOk returns a tuple with the ExcludeTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeTags
+
+`func (o *TestRunFilterApiModel) SetExcludeTags(v []string)`
+
+SetExcludeTags sets ExcludeTags field to given value.
+
+### HasExcludeTags
+
+`func (o *TestRunFilterApiModel) HasExcludeTags() bool`
+
+HasExcludeTags returns a boolean if a field has been set.
+
+### SetExcludeTagsNil
+
+`func (o *TestRunFilterApiModel) SetExcludeTagsNil(b bool)`
+
+ SetExcludeTagsNil sets the value for ExcludeTags to be an explicit nil
+
+### UnsetExcludeTags
+`func (o *TestRunFilterApiModel) UnsetExcludeTags()`
+
+UnsetExcludeTags ensures that no value is present for ExcludeTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

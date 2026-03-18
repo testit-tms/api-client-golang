@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **LaunchSource** | Pointer to **NullableString** | Specifies the test run launch source. | [optional] 
 **Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Collection of attachment ids to relate to the test run | [optional] 
 **Links** | Pointer to [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Collection of links to relate to the test run | [optional] 
+**Tags** | Pointer to **[]string** | Collection of tags to assign to the test run | [optional] 
 
 ## Methods
 
@@ -267,6 +268,41 @@ HasLinks returns a boolean if a field has been set.
 `func (o *CreateTestRunAndFillByAutoTestsApiModel) UnsetLinks()`
 
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetTags
+
+`func (o *CreateTestRunAndFillByAutoTestsApiModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *CreateTestRunAndFillByAutoTestsApiModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *CreateTestRunAndFillByAutoTestsApiModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *CreateTestRunAndFillByAutoTestsApiModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *CreateTestRunAndFillByAutoTestsApiModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *CreateTestRunAndFillByAutoTestsApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

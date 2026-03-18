@@ -51,6 +51,7 @@ type TestRunApiResult struct {
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	CreatedByUserName NullableString `json:"createdByUserName,omitempty"`
+	Tags []string `json:"tags"`
 }
 
 type _TestRunApiResult TestRunApiResult
@@ -59,7 +60,7 @@ type _TestRunApiResult TestRunApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestRunApiResult(id string, isDeleted bool, build string, stateName TestRunState, status TestStatusApiResult, projectId string, autoTests []AutoTestApiResult, autoTestsCount int32, testSuiteIds []string, isAutomated bool, analytic TestRunAnalyticApiResult, testResults []TestResultApiResult, createdDate time.Time, createdById string) *TestRunApiResult {
+func NewTestRunApiResult(id string, isDeleted bool, build string, stateName TestRunState, status TestStatusApiResult, projectId string, autoTests []AutoTestApiResult, autoTestsCount int32, testSuiteIds []string, isAutomated bool, analytic TestRunAnalyticApiResult, testResults []TestResultApiResult, createdDate time.Time, createdById string, tags []string) *TestRunApiResult {
 	this := TestRunApiResult{}
 	this.Id = id
 	this.IsDeleted = isDeleted
@@ -75,6 +76,7 @@ func NewTestRunApiResult(id string, isDeleted bool, build string, stateName Test
 	this.TestResults = testResults
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
+	this.Tags = tags
 	return &this
 }
 
@@ -929,6 +931,30 @@ func (o *TestRunApiResult) UnsetCreatedByUserName() {
 	o.CreatedByUserName.Unset()
 }
 
+// GetTags returns the Tags field value
+func (o *TestRunApiResult) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value
+// and a boolean to check if the value has been set.
+func (o *TestRunApiResult) GetTagsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// SetTags sets field value
+func (o *TestRunApiResult) SetTags(v []string) {
+	o.Tags = v
+}
+
 func (o TestRunApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -989,6 +1015,7 @@ func (o TestRunApiResult) ToMap() (map[string]interface{}, error) {
 	if o.CreatedByUserName.IsSet() {
 		toSerialize["createdByUserName"] = o.CreatedByUserName.Get()
 	}
+	toSerialize["tags"] = o.Tags
 	return toSerialize, nil
 }
 
@@ -1011,6 +1038,7 @@ func (o *TestRunApiResult) UnmarshalJSON(data []byte) (err error) {
 		"testResults",
 		"createdDate",
 		"createdById",
+		"tags",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -21,7 +21,7 @@ var _ MappedNullable = &TagApiModel{}
 
 // TagApiModel struct for TagApiModel
 type TagApiModel struct {
-	// Tag name
+	// Name of the tag
 	Name string `json:"name"`
 }
 

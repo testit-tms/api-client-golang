@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **LaunchSource** | Pointer to **NullableString** | Specifies the test run launch source. | [optional] 
 **Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Collection of attachment ids to relate to the test run | [optional] 
 **Links** | Pointer to [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Collection of links to relate to the test run | [optional] 
+**Tags** | Pointer to **[]string** | Collection of tags to assign to the test run | [optional] 
 **ConfigurationIds** | **[]string** | Specifies the configuration GUIDs, from which test points are created. You can specify several GUIDs. | 
 **WorkItemIds** | **[]string** | Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs. | 
 
@@ -248,6 +249,41 @@ HasLinks returns a boolean if a field has been set.
 `func (o *CreateTestRunAndFillByWorkItemsApiModel) UnsetLinks()`
 
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetTags
+
+`func (o *CreateTestRunAndFillByWorkItemsApiModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *CreateTestRunAndFillByWorkItemsApiModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *CreateTestRunAndFillByWorkItemsApiModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *CreateTestRunAndFillByWorkItemsApiModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *CreateTestRunAndFillByWorkItemsApiModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *CreateTestRunAndFillByWorkItemsApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetConfigurationIds
 
 `func (o *CreateTestRunAndFillByWorkItemsApiModel) GetConfigurationIds() []string`

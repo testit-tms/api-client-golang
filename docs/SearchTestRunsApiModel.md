@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **CompletedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **CreatedByIds** | Pointer to **[]string** |  | [optional] 
 **ModifiedByIds** | Pointer to **[]string** |  | [optional] 
+**Tags** | Pointer to **[]string** |  | [optional] 
+**ExcludeTags** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
@@ -276,6 +278,76 @@ HasModifiedByIds returns a boolean if a field has been set.
 `func (o *SearchTestRunsApiModel) UnsetModifiedByIds()`
 
 UnsetModifiedByIds ensures that no value is present for ModifiedByIds, not even an explicit nil
+### GetTags
+
+`func (o *SearchTestRunsApiModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *SearchTestRunsApiModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *SearchTestRunsApiModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *SearchTestRunsApiModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *SearchTestRunsApiModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *SearchTestRunsApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetExcludeTags
+
+`func (o *SearchTestRunsApiModel) GetExcludeTags() []string`
+
+GetExcludeTags returns the ExcludeTags field if non-nil, zero value otherwise.
+
+### GetExcludeTagsOk
+
+`func (o *SearchTestRunsApiModel) GetExcludeTagsOk() (*[]string, bool)`
+
+GetExcludeTagsOk returns a tuple with the ExcludeTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeTags
+
+`func (o *SearchTestRunsApiModel) SetExcludeTags(v []string)`
+
+SetExcludeTags sets ExcludeTags field to given value.
+
+### HasExcludeTags
+
+`func (o *SearchTestRunsApiModel) HasExcludeTags() bool`
+
+HasExcludeTags returns a boolean if a field has been set.
+
+### SetExcludeTagsNil
+
+`func (o *SearchTestRunsApiModel) SetExcludeTagsNil(b bool)`
+
+ SetExcludeTagsNil sets the value for ExcludeTags to be an explicit nil
+
+### UnsetExcludeTags
+`func (o *SearchTestRunsApiModel) UnsetExcludeTags()`
+
+UnsetExcludeTags ensures that no value is present for ExcludeTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

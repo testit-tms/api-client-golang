@@ -25,12 +25,13 @@ Name | Type | Description | Notes
 **CustomParameters** | Pointer to **map[string]string** | Customers test run parameters | [optional] 
 **Webhooks** | [**[]NamedEntityApiModel**](NamedEntityApiModel.md) | Enabled webhooks | 
 **RunCount** | **int32** | Run count | 
+**Tags** | **[]string** | Collection of tags associated with the test run | 
 
 ## Methods
 
 ### NewTestRunV2ApiResult
 
-`func NewTestRunV2ApiResult(id string, name string, stateName TestRunState, status TestStatusApiResult, projectId string, createdDate time.Time, createdById string, attachments []AttachmentApiResult, links []LinkApiResult, webhooks []NamedEntityApiModel, runCount int32, ) *TestRunV2ApiResult`
+`func NewTestRunV2ApiResult(id string, name string, stateName TestRunState, status TestStatusApiResult, projectId string, createdDate time.Time, createdById string, attachments []AttachmentApiResult, links []LinkApiResult, webhooks []NamedEntityApiModel, runCount int32, tags []string, ) *TestRunV2ApiResult`
 
 NewTestRunV2ApiResult instantiates a new TestRunV2ApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -613,6 +614,26 @@ and a boolean to check if the value has been set.
 `func (o *TestRunV2ApiResult) SetRunCount(v int32)`
 
 SetRunCount sets RunCount field to given value.
+
+
+### GetTags
+
+`func (o *TestRunV2ApiResult) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *TestRunV2ApiResult) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *TestRunV2ApiResult) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
 
 
 
