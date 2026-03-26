@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **Attachments** | [**[]AttachmentModel**](AttachmentModel.md) | Files attached to the work item | 
 **Links** | [**[]LinkModel**](LinkModel.md) | Set of links related to the work item | 
 **ExternalIssues** | [**[]ExternalIssueApiResult**](ExternalIssueApiResult.md) | Set of external issues related to the work item | 
+**Parameters** | [**[]WorkItemParameterKeyApiResult**](WorkItemParameterKeyApiResult.md) | Set of parameters related to the work item | 
 **CreatedDate** | **time.Time** | Creation date of the work item | 
 **CreatedById** | **string** | Unique identifier of the work item creator | 
 **ModifiedDate** | Pointer to **NullableTime** | Modification date of the work item | [optional] 
@@ -41,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemApiResult
 
-`func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, createdDate time.Time, createdById string, isDeleted bool, ) *WorkItemApiResult`
+`func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, parameters []WorkItemParameterKeyApiResult, createdDate time.Time, createdById string, isDeleted bool, ) *WorkItemApiResult`
 
 NewWorkItemApiResult instantiates a new WorkItemApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -609,6 +610,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemApiResult) SetExternalIssues(v []ExternalIssueApiResult)`
 
 SetExternalIssues sets ExternalIssues field to given value.
+
+
+### GetParameters
+
+`func (o *WorkItemApiResult) GetParameters() []WorkItemParameterKeyApiResult`
+
+GetParameters returns the Parameters field if non-nil, zero value otherwise.
+
+### GetParametersOk
+
+`func (o *WorkItemApiResult) GetParametersOk() (*[]WorkItemParameterKeyApiResult, bool)`
+
+GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParameters
+
+`func (o *WorkItemApiResult) SetParameters(v []WorkItemParameterKeyApiResult)`
+
+SetParameters sets Parameters field to given value.
 
 
 ### GetCreatedDate

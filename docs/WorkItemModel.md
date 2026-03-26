@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **GlobalId** | **int64** |  | 
 **ExternalIssues** | [**[]ExternalIssueModel**](ExternalIssueModel.md) |  | 
+**Parameters** | [**[]WorkItemParameterKeyModel**](WorkItemParameterKeyModel.md) |  | 
 **Id** | **string** |  | 
 **SectionId** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -41,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemModel
 
-`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
+`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, parameters []WorkItemParameterKeyModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
 
 NewWorkItemModel instantiates a new WorkItemModel object
 This constructor will assign default values to properties that have it defined,
@@ -519,6 +520,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemModel) SetExternalIssues(v []ExternalIssueModel)`
 
 SetExternalIssues sets ExternalIssues field to given value.
+
+
+### GetParameters
+
+`func (o *WorkItemModel) GetParameters() []WorkItemParameterKeyModel`
+
+GetParameters returns the Parameters field if non-nil, zero value otherwise.
+
+### GetParametersOk
+
+`func (o *WorkItemModel) GetParametersOk() (*[]WorkItemParameterKeyModel, bool)`
+
+GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParameters
+
+`func (o *WorkItemModel) SetParameters(v []WorkItemParameterKeyModel)`
+
+SetParameters sets Parameters field to given value.
 
 
 ### GetId

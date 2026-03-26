@@ -56,6 +56,7 @@ type ProjectModel struct {
 	GlobalId int64 `json:"globalId"`
 	// Type of the project
 	Type ProjectTypeModel `json:"type"`
+	// Identifier of current workflow
 	WorkflowId string `json:"workflowId"`
 }
 

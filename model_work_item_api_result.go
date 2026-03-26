@@ -75,6 +75,8 @@ type WorkItemApiResult struct {
 	Links []LinkModel `json:"links"`
 	// Set of external issues related to the work item
 	ExternalIssues []ExternalIssueApiResult `json:"externalIssues"`
+	// Set of parameters related to the work item
+	Parameters []WorkItemParameterKeyApiResult `json:"parameters"`
 	// Creation date of the work item
 	CreatedDate time.Time `json:"createdDate"`
 	// Unique identifier of the work item creator
@@ -93,7 +95,7 @@ type _WorkItemApiResult WorkItemApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, createdDate time.Time, createdById string, isDeleted bool) *WorkItemApiResult {
+func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, parameters []WorkItemParameterKeyApiResult, createdDate time.Time, createdById string, isDeleted bool) *WorkItemApiResult {
 	this := WorkItemApiResult{}
 	this.Id = id
 	this.GlobalId = globalId
@@ -121,6 +123,7 @@ func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNu
 	this.Attachments = attachments
 	this.Links = links
 	this.ExternalIssues = externalIssues
+	this.Parameters = parameters
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
 	this.IsDeleted = isDeleted
@@ -801,6 +804,30 @@ func (o *WorkItemApiResult) SetExternalIssues(v []ExternalIssueApiResult) {
 	o.ExternalIssues = v
 }
 
+// GetParameters returns the Parameters field value
+func (o *WorkItemApiResult) GetParameters() []WorkItemParameterKeyApiResult {
+	if o == nil {
+		var ret []WorkItemParameterKeyApiResult
+		return ret
+	}
+
+	return o.Parameters
+}
+
+// GetParametersOk returns a tuple with the Parameters field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemApiResult) GetParametersOk() ([]WorkItemParameterKeyApiResult, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Parameters, true
+}
+
+// SetParameters sets field value
+func (o *WorkItemApiResult) SetParameters(v []WorkItemParameterKeyApiResult) {
+	o.Parameters = v
+}
+
 // GetCreatedDate returns the CreatedDate field value
 func (o *WorkItemApiResult) GetCreatedDate() time.Time {
 	if o == nil {
@@ -996,6 +1023,7 @@ func (o WorkItemApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["attachments"] = o.Attachments
 	toSerialize["links"] = o.Links
 	toSerialize["externalIssues"] = o.ExternalIssues
+	toSerialize["parameters"] = o.Parameters
 	toSerialize["createdDate"] = o.CreatedDate
 	toSerialize["createdById"] = o.CreatedById
 	if o.ModifiedDate.IsSet() {
@@ -1039,6 +1067,7 @@ func (o *WorkItemApiResult) UnmarshalJSON(data []byte) (err error) {
 		"attachments",
 		"links",
 		"externalIssues",
+		"parameters",
 		"createdDate",
 		"createdById",
 		"isDeleted",

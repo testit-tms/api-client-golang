@@ -26,6 +26,8 @@ type TestResultsFilterApiModel struct {
 	Outcomes []TestResultOutcome `json:"outcomes,omitempty"`
 	// Specifies a test result status codes to search for
 	StatusCodes []string `json:"statusCodes,omitempty"`
+	// Specifies a test result status types to search for
+	StatusTypes []TestStatusApiType `json:"statusTypes,omitempty"`
 	// Specifies a test result failure categories to search for
 	FailureCategories []FailureCategoryModel `json:"failureCategories,omitempty"`
 	// Specifies a test result namespace to search for
@@ -173,6 +175,39 @@ func (o *TestResultsFilterApiModel) HasStatusCodes() bool {
 // SetStatusCodes gets a reference to the given []string and assigns it to the StatusCodes field.
 func (o *TestResultsFilterApiModel) SetStatusCodes(v []string) {
 	o.StatusCodes = v
+}
+
+// GetStatusTypes returns the StatusTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *TestResultsFilterApiModel) GetStatusTypes() []TestStatusApiType {
+	if o == nil {
+		var ret []TestStatusApiType
+		return ret
+	}
+	return o.StatusTypes
+}
+
+// GetStatusTypesOk returns a tuple with the StatusTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *TestResultsFilterApiModel) GetStatusTypesOk() ([]TestStatusApiType, bool) {
+	if o == nil || IsNil(o.StatusTypes) {
+		return nil, false
+	}
+	return o.StatusTypes, true
+}
+
+// HasStatusTypes returns a boolean if a field has been set.
+func (o *TestResultsFilterApiModel) HasStatusTypes() bool {
+	if o != nil && !IsNil(o.StatusTypes) {
+		return true
+	}
+
+	return false
+}
+
+// SetStatusTypes gets a reference to the given []TestStatusApiType and assigns it to the StatusTypes field.
+func (o *TestResultsFilterApiModel) SetStatusTypes(v []TestStatusApiType) {
+	o.StatusTypes = v
 }
 
 // GetFailureCategories returns the FailureCategories field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -727,6 +762,9 @@ func (o TestResultsFilterApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.StatusCodes != nil {
 		toSerialize["statusCodes"] = o.StatusCodes
+	}
+	if o.StatusTypes != nil {
+		toSerialize["statusTypes"] = o.StatusTypes
 	}
 	if o.FailureCategories != nil {
 		toSerialize["failureCategories"] = o.FailureCategories

@@ -55,6 +55,8 @@ type CreateWorkItemApiModel struct {
 	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
 	// Set of links related to the work item
 	Links []CreateLinkApiModel `json:"links"`
+	// Set of parameter keys related to the work item
+	Parameters []WorkItemParameterKeyApiModel `json:"parameters,omitempty"`
 }
 
 type _CreateWorkItemApiModel CreateWorkItemApiModel
@@ -559,6 +561,39 @@ func (o *CreateWorkItemApiModel) SetLinks(v []CreateLinkApiModel) {
 	o.Links = v
 }
 
+// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateWorkItemApiModel) GetParameters() []WorkItemParameterKeyApiModel {
+	if o == nil {
+		var ret []WorkItemParameterKeyApiModel
+		return ret
+	}
+	return o.Parameters
+}
+
+// GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateWorkItemApiModel) GetParametersOk() ([]WorkItemParameterKeyApiModel, bool) {
+	if o == nil || IsNil(o.Parameters) {
+		return nil, false
+	}
+	return o.Parameters, true
+}
+
+// HasParameters returns a boolean if a field has been set.
+func (o *CreateWorkItemApiModel) HasParameters() bool {
+	if o != nil && !IsNil(o.Parameters) {
+		return true
+	}
+
+	return false
+}
+
+// SetParameters gets a reference to the given []WorkItemParameterKeyApiModel and assigns it to the Parameters field.
+func (o *CreateWorkItemApiModel) SetParameters(v []WorkItemParameterKeyApiModel) {
+	o.Parameters = v
+}
+
 func (o CreateWorkItemApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -596,6 +631,9 @@ func (o CreateWorkItemApiModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["attachments"] = o.Attachments
 	}
 	toSerialize["links"] = o.Links
+	if o.Parameters != nil {
+		toSerialize["parameters"] = o.Parameters
+	}
 	return toSerialize, nil
 }
 

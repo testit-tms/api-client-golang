@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Automated tests associated with the work item | [optional] 
 **Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Files attached to the work item | [optional] 
 **Links** | [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Set of links related to the work item | 
+**Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item | [optional] 
 
 ## Methods
 
@@ -456,6 +457,41 @@ and a boolean to check if the value has been set.
 SetLinks sets Links field to given value.
 
 
+### GetParameters
+
+`func (o *CreateWorkItemApiModel) GetParameters() []WorkItemParameterKeyApiModel`
+
+GetParameters returns the Parameters field if non-nil, zero value otherwise.
+
+### GetParametersOk
+
+`func (o *CreateWorkItemApiModel) GetParametersOk() (*[]WorkItemParameterKeyApiModel, bool)`
+
+GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParameters
+
+`func (o *CreateWorkItemApiModel) SetParameters(v []WorkItemParameterKeyApiModel)`
+
+SetParameters sets Parameters field to given value.
+
+### HasParameters
+
+`func (o *CreateWorkItemApiModel) HasParameters() bool`
+
+HasParameters returns a boolean if a field has been set.
+
+### SetParametersNil
+
+`func (o *CreateWorkItemApiModel) SetParametersNil(b bool)`
+
+ SetParametersNil sets the value for Parameters to be an explicit nil
+
+### UnsetParameters
+`func (o *CreateWorkItemApiModel) UnsetParameters()`
+
+UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

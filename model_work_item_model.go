@@ -43,6 +43,7 @@ type WorkItemModel struct {
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	GlobalId int64 `json:"globalId"`
 	ExternalIssues []ExternalIssueModel `json:"externalIssues"`
+	Parameters []WorkItemParameterKeyModel `json:"parameters"`
 	Id string `json:"id"`
 	SectionId string `json:"sectionId"`
 	Description NullableString `json:"description,omitempty"`
@@ -65,7 +66,7 @@ type _WorkItemModel WorkItemModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string) *WorkItemModel {
+func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, parameters []WorkItemParameterKeyModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string) *WorkItemModel {
 	this := WorkItemModel{}
 	this.VersionId = versionId
 	this.MedianDuration = medianDuration
@@ -78,6 +79,7 @@ func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, pr
 	this.CreatedById = createdById
 	this.GlobalId = globalId
 	this.ExternalIssues = externalIssues
+	this.Parameters = parameters
 	this.Id = id
 	this.SectionId = sectionId
 	this.State = state
@@ -615,6 +617,30 @@ func (o *WorkItemModel) SetExternalIssues(v []ExternalIssueModel) {
 	o.ExternalIssues = v
 }
 
+// GetParameters returns the Parameters field value
+func (o *WorkItemModel) GetParameters() []WorkItemParameterKeyModel {
+	if o == nil {
+		var ret []WorkItemParameterKeyModel
+		return ret
+	}
+
+	return o.Parameters
+}
+
+// GetParametersOk returns a tuple with the Parameters field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemModel) GetParametersOk() ([]WorkItemParameterKeyModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Parameters, true
+}
+
+// SetParameters sets field value
+func (o *WorkItemModel) SetParameters(v []WorkItemParameterKeyModel) {
+	o.Parameters = v
+}
+
 // GetId returns the Id field value
 func (o *WorkItemModel) GetId() string {
 	if o == nil {
@@ -1011,6 +1037,7 @@ func (o WorkItemModel) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["externalIssues"] = o.ExternalIssues
+	toSerialize["parameters"] = o.Parameters
 	toSerialize["id"] = o.Id
 	toSerialize["sectionId"] = o.SectionId
 	if o.Description.IsSet() {
@@ -1046,6 +1073,7 @@ func (o *WorkItemModel) UnmarshalJSON(data []byte) (err error) {
 		"createdById",
 		"globalId",
 		"externalIssues",
+		"parameters",
 		"id",
 		"sectionId",
 		"state",

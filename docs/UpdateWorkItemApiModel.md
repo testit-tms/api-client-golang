@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **Attachments** | [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) |  | 
 **Iterations** | Pointer to [**[]AssignIterationApiModel**](AssignIterationApiModel.md) | Collection of parameter id sets | [optional] 
 **AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Collection of autotest internal ids | [optional] 
+**Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item | [optional] 
 
 ## Methods
 
@@ -441,6 +442,41 @@ HasAutoTests returns a boolean if a field has been set.
 `func (o *UpdateWorkItemApiModel) UnsetAutoTests()`
 
 UnsetAutoTests ensures that no value is present for AutoTests, not even an explicit nil
+### GetParameters
+
+`func (o *UpdateWorkItemApiModel) GetParameters() []WorkItemParameterKeyApiModel`
+
+GetParameters returns the Parameters field if non-nil, zero value otherwise.
+
+### GetParametersOk
+
+`func (o *UpdateWorkItemApiModel) GetParametersOk() (*[]WorkItemParameterKeyApiModel, bool)`
+
+GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParameters
+
+`func (o *UpdateWorkItemApiModel) SetParameters(v []WorkItemParameterKeyApiModel)`
+
+SetParameters sets Parameters field to given value.
+
+### HasParameters
+
+`func (o *UpdateWorkItemApiModel) HasParameters() bool`
+
+HasParameters returns a boolean if a field has been set.
+
+### SetParametersNil
+
+`func (o *UpdateWorkItemApiModel) SetParametersNil(b bool)`
+
+ SetParametersNil sets the value for Parameters to be an explicit nil
+
+### UnsetParameters
+`func (o *UpdateWorkItemApiModel) UnsetParameters()`
+
+UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

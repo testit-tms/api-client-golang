@@ -51,6 +51,8 @@ type UpdateWorkItemApiModel struct {
 	Iterations []AssignIterationApiModel `json:"iterations,omitempty"`
 	// Collection of autotest internal ids
 	AutoTests []AutoTestIdModel `json:"autoTests,omitempty"`
+	// Set of parameter keys related to the work item
+	Parameters []WorkItemParameterKeyApiModel `json:"parameters,omitempty"`
 }
 
 type _UpdateWorkItemApiModel UpdateWorkItemApiModel
@@ -547,6 +549,39 @@ func (o *UpdateWorkItemApiModel) SetAutoTests(v []AutoTestIdModel) {
 	o.AutoTests = v
 }
 
+// GetParameters returns the Parameters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateWorkItemApiModel) GetParameters() []WorkItemParameterKeyApiModel {
+	if o == nil {
+		var ret []WorkItemParameterKeyApiModel
+		return ret
+	}
+	return o.Parameters
+}
+
+// GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateWorkItemApiModel) GetParametersOk() ([]WorkItemParameterKeyApiModel, bool) {
+	if o == nil || IsNil(o.Parameters) {
+		return nil, false
+	}
+	return o.Parameters, true
+}
+
+// HasParameters returns a boolean if a field has been set.
+func (o *UpdateWorkItemApiModel) HasParameters() bool {
+	if o != nil && !IsNil(o.Parameters) {
+		return true
+	}
+
+	return false
+}
+
+// SetParameters gets a reference to the given []WorkItemParameterKeyApiModel and assigns it to the Parameters field.
+func (o *UpdateWorkItemApiModel) SetParameters(v []WorkItemParameterKeyApiModel) {
+	o.Parameters = v
+}
+
 func (o UpdateWorkItemApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -581,6 +616,9 @@ func (o UpdateWorkItemApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AutoTests != nil {
 		toSerialize["autoTests"] = o.AutoTests
+	}
+	if o.Parameters != nil {
+		toSerialize["parameters"] = o.Parameters
 	}
 	return toSerialize, nil
 }

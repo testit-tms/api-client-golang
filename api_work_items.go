@@ -4289,7 +4289,7 @@ func (r ApiGetWorkItemByIdRequest) VersionNumber(versionNumber int32) ApiGetWork
 	return r
 }
 
-func (r ApiGetWorkItemByIdRequest) Execute() (*WorkItemModel, *http.Response, error) {
+func (r ApiGetWorkItemByIdRequest) Execute() (*WorkItemApiResult, *http.Response, error) {
 	return r.ApiService.GetWorkItemByIdExecute(r)
 }
 
@@ -4330,13 +4330,13 @@ func (a *WorkItemsAPIService) GetWorkItemById(ctx context.Context, id string) Ap
 }
 
 // Execute executes the request
-//  @return WorkItemModel
-func (a *WorkItemsAPIService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest) (*WorkItemModel, *http.Response, error) {
+//  @return WorkItemApiResult
+func (a *WorkItemsAPIService) GetWorkItemByIdExecute(r ApiGetWorkItemByIdRequest) (*WorkItemApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WorkItemModel
+		localVarReturnValue  *WorkItemApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkItemsAPIService.GetWorkItemById")
