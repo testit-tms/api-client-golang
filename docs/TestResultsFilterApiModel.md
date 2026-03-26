@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ConfigurationIds** | Pointer to **[]string** | Specifies a test result configuration IDs to search for | [optional] 
 **Outcomes** | Pointer to [**[]TestResultOutcome**](TestResultOutcome.md) | Specifies a test result outcomes to search for | [optional] 
 **StatusCodes** | Pointer to **[]string** | Specifies a test result status codes to search for | [optional] 
+**StatusTypes** | Pointer to [**[]TestStatusApiType**](TestStatusApiType.md) | Specifies a test result status types to search for | [optional] 
 **FailureCategories** | Pointer to [**[]FailureCategoryModel**](FailureCategoryModel.md) | Specifies a test result failure categories to search for | [optional] 
 **Namespace** | Pointer to **NullableString** | Specifies a test result namespace to search for | [optional] 
 **ClassName** | Pointer to **NullableString** | Specifies a test result class name to search for | [optional] 
@@ -146,6 +147,41 @@ HasStatusCodes returns a boolean if a field has been set.
 `func (o *TestResultsFilterApiModel) UnsetStatusCodes()`
 
 UnsetStatusCodes ensures that no value is present for StatusCodes, not even an explicit nil
+### GetStatusTypes
+
+`func (o *TestResultsFilterApiModel) GetStatusTypes() []TestStatusApiType`
+
+GetStatusTypes returns the StatusTypes field if non-nil, zero value otherwise.
+
+### GetStatusTypesOk
+
+`func (o *TestResultsFilterApiModel) GetStatusTypesOk() (*[]TestStatusApiType, bool)`
+
+GetStatusTypesOk returns a tuple with the StatusTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusTypes
+
+`func (o *TestResultsFilterApiModel) SetStatusTypes(v []TestStatusApiType)`
+
+SetStatusTypes sets StatusTypes field to given value.
+
+### HasStatusTypes
+
+`func (o *TestResultsFilterApiModel) HasStatusTypes() bool`
+
+HasStatusTypes returns a boolean if a field has been set.
+
+### SetStatusTypesNil
+
+`func (o *TestResultsFilterApiModel) SetStatusTypesNil(b bool)`
+
+ SetStatusTypesNil sets the value for StatusTypes to be an explicit nil
+
+### UnsetStatusTypes
+`func (o *TestResultsFilterApiModel) UnsetStatusTypes()`
+
+UnsetStatusTypes ensures that no value is present for StatusTypes, not even an explicit nil
 ### GetFailureCategories
 
 `func (o *TestResultsFilterApiModel) GetFailureCategories() []FailureCategoryModel`

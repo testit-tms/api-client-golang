@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
 **GlobalId** | **int64** | Global ID of the project | 
 **Type** | [**ProjectTypeModel**](ProjectTypeModel.md) | Type of the project | 
-**WorkflowId** | **string** |  | 
+**WorkflowId** | **string** | Identifier of current workflow | 
 
 ## Methods
 

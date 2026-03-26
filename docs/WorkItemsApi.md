@@ -1495,7 +1495,7 @@ Name | Type | Description  | Notes
 
 ## GetWorkItemById
 
-> WorkItemModel GetWorkItemById(ctx, id).VersionId(versionId).VersionNumber(versionNumber).Execute()
+> WorkItemApiResult GetWorkItemById(ctx, id).VersionId(versionId).VersionNumber(versionNumber).Execute()
 
 Get Test Case, Checklist or Shared Step by Id or GlobalId
 
@@ -1525,7 +1525,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.GetWorkItemById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetWorkItemById`: WorkItemModel
+	// response from `GetWorkItemById`: WorkItemApiResult
 	fmt.Fprintf(os.Stdout, "Response from `WorkItemsAPI.GetWorkItemById`: %v\n", resp)
 }
 ```
@@ -1551,7 +1551,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkItemModel**](WorkItemModel.md)
+[**WorkItemApiResult**](WorkItemApiResult.md)
 
 ### Authorization
 
