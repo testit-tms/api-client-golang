@@ -19,6 +19,7 @@
 | 5.4.1   | 3.2.2-tms-5.4.1 |
 | 5.5     | 3.4.0-tms-5.5  	|
 | 5.6     | 3.5.0-tms-5.6   |
+| 5.7     | 3.6.4-tms-5.7   |
 | Cloud   | 3.6.0 +         |
 
 1. For current versions, see the releases tab. 
@@ -190,7 +191,6 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsTagsGet**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemstagsget) | **Get** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsAPI* | [**GetWorkItemsByProjectId**](docs/ProjectWorkItemsAPI.md#getworkitemsbyprojectid) | **Get** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsAPI* | [**AddGlobalAttributesToProject**](docs/ProjectsAPI.md#addglobalattributestoproject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsAPI* | [**ApiV2ProjectsDemoPost**](docs/ProjectsAPI.md#apiv2projectsdemopost) | **Post** /api/v2/projects/demo | 
 *ProjectsAPI* | [**ApiV2ProjectsIdDelete**](docs/ProjectsAPI.md#apiv2projectsiddelete) | **Delete** /api/v2/projects/{id} | Archive project
 *ProjectsAPI* | [**ApiV2ProjectsIdFailureClassesGet**](docs/ProjectsAPI.md#apiv2projectsidfailureclassesget) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsAPI* | [**ApiV2ProjectsIdFavoritePut**](docs/ProjectsAPI.md#apiv2projectsidfavoriteput) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -214,6 +214,7 @@ Class | Method | HTTP request | Description
 *ProjectsAPI* | [**GetTestPlansByProjectId**](docs/ProjectsAPI.md#gettestplansbyprojectid) | **Get** /api/v2/projects/{id}/testPlans | Get project test plans
 *ProjectsAPI* | [**GetTestRunsByProjectId**](docs/ProjectsAPI.md#gettestrunsbyprojectid) | **Get** /api/v2/projects/{id}/testRuns | Get project test runs
 *ProjectsAPI* | [**UpdateProject**](docs/ProjectsAPI.md#updateproject) | **Put** /api/v2/projects | Update project
+*RolesAPI* | [**ApiV2RolesGet**](docs/RolesAPI.md#apiv2rolesget) | **Get** /api/v2/roles | 
 *SearchAPI* | [**ApiV2SearchGlobalSearchPost**](docs/SearchAPI.md#apiv2searchglobalsearchpost) | **Post** /api/v2/search/globalSearch | 
 *SectionsAPI* | [**ApiV2SectionsIdPatch**](docs/SectionsAPI.md#apiv2sectionsidpatch) | **Patch** /api/v2/sections/{id} | Patch section
 *SectionsAPI* | [**CreateSection**](docs/SectionsAPI.md#createsection) | **Post** /api/v2/sections | Create section
@@ -323,7 +324,12 @@ Class | Method | HTTP request | Description
 *TestSuitesAPI* | [**GetTestSuiteById**](docs/TestSuitesAPI.md#gettestsuitebyid) | **Get** /api/v2/testSuites/{id} | Get TestSuite by Id
 *TestSuitesAPI* | [**SearchWorkItems**](docs/TestSuitesAPI.md#searchworkitems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
 *TestSuitesAPI* | [**SetConfigurationsByTestSuiteId**](docs/TestSuitesAPI.md#setconfigurationsbytestsuiteid) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
+*UserRoleAssignmentsAPI* | [**ApiV2UsersUserIdRolesRoleIdDelete**](docs/UserRoleAssignmentsAPI.md#apiv2usersuseridrolesroleiddelete) | **Delete** /api/v2/users/{userId}/roles/{roleId} | 
+*UserRoleAssignmentsAPI* | [**ApiV2UsersUserIdRolesRoleIdPost**](docs/UserRoleAssignmentsAPI.md#apiv2usersuseridrolesroleidpost) | **Post** /api/v2/users/{userId}/roles/{roleId} | 
 *UsersAPI* | [**ApiV2UsersExistsGet**](docs/UsersAPI.md#apiv2usersexistsget) | **Get** /api/v2/users/exists | 
+*UsersAPI* | [**ApiV2UsersPost**](docs/UsersAPI.md#apiv2userspost) | **Post** /api/v2/users | 
+*UsersAPI* | [**ApiV2UsersUserIdDelete**](docs/UsersAPI.md#apiv2usersuseriddelete) | **Delete** /api/v2/users/{userId} | 
+*UsersAPI* | [**ApiV2UsersUserIdGet**](docs/UsersAPI.md#apiv2usersuseridget) | **Get** /api/v2/users/{userId} | 
 *WebhooksAPI* | [**ApiV2WebhooksDelete**](docs/WebhooksAPI.md#apiv2webhooksdelete) | **Delete** /api/v2/webhooks | 
 *WebhooksAPI* | [**ApiV2WebhooksGet**](docs/WebhooksAPI.md#apiv2webhooksget) | **Get** /api/v2/webhooks | Get all webhooks
 *WebhooksAPI* | [**ApiV2WebhooksIdDelete**](docs/WebhooksAPI.md#apiv2webhooksiddelete) | **Delete** /api/v2/webhooks/{id} | Delete webhook by ID
@@ -478,6 +484,7 @@ Class | Method | HTTP request | Description
  - [CreateTestRunAndFillByConfigurationsApiModel](docs/CreateTestRunAndFillByConfigurationsApiModel.md)
  - [CreateTestRunAndFillByWorkItemsApiModel](docs/CreateTestRunAndFillByWorkItemsApiModel.md)
  - [CreateTestStatusApiModel](docs/CreateTestStatusApiModel.md)
+ - [CreateUserApiModel](docs/CreateUserApiModel.md)
  - [CreateWorkItemApiModel](docs/CreateWorkItemApiModel.md)
  - [CreateWorkItemCommentApiModel](docs/CreateWorkItemCommentApiModel.md)
  - [CreateWorkItemPreviewsApiModel](docs/CreateWorkItemPreviewsApiModel.md)
@@ -505,7 +512,6 @@ Class | Method | HTTP request | Description
  - [DateTimeRangeSelectorModel](docs/DateTimeRangeSelectorModel.md)
  - [DefectApiModel](docs/DefectApiModel.md)
  - [DeletionState](docs/DeletionState.md)
- - [DemoProjectApiResult](docs/DemoProjectApiResult.md)
  - [EnableProjectExternalServiceApiModel](docs/EnableProjectExternalServiceApiModel.md)
  - [ExternalFormAllowedValueModel](docs/ExternalFormAllowedValueModel.md)
  - [ExternalFormCreateModel](docs/ExternalFormCreateModel.md)
@@ -634,6 +640,8 @@ Class | Method | HTTP request | Description
  - [RequestTypeModel](docs/RequestTypeModel.md)
  - [RerunTestResultApiResult](docs/RerunTestResultApiResult.md)
  - [RerunsApiResult](docs/RerunsApiResult.md)
+ - [RoleApiModel](docs/RoleApiModel.md)
+ - [RoleApiModelApiCollection](docs/RoleApiModelApiCollection.md)
  - [SearchCustomAttributeTemplateGetModel](docs/SearchCustomAttributeTemplateGetModel.md)
  - [SearchExternalIssuesApiModel](docs/SearchExternalIssuesApiModel.md)
  - [SearchTestRunsApiModel](docs/SearchTestRunsApiModel.md)
@@ -806,6 +814,7 @@ Class | Method | HTTP request | Description
  - [UpdateWorkItemApiModel](docs/UpdateWorkItemApiModel.md)
  - [UpdateWorkItemCommentApiModel](docs/UpdateWorkItemCommentApiModel.md)
  - [UpdateWorkflowApiModel](docs/UpdateWorkflowApiModel.md)
+ - [UserApiModel](docs/UserApiModel.md)
  - [UserCustomNameValidationResponse](docs/UserCustomNameValidationResponse.md)
  - [UserNameApiResult](docs/UserNameApiResult.md)
  - [ValidationProblemDetails](docs/ValidationProblemDetails.md)

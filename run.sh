@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Настройка переменных
-FILE_NAME="cloud-swagger.json"
-NEW_VERSION="v3.6.4"
+FILE_NAME="5.7-swagger.json"
+NEW_VERSION="v3.6.4-tms-5.7"
 GENERATOR="openapi-generator-cli-7.18.0.jar"
 CONFIG="config/genConfig.yml"
 

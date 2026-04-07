@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
+**SharedStepId** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -45,6 +46,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetSharedStepId
+
+`func (o *ParameterIterationModel) GetSharedStepId() string`
+
+GetSharedStepId returns the SharedStepId field if non-nil, zero value otherwise.
+
+### GetSharedStepIdOk
+
+`func (o *ParameterIterationModel) GetSharedStepIdOk() (*string, bool)`
+
+GetSharedStepIdOk returns a tuple with the SharedStepId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedStepId
+
+`func (o *ParameterIterationModel) SetSharedStepId(v string)`
+
+SetSharedStepId sets SharedStepId field to given value.
+
+### HasSharedStepId
+
+`func (o *ParameterIterationModel) HasSharedStepId() bool`
+
+HasSharedStepId returns a boolean if a field has been set.
+
+### SetSharedStepIdNil
+
+`func (o *ParameterIterationModel) SetSharedStepIdNil(b bool)`
+
+ SetSharedStepIdNil sets the value for SharedStepId to be an explicit nil
+
+### UnsetSharedStepId
+`func (o *ParameterIterationModel) UnsetSharedStepId()`
+
+UnsetSharedStepId ensures that no value is present for SharedStepId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

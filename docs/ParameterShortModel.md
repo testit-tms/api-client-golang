@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
+**SharedStepId** | Pointer to **NullableString** |  | [optional] 
 **ParameterKeyId** | **string** |  | 
 **Value** | **string** | Value of the parameter | 
 **Name** | **string** | Key of the parameter | 
@@ -49,6 +50,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetSharedStepId
+
+`func (o *ParameterShortModel) GetSharedStepId() string`
+
+GetSharedStepId returns the SharedStepId field if non-nil, zero value otherwise.
+
+### GetSharedStepIdOk
+
+`func (o *ParameterShortModel) GetSharedStepIdOk() (*string, bool)`
+
+GetSharedStepIdOk returns a tuple with the SharedStepId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharedStepId
+
+`func (o *ParameterShortModel) SetSharedStepId(v string)`
+
+SetSharedStepId sets SharedStepId field to given value.
+
+### HasSharedStepId
+
+`func (o *ParameterShortModel) HasSharedStepId() bool`
+
+HasSharedStepId returns a boolean if a field has been set.
+
+### SetSharedStepIdNil
+
+`func (o *ParameterShortModel) SetSharedStepIdNil(b bool)`
+
+ SetSharedStepIdNil sets the value for SharedStepId to be an explicit nil
+
+### UnsetSharedStepId
+`func (o *ParameterShortModel) UnsetSharedStepId()`
+
+UnsetSharedStepId ensures that no value is present for SharedStepId, not even an explicit nil
 ### GetParameterKeyId
 
 `func (o *ParameterShortModel) GetParameterKeyId() string`

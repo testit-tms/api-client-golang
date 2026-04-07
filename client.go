@@ -89,6 +89,8 @@ type APIClient struct {
 
 	ProjectsAPI *ProjectsAPIService
 
+	RolesAPI *RolesAPIService
+
 	SearchAPI *SearchAPIService
 
 	SectionsAPI *SectionsAPIService
@@ -106,6 +108,8 @@ type APIClient struct {
 	TestStatusesAPI *TestStatusesAPIService
 
 	TestSuitesAPI *TestSuitesAPIService
+
+	UserRoleAssignmentsAPI *UserRoleAssignmentsAPIService
 
 	UsersAPI *UsersAPIService
 
@@ -156,6 +160,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ProjectTestPlansAPI = (*ProjectTestPlansAPIService)(&c.common)
 	c.ProjectWorkItemsAPI = (*ProjectWorkItemsAPIService)(&c.common)
 	c.ProjectsAPI = (*ProjectsAPIService)(&c.common)
+	c.RolesAPI = (*RolesAPIService)(&c.common)
 	c.SearchAPI = (*SearchAPIService)(&c.common)
 	c.SectionsAPI = (*SectionsAPIService)(&c.common)
 	c.TagsAPI = (*TagsAPIService)(&c.common)
@@ -165,6 +170,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TestRunsAPI = (*TestRunsAPIService)(&c.common)
 	c.TestStatusesAPI = (*TestStatusesAPIService)(&c.common)
 	c.TestSuitesAPI = (*TestSuitesAPIService)(&c.common)
+	c.UserRoleAssignmentsAPI = (*UserRoleAssignmentsAPIService)(&c.common)
 	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)
 	c.WebhooksLogsAPI = (*WebhooksLogsAPIService)(&c.common)

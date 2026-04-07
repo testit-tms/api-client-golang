@@ -22,6 +22,7 @@ var _ MappedNullable = &ParameterIterationModel{}
 // ParameterIterationModel struct for ParameterIterationModel
 type ParameterIterationModel struct {
 	Id string `json:"id"`
+	SharedStepId NullableString `json:"sharedStepId,omitempty"`
 }
 
 type _ParameterIterationModel ParameterIterationModel
@@ -68,6 +69,48 @@ func (o *ParameterIterationModel) SetId(v string) {
 	o.Id = v
 }
 
+// GetSharedStepId returns the SharedStepId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ParameterIterationModel) GetSharedStepId() string {
+	if o == nil || IsNil(o.SharedStepId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SharedStepId.Get()
+}
+
+// GetSharedStepIdOk returns a tuple with the SharedStepId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ParameterIterationModel) GetSharedStepIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SharedStepId.Get(), o.SharedStepId.IsSet()
+}
+
+// HasSharedStepId returns a boolean if a field has been set.
+func (o *ParameterIterationModel) HasSharedStepId() bool {
+	if o != nil && o.SharedStepId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSharedStepId gets a reference to the given NullableString and assigns it to the SharedStepId field.
+func (o *ParameterIterationModel) SetSharedStepId(v string) {
+	o.SharedStepId.Set(&v)
+}
+// SetSharedStepIdNil sets the value for SharedStepId to be an explicit nil
+func (o *ParameterIterationModel) SetSharedStepIdNil() {
+	o.SharedStepId.Set(nil)
+}
+
+// UnsetSharedStepId ensures that no value is present for SharedStepId, not even an explicit nil
+func (o *ParameterIterationModel) UnsetSharedStepId() {
+	o.SharedStepId.Unset()
+}
+
 func (o ParameterIterationModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -79,6 +122,9 @@ func (o ParameterIterationModel) MarshalJSON() ([]byte, error) {
 func (o ParameterIterationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	if o.SharedStepId.IsSet() {
+		toSerialize["sharedStepId"] = o.SharedStepId.Get()
+	}
 	return toSerialize, nil
 }
 

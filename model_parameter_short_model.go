@@ -22,6 +22,7 @@ var _ MappedNullable = &ParameterShortModel{}
 // ParameterShortModel struct for ParameterShortModel
 type ParameterShortModel struct {
 	Id string `json:"id"`
+	SharedStepId NullableString `json:"sharedStepId,omitempty"`
 	ParameterKeyId string `json:"parameterKeyId"`
 	// Value of the parameter
 	Value string `json:"value"`
@@ -76,6 +77,48 @@ func (o *ParameterShortModel) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *ParameterShortModel) SetId(v string) {
 	o.Id = v
+}
+
+// GetSharedStepId returns the SharedStepId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ParameterShortModel) GetSharedStepId() string {
+	if o == nil || IsNil(o.SharedStepId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SharedStepId.Get()
+}
+
+// GetSharedStepIdOk returns a tuple with the SharedStepId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ParameterShortModel) GetSharedStepIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SharedStepId.Get(), o.SharedStepId.IsSet()
+}
+
+// HasSharedStepId returns a boolean if a field has been set.
+func (o *ParameterShortModel) HasSharedStepId() bool {
+	if o != nil && o.SharedStepId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSharedStepId gets a reference to the given NullableString and assigns it to the SharedStepId field.
+func (o *ParameterShortModel) SetSharedStepId(v string) {
+	o.SharedStepId.Set(&v)
+}
+// SetSharedStepIdNil sets the value for SharedStepId to be an explicit nil
+func (o *ParameterShortModel) SetSharedStepIdNil() {
+	o.SharedStepId.Set(nil)
+}
+
+// UnsetSharedStepId ensures that no value is present for SharedStepId, not even an explicit nil
+func (o *ParameterShortModel) UnsetSharedStepId() {
+	o.SharedStepId.Unset()
 }
 
 // GetParameterKeyId returns the ParameterKeyId field value
@@ -185,6 +228,9 @@ func (o ParameterShortModel) MarshalJSON() ([]byte, error) {
 func (o ParameterShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	if o.SharedStepId.IsSet() {
+		toSerialize["sharedStepId"] = o.SharedStepId.Get()
+	}
 	toSerialize["parameterKeyId"] = o.ParameterKeyId
 	toSerialize["value"] = o.Value
 	toSerialize["name"] = o.Name

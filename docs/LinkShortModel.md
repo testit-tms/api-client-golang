@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Title** | **string** |  | 
+**Title** | Pointer to **NullableString** |  | [optional] 
 **Type** | Pointer to **NullableString** |  | [optional] 
 **Url** | **string** |  | 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewLinkShortModel
 
-`func NewLinkShortModel(id string, title string, url string, ) *LinkShortModel`
+`func NewLinkShortModel(id string, url string, ) *LinkShortModel`
 
 NewLinkShortModel instantiates a new LinkShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -67,7 +67,22 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
+### HasTitle
 
+`func (o *LinkShortModel) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *LinkShortModel) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *LinkShortModel) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetType
 
 `func (o *LinkShortModel) GetType() string`
