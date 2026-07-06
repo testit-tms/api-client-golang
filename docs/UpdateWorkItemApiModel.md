@@ -4,30 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Workitem internal identifier | 
-**SectionId** | **string** | Internal identifier of section where workitem is located | 
-**Description** | Pointer to **NullableString** | Workitem description | [optional] 
-**State** | [**WorkItemStates**](WorkItemStates.md) |  | 
-**Priority** | [**WorkItemPriorityModel**](WorkItemPriorityModel.md) |  | 
-**SourceType** | Pointer to [**NullableWorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) |  | [optional] 
-**Steps** | [**[]UpdateStepApiModel**](UpdateStepApiModel.md) | Collection of workitem steps | 
-**PreconditionSteps** | [**[]UpdateStepApiModel**](UpdateStepApiModel.md) | Collection of workitem precondtion steps | 
-**PostconditionSteps** | [**[]UpdateStepApiModel**](UpdateStepApiModel.md) | Collection of workitem postcondition steps | 
-**Duration** | **int64** | Workitem duration in milliseconds | 
-**Attributes** | **map[string]interface{}** | Key value pair of custom workitem attributes | 
-**Tags** | [**[]TagModel**](TagModel.md) | Collection of workitem tags | 
-**Links** | [**[]UpdateLinkApiModel**](UpdateLinkApiModel.md) | Collection of workitem links | 
-**Name** | **string** | Workitem name | 
-**Attachments** | [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) |  | 
-**Iterations** | Pointer to [**[]AssignIterationApiModel**](AssignIterationApiModel.md) | Collection of parameter id sets | [optional] 
-**AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Collection of autotest internal ids | [optional] 
-**Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item | [optional] 
+**Id** | **string** | Unique identifier of the work item | 
+**SectionId** | **string** | Unique identifier of the section within a project | 
+**Name** | **string** | Name of the work item | 
+**Description** | Pointer to **NullableString** | Description of the work item | [optional] 
+**Duration** | **int64** | Duration of the work item in milliseconds | 
+**State** | [**WorkItemStateApiModel**](WorkItemStateApiModel.md) | Current state of the work item | 
+**Priority** | [**WorkItemPriorityApiModel**](WorkItemPriorityApiModel.md) | Priority level assigned to the work item | 
+**Attributes** | Pointer to **map[string]interface{}** | Set of custom attributes associated with the work item | [optional] 
+**Tags** | Pointer to [**[]TagModel**](TagModel.md) | Set of tags applied to the work item | [optional] 
+**PreconditionSteps** | Pointer to [**[]UpdateStepApiModel**](UpdateStepApiModel.md) | Set of precondition steps that must be executed before the main steps | [optional] 
+**Steps** | Pointer to [**[]UpdateStepApiModel**](UpdateStepApiModel.md) | Set of main steps or actions defined for the work item | [optional] 
+**PostconditionSteps** | Pointer to [**[]UpdateStepApiModel**](UpdateStepApiModel.md) | Set of postcondition steps that are executed after completing the main steps | [optional] 
+**Iterations** | Pointer to [**[]AssignIterationApiModel**](AssignIterationApiModel.md) | Set of iterations associated with the work item | [optional] 
+**AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Set of automated tests linked to the work item | [optional] 
+**Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Set of files attached to the work item | [optional] 
+**Links** | Pointer to [**[]UpdateLinkApiModel**](UpdateLinkApiModel.md) | Set of links related to the work item | [optional] 
+**Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys associated with the work item | [optional] 
 
 ## Methods
 
 ### NewUpdateWorkItemApiModel
 
-`func NewUpdateWorkItemApiModel(id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, steps []UpdateStepApiModel, preconditionSteps []UpdateStepApiModel, postconditionSteps []UpdateStepApiModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []UpdateLinkApiModel, name string, attachments []AssignAttachmentApiModel, ) *UpdateWorkItemApiModel`
+`func NewUpdateWorkItemApiModel(id string, sectionId string, name string, duration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, ) *UpdateWorkItemApiModel`
 
 NewUpdateWorkItemApiModel instantiates a new UpdateWorkItemApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -82,6 +81,26 @@ and a boolean to check if the value has been set.
 SetSectionId sets SectionId field to given value.
 
 
+### GetName
+
+`func (o *UpdateWorkItemApiModel) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *UpdateWorkItemApiModel) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *UpdateWorkItemApiModel) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
 ### GetDescription
 
 `func (o *UpdateWorkItemApiModel) GetDescription() string`
@@ -117,141 +136,6 @@ HasDescription returns a boolean if a field has been set.
 `func (o *UpdateWorkItemApiModel) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetState
-
-`func (o *UpdateWorkItemApiModel) GetState() WorkItemStates`
-
-GetState returns the State field if non-nil, zero value otherwise.
-
-### GetStateOk
-
-`func (o *UpdateWorkItemApiModel) GetStateOk() (*WorkItemStates, bool)`
-
-GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetState
-
-`func (o *UpdateWorkItemApiModel) SetState(v WorkItemStates)`
-
-SetState sets State field to given value.
-
-
-### GetPriority
-
-`func (o *UpdateWorkItemApiModel) GetPriority() WorkItemPriorityModel`
-
-GetPriority returns the Priority field if non-nil, zero value otherwise.
-
-### GetPriorityOk
-
-`func (o *UpdateWorkItemApiModel) GetPriorityOk() (*WorkItemPriorityModel, bool)`
-
-GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPriority
-
-`func (o *UpdateWorkItemApiModel) SetPriority(v WorkItemPriorityModel)`
-
-SetPriority sets Priority field to given value.
-
-
-### GetSourceType
-
-`func (o *UpdateWorkItemApiModel) GetSourceType() WorkItemSourceTypeModel`
-
-GetSourceType returns the SourceType field if non-nil, zero value otherwise.
-
-### GetSourceTypeOk
-
-`func (o *UpdateWorkItemApiModel) GetSourceTypeOk() (*WorkItemSourceTypeModel, bool)`
-
-GetSourceTypeOk returns a tuple with the SourceType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSourceType
-
-`func (o *UpdateWorkItemApiModel) SetSourceType(v WorkItemSourceTypeModel)`
-
-SetSourceType sets SourceType field to given value.
-
-### HasSourceType
-
-`func (o *UpdateWorkItemApiModel) HasSourceType() bool`
-
-HasSourceType returns a boolean if a field has been set.
-
-### SetSourceTypeNil
-
-`func (o *UpdateWorkItemApiModel) SetSourceTypeNil(b bool)`
-
- SetSourceTypeNil sets the value for SourceType to be an explicit nil
-
-### UnsetSourceType
-`func (o *UpdateWorkItemApiModel) UnsetSourceType()`
-
-UnsetSourceType ensures that no value is present for SourceType, not even an explicit nil
-### GetSteps
-
-`func (o *UpdateWorkItemApiModel) GetSteps() []UpdateStepApiModel`
-
-GetSteps returns the Steps field if non-nil, zero value otherwise.
-
-### GetStepsOk
-
-`func (o *UpdateWorkItemApiModel) GetStepsOk() (*[]UpdateStepApiModel, bool)`
-
-GetStepsOk returns a tuple with the Steps field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSteps
-
-`func (o *UpdateWorkItemApiModel) SetSteps(v []UpdateStepApiModel)`
-
-SetSteps sets Steps field to given value.
-
-
-### GetPreconditionSteps
-
-`func (o *UpdateWorkItemApiModel) GetPreconditionSteps() []UpdateStepApiModel`
-
-GetPreconditionSteps returns the PreconditionSteps field if non-nil, zero value otherwise.
-
-### GetPreconditionStepsOk
-
-`func (o *UpdateWorkItemApiModel) GetPreconditionStepsOk() (*[]UpdateStepApiModel, bool)`
-
-GetPreconditionStepsOk returns a tuple with the PreconditionSteps field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPreconditionSteps
-
-`func (o *UpdateWorkItemApiModel) SetPreconditionSteps(v []UpdateStepApiModel)`
-
-SetPreconditionSteps sets PreconditionSteps field to given value.
-
-
-### GetPostconditionSteps
-
-`func (o *UpdateWorkItemApiModel) GetPostconditionSteps() []UpdateStepApiModel`
-
-GetPostconditionSteps returns the PostconditionSteps field if non-nil, zero value otherwise.
-
-### GetPostconditionStepsOk
-
-`func (o *UpdateWorkItemApiModel) GetPostconditionStepsOk() (*[]UpdateStepApiModel, bool)`
-
-GetPostconditionStepsOk returns a tuple with the PostconditionSteps field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPostconditionSteps
-
-`func (o *UpdateWorkItemApiModel) SetPostconditionSteps(v []UpdateStepApiModel)`
-
-SetPostconditionSteps sets PostconditionSteps field to given value.
-
-
 ### GetDuration
 
 `func (o *UpdateWorkItemApiModel) GetDuration() int64`
@@ -270,6 +154,46 @@ and a boolean to check if the value has been set.
 `func (o *UpdateWorkItemApiModel) SetDuration(v int64)`
 
 SetDuration sets Duration field to given value.
+
+
+### GetState
+
+`func (o *UpdateWorkItemApiModel) GetState() WorkItemStateApiModel`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *UpdateWorkItemApiModel) GetStateOk() (*WorkItemStateApiModel, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *UpdateWorkItemApiModel) SetState(v WorkItemStateApiModel)`
+
+SetState sets State field to given value.
+
+
+### GetPriority
+
+`func (o *UpdateWorkItemApiModel) GetPriority() WorkItemPriorityApiModel`
+
+GetPriority returns the Priority field if non-nil, zero value otherwise.
+
+### GetPriorityOk
+
+`func (o *UpdateWorkItemApiModel) GetPriorityOk() (*WorkItemPriorityApiModel, bool)`
+
+GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriority
+
+`func (o *UpdateWorkItemApiModel) SetPriority(v WorkItemPriorityApiModel)`
+
+SetPriority sets Priority field to given value.
 
 
 ### GetAttributes
@@ -291,7 +215,22 @@ and a boolean to check if the value has been set.
 
 SetAttributes sets Attributes field to given value.
 
+### HasAttributes
 
+`func (o *UpdateWorkItemApiModel) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
+
+### SetAttributesNil
+
+`func (o *UpdateWorkItemApiModel) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *UpdateWorkItemApiModel) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetTags
 
 `func (o *UpdateWorkItemApiModel) GetTags() []TagModel`
@@ -311,67 +250,127 @@ and a boolean to check if the value has been set.
 
 SetTags sets Tags field to given value.
 
+### HasTags
 
-### GetLinks
+`func (o *UpdateWorkItemApiModel) HasTags() bool`
 
-`func (o *UpdateWorkItemApiModel) GetLinks() []UpdateLinkApiModel`
+HasTags returns a boolean if a field has been set.
 
-GetLinks returns the Links field if non-nil, zero value otherwise.
+### SetTagsNil
 
-### GetLinksOk
+`func (o *UpdateWorkItemApiModel) SetTagsNil(b bool)`
 
-`func (o *UpdateWorkItemApiModel) GetLinksOk() (*[]UpdateLinkApiModel, bool)`
+ SetTagsNil sets the value for Tags to be an explicit nil
 
-GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+### UnsetTags
+`func (o *UpdateWorkItemApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetPreconditionSteps
+
+`func (o *UpdateWorkItemApiModel) GetPreconditionSteps() []UpdateStepApiModel`
+
+GetPreconditionSteps returns the PreconditionSteps field if non-nil, zero value otherwise.
+
+### GetPreconditionStepsOk
+
+`func (o *UpdateWorkItemApiModel) GetPreconditionStepsOk() (*[]UpdateStepApiModel, bool)`
+
+GetPreconditionStepsOk returns a tuple with the PreconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLinks
+### SetPreconditionSteps
 
-`func (o *UpdateWorkItemApiModel) SetLinks(v []UpdateLinkApiModel)`
+`func (o *UpdateWorkItemApiModel) SetPreconditionSteps(v []UpdateStepApiModel)`
 
-SetLinks sets Links field to given value.
+SetPreconditionSteps sets PreconditionSteps field to given value.
 
+### HasPreconditionSteps
 
-### GetName
+`func (o *UpdateWorkItemApiModel) HasPreconditionSteps() bool`
 
-`func (o *UpdateWorkItemApiModel) GetName() string`
+HasPreconditionSteps returns a boolean if a field has been set.
 
-GetName returns the Name field if non-nil, zero value otherwise.
+### SetPreconditionStepsNil
 
-### GetNameOk
+`func (o *UpdateWorkItemApiModel) SetPreconditionStepsNil(b bool)`
 
-`func (o *UpdateWorkItemApiModel) GetNameOk() (*string, bool)`
+ SetPreconditionStepsNil sets the value for PreconditionSteps to be an explicit nil
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+### UnsetPreconditionSteps
+`func (o *UpdateWorkItemApiModel) UnsetPreconditionSteps()`
+
+UnsetPreconditionSteps ensures that no value is present for PreconditionSteps, not even an explicit nil
+### GetSteps
+
+`func (o *UpdateWorkItemApiModel) GetSteps() []UpdateStepApiModel`
+
+GetSteps returns the Steps field if non-nil, zero value otherwise.
+
+### GetStepsOk
+
+`func (o *UpdateWorkItemApiModel) GetStepsOk() (*[]UpdateStepApiModel, bool)`
+
+GetStepsOk returns a tuple with the Steps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetSteps
 
-`func (o *UpdateWorkItemApiModel) SetName(v string)`
+`func (o *UpdateWorkItemApiModel) SetSteps(v []UpdateStepApiModel)`
 
-SetName sets Name field to given value.
+SetSteps sets Steps field to given value.
 
+### HasSteps
 
-### GetAttachments
+`func (o *UpdateWorkItemApiModel) HasSteps() bool`
 
-`func (o *UpdateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel`
+HasSteps returns a boolean if a field has been set.
 
-GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+### SetStepsNil
 
-### GetAttachmentsOk
+`func (o *UpdateWorkItemApiModel) SetStepsNil(b bool)`
 
-`func (o *UpdateWorkItemApiModel) GetAttachmentsOk() (*[]AssignAttachmentApiModel, bool)`
+ SetStepsNil sets the value for Steps to be an explicit nil
 
-GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+### UnsetSteps
+`func (o *UpdateWorkItemApiModel) UnsetSteps()`
+
+UnsetSteps ensures that no value is present for Steps, not even an explicit nil
+### GetPostconditionSteps
+
+`func (o *UpdateWorkItemApiModel) GetPostconditionSteps() []UpdateStepApiModel`
+
+GetPostconditionSteps returns the PostconditionSteps field if non-nil, zero value otherwise.
+
+### GetPostconditionStepsOk
+
+`func (o *UpdateWorkItemApiModel) GetPostconditionStepsOk() (*[]UpdateStepApiModel, bool)`
+
+GetPostconditionStepsOk returns a tuple with the PostconditionSteps field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAttachments
+### SetPostconditionSteps
 
-`func (o *UpdateWorkItemApiModel) SetAttachments(v []AssignAttachmentApiModel)`
+`func (o *UpdateWorkItemApiModel) SetPostconditionSteps(v []UpdateStepApiModel)`
 
-SetAttachments sets Attachments field to given value.
+SetPostconditionSteps sets PostconditionSteps field to given value.
 
+### HasPostconditionSteps
 
+`func (o *UpdateWorkItemApiModel) HasPostconditionSteps() bool`
+
+HasPostconditionSteps returns a boolean if a field has been set.
+
+### SetPostconditionStepsNil
+
+`func (o *UpdateWorkItemApiModel) SetPostconditionStepsNil(b bool)`
+
+ SetPostconditionStepsNil sets the value for PostconditionSteps to be an explicit nil
+
+### UnsetPostconditionSteps
+`func (o *UpdateWorkItemApiModel) UnsetPostconditionSteps()`
+
+UnsetPostconditionSteps ensures that no value is present for PostconditionSteps, not even an explicit nil
 ### GetIterations
 
 `func (o *UpdateWorkItemApiModel) GetIterations() []AssignIterationApiModel`
@@ -442,6 +441,76 @@ HasAutoTests returns a boolean if a field has been set.
 `func (o *UpdateWorkItemApiModel) UnsetAutoTests()`
 
 UnsetAutoTests ensures that no value is present for AutoTests, not even an explicit nil
+### GetAttachments
+
+`func (o *UpdateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel`
+
+GetAttachments returns the Attachments field if non-nil, zero value otherwise.
+
+### GetAttachmentsOk
+
+`func (o *UpdateWorkItemApiModel) GetAttachmentsOk() (*[]AssignAttachmentApiModel, bool)`
+
+GetAttachmentsOk returns a tuple with the Attachments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttachments
+
+`func (o *UpdateWorkItemApiModel) SetAttachments(v []AssignAttachmentApiModel)`
+
+SetAttachments sets Attachments field to given value.
+
+### HasAttachments
+
+`func (o *UpdateWorkItemApiModel) HasAttachments() bool`
+
+HasAttachments returns a boolean if a field has been set.
+
+### SetAttachmentsNil
+
+`func (o *UpdateWorkItemApiModel) SetAttachmentsNil(b bool)`
+
+ SetAttachmentsNil sets the value for Attachments to be an explicit nil
+
+### UnsetAttachments
+`func (o *UpdateWorkItemApiModel) UnsetAttachments()`
+
+UnsetAttachments ensures that no value is present for Attachments, not even an explicit nil
+### GetLinks
+
+`func (o *UpdateWorkItemApiModel) GetLinks() []UpdateLinkApiModel`
+
+GetLinks returns the Links field if non-nil, zero value otherwise.
+
+### GetLinksOk
+
+`func (o *UpdateWorkItemApiModel) GetLinksOk() (*[]UpdateLinkApiModel, bool)`
+
+GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinks
+
+`func (o *UpdateWorkItemApiModel) SetLinks(v []UpdateLinkApiModel)`
+
+SetLinks sets Links field to given value.
+
+### HasLinks
+
+`func (o *UpdateWorkItemApiModel) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *UpdateWorkItemApiModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *UpdateWorkItemApiModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetParameters
 
 `func (o *UpdateWorkItemApiModel) GetParameters() []WorkItemParameterKeyApiModel`

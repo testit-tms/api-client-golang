@@ -37,6 +37,14 @@ type AutoTestProjectSettingsApiResult struct {
 	WorkItemUpdatingEnabled bool `json:"workItemUpdatingEnabled"`
 	// Autotest to work item updating fields
 	WorkItemUpdatingFields WorkItemUpdatingFieldsApiResult `json:"workItemUpdatingFields"`
+	// Indicates whether archiving of outdated test runs is enabled for the project.
+	ArchiveOutdatedTestRunsEnabled bool `json:"archiveOutdatedTestRunsEnabled"`
+	// Indicates whether a limit is enforced on the number of archived test runs.
+	TestRunsArchiveLimitEnabled bool `json:"testRunsArchiveLimitEnabled"`
+	//  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings
+	TestRunsRetentionPeriodDays int32 `json:"testRunsRetentionPeriodDays"`
+	// Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived
+	MaxActiveTestRunsCount int32 `json:"maxActiveTestRunsCount"`
 }
 
 type _AutoTestProjectSettingsApiResult AutoTestProjectSettingsApiResult
@@ -45,7 +53,7 @@ type _AutoTestProjectSettingsApiResult AutoTestProjectSettingsApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, flakyStabilityPercentage int32, flakyTestRunCount int32, rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingEnabled bool, workItemUpdatingFields WorkItemUpdatingFieldsApiResult) *AutoTestProjectSettingsApiResult {
+func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, flakyStabilityPercentage int32, flakyTestRunCount int32, rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingEnabled bool, workItemUpdatingFields WorkItemUpdatingFieldsApiResult, archiveOutdatedTestRunsEnabled bool, testRunsArchiveLimitEnabled bool, testRunsRetentionPeriodDays int32, maxActiveTestRunsCount int32) *AutoTestProjectSettingsApiResult {
 	this := AutoTestProjectSettingsApiResult{}
 	this.ProjectId = projectId
 	this.IsFlakyAuto = isFlakyAuto
@@ -55,6 +63,10 @@ func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, fla
 	this.RerunAttemptsCount = rerunAttemptsCount
 	this.WorkItemUpdatingEnabled = workItemUpdatingEnabled
 	this.WorkItemUpdatingFields = workItemUpdatingFields
+	this.ArchiveOutdatedTestRunsEnabled = archiveOutdatedTestRunsEnabled
+	this.TestRunsArchiveLimitEnabled = testRunsArchiveLimitEnabled
+	this.TestRunsRetentionPeriodDays = testRunsRetentionPeriodDays
+	this.MaxActiveTestRunsCount = maxActiveTestRunsCount
 	return &this
 }
 
@@ -258,6 +270,102 @@ func (o *AutoTestProjectSettingsApiResult) SetWorkItemUpdatingFields(v WorkItemU
 	o.WorkItemUpdatingFields = v
 }
 
+// GetArchiveOutdatedTestRunsEnabled returns the ArchiveOutdatedTestRunsEnabled field value
+func (o *AutoTestProjectSettingsApiResult) GetArchiveOutdatedTestRunsEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.ArchiveOutdatedTestRunsEnabled
+}
+
+// GetArchiveOutdatedTestRunsEnabledOk returns a tuple with the ArchiveOutdatedTestRunsEnabled field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiResult) GetArchiveOutdatedTestRunsEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ArchiveOutdatedTestRunsEnabled, true
+}
+
+// SetArchiveOutdatedTestRunsEnabled sets field value
+func (o *AutoTestProjectSettingsApiResult) SetArchiveOutdatedTestRunsEnabled(v bool) {
+	o.ArchiveOutdatedTestRunsEnabled = v
+}
+
+// GetTestRunsArchiveLimitEnabled returns the TestRunsArchiveLimitEnabled field value
+func (o *AutoTestProjectSettingsApiResult) GetTestRunsArchiveLimitEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.TestRunsArchiveLimitEnabled
+}
+
+// GetTestRunsArchiveLimitEnabledOk returns a tuple with the TestRunsArchiveLimitEnabled field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiResult) GetTestRunsArchiveLimitEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestRunsArchiveLimitEnabled, true
+}
+
+// SetTestRunsArchiveLimitEnabled sets field value
+func (o *AutoTestProjectSettingsApiResult) SetTestRunsArchiveLimitEnabled(v bool) {
+	o.TestRunsArchiveLimitEnabled = v
+}
+
+// GetTestRunsRetentionPeriodDays returns the TestRunsRetentionPeriodDays field value
+func (o *AutoTestProjectSettingsApiResult) GetTestRunsRetentionPeriodDays() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.TestRunsRetentionPeriodDays
+}
+
+// GetTestRunsRetentionPeriodDaysOk returns a tuple with the TestRunsRetentionPeriodDays field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiResult) GetTestRunsRetentionPeriodDaysOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestRunsRetentionPeriodDays, true
+}
+
+// SetTestRunsRetentionPeriodDays sets field value
+func (o *AutoTestProjectSettingsApiResult) SetTestRunsRetentionPeriodDays(v int32) {
+	o.TestRunsRetentionPeriodDays = v
+}
+
+// GetMaxActiveTestRunsCount returns the MaxActiveTestRunsCount field value
+func (o *AutoTestProjectSettingsApiResult) GetMaxActiveTestRunsCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.MaxActiveTestRunsCount
+}
+
+// GetMaxActiveTestRunsCountOk returns a tuple with the MaxActiveTestRunsCount field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiResult) GetMaxActiveTestRunsCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MaxActiveTestRunsCount, true
+}
+
+// SetMaxActiveTestRunsCount sets field value
+func (o *AutoTestProjectSettingsApiResult) SetMaxActiveTestRunsCount(v int32) {
+	o.MaxActiveTestRunsCount = v
+}
+
 func (o AutoTestProjectSettingsApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -276,6 +384,10 @@ func (o AutoTestProjectSettingsApiResult) ToMap() (map[string]interface{}, error
 	toSerialize["rerunAttemptsCount"] = o.RerunAttemptsCount
 	toSerialize["workItemUpdatingEnabled"] = o.WorkItemUpdatingEnabled
 	toSerialize["workItemUpdatingFields"] = o.WorkItemUpdatingFields
+	toSerialize["archiveOutdatedTestRunsEnabled"] = o.ArchiveOutdatedTestRunsEnabled
+	toSerialize["testRunsArchiveLimitEnabled"] = o.TestRunsArchiveLimitEnabled
+	toSerialize["testRunsRetentionPeriodDays"] = o.TestRunsRetentionPeriodDays
+	toSerialize["maxActiveTestRunsCount"] = o.MaxActiveTestRunsCount
 	return toSerialize, nil
 }
 
@@ -292,6 +404,10 @@ func (o *AutoTestProjectSettingsApiResult) UnmarshalJSON(data []byte) (err error
 		"rerunAttemptsCount",
 		"workItemUpdatingEnabled",
 		"workItemUpdatingFields",
+		"archiveOutdatedTestRunsEnabled",
+		"testRunsArchiveLimitEnabled",
+		"testRunsRetentionPeriodDays",
+		"maxActiveTestRunsCount",
 	}
 
 	allProperties := make(map[string]interface{})

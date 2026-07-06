@@ -4,6 +4,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2ProjectsProjectIdWorkItemsPreviewsBulkPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsPreviewsBulkPost) | **Post** /api/v2/projects/{projectId}/work-items/previews/bulk | 
+[**ApiV2ProjectsProjectIdWorkItemsPreviewsPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsPreviewsPost) | **Post** /api/v2/projects/{projectId}/work-items/previews | 
 [**ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost) | **Post** /api/v2/projects/{projectId}/workItems/search/grouped | Search for work items and group results by attribute
 [**ApiV2ProjectsProjectIdWorkItemsSearchIdPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsSearchIdPost) | **Post** /api/v2/projects/{projectId}/workItems/search/id | Search for work items and extract IDs only
 [**ApiV2ProjectsProjectIdWorkItemsSearchPost**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsSearchPost) | **Post** /api/v2/projects/{projectId}/workItems/search | Search for work items
@@ -11,6 +13,144 @@ Method | HTTP request | Description
 [**ApiV2ProjectsProjectIdWorkItemsTagsGet**](ProjectWorkItemsAPI.md#ApiV2ProjectsProjectIdWorkItemsTagsGet) | **Get** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 [**GetWorkItemsByProjectId**](ProjectWorkItemsAPI.md#GetWorkItemsByProjectId) | **Get** /api/v2/projects/{projectId}/workItems | Get project work items
 
+
+
+## ApiV2ProjectsProjectIdWorkItemsPreviewsBulkPost
+
+> ApiV2ProjectsProjectIdWorkItemsPreviewsBulkPost(ctx, projectId).CreateWorkItemPreviewsApiModel(createWorkItemPreviewsApiModel).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
+	createWorkItemPreviewsApiModel := *openapiclient.NewCreateWorkItemPreviewsApiModel("SectionId_example", []openapiclient.WorkItemPreviewApiModel{*openapiclient.NewWorkItemPreviewApiModel("Name_example", "Description_example", []openapiclient.WorkItemPreviewStepApiModel{*openapiclient.NewWorkItemPreviewStepApiModel(int32(123), "Action_example", "Expected_example")})}) // CreateWorkItemPreviewsApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsPreviewsBulkPost(context.Background(), projectId).CreateWorkItemPreviewsApiModel(createWorkItemPreviewsApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsPreviewsBulkPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** | Internal (UUID) or global (integer) identifier | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsProjectIdWorkItemsPreviewsBulkPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **createWorkItemPreviewsApiModel** | [**CreateWorkItemPreviewsApiModel**](CreateWorkItemPreviewsApiModel.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2ProjectsProjectIdWorkItemsPreviewsPost
+
+> GenerateWorkItemPreviewsApiResult ApiV2ProjectsProjectIdWorkItemsPreviewsPost(ctx, projectId).GenerateWorkItemPreviewsApiModel(generateWorkItemPreviewsApiModel).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
+	generateWorkItemPreviewsApiModel := *openapiclient.NewGenerateWorkItemPreviewsApiModel("ExternalServiceId_example", float32(123), int32(123)) // GenerateWorkItemPreviewsApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsPreviewsPost(context.Background(), projectId).GenerateWorkItemPreviewsApiModel(generateWorkItemPreviewsApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsPreviewsPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2ProjectsProjectIdWorkItemsPreviewsPost`: GenerateWorkItemPreviewsApiResult
+	fmt.Fprintf(os.Stdout, "Response from `ProjectWorkItemsAPI.ApiV2ProjectsProjectIdWorkItemsPreviewsPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**projectId** | **string** | Internal (UUID) or global (integer) identifier | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2ProjectsProjectIdWorkItemsPreviewsPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **generateWorkItemPreviewsApiModel** | [**GenerateWorkItemPreviewsApiModel**](GenerateWorkItemPreviewsApiModel.md) |  | 
+
+### Return type
+
+[**GenerateWorkItemPreviewsApiResult**](GenerateWorkItemPreviewsApiResult.md)
+
+### Authorization
+
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost
@@ -81,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -161,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -241,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -324,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -396,7 +536,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -482,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

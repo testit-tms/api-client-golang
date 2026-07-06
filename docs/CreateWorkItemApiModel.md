@@ -10,24 +10,24 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the work item | [optional] 
 **EntityTypeName** | [**WorkItemEntityTypeApiModel**](WorkItemEntityTypeApiModel.md) | Type of entity associated with this work item | 
 **Duration** | **int64** | Duration of the work item in milliseconds | 
-**State** | [**WorkItemStateApiModel**](WorkItemStateApiModel.md) | State of the work item | 
-**Priority** | [**WorkItemPriorityApiModel**](WorkItemPriorityApiModel.md) | Priority level of the work item | 
-**Attributes** | **map[string]interface{}** | Set of custom attributes associated with the work item | 
-**Tags** | [**[]TagModel**](TagModel.md) | Set of tags applied to the work item | 
-**PreconditionSteps** | [**[]CreateStepApiModel**](CreateStepApiModel.md) | Set of precondition steps that need to be executed before starting the main steps | 
-**Steps** | [**[]CreateStepApiModel**](CreateStepApiModel.md) | Main steps or actions defined for the work item | 
-**PostconditionSteps** | [**[]CreateStepApiModel**](CreateStepApiModel.md) | Set of postcondition steps that are executed after completing the main steps | 
-**Iterations** | Pointer to [**[]AssignIterationApiModel**](AssignIterationApiModel.md) | Associated iterations linked to the work item | [optional] 
-**AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Automated tests associated with the work item | [optional] 
-**Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Files attached to the work item | [optional] 
-**Links** | [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Set of links related to the work item | 
-**Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys related to the work item | [optional] 
+**State** | [**WorkItemStateApiModel**](WorkItemStateApiModel.md) | Current state of the work item | 
+**Priority** | [**WorkItemPriorityApiModel**](WorkItemPriorityApiModel.md) | Priority level assigned to the work item | 
+**Attributes** | Pointer to **map[string]interface{}** | Set of custom attributes associated with the work item | [optional] 
+**Tags** | Pointer to [**[]TagModel**](TagModel.md) | Set of tags applied to the work item | [optional] 
+**PreconditionSteps** | Pointer to [**[]CreateStepApiModel**](CreateStepApiModel.md) | Set of precondition steps that must be executed before the main steps | [optional] 
+**Steps** | Pointer to [**[]CreateStepApiModel**](CreateStepApiModel.md) | Set of main steps or actions defined for the work item | [optional] 
+**PostconditionSteps** | Pointer to [**[]CreateStepApiModel**](CreateStepApiModel.md) | Set of postcondition steps that are executed after completing the main steps | [optional] 
+**Iterations** | Pointer to [**[]AssignIterationApiModel**](AssignIterationApiModel.md) | Set of iterations associated with the work item | [optional] 
+**AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Set of automated tests linked to the work item | [optional] 
+**Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Set of files attached to the work item | [optional] 
+**Links** | Pointer to [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Set of links related to the work item | [optional] 
+**Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys associated with the work item | [optional] 
 
 ## Methods
 
 ### NewCreateWorkItemApiModel
 
-`func NewCreateWorkItemApiModel(projectId string, name string, entityTypeName WorkItemEntityTypeApiModel, duration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, attributes map[string]interface{}, tags []TagModel, preconditionSteps []CreateStepApiModel, steps []CreateStepApiModel, postconditionSteps []CreateStepApiModel, links []CreateLinkApiModel, ) *CreateWorkItemApiModel`
+`func NewCreateWorkItemApiModel(projectId string, name string, entityTypeName WorkItemEntityTypeApiModel, duration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, ) *CreateWorkItemApiModel`
 
 NewCreateWorkItemApiModel instantiates a new CreateWorkItemApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -251,7 +251,22 @@ and a boolean to check if the value has been set.
 
 SetAttributes sets Attributes field to given value.
 
+### HasAttributes
 
+`func (o *CreateWorkItemApiModel) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
+
+### SetAttributesNil
+
+`func (o *CreateWorkItemApiModel) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *CreateWorkItemApiModel) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
 ### GetTags
 
 `func (o *CreateWorkItemApiModel) GetTags() []TagModel`
@@ -271,7 +286,22 @@ and a boolean to check if the value has been set.
 
 SetTags sets Tags field to given value.
 
+### HasTags
 
+`func (o *CreateWorkItemApiModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *CreateWorkItemApiModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *CreateWorkItemApiModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetPreconditionSteps
 
 `func (o *CreateWorkItemApiModel) GetPreconditionSteps() []CreateStepApiModel`
@@ -291,7 +321,22 @@ and a boolean to check if the value has been set.
 
 SetPreconditionSteps sets PreconditionSteps field to given value.
 
+### HasPreconditionSteps
 
+`func (o *CreateWorkItemApiModel) HasPreconditionSteps() bool`
+
+HasPreconditionSteps returns a boolean if a field has been set.
+
+### SetPreconditionStepsNil
+
+`func (o *CreateWorkItemApiModel) SetPreconditionStepsNil(b bool)`
+
+ SetPreconditionStepsNil sets the value for PreconditionSteps to be an explicit nil
+
+### UnsetPreconditionSteps
+`func (o *CreateWorkItemApiModel) UnsetPreconditionSteps()`
+
+UnsetPreconditionSteps ensures that no value is present for PreconditionSteps, not even an explicit nil
 ### GetSteps
 
 `func (o *CreateWorkItemApiModel) GetSteps() []CreateStepApiModel`
@@ -311,7 +356,22 @@ and a boolean to check if the value has been set.
 
 SetSteps sets Steps field to given value.
 
+### HasSteps
 
+`func (o *CreateWorkItemApiModel) HasSteps() bool`
+
+HasSteps returns a boolean if a field has been set.
+
+### SetStepsNil
+
+`func (o *CreateWorkItemApiModel) SetStepsNil(b bool)`
+
+ SetStepsNil sets the value for Steps to be an explicit nil
+
+### UnsetSteps
+`func (o *CreateWorkItemApiModel) UnsetSteps()`
+
+UnsetSteps ensures that no value is present for Steps, not even an explicit nil
 ### GetPostconditionSteps
 
 `func (o *CreateWorkItemApiModel) GetPostconditionSteps() []CreateStepApiModel`
@@ -331,7 +391,22 @@ and a boolean to check if the value has been set.
 
 SetPostconditionSteps sets PostconditionSteps field to given value.
 
+### HasPostconditionSteps
 
+`func (o *CreateWorkItemApiModel) HasPostconditionSteps() bool`
+
+HasPostconditionSteps returns a boolean if a field has been set.
+
+### SetPostconditionStepsNil
+
+`func (o *CreateWorkItemApiModel) SetPostconditionStepsNil(b bool)`
+
+ SetPostconditionStepsNil sets the value for PostconditionSteps to be an explicit nil
+
+### UnsetPostconditionSteps
+`func (o *CreateWorkItemApiModel) UnsetPostconditionSteps()`
+
+UnsetPostconditionSteps ensures that no value is present for PostconditionSteps, not even an explicit nil
 ### GetIterations
 
 `func (o *CreateWorkItemApiModel) GetIterations() []AssignIterationApiModel`
@@ -456,7 +531,22 @@ and a boolean to check if the value has been set.
 
 SetLinks sets Links field to given value.
 
+### HasLinks
 
+`func (o *CreateWorkItemApiModel) HasLinks() bool`
+
+HasLinks returns a boolean if a field has been set.
+
+### SetLinksNil
+
+`func (o *CreateWorkItemApiModel) SetLinksNil(b bool)`
+
+ SetLinksNil sets the value for Links to be an explicit nil
+
+### UnsetLinks
+`func (o *CreateWorkItemApiModel) UnsetLinks()`
+
+UnsetLinks ensures that no value is present for Links, not even an explicit nil
 ### GetParameters
 
 `func (o *CreateWorkItemApiModel) GetParameters() []WorkItemParameterKeyApiModel`

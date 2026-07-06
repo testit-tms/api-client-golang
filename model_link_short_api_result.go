@@ -22,9 +22,9 @@ var _ MappedNullable = &LinkShortApiResult{}
 // LinkShortApiResult struct for LinkShortApiResult
 type LinkShortApiResult struct {
 	Id string `json:"id"`
-	Title string `json:"title"`
+	Title NullableString `json:"title,omitempty"`
 	Url string `json:"url"`
-	Type string `json:"type"`
+	Type NullableString `json:"type,omitempty"`
 }
 
 type _LinkShortApiResult LinkShortApiResult
@@ -33,12 +33,10 @@ type _LinkShortApiResult LinkShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkShortApiResult(id string, title string, url string, type_ string) *LinkShortApiResult {
+func NewLinkShortApiResult(id string, url string) *LinkShortApiResult {
 	this := LinkShortApiResult{}
 	this.Id = id
-	this.Title = title
 	this.Url = url
-	this.Type = type_
 	return &this
 }
 
@@ -74,28 +72,46 @@ func (o *LinkShortApiResult) SetId(v string) {
 	o.Id = v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LinkShortApiResult) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title.Get()
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkShortApiResult) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title.Get(), o.Title.IsSet()
 }
 
-// SetTitle sets field value
+// HasTitle returns a boolean if a field has been set.
+func (o *LinkShortApiResult) HasTitle() bool {
+	if o != nil && o.Title.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
 func (o *LinkShortApiResult) SetTitle(v string) {
-	o.Title = v
+	o.Title.Set(&v)
+}
+// SetTitleNil sets the value for Title to be an explicit nil
+func (o *LinkShortApiResult) SetTitleNil() {
+	o.Title.Set(nil)
+}
+
+// UnsetTitle ensures that no value is present for Title, not even an explicit nil
+func (o *LinkShortApiResult) UnsetTitle() {
+	o.Title.Unset()
 }
 
 // GetUrl returns the Url field value
@@ -122,28 +138,46 @@ func (o *LinkShortApiResult) SetUrl(v string) {
 	o.Url = v
 }
 
-// GetType returns the Type field value
+// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LinkShortApiResult) GetType() string {
-	if o == nil {
+	if o == nil || IsNil(o.Type.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Type
+	return *o.Type.Get()
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkShortApiResult) GetTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Type.Get(), o.Type.IsSet()
 }
 
-// SetType sets field value
+// HasType returns a boolean if a field has been set.
+func (o *LinkShortApiResult) HasType() bool {
+	if o != nil && o.Type.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetType gets a reference to the given NullableString and assigns it to the Type field.
 func (o *LinkShortApiResult) SetType(v string) {
-	o.Type = v
+	o.Type.Set(&v)
+}
+// SetTypeNil sets the value for Type to be an explicit nil
+func (o *LinkShortApiResult) SetTypeNil() {
+	o.Type.Set(nil)
+}
+
+// UnsetType ensures that no value is present for Type, not even an explicit nil
+func (o *LinkShortApiResult) UnsetType() {
+	o.Type.Unset()
 }
 
 func (o LinkShortApiResult) MarshalJSON() ([]byte, error) {
@@ -157,9 +191,13 @@ func (o LinkShortApiResult) MarshalJSON() ([]byte, error) {
 func (o LinkShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["title"] = o.Title
+	if o.Title.IsSet() {
+		toSerialize["title"] = o.Title.Get()
+	}
 	toSerialize["url"] = o.Url
-	toSerialize["type"] = o.Type
+	if o.Type.IsSet() {
+		toSerialize["type"] = o.Type.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -169,9 +207,7 @@ func (o *LinkShortApiResult) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
-		"title",
 		"url",
-		"type",
 	}
 
 	allProperties := make(map[string]interface{})

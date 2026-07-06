@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ApiV2ExternalIssuesSuggestionsPost
 
-> ExternalIssueApiFieldSuggestionReply ApiV2ExternalIssuesSuggestionsPost(ctx).GetExternalIssueSuggestionsApiModel(getExternalIssueSuggestionsApiModel).Execute()
+> ExternalIssueApiFieldSuggestionIReply ApiV2ExternalIssuesSuggestionsPost(ctx).GetExternalIssueSuggestionsApiModel(getExternalIssueSuggestionsApiModel).Execute()
 
 Returns list of suggestions from available external issues
 
@@ -36,7 +36,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ExternalIssuesAPI.ApiV2ExternalIssuesSuggestionsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ExternalIssuesSuggestionsPost`: ExternalIssueApiFieldSuggestionReply
+	// response from `ApiV2ExternalIssuesSuggestionsPost`: ExternalIssueApiFieldSuggestionIReply
 	fmt.Fprintf(os.Stdout, "Response from `ExternalIssuesAPI.ApiV2ExternalIssuesSuggestionsPost`: %v\n", resp)
 }
 ```
@@ -56,11 +56,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExternalIssueApiFieldSuggestionReply**](ExternalIssueApiFieldSuggestionReply.md)
+[**ExternalIssueApiFieldSuggestionIReply**](ExternalIssueApiFieldSuggestionIReply.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

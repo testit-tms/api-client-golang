@@ -11,11 +11,13 @@ Method | HTTP request | Description
 [**ApiV2WorkItemsIdLikePost**](WorkItemsAPI.md#ApiV2WorkItemsIdLikePost) | **Post** /api/v2/workItems/{id}/like | Set like to WorkItem
 [**ApiV2WorkItemsIdLikesCountGet**](WorkItemsAPI.md#ApiV2WorkItemsIdLikesCountGet) | **Get** /api/v2/workItems/{id}/likes/count | Get likes count of WorkItem
 [**ApiV2WorkItemsIdLikesGet**](WorkItemsAPI.md#ApiV2WorkItemsIdLikesGet) | **Get** /api/v2/workItems/{id}/likes | Get likes of WorkItem
+[**ApiV2WorkItemsIdPatch**](WorkItemsAPI.md#ApiV2WorkItemsIdPatch) | **Patch** /api/v2/workItems/{id} | Patch Test Case, Checklist or Shared Step
 [**ApiV2WorkItemsIdTestResultsHistoryGet**](WorkItemsAPI.md#ApiV2WorkItemsIdTestResultsHistoryGet) | **Get** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
 [**ApiV2WorkItemsIdVersionVersionIdActualPost**](WorkItemsAPI.md#ApiV2WorkItemsIdVersionVersionIdActualPost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
 [**ApiV2WorkItemsLinksUrlsSearchPost**](WorkItemsAPI.md#ApiV2WorkItemsLinksUrlsSearchPost) | **Post** /api/v2/workItems/links/urls/search | 
 [**ApiV2WorkItemsMovePost**](WorkItemsAPI.md#ApiV2WorkItemsMovePost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
 [**ApiV2WorkItemsPost**](WorkItemsAPI.md#ApiV2WorkItemsPost) | **Post** /api/v2/workItems | Creates work item
+[**ApiV2WorkItemsPut**](WorkItemsAPI.md#ApiV2WorkItemsPut) | **Put** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 [**ApiV2WorkItemsSearchPost**](WorkItemsAPI.md#ApiV2WorkItemsSearchPost) | **Post** /api/v2/workItems/search | Search for work items
 [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepIdReferencesSectionsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
 [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](WorkItemsAPI.md#ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
@@ -29,7 +31,6 @@ Method | HTTP request | Description
 [**GetWorkItemVersions**](WorkItemsAPI.md#GetWorkItemVersions) | **Get** /api/v2/workItems/{id}/versions | Get WorkItem versions
 [**PurgeWorkItem**](WorkItemsAPI.md#PurgeWorkItem) | **Post** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
 [**RestoreWorkItem**](WorkItemsAPI.md#RestoreWorkItem) | **Post** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
-[**UpdateWorkItem**](WorkItemsAPI.md#UpdateWorkItem) | **Put** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 
 
 
@@ -91,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -161,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -241,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -309,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -377,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -447,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -517,11 +518,81 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2WorkItemsIdPatch
+
+> ApiV2WorkItemsIdPatch(ctx, id).Operation(operation).Execute()
+
+Patch Test Case, Checklist or Shared Step
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	operation := []openapiclient.Operation{*openapiclient.NewOperation()} // []Operation |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsIdPatch(context.Background(), id).Operation(operation).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsIdPatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2WorkItemsIdPatchRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **operation** | [**[]Operation**](Operation.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -618,7 +689,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -691,7 +762,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -765,7 +836,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -831,7 +902,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -862,7 +933,7 @@ import (
 )
 
 func main() {
-	createWorkItemApiModel := *openapiclient.NewCreateWorkItemApiModel("ProjectId_example", "Name_example", openapiclient.WorkItemEntityTypeApiModel("TestCases"), int64(123), openapiclient.WorkItemStateApiModel("NeedsWork"), openapiclient.WorkItemPriorityApiModel("Lowest"), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagModel{*openapiclient.NewTagModel("Name_example")}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateStepApiModel{*openapiclient.NewCreateStepApiModel()}, []openapiclient.CreateLinkApiModel{*openapiclient.NewCreateLinkApiModel("Url_example", false)}) // CreateWorkItemApiModel |  (optional)
+	createWorkItemApiModel := *openapiclient.NewCreateWorkItemApiModel("ProjectId_example", "Name_example", openapiclient.WorkItemEntityTypeApiModel("TestCases"), int64(123), openapiclient.WorkItemStateApiModel("NeedsWork"), openapiclient.WorkItemPriorityApiModel("Lowest")) // CreateWorkItemApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -895,7 +966,71 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApiV2WorkItemsPut
+
+> ApiV2WorkItemsPut(ctx).UpdateWorkItemApiModel(updateWorkItemApiModel).Execute()
+
+Update Test Case, Checklist or Shared Step
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	updateWorkItemApiModel := *openapiclient.NewUpdateWorkItemApiModel("Id_example", "SectionId_example", "Name_example", int64(123), openapiclient.WorkItemStateApiModel("NeedsWork"), openapiclient.WorkItemPriorityApiModel("Lowest")) // UpdateWorkItemApiModel |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.WorkItemsAPI.ApiV2WorkItemsPut(context.Background()).UpdateWorkItemApiModel(updateWorkItemApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.ApiV2WorkItemsPut``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2WorkItemsPutRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateWorkItemApiModel** | [**UpdateWorkItemApiModel**](UpdateWorkItemApiModel.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -969,7 +1104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1051,7 +1186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1133,7 +1268,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1203,7 +1338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1236,7 +1371,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1254,7 +1389,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1271,7 +1406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1304,7 +1439,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1322,7 +1457,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1339,7 +1474,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1372,7 +1507,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1392,7 +1527,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1409,7 +1544,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1440,7 +1575,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier (optional)
 	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1462,7 +1597,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1481,7 +1616,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1514,7 +1649,7 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
 	versionId := "00000000-0000-0000-0000-000000000000" // string | WorkItem version (guid format) identifier\" (optional)
 	versionNumber := int32(0) // int32 | WorkItem version number (0 is the last version)\" (optional)
 
@@ -1536,7 +1671,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1555,7 +1690,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1625,7 +1760,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1658,9 +1793,9 @@ import (
 )
 
 func main() {
-	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or global(integer format) identifier\"
-	workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format) identifier\" (optional)
-	versionNumber := int32(1) // int32 | WorkItem version (integer format) number\" (optional)
+	id := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem internal (guid format) or  global(integer format) identifier\"
+	workItemVersionId := "3fa85f64-5717-4562-b3fc-2c963f66afa6" // string | WorkItem version (guid format)  identifier\" (optional)
+	versionNumber := int32(1) // int32 | WorkItem version (integer format)  number\" (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1680,7 +1815,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | WorkItem internal (guid format) or global(integer format) identifier\&quot; | 
+**id** | **string** | WorkItem internal (guid format) or  global(integer format) identifier\&quot; | 
 
 ### Other Parameters
 
@@ -1690,8 +1825,8 @@ Other parameters are passed through a pointer to a apiGetWorkItemVersionsRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **workItemVersionId** | **string** | WorkItem version (guid format) identifier\&quot; | 
- **versionNumber** | **int32** | WorkItem version (integer format) number\&quot; | 
+ **workItemVersionId** | **string** | WorkItem version (guid format)  identifier\&quot; | 
+ **versionNumber** | **int32** | WorkItem version (integer format)  number\&quot; | 
 
 ### Return type
 
@@ -1699,7 +1834,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1765,7 +1900,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1831,75 +1966,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateWorkItem
-
-> UpdateWorkItem(ctx).UpdateWorkItemApiModel(updateWorkItemApiModel).Execute()
-
-Update Test Case, Checklist or Shared Step
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	updateWorkItemApiModel := *openapiclient.NewUpdateWorkItemApiModel("Id_example", "SectionId_example", openapiclient.WorkItemStates("NeedsWork"), openapiclient.WorkItemPriorityModel("Lowest"), []openapiclient.UpdateStepApiModel{*openapiclient.NewUpdateStepApiModel("Id_example")}, []openapiclient.UpdateStepApiModel{*openapiclient.NewUpdateStepApiModel("Id_example")}, []openapiclient.UpdateStepApiModel{*openapiclient.NewUpdateStepApiModel("Id_example")}, int64(123), map[string]interface{}{"key": interface{}(123)}, []openapiclient.TagModel{*openapiclient.NewTagModel("Name_example")}, []openapiclient.UpdateLinkApiModel{*openapiclient.NewUpdateLinkApiModel("Url_example", false)}, "Name_example", []openapiclient.AssignAttachmentApiModel{*openapiclient.NewAssignAttachmentApiModel("Id_example")}) // UpdateWorkItemApiModel |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.WorkItemsAPI.UpdateWorkItem(context.Background()).UpdateWorkItemApiModel(updateWorkItemApiModel).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkItemsAPI.UpdateWorkItem``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateWorkItemRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **updateWorkItemApiModel** | [**UpdateWorkItemApiModel**](UpdateWorkItemApiModel.md) |  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

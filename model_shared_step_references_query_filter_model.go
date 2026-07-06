@@ -33,8 +33,8 @@ type SharedStepReferencesQueryFilterModel struct {
 	States []WorkItemStates `json:"states,omitempty"`
 	// Collection of priorities of work item
 	Priorities []WorkItemPriorityModel `json:"priorities,omitempty"`
-	// Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
-	EntityTypes []string `json:"entityTypes,omitempty"`
+	// Collection of types of work item    Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
+	EntityTypes []WorkItemTypeModel `json:"entityTypes,omitempty"`
 	// Date and time of work item creation
 	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 	// Date and time of work item last modification
@@ -303,9 +303,9 @@ func (o *SharedStepReferencesQueryFilterModel) SetPriorities(v []WorkItemPriorit
 }
 
 // GetEntityTypes returns the EntityTypes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SharedStepReferencesQueryFilterModel) GetEntityTypes() []string {
+func (o *SharedStepReferencesQueryFilterModel) GetEntityTypes() []WorkItemTypeModel {
 	if o == nil {
-		var ret []string
+		var ret []WorkItemTypeModel
 		return ret
 	}
 	return o.EntityTypes
@@ -314,7 +314,7 @@ func (o *SharedStepReferencesQueryFilterModel) GetEntityTypes() []string {
 // GetEntityTypesOk returns a tuple with the EntityTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SharedStepReferencesQueryFilterModel) GetEntityTypesOk() ([]string, bool) {
+func (o *SharedStepReferencesQueryFilterModel) GetEntityTypesOk() ([]WorkItemTypeModel, bool) {
 	if o == nil || IsNil(o.EntityTypes) {
 		return nil, false
 	}
@@ -330,8 +330,8 @@ func (o *SharedStepReferencesQueryFilterModel) HasEntityTypes() bool {
 	return false
 }
 
-// SetEntityTypes gets a reference to the given []string and assigns it to the EntityTypes field.
-func (o *SharedStepReferencesQueryFilterModel) SetEntityTypes(v []string) {
+// SetEntityTypes gets a reference to the given []WorkItemTypeModel and assigns it to the EntityTypes field.
+func (o *SharedStepReferencesQueryFilterModel) SetEntityTypes(v []WorkItemTypeModel) {
 	o.EntityTypes = v
 }
 

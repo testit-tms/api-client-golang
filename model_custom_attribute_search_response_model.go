@@ -25,12 +25,16 @@ type CustomAttributeSearchResponseModel struct {
 	TestPlanUsage []ProjectShortestModel `json:"testPlanUsage"`
 	// Unique ID of the attribute
 	Id string `json:"id"`
-	// Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+	// Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+	Targets []string `json:"targets"`
+	// Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionModel `json:"options"`
 	// Type of the attribute
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Indicates if the attribute is deleted
 	IsDeleted bool `json:"isDeleted"`
+	// Indicates if the attribute is system
+	IsSystem bool `json:"isSystem"`
 	// Name of the attribute
 	Name string `json:"name"`
 	// Indicates if the attribute is enabled
@@ -47,14 +51,16 @@ type _CustomAttributeSearchResponseModel CustomAttributeSearchResponseModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeSearchResponseModel(workItemUsage []ProjectShortestModel, testPlanUsage []ProjectShortestModel, id string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeSearchResponseModel {
+func NewCustomAttributeSearchResponseModel(workItemUsage []ProjectShortestModel, testPlanUsage []ProjectShortestModel, id string, targets []string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeSearchResponseModel {
 	this := CustomAttributeSearchResponseModel{}
 	this.WorkItemUsage = workItemUsage
 	this.TestPlanUsage = testPlanUsage
 	this.Id = id
+	this.Targets = targets
 	this.Options = options
 	this.Type = type_
 	this.IsDeleted = isDeleted
+	this.IsSystem = isSystem
 	this.Name = name
 	this.IsEnabled = isEnabled
 	this.IsRequired = isRequired
@@ -142,6 +148,30 @@ func (o *CustomAttributeSearchResponseModel) SetId(v string) {
 	o.Id = v
 }
 
+// GetTargets returns the Targets field value
+func (o *CustomAttributeSearchResponseModel) GetTargets() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Targets
+}
+
+// GetTargetsOk returns a tuple with the Targets field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeSearchResponseModel) GetTargetsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Targets, true
+}
+
+// SetTargets sets field value
+func (o *CustomAttributeSearchResponseModel) SetTargets(v []string) {
+	o.Targets = v
+}
+
 // GetOptions returns the Options field value
 func (o *CustomAttributeSearchResponseModel) GetOptions() []CustomAttributeOptionModel {
 	if o == nil {
@@ -212,6 +242,30 @@ func (o *CustomAttributeSearchResponseModel) GetIsDeletedOk() (*bool, bool) {
 // SetIsDeleted sets field value
 func (o *CustomAttributeSearchResponseModel) SetIsDeleted(v bool) {
 	o.IsDeleted = v
+}
+
+// GetIsSystem returns the IsSystem field value
+func (o *CustomAttributeSearchResponseModel) GetIsSystem() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsSystem
+}
+
+// GetIsSystemOk returns a tuple with the IsSystem field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeSearchResponseModel) GetIsSystemOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsSystem, true
+}
+
+// SetIsSystem sets field value
+func (o *CustomAttributeSearchResponseModel) SetIsSystem(v bool) {
+	o.IsSystem = v
 }
 
 // GetName returns the Name field value
@@ -323,9 +377,11 @@ func (o CustomAttributeSearchResponseModel) ToMap() (map[string]interface{}, err
 	toSerialize["workItemUsage"] = o.WorkItemUsage
 	toSerialize["testPlanUsage"] = o.TestPlanUsage
 	toSerialize["id"] = o.Id
+	toSerialize["targets"] = o.Targets
 	toSerialize["options"] = o.Options
 	toSerialize["type"] = o.Type
 	toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["isSystem"] = o.IsSystem
 	toSerialize["name"] = o.Name
 	toSerialize["isEnabled"] = o.IsEnabled
 	toSerialize["isRequired"] = o.IsRequired
@@ -341,9 +397,11 @@ func (o *CustomAttributeSearchResponseModel) UnmarshalJSON(data []byte) (err err
 		"workItemUsage",
 		"testPlanUsage",
 		"id",
+		"targets",
 		"options",
 		"type",
 		"isDeleted",
+		"isSystem",
 		"name",
 		"isEnabled",
 		"isRequired",

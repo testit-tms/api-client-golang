@@ -21,8 +21,8 @@ var _ MappedNullable = &TestSuiteWorkItemsSearchModel{}
 type TestSuiteWorkItemsSearchModel struct {
 	// Collection of tags
 	TagNames []string `json:"tagNames,omitempty"`
-	// Collection of types of work item  Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
-	EntityTypes []WorkItemEntityTypes `json:"entityTypes,omitempty"`
+	// Collection of types of work item    Allowed values: `TestCases`, `CheckLists`, `SharedSteps`
+	EntityTypes []WorkItemTypeModel `json:"entityTypes,omitempty"`
 	// Name or identifier (UUID) of work item
 	NameOrId NullableString `json:"nameOrId,omitempty"`
 	// Collection of identifiers of work items which need to be included in result regardless of filtering
@@ -54,7 +54,7 @@ type TestSuiteWorkItemsSearchModel struct {
 	// Collection of priorities of work item
 	SourceTypes []WorkItemSourceTypeModel `json:"sourceTypes,omitempty"`
 	// Collection of types of work item
-	Types []WorkItemEntityTypes `json:"types,omitempty"`
+	Types []WorkItemTypeModel `json:"types,omitempty"`
 	// Specifies a work item range of creation date to search for
 	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 	// Specifies a work item range of last modification date to search for
@@ -130,9 +130,9 @@ func (o *TestSuiteWorkItemsSearchModel) SetTagNames(v []string) {
 }
 
 // GetEntityTypes returns the EntityTypes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetEntityTypes() []WorkItemEntityTypes {
+func (o *TestSuiteWorkItemsSearchModel) GetEntityTypes() []WorkItemTypeModel {
 	if o == nil {
-		var ret []WorkItemEntityTypes
+		var ret []WorkItemTypeModel
 		return ret
 	}
 	return o.EntityTypes
@@ -141,7 +141,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetEntityTypes() []WorkItemEntityTypes {
 // GetEntityTypesOk returns a tuple with the EntityTypes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetEntityTypesOk() ([]WorkItemEntityTypes, bool) {
+func (o *TestSuiteWorkItemsSearchModel) GetEntityTypesOk() ([]WorkItemTypeModel, bool) {
 	if o == nil || IsNil(o.EntityTypes) {
 		return nil, false
 	}
@@ -157,8 +157,8 @@ func (o *TestSuiteWorkItemsSearchModel) HasEntityTypes() bool {
 	return false
 }
 
-// SetEntityTypes gets a reference to the given []WorkItemEntityTypes and assigns it to the EntityTypes field.
-func (o *TestSuiteWorkItemsSearchModel) SetEntityTypes(v []WorkItemEntityTypes) {
+// SetEntityTypes gets a reference to the given []WorkItemTypeModel and assigns it to the EntityTypes field.
+func (o *TestSuiteWorkItemsSearchModel) SetEntityTypes(v []WorkItemTypeModel) {
 	o.EntityTypes = v
 }
 
@@ -685,9 +685,9 @@ func (o *TestSuiteWorkItemsSearchModel) SetSourceTypes(v []WorkItemSourceTypeMod
 }
 
 // GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestSuiteWorkItemsSearchModel) GetTypes() []WorkItemEntityTypes {
+func (o *TestSuiteWorkItemsSearchModel) GetTypes() []WorkItemTypeModel {
 	if o == nil {
-		var ret []WorkItemEntityTypes
+		var ret []WorkItemTypeModel
 		return ret
 	}
 	return o.Types
@@ -696,7 +696,7 @@ func (o *TestSuiteWorkItemsSearchModel) GetTypes() []WorkItemEntityTypes {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestSuiteWorkItemsSearchModel) GetTypesOk() ([]WorkItemEntityTypes, bool) {
+func (o *TestSuiteWorkItemsSearchModel) GetTypesOk() ([]WorkItemTypeModel, bool) {
 	if o == nil || IsNil(o.Types) {
 		return nil, false
 	}
@@ -712,8 +712,8 @@ func (o *TestSuiteWorkItemsSearchModel) HasTypes() bool {
 	return false
 }
 
-// SetTypes gets a reference to the given []WorkItemEntityTypes and assigns it to the Types field.
-func (o *TestSuiteWorkItemsSearchModel) SetTypes(v []WorkItemEntityTypes) {
+// SetTypes gets a reference to the given []WorkItemTypeModel and assigns it to the Types field.
+func (o *TestSuiteWorkItemsSearchModel) SetTypes(v []WorkItemTypeModel) {
 	o.Types = v
 }
 

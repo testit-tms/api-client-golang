@@ -29,7 +29,7 @@ import (
 
 func main() {
 	projectId := "projectId_example" // string | Internal (UUID) or global (integer) identifier
-	autoTestProjectSettingsApiModel := *openapiclient.NewAutoTestProjectSettingsApiModel(false, int32(123), *openapiclient.NewWorkItemUpdatingFieldsApiModel()) // AutoTestProjectSettingsApiModel |  (optional)
+	autoTestProjectSettingsApiModel := *openapiclient.NewAutoTestProjectSettingsApiModel(false, int32(123), *openapiclient.NewWorkItemUpdatingFieldsApiModel(), false, false) // AutoTestProjectSettingsApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

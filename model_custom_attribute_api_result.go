@@ -23,7 +23,7 @@ var _ MappedNullable = &CustomAttributeApiResult{}
 type CustomAttributeApiResult struct {
 	// Unique ID of the attribute
 	Id string `json:"id"`
-	// Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+	// Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionApiResult `json:"options"`
 	// Type of the attribute
 	Type CustomAttributeType `json:"type"`
@@ -37,6 +37,10 @@ type CustomAttributeApiResult struct {
 	IsRequired bool `json:"isRequired"`
 	// Indicates if the attribute is available across all projects
 	IsGlobal bool `json:"isGlobal"`
+	// Indicates if the attribute is system
+	IsSystem bool `json:"isSystem"`
+	// Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+	Targets []string `json:"targets"`
 }
 
 type _CustomAttributeApiResult CustomAttributeApiResult
@@ -45,7 +49,7 @@ type _CustomAttributeApiResult CustomAttributeApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeApiResult(id string, options []CustomAttributeOptionApiResult, type_ CustomAttributeType, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeApiResult {
+func NewCustomAttributeApiResult(id string, options []CustomAttributeOptionApiResult, type_ CustomAttributeType, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool, isSystem bool, targets []string) *CustomAttributeApiResult {
 	this := CustomAttributeApiResult{}
 	this.Id = id
 	this.Options = options
@@ -55,6 +59,8 @@ func NewCustomAttributeApiResult(id string, options []CustomAttributeOptionApiRe
 	this.IsEnabled = isEnabled
 	this.IsRequired = isRequired
 	this.IsGlobal = isGlobal
+	this.IsSystem = isSystem
+	this.Targets = targets
 	return &this
 }
 
@@ -258,6 +264,54 @@ func (o *CustomAttributeApiResult) SetIsGlobal(v bool) {
 	o.IsGlobal = v
 }
 
+// GetIsSystem returns the IsSystem field value
+func (o *CustomAttributeApiResult) GetIsSystem() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsSystem
+}
+
+// GetIsSystemOk returns a tuple with the IsSystem field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeApiResult) GetIsSystemOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsSystem, true
+}
+
+// SetIsSystem sets field value
+func (o *CustomAttributeApiResult) SetIsSystem(v bool) {
+	o.IsSystem = v
+}
+
+// GetTargets returns the Targets field value
+func (o *CustomAttributeApiResult) GetTargets() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Targets
+}
+
+// GetTargetsOk returns a tuple with the Targets field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeApiResult) GetTargetsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Targets, true
+}
+
+// SetTargets sets field value
+func (o *CustomAttributeApiResult) SetTargets(v []string) {
+	o.Targets = v
+}
+
 func (o CustomAttributeApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -276,6 +330,8 @@ func (o CustomAttributeApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["isEnabled"] = o.IsEnabled
 	toSerialize["isRequired"] = o.IsRequired
 	toSerialize["isGlobal"] = o.IsGlobal
+	toSerialize["isSystem"] = o.IsSystem
+	toSerialize["targets"] = o.Targets
 	return toSerialize, nil
 }
 
@@ -292,6 +348,8 @@ func (o *CustomAttributeApiResult) UnmarshalJSON(data []byte) (err error) {
 		"isEnabled",
 		"isRequired",
 		"isGlobal",
+		"isSystem",
+		"targets",
 	}
 
 	allProperties := make(map[string]interface{})

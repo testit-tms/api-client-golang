@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Group** | Pointer to [**NullableGroup**](Group.md) |  | [optional] 
 **Filter** | Pointer to [**NullableCompositeFilter**](CompositeFilter.md) |  | [optional] 
 **Order** | [**[]Order**](Order.md) |  | 
 **Page** | Pointer to [**NullablePage**](Page.md) |  | [optional] 
@@ -27,6 +28,41 @@ NewInquiryWithDefaults instantiates a new Inquiry object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetGroup
+
+`func (o *Inquiry) GetGroup() Group`
+
+GetGroup returns the Group field if non-nil, zero value otherwise.
+
+### GetGroupOk
+
+`func (o *Inquiry) GetGroupOk() (*Group, bool)`
+
+GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroup
+
+`func (o *Inquiry) SetGroup(v Group)`
+
+SetGroup sets Group field to given value.
+
+### HasGroup
+
+`func (o *Inquiry) HasGroup() bool`
+
+HasGroup returns a boolean if a field has been set.
+
+### SetGroupNil
+
+`func (o *Inquiry) SetGroupNil(b bool)`
+
+ SetGroupNil sets the value for Group to be an explicit nil
+
+### UnsetGroup
+`func (o *Inquiry) UnsetGroup()`
+
+UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetFilter
 
 `func (o *Inquiry) GetFilter() CompositeFilter`

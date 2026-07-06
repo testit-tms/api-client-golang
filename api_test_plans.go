@@ -45,7 +45,7 @@ func (r ApiAddTestPointsWithSectionsRequest) Execute() (*http.Response, error) {
 AddTestPointsWithSections Add test-points to TestPlan with sections
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiAddTestPointsWithSectionsRequest
 */
 func (a *TestPlansAPIService) AddTestPointsWithSections(ctx context.Context, id string) ApiAddTestPointsWithSectionsRequest {
@@ -98,7 +98,7 @@ func (a *TestPlansAPIService) AddTestPointsWithSectionsExecute(r ApiAddTestPoint
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -235,7 +235,7 @@ System added WorkItems and Sections to TestPlan
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiAddWorkItemsWithSectionsRequest
 */
 func (a *TestPlansAPIService) AddWorkItemsWithSections(ctx context.Context, id string) ApiAddWorkItemsWithSectionsRequest {
@@ -288,7 +288,7 @@ func (a *TestPlansAPIService) AddWorkItemsWithSectionsExecute(r ApiAddWorkItemsW
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -415,7 +415,7 @@ User runs method execution
 System returns analytics by test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdAnalyticsGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdAnalyticsGet(ctx context.Context, id string) ApiApiV2TestPlansIdAnalyticsGetRequest {
@@ -468,7 +468,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdAnalyticsGetExecute(r ApiApiV2Test
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -669,7 +669,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2T
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -805,7 +805,7 @@ User runs method execution
 System return test plan configurations
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdConfigurationsGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdConfigurationsGet(ctx context.Context, id string) ApiApiV2TestPlansIdConfigurationsGetRequest {
@@ -858,7 +858,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdConfigurationsGetExecute(r ApiApiV
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -976,7 +976,7 @@ type ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest struct {
 	ApiService *TestPlansAPIService
 	id string
 	timeZoneOffsetInMinutes *int64
-	getXlsxTestPointsByTestPlanModel *GetXlsxTestPointsByTestPlanModel
+	getXlsxTestPointsByTestPlanApiModel *GetXlsxTestPointsByTestPlanApiModel
 }
 
 func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
@@ -984,8 +984,8 @@ func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) TimeZoneOffsetInMinu
 	return r
 }
 
-func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) GetXlsxTestPointsByTestPlanModel(getXlsxTestPointsByTestPlanModel GetXlsxTestPointsByTestPlanModel) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
-	r.getXlsxTestPointsByTestPlanModel = &getXlsxTestPointsByTestPlanModel
+func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) GetXlsxTestPointsByTestPlanApiModel(getXlsxTestPointsByTestPlanApiModel GetXlsxTestPointsByTestPlanApiModel) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
+	r.getXlsxTestPointsByTestPlanApiModel = &getXlsxTestPointsByTestPlanApiModel
 	return r
 }
 
@@ -1008,7 +1008,7 @@ User runs method execution
 System return export xlsx file
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestPointsXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
@@ -1060,11 +1060,11 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestPointsXlsxPostExecute(r 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.getXlsxTestPointsByTestPlanModel
+	localVarPostBody = r.getXlsxTestPointsByTestPlanApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1217,7 +1217,7 @@ User runs method execution
 System return export xlsx file
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestResultHistoryXlsxPost(ctx context.Context, id string) ApiApiV2TestPlansIdExportTestResultHistoryXlsxPostRequest {
@@ -1280,7 +1280,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestResultHistoryXlsxPostExe
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1442,7 +1442,7 @@ User runs method execution
 System return test plan history
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdHistoryGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdHistoryGet(ctx context.Context, id string) ApiApiV2TestPlansIdHistoryGetRequest {
@@ -1510,7 +1510,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdHistoryGetExecute(r ApiApiV2TestPl
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1666,7 +1666,7 @@ User runs method execution
 System returns links of TestPlan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdLinksGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdLinksGet(ctx context.Context, id string) ApiApiV2TestPlansIdLinksGetRequest {
@@ -1728,7 +1728,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdLinksGetExecute(r ApiApiV2TestPlan
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1916,7 +1916,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdPatchExecute(r ApiApiV2TestPlansId
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2043,7 +2043,7 @@ User runs method execution
 System returns summary by test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdSummariesGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdSummariesGet(ctx context.Context, id string) ApiApiV2TestPlansIdSummariesGetRequest {
@@ -2096,7 +2096,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdSummariesGetExecute(r ApiApiV2Test
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2275,8 +2275,10 @@ User runs method execution
 System return test points with last result from test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestPointsLastResultsGetRequest
+
+Deprecated
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsLastResultsGetRequest {
 	return ApiApiV2TestPlansIdTestPointsLastResultsGetRequest{
@@ -2288,6 +2290,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx conte
 
 // Execute executes the request
 //  @return []TestPointWithLastResultResponseModel
+// Deprecated
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) ([]TestPointWithLastResultResponseModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -2346,7 +2349,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2490,7 +2493,7 @@ User runs method execution
 System reset test points statuses of test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestPointsResetPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsResetPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsResetPostRequest {
@@ -2543,7 +2546,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsResetPostExecute(r ApiAp
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2722,7 +2725,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterDeleteExecute(r Ap
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2914,7 +2917,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterUserIdPostExecute(
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3111,7 +3114,7 @@ User runs method execution
 System returns TestRuns for TestPlan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestRunsGetRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsGetRequest {
@@ -3191,7 +3194,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestP
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3370,7 +3373,7 @@ User runs method execution
 System returns TestRuns for TestPlan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdTestRunsSearchPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPost(ctx context.Context, id string) ApiApiV2TestPlansIdTestRunsSearchPostRequest {
@@ -3440,7 +3443,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApi
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3618,7 +3621,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedMod
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3745,7 +3748,7 @@ User runs method execution
 System send unlock test plan notification
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiApiV2TestPlansIdUnlockRequestPostRequest
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdUnlockRequestPost(ctx context.Context, id string) ApiApiV2TestPlansIdUnlockRequestPostRequest {
@@ -3796,7 +3799,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdUnlockRequestPostExecute(r ApiApiV
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3989,7 +3992,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansShortsPostExecute(r ApiApiV2TestPlan
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4127,7 +4130,7 @@ System clones test plan
 System returns test plan (listed in response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiCloneRequest
 */
 func (a *TestPlansAPIService) Clone(ctx context.Context, id string) ApiCloneRequest {
@@ -4180,7 +4183,7 @@ func (a *TestPlansAPIService) CloneExecute(r ApiCloneRequest) (*TestPlanModel, *
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4318,7 +4321,7 @@ System completes the test plan and updates test plan status
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiCompleteRequest
 */
 func (a *TestPlansAPIService) Complete(ctx context.Context, id string) ApiCompleteRequest {
@@ -4369,7 +4372,7 @@ func (a *TestPlansAPIService) CompleteExecute(r ApiCompleteRequest) (*http.Respo
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4555,7 +4558,7 @@ func (a *TestPlansAPIService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4693,7 +4696,7 @@ System delete test plan
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiDeleteTestPlanRequest
 */
 func (a *TestPlansAPIService) DeleteTestPlan(ctx context.Context, id string) ApiDeleteTestPlanRequest {
@@ -4744,7 +4747,7 @@ func (a *TestPlansAPIService) DeleteTestPlanExecute(r ApiDeleteTestPlanRequest) 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4873,7 +4876,7 @@ System search  test plan by the identifier
 System returns test plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiGetTestPlanByIdRequest
 */
 func (a *TestPlansAPIService) GetTestPlanById(ctx context.Context, id string) ApiGetTestPlanByIdRequest {
@@ -4926,7 +4929,7 @@ func (a *TestPlansAPIService) GetTestPlanByIdExecute(r ApiGetTestPlanByIdRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5064,7 +5067,7 @@ System finds test suites related to the test plan
 System returns test suites as a tree model (listed in response example)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiGetTestSuitesByIdRequest
 */
 func (a *TestPlansAPIService) GetTestSuitesById(ctx context.Context, id string) ApiGetTestSuitesByIdRequest {
@@ -5117,7 +5120,7 @@ func (a *TestPlansAPIService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdReq
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5255,7 +5258,7 @@ System pauses the test plan and updates test plan status
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiPauseRequest
 */
 func (a *TestPlansAPIService) Pause(ctx context.Context, id string) ApiPauseRequest {
@@ -5306,7 +5309,7 @@ func (a *TestPlansAPIService) PauseExecute(r ApiPauseRequest) (*http.Response, e
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5475,7 +5478,7 @@ func (a *TestPlansAPIService) PurgeTestPlanExecute(r ApiPurgeTestPlanRequest) (*
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5604,7 +5607,7 @@ System restores test plan
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiRestoreTestPlanRequest
 */
 func (a *TestPlansAPIService) RestoreTestPlan(ctx context.Context, id string) ApiRestoreTestPlanRequest {
@@ -5655,7 +5658,7 @@ func (a *TestPlansAPIService) RestoreTestPlanExecute(r ApiRestoreTestPlanRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5784,7 +5787,7 @@ System starts the test plan and updates test plan status
 System returns no content response
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Test plan internal (guid format) or global (int format) identifier
+ @param id Test plan internal (guid format) or global (int  format) identifier
  @return ApiStartRequest
 */
 func (a *TestPlansAPIService) Start(ctx context.Context, id string) ApiStartRequest {
@@ -5835,7 +5838,7 @@ func (a *TestPlansAPIService) StartExecute(r ApiStartRequest) (*http.Response, e
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -6019,7 +6022,7 @@ func (a *TestPlansAPIService) UpdateTestPlanExecute(r ApiUpdateTestPlanRequest) 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

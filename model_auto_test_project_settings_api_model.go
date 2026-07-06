@@ -35,6 +35,14 @@ type AutoTestProjectSettingsApiModel struct {
 	WorkItemUpdatingEnabled *bool `json:"workItemUpdatingEnabled,omitempty"`
 	// Autotest to work item updating fields
 	WorkItemUpdatingFields WorkItemUpdatingFieldsApiModel `json:"workItemUpdatingFields"`
+	// Indicates whether archiving of outdated test runs is enabled for the project.
+	ArchiveOutdatedTestRunsEnabled bool `json:"archiveOutdatedTestRunsEnabled"`
+	// Indicates whether a limit is enforced on the number of archived test runs.
+	TestRunsArchiveLimitEnabled bool `json:"testRunsArchiveLimitEnabled"`
+	//  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings
+	TestRunsRetentionPeriodDays *int32 `json:"testRunsRetentionPeriodDays,omitempty"`
+	// Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived
+	MaxActiveTestRunsCount *int32 `json:"maxActiveTestRunsCount,omitempty"`
 }
 
 type _AutoTestProjectSettingsApiModel AutoTestProjectSettingsApiModel
@@ -43,7 +51,7 @@ type _AutoTestProjectSettingsApiModel AutoTestProjectSettingsApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingFields WorkItemUpdatingFieldsApiModel) *AutoTestProjectSettingsApiModel {
+func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingFields WorkItemUpdatingFieldsApiModel, archiveOutdatedTestRunsEnabled bool, testRunsArchiveLimitEnabled bool) *AutoTestProjectSettingsApiModel {
 	this := AutoTestProjectSettingsApiModel{}
 	var isFlakyAuto bool = false
 	this.IsFlakyAuto = &isFlakyAuto
@@ -56,6 +64,12 @@ func NewAutoTestProjectSettingsApiModel(rerunEnabled bool, rerunAttemptsCount in
 	var workItemUpdatingEnabled bool = false
 	this.WorkItemUpdatingEnabled = &workItemUpdatingEnabled
 	this.WorkItemUpdatingFields = workItemUpdatingFields
+	this.ArchiveOutdatedTestRunsEnabled = archiveOutdatedTestRunsEnabled
+	this.TestRunsArchiveLimitEnabled = testRunsArchiveLimitEnabled
+	var testRunsRetentionPeriodDays int32 = 180
+	this.TestRunsRetentionPeriodDays = &testRunsRetentionPeriodDays
+	var maxActiveTestRunsCount int32 = 500
+	this.MaxActiveTestRunsCount = &maxActiveTestRunsCount
 	return &this
 }
 
@@ -72,6 +86,10 @@ func NewAutoTestProjectSettingsApiModelWithDefaults() *AutoTestProjectSettingsAp
 	this.FlakyTestRunCount = &flakyTestRunCount
 	var workItemUpdatingEnabled bool = false
 	this.WorkItemUpdatingEnabled = &workItemUpdatingEnabled
+	var testRunsRetentionPeriodDays int32 = 180
+	this.TestRunsRetentionPeriodDays = &testRunsRetentionPeriodDays
+	var maxActiveTestRunsCount int32 = 500
+	this.MaxActiveTestRunsCount = &maxActiveTestRunsCount
 	return &this
 }
 
@@ -275,6 +293,118 @@ func (o *AutoTestProjectSettingsApiModel) SetWorkItemUpdatingFields(v WorkItemUp
 	o.WorkItemUpdatingFields = v
 }
 
+// GetArchiveOutdatedTestRunsEnabled returns the ArchiveOutdatedTestRunsEnabled field value
+func (o *AutoTestProjectSettingsApiModel) GetArchiveOutdatedTestRunsEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.ArchiveOutdatedTestRunsEnabled
+}
+
+// GetArchiveOutdatedTestRunsEnabledOk returns a tuple with the ArchiveOutdatedTestRunsEnabled field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiModel) GetArchiveOutdatedTestRunsEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ArchiveOutdatedTestRunsEnabled, true
+}
+
+// SetArchiveOutdatedTestRunsEnabled sets field value
+func (o *AutoTestProjectSettingsApiModel) SetArchiveOutdatedTestRunsEnabled(v bool) {
+	o.ArchiveOutdatedTestRunsEnabled = v
+}
+
+// GetTestRunsArchiveLimitEnabled returns the TestRunsArchiveLimitEnabled field value
+func (o *AutoTestProjectSettingsApiModel) GetTestRunsArchiveLimitEnabled() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.TestRunsArchiveLimitEnabled
+}
+
+// GetTestRunsArchiveLimitEnabledOk returns a tuple with the TestRunsArchiveLimitEnabled field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiModel) GetTestRunsArchiveLimitEnabledOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestRunsArchiveLimitEnabled, true
+}
+
+// SetTestRunsArchiveLimitEnabled sets field value
+func (o *AutoTestProjectSettingsApiModel) SetTestRunsArchiveLimitEnabled(v bool) {
+	o.TestRunsArchiveLimitEnabled = v
+}
+
+// GetTestRunsRetentionPeriodDays returns the TestRunsRetentionPeriodDays field value if set, zero value otherwise.
+func (o *AutoTestProjectSettingsApiModel) GetTestRunsRetentionPeriodDays() int32 {
+	if o == nil || IsNil(o.TestRunsRetentionPeriodDays) {
+		var ret int32
+		return ret
+	}
+	return *o.TestRunsRetentionPeriodDays
+}
+
+// GetTestRunsRetentionPeriodDaysOk returns a tuple with the TestRunsRetentionPeriodDays field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiModel) GetTestRunsRetentionPeriodDaysOk() (*int32, bool) {
+	if o == nil || IsNil(o.TestRunsRetentionPeriodDays) {
+		return nil, false
+	}
+	return o.TestRunsRetentionPeriodDays, true
+}
+
+// HasTestRunsRetentionPeriodDays returns a boolean if a field has been set.
+func (o *AutoTestProjectSettingsApiModel) HasTestRunsRetentionPeriodDays() bool {
+	if o != nil && !IsNil(o.TestRunsRetentionPeriodDays) {
+		return true
+	}
+
+	return false
+}
+
+// SetTestRunsRetentionPeriodDays gets a reference to the given int32 and assigns it to the TestRunsRetentionPeriodDays field.
+func (o *AutoTestProjectSettingsApiModel) SetTestRunsRetentionPeriodDays(v int32) {
+	o.TestRunsRetentionPeriodDays = &v
+}
+
+// GetMaxActiveTestRunsCount returns the MaxActiveTestRunsCount field value if set, zero value otherwise.
+func (o *AutoTestProjectSettingsApiModel) GetMaxActiveTestRunsCount() int32 {
+	if o == nil || IsNil(o.MaxActiveTestRunsCount) {
+		var ret int32
+		return ret
+	}
+	return *o.MaxActiveTestRunsCount
+}
+
+// GetMaxActiveTestRunsCountOk returns a tuple with the MaxActiveTestRunsCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AutoTestProjectSettingsApiModel) GetMaxActiveTestRunsCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaxActiveTestRunsCount) {
+		return nil, false
+	}
+	return o.MaxActiveTestRunsCount, true
+}
+
+// HasMaxActiveTestRunsCount returns a boolean if a field has been set.
+func (o *AutoTestProjectSettingsApiModel) HasMaxActiveTestRunsCount() bool {
+	if o != nil && !IsNil(o.MaxActiveTestRunsCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxActiveTestRunsCount gets a reference to the given int32 and assigns it to the MaxActiveTestRunsCount field.
+func (o *AutoTestProjectSettingsApiModel) SetMaxActiveTestRunsCount(v int32) {
+	o.MaxActiveTestRunsCount = &v
+}
+
 func (o AutoTestProjectSettingsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -300,6 +430,14 @@ func (o AutoTestProjectSettingsApiModel) ToMap() (map[string]interface{}, error)
 		toSerialize["workItemUpdatingEnabled"] = o.WorkItemUpdatingEnabled
 	}
 	toSerialize["workItemUpdatingFields"] = o.WorkItemUpdatingFields
+	toSerialize["archiveOutdatedTestRunsEnabled"] = o.ArchiveOutdatedTestRunsEnabled
+	toSerialize["testRunsArchiveLimitEnabled"] = o.TestRunsArchiveLimitEnabled
+	if !IsNil(o.TestRunsRetentionPeriodDays) {
+		toSerialize["testRunsRetentionPeriodDays"] = o.TestRunsRetentionPeriodDays
+	}
+	if !IsNil(o.MaxActiveTestRunsCount) {
+		toSerialize["maxActiveTestRunsCount"] = o.MaxActiveTestRunsCount
+	}
 	return toSerialize, nil
 }
 
@@ -311,6 +449,8 @@ func (o *AutoTestProjectSettingsApiModel) UnmarshalJSON(data []byte) (err error)
 		"rerunEnabled",
 		"rerunAttemptsCount",
 		"workItemUpdatingFields",
+		"archiveOutdatedTestRunsEnabled",
+		"testRunsArchiveLimitEnabled",
 	}
 
 	allProperties := make(map[string]interface{})

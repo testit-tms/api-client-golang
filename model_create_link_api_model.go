@@ -28,7 +28,7 @@ type CreateLinkApiModel struct {
 	// Link description.
 	Description NullableString `json:"description,omitempty"`
 	// Specifies the type of the link.
-	Type NullableLinkType `json:"type,omitempty"`
+	Type LinkType `json:"type"`
 	// Flag defines if link relates to integrated jira service
 	HasInfo bool `json:"hasInfo"`
 }
@@ -39,9 +39,10 @@ type _CreateLinkApiModel CreateLinkApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateLinkApiModel(url string, hasInfo bool) *CreateLinkApiModel {
+func NewCreateLinkApiModel(url string, type_ LinkType, hasInfo bool) *CreateLinkApiModel {
 	this := CreateLinkApiModel{}
 	this.Url = url
+	this.Type = type_
 	this.HasInfo = hasInfo
 	return &this
 }
@@ -162,46 +163,28 @@ func (o *CreateLinkApiModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetType returns the Type field value
 func (o *CreateLinkApiModel) GetType() LinkType {
-	if o == nil || IsNil(o.Type.Get()) {
+	if o == nil {
 		var ret LinkType
 		return ret
 	}
-	return *o.Type.Get()
+
+	return o.Type
 }
 
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
+// GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateLinkApiModel) GetTypeOk() (*LinkType, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Type.Get(), o.Type.IsSet()
+	return &o.Type, true
 }
 
-// HasType returns a boolean if a field has been set.
-func (o *CreateLinkApiModel) HasType() bool {
-	if o != nil && o.Type.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetType gets a reference to the given NullableLinkType and assigns it to the Type field.
+// SetType sets field value
 func (o *CreateLinkApiModel) SetType(v LinkType) {
-	o.Type.Set(&v)
-}
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *CreateLinkApiModel) SetTypeNil() {
-	o.Type.Set(nil)
-}
-
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *CreateLinkApiModel) UnsetType() {
-	o.Type.Unset()
+	o.Type = v
 }
 
 // GetHasInfo returns the HasInfo field value
@@ -245,9 +228,7 @@ func (o CreateLinkApiModel) ToMap() (map[string]interface{}, error) {
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
-	}
+	toSerialize["type"] = o.Type
 	toSerialize["hasInfo"] = o.HasInfo
 	return toSerialize, nil
 }
@@ -258,6 +239,7 @@ func (o *CreateLinkApiModel) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"url",
+		"type",
 		"hasInfo",
 	}
 

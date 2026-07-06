@@ -8,8 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
 **Name** | **string** | Name of the project | 
 **IsFavorite** | **bool** | Indicates if the project is marked as favorite | 
-**AttributesScheme** | Pointer to [**[]CustomAttributeApiResult**](CustomAttributeApiResult.md) | Collection of the project attributes | [optional] 
-**TestPlansAttributesScheme** | Pointer to [**[]CustomAttributeApiResult**](CustomAttributeApiResult.md) | Collection of the project test plans attributes | [optional] 
+**WorkItemsCount** | **int32** | Number of work items in the project | 
 **TestCasesCount** | Pointer to **NullableInt32** | Number of test cases in the project | [optional] 
 **SharedStepsCount** | Pointer to **NullableInt32** | Number of shared steps in the project | [optional] 
 **CheckListsCount** | Pointer to **NullableInt32** | Number of checklists in the project | [optional] 
@@ -21,14 +20,13 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
 **GlobalId** | **int64** | Global ID of the project | 
 **Type** | [**ProjectType**](ProjectType.md) | Type of the project | 
-**IsFlakyAuto** | Pointer to **NullableBool** | Indicates if the status \&quot;Flaky/Stable\&quot; inits automatically | [optional] 
 **WorkflowId** | **string** | ID of the workflow used in project | 
 
 ## Methods
 
 ### NewProjectApiResult
 
-`func NewProjectApiResult(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string, ) *ProjectApiResult`
+`func NewProjectApiResult(id string, name string, isFavorite bool, workItemsCount int32, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string, ) *ProjectApiResult`
 
 NewProjectApiResult instantiates a new ProjectApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -138,76 +136,26 @@ and a boolean to check if the value has been set.
 SetIsFavorite sets IsFavorite field to given value.
 
 
-### GetAttributesScheme
+### GetWorkItemsCount
 
-`func (o *ProjectApiResult) GetAttributesScheme() []CustomAttributeApiResult`
+`func (o *ProjectApiResult) GetWorkItemsCount() int32`
 
-GetAttributesScheme returns the AttributesScheme field if non-nil, zero value otherwise.
+GetWorkItemsCount returns the WorkItemsCount field if non-nil, zero value otherwise.
 
-### GetAttributesSchemeOk
+### GetWorkItemsCountOk
 
-`func (o *ProjectApiResult) GetAttributesSchemeOk() (*[]CustomAttributeApiResult, bool)`
+`func (o *ProjectApiResult) GetWorkItemsCountOk() (*int32, bool)`
 
-GetAttributesSchemeOk returns a tuple with the AttributesScheme field if it's non-nil, zero value otherwise
+GetWorkItemsCountOk returns a tuple with the WorkItemsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAttributesScheme
+### SetWorkItemsCount
 
-`func (o *ProjectApiResult) SetAttributesScheme(v []CustomAttributeApiResult)`
+`func (o *ProjectApiResult) SetWorkItemsCount(v int32)`
 
-SetAttributesScheme sets AttributesScheme field to given value.
+SetWorkItemsCount sets WorkItemsCount field to given value.
 
-### HasAttributesScheme
 
-`func (o *ProjectApiResult) HasAttributesScheme() bool`
-
-HasAttributesScheme returns a boolean if a field has been set.
-
-### SetAttributesSchemeNil
-
-`func (o *ProjectApiResult) SetAttributesSchemeNil(b bool)`
-
- SetAttributesSchemeNil sets the value for AttributesScheme to be an explicit nil
-
-### UnsetAttributesScheme
-`func (o *ProjectApiResult) UnsetAttributesScheme()`
-
-UnsetAttributesScheme ensures that no value is present for AttributesScheme, not even an explicit nil
-### GetTestPlansAttributesScheme
-
-`func (o *ProjectApiResult) GetTestPlansAttributesScheme() []CustomAttributeApiResult`
-
-GetTestPlansAttributesScheme returns the TestPlansAttributesScheme field if non-nil, zero value otherwise.
-
-### GetTestPlansAttributesSchemeOk
-
-`func (o *ProjectApiResult) GetTestPlansAttributesSchemeOk() (*[]CustomAttributeApiResult, bool)`
-
-GetTestPlansAttributesSchemeOk returns a tuple with the TestPlansAttributesScheme field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTestPlansAttributesScheme
-
-`func (o *ProjectApiResult) SetTestPlansAttributesScheme(v []CustomAttributeApiResult)`
-
-SetTestPlansAttributesScheme sets TestPlansAttributesScheme field to given value.
-
-### HasTestPlansAttributesScheme
-
-`func (o *ProjectApiResult) HasTestPlansAttributesScheme() bool`
-
-HasTestPlansAttributesScheme returns a boolean if a field has been set.
-
-### SetTestPlansAttributesSchemeNil
-
-`func (o *ProjectApiResult) SetTestPlansAttributesSchemeNil(b bool)`
-
- SetTestPlansAttributesSchemeNil sets the value for TestPlansAttributesScheme to be an explicit nil
-
-### UnsetTestPlansAttributesScheme
-`func (o *ProjectApiResult) UnsetTestPlansAttributesScheme()`
-
-UnsetTestPlansAttributesScheme ensures that no value is present for TestPlansAttributesScheme, not even an explicit nil
 ### GetTestCasesCount
 
 `func (o *ProjectApiResult) GetTestCasesCount() int32`
@@ -518,41 +466,6 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
-### GetIsFlakyAuto
-
-`func (o *ProjectApiResult) GetIsFlakyAuto() bool`
-
-GetIsFlakyAuto returns the IsFlakyAuto field if non-nil, zero value otherwise.
-
-### GetIsFlakyAutoOk
-
-`func (o *ProjectApiResult) GetIsFlakyAutoOk() (*bool, bool)`
-
-GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsFlakyAuto
-
-`func (o *ProjectApiResult) SetIsFlakyAuto(v bool)`
-
-SetIsFlakyAuto sets IsFlakyAuto field to given value.
-
-### HasIsFlakyAuto
-
-`func (o *ProjectApiResult) HasIsFlakyAuto() bool`
-
-HasIsFlakyAuto returns a boolean if a field has been set.
-
-### SetIsFlakyAutoNil
-
-`func (o *ProjectApiResult) SetIsFlakyAutoNil(b bool)`
-
- SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
-
-### UnsetIsFlakyAuto
-`func (o *ProjectApiResult) UnsetIsFlakyAuto()`
-
-UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
 ### GetWorkflowId
 
 `func (o *ProjectApiResult) GetWorkflowId() string`

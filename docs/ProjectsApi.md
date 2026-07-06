@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddGlobalAttributesToProject**](ProjectsAPI.md#AddGlobalAttributesToProject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-[**ApiV2ProjectsDemoPost**](ProjectsAPI.md#ApiV2ProjectsDemoPost) | **Post** /api/v2/projects/demo | 
 [**ApiV2ProjectsIdDelete**](ProjectsAPI.md#ApiV2ProjectsIdDelete) | **Delete** /api/v2/projects/{id} | Archive project
 [**ApiV2ProjectsIdFailureClassesGet**](ProjectsAPI.md#ApiV2ProjectsIdFailureClassesGet) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 [**ApiV2ProjectsIdFavoritePut**](ProjectsAPI.md#ApiV2ProjectsIdFavoritePut) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -90,70 +89,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ApiV2ProjectsDemoPost
-
-> DemoProjectApiResult ApiV2ProjectsDemoPost(ctx).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ProjectsAPI.ApiV2ProjectsDemoPost(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsDemoPost``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ApiV2ProjectsDemoPost`: DemoProjectApiResult
-	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsDemoPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiApiV2ProjectsDemoPostRequest struct via the builder pattern
-
-
-### Return type
-
-[**DemoProjectApiResult**](DemoProjectApiResult.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -215,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -285,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -351,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -421,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -491,7 +431,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -557,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -623,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -694,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -764,7 +704,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -863,7 +803,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -931,7 +871,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -995,7 +935,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1059,7 +999,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1073,7 +1013,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsSearchPost
 
-> []ProjectShortModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
+> []ProjectApiResult ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
 
 Search for projects
 
@@ -1104,7 +1044,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsSearchPost`: []ProjectShortModel
+	// response from `ApiV2ProjectsSearchPost`: []ProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsSearchPost`: %v\n", resp)
 }
 ```
@@ -1129,11 +1069,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ProjectShortModel**](ProjectShortModel.md)
+[**[]ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1147,7 +1087,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsShortsPost
 
-> ProjectShortApiResultReply ApiV2ProjectsShortsPost(ctx).GetShortProjectsApiModel(getShortProjectsApiModel).Execute()
+> ProjectShortApiResultIReply ApiV2ProjectsShortsPost(ctx).GetShortProjectsApiModel(getShortProjectsApiModel).Execute()
 
 Get projects short models
 
@@ -1175,7 +1115,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsShortsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsShortsPost`: ProjectShortApiResultReply
+	// response from `ApiV2ProjectsShortsPost`: ProjectShortApiResultIReply
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsShortsPost`: %v\n", resp)
 }
 ```
@@ -1195,11 +1135,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectShortApiResultReply**](ProjectShortApiResultReply.md)
+[**ProjectShortApiResultIReply**](ProjectShortApiResultIReply.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1265,7 +1205,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1331,7 +1271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1345,7 +1285,7 @@ Name | Type | Description  | Notes
 
 ## GetAllProjects
 
-> []ProjectShortModel GetAllProjects(ctx).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []ProjectApiResult GetAllProjects(ctx).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get all projects
 
@@ -1379,7 +1319,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetAllProjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAllProjects`: []ProjectShortModel
+	// response from `GetAllProjects`: []ProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetAllProjects`: %v\n", resp)
 }
 ```
@@ -1405,11 +1345,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ProjectShortModel**](ProjectShortModel.md)
+[**[]ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1479,7 +1419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1493,7 +1433,7 @@ Name | Type | Description  | Notes
 
 ## GetProjectById
 
-> ProjectModel GetProjectById(ctx, id).Execute()
+> DetailedProjectApiResult GetProjectById(ctx, id).Execute()
 
 Get project by ID
 
@@ -1521,7 +1461,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetProjectById`: ProjectModel
+	// response from `GetProjectById`: DetailedProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetProjectById`: %v\n", resp)
 }
 ```
@@ -1545,11 +1485,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**DetailedProjectApiResult**](DetailedProjectApiResult.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1621,7 +1561,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1716,7 +1656,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -1780,7 +1720,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

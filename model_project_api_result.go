@@ -30,10 +30,8 @@ type ProjectApiResult struct {
 	Name string `json:"name"`
 	// Indicates if the project is marked as favorite
 	IsFavorite bool `json:"isFavorite"`
-	// Collection of the project attributes
-	AttributesScheme []CustomAttributeApiResult `json:"attributesScheme,omitempty"`
-	// Collection of the project test plans attributes
-	TestPlansAttributesScheme []CustomAttributeApiResult `json:"testPlansAttributesScheme,omitempty"`
+	// Number of work items in the project
+	WorkItemsCount int32 `json:"workItemsCount"`
 	// Number of test cases in the project
 	TestCasesCount NullableInt32 `json:"testCasesCount,omitempty"`
 	// Number of shared steps in the project
@@ -56,9 +54,6 @@ type ProjectApiResult struct {
 	GlobalId int64 `json:"globalId"`
 	// Type of the project
 	Type ProjectType `json:"type"`
-	// Indicates if the status \"Flaky/Stable\" inits automatically
-	// Deprecated
-	IsFlakyAuto NullableBool `json:"isFlakyAuto,omitempty"`
 	// ID of the workflow used in project
 	WorkflowId string `json:"workflowId"`
 }
@@ -69,11 +64,12 @@ type _ProjectApiResult ProjectApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProjectApiResult(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string) *ProjectApiResult {
+func NewProjectApiResult(id string, name string, isFavorite bool, workItemsCount int32, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string) *ProjectApiResult {
 	this := ProjectApiResult{}
 	this.Id = id
 	this.Name = name
 	this.IsFavorite = isFavorite
+	this.WorkItemsCount = workItemsCount
 	this.IsDeleted = isDeleted
 	this.CreatedDate = createdDate
 	this.CreatedById = createdById
@@ -205,70 +201,28 @@ func (o *ProjectApiResult) SetIsFavorite(v bool) {
 	o.IsFavorite = v
 }
 
-// GetAttributesScheme returns the AttributesScheme field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectApiResult) GetAttributesScheme() []CustomAttributeApiResult {
+// GetWorkItemsCount returns the WorkItemsCount field value
+func (o *ProjectApiResult) GetWorkItemsCount() int32 {
 	if o == nil {
-		var ret []CustomAttributeApiResult
+		var ret int32
 		return ret
 	}
-	return o.AttributesScheme
+
+	return o.WorkItemsCount
 }
 
-// GetAttributesSchemeOk returns a tuple with the AttributesScheme field value if set, nil otherwise
+// GetWorkItemsCountOk returns a tuple with the WorkItemsCount field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectApiResult) GetAttributesSchemeOk() ([]CustomAttributeApiResult, bool) {
-	if o == nil || IsNil(o.AttributesScheme) {
-		return nil, false
-	}
-	return o.AttributesScheme, true
-}
-
-// HasAttributesScheme returns a boolean if a field has been set.
-func (o *ProjectApiResult) HasAttributesScheme() bool {
-	if o != nil && !IsNil(o.AttributesScheme) {
-		return true
-	}
-
-	return false
-}
-
-// SetAttributesScheme gets a reference to the given []CustomAttributeApiResult and assigns it to the AttributesScheme field.
-func (o *ProjectApiResult) SetAttributesScheme(v []CustomAttributeApiResult) {
-	o.AttributesScheme = v
-}
-
-// GetTestPlansAttributesScheme returns the TestPlansAttributesScheme field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProjectApiResult) GetTestPlansAttributesScheme() []CustomAttributeApiResult {
+func (o *ProjectApiResult) GetWorkItemsCountOk() (*int32, bool) {
 	if o == nil {
-		var ret []CustomAttributeApiResult
-		return ret
-	}
-	return o.TestPlansAttributesScheme
-}
-
-// GetTestPlansAttributesSchemeOk returns a tuple with the TestPlansAttributesScheme field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProjectApiResult) GetTestPlansAttributesSchemeOk() ([]CustomAttributeApiResult, bool) {
-	if o == nil || IsNil(o.TestPlansAttributesScheme) {
 		return nil, false
 	}
-	return o.TestPlansAttributesScheme, true
+	return &o.WorkItemsCount, true
 }
 
-// HasTestPlansAttributesScheme returns a boolean if a field has been set.
-func (o *ProjectApiResult) HasTestPlansAttributesScheme() bool {
-	if o != nil && !IsNil(o.TestPlansAttributesScheme) {
-		return true
-	}
-
-	return false
-}
-
-// SetTestPlansAttributesScheme gets a reference to the given []CustomAttributeApiResult and assigns it to the TestPlansAttributesScheme field.
-func (o *ProjectApiResult) SetTestPlansAttributesScheme(v []CustomAttributeApiResult) {
-	o.TestPlansAttributesScheme = v
+// SetWorkItemsCount sets field value
+func (o *ProjectApiResult) SetWorkItemsCount(v int32) {
+	o.WorkItemsCount = v
 }
 
 // GetTestCasesCount returns the TestCasesCount field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -643,51 +597,6 @@ func (o *ProjectApiResult) SetType(v ProjectType) {
 	o.Type = v
 }
 
-// GetIsFlakyAuto returns the IsFlakyAuto field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
-func (o *ProjectApiResult) GetIsFlakyAuto() bool {
-	if o == nil || IsNil(o.IsFlakyAuto.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.IsFlakyAuto.Get()
-}
-
-// GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
-func (o *ProjectApiResult) GetIsFlakyAutoOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.IsFlakyAuto.Get(), o.IsFlakyAuto.IsSet()
-}
-
-// HasIsFlakyAuto returns a boolean if a field has been set.
-func (o *ProjectApiResult) HasIsFlakyAuto() bool {
-	if o != nil && o.IsFlakyAuto.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIsFlakyAuto gets a reference to the given NullableBool and assigns it to the IsFlakyAuto field.
-// Deprecated
-func (o *ProjectApiResult) SetIsFlakyAuto(v bool) {
-	o.IsFlakyAuto.Set(&v)
-}
-// SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
-func (o *ProjectApiResult) SetIsFlakyAutoNil() {
-	o.IsFlakyAuto.Set(nil)
-}
-
-// UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
-func (o *ProjectApiResult) UnsetIsFlakyAuto() {
-	o.IsFlakyAuto.Unset()
-}
-
 // GetWorkflowId returns the WorkflowId field value
 func (o *ProjectApiResult) GetWorkflowId() string {
 	if o == nil {
@@ -728,12 +637,7 @@ func (o ProjectApiResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["name"] = o.Name
 	toSerialize["isFavorite"] = o.IsFavorite
-	if o.AttributesScheme != nil {
-		toSerialize["attributesScheme"] = o.AttributesScheme
-	}
-	if o.TestPlansAttributesScheme != nil {
-		toSerialize["testPlansAttributesScheme"] = o.TestPlansAttributesScheme
-	}
+	toSerialize["workItemsCount"] = o.WorkItemsCount
 	if o.TestCasesCount.IsSet() {
 		toSerialize["testCasesCount"] = o.TestCasesCount.Get()
 	}
@@ -757,9 +661,6 @@ func (o ProjectApiResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["type"] = o.Type
-	if o.IsFlakyAuto.IsSet() {
-		toSerialize["isFlakyAuto"] = o.IsFlakyAuto.Get()
-	}
 	toSerialize["workflowId"] = o.WorkflowId
 	return toSerialize, nil
 }
@@ -772,6 +673,7 @@ func (o *ProjectApiResult) UnmarshalJSON(data []byte) (err error) {
 		"id",
 		"name",
 		"isFavorite",
+		"workItemsCount",
 		"isDeleted",
 		"createdDate",
 		"createdById",

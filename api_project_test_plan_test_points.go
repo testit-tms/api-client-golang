@@ -23,6 +23,198 @@ import (
 // ProjectTestPlanTestPointsAPIService ProjectTestPlanTestPointsAPI service
 type ProjectTestPlanTestPointsAPIService service
 
+type ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest struct {
+	ctx context.Context
+	ApiService *ProjectTestPlanTestPointsAPIService
+	projectId string
+	testPlanId string
+	testPlanTestPointsAnalyticsApiModel *TestPlanTestPointsAnalyticsApiModel
+}
+
+func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest) TestPlanTestPointsAnalyticsApiModel(testPlanTestPointsAnalyticsApiModel TestPlanTestPointsAnalyticsApiModel) ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest {
+	r.testPlanTestPointsAnalyticsApiModel = &testPlanTestPointsAnalyticsApiModel
+	return r
+}
+
+func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest) Execute() (*TestPlanTestPointsAnalyticsApiResult, *http.Response, error) {
+	return r.ApiService.ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostExecute(r)
+}
+
+/*
+ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPost Get test points analytics.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId Internal (UUID) or global (integer) identifier
+ @param testPlanId
+ @return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest
+*/
+func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPost(ctx context.Context, projectId string, testPlanId string) ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest {
+	return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+		testPlanId: testPlanId,
+	}
+}
+
+// Execute executes the request
+//  @return TestPlanTestPointsAnalyticsApiResult
+func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostExecute(r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPostRequest) (*TestPlanTestPointsAnalyticsApiResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestPlanTestPointsAnalyticsApiResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanTestPointsAPIService.ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/analytics"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"testPlanId"+"}", url.PathEscape(parameterValueToString(r.testPlanId, "testPlanId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.testPlanTestPointsAnalyticsApiModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPostRequest struct {
 	ctx context.Context
 	ApiService *ProjectTestPlanTestPointsAPIService
@@ -100,7 +292,7 @@ func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTes
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -283,7 +475,7 @@ func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTes
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -394,4 +586,377 @@ func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTes
 	}
 
 	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest struct {
+	ctx context.Context
+	ApiService *ProjectTestPlanTestPointsAPIService
+	projectId string
+	testPlanId string
+	testPlanTestPointsApiModel *TestPlanTestPointsApiModel
+}
+
+func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest) TestPlanTestPointsApiModel(testPlanTestPointsApiModel TestPlanTestPointsApiModel) ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest {
+	r.testPlanTestPointsApiModel = &testPlanTestPointsApiModel
+	return r
+}
+
+func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest) Execute() (*TestPlanTestPointsGroupSearchApiResult, *http.Response, error) {
+	return r.ApiService.ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostExecute(r)
+}
+
+/*
+ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPost Search test points in test plan.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId Internal (UUID) or global (integer) identifier
+ @param testPlanId
+ @return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest
+*/
+func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPost(ctx context.Context, projectId string, testPlanId string) ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest {
+	return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+		testPlanId: testPlanId,
+	}
+}
+
+// Execute executes the request
+//  @return TestPlanTestPointsGroupSearchApiResult
+func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostExecute(r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPostRequest) (*TestPlanTestPointsGroupSearchApiResult, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *TestPlanTestPointsGroupSearchApiResult
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanTestPointsAPIService.ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/grouping-search"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"testPlanId"+"}", url.PathEscape(parameterValueToString(r.testPlanId, "testPlanId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.testPlanTestPointsApiModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest struct {
+	ctx context.Context
+	ApiService *ProjectTestPlanTestPointsAPIService
+	projectId string
+	testPlanId string
+	testPlanTestPointsSetTestersApiModel *TestPlanTestPointsSetTestersApiModel
+}
+
+func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest) TestPlanTestPointsSetTestersApiModel(testPlanTestPointsSetTestersApiModel TestPlanTestPointsSetTestersApiModel) ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest {
+	r.testPlanTestPointsSetTestersApiModel = &testPlanTestPointsSetTestersApiModel
+	return r
+}
+
+func (r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostExecute(r)
+}
+
+/*
+ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPost Distribute test points between the users.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param projectId Internal (UUID) or global (integer) identifier
+ @param testPlanId
+ @return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest
+*/
+func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPost(ctx context.Context, projectId string, testPlanId string) ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest {
+	return ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest{
+		ApiService: a,
+		ctx: ctx,
+		projectId: projectId,
+		testPlanId: testPlanId,
+	}
+}
+
+// Execute executes the request
+func (a *ProjectTestPlanTestPointsAPIService) ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostExecute(r ApiApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPostRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanTestPointsAPIService.ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPost")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/testers"
+	localVarPath = strings.Replace(localVarPath, "{"+"projectId"+"}", url.PathEscape(parameterValueToString(r.projectId, "projectId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"testPlanId"+"}", url.PathEscape(parameterValueToString(r.testPlanId, "testPlanId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.testPlanTestPointsSetTestersApiModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
 }

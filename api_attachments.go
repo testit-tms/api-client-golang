@@ -89,7 +89,7 @@ func (a *AttachmentsAPIService) ApiV2AttachmentsIdDeleteExecute(r ApiApiV2Attach
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -308,7 +308,7 @@ func (a *AttachmentsAPIService) ApiV2AttachmentsIdGetExecute(r ApiApiV2Attachmen
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -479,7 +479,7 @@ func (a *AttachmentsAPIService) ApiV2AttachmentsIdMetadataGetExecute(r ApiApiV2A
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -655,7 +655,7 @@ func (a *AttachmentsAPIService) ApiV2AttachmentsOccupiedFileStorageSizeGetExecut
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -786,7 +786,7 @@ func (r ApiApiV2AttachmentsPostRequest) Execute() (*AttachmentModel, *http.Respo
 /*
 ApiV2AttachmentsPost Upload new attachment file
 
-File size is restricted to 50 MB (52 428 800 bytes)
+File size is restricted to 1 GB (1 073 741 824 bytes)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiApiV2AttachmentsPostRequest
@@ -854,7 +854,7 @@ func (a *AttachmentsAPIService) ApiV2AttachmentsPostExecute(r ApiApiV2Attachment
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

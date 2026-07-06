@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2TestStatusesSearchPost
 
-> TestStatusApiResultReply ApiV2TestStatusesSearchPost(ctx).SearchTestStatusesApiModel(searchTestStatusesApiModel).Execute()
+> TestStatusApiResultIReply ApiV2TestStatusesSearchPost(ctx).SearchTestStatusesApiModel(searchTestStatusesApiModel).Execute()
 
 
 
@@ -444,7 +444,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `TestStatusesAPI.ApiV2TestStatusesSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2TestStatusesSearchPost`: TestStatusApiResultReply
+	// response from `ApiV2TestStatusesSearchPost`: TestStatusApiResultIReply
 	fmt.Fprintf(os.Stdout, "Response from `TestStatusesAPI.ApiV2TestStatusesSearchPost`: %v\n", resp)
 }
 ```
@@ -464,11 +464,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TestStatusApiResultReply**](TestStatusApiResultReply.md)
+[**TestStatusApiResultIReply**](TestStatusApiResultIReply.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **States** | Pointer to [**[]WorkItemStates**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
 **SourceTypes** | Pointer to [**[]WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Collection of priorities of work item | [optional] 
-**Types** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
+**Types** | Pointer to [**[]WorkItemTypeModel**](WorkItemTypeModel.md) | Collection of types of work item | [optional] 
 **CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
 **Duration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a work item duration range to search for | [optional] 
@@ -434,20 +434,20 @@ HasSourceTypes returns a boolean if a field has been set.
 UnsetSourceTypes ensures that no value is present for SourceTypes, not even an explicit nil
 ### GetTypes
 
-`func (o *WorkItemLocalFilterModel) GetTypes() []WorkItemEntityTypes`
+`func (o *WorkItemLocalFilterModel) GetTypes() []WorkItemTypeModel`
 
 GetTypes returns the Types field if non-nil, zero value otherwise.
 
 ### GetTypesOk
 
-`func (o *WorkItemLocalFilterModel) GetTypesOk() (*[]WorkItemEntityTypes, bool)`
+`func (o *WorkItemLocalFilterModel) GetTypesOk() (*[]WorkItemTypeModel, bool)`
 
 GetTypesOk returns a tuple with the Types field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTypes
 
-`func (o *WorkItemLocalFilterModel) SetTypes(v []WorkItemEntityTypes)`
+`func (o *WorkItemLocalFilterModel) SetTypes(v []WorkItemTypeModel)`
 
 SetTypes sets Types field to given value.
 

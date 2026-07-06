@@ -46,6 +46,8 @@ ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost Method
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param externalProjectId
  @return ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest
+
+Deprecated
 */
 func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPost(ctx context.Context, externalProjectId string) ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest {
 	return ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest{
@@ -57,6 +59,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectI
 
 // Execute executes the request
 //  @return GetExternalFormApiResult
+// Deprecated
 func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostExecute(r ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsExternalFormsPostRequest) (*GetExternalFormApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -99,7 +102,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectI
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -234,6 +237,8 @@ ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost Method for ApiV2Tes
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param externalProjectId
  @return ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest
+
+Deprecated
 */
 func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPost(ctx context.Context, externalProjectId string) ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest {
 	return ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest{
@@ -245,6 +250,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectI
 
 // Execute executes the request
 //  @return DefectApiModel
+// Deprecated
 func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostExecute(r ApiApiV2TestResultsExternalProjectsExternalProjectIdDefectsPostRequest) (*DefectApiModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -287,7 +293,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsExternalProjectsExternalProjectI
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -470,7 +476,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdAggregatedGetExecute(r ApiApiV
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -652,7 +658,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsAttachmentIdPutExec
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -823,7 +829,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdAttachmentsInfoGetExecute(r Ap
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1003,7 +1009,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdGetExecute(r ApiApiV2TestResul
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1116,6 +1122,185 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdGetExecute(r ApiApiV2TestResul
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiApiV2TestResultsIdPatchRequest struct {
+	ctx context.Context
+	ApiService *TestResultsAPIService
+	id string
+	operation *[]Operation
+}
+
+func (r ApiApiV2TestResultsIdPatchRequest) Operation(operation []Operation) ApiApiV2TestResultsIdPatchRequest {
+	r.operation = &operation
+	return r
+}
+
+func (r ApiApiV2TestResultsIdPatchRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiV2TestResultsIdPatchExecute(r)
+}
+
+/*
+ApiV2TestResultsIdPatch Patch test result by ID
+
+See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Test result unique ID
+ @return ApiApiV2TestResultsIdPatchRequest
+*/
+func (a *TestResultsAPIService) ApiV2TestResultsIdPatch(ctx context.Context, id string) ApiApiV2TestResultsIdPatchRequest {
+	return ApiApiV2TestResultsIdPatchRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *TestResultsAPIService) ApiV2TestResultsIdPatchExecute(r ApiApiV2TestResultsIdPatchRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestResultsAPIService.ApiV2TestResultsIdPatch")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/testResults/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.operation
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiApiV2TestResultsIdPutRequest struct {
 	ctx context.Context
 	ApiService *TestResultsAPIService
@@ -1189,7 +1374,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdPutExecute(r ApiApiV2TestResul
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1360,7 +1545,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsIdRerunsGetExecute(r ApiApiV2Tes
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1594,7 +1779,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsSearchPostExecute(r ApiApiV2Test
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1778,7 +1963,7 @@ func (a *TestResultsAPIService) ApiV2TestResultsStatisticsFilterPostExecute(r Ap
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1989,7 +2174,7 @@ func (a *TestResultsAPIService) CreateAttachmentExecute(r ApiCreateAttachmentReq
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2187,7 +2372,7 @@ func (a *TestResultsAPIService) DeleteAttachmentExecute(r ApiDeleteAttachmentReq
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2428,7 +2613,7 @@ func (a *TestResultsAPIService) DownloadAttachmentExecute(r ApiDownloadAttachmen
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2614,7 +2799,7 @@ func (a *TestResultsAPIService) GetAttachmentExecute(r ApiGetAttachmentRequest) 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2805,7 +2990,7 @@ func (a *TestResultsAPIService) GetAttachmentsExecute(r ApiGetAttachmentsRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

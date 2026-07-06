@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** | Link name. | [optional] 
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
-**Type** | Pointer to [**NullableLinkType**](LinkType.md) | Specifies the type of the link. | [optional] 
+**Type** | [**LinkType**](LinkType.md) | Specifies the type of the link. | 
 **HasInfo** | **bool** | Flag defines if link relates to integrated jira service | 
 **Name** | Pointer to **NullableString** | Link name. Backward compatibility. | [optional] [readonly] 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewTestResultLinkApiResult
 
-`func NewTestResultLinkApiResult(url string, hasInfo bool, ) *TestResultLinkApiResult`
+`func NewTestResultLinkApiResult(url string, type_ LinkType, hasInfo bool, ) *TestResultLinkApiResult`
 
 NewTestResultLinkApiResult instantiates a new TestResultLinkApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -175,22 +175,7 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *TestResultLinkApiResult) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *TestResultLinkApiResult) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *TestResultLinkApiResult) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetHasInfo
 
 `func (o *TestResultLinkApiResult) GetHasInfo() bool`

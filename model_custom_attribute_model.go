@@ -23,12 +23,16 @@ var _ MappedNullable = &CustomAttributeModel{}
 type CustomAttributeModel struct {
 	// Unique ID of the attribute
 	Id string `json:"id"`
-	// Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
+	// Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+	Targets []string `json:"targets"`
+	// Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionModel `json:"options"`
 	// Type of the attribute
 	Type CustomAttributeTypesEnum `json:"type"`
 	// Indicates if the attribute is deleted
 	IsDeleted bool `json:"isDeleted"`
+	// Indicates if the attribute is system
+	IsSystem bool `json:"isSystem"`
 	// Name of the attribute
 	Name string `json:"name"`
 	// Indicates if the attribute is enabled
@@ -45,12 +49,14 @@ type _CustomAttributeModel CustomAttributeModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeModel(id string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeModel {
+func NewCustomAttributeModel(id string, targets []string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeModel {
 	this := CustomAttributeModel{}
 	this.Id = id
+	this.Targets = targets
 	this.Options = options
 	this.Type = type_
 	this.IsDeleted = isDeleted
+	this.IsSystem = isSystem
 	this.Name = name
 	this.IsEnabled = isEnabled
 	this.IsRequired = isRequired
@@ -88,6 +94,30 @@ func (o *CustomAttributeModel) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *CustomAttributeModel) SetId(v string) {
 	o.Id = v
+}
+
+// GetTargets returns the Targets field value
+func (o *CustomAttributeModel) GetTargets() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.Targets
+}
+
+// GetTargetsOk returns a tuple with the Targets field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeModel) GetTargetsOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Targets, true
+}
+
+// SetTargets sets field value
+func (o *CustomAttributeModel) SetTargets(v []string) {
+	o.Targets = v
 }
 
 // GetOptions returns the Options field value
@@ -160,6 +190,30 @@ func (o *CustomAttributeModel) GetIsDeletedOk() (*bool, bool) {
 // SetIsDeleted sets field value
 func (o *CustomAttributeModel) SetIsDeleted(v bool) {
 	o.IsDeleted = v
+}
+
+// GetIsSystem returns the IsSystem field value
+func (o *CustomAttributeModel) GetIsSystem() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsSystem
+}
+
+// GetIsSystemOk returns a tuple with the IsSystem field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeModel) GetIsSystemOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsSystem, true
+}
+
+// SetIsSystem sets field value
+func (o *CustomAttributeModel) SetIsSystem(v bool) {
+	o.IsSystem = v
 }
 
 // GetName returns the Name field value
@@ -269,9 +323,11 @@ func (o CustomAttributeModel) MarshalJSON() ([]byte, error) {
 func (o CustomAttributeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
+	toSerialize["targets"] = o.Targets
 	toSerialize["options"] = o.Options
 	toSerialize["type"] = o.Type
 	toSerialize["isDeleted"] = o.IsDeleted
+	toSerialize["isSystem"] = o.IsSystem
 	toSerialize["name"] = o.Name
 	toSerialize["isEnabled"] = o.IsEnabled
 	toSerialize["isRequired"] = o.IsRequired
@@ -285,9 +341,11 @@ func (o *CustomAttributeModel) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
+		"targets",
 		"options",
 		"type",
 		"isDeleted",
+		"isSystem",
 		"name",
 		"isEnabled",
 		"isRequired",

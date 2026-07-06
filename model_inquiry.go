@@ -21,6 +21,7 @@ var _ MappedNullable = &Inquiry{}
 
 // Inquiry struct for Inquiry
 type Inquiry struct {
+	Group NullableGroup `json:"group,omitempty"`
 	Filter NullableCompositeFilter `json:"filter,omitempty"`
 	Order []Order `json:"order"`
 	Page NullablePage `json:"page,omitempty"`
@@ -44,6 +45,48 @@ func NewInquiry(order []Order) *Inquiry {
 func NewInquiryWithDefaults() *Inquiry {
 	this := Inquiry{}
 	return &this
+}
+
+// GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Inquiry) GetGroup() Group {
+	if o == nil || IsNil(o.Group.Get()) {
+		var ret Group
+		return ret
+	}
+	return *o.Group.Get()
+}
+
+// GetGroupOk returns a tuple with the Group field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Inquiry) GetGroupOk() (*Group, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Group.Get(), o.Group.IsSet()
+}
+
+// HasGroup returns a boolean if a field has been set.
+func (o *Inquiry) HasGroup() bool {
+	if o != nil && o.Group.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGroup gets a reference to the given NullableGroup and assigns it to the Group field.
+func (o *Inquiry) SetGroup(v Group) {
+	o.Group.Set(&v)
+}
+// SetGroupNil sets the value for Group to be an explicit nil
+func (o *Inquiry) SetGroupNil() {
+	o.Group.Set(nil)
+}
+
+// UnsetGroup ensures that no value is present for Group, not even an explicit nil
+func (o *Inquiry) UnsetGroup() {
+	o.Group.Unset()
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -164,6 +207,9 @@ func (o Inquiry) MarshalJSON() ([]byte, error) {
 
 func (o Inquiry) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Group.IsSet() {
+		toSerialize["group"] = o.Group.Get()
+	}
 	if o.Filter.IsSet() {
 		toSerialize["filter"] = o.Filter.Get()
 	}

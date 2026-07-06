@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkflowsIdProjectsSearchPost
 
-> WorkflowProjectApiResultReply ApiV2WorkflowsIdProjectsSearchPost(ctx, id).SearchWorkflowProjectsApiModel(searchWorkflowProjectsApiModel).Execute()
+> WorkflowProjectApiResultIReply ApiV2WorkflowsIdProjectsSearchPost(ctx, id).SearchWorkflowProjectsApiModel(searchWorkflowProjectsApiModel).Execute()
 
 
 
@@ -248,7 +248,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ApiV2WorkflowsIdProjectsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkflowsIdProjectsSearchPost`: WorkflowProjectApiResultReply
+	// response from `ApiV2WorkflowsIdProjectsSearchPost`: WorkflowProjectApiResultIReply
 	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.ApiV2WorkflowsIdProjectsSearchPost`: %v\n", resp)
 }
 ```
@@ -273,11 +273,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowProjectApiResultReply**](WorkflowProjectApiResultReply.md)
+[**WorkflowProjectApiResultIReply**](WorkflowProjectApiResultIReply.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 
@@ -491,7 +491,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2WorkflowsSearchPost
 
-> WorkflowShortApiResultReply ApiV2WorkflowsSearchPost(ctx).SearchWorkflowsApiModel(searchWorkflowsApiModel).Execute()
+> WorkflowShortApiResultIReply ApiV2WorkflowsSearchPost(ctx).SearchWorkflowsApiModel(searchWorkflowsApiModel).Execute()
 
 
 
@@ -517,7 +517,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ApiV2WorkflowsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2WorkflowsSearchPost`: WorkflowShortApiResultReply
+	// response from `ApiV2WorkflowsSearchPost`: WorkflowShortApiResultIReply
 	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.ApiV2WorkflowsSearchPost`: %v\n", resp)
 }
 ```
@@ -537,11 +537,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkflowShortApiResultReply**](WorkflowShortApiResultReply.md)
+[**WorkflowShortApiResultIReply**](WorkflowShortApiResultIReply.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
 
 ### HTTP request headers
 

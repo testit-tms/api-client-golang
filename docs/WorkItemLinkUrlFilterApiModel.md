@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Types** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | [optional] 
+**Types** | Pointer to [**[]WorkItemTypeModel**](WorkItemTypeModel.md) |  | [optional] 
 **SearchUrl** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTypes
 
-`func (o *WorkItemLinkUrlFilterApiModel) GetTypes() []WorkItemEntityTypes`
+`func (o *WorkItemLinkUrlFilterApiModel) GetTypes() []WorkItemTypeModel`
 
 GetTypes returns the Types field if non-nil, zero value otherwise.
 
 ### GetTypesOk
 
-`func (o *WorkItemLinkUrlFilterApiModel) GetTypesOk() (*[]WorkItemEntityTypes, bool)`
+`func (o *WorkItemLinkUrlFilterApiModel) GetTypesOk() (*[]WorkItemTypeModel, bool)`
 
 GetTypesOk returns a tuple with the Types field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTypes
 
-`func (o *WorkItemLinkUrlFilterApiModel) SetTypes(v []WorkItemEntityTypes)`
+`func (o *WorkItemLinkUrlFilterApiModel) SetTypes(v []WorkItemTypeModel)`
 
 SetTypes sets Types field to given value.
 

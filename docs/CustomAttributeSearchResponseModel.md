@@ -7,9 +7,11 @@ Name | Type | Description | Notes
 **WorkItemUsage** | [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | 
 **TestPlanUsage** | [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | 
 **Id** | **string** | Unique ID of the attribute | 
-**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
+**Targets** | **[]string** | Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
+**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute | 
 **IsDeleted** | **bool** | Indicates if the attribute is deleted | 
+**IsSystem** | **bool** | Indicates if the attribute is system | 
 **Name** | **string** | Name of the attribute | 
 **IsEnabled** | **bool** | Indicates if the attribute is enabled | 
 **IsRequired** | **bool** | Indicates if the attribute value is mandatory to specify | 
@@ -19,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewCustomAttributeSearchResponseModel
 
-`func NewCustomAttributeSearchResponseModel(workItemUsage []ProjectShortestModel, testPlanUsage []ProjectShortestModel, id string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeSearchResponseModel`
+`func NewCustomAttributeSearchResponseModel(workItemUsage []ProjectShortestModel, testPlanUsage []ProjectShortestModel, id string, targets []string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeSearchResponseModel`
 
 NewCustomAttributeSearchResponseModel instantiates a new CustomAttributeSearchResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -94,6 +96,26 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetTargets
+
+`func (o *CustomAttributeSearchResponseModel) GetTargets() []string`
+
+GetTargets returns the Targets field if non-nil, zero value otherwise.
+
+### GetTargetsOk
+
+`func (o *CustomAttributeSearchResponseModel) GetTargetsOk() (*[]string, bool)`
+
+GetTargetsOk returns a tuple with the Targets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargets
+
+`func (o *CustomAttributeSearchResponseModel) SetTargets(v []string)`
+
+SetTargets sets Targets field to given value.
+
+
 ### GetOptions
 
 `func (o *CustomAttributeSearchResponseModel) GetOptions() []CustomAttributeOptionModel`
@@ -152,6 +174,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomAttributeSearchResponseModel) SetIsDeleted(v bool)`
 
 SetIsDeleted sets IsDeleted field to given value.
+
+
+### GetIsSystem
+
+`func (o *CustomAttributeSearchResponseModel) GetIsSystem() bool`
+
+GetIsSystem returns the IsSystem field if non-nil, zero value otherwise.
+
+### GetIsSystemOk
+
+`func (o *CustomAttributeSearchResponseModel) GetIsSystemOk() (*bool, bool)`
+
+GetIsSystemOk returns a tuple with the IsSystem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSystem
+
+`func (o *CustomAttributeSearchResponseModel) SetIsSystem(v bool)`
+
+SetIsSystem sets IsSystem field to given value.
 
 
 ### GetName

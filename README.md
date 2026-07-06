@@ -20,6 +20,7 @@
 | 5.5     | 3.4.0-tms-5.5  	|
 | 5.6     | 3.5.0-tms-5.6   |
 | 5.7     | 3.6.4-tms-5.7   |
+| 5.8     | 3.7.0-tms-5.8   |
 | Cloud   | 3.6.0 +         |
 
 1. For current versions, see the releases tab. 
@@ -78,6 +79,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AIServicesAPIAPI* | [**ApiV2ExternalServicesIdAiModelsPost**](docs/AIServicesAPIAPI.md#apiv2externalservicesidaimodelspost) | **Post** /api/v2/external-services/{id}/ai/models | Ask for models with inquiry filter, cached
 *AttachmentsAPI* | [**ApiV2AttachmentsIdDelete**](docs/AttachmentsAPI.md#apiv2attachmentsiddelete) | **Delete** /api/v2/attachments/{id} | Delete attachment file
 *AttachmentsAPI* | [**ApiV2AttachmentsIdGet**](docs/AttachmentsAPI.md#apiv2attachmentsidget) | **Get** /api/v2/attachments/{id} | Download attachment file
 *AttachmentsAPI* | [**ApiV2AttachmentsIdMetadataGet**](docs/AttachmentsAPI.md#apiv2attachmentsidmetadataget) | **Get** /api/v2/attachments/{id}/metadata | Get attachment metadata
@@ -137,6 +139,21 @@ Class | Method | HTTP request | Description
 *CustomAttributesAPI* | [**ApiV2CustomAttributesIdGet**](docs/CustomAttributesAPI.md#apiv2customattributesidget) | **Get** /api/v2/customAttributes/{id} | Get attribute
 *CustomAttributesAPI* | [**ApiV2CustomAttributesSearchPost**](docs/CustomAttributesAPI.md#apiv2customattributessearchpost) | **Post** /api/v2/customAttributes/search | Search for attributes
 *ExternalIssuesAPI* | [**ApiV2ExternalIssuesSuggestionsPost**](docs/ExternalIssuesAPI.md#apiv2externalissuessuggestionspost) | **Post** /api/v2/external-issues/suggestions | Returns list of suggestions from available external issues
+*ExternalServicesAPI* | [**ApiV2ExternalServicesMetadataGet**](docs/ExternalServicesAPI.md#apiv2externalservicesmetadataget) | **Get** /api/v2/external-services/metadata | Retrieves the metadata for all available external services
+*FailureCategoriesAPI* | [**ApiV2AutotestsFailureCategoriesGroupingSearchPost**](docs/FailureCategoriesAPI.md#apiv2autotestsfailurecategoriesgroupingsearchpost) | **Post** /api/v2/autotests/failure-categories/grouping-search | Get failure categories with support for filtering, sorting and grouping
+*FailureCategoriesAPI* | [**ApiV2AutotestsFailureCategoriesIdDelete**](docs/FailureCategoriesAPI.md#apiv2autotestsfailurecategoriesiddelete) | **Delete** /api/v2/autotests/failure-categories/{id} | Delete failure category
+*FailureCategoriesAPI* | [**ApiV2AutotestsFailureCategoriesIdGet**](docs/FailureCategoriesAPI.md#apiv2autotestsfailurecategoriesidget) | **Get** /api/v2/autotests/failure-categories/{id} | Get failure category by ID
+*FailureCategoriesAPI* | [**ApiV2AutotestsFailureCategoriesNameNameExistsGet**](docs/FailureCategoriesAPI.md#apiv2autotestsfailurecategoriesnamenameexistsget) | **Get** /api/v2/autotests/failure-categories/name/{name}/exists | Check failure category with the specified name already exists
+*FailureCategoriesAPI* | [**ApiV2AutotestsFailureCategoriesPost**](docs/FailureCategoriesAPI.md#apiv2autotestsfailurecategoriespost) | **Post** /api/v2/autotests/failure-categories | Create failure category
+*FailureCategoriesAPI* | [**ApiV2AutotestsFailureCategoriesPut**](docs/FailureCategoriesAPI.md#apiv2autotestsfailurecategoriesput) | **Put** /api/v2/autotests/failure-categories | Update failure category
+*FailureCategoriesAPI* | [**ApiV2AutotestsFailureCategoriesSearchPost**](docs/FailureCategoriesAPI.md#apiv2autotestsfailurecategoriessearchpost) | **Post** /api/v2/autotests/failure-categories/search | 
+*FailureCategoriesAPI* | [**ApiV2AutotestsResultReasonsGroupingSearchPost**](docs/FailureCategoriesAPI.md#apiv2autotestsresultreasonsgroupingsearchpost) | **Post** /api/v2/autotests/resultReasons/grouping-search | Get failure categories with support for filtering, sorting and grouping
+*FailureCategoriesAPI* | [**ApiV2AutotestsResultReasonsIdDelete**](docs/FailureCategoriesAPI.md#apiv2autotestsresultreasonsiddelete) | **Delete** /api/v2/autotests/resultReasons/{id} | Delete failure category
+*FailureCategoriesAPI* | [**ApiV2AutotestsResultReasonsIdGet**](docs/FailureCategoriesAPI.md#apiv2autotestsresultreasonsidget) | **Get** /api/v2/autotests/resultReasons/{id} | Get failure category by ID
+*FailureCategoriesAPI* | [**ApiV2AutotestsResultReasonsNameNameExistsGet**](docs/FailureCategoriesAPI.md#apiv2autotestsresultreasonsnamenameexistsget) | **Get** /api/v2/autotests/resultReasons/name/{name}/exists | Check failure category with the specified name already exists
+*FailureCategoriesAPI* | [**ApiV2AutotestsResultReasonsPost**](docs/FailureCategoriesAPI.md#apiv2autotestsresultreasonspost) | **Post** /api/v2/autotests/resultReasons | Create failure category
+*FailureCategoriesAPI* | [**ApiV2AutotestsResultReasonsPut**](docs/FailureCategoriesAPI.md#apiv2autotestsresultreasonsput) | **Put** /api/v2/autotests/resultReasons | Update failure category
+*FailureCategoriesAPI* | [**ApiV2AutotestsResultReasonsSearchPost**](docs/FailureCategoriesAPI.md#apiv2autotestsresultreasonssearchpost) | **Post** /api/v2/autotests/resultReasons/search | 
 *NotificationsAPI* | [**ApiV2NotificationsCountGet**](docs/NotificationsAPI.md#apiv2notificationscountget) | **Get** /api/v2/notifications/count | Get unread Notifications total in last 7 days
 *NotificationsAPI* | [**ApiV2NotificationsGet**](docs/NotificationsAPI.md#apiv2notificationsget) | **Get** /api/v2/notifications | Get all Notifications for current User
 *NotificationsAPI* | [**ApiV2NotificationsIdReadPost**](docs/NotificationsAPI.md#apiv2notificationsidreadpost) | **Post** /api/v2/notifications/{id}/read | Set Notification as read
@@ -168,6 +185,17 @@ Class | Method | HTTP request | Description
 *ProjectAttributesAPI* | [**SearchAttributesInProject**](docs/ProjectAttributesAPI.md#searchattributesinproject) | **Post** /api/v2/projects/{projectId}/attributes/search | Search for attributes used in the project
 *ProjectAttributesAPI* | [**UpdateProjectsAttribute**](docs/ProjectAttributesAPI.md#updateprojectsattribute) | **Put** /api/v2/projects/{projectId}/attributes | Edit attribute of the project
 *ProjectConfigurationsAPI* | [**GetConfigurationsByProjectId**](docs/ProjectConfigurationsAPI.md#getconfigurationsbyprojectid) | **Get** /api/v2/projects/{projectId}/configurations | Get project configurations
+*ProjectExternalServicesAPI* | [**ApiV2ProjectsIdExternalServicesExternalServiceIdDelete**](docs/ProjectExternalServicesAPI.md#apiv2projectsidexternalservicesexternalserviceiddelete) | **Delete** /api/v2/projects/{id}/external-services/{externalServiceId} | Disable an external service
+*ProjectExternalServicesAPI* | [**ApiV2ProjectsIdExternalServicesExternalServiceIdGet**](docs/ProjectExternalServicesAPI.md#apiv2projectsidexternalservicesexternalserviceidget) | **Get** /api/v2/projects/{id}/external-services/{externalServiceId} | Retrieves settings of an external service
+*ProjectExternalServicesAPI* | [**ApiV2ProjectsIdExternalServicesExternalServiceIdPatch**](docs/ProjectExternalServicesAPI.md#apiv2projectsidexternalservicesexternalserviceidpatch) | **Patch** /api/v2/projects/{id}/external-services/{externalServiceId} | Replaces one active external service with another
+*ProjectExternalServicesAPI* | [**ApiV2ProjectsIdExternalServicesExternalServiceIdPut**](docs/ProjectExternalServicesAPI.md#apiv2projectsidexternalservicesexternalserviceidput) | **Put** /api/v2/projects/{id}/external-services/{externalServiceId} | Enable an external service
+*ProjectExternalServicesAPI* | [**ApiV2ProjectsIdExternalServicesGet**](docs/ProjectExternalServicesAPI.md#apiv2projectsidexternalservicesget) | **Get** /api/v2/projects/{id}/external-services | Retrieves information about external services, including their integration status (enabled or not)
+*ProjectExternalServicesAPI* | [**ApiV2ProjectsIdExternalServicesIssuesSearchPost**](docs/ProjectExternalServicesAPI.md#apiv2projectsidexternalservicesissuessearchpost) | **Post** /api/v2/projects/{id}/external-services/issues/search | Searches for external issues using enabled external services in project
+*ProjectFailureCategoriesAPI* | [**ApiV2ProjectsProjectIdAutotestsFailureCategoriesGroupingSearchPost**](docs/ProjectFailureCategoriesAPI.md#apiv2projectsprojectidautotestsfailurecategoriesgroupingsearchpost) | **Post** /api/v2/projects/{projectId}/autotests/failure-categories/grouping-search | Get failure categories with support for filtering, sorting and grouping
+*ProjectFailureCategoriesAPI* | [**ApiV2ProjectsProjectIdAutotestsFailureCategoriesIdDelete**](docs/ProjectFailureCategoriesAPI.md#apiv2projectsprojectidautotestsfailurecategoriesiddelete) | **Delete** /api/v2/projects/{projectId}/autotests/failure-categories/{id} | Delete failure category
+*ProjectFailureCategoriesAPI* | [**ApiV2ProjectsProjectIdAutotestsFailureCategoriesIdGet**](docs/ProjectFailureCategoriesAPI.md#apiv2projectsprojectidautotestsfailurecategoriesidget) | **Get** /api/v2/projects/{projectId}/autotests/failure-categories/{id} | Get failure category by ID
+*ProjectFailureCategoriesAPI* | [**ApiV2ProjectsProjectIdAutotestsFailureCategoriesPost**](docs/ProjectFailureCategoriesAPI.md#apiv2projectsprojectidautotestsfailurecategoriespost) | **Post** /api/v2/projects/{projectId}/autotests/failure-categories | Create failure category
+*ProjectFailureCategoriesAPI* | [**ApiV2ProjectsProjectIdAutotestsFailureCategoriesPut**](docs/ProjectFailureCategoriesAPI.md#apiv2projectsprojectidautotestsfailurecategoriesput) | **Put** /api/v2/projects/{projectId}/autotests/failure-categories | Update failure category
 *ProjectSectionsAPI* | [**GetSectionsByProjectId**](docs/ProjectSectionsAPI.md#getsectionsbyprojectid) | **Get** /api/v2/projects/{projectId}/sections | Get project sections
 *ProjectSettingsAPI* | [**ApiV2ProjectsProjectIdSettingsAutotestsPost**](docs/ProjectSettingsAPI.md#apiv2projectsprojectidsettingsautotestspost) | **Post** /api/v2/projects/{projectId}/settings/autotests | Set autotest project settings.
 *ProjectSettingsAPI* | [**GetAutotestProjectSettings**](docs/ProjectSettingsAPI.md#getautotestprojectsettings) | **Get** /api/v2/projects/{projectId}/settings/autotests | Get autotest project settings.
@@ -176,14 +204,19 @@ Class | Method | HTTP request | Description
 *ProjectTestPlanAttributesAPI* | [**GetCustomAttributeTestPlanProjectRelations**](docs/ProjectTestPlanAttributesAPI.md#getcustomattributetestplanprojectrelations) | **Get** /api/v2/projects/{projectId}/testPlans/attributes | Get project&#39;s test plan attributes
 *ProjectTestPlanAttributesAPI* | [**SearchTestPlanAttributesInProject**](docs/ProjectTestPlanAttributesAPI.md#searchtestplanattributesinproject) | **Post** /api/v2/projects/{projectId}/testPlans/attributes/search | Search for attributes used in the project test plans
 *ProjectTestPlanAttributesAPI* | [**UpdateCustomAttributeTestPlanProjectRelations**](docs/ProjectTestPlanAttributesAPI.md#updatecustomattributetestplanprojectrelations) | **Put** /api/v2/projects/{projectId}/testPlans/attributes | Update attribute of project&#39;s test plans
+*ProjectTestPlanTestPointsAPI* | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAnalyticsPost**](docs/ProjectTestPlanTestPointsAPI.md#apiv2projectsprojectidtestplanstestplanidtestpointsanalyticspost) | **Post** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/analytics | Get test points analytics.
 *ProjectTestPlanTestPointsAPI* | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRerunPost**](docs/ProjectTestPlanTestPointsAPI.md#apiv2projectsprojectidtestplanstestplanidtestpointsautotestsrerunpost) | **Post** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/rerun | Rerun autotests.
 *ProjectTestPlanTestPointsAPI* | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsAutotestsRunPost**](docs/ProjectTestPlanTestPointsAPI.md#apiv2projectsprojectidtestplanstestplanidtestpointsautotestsrunpost) | **Post** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/autotests/run | Run autotests.
+*ProjectTestPlanTestPointsAPI* | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsGroupingSearchPost**](docs/ProjectTestPlanTestPointsAPI.md#apiv2projectsprojectidtestplanstestplanidtestpointsgroupingsearchpost) | **Post** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/grouping-search | Search test points in test plan.
+*ProjectTestPlanTestPointsAPI* | [**ApiV2ProjectsProjectIdTestPlansTestPlanIdTestPointsTestersPost**](docs/ProjectTestPlanTestPointsAPI.md#apiv2projectsprojectidtestplanstestplanidtestpointstesterspost) | **Post** /api/v2/projects/{projectId}/test-plans/{testPlanId}/test-points/testers | Distribute test points between the users.
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansAnalyticsGet**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplansanalyticsget) | **Get** /api/v2/projects/{projectId}/testPlans/analytics | Get TestPlans analytics
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansDeleteBulkPost**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplansdeletebulkpost) | **Post** /api/v2/projects/{projectId}/testPlans/delete/bulk | Delete multiple test plans
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansNameExistsGet**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplansnameexistsget) | **Get** /api/v2/projects/{projectId}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansPurgeBulkPost**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplanspurgebulkpost) | **Post** /api/v2/projects/{projectId}/testPlans/purge/bulk | Permanently delete multiple archived test plans
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansRestoreBulkPost**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplansrestorebulkpost) | **Post** /api/v2/projects/{projectId}/testPlans/restore/bulk | Restore multiple test plans
 *ProjectTestPlansAPI* | [**ApiV2ProjectsProjectIdTestPlansSearchPost**](docs/ProjectTestPlansAPI.md#apiv2projectsprojectidtestplanssearchpost) | **Post** /api/v2/projects/{projectId}/testPlans/search | Get Project TestPlans with analytics
+*ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsPreviewsBulkPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemspreviewsbulkpost) | **Post** /api/v2/projects/{projectId}/work-items/previews/bulk | 
+*ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsPreviewsPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemspreviewspost) | **Post** /api/v2/projects/{projectId}/work-items/previews | 
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsSearchGroupedPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemssearchgroupedpost) | **Post** /api/v2/projects/{projectId}/workItems/search/grouped | Search for work items and group results by attribute
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsSearchIdPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemssearchidpost) | **Post** /api/v2/projects/{projectId}/workItems/search/id | Search for work items and extract IDs only
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsSearchPost**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemssearchpost) | **Post** /api/v2/projects/{projectId}/workItems/search | Search for work items
@@ -191,7 +224,6 @@ Class | Method | HTTP request | Description
 *ProjectWorkItemsAPI* | [**ApiV2ProjectsProjectIdWorkItemsTagsGet**](docs/ProjectWorkItemsAPI.md#apiv2projectsprojectidworkitemstagsget) | **Get** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
 *ProjectWorkItemsAPI* | [**GetWorkItemsByProjectId**](docs/ProjectWorkItemsAPI.md#getworkitemsbyprojectid) | **Get** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsAPI* | [**AddGlobalAttributesToProject**](docs/ProjectsAPI.md#addglobalattributestoproject) | **Post** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsAPI* | [**ApiV2ProjectsDemoPost**](docs/ProjectsAPI.md#apiv2projectsdemopost) | **Post** /api/v2/projects/demo | 
 *ProjectsAPI* | [**ApiV2ProjectsIdDelete**](docs/ProjectsAPI.md#apiv2projectsiddelete) | **Delete** /api/v2/projects/{id} | Archive project
 *ProjectsAPI* | [**ApiV2ProjectsIdFailureClassesGet**](docs/ProjectsAPI.md#apiv2projectsidfailureclassesget) | **Get** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsAPI* | [**ApiV2ProjectsIdFavoritePut**](docs/ProjectsAPI.md#apiv2projectsidfavoriteput) | **Put** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -215,7 +247,7 @@ Class | Method | HTTP request | Description
 *ProjectsAPI* | [**GetTestPlansByProjectId**](docs/ProjectsAPI.md#gettestplansbyprojectid) | **Get** /api/v2/projects/{id}/testPlans | Get project test plans
 *ProjectsAPI* | [**GetTestRunsByProjectId**](docs/ProjectsAPI.md#gettestrunsbyprojectid) | **Get** /api/v2/projects/{id}/testRuns | Get project test runs
 *ProjectsAPI* | [**UpdateProject**](docs/ProjectsAPI.md#updateproject) | **Put** /api/v2/projects | Update project
-*SearchAPI* | [**ApiV2SearchGlobalSearchPost**](docs/SearchAPI.md#apiv2searchglobalsearchpost) | **Post** /api/v2/search/globalSearch | 
+*RolesAPI* | [**ApiV2RolesGet**](docs/RolesAPI.md#apiv2rolesget) | **Get** /api/v2/roles | 
 *SectionsAPI* | [**ApiV2SectionsIdPatch**](docs/SectionsAPI.md#apiv2sectionsidpatch) | **Patch** /api/v2/sections/{id} | Patch section
 *SectionsAPI* | [**CreateSection**](docs/SectionsAPI.md#createsection) | **Post** /api/v2/sections | Create section
 *SectionsAPI* | [**DeleteSection**](docs/SectionsAPI.md#deletesection) | **Delete** /api/v2/sections/{id} | Delete section
@@ -271,6 +303,7 @@ Class | Method | HTTP request | Description
 *TestResultsAPI* | [**ApiV2TestResultsIdAttachmentsAttachmentIdPut**](docs/TestResultsAPI.md#apiv2testresultsidattachmentsattachmentidput) | **Put** /api/v2/testResults/{id}/attachments/{attachmentId} | Attach file to the test result
 *TestResultsAPI* | [**ApiV2TestResultsIdAttachmentsInfoGet**](docs/TestResultsAPI.md#apiv2testresultsidattachmentsinfoget) | **Get** /api/v2/testResults/{id}/attachments/info | Get test result attachments meta-information
 *TestResultsAPI* | [**ApiV2TestResultsIdGet**](docs/TestResultsAPI.md#apiv2testresultsidget) | **Get** /api/v2/testResults/{id} | Get test result by ID
+*TestResultsAPI* | [**ApiV2TestResultsIdPatch**](docs/TestResultsAPI.md#apiv2testresultsidpatch) | **Patch** /api/v2/testResults/{id} | Patch test result by ID
 *TestResultsAPI* | [**ApiV2TestResultsIdPut**](docs/TestResultsAPI.md#apiv2testresultsidput) | **Put** /api/v2/testResults/{id} | Edit test result by ID
 *TestResultsAPI* | [**ApiV2TestResultsIdRerunsGet**](docs/TestResultsAPI.md#apiv2testresultsidrerunsget) | **Get** /api/v2/testResults/{id}/reruns | Get reruns
 *TestResultsAPI* | [**ApiV2TestResultsSearchPost**](docs/TestResultsAPI.md#apiv2testresultssearchpost) | **Post** /api/v2/testResults/search | Search for test results
@@ -283,6 +316,7 @@ Class | Method | HTTP request | Description
 *TestRunsAPI* | [**ApiV2TestRunsDelete**](docs/TestRunsAPI.md#apiv2testrunsdelete) | **Delete** /api/v2/testRuns | Delete multiple test runs
 *TestRunsAPI* | [**ApiV2TestRunsIdAutoTestsNamespacesGet**](docs/TestRunsAPI.md#apiv2testrunsidautotestsnamespacesget) | **Get** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run
 *TestRunsAPI* | [**ApiV2TestRunsIdDelete**](docs/TestRunsAPI.md#apiv2testrunsiddelete) | **Delete** /api/v2/testRuns/{id} | Delete test run
+*TestRunsAPI* | [**ApiV2TestRunsIdPatch**](docs/TestRunsAPI.md#apiv2testrunsidpatch) | **Patch** /api/v2/testRuns/{id} | Patch test run
 *TestRunsAPI* | [**ApiV2TestRunsIdPurgePost**](docs/TestRunsAPI.md#apiv2testrunsidpurgepost) | **Post** /api/v2/testRuns/{id}/purge | Permanently delete test run from archive
 *TestRunsAPI* | [**ApiV2TestRunsIdRerunsPost**](docs/TestRunsAPI.md#apiv2testrunsidrerunspost) | **Post** /api/v2/testRuns/{id}/reruns | Manual autotests rerun in test run
 *TestRunsAPI* | [**ApiV2TestRunsIdRestorePost**](docs/TestRunsAPI.md#apiv2testrunsidrestorepost) | **Post** /api/v2/testRuns/{id}/restore | Restore test run from the archive
@@ -324,7 +358,14 @@ Class | Method | HTTP request | Description
 *TestSuitesAPI* | [**GetTestSuiteById**](docs/TestSuitesAPI.md#gettestsuitebyid) | **Get** /api/v2/testSuites/{id} | Get TestSuite by Id
 *TestSuitesAPI* | [**SearchWorkItems**](docs/TestSuitesAPI.md#searchworkitems) | **Post** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
 *TestSuitesAPI* | [**SetConfigurationsByTestSuiteId**](docs/TestSuitesAPI.md#setconfigurationsbytestsuiteid) | **Post** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
+*UserRoleAssignmentsAPI* | [**ApiV2UsersUserIdRolesRoleIdDelete**](docs/UserRoleAssignmentsAPI.md#apiv2usersuseridrolesroleiddelete) | **Delete** /api/v2/users/{userId}/roles/{roleId} | 
+*UserRoleAssignmentsAPI* | [**ApiV2UsersUserIdRolesRoleIdPost**](docs/UserRoleAssignmentsAPI.md#apiv2usersuseridrolesroleidpost) | **Post** /api/v2/users/{userId}/roles/{roleId} | 
+*UserStoragesAPI* | [**ApiV2UserStoragesResourceGet**](docs/UserStoragesAPI.md#apiv2userstoragesresourceget) | **Get** /api/v2/user-storages/{resource} | 
+*UserStoragesAPI* | [**ApiV2UserStoragesResourcePost**](docs/UserStoragesAPI.md#apiv2userstoragesresourcepost) | **Post** /api/v2/user-storages/{resource} | 
 *UsersAPI* | [**ApiV2UsersExistsGet**](docs/UsersAPI.md#apiv2usersexistsget) | **Get** /api/v2/users/exists | 
+*UsersAPI* | [**ApiV2UsersPost**](docs/UsersAPI.md#apiv2userspost) | **Post** /api/v2/users | 
+*UsersAPI* | [**ApiV2UsersUserIdDelete**](docs/UsersAPI.md#apiv2usersuseriddelete) | **Delete** /api/v2/users/{userId} | 
+*UsersAPI* | [**ApiV2UsersUserIdGet**](docs/UsersAPI.md#apiv2usersuseridget) | **Get** /api/v2/users/{userId} | 
 *WebhooksAPI* | [**ApiV2WebhooksDelete**](docs/WebhooksAPI.md#apiv2webhooksdelete) | **Delete** /api/v2/webhooks | 
 *WebhooksAPI* | [**ApiV2WebhooksGet**](docs/WebhooksAPI.md#apiv2webhooksget) | **Get** /api/v2/webhooks | Get all webhooks
 *WebhooksAPI* | [**ApiV2WebhooksIdDelete**](docs/WebhooksAPI.md#apiv2webhooksiddelete) | **Delete** /api/v2/webhooks/{id} | Delete webhook by ID
@@ -345,11 +386,13 @@ Class | Method | HTTP request | Description
 *WorkItemsAPI* | [**ApiV2WorkItemsIdLikePost**](docs/WorkItemsAPI.md#apiv2workitemsidlikepost) | **Post** /api/v2/workItems/{id}/like | Set like to WorkItem
 *WorkItemsAPI* | [**ApiV2WorkItemsIdLikesCountGet**](docs/WorkItemsAPI.md#apiv2workitemsidlikescountget) | **Get** /api/v2/workItems/{id}/likes/count | Get likes count of WorkItem
 *WorkItemsAPI* | [**ApiV2WorkItemsIdLikesGet**](docs/WorkItemsAPI.md#apiv2workitemsidlikesget) | **Get** /api/v2/workItems/{id}/likes | Get likes of WorkItem
+*WorkItemsAPI* | [**ApiV2WorkItemsIdPatch**](docs/WorkItemsAPI.md#apiv2workitemsidpatch) | **Patch** /api/v2/workItems/{id} | Patch Test Case, Checklist or Shared Step
 *WorkItemsAPI* | [**ApiV2WorkItemsIdTestResultsHistoryGet**](docs/WorkItemsAPI.md#apiv2workitemsidtestresultshistoryget) | **Get** /api/v2/workItems/{id}/testResults/history | Get test results history of WorkItem
 *WorkItemsAPI* | [**ApiV2WorkItemsIdVersionVersionIdActualPost**](docs/WorkItemsAPI.md#apiv2workitemsidversionversionidactualpost) | **Post** /api/v2/workItems/{id}/version/{versionId}/actual | Set WorkItem as actual
 *WorkItemsAPI* | [**ApiV2WorkItemsLinksUrlsSearchPost**](docs/WorkItemsAPI.md#apiv2workitemslinksurlssearchpost) | **Post** /api/v2/workItems/links/urls/search | 
 *WorkItemsAPI* | [**ApiV2WorkItemsMovePost**](docs/WorkItemsAPI.md#apiv2workitemsmovepost) | **Post** /api/v2/workItems/move | Move WorkItem to another section
 *WorkItemsAPI* | [**ApiV2WorkItemsPost**](docs/WorkItemsAPI.md#apiv2workitemspost) | **Post** /api/v2/workItems | Creates work item
+*WorkItemsAPI* | [**ApiV2WorkItemsPut**](docs/WorkItemsAPI.md#apiv2workitemsput) | **Put** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 *WorkItemsAPI* | [**ApiV2WorkItemsSearchPost**](docs/WorkItemsAPI.md#apiv2workitemssearchpost) | **Post** /api/v2/workItems/search | Search for work items
 *WorkItemsAPI* | [**ApiV2WorkItemsSharedStepIdReferencesSectionsPost**](docs/WorkItemsAPI.md#apiv2workitemssharedstepidreferencessectionspost) | **Post** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
 *WorkItemsAPI* | [**ApiV2WorkItemsSharedStepIdReferencesWorkItemsPost**](docs/WorkItemsAPI.md#apiv2workitemssharedstepidreferencesworkitemspost) | **Post** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
@@ -363,7 +406,6 @@ Class | Method | HTTP request | Description
 *WorkItemsAPI* | [**GetWorkItemVersions**](docs/WorkItemsAPI.md#getworkitemversions) | **Get** /api/v2/workItems/{id}/versions | Get WorkItem versions
 *WorkItemsAPI* | [**PurgeWorkItem**](docs/WorkItemsAPI.md#purgeworkitem) | **Post** /api/v2/workItems/{id}/purge | Permanently delete test case, checklist or shared steps from archive
 *WorkItemsAPI* | [**RestoreWorkItem**](docs/WorkItemsAPI.md#restoreworkitem) | **Post** /api/v2/workItems/{id}/restore | Restore test case, checklist or shared steps from archive
-*WorkItemsAPI* | [**UpdateWorkItem**](docs/WorkItemsAPI.md#updateworkitem) | **Put** /api/v2/workItems | Update Test Case, Checklist or Shared Step
 *WorkItemsCommentsAPI* | [**ApiV2WorkItemsCommentsCommentIdDelete**](docs/WorkItemsCommentsAPI.md#apiv2workitemscommentscommentiddelete) | **Delete** /api/v2/workItems/comments/{commentId} | Delete WorkItem comment
 *WorkItemsCommentsAPI* | [**ApiV2WorkItemsCommentsPost**](docs/WorkItemsCommentsAPI.md#apiv2workitemscommentspost) | **Post** /api/v2/workItems/comments | Create WorkItem comment
 *WorkItemsCommentsAPI* | [**ApiV2WorkItemsCommentsPut**](docs/WorkItemsCommentsAPI.md#apiv2workitemscommentsput) | **Put** /api/v2/workItems/comments | Update work item comment
@@ -382,10 +424,14 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AIServiceModelApiResult](docs/AIServiceModelApiResult.md)
+ - [AIServiceModelApiResultGroup](docs/AIServiceModelApiResultGroup.md)
+ - [AIServiceModelApiResultGroupedReply](docs/AIServiceModelApiResultGroupedReply.md)
+ - [AIServiceModelApiResultIReply](docs/AIServiceModelApiResultIReply.md)
  - [AIServiceModelApiResultReply](docs/AIServiceModelApiResultReply.md)
  - [ActionUpdate](docs/ActionUpdate.md)
  - [ApiExternalServiceCategory](docs/ApiExternalServiceCategory.md)
  - [AssignAttachmentApiModel](docs/AssignAttachmentApiModel.md)
+ - [AssignAutoTestCaseIdApiModel](docs/AssignAutoTestCaseIdApiModel.md)
  - [AssignIterationApiModel](docs/AssignIterationApiModel.md)
  - [AttachmentApiResult](docs/AttachmentApiResult.md)
  - [AttachmentChangeViewModel](docs/AttachmentChangeViewModel.md)
@@ -400,6 +446,8 @@ Class | Method | HTTP request | Description
  - [AutoTestAverageDurationApiResult](docs/AutoTestAverageDurationApiResult.md)
  - [AutoTestBulkDeleteApiModel](docs/AutoTestBulkDeleteApiModel.md)
  - [AutoTestBulkDeleteApiResult](docs/AutoTestBulkDeleteApiResult.md)
+ - [AutoTestCaseApiModel](docs/AutoTestCaseApiModel.md)
+ - [AutoTestCaseModel](docs/AutoTestCaseModel.md)
  - [AutoTestChangeViewModel](docs/AutoTestChangeViewModel.md)
  - [AutoTestChangeViewModelArrayChangedFieldViewModel](docs/AutoTestChangeViewModelArrayChangedFieldViewModel.md)
  - [AutoTestClassCountApiModel](docs/AutoTestClassCountApiModel.md)
@@ -479,6 +527,7 @@ Class | Method | HTTP request | Description
  - [CreateTestRunAndFillByConfigurationsApiModel](docs/CreateTestRunAndFillByConfigurationsApiModel.md)
  - [CreateTestRunAndFillByWorkItemsApiModel](docs/CreateTestRunAndFillByWorkItemsApiModel.md)
  - [CreateTestStatusApiModel](docs/CreateTestStatusApiModel.md)
+ - [CreateUserApiModel](docs/CreateUserApiModel.md)
  - [CreateWorkItemApiModel](docs/CreateWorkItemApiModel.md)
  - [CreateWorkItemCommentApiModel](docs/CreateWorkItemCommentApiModel.md)
  - [CreateWorkItemPreviewsApiModel](docs/CreateWorkItemPreviewsApiModel.md)
@@ -506,7 +555,7 @@ Class | Method | HTTP request | Description
  - [DateTimeRangeSelectorModel](docs/DateTimeRangeSelectorModel.md)
  - [DefectApiModel](docs/DefectApiModel.md)
  - [DeletionState](docs/DeletionState.md)
- - [DemoProjectApiResult](docs/DemoProjectApiResult.md)
+ - [DetailedProjectApiResult](docs/DetailedProjectApiResult.md)
  - [EnableProjectExternalServiceApiModel](docs/EnableProjectExternalServiceApiModel.md)
  - [ExternalFormAllowedValueModel](docs/ExternalFormAllowedValueModel.md)
  - [ExternalFormCreateModel](docs/ExternalFormCreateModel.md)
@@ -515,6 +564,9 @@ Class | Method | HTTP request | Description
  - [ExternalFormModel](docs/ExternalFormModel.md)
  - [ExternalIssueApiField](docs/ExternalIssueApiField.md)
  - [ExternalIssueApiFieldSuggestion](docs/ExternalIssueApiFieldSuggestion.md)
+ - [ExternalIssueApiFieldSuggestionGroup](docs/ExternalIssueApiFieldSuggestionGroup.md)
+ - [ExternalIssueApiFieldSuggestionGroupedReply](docs/ExternalIssueApiFieldSuggestionGroupedReply.md)
+ - [ExternalIssueApiFieldSuggestionIReply](docs/ExternalIssueApiFieldSuggestionIReply.md)
  - [ExternalIssueApiFieldSuggestionReply](docs/ExternalIssueApiFieldSuggestionReply.md)
  - [ExternalIssueApiMetadata](docs/ExternalIssueApiMetadata.md)
  - [ExternalIssueApiPriority](docs/ExternalIssueApiPriority.md)
@@ -547,14 +599,14 @@ Class | Method | HTTP request | Description
  - [GetExternalFormApiResult](docs/GetExternalFormApiResult.md)
  - [GetExternalIssueSuggestionsApiModel](docs/GetExternalIssueSuggestionsApiModel.md)
  - [GetShortProjectsApiModel](docs/GetShortProjectsApiModel.md)
- - [GetXlsxTestPointsByTestPlanModel](docs/GetXlsxTestPointsByTestPlanModel.md)
+ - [GetXlsxTestPointsByTestPlanApiModel](docs/GetXlsxTestPointsByTestPlanApiModel.md)
  - [GlobalCustomAttributePostModel](docs/GlobalCustomAttributePostModel.md)
  - [GlobalCustomAttributeUpdateModel](docs/GlobalCustomAttributeUpdateModel.md)
- - [GlobalSearchItemResult](docs/GlobalSearchItemResult.md)
- - [GlobalSearchRequest](docs/GlobalSearchRequest.md)
- - [GlobalSearchResponse](docs/GlobalSearchResponse.md)
+ - [Group](docs/Group.md)
+ - [GroupKey](docs/GroupKey.md)
  - [GuidChangedFieldViewModel](docs/GuidChangedFieldViewModel.md)
  - [GuidExtractionModel](docs/GuidExtractionModel.md)
+ - [GuidNullableChangedFieldViewModel](docs/GuidNullableChangedFieldViewModel.md)
  - [IFilter](docs/IFilter.md)
  - [ImageResizeType](docs/ImageResizeType.md)
  - [Inquiry](docs/Inquiry.md)
@@ -570,7 +622,6 @@ Class | Method | HTTP request | Description
  - [LabelShortModel](docs/LabelShortModel.md)
  - [LastTestResultApiResult](docs/LastTestResultApiResult.md)
  - [LastTestResultModel](docs/LastTestResultModel.md)
- - [Link](docs/Link.md)
  - [LinkApiResult](docs/LinkApiResult.md)
  - [LinkCreateApiModel](docs/LinkCreateApiModel.md)
  - [LinkModel](docs/LinkModel.md)
@@ -618,12 +669,13 @@ Class | Method | HTTP request | Description
  - [ProjectFailureCategoryApiResult](docs/ProjectFailureCategoryApiResult.md)
  - [ProjectFailureCategoryGroupItemApiResult](docs/ProjectFailureCategoryGroupItemApiResult.md)
  - [ProjectFailureCategoryGroupItemApiResultReply](docs/ProjectFailureCategoryGroupItemApiResultReply.md)
- - [ProjectModel](docs/ProjectModel.md)
  - [ProjectNameApiResult](docs/ProjectNameApiResult.md)
  - [ProjectSelectModel](docs/ProjectSelectModel.md)
  - [ProjectShortApiResult](docs/ProjectShortApiResult.md)
+ - [ProjectShortApiResultGroup](docs/ProjectShortApiResultGroup.md)
+ - [ProjectShortApiResultGroupedReply](docs/ProjectShortApiResultGroupedReply.md)
+ - [ProjectShortApiResultIReply](docs/ProjectShortApiResultIReply.md)
  - [ProjectShortApiResultReply](docs/ProjectShortApiResultReply.md)
- - [ProjectShortModel](docs/ProjectShortModel.md)
  - [ProjectShortestModel](docs/ProjectShortestModel.md)
  - [ProjectTestPlansFilterModel](docs/ProjectTestPlansFilterModel.md)
  - [ProjectType](docs/ProjectType.md)
@@ -635,6 +687,8 @@ Class | Method | HTTP request | Description
  - [RequestTypeModel](docs/RequestTypeModel.md)
  - [RerunTestResultApiResult](docs/RerunTestResultApiResult.md)
  - [RerunsApiResult](docs/RerunsApiResult.md)
+ - [RoleApiModel](docs/RoleApiModel.md)
+ - [RoleApiModelApiCollection](docs/RoleApiModelApiCollection.md)
  - [SearchCustomAttributeTemplateGetModel](docs/SearchCustomAttributeTemplateGetModel.md)
  - [SearchExternalIssuesApiModel](docs/SearchExternalIssuesApiModel.md)
  - [SearchTestRunsApiModel](docs/SearchTestRunsApiModel.md)
@@ -772,6 +826,9 @@ Class | Method | HTTP request | Description
  - [TestRunTestResultsSelectModel](docs/TestRunTestResultsSelectModel.md)
  - [TestRunV2ApiResult](docs/TestRunV2ApiResult.md)
  - [TestStatusApiResult](docs/TestStatusApiResult.md)
+ - [TestStatusApiResultGroup](docs/TestStatusApiResultGroup.md)
+ - [TestStatusApiResultGroupedReply](docs/TestStatusApiResultGroupedReply.md)
+ - [TestStatusApiResultIReply](docs/TestStatusApiResultIReply.md)
  - [TestStatusApiResultReply](docs/TestStatusApiResultReply.md)
  - [TestStatusApiType](docs/TestStatusApiType.md)
  - [TestStatusModel](docs/TestStatusModel.md)
@@ -807,6 +864,7 @@ Class | Method | HTTP request | Description
  - [UpdateWorkItemApiModel](docs/UpdateWorkItemApiModel.md)
  - [UpdateWorkItemCommentApiModel](docs/UpdateWorkItemCommentApiModel.md)
  - [UpdateWorkflowApiModel](docs/UpdateWorkflowApiModel.md)
+ - [UserApiModel](docs/UserApiModel.md)
  - [UserCustomNameValidationResponse](docs/UserCustomNameValidationResponse.md)
  - [UserNameApiResult](docs/UserNameApiResult.md)
  - [ValidationProblemDetails](docs/ValidationProblemDetails.md)
@@ -832,7 +890,6 @@ Class | Method | HTTP request | Description
  - [WorkItemChangedFieldsViewModel](docs/WorkItemChangedFieldsViewModel.md)
  - [WorkItemCommentApiResult](docs/WorkItemCommentApiResult.md)
  - [WorkItemEntityTypeApiModel](docs/WorkItemEntityTypeApiModel.md)
- - [WorkItemEntityTypes](docs/WorkItemEntityTypes.md)
  - [WorkItemExternalMetadataFieldFilterApiModel](docs/WorkItemExternalMetadataFieldFilterApiModel.md)
  - [WorkItemExternalMetadataFieldFilterModel](docs/WorkItemExternalMetadataFieldFilterModel.md)
  - [WorkItemExternalMetadataFilterApiModel](docs/WorkItemExternalMetadataFilterApiModel.md)
@@ -879,6 +936,7 @@ Class | Method | HTTP request | Description
  - [WorkItemStates](docs/WorkItemStates.md)
  - [WorkItemStepChangeViewModel](docs/WorkItemStepChangeViewModel.md)
  - [WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel](docs/WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel.md)
+ - [WorkItemTypeModel](docs/WorkItemTypeModel.md)
  - [WorkItemUpdatingFieldsApiModel](docs/WorkItemUpdatingFieldsApiModel.md)
  - [WorkItemUpdatingFieldsApiResult](docs/WorkItemUpdatingFieldsApiResult.md)
  - [WorkItemVersionModel](docs/WorkItemVersionModel.md)
@@ -886,8 +944,14 @@ Class | Method | HTTP request | Description
  - [WorkflowExistsByNameApiResult](docs/WorkflowExistsByNameApiResult.md)
  - [WorkflowProjectApiResult](docs/WorkflowProjectApiResult.md)
  - [WorkflowProjectApiResultApiCollectionPreview](docs/WorkflowProjectApiResultApiCollectionPreview.md)
+ - [WorkflowProjectApiResultGroup](docs/WorkflowProjectApiResultGroup.md)
+ - [WorkflowProjectApiResultGroupedReply](docs/WorkflowProjectApiResultGroupedReply.md)
+ - [WorkflowProjectApiResultIReply](docs/WorkflowProjectApiResultIReply.md)
  - [WorkflowProjectApiResultReply](docs/WorkflowProjectApiResultReply.md)
  - [WorkflowShortApiResult](docs/WorkflowShortApiResult.md)
+ - [WorkflowShortApiResultGroup](docs/WorkflowShortApiResultGroup.md)
+ - [WorkflowShortApiResultGroupedReply](docs/WorkflowShortApiResultGroupedReply.md)
+ - [WorkflowShortApiResultIReply](docs/WorkflowShortApiResultIReply.md)
  - [WorkflowShortApiResultReply](docs/WorkflowShortApiResultReply.md)
  - [WorkflowStatusApiModel](docs/WorkflowStatusApiModel.md)
  - [WorkflowStatusApiResult](docs/WorkflowStatusApiResult.md)
@@ -897,13 +961,13 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
-### Bearer or PrivateToken
+### PrivateToken
 
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
 
-Note, each API key must be added to a map of `map[string]APIKey` where the key is: Bearer or PrivateToken and passed in as the auth context for each request.
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: PrivateToken and passed in as the auth context for each request.
 
 Example
 
@@ -912,7 +976,28 @@ auth := context.WithValue(
 		context.Background(),
 		tmsclient.ContextAPIKeys,
 		map[string]tmsclient.APIKey{
-			"Bearer or PrivateToken": {Key: "API_KEY_STRING"},
+			"PrivateToken": {Key: "API_KEY_STRING"},
+		},
+	)
+r, err := client.Service.Operation(auth, args)
+```
+
+### Cookies
+
+- **Type**: API key
+- **API key parameter name**: session
+- **Location**: 
+
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Cookies and passed in as the auth context for each request.
+
+Example
+
+```go
+auth := context.WithValue(
+		context.Background(),
+		tmsclient.ContextAPIKeys,
+		map[string]tmsclient.APIKey{
+			"Cookies": {Key: "API_KEY_STRING"},
 		},
 	)
 r, err := client.Service.Operation(auth, args)

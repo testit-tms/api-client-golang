@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TagNames** | Pointer to **[]string** | Collection of tags | [optional] 
-**EntityTypes** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item  Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
+**EntityTypes** | Pointer to [**[]WorkItemTypeModel**](WorkItemTypeModel.md) | Collection of types of work item    Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 
 **NameOrId** | Pointer to **NullableString** | Name or identifier (UUID) of work item | [optional] 
 **IncludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be included in result regardless of filtering | [optional] 
 **ExcludeIds** | Pointer to **[]string** | Collection of identifiers of work items which need to be excluded from result regardless of filtering | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **States** | Pointer to [**[]WorkItemStates**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
 **SourceTypes** | Pointer to [**[]WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Collection of priorities of work item | [optional] 
-**Types** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
+**Types** | Pointer to [**[]WorkItemTypeModel**](WorkItemTypeModel.md) | Collection of types of work item | [optional] 
 **CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
 **Duration** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a work item duration range to search for | [optional] 
@@ -90,20 +90,20 @@ HasTagNames returns a boolean if a field has been set.
 UnsetTagNames ensures that no value is present for TagNames, not even an explicit nil
 ### GetEntityTypes
 
-`func (o *TestSuiteWorkItemsSearchModel) GetEntityTypes() []WorkItemEntityTypes`
+`func (o *TestSuiteWorkItemsSearchModel) GetEntityTypes() []WorkItemTypeModel`
 
 GetEntityTypes returns the EntityTypes field if non-nil, zero value otherwise.
 
 ### GetEntityTypesOk
 
-`func (o *TestSuiteWorkItemsSearchModel) GetEntityTypesOk() (*[]WorkItemEntityTypes, bool)`
+`func (o *TestSuiteWorkItemsSearchModel) GetEntityTypesOk() (*[]WorkItemTypeModel, bool)`
 
 GetEntityTypesOk returns a tuple with the EntityTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityTypes
 
-`func (o *TestSuiteWorkItemsSearchModel) SetEntityTypes(v []WorkItemEntityTypes)`
+`func (o *TestSuiteWorkItemsSearchModel) SetEntityTypes(v []WorkItemTypeModel)`
 
 SetEntityTypes sets EntityTypes field to given value.
 
@@ -650,20 +650,20 @@ HasSourceTypes returns a boolean if a field has been set.
 UnsetSourceTypes ensures that no value is present for SourceTypes, not even an explicit nil
 ### GetTypes
 
-`func (o *TestSuiteWorkItemsSearchModel) GetTypes() []WorkItemEntityTypes`
+`func (o *TestSuiteWorkItemsSearchModel) GetTypes() []WorkItemTypeModel`
 
 GetTypes returns the Types field if non-nil, zero value otherwise.
 
 ### GetTypesOk
 
-`func (o *TestSuiteWorkItemsSearchModel) GetTypesOk() (*[]WorkItemEntityTypes, bool)`
+`func (o *TestSuiteWorkItemsSearchModel) GetTypesOk() (*[]WorkItemTypeModel, bool)`
 
 GetTypesOk returns a tuple with the Types field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTypes
 
-`func (o *TestSuiteWorkItemsSearchModel) SetTypes(v []WorkItemEntityTypes)`
+`func (o *TestSuiteWorkItemsSearchModel) SetTypes(v []WorkItemTypeModel)`
 
 SetTypes sets Types field to given value.
 

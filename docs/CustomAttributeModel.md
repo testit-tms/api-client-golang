@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID of the attribute | 
-**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
+**Targets** | **[]string** | Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
+**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
 **Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute | 
 **IsDeleted** | **bool** | Indicates if the attribute is deleted | 
+**IsSystem** | **bool** | Indicates if the attribute is system | 
 **Name** | **string** | Name of the attribute | 
 **IsEnabled** | **bool** | Indicates if the attribute is enabled | 
 **IsRequired** | **bool** | Indicates if the attribute value is mandatory to specify | 
@@ -17,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewCustomAttributeModel
 
-`func NewCustomAttributeModel(id string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeModel`
+`func NewCustomAttributeModel(id string, targets []string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeModel`
 
 NewCustomAttributeModel instantiates a new CustomAttributeModel object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +52,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomAttributeModel) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetTargets
+
+`func (o *CustomAttributeModel) GetTargets() []string`
+
+GetTargets returns the Targets field if non-nil, zero value otherwise.
+
+### GetTargetsOk
+
+`func (o *CustomAttributeModel) GetTargetsOk() (*[]string, bool)`
+
+GetTargetsOk returns a tuple with the Targets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargets
+
+`func (o *CustomAttributeModel) SetTargets(v []string)`
+
+SetTargets sets Targets field to given value.
 
 
 ### GetOptions
@@ -110,6 +132,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomAttributeModel) SetIsDeleted(v bool)`
 
 SetIsDeleted sets IsDeleted field to given value.
+
+
+### GetIsSystem
+
+`func (o *CustomAttributeModel) GetIsSystem() bool`
+
+GetIsSystem returns the IsSystem field if non-nil, zero value otherwise.
+
+### GetIsSystemOk
+
+`func (o *CustomAttributeModel) GetIsSystemOk() (*bool, bool)`
+
+GetIsSystemOk returns a tuple with the IsSystem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSystem
+
+`func (o *CustomAttributeModel) SetIsSystem(v bool)`
+
+SetIsSystem sets IsSystem field to given value.
 
 
 ### GetName

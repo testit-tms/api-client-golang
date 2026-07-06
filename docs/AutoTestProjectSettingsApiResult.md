@@ -12,12 +12,16 @@ Name | Type | Description | Notes
 **RerunAttemptsCount** | **int32** | Auto rerun attempt count | 
 **WorkItemUpdatingEnabled** | **bool** | Autotest to work item updating enabled | 
 **WorkItemUpdatingFields** | [**WorkItemUpdatingFieldsApiResult**](WorkItemUpdatingFieldsApiResult.md) | Autotest to work item updating fields | 
+**ArchiveOutdatedTestRunsEnabled** | **bool** | Indicates whether archiving of outdated test runs is enabled for the project. | 
+**TestRunsArchiveLimitEnabled** | **bool** | Indicates whether a limit is enforced on the number of archived test runs. | 
+**TestRunsRetentionPeriodDays** | **int32** |  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings | 
+**MaxActiveTestRunsCount** | **int32** | Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived | 
 
 ## Methods
 
 ### NewAutoTestProjectSettingsApiResult
 
-`func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, flakyStabilityPercentage int32, flakyTestRunCount int32, rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingEnabled bool, workItemUpdatingFields WorkItemUpdatingFieldsApiResult, ) *AutoTestProjectSettingsApiResult`
+`func NewAutoTestProjectSettingsApiResult(projectId string, isFlakyAuto bool, flakyStabilityPercentage int32, flakyTestRunCount int32, rerunEnabled bool, rerunAttemptsCount int32, workItemUpdatingEnabled bool, workItemUpdatingFields WorkItemUpdatingFieldsApiResult, archiveOutdatedTestRunsEnabled bool, testRunsArchiveLimitEnabled bool, testRunsRetentionPeriodDays int32, maxActiveTestRunsCount int32, ) *AutoTestProjectSettingsApiResult`
 
 NewAutoTestProjectSettingsApiResult instantiates a new AutoTestProjectSettingsApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -190,6 +194,86 @@ and a boolean to check if the value has been set.
 `func (o *AutoTestProjectSettingsApiResult) SetWorkItemUpdatingFields(v WorkItemUpdatingFieldsApiResult)`
 
 SetWorkItemUpdatingFields sets WorkItemUpdatingFields field to given value.
+
+
+### GetArchiveOutdatedTestRunsEnabled
+
+`func (o *AutoTestProjectSettingsApiResult) GetArchiveOutdatedTestRunsEnabled() bool`
+
+GetArchiveOutdatedTestRunsEnabled returns the ArchiveOutdatedTestRunsEnabled field if non-nil, zero value otherwise.
+
+### GetArchiveOutdatedTestRunsEnabledOk
+
+`func (o *AutoTestProjectSettingsApiResult) GetArchiveOutdatedTestRunsEnabledOk() (*bool, bool)`
+
+GetArchiveOutdatedTestRunsEnabledOk returns a tuple with the ArchiveOutdatedTestRunsEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArchiveOutdatedTestRunsEnabled
+
+`func (o *AutoTestProjectSettingsApiResult) SetArchiveOutdatedTestRunsEnabled(v bool)`
+
+SetArchiveOutdatedTestRunsEnabled sets ArchiveOutdatedTestRunsEnabled field to given value.
+
+
+### GetTestRunsArchiveLimitEnabled
+
+`func (o *AutoTestProjectSettingsApiResult) GetTestRunsArchiveLimitEnabled() bool`
+
+GetTestRunsArchiveLimitEnabled returns the TestRunsArchiveLimitEnabled field if non-nil, zero value otherwise.
+
+### GetTestRunsArchiveLimitEnabledOk
+
+`func (o *AutoTestProjectSettingsApiResult) GetTestRunsArchiveLimitEnabledOk() (*bool, bool)`
+
+GetTestRunsArchiveLimitEnabledOk returns a tuple with the TestRunsArchiveLimitEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestRunsArchiveLimitEnabled
+
+`func (o *AutoTestProjectSettingsApiResult) SetTestRunsArchiveLimitEnabled(v bool)`
+
+SetTestRunsArchiveLimitEnabled sets TestRunsArchiveLimitEnabled field to given value.
+
+
+### GetTestRunsRetentionPeriodDays
+
+`func (o *AutoTestProjectSettingsApiResult) GetTestRunsRetentionPeriodDays() int32`
+
+GetTestRunsRetentionPeriodDays returns the TestRunsRetentionPeriodDays field if non-nil, zero value otherwise.
+
+### GetTestRunsRetentionPeriodDaysOk
+
+`func (o *AutoTestProjectSettingsApiResult) GetTestRunsRetentionPeriodDaysOk() (*int32, bool)`
+
+GetTestRunsRetentionPeriodDaysOk returns a tuple with the TestRunsRetentionPeriodDays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestRunsRetentionPeriodDays
+
+`func (o *AutoTestProjectSettingsApiResult) SetTestRunsRetentionPeriodDays(v int32)`
+
+SetTestRunsRetentionPeriodDays sets TestRunsRetentionPeriodDays field to given value.
+
+
+### GetMaxActiveTestRunsCount
+
+`func (o *AutoTestProjectSettingsApiResult) GetMaxActiveTestRunsCount() int32`
+
+GetMaxActiveTestRunsCount returns the MaxActiveTestRunsCount field if non-nil, zero value otherwise.
+
+### GetMaxActiveTestRunsCountOk
+
+`func (o *AutoTestProjectSettingsApiResult) GetMaxActiveTestRunsCountOk() (*int32, bool)`
+
+GetMaxActiveTestRunsCountOk returns a tuple with the MaxActiveTestRunsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxActiveTestRunsCount
+
+`func (o *AutoTestProjectSettingsApiResult) SetMaxActiveTestRunsCount(v int32)`
+
+SetMaxActiveTestRunsCount sets MaxActiveTestRunsCount field to given value.
 
 
 

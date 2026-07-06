@@ -49,6 +49,8 @@ type APIClient struct {
 
 	// API Services
 
+	AIServicesAPIAPI *AIServicesAPIAPIService
+
 	AttachmentsAPI *AttachmentsAPIService
 
 	AutoTestsAPI *AutoTestsAPIService
@@ -63,6 +65,10 @@ type APIClient struct {
 
 	ExternalIssuesAPI *ExternalIssuesAPIService
 
+	ExternalServicesAPI *ExternalServicesAPIService
+
+	FailureCategoriesAPI *FailureCategoriesAPIService
+
 	NotificationsAPI *NotificationsAPIService
 
 	OpenIdConnectionsAPI *OpenIdConnectionsAPIService
@@ -74,6 +80,10 @@ type APIClient struct {
 	ProjectAttributesAPI *ProjectAttributesAPIService
 
 	ProjectConfigurationsAPI *ProjectConfigurationsAPIService
+
+	ProjectExternalServicesAPI *ProjectExternalServicesAPIService
+
+	ProjectFailureCategoriesAPI *ProjectFailureCategoriesAPIService
 
 	ProjectSectionsAPI *ProjectSectionsAPIService
 
@@ -89,7 +99,7 @@ type APIClient struct {
 
 	ProjectsAPI *ProjectsAPIService
 
-	SearchAPI *SearchAPIService
+	RolesAPI *RolesAPIService
 
 	SectionsAPI *SectionsAPIService
 
@@ -106,6 +116,10 @@ type APIClient struct {
 	TestStatusesAPI *TestStatusesAPIService
 
 	TestSuitesAPI *TestSuitesAPIService
+
+	UserRoleAssignmentsAPI *UserRoleAssignmentsAPIService
+
+	UserStoragesAPI *UserStoragesAPIService
 
 	UsersAPI *UsersAPIService
 
@@ -136,6 +150,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
+	c.AIServicesAPIAPI = (*AIServicesAPIAPIService)(&c.common)
 	c.AttachmentsAPI = (*AttachmentsAPIService)(&c.common)
 	c.AutoTestsAPI = (*AutoTestsAPIService)(&c.common)
 	c.BackgroundJobsAPI = (*BackgroundJobsAPIService)(&c.common)
@@ -143,12 +158,16 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CustomAttributeTemplatesAPI = (*CustomAttributeTemplatesAPIService)(&c.common)
 	c.CustomAttributesAPI = (*CustomAttributesAPIService)(&c.common)
 	c.ExternalIssuesAPI = (*ExternalIssuesAPIService)(&c.common)
+	c.ExternalServicesAPI = (*ExternalServicesAPIService)(&c.common)
+	c.FailureCategoriesAPI = (*FailureCategoriesAPIService)(&c.common)
 	c.NotificationsAPI = (*NotificationsAPIService)(&c.common)
 	c.OpenIdConnectionsAPI = (*OpenIdConnectionsAPIService)(&c.common)
 	c.ParametersAPI = (*ParametersAPIService)(&c.common)
 	c.ProjectAttributeTemplatesAPI = (*ProjectAttributeTemplatesAPIService)(&c.common)
 	c.ProjectAttributesAPI = (*ProjectAttributesAPIService)(&c.common)
 	c.ProjectConfigurationsAPI = (*ProjectConfigurationsAPIService)(&c.common)
+	c.ProjectExternalServicesAPI = (*ProjectExternalServicesAPIService)(&c.common)
+	c.ProjectFailureCategoriesAPI = (*ProjectFailureCategoriesAPIService)(&c.common)
 	c.ProjectSectionsAPI = (*ProjectSectionsAPIService)(&c.common)
 	c.ProjectSettingsAPI = (*ProjectSettingsAPIService)(&c.common)
 	c.ProjectTestPlanAttributesAPI = (*ProjectTestPlanAttributesAPIService)(&c.common)
@@ -156,7 +175,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ProjectTestPlansAPI = (*ProjectTestPlansAPIService)(&c.common)
 	c.ProjectWorkItemsAPI = (*ProjectWorkItemsAPIService)(&c.common)
 	c.ProjectsAPI = (*ProjectsAPIService)(&c.common)
-	c.SearchAPI = (*SearchAPIService)(&c.common)
+	c.RolesAPI = (*RolesAPIService)(&c.common)
 	c.SectionsAPI = (*SectionsAPIService)(&c.common)
 	c.TagsAPI = (*TagsAPIService)(&c.common)
 	c.TestPlansAPI = (*TestPlansAPIService)(&c.common)
@@ -165,6 +184,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TestRunsAPI = (*TestRunsAPIService)(&c.common)
 	c.TestStatusesAPI = (*TestStatusesAPIService)(&c.common)
 	c.TestSuitesAPI = (*TestSuitesAPIService)(&c.common)
+	c.UserRoleAssignmentsAPI = (*UserRoleAssignmentsAPIService)(&c.common)
+	c.UserStoragesAPI = (*UserStoragesAPIService)(&c.common)
 	c.UsersAPI = (*UsersAPIService)(&c.common)
 	c.WebhooksAPI = (*WebhooksAPIService)(&c.common)
 	c.WebhooksLogsAPI = (*WebhooksLogsAPIService)(&c.common)

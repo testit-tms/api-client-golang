@@ -25,7 +25,7 @@ type AutoTest struct {
 	// External ID of the autotest
 	ExternalId string `json:"externalId"`
 	// Collection of the autotest links
-	Links []Link `json:"links,omitempty"`
+	Links []LinkApiResult `json:"links,omitempty"`
 	// Unique ID of the autotest project
 	ProjectId string `json:"projectId"`
 	// Name of the autotest
@@ -133,9 +133,9 @@ func (o *AutoTest) SetExternalId(v string) {
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AutoTest) GetLinks() []Link {
+func (o *AutoTest) GetLinks() []LinkApiResult {
 	if o == nil {
-		var ret []Link
+		var ret []LinkApiResult
 		return ret
 	}
 	return o.Links
@@ -144,7 +144,7 @@ func (o *AutoTest) GetLinks() []Link {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AutoTest) GetLinksOk() ([]Link, bool) {
+func (o *AutoTest) GetLinksOk() ([]LinkApiResult, bool) {
 	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
@@ -160,8 +160,8 @@ func (o *AutoTest) HasLinks() bool {
 	return false
 }
 
-// SetLinks gets a reference to the given []Link and assigns it to the Links field.
-func (o *AutoTest) SetLinks(v []Link) {
+// SetLinks gets a reference to the given []LinkApiResult and assigns it to the Links field.
+func (o *AutoTest) SetLinks(v []LinkApiResult) {
 	o.Links = v
 }
 
