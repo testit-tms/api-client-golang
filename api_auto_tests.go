@@ -3488,7 +3488,7 @@ This method links an autotest to a test case or a checklist.
             4. In the toolbar above the test list, click <b>Run autotests</b>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id Specifies the autotest entity ID.    You can copy it from the address bar in your web browser or use autotest GUID.
+ @param id Specifies the autotest entity ID.  You can copy it from the address bar in your web browser or use autotest GUID.
  @return ApiGetWorkItemsLinkedToAutoTestRequest
 */
 func (a *AutoTestsAPIService) GetWorkItemsLinkedToAutoTest(ctx context.Context, id string) ApiGetWorkItemsLinkedToAutoTestRequest {

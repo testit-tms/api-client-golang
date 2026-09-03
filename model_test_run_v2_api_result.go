@@ -28,7 +28,7 @@ type TestRunV2ApiResult struct {
 	Name string `json:"name"`
 	// Test run description
 	Description NullableString `json:"description,omitempty"`
-	// Test run launch source                Once launch source is specified it cannot be updated.
+	// Test run launch source              Once launch source is specified it cannot be updated.
 	LaunchSource NullableString `json:"launchSource,omitempty"`
 	// Date and time of test run start
 	StartedOn NullableTime `json:"startedOn,omitempty"`
@@ -39,9 +39,9 @@ type TestRunV2ApiResult struct {
 	StateName TestRunState `json:"stateName"`
 	// Test run status
 	Status TestStatusApiResult `json:"status"`
-	// Project unique identifier                This property is used to link test run with project.
+	// Project unique identifier              This property is used to link test run with project.
 	ProjectId string `json:"projectId"`
-	// Test plan unique identifier                This property is used to link test run with test plan.
+	// Test plan unique identifier              This property is used to link test run with test plan.
 	TestPlanId NullableString `json:"testPlanId,omitempty"`
 	// Enumeration of test results related to test run
 	TestResults []TestResultV2GetModel `json:"testResults,omitempty"`

@@ -25,9 +25,9 @@ type CustomAttributeSearchResponseModel struct {
 	TestPlanUsage []ProjectShortestModel `json:"testPlanUsage"`
 	// Unique ID of the attribute
 	Id string `json:"id"`
-	// Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+	// Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
 	Targets []string `json:"targets"`
-	// Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
+	// Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionModel `json:"options"`
 	// Type of the attribute
 	Type CustomAttributeTypesEnum `json:"type"`

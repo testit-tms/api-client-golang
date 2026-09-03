@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique ID of the attribute | 
-**Options** | [**[]CustomAttributeOptionApiResult**](CustomAttributeOptionApiResult.md) | Collection of the attribute options      Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
+**Options** | [**[]CustomAttributeOptionApiResult**](CustomAttributeOptionApiResult.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
 **Type** | [**CustomAttributeType**](CustomAttributeType.md) | Type of the attribute | 
 **IsDeleted** | **bool** | Indicates if the attribute is deleted | 
 **Name** | **string** | Name of the attribute | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **IsRequired** | **bool** | Indicates if the attribute value is mandatory to specify | 
 **IsGlobal** | **bool** | Indicates if the attribute is available across all projects | 
 **IsSystem** | **bool** | Indicates if the attribute is system | 
-**Targets** | **[]string** | Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
+**Targets** | **[]string** | Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
 
 ## Methods
 

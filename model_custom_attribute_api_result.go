@@ -23,7 +23,7 @@ var _ MappedNullable = &CustomAttributeApiResult{}
 type CustomAttributeApiResult struct {
 	// Unique ID of the attribute
 	Id string `json:"id"`
-	// Collection of the attribute options      Available for attributes of type `options` and `multiple options` only
+	// Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
 	Options []CustomAttributeOptionApiResult `json:"options"`
 	// Type of the attribute
 	Type CustomAttributeType `json:"type"`
@@ -39,7 +39,7 @@ type CustomAttributeApiResult struct {
 	IsGlobal bool `json:"isGlobal"`
 	// Indicates if the attribute is system
 	IsSystem bool `json:"isSystem"`
-	// Collection of the attribute targets      Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
+	// Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
 	Targets []string `json:"targets"`
 }
 

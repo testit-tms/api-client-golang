@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProjectId** | **string** | Project unique identifier                This property is to link test run with a project | 
+**ProjectId** | **string** | Project unique identifier              This property is to link test run with a project | 
 **Name** | Pointer to **NullableString** | Test run name | [optional] 
 **Description** | Pointer to **NullableString** | Test run description | [optional] 
 **LaunchSource** | Pointer to **NullableString** | Test run launch source | [optional] 

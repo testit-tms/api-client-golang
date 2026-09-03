@@ -69,6 +69,8 @@ type WorkItemApiResult struct {
 	Iterations []IterationModel `json:"iterations"`
 	// Automated tests associated with the work item
 	AutoTests []AutoTestModel `json:"autoTests"`
+	// Automated test cases associated with the work item
+	AutoTestCases []string `json:"autoTestCases,omitempty"`
 	// Files attached to the work item
 	Attachments []AttachmentModel `json:"attachments"`
 	// Set of links related to the work item
@@ -732,6 +734,39 @@ func (o *WorkItemApiResult) SetAutoTests(v []AutoTestModel) {
 	o.AutoTests = v
 }
 
+// GetAutoTestCases returns the AutoTestCases field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemApiResult) GetAutoTestCases() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.AutoTestCases
+}
+
+// GetAutoTestCasesOk returns a tuple with the AutoTestCases field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemApiResult) GetAutoTestCasesOk() ([]string, bool) {
+	if o == nil || IsNil(o.AutoTestCases) {
+		return nil, false
+	}
+	return o.AutoTestCases, true
+}
+
+// HasAutoTestCases returns a boolean if a field has been set.
+func (o *WorkItemApiResult) HasAutoTestCases() bool {
+	if o != nil && !IsNil(o.AutoTestCases) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestCases gets a reference to the given []string and assigns it to the AutoTestCases field.
+func (o *WorkItemApiResult) SetAutoTestCases(v []string) {
+	o.AutoTestCases = v
+}
+
 // GetAttachments returns the Attachments field value
 func (o *WorkItemApiResult) GetAttachments() []AttachmentModel {
 	if o == nil {
@@ -1020,6 +1055,9 @@ func (o WorkItemApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["postconditionSteps"] = o.PostconditionSteps
 	toSerialize["iterations"] = o.Iterations
 	toSerialize["autoTests"] = o.AutoTests
+	if o.AutoTestCases != nil {
+		toSerialize["autoTestCases"] = o.AutoTestCases
+	}
 	toSerialize["attachments"] = o.Attachments
 	toSerialize["links"] = o.Links
 	toSerialize["externalIssues"] = o.ExternalIssues

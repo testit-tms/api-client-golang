@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **WorkItemUpdatingFields** | [**WorkItemUpdatingFieldsApiModel**](WorkItemUpdatingFieldsApiModel.md) | Autotest to work item updating fields | 
 **ArchiveOutdatedTestRunsEnabled** | **bool** | Indicates whether archiving of outdated test runs is enabled for the project. | 
 **TestRunsArchiveLimitEnabled** | **bool** | Indicates whether a limit is enforced on the number of archived test runs. | 
-**TestRunsRetentionPeriodDays** | Pointer to **int32** |  The retention period in days for test runs. After this period,  outdated test runs may be archived based on project settings | [optional] [default to 180]
-**MaxActiveTestRunsCount** | Pointer to **int32** | Maximum number of active test runs to keep. When this limit is exceeded,  older test runs are automatically archived | [optional] [default to 500]
+**TestRunsRetentionPeriodDays** | Pointer to **int32** |  The retention period in days for test runs. After this period, outdated test runs may be archived based on project settings | [optional] [default to 180]
+**MaxActiveTestRunsCount** | Pointer to **int32** | Maximum number of active test runs to keep. When this limit is exceeded, older test runs are automatically archived | [optional] [default to 500]
 
 ## Methods
 
