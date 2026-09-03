@@ -53,7 +53,7 @@ const (
 
 func main() {
 	ctx := context.WithValue(context.Background(), tmsclient.ContextAPIKeys, map[string]tmsclient.APIKey{
-		"Bearer or PrivateToken": {
+		"PrivateToken": {
 			Key:    key,
 			Prefix: "PrivateToken",
 		},
