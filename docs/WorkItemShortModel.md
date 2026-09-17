@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **VersionId** | **string** | Work Item version identifier | 
 **VersionNumber** | **int32** | Work Item version number | 
 **Name** | **string** | Work Item name | 
-**EntityTypeName** | **string** | Work Item type. Possible values: CheckLists, SharedSteps, TestCases | 
+**EntityTypeName** | [**WorkItemTypeModel**](WorkItemTypeModel.md) | Work Item type. Possible values: CheckLists, SharedSteps, TestCases | 
 **ProjectId** | **string** | Project unique identifier | 
 **SectionId** | **string** | Identifier of Section where Work Item is located | 
 **SectionName** | **string** | Section name of Work Item | 
@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemShortModel
 
-`func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int64, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel, ) *WorkItemShortModel`
+`func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName WorkItemTypeModel, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int64, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel, ) *WorkItemShortModel`
 
 NewWorkItemShortModel instantiates a new WorkItemShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -130,20 +130,20 @@ SetName sets Name field to given value.
 
 ### GetEntityTypeName
 
-`func (o *WorkItemShortModel) GetEntityTypeName() string`
+`func (o *WorkItemShortModel) GetEntityTypeName() WorkItemTypeModel`
 
 GetEntityTypeName returns the EntityTypeName field if non-nil, zero value otherwise.
 
 ### GetEntityTypeNameOk
 
-`func (o *WorkItemShortModel) GetEntityTypeNameOk() (*string, bool)`
+`func (o *WorkItemShortModel) GetEntityTypeNameOk() (*WorkItemTypeModel, bool)`
 
 GetEntityTypeNameOk returns a tuple with the EntityTypeName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityTypeName
 
-`func (o *WorkItemShortModel) SetEntityTypeName(v string)`
+`func (o *WorkItemShortModel) SetEntityTypeName(v WorkItemTypeModel)`
 
 SetEntityTypeName sets EntityTypeName field to given value.
 

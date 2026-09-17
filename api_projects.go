@@ -108,7 +108,7 @@ func (a *ProjectsAPIService) AddGlobalAttributesToProjectExecute(r ApiAddGlobalA
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -275,7 +275,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsDemoPostExecute(r ApiApiV2ProjectsDemo
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -453,7 +453,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdDeleteExecute(r ApiApiV2ProjectsIdDe
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -636,7 +636,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdFailureClassesGetExecute(r ApiApiV2P
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -814,7 +814,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdFavoritePutExecute(r ApiApiV2Project
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -994,7 +994,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdFiltersGetExecute(r ApiApiV2Projects
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1182,7 +1182,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdPatchExecute(r ApiApiV2ProjectsIdPat
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1351,7 +1351,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdPurgePostExecute(r ApiApiV2ProjectsI
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1520,7 +1520,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdRestorePostExecute(r ApiApiV2Project
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1707,7 +1707,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdTestPlansAttributeAttributeIdDeleteE
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1898,7 +1898,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdTestPlansAttributePutExecute(r ApiAp
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2211,7 +2211,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsIdTestRunsFullGetExecute(r ApiApiV2Pro
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2391,7 +2391,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsNameNameExistsGetExecute(r ApiApiV2Pro
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2575,7 +2575,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsPurgeBulkPostExecute(r ApiApiV2Project
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2759,7 +2759,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsRestoreBulkPostExecute(r ApiApiV2Proje
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2918,7 +2918,7 @@ func (r ApiApiV2ProjectsSearchPostRequest) ProjectsFilterModel(projectsFilterMod
 	return r
 }
 
-func (r ApiApiV2ProjectsSearchPostRequest) Execute() ([]ProjectShortModel, *http.Response, error) {
+func (r ApiApiV2ProjectsSearchPostRequest) Execute() ([]ProjectApiResult, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsSearchPostExecute(r)
 }
 
@@ -2936,13 +2936,13 @@ func (a *ProjectsAPIService) ApiV2ProjectsSearchPost(ctx context.Context) ApiApi
 }
 
 // Execute executes the request
-//  @return []ProjectShortModel
-func (a *ProjectsAPIService) ApiV2ProjectsSearchPostExecute(r ApiApiV2ProjectsSearchPostRequest) ([]ProjectShortModel, *http.Response, error) {
+//  @return []ProjectApiResult
+func (a *ProjectsAPIService) ApiV2ProjectsSearchPostExecute(r ApiApiV2ProjectsSearchPostRequest) ([]ProjectApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ProjectShortModel
+		localVarReturnValue  []ProjectApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.ApiV2ProjectsSearchPost")
@@ -2993,7 +2993,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsSearchPostExecute(r ApiApiV2ProjectsSe
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3117,7 +3117,7 @@ func (r ApiApiV2ProjectsShortsPostRequest) GetShortProjectsApiModel(getShortProj
 	return r
 }
 
-func (r ApiApiV2ProjectsShortsPostRequest) Execute() (*ProjectShortApiResultReply, *http.Response, error) {
+func (r ApiApiV2ProjectsShortsPostRequest) Execute() (*ProjectShortApiResultIReply, *http.Response, error) {
 	return r.ApiService.ApiV2ProjectsShortsPostExecute(r)
 }
 
@@ -3144,13 +3144,13 @@ func (a *ProjectsAPIService) ApiV2ProjectsShortsPost(ctx context.Context) ApiApi
 }
 
 // Execute executes the request
-//  @return ProjectShortApiResultReply
-func (a *ProjectsAPIService) ApiV2ProjectsShortsPostExecute(r ApiApiV2ProjectsShortsPostRequest) (*ProjectShortApiResultReply, *http.Response, error) {
+//  @return ProjectShortApiResultIReply
+func (a *ProjectsAPIService) ApiV2ProjectsShortsPostExecute(r ApiApiV2ProjectsShortsPostRequest) (*ProjectShortApiResultIReply, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ProjectShortApiResultReply
+		localVarReturnValue  *ProjectShortApiResultIReply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.ApiV2ProjectsShortsPost")
@@ -3186,7 +3186,7 @@ func (a *ProjectsAPIService) ApiV2ProjectsShortsPostExecute(r ApiApiV2ProjectsSh
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3379,7 +3379,7 @@ func (a *ProjectsAPIService) CreateProjectExecute(r ApiCreateProjectRequest) (*P
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3557,7 +3557,7 @@ func (a *ProjectsAPIService) DeleteProjectAutoTestsExecute(r ApiDeleteProjectAut
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3714,7 +3714,7 @@ func (r ApiGetAllProjectsRequest) SearchValue(searchValue string) ApiGetAllProje
 	return r
 }
 
-func (r ApiGetAllProjectsRequest) Execute() ([]ProjectShortModel, *http.Response, error) {
+func (r ApiGetAllProjectsRequest) Execute() ([]ProjectApiResult, *http.Response, error) {
 	return r.ApiService.GetAllProjectsExecute(r)
 }
 
@@ -3747,14 +3747,14 @@ func (a *ProjectsAPIService) GetAllProjects(ctx context.Context) ApiGetAllProjec
 }
 
 // Execute executes the request
-//  @return []ProjectShortModel
+//  @return []ProjectApiResult
 // Deprecated
-func (a *ProjectsAPIService) GetAllProjectsExecute(r ApiGetAllProjectsRequest) ([]ProjectShortModel, *http.Response, error) {
+func (a *ProjectsAPIService) GetAllProjectsExecute(r ApiGetAllProjectsRequest) ([]ProjectApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ProjectShortModel
+		localVarReturnValue  []ProjectApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetAllProjects")
@@ -3809,7 +3809,7 @@ func (a *ProjectsAPIService) GetAllProjectsExecute(r ApiGetAllProjectsRequest) (
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4000,7 +4000,7 @@ func (a *ProjectsAPIService) GetAutoTestsNamespacesExecute(r ApiGetAutoTestsName
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4119,7 +4119,7 @@ type ApiGetProjectByIdRequest struct {
 	id string
 }
 
-func (r ApiGetProjectByIdRequest) Execute() (*ProjectModel, *http.Response, error) {
+func (r ApiGetProjectByIdRequest) Execute() (*DetailedProjectApiResult, *http.Response, error) {
 	return r.ApiService.GetProjectByIdExecute(r)
 }
 
@@ -4148,13 +4148,13 @@ func (a *ProjectsAPIService) GetProjectById(ctx context.Context, id string) ApiG
 }
 
 // Execute executes the request
-//  @return ProjectModel
-func (a *ProjectsAPIService) GetProjectByIdExecute(r ApiGetProjectByIdRequest) (*ProjectModel, *http.Response, error) {
+//  @return DetailedProjectApiResult
+func (a *ProjectsAPIService) GetProjectByIdExecute(r ApiGetProjectByIdRequest) (*DetailedProjectApiResult, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ProjectModel
+		localVarReturnValue  *DetailedProjectApiResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectsAPIService.GetProjectById")
@@ -4189,7 +4189,7 @@ func (a *ProjectsAPIService) GetProjectByIdExecute(r ApiGetProjectByIdRequest) (
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4333,9 +4333,11 @@ User runs method execution
 
 System search project
 
-[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to project
+[Optional] If User sets isDeleted field value as true, System search all deleted test plans related to
+                    project
 
-[Optional] If User sets isDeleted field value as false, System search all test plans related to project which are not deleted
+[Optional] If User sets isDeleted field value as false, System search all test plans related to project which
+                    are not deleted
 
 [Optional] If User did not set isDeleted field value, System search all v related to project
 
@@ -4398,7 +4400,7 @@ func (a *ProjectsAPIService) GetTestPlansByProjectIdExecute(r ApiGetTestPlansByP
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4708,7 +4710,7 @@ func (a *ProjectsAPIService) GetTestRunsByProjectIdExecute(r ApiGetTestRunsByPro
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4899,7 +4901,7 @@ func (a *ProjectsAPIService) UpdateProjectExecute(r ApiUpdateProjectRequest) (*h
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

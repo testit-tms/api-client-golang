@@ -24,12 +24,13 @@ Name | Type | Description | Notes
 **GlobalId** | [**Int64ChangedFieldViewModel**](Int64ChangedFieldViewModel.md) |  | 
 **VersionNumber** | [**Int32ChangedFieldViewModel**](Int32ChangedFieldViewModel.md) |  | 
 **EntityTypeName** | [**StringChangedFieldViewModel**](StringChangedFieldViewModel.md) |  | 
+**ParentId** | [**GuidNullableChangedFieldViewModel**](GuidNullableChangedFieldViewModel.md) |  | 
 
 ## Methods
 
 ### NewWorkItemChangedFieldsViewModel
 
-`func NewWorkItemChangedFieldsViewModel(isDeleted BooleanChangedFieldViewModel, projectId GuidChangedFieldViewModel, isAutomated BooleanChangedFieldViewModel, sectionId GuidChangedFieldViewModel, state StringChangedFieldViewModel, priority StringChangedFieldViewModel, duration Int32ChangedFieldViewModel, attributes map[string]WorkItemChangedAttributeViewModel, steps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, preconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, postconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, autoTests AutoTestChangeViewModelArrayChangedFieldViewModel, attachments AttachmentChangeViewModelArrayChangedFieldViewModel, tags StringArrayChangedFieldViewModel, links WorkItemLinkChangeViewModelArrayChangedFieldViewModel, globalId Int64ChangedFieldViewModel, versionNumber Int32ChangedFieldViewModel, entityTypeName StringChangedFieldViewModel, ) *WorkItemChangedFieldsViewModel`
+`func NewWorkItemChangedFieldsViewModel(isDeleted BooleanChangedFieldViewModel, projectId GuidChangedFieldViewModel, isAutomated BooleanChangedFieldViewModel, sectionId GuidChangedFieldViewModel, state StringChangedFieldViewModel, priority StringChangedFieldViewModel, duration Int32ChangedFieldViewModel, attributes map[string]WorkItemChangedAttributeViewModel, steps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, preconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, postconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, autoTests AutoTestChangeViewModelArrayChangedFieldViewModel, attachments AttachmentChangeViewModelArrayChangedFieldViewModel, tags StringArrayChangedFieldViewModel, links WorkItemLinkChangeViewModelArrayChangedFieldViewModel, globalId Int64ChangedFieldViewModel, versionNumber Int32ChangedFieldViewModel, entityTypeName StringChangedFieldViewModel, parentId GuidNullableChangedFieldViewModel, ) *WorkItemChangedFieldsViewModel`
 
 NewWorkItemChangedFieldsViewModel instantiates a new WorkItemChangedFieldsViewModel object
 This constructor will assign default values to properties that have it defined,
@@ -472,6 +473,26 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemChangedFieldsViewModel) SetEntityTypeName(v StringChangedFieldViewModel)`
 
 SetEntityTypeName sets EntityTypeName field to given value.
+
+
+### GetParentId
+
+`func (o *WorkItemChangedFieldsViewModel) GetParentId() GuidNullableChangedFieldViewModel`
+
+GetParentId returns the ParentId field if non-nil, zero value otherwise.
+
+### GetParentIdOk
+
+`func (o *WorkItemChangedFieldsViewModel) GetParentIdOk() (*GuidNullableChangedFieldViewModel, bool)`
+
+GetParentIdOk returns a tuple with the ParentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentId
+
+`func (o *WorkItemChangedFieldsViewModel) SetParentId(v GuidNullableChangedFieldViewModel)`
+
+SetParentId sets ParentId field to given value.
 
 
 

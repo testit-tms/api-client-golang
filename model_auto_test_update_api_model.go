@@ -41,6 +41,8 @@ type AutoTestUpdateApiModel struct {
 	Description NullableString `json:"description,omitempty"`
 	// Indicates if the autotest is marked as flaky
 	IsFlaky NullableBool `json:"isFlaky,omitempty"`
+	// Indicates if the autotest layer should be reset.
+	ResetLayer NullableBool `json:"resetLayer,omitempty"`
 	// Collection of the autotest steps
 	Steps []AutoTestStepApiModel `json:"steps,omitempty"`
 	// Collection of the autotest setup steps
@@ -448,6 +450,48 @@ func (o *AutoTestUpdateApiModel) UnsetIsFlaky() {
 	o.IsFlaky.Unset()
 }
 
+// GetResetLayer returns the ResetLayer field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestUpdateApiModel) GetResetLayer() bool {
+	if o == nil || IsNil(o.ResetLayer.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ResetLayer.Get()
+}
+
+// GetResetLayerOk returns a tuple with the ResetLayer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestUpdateApiModel) GetResetLayerOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ResetLayer.Get(), o.ResetLayer.IsSet()
+}
+
+// HasResetLayer returns a boolean if a field has been set.
+func (o *AutoTestUpdateApiModel) HasResetLayer() bool {
+	if o != nil && o.ResetLayer.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetResetLayer gets a reference to the given NullableBool and assigns it to the ResetLayer field.
+func (o *AutoTestUpdateApiModel) SetResetLayer(v bool) {
+	o.ResetLayer.Set(&v)
+}
+// SetResetLayerNil sets the value for ResetLayer to be an explicit nil
+func (o *AutoTestUpdateApiModel) SetResetLayerNil() {
+	o.ResetLayer.Set(nil)
+}
+
+// UnsetResetLayer ensures that no value is present for ResetLayer, not even an explicit nil
+func (o *AutoTestUpdateApiModel) UnsetResetLayer() {
+	o.ResetLayer.Unset()
+}
+
 // GetSteps returns the Steps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutoTestUpdateApiModel) GetSteps() []AutoTestStepApiModel {
 	if o == nil {
@@ -748,6 +792,9 @@ func (o AutoTestUpdateApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IsFlaky.IsSet() {
 		toSerialize["isFlaky"] = o.IsFlaky.Get()
+	}
+	if o.ResetLayer.IsSet() {
+		toSerialize["resetLayer"] = o.ResetLayer.Get()
 	}
 	if o.Steps != nil {
 		toSerialize["steps"] = o.Steps

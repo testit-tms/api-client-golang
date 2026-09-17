@@ -50,7 +50,7 @@ type WorkItemFilterApiModel struct {
 	// Source type of work item (manual creation or AI generated)
 	SourceTypes []WorkItemSourceTypeModel `json:"sourceTypes,omitempty"`
 	// Collection of types of work item
-	Types []WorkItemEntityTypes `json:"types,omitempty"`
+	Types []WorkItemTypeModel `json:"types,omitempty"`
 	// Specifies a work item range of creation date to search for
 	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 	// Specifies a work item range of last modification date to search for
@@ -73,6 +73,8 @@ type WorkItemFilterApiModel struct {
 	Links NullableWorkItemLinkFilterApiModel `json:"links,omitempty"`
 	// Specifies work item filter by its external metadata
 	ExternalMetadata NullableWorkItemExternalMetadataFilterApiModel `json:"externalMetadata,omitempty"`
+	// Specifies auto test case layers to search for
+	Layers []string `json:"layers,omitempty"`
 }
 
 // NewWorkItemFilterApiModel instantiates a new WorkItemFilterApiModel object
@@ -615,9 +617,9 @@ func (o *WorkItemFilterApiModel) SetSourceTypes(v []WorkItemSourceTypeModel) {
 }
 
 // GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemFilterApiModel) GetTypes() []WorkItemEntityTypes {
+func (o *WorkItemFilterApiModel) GetTypes() []WorkItemTypeModel {
 	if o == nil {
-		var ret []WorkItemEntityTypes
+		var ret []WorkItemTypeModel
 		return ret
 	}
 	return o.Types
@@ -626,7 +628,7 @@ func (o *WorkItemFilterApiModel) GetTypes() []WorkItemEntityTypes {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemFilterApiModel) GetTypesOk() ([]WorkItemEntityTypes, bool) {
+func (o *WorkItemFilterApiModel) GetTypesOk() ([]WorkItemTypeModel, bool) {
 	if o == nil || IsNil(o.Types) {
 		return nil, false
 	}
@@ -642,8 +644,8 @@ func (o *WorkItemFilterApiModel) HasTypes() bool {
 	return false
 }
 
-// SetTypes gets a reference to the given []WorkItemEntityTypes and assigns it to the Types field.
-func (o *WorkItemFilterApiModel) SetTypes(v []WorkItemEntityTypes) {
+// SetTypes gets a reference to the given []WorkItemTypeModel and assigns it to the Types field.
+func (o *WorkItemFilterApiModel) SetTypes(v []WorkItemTypeModel) {
 	o.Types = v
 }
 
@@ -1073,6 +1075,39 @@ func (o *WorkItemFilterApiModel) UnsetExternalMetadata() {
 	o.ExternalMetadata.Unset()
 }
 
+// GetLayers returns the Layers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemFilterApiModel) GetLayers() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Layers
+}
+
+// GetLayersOk returns a tuple with the Layers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemFilterApiModel) GetLayersOk() ([]string, bool) {
+	if o == nil || IsNil(o.Layers) {
+		return nil, false
+	}
+	return o.Layers, true
+}
+
+// HasLayers returns a boolean if a field has been set.
+func (o *WorkItemFilterApiModel) HasLayers() bool {
+	if o != nil && !IsNil(o.Layers) {
+		return true
+	}
+
+	return false
+}
+
+// SetLayers gets a reference to the given []string and assigns it to the Layers field.
+func (o *WorkItemFilterApiModel) SetLayers(v []string) {
+	o.Layers = v
+}
+
 func (o WorkItemFilterApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1163,6 +1198,9 @@ func (o WorkItemFilterApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ExternalMetadata.IsSet() {
 		toSerialize["externalMetadata"] = o.ExternalMetadata.Get()
+	}
+	if o.Layers != nil {
+		toSerialize["layers"] = o.Layers
 	}
 	return toSerialize, nil
 }

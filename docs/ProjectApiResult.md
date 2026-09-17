@@ -8,12 +8,11 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
 **Name** | **string** | Name of the project | 
 **IsFavorite** | **bool** | Indicates if the project is marked as favorite | 
-**AttributesScheme** | Pointer to [**[]CustomAttributeApiResult**](CustomAttributeApiResult.md) | Collection of the project attributes | [optional] 
-**TestPlansAttributesScheme** | Pointer to [**[]CustomAttributeApiResult**](CustomAttributeApiResult.md) | Collection of the project test plans attributes | [optional] 
-**TestCasesCount** | Pointer to **NullableInt32** | Number of test cases in the project | [optional] 
-**SharedStepsCount** | Pointer to **NullableInt32** | Number of shared steps in the project | [optional] 
-**CheckListsCount** | Pointer to **NullableInt32** | Number of checklists in the project | [optional] 
-**AutoTestsCount** | Pointer to **NullableInt32** | Number of autotests in the project | [optional] 
+**WorkItemsCount** | **int64** | Number of work items in the project | 
+**TestCasesCount** | Pointer to **NullableInt64** | Number of test cases in the project | [optional] 
+**SharedStepsCount** | Pointer to **NullableInt64** | Number of shared steps in the project | [optional] 
+**CheckListsCount** | Pointer to **NullableInt64** | Number of checklists in the project | [optional] 
+**AutoTestsCount** | Pointer to **NullableInt64** | Number of autotests in the project | [optional] 
 **IsDeleted** | **bool** | Indicates if the project is deleted | 
 **CreatedDate** | **time.Time** | Creation date of the project | 
 **ModifiedDate** | Pointer to **NullableTime** | Last modification date of the project | [optional] 
@@ -21,14 +20,13 @@ Name | Type | Description | Notes
 **ModifiedById** | Pointer to **NullableString** | Unique ID of the project last editor | [optional] 
 **GlobalId** | **int64** | Global ID of the project | 
 **Type** | [**ProjectType**](ProjectType.md) | Type of the project | 
-**IsFlakyAuto** | Pointer to **NullableBool** | Indicates if the status \&quot;Flaky/Stable\&quot; inits automatically | [optional] 
 **WorkflowId** | **string** | ID of the workflow used in project | 
 
 ## Methods
 
 ### NewProjectApiResult
 
-`func NewProjectApiResult(id string, name string, isFavorite bool, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string, ) *ProjectApiResult`
+`func NewProjectApiResult(id string, name string, isFavorite bool, workItemsCount int64, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string, ) *ProjectApiResult`
 
 NewProjectApiResult instantiates a new ProjectApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -138,92 +136,42 @@ and a boolean to check if the value has been set.
 SetIsFavorite sets IsFavorite field to given value.
 
 
-### GetAttributesScheme
+### GetWorkItemsCount
 
-`func (o *ProjectApiResult) GetAttributesScheme() []CustomAttributeApiResult`
+`func (o *ProjectApiResult) GetWorkItemsCount() int64`
 
-GetAttributesScheme returns the AttributesScheme field if non-nil, zero value otherwise.
+GetWorkItemsCount returns the WorkItemsCount field if non-nil, zero value otherwise.
 
-### GetAttributesSchemeOk
+### GetWorkItemsCountOk
 
-`func (o *ProjectApiResult) GetAttributesSchemeOk() (*[]CustomAttributeApiResult, bool)`
+`func (o *ProjectApiResult) GetWorkItemsCountOk() (*int64, bool)`
 
-GetAttributesSchemeOk returns a tuple with the AttributesScheme field if it's non-nil, zero value otherwise
+GetWorkItemsCountOk returns a tuple with the WorkItemsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAttributesScheme
+### SetWorkItemsCount
 
-`func (o *ProjectApiResult) SetAttributesScheme(v []CustomAttributeApiResult)`
+`func (o *ProjectApiResult) SetWorkItemsCount(v int64)`
 
-SetAttributesScheme sets AttributesScheme field to given value.
+SetWorkItemsCount sets WorkItemsCount field to given value.
 
-### HasAttributesScheme
 
-`func (o *ProjectApiResult) HasAttributesScheme() bool`
-
-HasAttributesScheme returns a boolean if a field has been set.
-
-### SetAttributesSchemeNil
-
-`func (o *ProjectApiResult) SetAttributesSchemeNil(b bool)`
-
- SetAttributesSchemeNil sets the value for AttributesScheme to be an explicit nil
-
-### UnsetAttributesScheme
-`func (o *ProjectApiResult) UnsetAttributesScheme()`
-
-UnsetAttributesScheme ensures that no value is present for AttributesScheme, not even an explicit nil
-### GetTestPlansAttributesScheme
-
-`func (o *ProjectApiResult) GetTestPlansAttributesScheme() []CustomAttributeApiResult`
-
-GetTestPlansAttributesScheme returns the TestPlansAttributesScheme field if non-nil, zero value otherwise.
-
-### GetTestPlansAttributesSchemeOk
-
-`func (o *ProjectApiResult) GetTestPlansAttributesSchemeOk() (*[]CustomAttributeApiResult, bool)`
-
-GetTestPlansAttributesSchemeOk returns a tuple with the TestPlansAttributesScheme field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTestPlansAttributesScheme
-
-`func (o *ProjectApiResult) SetTestPlansAttributesScheme(v []CustomAttributeApiResult)`
-
-SetTestPlansAttributesScheme sets TestPlansAttributesScheme field to given value.
-
-### HasTestPlansAttributesScheme
-
-`func (o *ProjectApiResult) HasTestPlansAttributesScheme() bool`
-
-HasTestPlansAttributesScheme returns a boolean if a field has been set.
-
-### SetTestPlansAttributesSchemeNil
-
-`func (o *ProjectApiResult) SetTestPlansAttributesSchemeNil(b bool)`
-
- SetTestPlansAttributesSchemeNil sets the value for TestPlansAttributesScheme to be an explicit nil
-
-### UnsetTestPlansAttributesScheme
-`func (o *ProjectApiResult) UnsetTestPlansAttributesScheme()`
-
-UnsetTestPlansAttributesScheme ensures that no value is present for TestPlansAttributesScheme, not even an explicit nil
 ### GetTestCasesCount
 
-`func (o *ProjectApiResult) GetTestCasesCount() int32`
+`func (o *ProjectApiResult) GetTestCasesCount() int64`
 
 GetTestCasesCount returns the TestCasesCount field if non-nil, zero value otherwise.
 
 ### GetTestCasesCountOk
 
-`func (o *ProjectApiResult) GetTestCasesCountOk() (*int32, bool)`
+`func (o *ProjectApiResult) GetTestCasesCountOk() (*int64, bool)`
 
 GetTestCasesCountOk returns a tuple with the TestCasesCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestCasesCount
 
-`func (o *ProjectApiResult) SetTestCasesCount(v int32)`
+`func (o *ProjectApiResult) SetTestCasesCount(v int64)`
 
 SetTestCasesCount sets TestCasesCount field to given value.
 
@@ -245,20 +193,20 @@ HasTestCasesCount returns a boolean if a field has been set.
 UnsetTestCasesCount ensures that no value is present for TestCasesCount, not even an explicit nil
 ### GetSharedStepsCount
 
-`func (o *ProjectApiResult) GetSharedStepsCount() int32`
+`func (o *ProjectApiResult) GetSharedStepsCount() int64`
 
 GetSharedStepsCount returns the SharedStepsCount field if non-nil, zero value otherwise.
 
 ### GetSharedStepsCountOk
 
-`func (o *ProjectApiResult) GetSharedStepsCountOk() (*int32, bool)`
+`func (o *ProjectApiResult) GetSharedStepsCountOk() (*int64, bool)`
 
 GetSharedStepsCountOk returns a tuple with the SharedStepsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSharedStepsCount
 
-`func (o *ProjectApiResult) SetSharedStepsCount(v int32)`
+`func (o *ProjectApiResult) SetSharedStepsCount(v int64)`
 
 SetSharedStepsCount sets SharedStepsCount field to given value.
 
@@ -280,20 +228,20 @@ HasSharedStepsCount returns a boolean if a field has been set.
 UnsetSharedStepsCount ensures that no value is present for SharedStepsCount, not even an explicit nil
 ### GetCheckListsCount
 
-`func (o *ProjectApiResult) GetCheckListsCount() int32`
+`func (o *ProjectApiResult) GetCheckListsCount() int64`
 
 GetCheckListsCount returns the CheckListsCount field if non-nil, zero value otherwise.
 
 ### GetCheckListsCountOk
 
-`func (o *ProjectApiResult) GetCheckListsCountOk() (*int32, bool)`
+`func (o *ProjectApiResult) GetCheckListsCountOk() (*int64, bool)`
 
 GetCheckListsCountOk returns a tuple with the CheckListsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCheckListsCount
 
-`func (o *ProjectApiResult) SetCheckListsCount(v int32)`
+`func (o *ProjectApiResult) SetCheckListsCount(v int64)`
 
 SetCheckListsCount sets CheckListsCount field to given value.
 
@@ -315,20 +263,20 @@ HasCheckListsCount returns a boolean if a field has been set.
 UnsetCheckListsCount ensures that no value is present for CheckListsCount, not even an explicit nil
 ### GetAutoTestsCount
 
-`func (o *ProjectApiResult) GetAutoTestsCount() int32`
+`func (o *ProjectApiResult) GetAutoTestsCount() int64`
 
 GetAutoTestsCount returns the AutoTestsCount field if non-nil, zero value otherwise.
 
 ### GetAutoTestsCountOk
 
-`func (o *ProjectApiResult) GetAutoTestsCountOk() (*int32, bool)`
+`func (o *ProjectApiResult) GetAutoTestsCountOk() (*int64, bool)`
 
 GetAutoTestsCountOk returns a tuple with the AutoTestsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoTestsCount
 
-`func (o *ProjectApiResult) SetAutoTestsCount(v int32)`
+`func (o *ProjectApiResult) SetAutoTestsCount(v int64)`
 
 SetAutoTestsCount sets AutoTestsCount field to given value.
 
@@ -518,41 +466,6 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
-### GetIsFlakyAuto
-
-`func (o *ProjectApiResult) GetIsFlakyAuto() bool`
-
-GetIsFlakyAuto returns the IsFlakyAuto field if non-nil, zero value otherwise.
-
-### GetIsFlakyAutoOk
-
-`func (o *ProjectApiResult) GetIsFlakyAutoOk() (*bool, bool)`
-
-GetIsFlakyAutoOk returns a tuple with the IsFlakyAuto field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsFlakyAuto
-
-`func (o *ProjectApiResult) SetIsFlakyAuto(v bool)`
-
-SetIsFlakyAuto sets IsFlakyAuto field to given value.
-
-### HasIsFlakyAuto
-
-`func (o *ProjectApiResult) HasIsFlakyAuto() bool`
-
-HasIsFlakyAuto returns a boolean if a field has been set.
-
-### SetIsFlakyAutoNil
-
-`func (o *ProjectApiResult) SetIsFlakyAutoNil(b bool)`
-
- SetIsFlakyAutoNil sets the value for IsFlakyAuto to be an explicit nil
-
-### UnsetIsFlakyAuto
-`func (o *ProjectApiResult) UnsetIsFlakyAuto()`
-
-UnsetIsFlakyAuto ensures that no value is present for IsFlakyAuto, not even an explicit nil
 ### GetWorkflowId
 
 `func (o *ProjectApiResult) GetWorkflowId() string`

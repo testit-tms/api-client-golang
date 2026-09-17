@@ -22,8 +22,8 @@ var _ MappedNullable = &LinkShortModel{}
 // LinkShortModel struct for LinkShortModel
 type LinkShortModel struct {
 	Id string `json:"id"`
-	Title string `json:"title"`
-	Type NullableString `json:"type,omitempty"`
+	Title NullableString `json:"title,omitempty"`
+	Type LinkType `json:"type"`
 	Url string `json:"url"`
 }
 
@@ -33,10 +33,10 @@ type _LinkShortModel LinkShortModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLinkShortModel(id string, title string, url string) *LinkShortModel {
+func NewLinkShortModel(id string, type_ LinkType, url string) *LinkShortModel {
 	this := LinkShortModel{}
 	this.Id = id
-	this.Title = title
+	this.Type = type_
 	this.Url = url
 	return &this
 }
@@ -73,70 +73,70 @@ func (o *LinkShortModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetTitle returns the Title field value
+// GetTitle returns the Title field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LinkShortModel) GetTitle() string {
-	if o == nil {
+	if o == nil || IsNil(o.Title.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title.Get()
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LinkShortModel) GetTitleOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Title, true
+	return o.Title.Get(), o.Title.IsSet()
 }
 
-// SetTitle sets field value
-func (o *LinkShortModel) SetTitle(v string) {
-	o.Title = v
-}
-
-// GetType returns the Type field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LinkShortModel) GetType() string {
-	if o == nil || IsNil(o.Type.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Type.Get()
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LinkShortModel) GetTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Type.Get(), o.Type.IsSet()
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *LinkShortModel) HasType() bool {
-	if o != nil && o.Type.IsSet() {
+// HasTitle returns a boolean if a field has been set.
+func (o *LinkShortModel) HasTitle() bool {
+	if o != nil && o.Title.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetType gets a reference to the given NullableString and assigns it to the Type field.
-func (o *LinkShortModel) SetType(v string) {
-	o.Type.Set(&v)
+// SetTitle gets a reference to the given NullableString and assigns it to the Title field.
+func (o *LinkShortModel) SetTitle(v string) {
+	o.Title.Set(&v)
 }
-// SetTypeNil sets the value for Type to be an explicit nil
-func (o *LinkShortModel) SetTypeNil() {
-	o.Type.Set(nil)
+// SetTitleNil sets the value for Title to be an explicit nil
+func (o *LinkShortModel) SetTitleNil() {
+	o.Title.Set(nil)
 }
 
-// UnsetType ensures that no value is present for Type, not even an explicit nil
-func (o *LinkShortModel) UnsetType() {
-	o.Type.Unset()
+// UnsetTitle ensures that no value is present for Title, not even an explicit nil
+func (o *LinkShortModel) UnsetTitle() {
+	o.Title.Unset()
+}
+
+// GetType returns the Type field value
+func (o *LinkShortModel) GetType() LinkType {
+	if o == nil {
+		var ret LinkType
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *LinkShortModel) GetTypeOk() (*LinkType, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *LinkShortModel) SetType(v LinkType) {
+	o.Type = v
 }
 
 // GetUrl returns the Url field value
@@ -174,10 +174,10 @@ func (o LinkShortModel) MarshalJSON() ([]byte, error) {
 func (o LinkShortModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["title"] = o.Title
-	if o.Type.IsSet() {
-		toSerialize["type"] = o.Type.Get()
+	if o.Title.IsSet() {
+		toSerialize["title"] = o.Title.Get()
 	}
+	toSerialize["type"] = o.Type
 	toSerialize["url"] = o.Url
 	return toSerialize, nil
 }
@@ -188,7 +188,7 @@ func (o *LinkShortModel) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
-		"title",
+		"type",
 		"url",
 	}
 

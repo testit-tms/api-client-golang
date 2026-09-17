@@ -70,6 +70,8 @@ type WorkItemShortApiResult struct {
 	Iterations []IterationApiResult `json:"iterations"`
 	// Set of links related to Work Item
 	Links []LinkShortApiResult `json:"links"`
+	// Test pyramid layer of Work Item
+	Layer NullableWorkItemLayerApiResult `json:"layer,omitempty"`
 }
 
 type _WorkItemShortApiResult WorkItemShortApiResult
@@ -775,6 +777,48 @@ func (o *WorkItemShortApiResult) SetLinks(v []LinkShortApiResult) {
 	o.Links = v
 }
 
+// GetLayer returns the Layer field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemShortApiResult) GetLayer() WorkItemLayerApiResult {
+	if o == nil || IsNil(o.Layer.Get()) {
+		var ret WorkItemLayerApiResult
+		return ret
+	}
+	return *o.Layer.Get()
+}
+
+// GetLayerOk returns a tuple with the Layer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemShortApiResult) GetLayerOk() (*WorkItemLayerApiResult, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Layer.Get(), o.Layer.IsSet()
+}
+
+// HasLayer returns a boolean if a field has been set.
+func (o *WorkItemShortApiResult) HasLayer() bool {
+	if o != nil && o.Layer.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLayer gets a reference to the given NullableWorkItemLayerApiResult and assigns it to the Layer field.
+func (o *WorkItemShortApiResult) SetLayer(v WorkItemLayerApiResult) {
+	o.Layer.Set(&v)
+}
+// SetLayerNil sets the value for Layer to be an explicit nil
+func (o *WorkItemShortApiResult) SetLayerNil() {
+	o.Layer.Set(nil)
+}
+
+// UnsetLayer ensures that no value is present for Layer, not even an explicit nil
+func (o *WorkItemShortApiResult) UnsetLayer() {
+	o.Layer.Unset()
+}
+
 func (o WorkItemShortApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -821,6 +865,9 @@ func (o WorkItemShortApiResult) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["iterations"] = o.Iterations
 	toSerialize["links"] = o.Links
+	if o.Layer.IsSet() {
+		toSerialize["layer"] = o.Layer.Get()
+	}
 	return toSerialize, nil
 }
 

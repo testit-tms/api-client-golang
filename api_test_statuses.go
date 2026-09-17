@@ -90,7 +90,7 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesCodeCodeExistsGetExecute(r Api
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -268,7 +268,7 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesIdDeleteExecute(r ApiApiV2Test
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -439,7 +439,7 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesIdGetExecute(r ApiApiV2TestSta
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -625,7 +625,7 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesIdPutExecute(r ApiApiV2TestSta
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -796,7 +796,7 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesNameNameExistsGetExecute(r Api
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -980,7 +980,7 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesPostExecute(r ApiApiV2TestStat
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1104,7 +1104,7 @@ func (r ApiApiV2TestStatusesSearchPostRequest) SearchTestStatusesApiModel(search
 	return r
 }
 
-func (r ApiApiV2TestStatusesSearchPostRequest) Execute() (*TestStatusApiResultReply, *http.Response, error) {
+func (r ApiApiV2TestStatusesSearchPostRequest) Execute() (*TestStatusApiResultIReply, *http.Response, error) {
 	return r.ApiService.ApiV2TestStatusesSearchPostExecute(r)
 }
 
@@ -1122,13 +1122,13 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesSearchPost(ctx context.Context
 }
 
 // Execute executes the request
-//  @return TestStatusApiResultReply
-func (a *TestStatusesAPIService) ApiV2TestStatusesSearchPostExecute(r ApiApiV2TestStatusesSearchPostRequest) (*TestStatusApiResultReply, *http.Response, error) {
+//  @return TestStatusApiResultIReply
+func (a *TestStatusesAPIService) ApiV2TestStatusesSearchPostExecute(r ApiApiV2TestStatusesSearchPostRequest) (*TestStatusApiResultIReply, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *TestStatusApiResultReply
+		localVarReturnValue  *TestStatusApiResultIReply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestStatusesAPIService.ApiV2TestStatusesSearchPost")
@@ -1164,7 +1164,7 @@ func (a *TestStatusesAPIService) ApiV2TestStatusesSearchPostExecute(r ApiApiV2Te
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

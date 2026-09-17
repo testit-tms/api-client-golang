@@ -50,7 +50,7 @@ type WorkItemFilterModel struct {
 	// Collection of priorities of work item
 	SourceTypes []WorkItemSourceTypeModel `json:"sourceTypes,omitempty"`
 	// Collection of types of work item
-	Types []WorkItemEntityTypes `json:"types,omitempty"`
+	Types []WorkItemTypeModel `json:"types,omitempty"`
 	// Specifies a work item range of creation date to search for
 	CreatedDate NullableDateTimeRangeSelectorModel `json:"createdDate,omitempty"`
 	// Specifies a work item range of last modification date to search for
@@ -615,9 +615,9 @@ func (o *WorkItemFilterModel) SetSourceTypes(v []WorkItemSourceTypeModel) {
 }
 
 // GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemFilterModel) GetTypes() []WorkItemEntityTypes {
+func (o *WorkItemFilterModel) GetTypes() []WorkItemTypeModel {
 	if o == nil {
-		var ret []WorkItemEntityTypes
+		var ret []WorkItemTypeModel
 		return ret
 	}
 	return o.Types
@@ -626,7 +626,7 @@ func (o *WorkItemFilterModel) GetTypes() []WorkItemEntityTypes {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemFilterModel) GetTypesOk() ([]WorkItemEntityTypes, bool) {
+func (o *WorkItemFilterModel) GetTypesOk() ([]WorkItemTypeModel, bool) {
 	if o == nil || IsNil(o.Types) {
 		return nil, false
 	}
@@ -642,8 +642,8 @@ func (o *WorkItemFilterModel) HasTypes() bool {
 	return false
 }
 
-// SetTypes gets a reference to the given []WorkItemEntityTypes and assigns it to the Types field.
-func (o *WorkItemFilterModel) SetTypes(v []WorkItemEntityTypes) {
+// SetTypes gets a reference to the given []WorkItemTypeModel and assigns it to the Types field.
+func (o *WorkItemFilterModel) SetTypes(v []WorkItemTypeModel) {
 	o.Types = v
 }
 

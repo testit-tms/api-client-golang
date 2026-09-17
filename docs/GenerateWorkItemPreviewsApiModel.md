@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExternalServiceId** | **string** | The ID of the external AI service to be used for generation. | 
-**TaskKey** | Pointer to **NullableString** | The key of the issue in an issue tracker (e.g., JIRA-123). | [optional] 
 **IssueKey** | Pointer to **NullableString** | The key of the issue in an issue tracker (e.g., JIRA-123). | [optional] 
 **UserContext** | Pointer to **NullableString** | Additional user context or description of the issue if no issue key is provided. | [optional] 
 **Temperature** | **float32** | Controls randomness of the AI model output. | 
@@ -50,41 +49,6 @@ and a boolean to check if the value has been set.
 SetExternalServiceId sets ExternalServiceId field to given value.
 
 
-### GetTaskKey
-
-`func (o *GenerateWorkItemPreviewsApiModel) GetTaskKey() string`
-
-GetTaskKey returns the TaskKey field if non-nil, zero value otherwise.
-
-### GetTaskKeyOk
-
-`func (o *GenerateWorkItemPreviewsApiModel) GetTaskKeyOk() (*string, bool)`
-
-GetTaskKeyOk returns a tuple with the TaskKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTaskKey
-
-`func (o *GenerateWorkItemPreviewsApiModel) SetTaskKey(v string)`
-
-SetTaskKey sets TaskKey field to given value.
-
-### HasTaskKey
-
-`func (o *GenerateWorkItemPreviewsApiModel) HasTaskKey() bool`
-
-HasTaskKey returns a boolean if a field has been set.
-
-### SetTaskKeyNil
-
-`func (o *GenerateWorkItemPreviewsApiModel) SetTaskKeyNil(b bool)`
-
- SetTaskKeyNil sets the value for TaskKey to be an explicit nil
-
-### UnsetTaskKey
-`func (o *GenerateWorkItemPreviewsApiModel) UnsetTaskKey()`
-
-UnsetTaskKey ensures that no value is present for TaskKey, not even an explicit nil
 ### GetIssueKey
 
 `func (o *GenerateWorkItemPreviewsApiModel) GetIssueKey() string`

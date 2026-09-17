@@ -109,7 +109,7 @@ func (a *ProjectAttributesAPIService) CreateProjectsAttributeExecute(r ApiCreate
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -306,7 +306,7 @@ func (a *ProjectAttributesAPIService) DeleteProjectsAttributeExecute(r ApiDelete
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -496,7 +496,7 @@ func (a *ProjectAttributesAPIService) GetAttributeByProjectIdExecute(r ApiGetAtt
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -704,7 +704,7 @@ func (a *ProjectAttributesAPIService) GetAttributesByProjectIdExecute(r ApiGetAt
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -864,7 +864,7 @@ func (r ApiSearchAttributesInProjectRequest) ProjectAttributesFilterModel(projec
 	return r
 }
 
-func (r ApiSearchAttributesInProjectRequest) Execute() ([]CustomAttributeGetModel, *http.Response, error) {
+func (r ApiSearchAttributesInProjectRequest) Execute() ([]CustomAttributeModel, *http.Response, error) {
 	return r.ApiService.SearchAttributesInProjectExecute(r)
 }
 
@@ -884,13 +884,13 @@ func (a *ProjectAttributesAPIService) SearchAttributesInProject(ctx context.Cont
 }
 
 // Execute executes the request
-//  @return []CustomAttributeGetModel
-func (a *ProjectAttributesAPIService) SearchAttributesInProjectExecute(r ApiSearchAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
+//  @return []CustomAttributeModel
+func (a *ProjectAttributesAPIService) SearchAttributesInProjectExecute(r ApiSearchAttributesInProjectRequest) ([]CustomAttributeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CustomAttributeGetModel
+		localVarReturnValue  []CustomAttributeModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectAttributesAPIService.SearchAttributesInProject")
@@ -942,7 +942,7 @@ func (a *ProjectAttributesAPIService) SearchAttributesInProjectExecute(r ApiSear
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1128,7 +1128,7 @@ func (a *ProjectAttributesAPIService) UpdateProjectsAttributeExecute(r ApiUpdate
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

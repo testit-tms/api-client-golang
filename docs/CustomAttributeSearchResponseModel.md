@@ -6,10 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **WorkItemUsage** | [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | 
 **TestPlanUsage** | [**[]ProjectShortestModel**](ProjectShortestModel.md) |  | 
-**Id** | **string** | Unique ID of the attribute | 
-**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
-**Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute | 
-**IsDeleted** | **bool** | Indicates if the attribute is deleted | 
+**Id** | **string** | Unique ID of the attribute. | 
+**Code** | Pointer to **NullableString** | Optional code identifier for the attribute. | [optional] 
+**Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute. | 
+**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options. | 
+**Targets** | **[]string** | Collection of the attribute targets.   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans). | 
+**IsReadOnly** | **bool** | Indicates if the attribute is read-only. | 
+**IsDeleted** | **bool** | Indicates if the attribute is deleted. | 
+**IsSystem** | **bool** | Indicates if the attribute is system. | 
 **Name** | **string** | Name of the attribute | 
 **IsEnabled** | **bool** | Indicates if the attribute is enabled | 
 **IsRequired** | **bool** | Indicates if the attribute value is mandatory to specify | 
@@ -19,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewCustomAttributeSearchResponseModel
 
-`func NewCustomAttributeSearchResponseModel(workItemUsage []ProjectShortestModel, testPlanUsage []ProjectShortestModel, id string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeSearchResponseModel`
+`func NewCustomAttributeSearchResponseModel(workItemUsage []ProjectShortestModel, testPlanUsage []ProjectShortestModel, id string, type_ CustomAttributeTypesEnum, options []CustomAttributeOptionModel, targets []string, isReadOnly bool, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeSearchResponseModel`
 
 NewCustomAttributeSearchResponseModel instantiates a new CustomAttributeSearchResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -94,26 +98,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetOptions
+### GetCode
 
-`func (o *CustomAttributeSearchResponseModel) GetOptions() []CustomAttributeOptionModel`
+`func (o *CustomAttributeSearchResponseModel) GetCode() string`
 
-GetOptions returns the Options field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetOptionsOk
+### GetCodeOk
 
-`func (o *CustomAttributeSearchResponseModel) GetOptionsOk() (*[]CustomAttributeOptionModel, bool)`
+`func (o *CustomAttributeSearchResponseModel) GetCodeOk() (*string, bool)`
 
-GetOptionsOk returns a tuple with the Options field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOptions
+### SetCode
 
-`func (o *CustomAttributeSearchResponseModel) SetOptions(v []CustomAttributeOptionModel)`
+`func (o *CustomAttributeSearchResponseModel) SetCode(v string)`
 
-SetOptions sets Options field to given value.
+SetCode sets Code field to given value.
 
+### HasCode
 
+`func (o *CustomAttributeSearchResponseModel) HasCode() bool`
+
+HasCode returns a boolean if a field has been set.
+
+### SetCodeNil
+
+`func (o *CustomAttributeSearchResponseModel) SetCodeNil(b bool)`
+
+ SetCodeNil sets the value for Code to be an explicit nil
+
+### UnsetCode
+`func (o *CustomAttributeSearchResponseModel) UnsetCode()`
+
+UnsetCode ensures that no value is present for Code, not even an explicit nil
 ### GetType
 
 `func (o *CustomAttributeSearchResponseModel) GetType() CustomAttributeTypesEnum`
@@ -134,6 +153,66 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetOptions
+
+`func (o *CustomAttributeSearchResponseModel) GetOptions() []CustomAttributeOptionModel`
+
+GetOptions returns the Options field if non-nil, zero value otherwise.
+
+### GetOptionsOk
+
+`func (o *CustomAttributeSearchResponseModel) GetOptionsOk() (*[]CustomAttributeOptionModel, bool)`
+
+GetOptionsOk returns a tuple with the Options field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOptions
+
+`func (o *CustomAttributeSearchResponseModel) SetOptions(v []CustomAttributeOptionModel)`
+
+SetOptions sets Options field to given value.
+
+
+### GetTargets
+
+`func (o *CustomAttributeSearchResponseModel) GetTargets() []string`
+
+GetTargets returns the Targets field if non-nil, zero value otherwise.
+
+### GetTargetsOk
+
+`func (o *CustomAttributeSearchResponseModel) GetTargetsOk() (*[]string, bool)`
+
+GetTargetsOk returns a tuple with the Targets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargets
+
+`func (o *CustomAttributeSearchResponseModel) SetTargets(v []string)`
+
+SetTargets sets Targets field to given value.
+
+
+### GetIsReadOnly
+
+`func (o *CustomAttributeSearchResponseModel) GetIsReadOnly() bool`
+
+GetIsReadOnly returns the IsReadOnly field if non-nil, zero value otherwise.
+
+### GetIsReadOnlyOk
+
+`func (o *CustomAttributeSearchResponseModel) GetIsReadOnlyOk() (*bool, bool)`
+
+GetIsReadOnlyOk returns a tuple with the IsReadOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsReadOnly
+
+`func (o *CustomAttributeSearchResponseModel) SetIsReadOnly(v bool)`
+
+SetIsReadOnly sets IsReadOnly field to given value.
+
+
 ### GetIsDeleted
 
 `func (o *CustomAttributeSearchResponseModel) GetIsDeleted() bool`
@@ -152,6 +231,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomAttributeSearchResponseModel) SetIsDeleted(v bool)`
 
 SetIsDeleted sets IsDeleted field to given value.
+
+
+### GetIsSystem
+
+`func (o *CustomAttributeSearchResponseModel) GetIsSystem() bool`
+
+GetIsSystem returns the IsSystem field if non-nil, zero value otherwise.
+
+### GetIsSystemOk
+
+`func (o *CustomAttributeSearchResponseModel) GetIsSystemOk() (*bool, bool)`
+
+GetIsSystemOk returns a tuple with the IsSystem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSystem
+
+`func (o *CustomAttributeSearchResponseModel) SetIsSystem(v bool)`
+
+SetIsSystem sets IsSystem field to given value.
 
 
 ### GetName

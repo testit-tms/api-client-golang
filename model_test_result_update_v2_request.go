@@ -25,7 +25,7 @@ type TestResultUpdateV2Request struct {
 	StatusCode NullableString `json:"statusCode,omitempty"`
 	StatusType NullableTestStatusType `json:"statusType,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
-	Links []Link `json:"links,omitempty"`
+	Links []CreateLinkApiModel `json:"links,omitempty"`
 	StepResults []StepResultApiModel `json:"stepResults,omitempty"`
 	Attachments []AttachmentUpdateRequest `json:"attachments,omitempty"`
 	// Deprecated
@@ -260,9 +260,9 @@ func (o *TestResultUpdateV2Request) UnsetComment() {
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultUpdateV2Request) GetLinks() []Link {
+func (o *TestResultUpdateV2Request) GetLinks() []CreateLinkApiModel {
 	if o == nil {
-		var ret []Link
+		var ret []CreateLinkApiModel
 		return ret
 	}
 	return o.Links
@@ -271,7 +271,7 @@ func (o *TestResultUpdateV2Request) GetLinks() []Link {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultUpdateV2Request) GetLinksOk() ([]Link, bool) {
+func (o *TestResultUpdateV2Request) GetLinksOk() ([]CreateLinkApiModel, bool) {
 	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
@@ -287,8 +287,8 @@ func (o *TestResultUpdateV2Request) HasLinks() bool {
 	return false
 }
 
-// SetLinks gets a reference to the given []Link and assigns it to the Links field.
-func (o *TestResultUpdateV2Request) SetLinks(v []Link) {
+// SetLinks gets a reference to the given []CreateLinkApiModel and assigns it to the Links field.
+func (o *TestResultUpdateV2Request) SetLinks(v []CreateLinkApiModel) {
 	o.Links = v
 }
 

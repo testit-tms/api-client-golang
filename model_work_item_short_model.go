@@ -31,7 +31,7 @@ type WorkItemShortModel struct {
 	// Work Item name
 	Name string `json:"name"`
 	// Work Item type. Possible values: CheckLists, SharedSteps, TestCases
-	EntityTypeName string `json:"entityTypeName"`
+	EntityTypeName WorkItemTypeModel `json:"entityTypeName"`
 	// Project unique identifier
 	ProjectId string `json:"projectId"`
 	// Identifier of Section where Work Item is located
@@ -78,7 +78,7 @@ type _WorkItemShortModel WorkItemShortModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName string, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int64, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel) *WorkItemShortModel {
+func NewWorkItemShortModel(id string, versionId string, versionNumber int32, name string, entityTypeName WorkItemTypeModel, projectId string, sectionId string, sectionName string, isAutomated bool, globalId int64, duration int64, createdById string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, isDeleted bool, iterations []IterationModel, links []LinkShortModel) *WorkItemShortModel {
 	this := WorkItemShortModel{}
 	this.Id = id
 	this.VersionId = versionId
@@ -206,9 +206,9 @@ func (o *WorkItemShortModel) SetName(v string) {
 }
 
 // GetEntityTypeName returns the EntityTypeName field value
-func (o *WorkItemShortModel) GetEntityTypeName() string {
+func (o *WorkItemShortModel) GetEntityTypeName() WorkItemTypeModel {
 	if o == nil {
-		var ret string
+		var ret WorkItemTypeModel
 		return ret
 	}
 
@@ -217,7 +217,7 @@ func (o *WorkItemShortModel) GetEntityTypeName() string {
 
 // GetEntityTypeNameOk returns a tuple with the EntityTypeName field value
 // and a boolean to check if the value has been set.
-func (o *WorkItemShortModel) GetEntityTypeNameOk() (*string, bool) {
+func (o *WorkItemShortModel) GetEntityTypeNameOk() (*WorkItemTypeModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -225,7 +225,7 @@ func (o *WorkItemShortModel) GetEntityTypeNameOk() (*string, bool) {
 }
 
 // SetEntityTypeName sets field value
-func (o *WorkItemShortModel) SetEntityTypeName(v string) {
+func (o *WorkItemShortModel) SetEntityTypeName(v WorkItemTypeModel) {
 	o.EntityTypeName = v
 }
 

@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** | Link name. | [optional] 
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
-**Type** | Pointer to [**NullableLinkType**](LinkType.md) | Specifies the type of the link. | [optional] 
+**Type** | [**LinkType**](LinkType.md) | Specifies the type of the link. | 
 **HasInfo** | **bool** | Flag defines if link relates to integrated jira service | 
 
 ## Methods
 
 ### NewCreateLinkApiModel
 
-`func NewCreateLinkApiModel(url string, hasInfo bool, ) *CreateLinkApiModel`
+`func NewCreateLinkApiModel(url string, type_ LinkType, hasInfo bool, ) *CreateLinkApiModel`
 
 NewCreateLinkApiModel instantiates a new CreateLinkApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -138,22 +138,7 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *CreateLinkApiModel) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *CreateLinkApiModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *CreateLinkApiModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetHasInfo
 
 `func (o *CreateLinkApiModel) GetHasInfo() bool`

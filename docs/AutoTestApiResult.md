@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **LastTestResultOutcome** | Pointer to **NullableString** |  | [optional] 
 **LastTestResultStatus** | Pointer to [**NullableTestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **StabilityPercentage** | Pointer to **NullableInt64** |  | [optional] 
+**Layer** | Pointer to [**NullableLayerApiResult**](LayerApiResult.md) | Model of auto test layer for use in responses. | [optional] 
 **Links** | Pointer to [**[]LinkApiResult**](LinkApiResult.md) |  | [optional] 
 **Labels** | Pointer to [**[]LabelApiResult**](LabelApiResult.md) |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
@@ -864,6 +865,41 @@ HasStabilityPercentage returns a boolean if a field has been set.
 `func (o *AutoTestApiResult) UnsetStabilityPercentage()`
 
 UnsetStabilityPercentage ensures that no value is present for StabilityPercentage, not even an explicit nil
+### GetLayer
+
+`func (o *AutoTestApiResult) GetLayer() LayerApiResult`
+
+GetLayer returns the Layer field if non-nil, zero value otherwise.
+
+### GetLayerOk
+
+`func (o *AutoTestApiResult) GetLayerOk() (*LayerApiResult, bool)`
+
+GetLayerOk returns a tuple with the Layer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayer
+
+`func (o *AutoTestApiResult) SetLayer(v LayerApiResult)`
+
+SetLayer sets Layer field to given value.
+
+### HasLayer
+
+`func (o *AutoTestApiResult) HasLayer() bool`
+
+HasLayer returns a boolean if a field has been set.
+
+### SetLayerNil
+
+`func (o *AutoTestApiResult) SetLayerNil(b bool)`
+
+ SetLayerNil sets the value for Layer to be an explicit nil
+
+### UnsetLayer
+`func (o *AutoTestApiResult) UnsetLayer()`
+
+UnsetLayer ensures that no value is present for Layer, not even an explicit nil
 ### GetLinks
 
 `func (o *AutoTestApiResult) GetLinks() []LinkApiResult`

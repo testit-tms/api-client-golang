@@ -20,30 +20,34 @@ type FilterOperator string
 
 // List of FilterOperator
 const (
-	FILTEROPERATOR_EQUAL FilterOperator = "="
-	FILTEROPERATOR_NOT_EQUAL FilterOperator = "!="
-	FILTEROPERATOR_TILDE FilterOperator = "~"
-	FILTEROPERATOR_ FilterOperator = "!~"
-	FILTEROPERATOR_LESS_THAN FilterOperator = "<"
-	FILTEROPERATOR_LESS_THAN_OR_EQUAL_TO FilterOperator = "<="
-	FILTEROPERATOR_GREATER_THAN FilterOperator = ">"
-	FILTEROPERATOR_GREATER_THAN_OR_EQUAL_TO FilterOperator = ">="
-	FILTEROPERATOR_STAR FilterOperator = "*"
-	FILTEROPERATOR_2 FilterOperator = "!*"
+	FILTEROPERATOR_EQUAL_TO FilterOperator = "EqualTo"
+	FILTEROPERATOR_NOT_EQUAL_TO FilterOperator = "NotEqualTo"
+	FILTEROPERATOR_CONTAINS FilterOperator = "Contains"
+	FILTEROPERATOR_NOT_CONTAINS FilterOperator = "NotContains"
+	FILTEROPERATOR_LESS_THAN FilterOperator = "LessThan"
+	FILTEROPERATOR_LESS_THAN_OR_EQUAL_TO FilterOperator = "LessThanOrEqualTo"
+	FILTEROPERATOR_GREATER_THAN FilterOperator = "GreaterThan"
+	FILTEROPERATOR_GREATER_THAN_OR_EQUAL_TO FilterOperator = "GreaterThanOrEqualTo"
+	FILTEROPERATOR_EMPTY FilterOperator = "Empty"
+	FILTEROPERATOR_NOT_EMPTY FilterOperator = "NotEmpty"
+	FILTEROPERATOR_IN FilterOperator = "In"
+	FILTEROPERATOR_NOT_IN FilterOperator = "NotIn"
 )
 
 // All allowed values of FilterOperator enum
 var AllowedFilterOperatorEnumValues = []FilterOperator{
-	"=",
-	"!=",
-	"~",
-	"!~",
-	"<",
-	"<=",
-	">",
-	">=",
-	"*",
-	"!*",
+	"EqualTo",
+	"NotEqualTo",
+	"Contains",
+	"NotContains",
+	"LessThan",
+	"LessThanOrEqualTo",
+	"GreaterThan",
+	"GreaterThanOrEqualTo",
+	"Empty",
+	"NotEmpty",
+	"In",
+	"NotIn",
 }
 
 func (v *FilterOperator) UnmarshalJSON(src []byte) error {

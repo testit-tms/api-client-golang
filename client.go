@@ -55,6 +55,8 @@ type APIClient struct {
 
 	BackgroundJobsAPI *BackgroundJobsAPIService
 
+	ConfigurationParametersAPI *ConfigurationParametersAPIService
+
 	ConfigurationsAPI *ConfigurationsAPIService
 
 	CustomAttributeTemplatesAPI *CustomAttributeTemplatesAPIService
@@ -88,8 +90,6 @@ type APIClient struct {
 	ProjectWorkItemsAPI *ProjectWorkItemsAPIService
 
 	ProjectsAPI *ProjectsAPIService
-
-	SearchAPI *SearchAPIService
 
 	SectionsAPI *SectionsAPIService
 
@@ -139,6 +139,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AttachmentsAPI = (*AttachmentsAPIService)(&c.common)
 	c.AutoTestsAPI = (*AutoTestsAPIService)(&c.common)
 	c.BackgroundJobsAPI = (*BackgroundJobsAPIService)(&c.common)
+	c.ConfigurationParametersAPI = (*ConfigurationParametersAPIService)(&c.common)
 	c.ConfigurationsAPI = (*ConfigurationsAPIService)(&c.common)
 	c.CustomAttributeTemplatesAPI = (*CustomAttributeTemplatesAPIService)(&c.common)
 	c.CustomAttributesAPI = (*CustomAttributesAPIService)(&c.common)
@@ -156,7 +157,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ProjectTestPlansAPI = (*ProjectTestPlansAPIService)(&c.common)
 	c.ProjectWorkItemsAPI = (*ProjectWorkItemsAPIService)(&c.common)
 	c.ProjectsAPI = (*ProjectsAPIService)(&c.common)
-	c.SearchAPI = (*SearchAPIService)(&c.common)
 	c.SectionsAPI = (*SectionsAPIService)(&c.common)
 	c.TagsAPI = (*TagsAPIService)(&c.common)
 	c.TestPlansAPI = (*TestPlansAPIService)(&c.common)

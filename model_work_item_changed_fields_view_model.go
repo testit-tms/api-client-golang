@@ -41,6 +41,7 @@ type WorkItemChangedFieldsViewModel struct {
 	GlobalId Int64ChangedFieldViewModel `json:"globalId"`
 	VersionNumber Int32ChangedFieldViewModel `json:"versionNumber"`
 	EntityTypeName StringChangedFieldViewModel `json:"entityTypeName"`
+	ParentId GuidNullableChangedFieldViewModel `json:"parentId"`
 }
 
 type _WorkItemChangedFieldsViewModel WorkItemChangedFieldsViewModel
@@ -49,7 +50,7 @@ type _WorkItemChangedFieldsViewModel WorkItemChangedFieldsViewModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemChangedFieldsViewModel(isDeleted BooleanChangedFieldViewModel, projectId GuidChangedFieldViewModel, isAutomated BooleanChangedFieldViewModel, sectionId GuidChangedFieldViewModel, state StringChangedFieldViewModel, priority StringChangedFieldViewModel, duration Int32ChangedFieldViewModel, attributes map[string]WorkItemChangedAttributeViewModel, steps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, preconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, postconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, autoTests AutoTestChangeViewModelArrayChangedFieldViewModel, attachments AttachmentChangeViewModelArrayChangedFieldViewModel, tags StringArrayChangedFieldViewModel, links WorkItemLinkChangeViewModelArrayChangedFieldViewModel, globalId Int64ChangedFieldViewModel, versionNumber Int32ChangedFieldViewModel, entityTypeName StringChangedFieldViewModel) *WorkItemChangedFieldsViewModel {
+func NewWorkItemChangedFieldsViewModel(isDeleted BooleanChangedFieldViewModel, projectId GuidChangedFieldViewModel, isAutomated BooleanChangedFieldViewModel, sectionId GuidChangedFieldViewModel, state StringChangedFieldViewModel, priority StringChangedFieldViewModel, duration Int32ChangedFieldViewModel, attributes map[string]WorkItemChangedAttributeViewModel, steps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, preconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, postconditionSteps WorkItemStepChangeViewModelArrayChangedFieldWithDiffsViewModel, autoTests AutoTestChangeViewModelArrayChangedFieldViewModel, attachments AttachmentChangeViewModelArrayChangedFieldViewModel, tags StringArrayChangedFieldViewModel, links WorkItemLinkChangeViewModelArrayChangedFieldViewModel, globalId Int64ChangedFieldViewModel, versionNumber Int32ChangedFieldViewModel, entityTypeName StringChangedFieldViewModel, parentId GuidNullableChangedFieldViewModel) *WorkItemChangedFieldsViewModel {
 	this := WorkItemChangedFieldsViewModel{}
 	this.IsDeleted = isDeleted
 	this.ProjectId = projectId
@@ -69,6 +70,7 @@ func NewWorkItemChangedFieldsViewModel(isDeleted BooleanChangedFieldViewModel, p
 	this.GlobalId = globalId
 	this.VersionNumber = versionNumber
 	this.EntityTypeName = entityTypeName
+	this.ParentId = parentId
 	return &this
 }
 
@@ -596,6 +598,30 @@ func (o *WorkItemChangedFieldsViewModel) SetEntityTypeName(v StringChangedFieldV
 	o.EntityTypeName = v
 }
 
+// GetParentId returns the ParentId field value
+func (o *WorkItemChangedFieldsViewModel) GetParentId() GuidNullableChangedFieldViewModel {
+	if o == nil {
+		var ret GuidNullableChangedFieldViewModel
+		return ret
+	}
+
+	return o.ParentId
+}
+
+// GetParentIdOk returns a tuple with the ParentId field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemChangedFieldsViewModel) GetParentIdOk() (*GuidNullableChangedFieldViewModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ParentId, true
+}
+
+// SetParentId sets field value
+func (o *WorkItemChangedFieldsViewModel) SetParentId(v GuidNullableChangedFieldViewModel) {
+	o.ParentId = v
+}
+
 func (o WorkItemChangedFieldsViewModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -630,6 +656,7 @@ func (o WorkItemChangedFieldsViewModel) ToMap() (map[string]interface{}, error) 
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["versionNumber"] = o.VersionNumber
 	toSerialize["entityTypeName"] = o.EntityTypeName
+	toSerialize["parentId"] = o.ParentId
 	return toSerialize, nil
 }
 
@@ -656,6 +683,7 @@ func (o *WorkItemChangedFieldsViewModel) UnmarshalJSON(data []byte) (err error) 
 		"globalId",
 		"versionNumber",
 		"entityTypeName",
+		"parentId",
 	}
 
 	allProperties := make(map[string]interface{})

@@ -33,7 +33,7 @@ func (r ApiApiV2ExternalIssuesSuggestionsPostRequest) GetExternalIssueSuggestion
 	return r
 }
 
-func (r ApiApiV2ExternalIssuesSuggestionsPostRequest) Execute() (*ExternalIssueApiFieldSuggestionReply, *http.Response, error) {
+func (r ApiApiV2ExternalIssuesSuggestionsPostRequest) Execute() (*ExternalIssueApiFieldSuggestionIReply, *http.Response, error) {
 	return r.ApiService.ApiV2ExternalIssuesSuggestionsPostExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *ExternalIssuesAPIService) ApiV2ExternalIssuesSuggestionsPost(ctx contex
 }
 
 // Execute executes the request
-//  @return ExternalIssueApiFieldSuggestionReply
-func (a *ExternalIssuesAPIService) ApiV2ExternalIssuesSuggestionsPostExecute(r ApiApiV2ExternalIssuesSuggestionsPostRequest) (*ExternalIssueApiFieldSuggestionReply, *http.Response, error) {
+//  @return ExternalIssueApiFieldSuggestionIReply
+func (a *ExternalIssuesAPIService) ApiV2ExternalIssuesSuggestionsPostExecute(r ApiApiV2ExternalIssuesSuggestionsPostRequest) (*ExternalIssueApiFieldSuggestionIReply, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ExternalIssueApiFieldSuggestionReply
+		localVarReturnValue  *ExternalIssueApiFieldSuggestionIReply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExternalIssuesAPIService.ApiV2ExternalIssuesSuggestionsPost")
@@ -93,7 +93,7 @@ func (a *ExternalIssuesAPIService) ApiV2ExternalIssuesSuggestionsPostExecute(r A
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
