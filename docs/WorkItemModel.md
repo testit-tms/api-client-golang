@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **MedianDuration** | **int64** | used for getting a median duration of all autotests related to this workitem | 
 **IsDeleted** | **bool** |  | 
 **ProjectId** | **string** |  | 
-**EntityTypeName** | [**WorkItemEntityTypes**](WorkItemEntityTypes.md) |  | 
+**EntityTypeName** | [**WorkItemTypeModel**](WorkItemTypeModel.md) |  | 
 **IsAutomated** | **bool** |  | 
 **AutoTests** | Pointer to [**[]AutoTestModel**](AutoTestModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
@@ -16,13 +16,13 @@ Name | Type | Description | Notes
 **SectionPostconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
 **VersionNumber** | **int32** | used for define chronology of workitem state in each version | 
 **Iterations** | Pointer to [**[]IterationModel**](IterationModel.md) |  | [optional] 
+**ExternalIssues** | [**[]ExternalIssueModel**](ExternalIssueModel.md) |  | 
+**Parameters** | [**[]WorkItemParameterKeyModel**](WorkItemParameterKeyModel.md) |  | 
 **CreatedDate** | **time.Time** |  | 
 **ModifiedDate** | Pointer to **NullableTime** |  | [optional] 
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **GlobalId** | **int64** |  | 
-**ExternalIssues** | [**[]ExternalIssueModel**](ExternalIssueModel.md) |  | 
-**Parameters** | [**[]WorkItemParameterKeyModel**](WorkItemParameterKeyModel.md) |  | 
 **Id** | **string** |  | 
 **SectionId** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemModel
 
-`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemEntityTypes, isAutomated bool, versionNumber int32, createdDate time.Time, createdById string, globalId int64, externalIssues []ExternalIssueModel, parameters []WorkItemParameterKeyModel, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
+`func NewWorkItemModel(versionId string, medianDuration int64, isDeleted bool, projectId string, entityTypeName WorkItemTypeModel, isAutomated bool, versionNumber int32, externalIssues []ExternalIssueModel, parameters []WorkItemParameterKeyModel, createdDate time.Time, createdById string, globalId int64, id string, sectionId string, state WorkItemStates, priority WorkItemPriorityModel, sourceType WorkItemSourceTypeModel, steps []StepModel, preconditionSteps []StepModel, postconditionSteps []StepModel, duration int64, attributes map[string]interface{}, tags []TagModel, links []LinkModel, name string, ) *WorkItemModel`
 
 NewWorkItemModel instantiates a new WorkItemModel object
 This constructor will assign default values to properties that have it defined,
@@ -139,20 +139,20 @@ SetProjectId sets ProjectId field to given value.
 
 ### GetEntityTypeName
 
-`func (o *WorkItemModel) GetEntityTypeName() WorkItemEntityTypes`
+`func (o *WorkItemModel) GetEntityTypeName() WorkItemTypeModel`
 
 GetEntityTypeName returns the EntityTypeName field if non-nil, zero value otherwise.
 
 ### GetEntityTypeNameOk
 
-`func (o *WorkItemModel) GetEntityTypeNameOk() (*WorkItemEntityTypes, bool)`
+`func (o *WorkItemModel) GetEntityTypeNameOk() (*WorkItemTypeModel, bool)`
 
 GetEntityTypeNameOk returns a tuple with the EntityTypeName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityTypeName
 
-`func (o *WorkItemModel) SetEntityTypeName(v WorkItemEntityTypes)`
+`func (o *WorkItemModel) SetEntityTypeName(v WorkItemTypeModel)`
 
 SetEntityTypeName sets EntityTypeName field to given value.
 
@@ -372,6 +372,46 @@ HasIterations returns a boolean if a field has been set.
 `func (o *WorkItemModel) UnsetIterations()`
 
 UnsetIterations ensures that no value is present for Iterations, not even an explicit nil
+### GetExternalIssues
+
+`func (o *WorkItemModel) GetExternalIssues() []ExternalIssueModel`
+
+GetExternalIssues returns the ExternalIssues field if non-nil, zero value otherwise.
+
+### GetExternalIssuesOk
+
+`func (o *WorkItemModel) GetExternalIssuesOk() (*[]ExternalIssueModel, bool)`
+
+GetExternalIssuesOk returns a tuple with the ExternalIssues field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalIssues
+
+`func (o *WorkItemModel) SetExternalIssues(v []ExternalIssueModel)`
+
+SetExternalIssues sets ExternalIssues field to given value.
+
+
+### GetParameters
+
+`func (o *WorkItemModel) GetParameters() []WorkItemParameterKeyModel`
+
+GetParameters returns the Parameters field if non-nil, zero value otherwise.
+
+### GetParametersOk
+
+`func (o *WorkItemModel) GetParametersOk() (*[]WorkItemParameterKeyModel, bool)`
+
+GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParameters
+
+`func (o *WorkItemModel) SetParameters(v []WorkItemParameterKeyModel)`
+
+SetParameters sets Parameters field to given value.
+
+
 ### GetCreatedDate
 
 `func (o *WorkItemModel) GetCreatedDate() time.Time`
@@ -500,46 +540,6 @@ and a boolean to check if the value has been set.
 `func (o *WorkItemModel) SetGlobalId(v int64)`
 
 SetGlobalId sets GlobalId field to given value.
-
-
-### GetExternalIssues
-
-`func (o *WorkItemModel) GetExternalIssues() []ExternalIssueModel`
-
-GetExternalIssues returns the ExternalIssues field if non-nil, zero value otherwise.
-
-### GetExternalIssuesOk
-
-`func (o *WorkItemModel) GetExternalIssuesOk() (*[]ExternalIssueModel, bool)`
-
-GetExternalIssuesOk returns a tuple with the ExternalIssues field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExternalIssues
-
-`func (o *WorkItemModel) SetExternalIssues(v []ExternalIssueModel)`
-
-SetExternalIssues sets ExternalIssues field to given value.
-
-
-### GetParameters
-
-`func (o *WorkItemModel) GetParameters() []WorkItemParameterKeyModel`
-
-GetParameters returns the Parameters field if non-nil, zero value otherwise.
-
-### GetParametersOk
-
-`func (o *WorkItemModel) GetParametersOk() (*[]WorkItemParameterKeyModel, bool)`
-
-GetParametersOk returns a tuple with the Parameters field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParameters
-
-`func (o *WorkItemModel) SetParameters(v []WorkItemParameterKeyModel)`
-
-SetParameters sets Parameters field to given value.
 
 
 ### GetId

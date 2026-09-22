@@ -24,9 +24,6 @@ type GenerateWorkItemPreviewsApiModel struct {
 	// The ID of the external AI service to be used for generation.
 	ExternalServiceId string `json:"externalServiceId"`
 	// The key of the issue in an issue tracker (e.g., JIRA-123).
-	// Deprecated
-	TaskKey NullableString `json:"taskKey,omitempty"`
-	// The key of the issue in an issue tracker (e.g., JIRA-123).
 	IssueKey NullableString `json:"issueKey,omitempty"`
 	// Additional user context or description of the issue if no issue key is provided.
 	UserContext NullableString `json:"userContext,omitempty"`
@@ -80,51 +77,6 @@ func (o *GenerateWorkItemPreviewsApiModel) GetExternalServiceIdOk() (*string, bo
 // SetExternalServiceId sets field value
 func (o *GenerateWorkItemPreviewsApiModel) SetExternalServiceId(v string) {
 	o.ExternalServiceId = v
-}
-
-// GetTaskKey returns the TaskKey field value if set, zero value otherwise (both if not set or set to explicit null).
-// Deprecated
-func (o *GenerateWorkItemPreviewsApiModel) GetTaskKey() string {
-	if o == nil || IsNil(o.TaskKey.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.TaskKey.Get()
-}
-
-// GetTaskKeyOk returns a tuple with the TaskKey field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-// Deprecated
-func (o *GenerateWorkItemPreviewsApiModel) GetTaskKeyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TaskKey.Get(), o.TaskKey.IsSet()
-}
-
-// HasTaskKey returns a boolean if a field has been set.
-func (o *GenerateWorkItemPreviewsApiModel) HasTaskKey() bool {
-	if o != nil && o.TaskKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTaskKey gets a reference to the given NullableString and assigns it to the TaskKey field.
-// Deprecated
-func (o *GenerateWorkItemPreviewsApiModel) SetTaskKey(v string) {
-	o.TaskKey.Set(&v)
-}
-// SetTaskKeyNil sets the value for TaskKey to be an explicit nil
-func (o *GenerateWorkItemPreviewsApiModel) SetTaskKeyNil() {
-	o.TaskKey.Set(nil)
-}
-
-// UnsetTaskKey ensures that no value is present for TaskKey, not even an explicit nil
-func (o *GenerateWorkItemPreviewsApiModel) UnsetTaskKey() {
-	o.TaskKey.Unset()
 }
 
 // GetIssueKey returns the IssueKey field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -270,9 +222,6 @@ func (o GenerateWorkItemPreviewsApiModel) MarshalJSON() ([]byte, error) {
 func (o GenerateWorkItemPreviewsApiModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["externalServiceId"] = o.ExternalServiceId
-	if o.TaskKey.IsSet() {
-		toSerialize["taskKey"] = o.TaskKey.Get()
-	}
 	if o.IssueKey.IsSet() {
 		toSerialize["issueKey"] = o.IssueKey.Get()
 	}

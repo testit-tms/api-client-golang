@@ -99,7 +99,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsCommentIdDeleteExecu
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -285,7 +285,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPostExecute(r ApiApi
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -467,7 +467,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsCommentsPutExecute(r ApiApiV
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -638,7 +638,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsCountGetExecute(r 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -818,7 +818,7 @@ func (a *WorkItemsCommentsAPIService) ApiV2WorkItemsIdCommentsGetExecute(r ApiAp
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

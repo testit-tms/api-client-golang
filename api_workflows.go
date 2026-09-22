@@ -88,7 +88,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsIdDeleteExecute(r ApiApiV2WorkflowsI
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -259,7 +259,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsIdGetExecute(r ApiApiV2WorkflowsIdGe
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -447,7 +447,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsIdPatchExecute(r ApiApiV2WorkflowsId
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -563,7 +563,7 @@ func (r ApiApiV2WorkflowsIdProjectsSearchPostRequest) SearchWorkflowProjectsApiM
 	return r
 }
 
-func (r ApiApiV2WorkflowsIdProjectsSearchPostRequest) Execute() (*WorkflowProjectApiResultReply, *http.Response, error) {
+func (r ApiApiV2WorkflowsIdProjectsSearchPostRequest) Execute() (*WorkflowProjectApiResultIReply, *http.Response, error) {
 	return r.ApiService.ApiV2WorkflowsIdProjectsSearchPostExecute(r)
 }
 
@@ -583,13 +583,13 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsIdProjectsSearchPost(ctx context.Con
 }
 
 // Execute executes the request
-//  @return WorkflowProjectApiResultReply
-func (a *WorkflowsAPIService) ApiV2WorkflowsIdProjectsSearchPostExecute(r ApiApiV2WorkflowsIdProjectsSearchPostRequest) (*WorkflowProjectApiResultReply, *http.Response, error) {
+//  @return WorkflowProjectApiResultIReply
+func (a *WorkflowsAPIService) ApiV2WorkflowsIdProjectsSearchPostExecute(r ApiApiV2WorkflowsIdProjectsSearchPostRequest) (*WorkflowProjectApiResultIReply, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WorkflowProjectApiResultReply
+		localVarReturnValue  *WorkflowProjectApiResultIReply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkflowsAPIService.ApiV2WorkflowsIdProjectsSearchPost")
@@ -626,7 +626,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsIdProjectsSearchPostExecute(r ApiApi
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -812,7 +812,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsIdPutExecute(r ApiApiV2WorkflowsIdPu
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -983,7 +983,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsNameNameExistsGetExecute(r ApiApiV2W
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1167,7 +1167,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsPostExecute(r ApiApiV2WorkflowsPostR
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1291,7 +1291,7 @@ func (r ApiApiV2WorkflowsSearchPostRequest) SearchWorkflowsApiModel(searchWorkfl
 	return r
 }
 
-func (r ApiApiV2WorkflowsSearchPostRequest) Execute() (*WorkflowShortApiResultReply, *http.Response, error) {
+func (r ApiApiV2WorkflowsSearchPostRequest) Execute() (*WorkflowShortApiResultIReply, *http.Response, error) {
 	return r.ApiService.ApiV2WorkflowsSearchPostExecute(r)
 }
 
@@ -1309,13 +1309,13 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsSearchPost(ctx context.Context) ApiA
 }
 
 // Execute executes the request
-//  @return WorkflowShortApiResultReply
-func (a *WorkflowsAPIService) ApiV2WorkflowsSearchPostExecute(r ApiApiV2WorkflowsSearchPostRequest) (*WorkflowShortApiResultReply, *http.Response, error) {
+//  @return WorkflowShortApiResultIReply
+func (a *WorkflowsAPIService) ApiV2WorkflowsSearchPostExecute(r ApiApiV2WorkflowsSearchPostRequest) (*WorkflowShortApiResultIReply, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *WorkflowShortApiResultReply
+		localVarReturnValue  *WorkflowShortApiResultIReply
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WorkflowsAPIService.ApiV2WorkflowsSearchPost")
@@ -1351,7 +1351,7 @@ func (a *WorkflowsAPIService) ApiV2WorkflowsSearchPostExecute(r ApiApiV2Workflow
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Links** | Pointer to [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Collection of links to relate to the test run | [optional] 
 **Tags** | Pointer to **[]string** | Collection of tags to assign to the test run | [optional] 
 **TestPointSelectors** | [**[]TestPointSelector**](TestPointSelector.md) | Specifies an array of work items and configuration to create a test run for. | 
+**Option** | Pointer to [**NullableTestRunLaunchOptionApiModel**](TestRunLaunchOptionApiModel.md) | Test run launching options. | [optional] 
 
 ## Methods
 
@@ -303,6 +304,41 @@ and a boolean to check if the value has been set.
 SetTestPointSelectors sets TestPointSelectors field to given value.
 
 
+### GetOption
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) GetOption() TestRunLaunchOptionApiModel`
+
+GetOption returns the Option field if non-nil, zero value otherwise.
+
+### GetOptionOk
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) GetOptionOk() (*TestRunLaunchOptionApiModel, bool)`
+
+GetOptionOk returns a tuple with the Option field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOption
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) SetOption(v TestRunLaunchOptionApiModel)`
+
+SetOption sets Option field to given value.
+
+### HasOption
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) HasOption() bool`
+
+HasOption returns a boolean if a field has been set.
+
+### SetOptionNil
+
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) SetOptionNil(b bool)`
+
+ SetOptionNil sets the value for Option to be an explicit nil
+
+### UnsetOption
+`func (o *CreateTestRunAndFillByConfigurationsApiModel) UnsetOption()`
+
+UnsetOption ensures that no value is present for Option, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

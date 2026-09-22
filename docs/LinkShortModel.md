@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Title** | **string** |  | 
-**Type** | Pointer to **NullableString** |  | [optional] 
+**Title** | Pointer to **NullableString** |  | [optional] 
+**Type** | [**LinkType**](LinkType.md) |  | 
 **Url** | **string** |  | 
 
 ## Methods
 
 ### NewLinkShortModel
 
-`func NewLinkShortModel(id string, title string, url string, ) *LinkShortModel`
+`func NewLinkShortModel(id string, type_ LinkType, url string, ) *LinkShortModel`
 
 NewLinkShortModel instantiates a new LinkShortModel object
 This constructor will assign default values to properties that have it defined,
@@ -67,42 +67,42 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
+### HasTitle
 
+`func (o *LinkShortModel) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *LinkShortModel) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *LinkShortModel) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetType
 
-`func (o *LinkShortModel) GetType() string`
+`func (o *LinkShortModel) GetType() LinkType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *LinkShortModel) GetTypeOk() (*string, bool)`
+`func (o *LinkShortModel) GetTypeOk() (*LinkType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *LinkShortModel) SetType(v string)`
+`func (o *LinkShortModel) SetType(v LinkType)`
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *LinkShortModel) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *LinkShortModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *LinkShortModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetUrl
 
 `func (o *LinkShortModel) GetUrl() string`

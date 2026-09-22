@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** | Link name. | [optional] 
 **Url** | **string** | Address can be specified without protocol, but necessarily with the domain. | 
 **Description** | Pointer to **NullableString** | Link description. | [optional] 
-**Type** | Pointer to [**NullableLinkType**](LinkType.md) | Specifies the type of the link. | [optional] 
+**Type** | [**LinkType**](LinkType.md) | Specifies the type of the link. | 
 **HasInfo** | **bool** |  | 
 
 ## Methods
 
 ### NewLinkModel
 
-`func NewLinkModel(url string, hasInfo bool, ) *LinkModel`
+`func NewLinkModel(url string, type_ LinkType, hasInfo bool, ) *LinkModel`
 
 NewLinkModel instantiates a new LinkModel object
 This constructor will assign default values to properties that have it defined,
@@ -174,22 +174,7 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *LinkModel) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### SetTypeNil
-
-`func (o *LinkModel) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *LinkModel) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetHasInfo
 
 `func (o *LinkModel) GetHasInfo() bool`

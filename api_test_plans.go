@@ -47,6 +47,8 @@ AddTestPointsWithSections Add test-points to TestPlan with sections
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiAddTestPointsWithSectionsRequest
+
+Deprecated
 */
 func (a *TestPlansAPIService) AddTestPointsWithSections(ctx context.Context, id string) ApiAddTestPointsWithSectionsRequest {
 	return ApiAddTestPointsWithSectionsRequest{
@@ -57,6 +59,7 @@ func (a *TestPlansAPIService) AddTestPointsWithSections(ctx context.Context, id 
 }
 
 // Execute executes the request
+// Deprecated
 func (a *TestPlansAPIService) AddTestPointsWithSectionsExecute(r ApiAddTestPointsWithSectionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -98,7 +101,7 @@ func (a *TestPlansAPIService) AddTestPointsWithSectionsExecute(r ApiAddTestPoint
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -237,6 +240,8 @@ System returns no content response
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiAddWorkItemsWithSectionsRequest
+
+Deprecated
 */
 func (a *TestPlansAPIService) AddWorkItemsWithSections(ctx context.Context, id string) ApiAddWorkItemsWithSectionsRequest {
 	return ApiAddWorkItemsWithSectionsRequest{
@@ -247,6 +252,7 @@ func (a *TestPlansAPIService) AddWorkItemsWithSections(ctx context.Context, id s
 }
 
 // Execute executes the request
+// Deprecated
 func (a *TestPlansAPIService) AddWorkItemsWithSectionsExecute(r ApiAddWorkItemsWithSectionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -288,7 +294,7 @@ func (a *TestPlansAPIService) AddWorkItemsWithSectionsExecute(r ApiAddWorkItemsW
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -468,7 +474,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdAnalyticsGetExecute(r ApiApiV2Test
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -669,7 +675,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdAutobalancePostExecute(r ApiApiV2T
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -858,7 +864,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdConfigurationsGetExecute(r ApiApiV
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -976,7 +982,7 @@ type ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest struct {
 	ApiService *TestPlansAPIService
 	id string
 	timeZoneOffsetInMinutes *int64
-	getXlsxTestPointsByTestPlanModel *GetXlsxTestPointsByTestPlanModel
+	getXlsxTestPointsByTestPlanApiModel *GetXlsxTestPointsByTestPlanApiModel
 }
 
 func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) TimeZoneOffsetInMinutes(timeZoneOffsetInMinutes int64) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
@@ -984,8 +990,8 @@ func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) TimeZoneOffsetInMinu
 	return r
 }
 
-func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) GetXlsxTestPointsByTestPlanModel(getXlsxTestPointsByTestPlanModel GetXlsxTestPointsByTestPlanModel) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
-	r.getXlsxTestPointsByTestPlanModel = &getXlsxTestPointsByTestPlanModel
+func (r ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest) GetXlsxTestPointsByTestPlanApiModel(getXlsxTestPointsByTestPlanApiModel GetXlsxTestPointsByTestPlanApiModel) ApiApiV2TestPlansIdExportTestPointsXlsxPostRequest {
+	r.getXlsxTestPointsByTestPlanApiModel = &getXlsxTestPointsByTestPlanApiModel
 	return r
 }
 
@@ -1060,11 +1066,11 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestPointsXlsxPostExecute(r 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "time-Zone-Offset-In-Minutes", r.timeZoneOffsetInMinutes, "simple", "")
 	}
 	// body params
-	localVarPostBody = r.getXlsxTestPointsByTestPlanModel
+	localVarPostBody = r.getXlsxTestPointsByTestPlanApiModel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1280,7 +1286,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdExportTestResultHistoryXlsxPostExe
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1510,7 +1516,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdHistoryGetExecute(r ApiApiV2TestPl
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1728,7 +1734,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdLinksGetExecute(r ApiApiV2TestPlan
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1916,7 +1922,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdPatchExecute(r ApiApiV2TestPlansId
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2096,7 +2102,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdSummariesGetExecute(r ApiApiV2Test
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2277,6 +2283,8 @@ System return test points with last result from test plan
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiApiV2TestPlansIdTestPointsLastResultsGetRequest
+
+Deprecated
 */
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx context.Context, id string) ApiApiV2TestPlansIdTestPointsLastResultsGetRequest {
 	return ApiApiV2TestPlansIdTestPointsLastResultsGetRequest{
@@ -2288,6 +2296,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGet(ctx conte
 
 // Execute executes the request
 //  @return []TestPointWithLastResultResponseModel
+// Deprecated
 func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r ApiApiV2TestPlansIdTestPointsLastResultsGetRequest) ([]TestPointWithLastResultResponseModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
@@ -2346,7 +2355,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsLastResultsGetExecute(r 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2543,7 +2552,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsResetPostExecute(r ApiAp
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2722,7 +2731,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterDeleteExecute(r Ap
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2914,7 +2923,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestPointsTesterUserIdPostExecute(
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3191,7 +3200,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsGetExecute(r ApiApiV2TestP
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3440,7 +3449,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsSearchPostExecute(r ApiApi
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3618,7 +3627,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdTestRunsTestResultsLastModifiedMod
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3796,7 +3805,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansIdUnlockRequestPostExecute(r ApiApiV
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3989,7 +3998,7 @@ func (a *TestPlansAPIService) ApiV2TestPlansShortsPostExecute(r ApiApiV2TestPlan
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4180,7 +4189,7 @@ func (a *TestPlansAPIService) CloneExecute(r ApiCloneRequest) (*TestPlanModel, *
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4369,7 +4378,7 @@ func (a *TestPlansAPIService) CompleteExecute(r ApiCompleteRequest) (*http.Respo
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4555,7 +4564,7 @@ func (a *TestPlansAPIService) CreateTestPlanExecute(r ApiCreateTestPlanRequest) 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4744,7 +4753,7 @@ func (a *TestPlansAPIService) DeleteTestPlanExecute(r ApiDeleteTestPlanRequest) 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4926,7 +4935,7 @@ func (a *TestPlansAPIService) GetTestPlanByIdExecute(r ApiGetTestPlanByIdRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5117,7 +5126,7 @@ func (a *TestPlansAPIService) GetTestSuitesByIdExecute(r ApiGetTestSuitesByIdReq
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5306,7 +5315,7 @@ func (a *TestPlansAPIService) PauseExecute(r ApiPauseRequest) (*http.Response, e
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5475,7 +5484,7 @@ func (a *TestPlansAPIService) PurgeTestPlanExecute(r ApiPurgeTestPlanRequest) (*
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5655,7 +5664,7 @@ func (a *TestPlansAPIService) RestoreTestPlanExecute(r ApiRestoreTestPlanRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -5835,7 +5844,7 @@ func (a *TestPlansAPIService) StartExecute(r ApiStartRequest) (*http.Response, e
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -6019,7 +6028,7 @@ func (a *TestPlansAPIService) UpdateTestPlanExecute(r ApiUpdateTestPlanRequest) 
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

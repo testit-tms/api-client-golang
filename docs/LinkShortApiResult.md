@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
-**Title** | **string** |  | 
+**Title** | Pointer to **NullableString** |  | [optional] 
 **Url** | **string** |  | 
-**Type** | **string** |  | 
+**Type** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewLinkShortApiResult
 
-`func NewLinkShortApiResult(id string, title string, url string, type_ string, ) *LinkShortApiResult`
+`func NewLinkShortApiResult(id string, url string, ) *LinkShortApiResult`
 
 NewLinkShortApiResult instantiates a new LinkShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -67,7 +67,22 @@ and a boolean to check if the value has been set.
 
 SetTitle sets Title field to given value.
 
+### HasTitle
 
+`func (o *LinkShortApiResult) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### SetTitleNil
+
+`func (o *LinkShortApiResult) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *LinkShortApiResult) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetUrl
 
 `func (o *LinkShortApiResult) GetUrl() string`
@@ -107,7 +122,22 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+### HasType
 
+`func (o *LinkShortApiResult) HasType() bool`
+
+HasType returns a boolean if a field has been set.
+
+### SetTypeNil
+
+`func (o *LinkShortApiResult) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *LinkShortApiResult) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

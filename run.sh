@@ -2,7 +2,7 @@
 
 # Настройка переменных
 FILE_NAME="cloud-swagger.json"
-NEW_VERSION="v3.6.4"
+NEW_VERSION="v3.7.0"
 GENERATOR="openapi-generator-cli-7.18.0.jar"
 CONFIG="config/genConfig.yml"
 

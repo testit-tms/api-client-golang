@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExternalId** | **string** | External ID of the autotest | 
-**Links** | Pointer to [**[]Link**](Link.md) | Collection of the autotest links | [optional] 
+**Links** | Pointer to [**[]LinkApiResult**](LinkApiResult.md) | Collection of the autotest links | [optional] 
 **ProjectId** | **string** | Unique ID of the autotest project | 
 **Name** | **string** | Name of the autotest | 
 **Namespace** | Pointer to **NullableString** | Name of the autotest namespace | [optional] 
@@ -74,20 +74,20 @@ SetExternalId sets ExternalId field to given value.
 
 ### GetLinks
 
-`func (o *AutoTest) GetLinks() []Link`
+`func (o *AutoTest) GetLinks() []LinkApiResult`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *AutoTest) GetLinksOk() (*[]Link, bool)`
+`func (o *AutoTest) GetLinksOk() (*[]LinkApiResult, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *AutoTest) SetLinks(v []Link)`
+`func (o *AutoTest) SetLinks(v []LinkApiResult)`
 
 SetLinks sets Links field to given value.
 

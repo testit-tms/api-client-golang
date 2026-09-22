@@ -21,9 +21,11 @@ var _ MappedNullable = &Inquiry{}
 
 // Inquiry struct for Inquiry
 type Inquiry struct {
+	Group NullableGroup `json:"group,omitempty"`
 	Filter NullableCompositeFilter `json:"filter,omitempty"`
 	Order []Order `json:"order"`
 	Page NullablePage `json:"page,omitempty"`
+	Mode Mode `json:"mode"`
 }
 
 type _Inquiry Inquiry
@@ -32,9 +34,10 @@ type _Inquiry Inquiry
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInquiry(order []Order) *Inquiry {
+func NewInquiry(order []Order, mode Mode) *Inquiry {
 	this := Inquiry{}
 	this.Order = order
+	this.Mode = mode
 	return &this
 }
 
@@ -44,6 +47,48 @@ func NewInquiry(order []Order) *Inquiry {
 func NewInquiryWithDefaults() *Inquiry {
 	this := Inquiry{}
 	return &this
+}
+
+// GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Inquiry) GetGroup() Group {
+	if o == nil || IsNil(o.Group.Get()) {
+		var ret Group
+		return ret
+	}
+	return *o.Group.Get()
+}
+
+// GetGroupOk returns a tuple with the Group field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Inquiry) GetGroupOk() (*Group, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Group.Get(), o.Group.IsSet()
+}
+
+// HasGroup returns a boolean if a field has been set.
+func (o *Inquiry) HasGroup() bool {
+	if o != nil && o.Group.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGroup gets a reference to the given NullableGroup and assigns it to the Group field.
+func (o *Inquiry) SetGroup(v Group) {
+	o.Group.Set(&v)
+}
+// SetGroupNil sets the value for Group to be an explicit nil
+func (o *Inquiry) SetGroupNil() {
+	o.Group.Set(nil)
+}
+
+// UnsetGroup ensures that no value is present for Group, not even an explicit nil
+func (o *Inquiry) UnsetGroup() {
+	o.Group.Unset()
 }
 
 // GetFilter returns the Filter field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -154,6 +199,30 @@ func (o *Inquiry) UnsetPage() {
 	o.Page.Unset()
 }
 
+// GetMode returns the Mode field value
+func (o *Inquiry) GetMode() Mode {
+	if o == nil {
+		var ret Mode
+		return ret
+	}
+
+	return o.Mode
+}
+
+// GetModeOk returns a tuple with the Mode field value
+// and a boolean to check if the value has been set.
+func (o *Inquiry) GetModeOk() (*Mode, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Mode, true
+}
+
+// SetMode sets field value
+func (o *Inquiry) SetMode(v Mode) {
+	o.Mode = v
+}
+
 func (o Inquiry) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -164,6 +233,9 @@ func (o Inquiry) MarshalJSON() ([]byte, error) {
 
 func (o Inquiry) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Group.IsSet() {
+		toSerialize["group"] = o.Group.Get()
+	}
 	if o.Filter.IsSet() {
 		toSerialize["filter"] = o.Filter.Get()
 	}
@@ -171,6 +243,7 @@ func (o Inquiry) ToMap() (map[string]interface{}, error) {
 	if o.Page.IsSet() {
 		toSerialize["page"] = o.Page.Get()
 	}
+	toSerialize["mode"] = o.Mode
 	return toSerialize, nil
 }
 
@@ -180,6 +253,7 @@ func (o *Inquiry) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"order",
+		"mode",
 	}
 
 	allProperties := make(map[string]interface{})

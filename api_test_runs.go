@@ -104,7 +104,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsDeleteExecute(r ApiApiV2TestRunsDelete
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -284,7 +284,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdAutoTestsNamespacesGetExecute(r ApiA
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -469,7 +469,186 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdDeleteExecute(r ApiApiV2TestRunsIdDe
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ProblemDetails
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiApiV2TestRunsIdPatchRequest struct {
+	ctx context.Context
+	ApiService *TestRunsAPIService
+	id string
+	operation *[]Operation
+}
+
+func (r ApiApiV2TestRunsIdPatchRequest) Operation(operation []Operation) ApiApiV2TestRunsIdPatchRequest {
+	r.operation = &operation
+	return r
+}
+
+func (r ApiApiV2TestRunsIdPatchRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ApiV2TestRunsIdPatchExecute(r)
+}
+
+/*
+ApiV2TestRunsIdPatch Patch test run
+
+See <a href="https://www.rfc-editor.org/rfc/rfc6902" target="_blank">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id Test Run internal identifier (GUID format)
+ @return ApiApiV2TestRunsIdPatchRequest
+*/
+func (a *TestRunsAPIService) ApiV2TestRunsIdPatch(ctx context.Context, id string) ApiApiV2TestRunsIdPatchRequest {
+	return ApiApiV2TestRunsIdPatchRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *TestRunsAPIService) ApiV2TestRunsIdPatchExecute(r ApiApiV2TestRunsIdPatchRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TestRunsAPIService.ApiV2TestRunsIdPatch")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v2/testRuns/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.operation
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -645,7 +824,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdPurgePostExecute(r ApiApiV2TestRunsI
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -824,7 +1003,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdRerunsPostExecute(r ApiApiV2TestRuns
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1009,7 +1188,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdRestorePostExecute(r ApiApiV2TestRun
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1188,7 +1367,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdStatisticsFilterPostExecute(r ApiApi
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1368,7 +1547,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdTestPointsResultsGetExecute(r ApiApi
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1554,7 +1733,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdTestResultsBulkPutExecute(r ApiApiV2
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1725,7 +1904,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsIdTestResultsLastModifiedModificationD
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1918,7 +2097,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsPurgeBulkPostExecute(r ApiApiV2TestRun
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2111,7 +2290,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsRestoreBulkPostExecute(r ApiApiV2TestR
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2345,7 +2524,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsSearchPostExecute(r ApiApiV2TestRunsSe
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2527,7 +2706,7 @@ func (a *TestRunsAPIService) ApiV2TestRunsUpdateMultiplePostExecute(r ApiApiV2Te
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2707,7 +2886,7 @@ func (a *TestRunsAPIService) CompleteTestRunExecute(r ApiCompleteTestRunRequest)
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -2886,7 +3065,7 @@ func (a *TestRunsAPIService) CreateAndFillByAutoTestsExecute(r ApiCreateAndFillB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3075,7 +3254,7 @@ func (a *TestRunsAPIService) CreateAndFillByConfigurationsExecute(r ApiCreateAnd
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3263,7 +3442,7 @@ func (a *TestRunsAPIService) CreateAndFillByWorkItemsExecute(r ApiCreateAndFillB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3458,7 +3637,7 @@ func (a *TestRunsAPIService) CreateEmptyExecute(r ApiCreateEmptyRequest) (*TestR
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3649,7 +3828,7 @@ func (a *TestRunsAPIService) GetTestRunByIdExecute(r ApiGetTestRunByIdRequest) (
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -3839,7 +4018,7 @@ func (a *TestRunsAPIService) SetAutoTestResultsForTestRunExecute(r ApiSetAutoTes
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4028,7 +4207,7 @@ func (a *TestRunsAPIService) StartTestRunExecute(r ApiStartTestRunRequest) (*htt
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4208,7 +4387,7 @@ func (a *TestRunsAPIService) StopTestRunExecute(r ApiStopTestRunRequest) (*http.
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -4392,7 +4571,7 @@ func (a *TestRunsAPIService) UpdateEmptyExecute(r ApiUpdateEmptyRequest) (*http.
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

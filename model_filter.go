@@ -22,7 +22,7 @@ var _ MappedNullable = &Filter{}
 // Filter struct for Filter
 type Filter struct {
 	Operator FilterOperator `json:"operator"`
-	Value NullableString `json:"value,omitempty"`
+	Value JsonElement `json:"value"`
 	Field string `json:"field"`
 }
 
@@ -32,9 +32,10 @@ type _Filter Filter
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFilter(operator FilterOperator, field string) *Filter {
+func NewFilter(operator FilterOperator, value JsonElement, field string) *Filter {
 	this := Filter{}
 	this.Operator = operator
+	this.Value = value
 	this.Field = field
 	return &this
 }
@@ -71,46 +72,28 @@ func (o *Filter) SetOperator(v FilterOperator) {
 	o.Operator = v
 }
 
-// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Filter) GetValue() string {
-	if o == nil || IsNil(o.Value.Get()) {
-		var ret string
+// GetValue returns the Value field value
+func (o *Filter) GetValue() JsonElement {
+	if o == nil {
+		var ret JsonElement
 		return ret
 	}
-	return *o.Value.Get()
+
+	return o.Value
 }
 
-// GetValueOk returns a tuple with the Value field value if set, nil otherwise
+// GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Filter) GetValueOk() (*string, bool) {
+func (o *Filter) GetValueOk() (*JsonElement, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return &o.Value, true
 }
 
-// HasValue returns a boolean if a field has been set.
-func (o *Filter) HasValue() bool {
-	if o != nil && o.Value.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
-func (o *Filter) SetValue(v string) {
-	o.Value.Set(&v)
-}
-// SetValueNil sets the value for Value to be an explicit nil
-func (o *Filter) SetValueNil() {
-	o.Value.Set(nil)
-}
-
-// UnsetValue ensures that no value is present for Value, not even an explicit nil
-func (o *Filter) UnsetValue() {
-	o.Value.Unset()
+// SetValue sets field value
+func (o *Filter) SetValue(v JsonElement) {
+	o.Value = v
 }
 
 // GetField returns the Field field value
@@ -148,9 +131,7 @@ func (o Filter) MarshalJSON() ([]byte, error) {
 func (o Filter) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["operator"] = o.Operator
-	if o.Value.IsSet() {
-		toSerialize["value"] = o.Value.Get()
-	}
+	toSerialize["value"] = o.Value
 	toSerialize["field"] = o.Field
 	return toSerialize, nil
 }
@@ -161,6 +142,7 @@ func (o *Filter) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"operator",
+		"value",
 		"field",
 	}
 

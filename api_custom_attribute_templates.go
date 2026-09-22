@@ -95,7 +95,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesExist
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -292,7 +292,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdCus
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -480,7 +480,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdCus
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -660,7 +660,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdDel
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -840,7 +840,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesIdGet
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1029,7 +1029,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesNameG
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1224,7 +1224,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesPostE
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1406,7 +1406,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesPutEx
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key
@@ -1640,7 +1640,7 @@ func (a *CustomAttributeTemplatesAPIService) ApiV2CustomAttributesTemplatesSearc
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["Bearer or PrivateToken"]; ok {
+			if apiKey, ok := auth["PrivateToken"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
 					key = apiKey.Prefix + " " + apiKey.Key

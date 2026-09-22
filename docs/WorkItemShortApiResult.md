@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **TagNames** | Pointer to **[]string** | Array of tag names of Work Item | [optional] 
 **Iterations** | [**[]IterationApiResult**](IterationApiResult.md) | Set of iterations related to Work Item | 
 **Links** | [**[]LinkShortApiResult**](LinkShortApiResult.md) | Set of links related to Work Item | 
+**Layer** | Pointer to [**NullableWorkItemLayerApiResult**](WorkItemLayerApiResult.md) | Test pyramid layer of Work Item | [optional] 
 
 ## Methods
 
@@ -618,6 +619,41 @@ and a boolean to check if the value has been set.
 SetLinks sets Links field to given value.
 
 
+### GetLayer
+
+`func (o *WorkItemShortApiResult) GetLayer() WorkItemLayerApiResult`
+
+GetLayer returns the Layer field if non-nil, zero value otherwise.
+
+### GetLayerOk
+
+`func (o *WorkItemShortApiResult) GetLayerOk() (*WorkItemLayerApiResult, bool)`
+
+GetLayerOk returns a tuple with the Layer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayer
+
+`func (o *WorkItemShortApiResult) SetLayer(v WorkItemLayerApiResult)`
+
+SetLayer sets Layer field to given value.
+
+### HasLayer
+
+`func (o *WorkItemShortApiResult) HasLayer() bool`
+
+HasLayer returns a boolean if a field has been set.
+
+### SetLayerNil
+
+`func (o *WorkItemShortApiResult) SetLayerNil(b bool)`
+
+ SetLayerNil sets the value for Layer to be an explicit nil
+
+### UnsetLayer
+`func (o *WorkItemShortApiResult) UnsetLayer()`
+
+UnsetLayer ensures that no value is present for Layer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

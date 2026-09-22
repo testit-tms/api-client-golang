@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **States** | Pointer to [**[]WorkItemStates**](WorkItemStates.md) | Collection of states of work item | [optional] 
 **Priorities** | Pointer to [**[]WorkItemPriorityModel**](WorkItemPriorityModel.md) | Collection of priorities of work item | [optional] 
 **SourceTypes** | Pointer to [**[]WorkItemSourceTypeModel**](WorkItemSourceTypeModel.md) | Source type of work item (manual creation or AI generated) | [optional] 
-**Types** | Pointer to [**[]WorkItemEntityTypes**](WorkItemEntityTypes.md) | Collection of types of work item | [optional] 
+**Types** | Pointer to [**[]WorkItemTypeModel**](WorkItemTypeModel.md) | Collection of types of work item | [optional] 
 **CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of creation date to search for | [optional] 
 **ModifiedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a work item range of last modification date to search for | [optional] 
 **Duration** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a work item duration range to search for | [optional] 
@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
 **Links** | Pointer to [**NullableWorkItemLinkFilterApiModel**](WorkItemLinkFilterApiModel.md) | Specifies a work item filter by its links | [optional] 
 **ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterApiModel**](WorkItemExternalMetadataFilterApiModel.md) | Specifies work item filter by its external metadata | [optional] 
+**Layers** | Pointer to **[]string** | Specifies auto test case layers to search for | [optional] 
 
 ## Methods
 
@@ -578,20 +579,20 @@ HasSourceTypes returns a boolean if a field has been set.
 UnsetSourceTypes ensures that no value is present for SourceTypes, not even an explicit nil
 ### GetTypes
 
-`func (o *WorkItemFilterApiModel) GetTypes() []WorkItemEntityTypes`
+`func (o *WorkItemFilterApiModel) GetTypes() []WorkItemTypeModel`
 
 GetTypes returns the Types field if non-nil, zero value otherwise.
 
 ### GetTypesOk
 
-`func (o *WorkItemFilterApiModel) GetTypesOk() (*[]WorkItemEntityTypes, bool)`
+`func (o *WorkItemFilterApiModel) GetTypesOk() (*[]WorkItemTypeModel, bool)`
 
 GetTypesOk returns a tuple with the Types field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTypes
 
-`func (o *WorkItemFilterApiModel) SetTypes(v []WorkItemEntityTypes)`
+`func (o *WorkItemFilterApiModel) SetTypes(v []WorkItemTypeModel)`
 
 SetTypes sets Types field to given value.
 
@@ -996,6 +997,41 @@ HasExternalMetadata returns a boolean if a field has been set.
 `func (o *WorkItemFilterApiModel) UnsetExternalMetadata()`
 
 UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
+### GetLayers
+
+`func (o *WorkItemFilterApiModel) GetLayers() []string`
+
+GetLayers returns the Layers field if non-nil, zero value otherwise.
+
+### GetLayersOk
+
+`func (o *WorkItemFilterApiModel) GetLayersOk() (*[]string, bool)`
+
+GetLayersOk returns a tuple with the Layers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayers
+
+`func (o *WorkItemFilterApiModel) SetLayers(v []string)`
+
+SetLayers sets Layers field to given value.
+
+### HasLayers
+
+`func (o *WorkItemFilterApiModel) HasLayers() bool`
+
+HasLayers returns a boolean if a field has been set.
+
+### SetLayersNil
+
+`func (o *WorkItemFilterApiModel) SetLayersNil(b bool)`
+
+ SetLayersNil sets the value for Layers to be an explicit nil
+
+### UnsetLayers
+`func (o *WorkItemFilterApiModel) UnsetLayers()`
+
+UnsetLayers ensures that no value is present for Layers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

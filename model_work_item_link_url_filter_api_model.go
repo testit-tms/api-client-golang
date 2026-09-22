@@ -19,7 +19,7 @@ var _ MappedNullable = &WorkItemLinkUrlFilterApiModel{}
 
 // WorkItemLinkUrlFilterApiModel struct for WorkItemLinkUrlFilterApiModel
 type WorkItemLinkUrlFilterApiModel struct {
-	Types []WorkItemEntityTypes `json:"types,omitempty"`
+	Types []WorkItemTypeModel `json:"types,omitempty"`
 	SearchUrl NullableString `json:"searchUrl,omitempty"`
 }
 
@@ -41,9 +41,9 @@ func NewWorkItemLinkUrlFilterApiModelWithDefaults() *WorkItemLinkUrlFilterApiMod
 }
 
 // GetTypes returns the Types field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemLinkUrlFilterApiModel) GetTypes() []WorkItemEntityTypes {
+func (o *WorkItemLinkUrlFilterApiModel) GetTypes() []WorkItemTypeModel {
 	if o == nil {
-		var ret []WorkItemEntityTypes
+		var ret []WorkItemTypeModel
 		return ret
 	}
 	return o.Types
@@ -52,7 +52,7 @@ func (o *WorkItemLinkUrlFilterApiModel) GetTypes() []WorkItemEntityTypes {
 // GetTypesOk returns a tuple with the Types field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemLinkUrlFilterApiModel) GetTypesOk() ([]WorkItemEntityTypes, bool) {
+func (o *WorkItemLinkUrlFilterApiModel) GetTypesOk() ([]WorkItemTypeModel, bool) {
 	if o == nil || IsNil(o.Types) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *WorkItemLinkUrlFilterApiModel) HasTypes() bool {
 	return false
 }
 
-// SetTypes gets a reference to the given []WorkItemEntityTypes and assigns it to the Types field.
-func (o *WorkItemLinkUrlFilterApiModel) SetTypes(v []WorkItemEntityTypes) {
+// SetTypes gets a reference to the given []WorkItemTypeModel and assigns it to the Types field.
+func (o *WorkItemLinkUrlFilterApiModel) SetTypes(v []WorkItemTypeModel) {
 	o.Types = v
 }
 

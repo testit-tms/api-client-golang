@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -149,7 +149,7 @@ Other parameters are passed through a pointer to a apiApiV2ProjectsDemoPostReque
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -491,7 +491,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -764,7 +764,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -863,7 +863,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -931,7 +931,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -995,7 +995,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1059,7 +1059,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1073,7 +1073,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsSearchPost
 
-> []ProjectShortModel ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
+> []ProjectApiResult ApiV2ProjectsSearchPost(ctx).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectsFilterModel(projectsFilterModel).Execute()
 
 Search for projects
 
@@ -1104,7 +1104,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsSearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsSearchPost`: []ProjectShortModel
+	// response from `ApiV2ProjectsSearchPost`: []ProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsSearchPost`: %v\n", resp)
 }
 ```
@@ -1129,11 +1129,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ProjectShortModel**](ProjectShortModel.md)
+[**[]ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1147,7 +1147,7 @@ Name | Type | Description  | Notes
 
 ## ApiV2ProjectsShortsPost
 
-> ProjectShortApiResultReply ApiV2ProjectsShortsPost(ctx).GetShortProjectsApiModel(getShortProjectsApiModel).Execute()
+> ProjectShortApiResultIReply ApiV2ProjectsShortsPost(ctx).GetShortProjectsApiModel(getShortProjectsApiModel).Execute()
 
 Get projects short models
 
@@ -1175,7 +1175,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.ApiV2ProjectsShortsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ApiV2ProjectsShortsPost`: ProjectShortApiResultReply
+	// response from `ApiV2ProjectsShortsPost`: ProjectShortApiResultIReply
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.ApiV2ProjectsShortsPost`: %v\n", resp)
 }
 ```
@@ -1195,11 +1195,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectShortApiResultReply**](ProjectShortApiResultReply.md)
+[**ProjectShortApiResultIReply**](ProjectShortApiResultIReply.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1265,7 +1265,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1331,7 +1331,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1345,7 +1345,7 @@ Name | Type | Description  | Notes
 
 ## GetAllProjects
 
-> []ProjectShortModel GetAllProjects(ctx).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
+> []ProjectApiResult GetAllProjects(ctx).IsDeleted(isDeleted).ProjectName(projectName).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).Execute()
 
 Get all projects
 
@@ -1379,7 +1379,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetAllProjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetAllProjects`: []ProjectShortModel
+	// response from `GetAllProjects`: []ProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetAllProjects`: %v\n", resp)
 }
 ```
@@ -1405,11 +1405,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ProjectShortModel**](ProjectShortModel.md)
+[**[]ProjectApiResult**](ProjectApiResult.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1479,7 +1479,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1493,7 +1493,7 @@ Name | Type | Description  | Notes
 
 ## GetProjectById
 
-> ProjectModel GetProjectById(ctx, id).Execute()
+> DetailedProjectApiResult GetProjectById(ctx, id).Execute()
 
 Get project by ID
 
@@ -1521,7 +1521,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectsAPI.GetProjectById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetProjectById`: ProjectModel
+	// response from `GetProjectById`: DetailedProjectApiResult
 	fmt.Fprintf(os.Stdout, "Response from `ProjectsAPI.GetProjectById`: %v\n", resp)
 }
 ```
@@ -1545,11 +1545,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProjectModel**](ProjectModel.md)
+[**DetailedProjectApiResult**](DetailedProjectApiResult.md)
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1621,7 +1621,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1716,7 +1716,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 
@@ -1780,7 +1780,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+[PrivateToken](../README.md#PrivateToken), [Identity.Application](../README.md#Identity.Application)
 
 ### HTTP request headers
 

@@ -33,7 +33,7 @@ type TestResultResponse struct {
 	Outcome NullableTestResultOutcome `json:"outcome,omitempty"`
 	Status NullableTestStatusApiResult `json:"status,omitempty"`
 	Comment NullableString `json:"comment,omitempty"`
-	Links []Link `json:"links,omitempty"`
+	Links []LinkApiResult `json:"links,omitempty"`
 	StepResults []StepResultApiModel `json:"stepResults,omitempty"`
 	Attachments []AttachmentApiResult `json:"attachments,omitempty"`
 	AutoTestId NullableString `json:"autoTestId,omitempty"`
@@ -429,9 +429,9 @@ func (o *TestResultResponse) UnsetComment() {
 }
 
 // GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *TestResultResponse) GetLinks() []Link {
+func (o *TestResultResponse) GetLinks() []LinkApiResult {
 	if o == nil {
-		var ret []Link
+		var ret []LinkApiResult
 		return ret
 	}
 	return o.Links
@@ -440,7 +440,7 @@ func (o *TestResultResponse) GetLinks() []Link {
 // GetLinksOk returns a tuple with the Links field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *TestResultResponse) GetLinksOk() ([]Link, bool) {
+func (o *TestResultResponse) GetLinksOk() ([]LinkApiResult, bool) {
 	if o == nil || IsNil(o.Links) {
 		return nil, false
 	}
@@ -456,8 +456,8 @@ func (o *TestResultResponse) HasLinks() bool {
 	return false
 }
 
-// SetLinks gets a reference to the given []Link and assigns it to the Links field.
-func (o *TestResultResponse) SetLinks(v []Link) {
+// SetLinks gets a reference to the given []LinkApiResult and assigns it to the Links field.
+func (o *TestResultResponse) SetLinks(v []LinkApiResult) {
 	o.Links = v
 }
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Outcome** | Pointer to [**NullableTestResultOutcome**](TestResultOutcome.md) |  | [optional] 
 **Status** | Pointer to [**NullableTestStatusApiResult**](TestStatusApiResult.md) |  | [optional] 
 **Comment** | Pointer to **NullableString** |  | [optional] 
-**Links** | Pointer to [**[]Link**](Link.md) |  | [optional] 
+**Links** | Pointer to [**[]LinkApiResult**](LinkApiResult.md) |  | [optional] 
 **StepResults** | Pointer to [**[]StepResultApiModel**](StepResultApiModel.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentApiResult**](AttachmentApiResult.md) |  | [optional] 
 **AutoTestId** | Pointer to **NullableString** |  | [optional] 
@@ -350,20 +350,20 @@ HasComment returns a boolean if a field has been set.
 UnsetComment ensures that no value is present for Comment, not even an explicit nil
 ### GetLinks
 
-`func (o *TestResultResponse) GetLinks() []Link`
+`func (o *TestResultResponse) GetLinks() []LinkApiResult`
 
 GetLinks returns the Links field if non-nil, zero value otherwise.
 
 ### GetLinksOk
 
-`func (o *TestResultResponse) GetLinksOk() (*[]Link, bool)`
+`func (o *TestResultResponse) GetLinksOk() (*[]LinkApiResult, bool)`
 
 GetLinksOk returns a tuple with the Links field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinks
 
-`func (o *TestResultResponse) SetLinks(v []Link)`
+`func (o *TestResultResponse) SetLinks(v []LinkApiResult)`
 
 SetLinks sets Links field to given value.
 

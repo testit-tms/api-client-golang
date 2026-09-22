@@ -39,6 +39,8 @@ type CreateTestRunAndFillByAutoTestsApiModel struct {
 	Links []CreateLinkApiModel `json:"links,omitempty"`
 	// Collection of tags to assign to the test run
 	Tags []string `json:"tags,omitempty"`
+	// Test run launching options.
+	Option NullableTestRunLaunchOptionApiModel `json:"option,omitempty"`
 }
 
 type _CreateTestRunAndFillByAutoTestsApiModel CreateTestRunAndFillByAutoTestsApiModel
@@ -360,6 +362,48 @@ func (o *CreateTestRunAndFillByAutoTestsApiModel) SetTags(v []string) {
 	o.Tags = v
 }
 
+// GetOption returns the Option field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateTestRunAndFillByAutoTestsApiModel) GetOption() TestRunLaunchOptionApiModel {
+	if o == nil || IsNil(o.Option.Get()) {
+		var ret TestRunLaunchOptionApiModel
+		return ret
+	}
+	return *o.Option.Get()
+}
+
+// GetOptionOk returns a tuple with the Option field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateTestRunAndFillByAutoTestsApiModel) GetOptionOk() (*TestRunLaunchOptionApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Option.Get(), o.Option.IsSet()
+}
+
+// HasOption returns a boolean if a field has been set.
+func (o *CreateTestRunAndFillByAutoTestsApiModel) HasOption() bool {
+	if o != nil && o.Option.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOption gets a reference to the given NullableTestRunLaunchOptionApiModel and assigns it to the Option field.
+func (o *CreateTestRunAndFillByAutoTestsApiModel) SetOption(v TestRunLaunchOptionApiModel) {
+	o.Option.Set(&v)
+}
+// SetOptionNil sets the value for Option to be an explicit nil
+func (o *CreateTestRunAndFillByAutoTestsApiModel) SetOptionNil() {
+	o.Option.Set(nil)
+}
+
+// UnsetOption ensures that no value is present for Option, not even an explicit nil
+func (o *CreateTestRunAndFillByAutoTestsApiModel) UnsetOption() {
+	o.Option.Unset()
+}
+
 func (o CreateTestRunAndFillByAutoTestsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -390,6 +434,9 @@ func (o CreateTestRunAndFillByAutoTestsApiModel) ToMap() (map[string]interface{}
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.Option.IsSet() {
+		toSerialize["option"] = o.Option.Get()
 	}
 	return toSerialize, nil
 }

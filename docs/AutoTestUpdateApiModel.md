@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** | Name of the autotest in autotest&#39;s card | [optional] 
 **Description** | Pointer to **NullableString** | Description of the autotest in autotest&#39;s card | [optional] 
 **IsFlaky** | Pointer to **NullableBool** | Indicates if the autotest is marked as flaky | [optional] 
+**ResetLayer** | Pointer to **NullableBool** | Indicates if the autotest layer should be reset. | [optional] 
 **Steps** | Pointer to [**[]AutoTestStepApiModel**](AutoTestStepApiModel.md) | Collection of the autotest steps | [optional] 
 **Setup** | Pointer to [**[]AutoTestStepApiModel**](AutoTestStepApiModel.md) | Collection of the autotest setup steps | [optional] 
 **Teardown** | Pointer to [**[]AutoTestStepApiModel**](AutoTestStepApiModel.md) | Collection of the autotest teardown steps | [optional] 
@@ -347,6 +348,41 @@ HasIsFlaky returns a boolean if a field has been set.
 `func (o *AutoTestUpdateApiModel) UnsetIsFlaky()`
 
 UnsetIsFlaky ensures that no value is present for IsFlaky, not even an explicit nil
+### GetResetLayer
+
+`func (o *AutoTestUpdateApiModel) GetResetLayer() bool`
+
+GetResetLayer returns the ResetLayer field if non-nil, zero value otherwise.
+
+### GetResetLayerOk
+
+`func (o *AutoTestUpdateApiModel) GetResetLayerOk() (*bool, bool)`
+
+GetResetLayerOk returns a tuple with the ResetLayer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResetLayer
+
+`func (o *AutoTestUpdateApiModel) SetResetLayer(v bool)`
+
+SetResetLayer sets ResetLayer field to given value.
+
+### HasResetLayer
+
+`func (o *AutoTestUpdateApiModel) HasResetLayer() bool`
+
+HasResetLayer returns a boolean if a field has been set.
+
+### SetResetLayerNil
+
+`func (o *AutoTestUpdateApiModel) SetResetLayerNil(b bool)`
+
+ SetResetLayerNil sets the value for ResetLayer to be an explicit nil
+
+### UnsetResetLayer
+`func (o *AutoTestUpdateApiModel) UnsetResetLayer()`
+
+UnsetResetLayer ensures that no value is present for ResetLayer, not even an explicit nil
 ### GetSteps
 
 `func (o *AutoTestUpdateApiModel) GetSteps() []AutoTestStepApiModel`
