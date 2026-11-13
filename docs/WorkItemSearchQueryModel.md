@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Attributes** | Pointer to **map[string][]string** | Custom attributes of work item | [optional] 
 **IsDeleted** | Pointer to **NullableBool** | Is result must consist of only actual/deleted work items | [optional] 
 **SectionIds** | Pointer to **[]string** | Collection of section identifiers | [optional] 
+**NamespaceIds** | Pointer to **[]string** | Collection of namespace identifiers | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Collection of identifiers of users who created work item | [optional] 
 **ModifiedByIds** | Pointer to **[]string** | Collection of identifiers of users who applied last modification to work item | [optional] 
 **States** | Pointer to [**[]WorkItemStates**](WorkItemStates.md) | Collection of states of work item | [optional] 
@@ -28,6 +29,7 @@ Name | Type | Description | Notes
 **WorkItemVersionIds** | Pointer to **[]string** | Collection of identifiers work items versions. | [optional] 
 **Links** | Pointer to [**NullableWorkItemLinkFilterModel**](WorkItemLinkFilterModel.md) | Specifies a work item filter by its links | [optional] 
 **ExternalMetadata** | Pointer to [**NullableWorkItemExternalMetadataFilterModel**](WorkItemExternalMetadataFilterModel.md) | Specifies work item filter by its external metadata | [optional] 
+**ExternalId** | Pointer to **NullableString** | External identifier of the work item | [optional] 
 
 ## Methods
 
@@ -293,6 +295,41 @@ HasSectionIds returns a boolean if a field has been set.
 `func (o *WorkItemSearchQueryModel) UnsetSectionIds()`
 
 UnsetSectionIds ensures that no value is present for SectionIds, not even an explicit nil
+### GetNamespaceIds
+
+`func (o *WorkItemSearchQueryModel) GetNamespaceIds() []string`
+
+GetNamespaceIds returns the NamespaceIds field if non-nil, zero value otherwise.
+
+### GetNamespaceIdsOk
+
+`func (o *WorkItemSearchQueryModel) GetNamespaceIdsOk() (*[]string, bool)`
+
+GetNamespaceIdsOk returns a tuple with the NamespaceIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNamespaceIds
+
+`func (o *WorkItemSearchQueryModel) SetNamespaceIds(v []string)`
+
+SetNamespaceIds sets NamespaceIds field to given value.
+
+### HasNamespaceIds
+
+`func (o *WorkItemSearchQueryModel) HasNamespaceIds() bool`
+
+HasNamespaceIds returns a boolean if a field has been set.
+
+### SetNamespaceIdsNil
+
+`func (o *WorkItemSearchQueryModel) SetNamespaceIdsNil(b bool)`
+
+ SetNamespaceIdsNil sets the value for NamespaceIds to be an explicit nil
+
+### UnsetNamespaceIds
+`func (o *WorkItemSearchQueryModel) UnsetNamespaceIds()`
+
+UnsetNamespaceIds ensures that no value is present for NamespaceIds, not even an explicit nil
 ### GetCreatedByIds
 
 `func (o *WorkItemSearchQueryModel) GetCreatedByIds() []string`
@@ -888,6 +925,41 @@ HasExternalMetadata returns a boolean if a field has been set.
 `func (o *WorkItemSearchQueryModel) UnsetExternalMetadata()`
 
 UnsetExternalMetadata ensures that no value is present for ExternalMetadata, not even an explicit nil
+### GetExternalId
+
+`func (o *WorkItemSearchQueryModel) GetExternalId() string`
+
+GetExternalId returns the ExternalId field if non-nil, zero value otherwise.
+
+### GetExternalIdOk
+
+`func (o *WorkItemSearchQueryModel) GetExternalIdOk() (*string, bool)`
+
+GetExternalIdOk returns a tuple with the ExternalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalId
+
+`func (o *WorkItemSearchQueryModel) SetExternalId(v string)`
+
+SetExternalId sets ExternalId field to given value.
+
+### HasExternalId
+
+`func (o *WorkItemSearchQueryModel) HasExternalId() bool`
+
+HasExternalId returns a boolean if a field has been set.
+
+### SetExternalIdNil
+
+`func (o *WorkItemSearchQueryModel) SetExternalIdNil(b bool)`
+
+ SetExternalIdNil sets the value for ExternalId to be an explicit nil
+
+### UnsetExternalId
+`func (o *WorkItemSearchQueryModel) UnsetExternalId()`
+
+UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

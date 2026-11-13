@@ -31,6 +31,8 @@ type UpdateProjectApiModel struct {
 	IsFavorite NullableBool `json:"isFavorite,omitempty"`
 	// Identifier of the workflow project should use
 	WorkflowId NullableString `json:"workflowId,omitempty"`
+	TestStrategy TestStrategy `json:"testStrategy"`
+	TestCaseCoverageMode TestCaseCoverageMode `json:"testCaseCoverageMode"`
 }
 
 type _UpdateProjectApiModel UpdateProjectApiModel
@@ -39,10 +41,12 @@ type _UpdateProjectApiModel UpdateProjectApiModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateProjectApiModel(id string, name string) *UpdateProjectApiModel {
+func NewUpdateProjectApiModel(id string, name string, testStrategy TestStrategy, testCaseCoverageMode TestCaseCoverageMode) *UpdateProjectApiModel {
 	this := UpdateProjectApiModel{}
 	this.Id = id
 	this.Name = name
+	this.TestStrategy = testStrategy
+	this.TestCaseCoverageMode = testCaseCoverageMode
 	return &this
 }
 
@@ -228,6 +232,54 @@ func (o *UpdateProjectApiModel) UnsetWorkflowId() {
 	o.WorkflowId.Unset()
 }
 
+// GetTestStrategy returns the TestStrategy field value
+func (o *UpdateProjectApiModel) GetTestStrategy() TestStrategy {
+	if o == nil {
+		var ret TestStrategy
+		return ret
+	}
+
+	return o.TestStrategy
+}
+
+// GetTestStrategyOk returns a tuple with the TestStrategy field value
+// and a boolean to check if the value has been set.
+func (o *UpdateProjectApiModel) GetTestStrategyOk() (*TestStrategy, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestStrategy, true
+}
+
+// SetTestStrategy sets field value
+func (o *UpdateProjectApiModel) SetTestStrategy(v TestStrategy) {
+	o.TestStrategy = v
+}
+
+// GetTestCaseCoverageMode returns the TestCaseCoverageMode field value
+func (o *UpdateProjectApiModel) GetTestCaseCoverageMode() TestCaseCoverageMode {
+	if o == nil {
+		var ret TestCaseCoverageMode
+		return ret
+	}
+
+	return o.TestCaseCoverageMode
+}
+
+// GetTestCaseCoverageModeOk returns a tuple with the TestCaseCoverageMode field value
+// and a boolean to check if the value has been set.
+func (o *UpdateProjectApiModel) GetTestCaseCoverageModeOk() (*TestCaseCoverageMode, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestCaseCoverageMode, true
+}
+
+// SetTestCaseCoverageMode sets field value
+func (o *UpdateProjectApiModel) SetTestCaseCoverageMode(v TestCaseCoverageMode) {
+	o.TestCaseCoverageMode = v
+}
+
 func (o UpdateProjectApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -249,6 +301,8 @@ func (o UpdateProjectApiModel) ToMap() (map[string]interface{}, error) {
 	if o.WorkflowId.IsSet() {
 		toSerialize["workflowId"] = o.WorkflowId.Get()
 	}
+	toSerialize["testStrategy"] = o.TestStrategy
+	toSerialize["testCaseCoverageMode"] = o.TestCaseCoverageMode
 	return toSerialize, nil
 }
 
@@ -259,6 +313,8 @@ func (o *UpdateProjectApiModel) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"name",
+		"testStrategy",
+		"testCaseCoverageMode",
 	}
 
 	allProperties := make(map[string]interface{})

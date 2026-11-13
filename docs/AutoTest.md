@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **LastTestResultConfiguration** | Pointer to [**NullableConfigurationShort**](ConfigurationShort.md) | Configuration of the autotest last test result | [optional] 
 **LastTestResultOutcome** | Pointer to **NullableString** | Outcome of the autotest last test result | [optional] 
 **StabilityPercentage** | Pointer to **NullableInt32** | Stability percentage of the autotest | [optional] 
+**AutoTestCase** | Pointer to [**NullableAutoTestCase**](AutoTestCase.md) | Auto test case linked with the autotest | [optional] 
 
 ## Methods
 
@@ -897,6 +898,41 @@ HasStabilityPercentage returns a boolean if a field has been set.
 `func (o *AutoTest) UnsetStabilityPercentage()`
 
 UnsetStabilityPercentage ensures that no value is present for StabilityPercentage, not even an explicit nil
+### GetAutoTestCase
+
+`func (o *AutoTest) GetAutoTestCase() AutoTestCase`
+
+GetAutoTestCase returns the AutoTestCase field if non-nil, zero value otherwise.
+
+### GetAutoTestCaseOk
+
+`func (o *AutoTest) GetAutoTestCaseOk() (*AutoTestCase, bool)`
+
+GetAutoTestCaseOk returns a tuple with the AutoTestCase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestCase
+
+`func (o *AutoTest) SetAutoTestCase(v AutoTestCase)`
+
+SetAutoTestCase sets AutoTestCase field to given value.
+
+### HasAutoTestCase
+
+`func (o *AutoTest) HasAutoTestCase() bool`
+
+HasAutoTestCase returns a boolean if a field has been set.
+
+### SetAutoTestCaseNil
+
+`func (o *AutoTest) SetAutoTestCaseNil(b bool)`
+
+ SetAutoTestCaseNil sets the value for AutoTestCase to be an explicit nil
+
+### UnsetAutoTestCase
+`func (o *AutoTest) UnsetAutoTestCase()`
+
+UnsetAutoTestCase ensures that no value is present for AutoTestCase, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

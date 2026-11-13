@@ -23,7 +23,6 @@ var _ MappedNullable = &SectionPutModel{}
 type SectionPutModel struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
-	ProjectId string `json:"projectId"`
 	ParentId NullableString `json:"parentId,omitempty"`
 	PreconditionSteps []StepPutModel `json:"preconditionSteps,omitempty"`
 	PostconditionSteps []StepPutModel `json:"postconditionSteps,omitempty"`
@@ -36,11 +35,10 @@ type _SectionPutModel SectionPutModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSectionPutModel(id string, name string, projectId string, attachments []AttachmentPutModel) *SectionPutModel {
+func NewSectionPutModel(id string, name string, attachments []AttachmentPutModel) *SectionPutModel {
 	this := SectionPutModel{}
 	this.Id = id
 	this.Name = name
-	this.ProjectId = projectId
 	this.Attachments = attachments
 	return &this
 }
@@ -99,30 +97,6 @@ func (o *SectionPutModel) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *SectionPutModel) SetName(v string) {
 	o.Name = v
-}
-
-// GetProjectId returns the ProjectId field value
-func (o *SectionPutModel) GetProjectId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ProjectId
-}
-
-// GetProjectIdOk returns a tuple with the ProjectId field value
-// and a boolean to check if the value has been set.
-func (o *SectionPutModel) GetProjectIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ProjectId, true
-}
-
-// SetProjectId sets field value
-func (o *SectionPutModel) SetProjectId(v string) {
-	o.ProjectId = v
 }
 
 // GetParentId returns the ParentId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -269,7 +243,6 @@ func (o SectionPutModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
-	toSerialize["projectId"] = o.ProjectId
 	if o.ParentId.IsSet() {
 		toSerialize["parentId"] = o.ParentId.Get()
 	}
@@ -290,7 +263,6 @@ func (o *SectionPutModel) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"id",
 		"name",
-		"projectId",
 		"attachments",
 	}
 

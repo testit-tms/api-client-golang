@@ -4,12 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Unique ID of the attribute | 
-**Targets** | **[]string** | Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
-**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options   Available for attributes of type &#x60;options&#x60; and &#x60;multiple options&#x60; only | 
-**Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute | 
-**IsDeleted** | **bool** | Indicates if the attribute is deleted | 
-**IsSystem** | **bool** | Indicates if the attribute is system | 
+**Id** | **string** | Unique ID of the attribute. | 
+**Code** | Pointer to **NullableString** | Optional code identifier for the attribute. | [optional] 
+**Type** | [**CustomAttributeTypesEnum**](CustomAttributeTypesEnum.md) | Type of the attribute. | 
+**Options** | [**[]CustomAttributeOptionModel**](CustomAttributeOptionModel.md) | Collection of the attribute options. | 
+**Targets** | **[]string** | Collection of the attribute targets.   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans). | 
+**IsReadOnly** | **bool** | Indicates if the attribute is read-only. | 
+**IsDeleted** | **bool** | Indicates if the attribute is deleted. | 
+**IsSystem** | **bool** | Indicates if the attribute is system. | 
 **Name** | **string** | Name of the attribute | 
 **IsEnabled** | **bool** | Indicates if the attribute is enabled | 
 **IsRequired** | **bool** | Indicates if the attribute value is mandatory to specify | 
@@ -19,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewCustomAttributeModel
 
-`func NewCustomAttributeModel(id string, targets []string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeModel`
+`func NewCustomAttributeModel(id string, type_ CustomAttributeTypesEnum, options []CustomAttributeOptionModel, targets []string, isReadOnly bool, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool, ) *CustomAttributeModel`
 
 NewCustomAttributeModel instantiates a new CustomAttributeModel object
 This constructor will assign default values to properties that have it defined,
@@ -54,24 +56,59 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetTargets
+### GetCode
 
-`func (o *CustomAttributeModel) GetTargets() []string`
+`func (o *CustomAttributeModel) GetCode() string`
 
-GetTargets returns the Targets field if non-nil, zero value otherwise.
+GetCode returns the Code field if non-nil, zero value otherwise.
 
-### GetTargetsOk
+### GetCodeOk
 
-`func (o *CustomAttributeModel) GetTargetsOk() (*[]string, bool)`
+`func (o *CustomAttributeModel) GetCodeOk() (*string, bool)`
 
-GetTargetsOk returns a tuple with the Targets field if it's non-nil, zero value otherwise
+GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTargets
+### SetCode
 
-`func (o *CustomAttributeModel) SetTargets(v []string)`
+`func (o *CustomAttributeModel) SetCode(v string)`
 
-SetTargets sets Targets field to given value.
+SetCode sets Code field to given value.
+
+### HasCode
+
+`func (o *CustomAttributeModel) HasCode() bool`
+
+HasCode returns a boolean if a field has been set.
+
+### SetCodeNil
+
+`func (o *CustomAttributeModel) SetCodeNil(b bool)`
+
+ SetCodeNil sets the value for Code to be an explicit nil
+
+### UnsetCode
+`func (o *CustomAttributeModel) UnsetCode()`
+
+UnsetCode ensures that no value is present for Code, not even an explicit nil
+### GetType
+
+`func (o *CustomAttributeModel) GetType() CustomAttributeTypesEnum`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *CustomAttributeModel) GetTypeOk() (*CustomAttributeTypesEnum, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *CustomAttributeModel) SetType(v CustomAttributeTypesEnum)`
+
+SetType sets Type field to given value.
 
 
 ### GetOptions
@@ -94,24 +131,44 @@ and a boolean to check if the value has been set.
 SetOptions sets Options field to given value.
 
 
-### GetType
+### GetTargets
 
-`func (o *CustomAttributeModel) GetType() CustomAttributeTypesEnum`
+`func (o *CustomAttributeModel) GetTargets() []string`
 
-GetType returns the Type field if non-nil, zero value otherwise.
+GetTargets returns the Targets field if non-nil, zero value otherwise.
 
-### GetTypeOk
+### GetTargetsOk
 
-`func (o *CustomAttributeModel) GetTypeOk() (*CustomAttributeTypesEnum, bool)`
+`func (o *CustomAttributeModel) GetTargetsOk() (*[]string, bool)`
 
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+GetTargetsOk returns a tuple with the Targets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetType
+### SetTargets
 
-`func (o *CustomAttributeModel) SetType(v CustomAttributeTypesEnum)`
+`func (o *CustomAttributeModel) SetTargets(v []string)`
 
-SetType sets Type field to given value.
+SetTargets sets Targets field to given value.
+
+
+### GetIsReadOnly
+
+`func (o *CustomAttributeModel) GetIsReadOnly() bool`
+
+GetIsReadOnly returns the IsReadOnly field if non-nil, zero value otherwise.
+
+### GetIsReadOnlyOk
+
+`func (o *CustomAttributeModel) GetIsReadOnlyOk() (*bool, bool)`
+
+GetIsReadOnlyOk returns a tuple with the IsReadOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsReadOnly
+
+`func (o *CustomAttributeModel) SetIsReadOnly(v bool)`
+
+SetIsReadOnly sets IsReadOnly field to given value.
 
 
 ### GetIsDeleted

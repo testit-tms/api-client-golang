@@ -47,6 +47,8 @@ AddTestPointsWithSections Add test-points to TestPlan with sections
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiAddTestPointsWithSectionsRequest
+
+Deprecated
 */
 func (a *TestPlansAPIService) AddTestPointsWithSections(ctx context.Context, id string) ApiAddTestPointsWithSectionsRequest {
 	return ApiAddTestPointsWithSectionsRequest{
@@ -57,6 +59,7 @@ func (a *TestPlansAPIService) AddTestPointsWithSections(ctx context.Context, id 
 }
 
 // Execute executes the request
+// Deprecated
 func (a *TestPlansAPIService) AddTestPointsWithSectionsExecute(r ApiAddTestPointsWithSectionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
@@ -237,6 +240,8 @@ System returns no content response
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param id Test plan internal (guid format) or global (int format) identifier
  @return ApiAddWorkItemsWithSectionsRequest
+
+Deprecated
 */
 func (a *TestPlansAPIService) AddWorkItemsWithSections(ctx context.Context, id string) ApiAddWorkItemsWithSectionsRequest {
 	return ApiAddWorkItemsWithSectionsRequest{
@@ -247,6 +252,7 @@ func (a *TestPlansAPIService) AddWorkItemsWithSections(ctx context.Context, id s
 }
 
 // Execute executes the request
+// Deprecated
 func (a *TestPlansAPIService) AddWorkItemsWithSectionsExecute(r ApiAddWorkItemsWithSectionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost

@@ -14,9 +14,12 @@ Name | Type | Description | Notes
 **Title** | Pointer to **NullableString** | Name of the autotest in autotest&#39;s card | [optional] 
 **Description** | Pointer to **NullableString** | Description of the autotest in autotest&#39;s card | [optional] 
 **IsFlaky** | Pointer to **NullableBool** | Indicates if the autotest is marked as flaky | [optional] 
+**Layer** | Pointer to [**NullableLayerApiModel**](LayerApiModel.md) | Layer of the autotest. Assigns layer by rules if omitted. | [optional] 
+**ResetLayer** | Pointer to **NullableBool** | Indicates if the autotest layer should be reset. | [optional] 
 **Steps** | Pointer to [**[]AutoTestStepApiModel**](AutoTestStepApiModel.md) | Collection of the autotest steps | [optional] 
 **Setup** | Pointer to [**[]AutoTestStepApiModel**](AutoTestStepApiModel.md) | Collection of the autotest setup steps | [optional] 
 **Teardown** | Pointer to [**[]AutoTestStepApiModel**](AutoTestStepApiModel.md) | Collection of the autotest teardown steps | [optional] 
+**ManualTestId** | Pointer to **NullableString** | ID of the manual test to be linked with the autotest | [optional] 
 **WorkItemIds** | Pointer to **[]string** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
 **WorkItemIdsForLinkWithAutoTest** | Pointer to **[]string** | Specifies the IDs of work items to link your autotest to. You can specify several IDs. | [optional] 
 **Labels** | Pointer to [**[]LabelApiModel**](LabelApiModel.md) | Collection of the autotest labels | [optional] 
@@ -347,6 +350,76 @@ HasIsFlaky returns a boolean if a field has been set.
 `func (o *AutoTestUpdateApiModel) UnsetIsFlaky()`
 
 UnsetIsFlaky ensures that no value is present for IsFlaky, not even an explicit nil
+### GetLayer
+
+`func (o *AutoTestUpdateApiModel) GetLayer() LayerApiModel`
+
+GetLayer returns the Layer field if non-nil, zero value otherwise.
+
+### GetLayerOk
+
+`func (o *AutoTestUpdateApiModel) GetLayerOk() (*LayerApiModel, bool)`
+
+GetLayerOk returns a tuple with the Layer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayer
+
+`func (o *AutoTestUpdateApiModel) SetLayer(v LayerApiModel)`
+
+SetLayer sets Layer field to given value.
+
+### HasLayer
+
+`func (o *AutoTestUpdateApiModel) HasLayer() bool`
+
+HasLayer returns a boolean if a field has been set.
+
+### SetLayerNil
+
+`func (o *AutoTestUpdateApiModel) SetLayerNil(b bool)`
+
+ SetLayerNil sets the value for Layer to be an explicit nil
+
+### UnsetLayer
+`func (o *AutoTestUpdateApiModel) UnsetLayer()`
+
+UnsetLayer ensures that no value is present for Layer, not even an explicit nil
+### GetResetLayer
+
+`func (o *AutoTestUpdateApiModel) GetResetLayer() bool`
+
+GetResetLayer returns the ResetLayer field if non-nil, zero value otherwise.
+
+### GetResetLayerOk
+
+`func (o *AutoTestUpdateApiModel) GetResetLayerOk() (*bool, bool)`
+
+GetResetLayerOk returns a tuple with the ResetLayer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResetLayer
+
+`func (o *AutoTestUpdateApiModel) SetResetLayer(v bool)`
+
+SetResetLayer sets ResetLayer field to given value.
+
+### HasResetLayer
+
+`func (o *AutoTestUpdateApiModel) HasResetLayer() bool`
+
+HasResetLayer returns a boolean if a field has been set.
+
+### SetResetLayerNil
+
+`func (o *AutoTestUpdateApiModel) SetResetLayerNil(b bool)`
+
+ SetResetLayerNil sets the value for ResetLayer to be an explicit nil
+
+### UnsetResetLayer
+`func (o *AutoTestUpdateApiModel) UnsetResetLayer()`
+
+UnsetResetLayer ensures that no value is present for ResetLayer, not even an explicit nil
 ### GetSteps
 
 `func (o *AutoTestUpdateApiModel) GetSteps() []AutoTestStepApiModel`
@@ -452,6 +525,41 @@ HasTeardown returns a boolean if a field has been set.
 `func (o *AutoTestUpdateApiModel) UnsetTeardown()`
 
 UnsetTeardown ensures that no value is present for Teardown, not even an explicit nil
+### GetManualTestId
+
+`func (o *AutoTestUpdateApiModel) GetManualTestId() string`
+
+GetManualTestId returns the ManualTestId field if non-nil, zero value otherwise.
+
+### GetManualTestIdOk
+
+`func (o *AutoTestUpdateApiModel) GetManualTestIdOk() (*string, bool)`
+
+GetManualTestIdOk returns a tuple with the ManualTestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManualTestId
+
+`func (o *AutoTestUpdateApiModel) SetManualTestId(v string)`
+
+SetManualTestId sets ManualTestId field to given value.
+
+### HasManualTestId
+
+`func (o *AutoTestUpdateApiModel) HasManualTestId() bool`
+
+HasManualTestId returns a boolean if a field has been set.
+
+### SetManualTestIdNil
+
+`func (o *AutoTestUpdateApiModel) SetManualTestIdNil(b bool)`
+
+ SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+
+### UnsetManualTestId
+`func (o *AutoTestUpdateApiModel) UnsetManualTestId()`
+
+UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
 ### GetWorkItemIds
 
 `func (o *AutoTestUpdateApiModel) GetWorkItemIds() []string`

@@ -21,17 +21,21 @@ var _ MappedNullable = &CustomAttributeModel{}
 
 // CustomAttributeModel struct for CustomAttributeModel
 type CustomAttributeModel struct {
-	// Unique ID of the attribute
+	// Unique ID of the attribute.
 	Id string `json:"id"`
-	// Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans)
-	Targets []string `json:"targets"`
-	// Collection of the attribute options   Available for attributes of type `options` and `multiple options` only
-	Options []CustomAttributeOptionModel `json:"options"`
-	// Type of the attribute
+	// Optional code identifier for the attribute.
+	Code NullableString `json:"code,omitempty"`
+	// Type of the attribute.
 	Type CustomAttributeTypesEnum `json:"type"`
-	// Indicates if the attribute is deleted
+	// Collection of the attribute options.
+	Options []CustomAttributeOptionModel `json:"options"`
+	// Collection of the attribute targets.   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans).
+	Targets []string `json:"targets"`
+	// Indicates if the attribute is read-only.
+	IsReadOnly bool `json:"isReadOnly"`
+	// Indicates if the attribute is deleted.
 	IsDeleted bool `json:"isDeleted"`
-	// Indicates if the attribute is system
+	// Indicates if the attribute is system.
 	IsSystem bool `json:"isSystem"`
 	// Name of the attribute
 	Name string `json:"name"`
@@ -49,12 +53,13 @@ type _CustomAttributeModel CustomAttributeModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCustomAttributeModel(id string, targets []string, options []CustomAttributeOptionModel, type_ CustomAttributeTypesEnum, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeModel {
+func NewCustomAttributeModel(id string, type_ CustomAttributeTypesEnum, options []CustomAttributeOptionModel, targets []string, isReadOnly bool, isDeleted bool, isSystem bool, name string, isEnabled bool, isRequired bool, isGlobal bool) *CustomAttributeModel {
 	this := CustomAttributeModel{}
 	this.Id = id
-	this.Targets = targets
-	this.Options = options
 	this.Type = type_
+	this.Options = options
+	this.Targets = targets
+	this.IsReadOnly = isReadOnly
 	this.IsDeleted = isDeleted
 	this.IsSystem = isSystem
 	this.Name = name
@@ -96,28 +101,70 @@ func (o *CustomAttributeModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetTargets returns the Targets field value
-func (o *CustomAttributeModel) GetTargets() []string {
-	if o == nil {
-		var ret []string
+// GetCode returns the Code field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CustomAttributeModel) GetCode() string {
+	if o == nil || IsNil(o.Code.Get()) {
+		var ret string
 		return ret
 	}
-
-	return o.Targets
+	return *o.Code.Get()
 }
 
-// GetTargetsOk returns a tuple with the Targets field value
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CustomAttributeModel) GetTargetsOk() ([]string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CustomAttributeModel) GetCodeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Targets, true
+	return o.Code.Get(), o.Code.IsSet()
 }
 
-// SetTargets sets field value
-func (o *CustomAttributeModel) SetTargets(v []string) {
-	o.Targets = v
+// HasCode returns a boolean if a field has been set.
+func (o *CustomAttributeModel) HasCode() bool {
+	if o != nil && o.Code.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given NullableString and assigns it to the Code field.
+func (o *CustomAttributeModel) SetCode(v string) {
+	o.Code.Set(&v)
+}
+// SetCodeNil sets the value for Code to be an explicit nil
+func (o *CustomAttributeModel) SetCodeNil() {
+	o.Code.Set(nil)
+}
+
+// UnsetCode ensures that no value is present for Code, not even an explicit nil
+func (o *CustomAttributeModel) UnsetCode() {
+	o.Code.Unset()
+}
+
+// GetType returns the Type field value
+func (o *CustomAttributeModel) GetType() CustomAttributeTypesEnum {
+	if o == nil {
+		var ret CustomAttributeTypesEnum
+		return ret
+	}
+
+	return o.Type
+}
+
+// GetTypeOk returns a tuple with the Type field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeModel) GetTypeOk() (*CustomAttributeTypesEnum, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Type, true
+}
+
+// SetType sets field value
+func (o *CustomAttributeModel) SetType(v CustomAttributeTypesEnum) {
+	o.Type = v
 }
 
 // GetOptions returns the Options field value
@@ -144,28 +191,52 @@ func (o *CustomAttributeModel) SetOptions(v []CustomAttributeOptionModel) {
 	o.Options = v
 }
 
-// GetType returns the Type field value
-func (o *CustomAttributeModel) GetType() CustomAttributeTypesEnum {
+// GetTargets returns the Targets field value
+func (o *CustomAttributeModel) GetTargets() []string {
 	if o == nil {
-		var ret CustomAttributeTypesEnum
+		var ret []string
 		return ret
 	}
 
-	return o.Type
+	return o.Targets
 }
 
-// GetTypeOk returns a tuple with the Type field value
+// GetTargetsOk returns a tuple with the Targets field value
 // and a boolean to check if the value has been set.
-func (o *CustomAttributeModel) GetTypeOk() (*CustomAttributeTypesEnum, bool) {
+func (o *CustomAttributeModel) GetTargetsOk() ([]string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Type, true
+	return o.Targets, true
 }
 
-// SetType sets field value
-func (o *CustomAttributeModel) SetType(v CustomAttributeTypesEnum) {
-	o.Type = v
+// SetTargets sets field value
+func (o *CustomAttributeModel) SetTargets(v []string) {
+	o.Targets = v
+}
+
+// GetIsReadOnly returns the IsReadOnly field value
+func (o *CustomAttributeModel) GetIsReadOnly() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsReadOnly
+}
+
+// GetIsReadOnlyOk returns a tuple with the IsReadOnly field value
+// and a boolean to check if the value has been set.
+func (o *CustomAttributeModel) GetIsReadOnlyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsReadOnly, true
+}
+
+// SetIsReadOnly sets field value
+func (o *CustomAttributeModel) SetIsReadOnly(v bool) {
+	o.IsReadOnly = v
 }
 
 // GetIsDeleted returns the IsDeleted field value
@@ -323,9 +394,13 @@ func (o CustomAttributeModel) MarshalJSON() ([]byte, error) {
 func (o CustomAttributeModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
-	toSerialize["targets"] = o.Targets
-	toSerialize["options"] = o.Options
+	if o.Code.IsSet() {
+		toSerialize["code"] = o.Code.Get()
+	}
 	toSerialize["type"] = o.Type
+	toSerialize["options"] = o.Options
+	toSerialize["targets"] = o.Targets
+	toSerialize["isReadOnly"] = o.IsReadOnly
 	toSerialize["isDeleted"] = o.IsDeleted
 	toSerialize["isSystem"] = o.IsSystem
 	toSerialize["name"] = o.Name
@@ -341,9 +416,10 @@ func (o *CustomAttributeModel) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"id",
-		"targets",
-		"options",
 		"type",
+		"options",
+		"targets",
+		"isReadOnly",
 		"isDeleted",
 		"isSystem",
 		"name",

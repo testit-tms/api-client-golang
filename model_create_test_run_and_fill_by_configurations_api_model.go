@@ -39,6 +39,8 @@ type CreateTestRunAndFillByConfigurationsApiModel struct {
 	Tags []string `json:"tags,omitempty"`
 	// Specifies an array of work items and configuration to create a test run for.
 	TestPointSelectors []TestPointSelector `json:"testPointSelectors"`
+	// Test run launching options.
+	Option NullableTestRunLaunchOptionApiModel `json:"option,omitempty"`
 }
 
 type _CreateTestRunAndFillByConfigurationsApiModel CreateTestRunAndFillByConfigurationsApiModel
@@ -360,6 +362,48 @@ func (o *CreateTestRunAndFillByConfigurationsApiModel) SetTestPointSelectors(v [
 	o.TestPointSelectors = v
 }
 
+// GetOption returns the Option field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateTestRunAndFillByConfigurationsApiModel) GetOption() TestRunLaunchOptionApiModel {
+	if o == nil || IsNil(o.Option.Get()) {
+		var ret TestRunLaunchOptionApiModel
+		return ret
+	}
+	return *o.Option.Get()
+}
+
+// GetOptionOk returns a tuple with the Option field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateTestRunAndFillByConfigurationsApiModel) GetOptionOk() (*TestRunLaunchOptionApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Option.Get(), o.Option.IsSet()
+}
+
+// HasOption returns a boolean if a field has been set.
+func (o *CreateTestRunAndFillByConfigurationsApiModel) HasOption() bool {
+	if o != nil && o.Option.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOption gets a reference to the given NullableTestRunLaunchOptionApiModel and assigns it to the Option field.
+func (o *CreateTestRunAndFillByConfigurationsApiModel) SetOption(v TestRunLaunchOptionApiModel) {
+	o.Option.Set(&v)
+}
+// SetOptionNil sets the value for Option to be an explicit nil
+func (o *CreateTestRunAndFillByConfigurationsApiModel) SetOptionNil() {
+	o.Option.Set(nil)
+}
+
+// UnsetOption ensures that no value is present for Option, not even an explicit nil
+func (o *CreateTestRunAndFillByConfigurationsApiModel) UnsetOption() {
+	o.Option.Unset()
+}
+
 func (o CreateTestRunAndFillByConfigurationsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -391,6 +435,9 @@ func (o CreateTestRunAndFillByConfigurationsApiModel) ToMap() (map[string]interf
 		toSerialize["tags"] = o.Tags
 	}
 	toSerialize["testPointSelectors"] = o.TestPointSelectors
+	if o.Option.IsSet() {
+		toSerialize["option"] = o.Option.Get()
+	}
 	return toSerialize, nil
 }
 

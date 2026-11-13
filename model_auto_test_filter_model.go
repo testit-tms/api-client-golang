@@ -41,6 +41,8 @@ type AutoTestFilterModel struct {
 	LastTestResultConfigurationIds []string `json:"lastTestResultConfigurationIds,omitempty"`
 	Tags []string `json:"tags,omitempty"`
 	ExcludeTags []string `json:"excludeTags,omitempty"`
+	Layers []string `json:"layers,omitempty"`
+	LayerSources []LayerSource `json:"layerSources,omitempty"`
 }
 
 // NewAutoTestFilterModel instantiates a new AutoTestFilterModel object
@@ -903,6 +905,72 @@ func (o *AutoTestFilterModel) SetExcludeTags(v []string) {
 	o.ExcludeTags = v
 }
 
+// GetLayers returns the Layers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestFilterModel) GetLayers() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Layers
+}
+
+// GetLayersOk returns a tuple with the Layers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestFilterModel) GetLayersOk() ([]string, bool) {
+	if o == nil || IsNil(o.Layers) {
+		return nil, false
+	}
+	return o.Layers, true
+}
+
+// HasLayers returns a boolean if a field has been set.
+func (o *AutoTestFilterModel) HasLayers() bool {
+	if o != nil && !IsNil(o.Layers) {
+		return true
+	}
+
+	return false
+}
+
+// SetLayers gets a reference to the given []string and assigns it to the Layers field.
+func (o *AutoTestFilterModel) SetLayers(v []string) {
+	o.Layers = v
+}
+
+// GetLayerSources returns the LayerSources field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestFilterModel) GetLayerSources() []LayerSource {
+	if o == nil {
+		var ret []LayerSource
+		return ret
+	}
+	return o.LayerSources
+}
+
+// GetLayerSourcesOk returns a tuple with the LayerSources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestFilterModel) GetLayerSourcesOk() ([]LayerSource, bool) {
+	if o == nil || IsNil(o.LayerSources) {
+		return nil, false
+	}
+	return o.LayerSources, true
+}
+
+// HasLayerSources returns a boolean if a field has been set.
+func (o *AutoTestFilterModel) HasLayerSources() bool {
+	if o != nil && !IsNil(o.LayerSources) {
+		return true
+	}
+
+	return false
+}
+
+// SetLayerSources gets a reference to the given []LayerSource and assigns it to the LayerSources field.
+func (o *AutoTestFilterModel) SetLayerSources(v []LayerSource) {
+	o.LayerSources = v
+}
+
 func (o AutoTestFilterModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -978,6 +1046,12 @@ func (o AutoTestFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ExcludeTags != nil {
 		toSerialize["excludeTags"] = o.ExcludeTags
+	}
+	if o.Layers != nil {
+		toSerialize["layers"] = o.Layers
+	}
+	if o.LayerSources != nil {
+		toSerialize["layerSources"] = o.LayerSources
 	}
 	return toSerialize, nil
 }

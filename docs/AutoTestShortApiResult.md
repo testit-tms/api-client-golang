@@ -4,17 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**GlobalId** | **int64** |  | 
 **Id** | **string** |  | 
 **ProjectId** | **string** |  | 
-**Name** | **string** |  | 
 **ExternalId** | **string** |  | 
-**GlobalId** | **int64** |  | 
+**Name** | **string** |  | 
+**AutoTestCaseGlobalId** | Pointer to **NullableInt64** |  | [optional] 
 
 ## Methods
 
 ### NewAutoTestShortApiResult
 
-`func NewAutoTestShortApiResult(id string, projectId string, name string, externalId string, globalId int64, ) *AutoTestShortApiResult`
+`func NewAutoTestShortApiResult(globalId int64, id string, projectId string, externalId string, name string, ) *AutoTestShortApiResult`
 
 NewAutoTestShortApiResult instantiates a new AutoTestShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -28,6 +29,26 @@ will change when the set of required properties is changed
 NewAutoTestShortApiResultWithDefaults instantiates a new AutoTestShortApiResult object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetGlobalId
+
+`func (o *AutoTestShortApiResult) GetGlobalId() int64`
+
+GetGlobalId returns the GlobalId field if non-nil, zero value otherwise.
+
+### GetGlobalIdOk
+
+`func (o *AutoTestShortApiResult) GetGlobalIdOk() (*int64, bool)`
+
+GetGlobalIdOk returns a tuple with the GlobalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGlobalId
+
+`func (o *AutoTestShortApiResult) SetGlobalId(v int64)`
+
+SetGlobalId sets GlobalId field to given value.
+
 
 ### GetId
 
@@ -69,26 +90,6 @@ and a boolean to check if the value has been set.
 SetProjectId sets ProjectId field to given value.
 
 
-### GetName
-
-`func (o *AutoTestShortApiResult) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *AutoTestShortApiResult) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *AutoTestShortApiResult) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
 ### GetExternalId
 
 `func (o *AutoTestShortApiResult) GetExternalId() string`
@@ -109,26 +110,61 @@ and a boolean to check if the value has been set.
 SetExternalId sets ExternalId field to given value.
 
 
-### GetGlobalId
+### GetName
 
-`func (o *AutoTestShortApiResult) GetGlobalId() int64`
+`func (o *AutoTestShortApiResult) GetName() string`
 
-GetGlobalId returns the GlobalId field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetGlobalIdOk
+### GetNameOk
 
-`func (o *AutoTestShortApiResult) GetGlobalIdOk() (*int64, bool)`
+`func (o *AutoTestShortApiResult) GetNameOk() (*string, bool)`
 
-GetGlobalIdOk returns a tuple with the GlobalId field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGlobalId
+### SetName
 
-`func (o *AutoTestShortApiResult) SetGlobalId(v int64)`
+`func (o *AutoTestShortApiResult) SetName(v string)`
 
-SetGlobalId sets GlobalId field to given value.
+SetName sets Name field to given value.
 
 
+### GetAutoTestCaseGlobalId
+
+`func (o *AutoTestShortApiResult) GetAutoTestCaseGlobalId() int64`
+
+GetAutoTestCaseGlobalId returns the AutoTestCaseGlobalId field if non-nil, zero value otherwise.
+
+### GetAutoTestCaseGlobalIdOk
+
+`func (o *AutoTestShortApiResult) GetAutoTestCaseGlobalIdOk() (*int64, bool)`
+
+GetAutoTestCaseGlobalIdOk returns a tuple with the AutoTestCaseGlobalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestCaseGlobalId
+
+`func (o *AutoTestShortApiResult) SetAutoTestCaseGlobalId(v int64)`
+
+SetAutoTestCaseGlobalId sets AutoTestCaseGlobalId field to given value.
+
+### HasAutoTestCaseGlobalId
+
+`func (o *AutoTestShortApiResult) HasAutoTestCaseGlobalId() bool`
+
+HasAutoTestCaseGlobalId returns a boolean if a field has been set.
+
+### SetAutoTestCaseGlobalIdNil
+
+`func (o *AutoTestShortApiResult) SetAutoTestCaseGlobalIdNil(b bool)`
+
+ SetAutoTestCaseGlobalIdNil sets the value for AutoTestCaseGlobalId to be an explicit nil
+
+### UnsetAutoTestCaseGlobalId
+`func (o *AutoTestShortApiResult) UnsetAutoTestCaseGlobalId()`
+
+UnsetAutoTestCaseGlobalId ensures that no value is present for AutoTestCaseGlobalId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

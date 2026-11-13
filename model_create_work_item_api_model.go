@@ -51,6 +51,10 @@ type CreateWorkItemApiModel struct {
 	Iterations []AssignIterationApiModel `json:"iterations,omitempty"`
 	// Set of automated tests linked to the work item
 	AutoTests []AutoTestIdModel `json:"autoTests,omitempty"`
+	// Identifier of the linked manual test
+	ManualTestId NullableString `json:"manualTestId,omitempty"`
+	// Set of automated test cases linked to the work item
+	AutoTestCases []AssignAutoTestCaseIdApiModel `json:"autoTestCases,omitempty"`
 	// Set of files attached to the work item
 	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
 	// Set of links related to the work item
@@ -543,6 +547,81 @@ func (o *CreateWorkItemApiModel) SetAutoTests(v []AutoTestIdModel) {
 	o.AutoTests = v
 }
 
+// GetManualTestId returns the ManualTestId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateWorkItemApiModel) GetManualTestId() string {
+	if o == nil || IsNil(o.ManualTestId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ManualTestId.Get()
+}
+
+// GetManualTestIdOk returns a tuple with the ManualTestId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateWorkItemApiModel) GetManualTestIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ManualTestId.Get(), o.ManualTestId.IsSet()
+}
+
+// HasManualTestId returns a boolean if a field has been set.
+func (o *CreateWorkItemApiModel) HasManualTestId() bool {
+	if o != nil && o.ManualTestId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetManualTestId gets a reference to the given NullableString and assigns it to the ManualTestId field.
+func (o *CreateWorkItemApiModel) SetManualTestId(v string) {
+	o.ManualTestId.Set(&v)
+}
+// SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+func (o *CreateWorkItemApiModel) SetManualTestIdNil() {
+	o.ManualTestId.Set(nil)
+}
+
+// UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+func (o *CreateWorkItemApiModel) UnsetManualTestId() {
+	o.ManualTestId.Unset()
+}
+
+// GetAutoTestCases returns the AutoTestCases field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateWorkItemApiModel) GetAutoTestCases() []AssignAutoTestCaseIdApiModel {
+	if o == nil {
+		var ret []AssignAutoTestCaseIdApiModel
+		return ret
+	}
+	return o.AutoTestCases
+}
+
+// GetAutoTestCasesOk returns a tuple with the AutoTestCases field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateWorkItemApiModel) GetAutoTestCasesOk() ([]AssignAutoTestCaseIdApiModel, bool) {
+	if o == nil || IsNil(o.AutoTestCases) {
+		return nil, false
+	}
+	return o.AutoTestCases, true
+}
+
+// HasAutoTestCases returns a boolean if a field has been set.
+func (o *CreateWorkItemApiModel) HasAutoTestCases() bool {
+	if o != nil && !IsNil(o.AutoTestCases) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestCases gets a reference to the given []AssignAutoTestCaseIdApiModel and assigns it to the AutoTestCases field.
+func (o *CreateWorkItemApiModel) SetAutoTestCases(v []AssignAutoTestCaseIdApiModel) {
+	o.AutoTestCases = v
+}
+
 // GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel {
 	if o == nil {
@@ -684,6 +763,12 @@ func (o CreateWorkItemApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AutoTests != nil {
 		toSerialize["autoTests"] = o.AutoTests
+	}
+	if o.ManualTestId.IsSet() {
+		toSerialize["manualTestId"] = o.ManualTestId.Get()
+	}
+	if o.AutoTestCases != nil {
+		toSerialize["autoTestCases"] = o.AutoTestCases
 	}
 	if o.Attachments != nil {
 		toSerialize["attachments"] = o.Attachments

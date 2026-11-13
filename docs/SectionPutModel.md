@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Name** | **string** |  | 
-**ProjectId** | **string** |  | 
 **ParentId** | Pointer to **NullableString** |  | [optional] 
 **PreconditionSteps** | Pointer to [**[]StepPutModel**](StepPutModel.md) |  | [optional] 
 **PostconditionSteps** | Pointer to [**[]StepPutModel**](StepPutModel.md) |  | [optional] 
@@ -16,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewSectionPutModel
 
-`func NewSectionPutModel(id string, name string, projectId string, attachments []AttachmentPutModel, ) *SectionPutModel`
+`func NewSectionPutModel(id string, name string, attachments []AttachmentPutModel, ) *SectionPutModel`
 
 NewSectionPutModel instantiates a new SectionPutModel object
 This constructor will assign default values to properties that have it defined,
@@ -69,26 +68,6 @@ and a boolean to check if the value has been set.
 `func (o *SectionPutModel) SetName(v string)`
 
 SetName sets Name field to given value.
-
-
-### GetProjectId
-
-`func (o *SectionPutModel) GetProjectId() string`
-
-GetProjectId returns the ProjectId field if non-nil, zero value otherwise.
-
-### GetProjectIdOk
-
-`func (o *SectionPutModel) GetProjectIdOk() (*string, bool)`
-
-GetProjectIdOk returns a tuple with the ProjectId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProjectId
-
-`func (o *SectionPutModel) SetProjectId(v string)`
-
-SetProjectId sets ProjectId field to given value.
 
 
 ### GetParentId

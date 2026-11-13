@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **LastTestResultOutcome** | Pointer to **NullableString** | Outcome of the autotest last test result | [optional] 
 **LastTestResultStatus** | Pointer to [**NullableTestStatusModel**](TestStatusModel.md) | Status of the autotest last test result | [optional] 
 **StabilityPercentage** | Pointer to **NullableInt32** | Stability percentage of the autotest | [optional] 
+**AutoTestCase** | Pointer to [**NullableAutoTestCaseModel**](AutoTestCaseModel.md) | Auto test case linked with the autotest | [optional] 
 **ExternalId** | **string** | External ID of the autotest | 
 **Links** | Pointer to [**[]LinkPutModel**](LinkPutModel.md) | Collection of the autotest links | [optional] 
 **ProjectId** | **string** | Unique ID of the autotest project | 
@@ -488,6 +489,41 @@ HasStabilityPercentage returns a boolean if a field has been set.
 `func (o *AutoTestModel) UnsetStabilityPercentage()`
 
 UnsetStabilityPercentage ensures that no value is present for StabilityPercentage, not even an explicit nil
+### GetAutoTestCase
+
+`func (o *AutoTestModel) GetAutoTestCase() AutoTestCaseModel`
+
+GetAutoTestCase returns the AutoTestCase field if non-nil, zero value otherwise.
+
+### GetAutoTestCaseOk
+
+`func (o *AutoTestModel) GetAutoTestCaseOk() (*AutoTestCaseModel, bool)`
+
+GetAutoTestCaseOk returns a tuple with the AutoTestCase field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestCase
+
+`func (o *AutoTestModel) SetAutoTestCase(v AutoTestCaseModel)`
+
+SetAutoTestCase sets AutoTestCase field to given value.
+
+### HasAutoTestCase
+
+`func (o *AutoTestModel) HasAutoTestCase() bool`
+
+HasAutoTestCase returns a boolean if a field has been set.
+
+### SetAutoTestCaseNil
+
+`func (o *AutoTestModel) SetAutoTestCaseNil(b bool)`
+
+ SetAutoTestCaseNil sets the value for AutoTestCase to be an explicit nil
+
+### UnsetAutoTestCase
+`func (o *AutoTestModel) UnsetAutoTestCase()`
+
+UnsetAutoTestCase ensures that no value is present for AutoTestCase, not even an explicit nil
 ### GetExternalId
 
 `func (o *AutoTestModel) GetExternalId() string`

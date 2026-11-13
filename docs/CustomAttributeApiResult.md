@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the attribute | 
 **IsEnabled** | **bool** | Indicates if the attribute is enabled | 
 **IsRequired** | **bool** | Indicates if the attribute value is mandatory to specify | 
+**IsReadOnly** | **bool** | Indicates if the attribute value is read-only | 
 **IsGlobal** | **bool** | Indicates if the attribute is available across all projects | 
 **IsSystem** | **bool** | Indicates if the attribute is system | 
 **Targets** | **[]string** | Collection of the attribute targets   Defines where the attribute can be used (e.g., TestCases, AutoTestCases, TestPlans) | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCustomAttributeApiResult
 
-`func NewCustomAttributeApiResult(id string, options []CustomAttributeOptionApiResult, type_ CustomAttributeType, isDeleted bool, name string, isEnabled bool, isRequired bool, isGlobal bool, isSystem bool, targets []string, ) *CustomAttributeApiResult`
+`func NewCustomAttributeApiResult(id string, options []CustomAttributeOptionApiResult, type_ CustomAttributeType, isDeleted bool, name string, isEnabled bool, isRequired bool, isReadOnly bool, isGlobal bool, isSystem bool, targets []string, ) *CustomAttributeApiResult`
 
 NewCustomAttributeApiResult instantiates a new CustomAttributeApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -172,6 +173,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomAttributeApiResult) SetIsRequired(v bool)`
 
 SetIsRequired sets IsRequired field to given value.
+
+
+### GetIsReadOnly
+
+`func (o *CustomAttributeApiResult) GetIsReadOnly() bool`
+
+GetIsReadOnly returns the IsReadOnly field if non-nil, zero value otherwise.
+
+### GetIsReadOnlyOk
+
+`func (o *CustomAttributeApiResult) GetIsReadOnlyOk() (*bool, bool)`
+
+GetIsReadOnlyOk returns a tuple with the IsReadOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsReadOnly
+
+`func (o *CustomAttributeApiResult) SetIsReadOnly(v bool)`
+
+SetIsReadOnly sets IsReadOnly field to given value.
 
 
 ### GetIsGlobal

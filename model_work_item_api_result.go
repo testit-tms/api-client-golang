@@ -51,6 +51,8 @@ type WorkItemApiResult struct {
 	// Priority level of the work item
 	Priority WorkItemPriorityApiModel `json:"priority"`
 	IsAutomated bool `json:"isAutomated"`
+	// External identifier of the work item from external systems
+	ExternalId NullableString `json:"externalId,omitempty"`
 	// Set of custom attributes associated with the work item
 	Attributes map[string]interface{} `json:"attributes"`
 	// Set of tags applied to the work item
@@ -69,8 +71,12 @@ type WorkItemApiResult struct {
 	Iterations []IterationModel `json:"iterations"`
 	// Automated tests associated with the work item
 	AutoTests []AutoTestModel `json:"autoTests"`
-	// Automated test cases associated with the work item
-	AutoTestCases []string `json:"autoTestCases,omitempty"`
+	// Identifier of the linked manual test
+	ManualTestId NullableString `json:"manualTestId,omitempty"`
+	// Set of automated test cases linked to the work item
+	AutoTestCases []AutoTestCaseApiModel `json:"autoTestCases"`
+	// Test pyramid layer of the work item
+	Layer NullableWorkItemLayerApiResult `json:"layer,omitempty"`
 	// Files attached to the work item
 	Attachments []AttachmentModel `json:"attachments"`
 	// Set of links related to the work item
@@ -97,7 +103,7 @@ type _WorkItemApiResult WorkItemApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, parameters []WorkItemParameterKeyApiResult, createdDate time.Time, createdById string, isDeleted bool) *WorkItemApiResult {
+func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, autoTestCases []AutoTestCaseApiModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, parameters []WorkItemParameterKeyApiResult, createdDate time.Time, createdById string, isDeleted bool) *WorkItemApiResult {
 	this := WorkItemApiResult{}
 	this.Id = id
 	this.GlobalId = globalId
@@ -122,6 +128,7 @@ func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNu
 	this.PostconditionSteps = postconditionSteps
 	this.Iterations = iterations
 	this.AutoTests = autoTests
+	this.AutoTestCases = autoTestCases
 	this.Attachments = attachments
 	this.Links = links
 	this.ExternalIssues = externalIssues
@@ -518,6 +525,48 @@ func (o *WorkItemApiResult) SetIsAutomated(v bool) {
 	o.IsAutomated = v
 }
 
+// GetExternalId returns the ExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemApiResult) GetExternalId() string {
+	if o == nil || IsNil(o.ExternalId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalId.Get()
+}
+
+// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemApiResult) GetExternalIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalId.Get(), o.ExternalId.IsSet()
+}
+
+// HasExternalId returns a boolean if a field has been set.
+func (o *WorkItemApiResult) HasExternalId() bool {
+	if o != nil && o.ExternalId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalId gets a reference to the given NullableString and assigns it to the ExternalId field.
+func (o *WorkItemApiResult) SetExternalId(v string) {
+	o.ExternalId.Set(&v)
+}
+// SetExternalIdNil sets the value for ExternalId to be an explicit nil
+func (o *WorkItemApiResult) SetExternalIdNil() {
+	o.ExternalId.Set(nil)
+}
+
+// UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
+func (o *WorkItemApiResult) UnsetExternalId() {
+	o.ExternalId.Unset()
+}
+
 // GetAttributes returns the Attributes field value
 func (o *WorkItemApiResult) GetAttributes() map[string]interface{} {
 	if o == nil {
@@ -734,37 +783,112 @@ func (o *WorkItemApiResult) SetAutoTests(v []AutoTestModel) {
 	o.AutoTests = v
 }
 
-// GetAutoTestCases returns the AutoTestCases field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *WorkItemApiResult) GetAutoTestCases() []string {
-	if o == nil {
-		var ret []string
+// GetManualTestId returns the ManualTestId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemApiResult) GetManualTestId() string {
+	if o == nil || IsNil(o.ManualTestId.Get()) {
+		var ret string
 		return ret
 	}
-	return o.AutoTestCases
+	return *o.ManualTestId.Get()
 }
 
-// GetAutoTestCasesOk returns a tuple with the AutoTestCases field value if set, nil otherwise
+// GetManualTestIdOk returns a tuple with the ManualTestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *WorkItemApiResult) GetAutoTestCasesOk() ([]string, bool) {
-	if o == nil || IsNil(o.AutoTestCases) {
+func (o *WorkItemApiResult) GetManualTestIdOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.AutoTestCases, true
+	return o.ManualTestId.Get(), o.ManualTestId.IsSet()
 }
 
-// HasAutoTestCases returns a boolean if a field has been set.
-func (o *WorkItemApiResult) HasAutoTestCases() bool {
-	if o != nil && !IsNil(o.AutoTestCases) {
+// HasManualTestId returns a boolean if a field has been set.
+func (o *WorkItemApiResult) HasManualTestId() bool {
+	if o != nil && o.ManualTestId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAutoTestCases gets a reference to the given []string and assigns it to the AutoTestCases field.
-func (o *WorkItemApiResult) SetAutoTestCases(v []string) {
+// SetManualTestId gets a reference to the given NullableString and assigns it to the ManualTestId field.
+func (o *WorkItemApiResult) SetManualTestId(v string) {
+	o.ManualTestId.Set(&v)
+}
+// SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+func (o *WorkItemApiResult) SetManualTestIdNil() {
+	o.ManualTestId.Set(nil)
+}
+
+// UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+func (o *WorkItemApiResult) UnsetManualTestId() {
+	o.ManualTestId.Unset()
+}
+
+// GetAutoTestCases returns the AutoTestCases field value
+func (o *WorkItemApiResult) GetAutoTestCases() []AutoTestCaseApiModel {
+	if o == nil {
+		var ret []AutoTestCaseApiModel
+		return ret
+	}
+
+	return o.AutoTestCases
+}
+
+// GetAutoTestCasesOk returns a tuple with the AutoTestCases field value
+// and a boolean to check if the value has been set.
+func (o *WorkItemApiResult) GetAutoTestCasesOk() ([]AutoTestCaseApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoTestCases, true
+}
+
+// SetAutoTestCases sets field value
+func (o *WorkItemApiResult) SetAutoTestCases(v []AutoTestCaseApiModel) {
 	o.AutoTestCases = v
+}
+
+// GetLayer returns the Layer field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemApiResult) GetLayer() WorkItemLayerApiResult {
+	if o == nil || IsNil(o.Layer.Get()) {
+		var ret WorkItemLayerApiResult
+		return ret
+	}
+	return *o.Layer.Get()
+}
+
+// GetLayerOk returns a tuple with the Layer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemApiResult) GetLayerOk() (*WorkItemLayerApiResult, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Layer.Get(), o.Layer.IsSet()
+}
+
+// HasLayer returns a boolean if a field has been set.
+func (o *WorkItemApiResult) HasLayer() bool {
+	if o != nil && o.Layer.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLayer gets a reference to the given NullableWorkItemLayerApiResult and assigns it to the Layer field.
+func (o *WorkItemApiResult) SetLayer(v WorkItemLayerApiResult) {
+	o.Layer.Set(&v)
+}
+// SetLayerNil sets the value for Layer to be an explicit nil
+func (o *WorkItemApiResult) SetLayerNil() {
+	o.Layer.Set(nil)
+}
+
+// UnsetLayer ensures that no value is present for Layer, not even an explicit nil
+func (o *WorkItemApiResult) UnsetLayer() {
+	o.Layer.Unset()
 }
 
 // GetAttachments returns the Attachments field value
@@ -1046,6 +1170,9 @@ func (o WorkItemApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["state"] = o.State
 	toSerialize["priority"] = o.Priority
 	toSerialize["isAutomated"] = o.IsAutomated
+	if o.ExternalId.IsSet() {
+		toSerialize["externalId"] = o.ExternalId.Get()
+	}
 	toSerialize["attributes"] = o.Attributes
 	toSerialize["tags"] = o.Tags
 	toSerialize["sectionPreconditionSteps"] = o.SectionPreconditionSteps
@@ -1055,8 +1182,12 @@ func (o WorkItemApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["postconditionSteps"] = o.PostconditionSteps
 	toSerialize["iterations"] = o.Iterations
 	toSerialize["autoTests"] = o.AutoTests
-	if o.AutoTestCases != nil {
-		toSerialize["autoTestCases"] = o.AutoTestCases
+	if o.ManualTestId.IsSet() {
+		toSerialize["manualTestId"] = o.ManualTestId.Get()
+	}
+	toSerialize["autoTestCases"] = o.AutoTestCases
+	if o.Layer.IsSet() {
+		toSerialize["layer"] = o.Layer.Get()
 	}
 	toSerialize["attachments"] = o.Attachments
 	toSerialize["links"] = o.Links
@@ -1102,6 +1233,7 @@ func (o *WorkItemApiResult) UnmarshalJSON(data []byte) (err error) {
 		"postconditionSteps",
 		"iterations",
 		"autoTests",
+		"autoTestCases",
 		"attachments",
 		"links",
 		"externalIssues",

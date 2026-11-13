@@ -49,9 +49,12 @@ type AutoTestApiResult struct {
 	LastTestResultOutcome NullableString `json:"lastTestResultOutcome,omitempty"`
 	LastTestResultStatus NullableTestStatusApiResult `json:"lastTestResultStatus,omitempty"`
 	StabilityPercentage NullableInt64 `json:"stabilityPercentage,omitempty"`
+	// Model of auto test layer for use in responses.
+	Layer NullableLayerApiResult `json:"layer,omitempty"`
 	Links []LinkApiResult `json:"links,omitempty"`
 	Labels []LabelApiResult `json:"labels,omitempty"`
 	Tags []string `json:"tags,omitempty"`
+	ManualTestId NullableString `json:"manualTestId,omitempty"`
 }
 
 type _AutoTestApiResult AutoTestApiResult
@@ -1027,6 +1030,48 @@ func (o *AutoTestApiResult) UnsetStabilityPercentage() {
 	o.StabilityPercentage.Unset()
 }
 
+// GetLayer returns the Layer field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestApiResult) GetLayer() LayerApiResult {
+	if o == nil || IsNil(o.Layer.Get()) {
+		var ret LayerApiResult
+		return ret
+	}
+	return *o.Layer.Get()
+}
+
+// GetLayerOk returns a tuple with the Layer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestApiResult) GetLayerOk() (*LayerApiResult, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Layer.Get(), o.Layer.IsSet()
+}
+
+// HasLayer returns a boolean if a field has been set.
+func (o *AutoTestApiResult) HasLayer() bool {
+	if o != nil && o.Layer.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLayer gets a reference to the given NullableLayerApiResult and assigns it to the Layer field.
+func (o *AutoTestApiResult) SetLayer(v LayerApiResult) {
+	o.Layer.Set(&v)
+}
+// SetLayerNil sets the value for Layer to be an explicit nil
+func (o *AutoTestApiResult) SetLayerNil() {
+	o.Layer.Set(nil)
+}
+
+// UnsetLayer ensures that no value is present for Layer, not even an explicit nil
+func (o *AutoTestApiResult) UnsetLayer() {
+	o.Layer.Unset()
+}
+
 // GetLinks returns the Links field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AutoTestApiResult) GetLinks() []LinkApiResult {
 	if o == nil {
@@ -1126,6 +1171,48 @@ func (o *AutoTestApiResult) SetTags(v []string) {
 	o.Tags = v
 }
 
+// GetManualTestId returns the ManualTestId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestApiResult) GetManualTestId() string {
+	if o == nil || IsNil(o.ManualTestId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ManualTestId.Get()
+}
+
+// GetManualTestIdOk returns a tuple with the ManualTestId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestApiResult) GetManualTestIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ManualTestId.Get(), o.ManualTestId.IsSet()
+}
+
+// HasManualTestId returns a boolean if a field has been set.
+func (o *AutoTestApiResult) HasManualTestId() bool {
+	if o != nil && o.ManualTestId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetManualTestId gets a reference to the given NullableString and assigns it to the ManualTestId field.
+func (o *AutoTestApiResult) SetManualTestId(v string) {
+	o.ManualTestId.Set(&v)
+}
+// SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+func (o *AutoTestApiResult) SetManualTestIdNil() {
+	o.ManualTestId.Set(nil)
+}
+
+// UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+func (o *AutoTestApiResult) UnsetManualTestId() {
+	o.ManualTestId.Unset()
+}
+
 func (o AutoTestApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1199,6 +1286,9 @@ func (o AutoTestApiResult) ToMap() (map[string]interface{}, error) {
 	if o.StabilityPercentage.IsSet() {
 		toSerialize["stabilityPercentage"] = o.StabilityPercentage.Get()
 	}
+	if o.Layer.IsSet() {
+		toSerialize["layer"] = o.Layer.Get()
+	}
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
 	}
@@ -1207,6 +1297,9 @@ func (o AutoTestApiResult) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.ManualTestId.IsSet() {
+		toSerialize["manualTestId"] = o.ManualTestId.Get()
 	}
 	return toSerialize, nil
 }

@@ -49,12 +49,22 @@ type UpdateWorkItemApiModel struct {
 	Iterations []AssignIterationApiModel `json:"iterations,omitempty"`
 	// Set of automated tests linked to the work item
 	AutoTests []AutoTestIdModel `json:"autoTests,omitempty"`
+	// Identifier of the linked manual test
+	ManualTestId NullableString `json:"manualTestId,omitempty"`
+	// Set of automated test cases linked to the work item
+	AutoTestCases []AssignAutoTestCaseIdApiModel `json:"autoTestCases,omitempty"`
 	// Set of files attached to the work item
 	Attachments []AssignAttachmentApiModel `json:"attachments,omitempty"`
 	// Set of links related to the work item
 	Links []UpdateLinkApiModel `json:"links,omitempty"`
 	// Set of parameter keys associated with the work item
 	Parameters []WorkItemParameterKeyApiModel `json:"parameters,omitempty"`
+	// Name of test pyramid layer associated with the work item
+	LayerName NullableString `json:"layerName,omitempty"`
+	// Source of test pyramid layer associated with the work item
+	LayerSource NullableLayerSource `json:"layerSource,omitempty"`
+	// Reset current test pyramid layer associated with the work item and re-evaluates it
+	ResetLayer NullableBool `json:"resetLayer,omitempty"`
 }
 
 type _UpdateWorkItemApiModel UpdateWorkItemApiModel
@@ -499,6 +509,81 @@ func (o *UpdateWorkItemApiModel) SetAutoTests(v []AutoTestIdModel) {
 	o.AutoTests = v
 }
 
+// GetManualTestId returns the ManualTestId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateWorkItemApiModel) GetManualTestId() string {
+	if o == nil || IsNil(o.ManualTestId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ManualTestId.Get()
+}
+
+// GetManualTestIdOk returns a tuple with the ManualTestId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateWorkItemApiModel) GetManualTestIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ManualTestId.Get(), o.ManualTestId.IsSet()
+}
+
+// HasManualTestId returns a boolean if a field has been set.
+func (o *UpdateWorkItemApiModel) HasManualTestId() bool {
+	if o != nil && o.ManualTestId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetManualTestId gets a reference to the given NullableString and assigns it to the ManualTestId field.
+func (o *UpdateWorkItemApiModel) SetManualTestId(v string) {
+	o.ManualTestId.Set(&v)
+}
+// SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+func (o *UpdateWorkItemApiModel) SetManualTestIdNil() {
+	o.ManualTestId.Set(nil)
+}
+
+// UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+func (o *UpdateWorkItemApiModel) UnsetManualTestId() {
+	o.ManualTestId.Unset()
+}
+
+// GetAutoTestCases returns the AutoTestCases field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateWorkItemApiModel) GetAutoTestCases() []AssignAutoTestCaseIdApiModel {
+	if o == nil {
+		var ret []AssignAutoTestCaseIdApiModel
+		return ret
+	}
+	return o.AutoTestCases
+}
+
+// GetAutoTestCasesOk returns a tuple with the AutoTestCases field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateWorkItemApiModel) GetAutoTestCasesOk() ([]AssignAutoTestCaseIdApiModel, bool) {
+	if o == nil || IsNil(o.AutoTestCases) {
+		return nil, false
+	}
+	return o.AutoTestCases, true
+}
+
+// HasAutoTestCases returns a boolean if a field has been set.
+func (o *UpdateWorkItemApiModel) HasAutoTestCases() bool {
+	if o != nil && !IsNil(o.AutoTestCases) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestCases gets a reference to the given []AssignAutoTestCaseIdApiModel and assigns it to the AutoTestCases field.
+func (o *UpdateWorkItemApiModel) SetAutoTestCases(v []AssignAutoTestCaseIdApiModel) {
+	o.AutoTestCases = v
+}
+
 // GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel {
 	if o == nil {
@@ -598,6 +683,132 @@ func (o *UpdateWorkItemApiModel) SetParameters(v []WorkItemParameterKeyApiModel)
 	o.Parameters = v
 }
 
+// GetLayerName returns the LayerName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateWorkItemApiModel) GetLayerName() string {
+	if o == nil || IsNil(o.LayerName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LayerName.Get()
+}
+
+// GetLayerNameOk returns a tuple with the LayerName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateWorkItemApiModel) GetLayerNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LayerName.Get(), o.LayerName.IsSet()
+}
+
+// HasLayerName returns a boolean if a field has been set.
+func (o *UpdateWorkItemApiModel) HasLayerName() bool {
+	if o != nil && o.LayerName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLayerName gets a reference to the given NullableString and assigns it to the LayerName field.
+func (o *UpdateWorkItemApiModel) SetLayerName(v string) {
+	o.LayerName.Set(&v)
+}
+// SetLayerNameNil sets the value for LayerName to be an explicit nil
+func (o *UpdateWorkItemApiModel) SetLayerNameNil() {
+	o.LayerName.Set(nil)
+}
+
+// UnsetLayerName ensures that no value is present for LayerName, not even an explicit nil
+func (o *UpdateWorkItemApiModel) UnsetLayerName() {
+	o.LayerName.Unset()
+}
+
+// GetLayerSource returns the LayerSource field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateWorkItemApiModel) GetLayerSource() LayerSource {
+	if o == nil || IsNil(o.LayerSource.Get()) {
+		var ret LayerSource
+		return ret
+	}
+	return *o.LayerSource.Get()
+}
+
+// GetLayerSourceOk returns a tuple with the LayerSource field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateWorkItemApiModel) GetLayerSourceOk() (*LayerSource, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LayerSource.Get(), o.LayerSource.IsSet()
+}
+
+// HasLayerSource returns a boolean if a field has been set.
+func (o *UpdateWorkItemApiModel) HasLayerSource() bool {
+	if o != nil && o.LayerSource.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLayerSource gets a reference to the given NullableLayerSource and assigns it to the LayerSource field.
+func (o *UpdateWorkItemApiModel) SetLayerSource(v LayerSource) {
+	o.LayerSource.Set(&v)
+}
+// SetLayerSourceNil sets the value for LayerSource to be an explicit nil
+func (o *UpdateWorkItemApiModel) SetLayerSourceNil() {
+	o.LayerSource.Set(nil)
+}
+
+// UnsetLayerSource ensures that no value is present for LayerSource, not even an explicit nil
+func (o *UpdateWorkItemApiModel) UnsetLayerSource() {
+	o.LayerSource.Unset()
+}
+
+// GetResetLayer returns the ResetLayer field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateWorkItemApiModel) GetResetLayer() bool {
+	if o == nil || IsNil(o.ResetLayer.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ResetLayer.Get()
+}
+
+// GetResetLayerOk returns a tuple with the ResetLayer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateWorkItemApiModel) GetResetLayerOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ResetLayer.Get(), o.ResetLayer.IsSet()
+}
+
+// HasResetLayer returns a boolean if a field has been set.
+func (o *UpdateWorkItemApiModel) HasResetLayer() bool {
+	if o != nil && o.ResetLayer.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetResetLayer gets a reference to the given NullableBool and assigns it to the ResetLayer field.
+func (o *UpdateWorkItemApiModel) SetResetLayer(v bool) {
+	o.ResetLayer.Set(&v)
+}
+// SetResetLayerNil sets the value for ResetLayer to be an explicit nil
+func (o *UpdateWorkItemApiModel) SetResetLayerNil() {
+	o.ResetLayer.Set(nil)
+}
+
+// UnsetResetLayer ensures that no value is present for ResetLayer, not even an explicit nil
+func (o *UpdateWorkItemApiModel) UnsetResetLayer() {
+	o.ResetLayer.Unset()
+}
+
 func (o UpdateWorkItemApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -638,6 +849,12 @@ func (o UpdateWorkItemApiModel) ToMap() (map[string]interface{}, error) {
 	if o.AutoTests != nil {
 		toSerialize["autoTests"] = o.AutoTests
 	}
+	if o.ManualTestId.IsSet() {
+		toSerialize["manualTestId"] = o.ManualTestId.Get()
+	}
+	if o.AutoTestCases != nil {
+		toSerialize["autoTestCases"] = o.AutoTestCases
+	}
 	if o.Attachments != nil {
 		toSerialize["attachments"] = o.Attachments
 	}
@@ -646,6 +863,15 @@ func (o UpdateWorkItemApiModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Parameters != nil {
 		toSerialize["parameters"] = o.Parameters
+	}
+	if o.LayerName.IsSet() {
+		toSerialize["layerName"] = o.LayerName.Get()
+	}
+	if o.LayerSource.IsSet() {
+		toSerialize["layerSource"] = o.LayerSource.Get()
+	}
+	if o.ResetLayer.IsSet() {
+		toSerialize["resetLayer"] = o.ResetLayer.Get()
 	}
 	return toSerialize, nil
 }

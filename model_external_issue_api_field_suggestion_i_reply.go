@@ -18,8 +18,16 @@ import (
 
 // ExternalIssueApiFieldSuggestionIReply - struct for ExternalIssueApiFieldSuggestionIReply
 type ExternalIssueApiFieldSuggestionIReply struct {
+	ExternalIssueApiFieldSuggestionCountReply *ExternalIssueApiFieldSuggestionCountReply
 	ExternalIssueApiFieldSuggestionGroupedReply *ExternalIssueApiFieldSuggestionGroupedReply
 	ExternalIssueApiFieldSuggestionReply *ExternalIssueApiFieldSuggestionReply
+}
+
+// ExternalIssueApiFieldSuggestionCountReplyAsExternalIssueApiFieldSuggestionIReply is a convenience function that returns ExternalIssueApiFieldSuggestionCountReply wrapped in ExternalIssueApiFieldSuggestionIReply
+func ExternalIssueApiFieldSuggestionCountReplyAsExternalIssueApiFieldSuggestionIReply(v *ExternalIssueApiFieldSuggestionCountReply) ExternalIssueApiFieldSuggestionIReply {
+	return ExternalIssueApiFieldSuggestionIReply{
+		ExternalIssueApiFieldSuggestionCountReply: v,
+	}
 }
 
 // ExternalIssueApiFieldSuggestionGroupedReplyAsExternalIssueApiFieldSuggestionIReply is a convenience function that returns ExternalIssueApiFieldSuggestionGroupedReply wrapped in ExternalIssueApiFieldSuggestionIReply
@@ -41,6 +49,23 @@ func ExternalIssueApiFieldSuggestionReplyAsExternalIssueApiFieldSuggestionIReply
 func (dst *ExternalIssueApiFieldSuggestionIReply) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into ExternalIssueApiFieldSuggestionCountReply
+	err = newStrictDecoder(data).Decode(&dst.ExternalIssueApiFieldSuggestionCountReply)
+	if err == nil {
+		jsonExternalIssueApiFieldSuggestionCountReply, _ := json.Marshal(dst.ExternalIssueApiFieldSuggestionCountReply)
+		if string(jsonExternalIssueApiFieldSuggestionCountReply) == "{}" { // empty struct
+			dst.ExternalIssueApiFieldSuggestionCountReply = nil
+		} else {
+			if err = validator.Validate(dst.ExternalIssueApiFieldSuggestionCountReply); err != nil {
+				dst.ExternalIssueApiFieldSuggestionCountReply = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.ExternalIssueApiFieldSuggestionCountReply = nil
+	}
+
 	// try to unmarshal data into ExternalIssueApiFieldSuggestionGroupedReply
 	err = newStrictDecoder(data).Decode(&dst.ExternalIssueApiFieldSuggestionGroupedReply)
 	if err == nil {
@@ -77,6 +102,7 @@ func (dst *ExternalIssueApiFieldSuggestionIReply) UnmarshalJSON(data []byte) err
 
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.ExternalIssueApiFieldSuggestionCountReply = nil
 		dst.ExternalIssueApiFieldSuggestionGroupedReply = nil
 		dst.ExternalIssueApiFieldSuggestionReply = nil
 
@@ -90,6 +116,10 @@ func (dst *ExternalIssueApiFieldSuggestionIReply) UnmarshalJSON(data []byte) err
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src ExternalIssueApiFieldSuggestionIReply) MarshalJSON() ([]byte, error) {
+	if src.ExternalIssueApiFieldSuggestionCountReply != nil {
+		return json.Marshal(&src.ExternalIssueApiFieldSuggestionCountReply)
+	}
+
 	if src.ExternalIssueApiFieldSuggestionGroupedReply != nil {
 		return json.Marshal(&src.ExternalIssueApiFieldSuggestionGroupedReply)
 	}
@@ -106,6 +136,10 @@ func (obj *ExternalIssueApiFieldSuggestionIReply) GetActualInstance() (interface
 	if obj == nil {
 		return nil
 	}
+	if obj.ExternalIssueApiFieldSuggestionCountReply != nil {
+		return obj.ExternalIssueApiFieldSuggestionCountReply
+	}
+
 	if obj.ExternalIssueApiFieldSuggestionGroupedReply != nil {
 		return obj.ExternalIssueApiFieldSuggestionGroupedReply
 	}
@@ -120,6 +154,10 @@ func (obj *ExternalIssueApiFieldSuggestionIReply) GetActualInstance() (interface
 
 // Get the actual instance value
 func (obj ExternalIssueApiFieldSuggestionIReply) GetActualInstanceValue() (interface{}) {
+	if obj.ExternalIssueApiFieldSuggestionCountReply != nil {
+		return *obj.ExternalIssueApiFieldSuggestionCountReply
+	}
+
 	if obj.ExternalIssueApiFieldSuggestionGroupedReply != nil {
 		return *obj.ExternalIssueApiFieldSuggestionGroupedReply
 	}

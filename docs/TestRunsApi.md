@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ApiV2TestRunsByAutoTestCasesPost**](TestRunsAPI.md#ApiV2TestRunsByAutoTestCasesPost) | **Post** /api/v2/testRuns/byAutoTestCases | Create TestRun filled with autotests linked to work items of type \&quot;AutoTestCases\&quot; selected by the filter
 [**ApiV2TestRunsDelete**](TestRunsAPI.md#ApiV2TestRunsDelete) | **Delete** /api/v2/testRuns | Delete multiple test runs
 [**ApiV2TestRunsIdAutoTestsNamespacesGet**](TestRunsAPI.md#ApiV2TestRunsIdAutoTestsNamespacesGet) | **Get** /api/v2/testRuns/{id}/autoTestsNamespaces | Get autotest classes and namespaces in test run
 [**ApiV2TestRunsIdDelete**](TestRunsAPI.md#ApiV2TestRunsIdDelete) | **Delete** /api/v2/testRuns/{id} | Delete test run
@@ -30,6 +31,70 @@ Method | HTTP request | Description
 [**StopTestRun**](TestRunsAPI.md#StopTestRun) | **Post** /api/v2/testRuns/{id}/stop | Stop TestRun
 [**UpdateEmpty**](TestRunsAPI.md#UpdateEmpty) | **Put** /api/v2/testRuns | Update empty TestRun
 
+
+
+## ApiV2TestRunsByAutoTestCasesPost
+
+> TestRunV2ApiResult ApiV2TestRunsByAutoTestCasesPost(ctx).CreateTestRunAndFillByAutoTestCasesApiModel(createTestRunAndFillByAutoTestCasesApiModel).Execute()
+
+Create TestRun filled with autotests linked to work items of type \"AutoTestCases\" selected by the filter
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	createTestRunAndFillByAutoTestCasesApiModel := *openapiclient.NewCreateTestRunAndFillByAutoTestCasesApiModel("ProjectId_example", []string{"ConfigurationIds_example"}, *openapiclient.NewTestRunLaunchOptionApiModel([]string{"WebhookIds_example"})) // CreateTestRunAndFillByAutoTestCasesApiModel | Test run model with a filter for work items of type \"AutoTestCases\" and configuration IDs (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TestRunsAPI.ApiV2TestRunsByAutoTestCasesPost(context.Background()).CreateTestRunAndFillByAutoTestCasesApiModel(createTestRunAndFillByAutoTestCasesApiModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TestRunsAPI.ApiV2TestRunsByAutoTestCasesPost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ApiV2TestRunsByAutoTestCasesPost`: TestRunV2ApiResult
+	fmt.Fprintf(os.Stdout, "Response from `TestRunsAPI.ApiV2TestRunsByAutoTestCasesPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApiV2TestRunsByAutoTestCasesPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createTestRunAndFillByAutoTestCasesApiModel** | [**CreateTestRunAndFillByAutoTestCasesApiModel**](CreateTestRunAndFillByAutoTestCasesApiModel.md) | Test run model with a filter for work items of type \&quot;AutoTestCases\&quot; and configuration IDs | 
+
+### Return type
+
+[**TestRunV2ApiResult**](TestRunV2ApiResult.md)
+
+### Authorization
+
+[PrivateToken](../README.md#PrivateToken), [Cookies](../README.md#Cookies)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ApiV2TestRunsDelete

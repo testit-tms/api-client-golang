@@ -18,8 +18,16 @@ import (
 
 // AIServiceModelApiResultIReply - struct for AIServiceModelApiResultIReply
 type AIServiceModelApiResultIReply struct {
+	AIServiceModelApiResultCountReply *AIServiceModelApiResultCountReply
 	AIServiceModelApiResultGroupedReply *AIServiceModelApiResultGroupedReply
 	AIServiceModelApiResultReply *AIServiceModelApiResultReply
+}
+
+// AIServiceModelApiResultCountReplyAsAIServiceModelApiResultIReply is a convenience function that returns AIServiceModelApiResultCountReply wrapped in AIServiceModelApiResultIReply
+func AIServiceModelApiResultCountReplyAsAIServiceModelApiResultIReply(v *AIServiceModelApiResultCountReply) AIServiceModelApiResultIReply {
+	return AIServiceModelApiResultIReply{
+		AIServiceModelApiResultCountReply: v,
+	}
 }
 
 // AIServiceModelApiResultGroupedReplyAsAIServiceModelApiResultIReply is a convenience function that returns AIServiceModelApiResultGroupedReply wrapped in AIServiceModelApiResultIReply
@@ -41,6 +49,23 @@ func AIServiceModelApiResultReplyAsAIServiceModelApiResultIReply(v *AIServiceMod
 func (dst *AIServiceModelApiResultIReply) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into AIServiceModelApiResultCountReply
+	err = newStrictDecoder(data).Decode(&dst.AIServiceModelApiResultCountReply)
+	if err == nil {
+		jsonAIServiceModelApiResultCountReply, _ := json.Marshal(dst.AIServiceModelApiResultCountReply)
+		if string(jsonAIServiceModelApiResultCountReply) == "{}" { // empty struct
+			dst.AIServiceModelApiResultCountReply = nil
+		} else {
+			if err = validator.Validate(dst.AIServiceModelApiResultCountReply); err != nil {
+				dst.AIServiceModelApiResultCountReply = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.AIServiceModelApiResultCountReply = nil
+	}
+
 	// try to unmarshal data into AIServiceModelApiResultGroupedReply
 	err = newStrictDecoder(data).Decode(&dst.AIServiceModelApiResultGroupedReply)
 	if err == nil {
@@ -77,6 +102,7 @@ func (dst *AIServiceModelApiResultIReply) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.AIServiceModelApiResultCountReply = nil
 		dst.AIServiceModelApiResultGroupedReply = nil
 		dst.AIServiceModelApiResultReply = nil
 
@@ -90,6 +116,10 @@ func (dst *AIServiceModelApiResultIReply) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src AIServiceModelApiResultIReply) MarshalJSON() ([]byte, error) {
+	if src.AIServiceModelApiResultCountReply != nil {
+		return json.Marshal(&src.AIServiceModelApiResultCountReply)
+	}
+
 	if src.AIServiceModelApiResultGroupedReply != nil {
 		return json.Marshal(&src.AIServiceModelApiResultGroupedReply)
 	}
@@ -106,6 +136,10 @@ func (obj *AIServiceModelApiResultIReply) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
+	if obj.AIServiceModelApiResultCountReply != nil {
+		return obj.AIServiceModelApiResultCountReply
+	}
+
 	if obj.AIServiceModelApiResultGroupedReply != nil {
 		return obj.AIServiceModelApiResultGroupedReply
 	}
@@ -120,6 +154,10 @@ func (obj *AIServiceModelApiResultIReply) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj AIServiceModelApiResultIReply) GetActualInstanceValue() (interface{}) {
+	if obj.AIServiceModelApiResultCountReply != nil {
+		return *obj.AIServiceModelApiResultCountReply
+	}
+
 	if obj.AIServiceModelApiResultGroupedReply != nil {
 		return *obj.AIServiceModelApiResultGroupedReply
 	}

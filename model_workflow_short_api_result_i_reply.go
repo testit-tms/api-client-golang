@@ -18,8 +18,16 @@ import (
 
 // WorkflowShortApiResultIReply - struct for WorkflowShortApiResultIReply
 type WorkflowShortApiResultIReply struct {
+	WorkflowShortApiResultCountReply *WorkflowShortApiResultCountReply
 	WorkflowShortApiResultGroupedReply *WorkflowShortApiResultGroupedReply
 	WorkflowShortApiResultReply *WorkflowShortApiResultReply
+}
+
+// WorkflowShortApiResultCountReplyAsWorkflowShortApiResultIReply is a convenience function that returns WorkflowShortApiResultCountReply wrapped in WorkflowShortApiResultIReply
+func WorkflowShortApiResultCountReplyAsWorkflowShortApiResultIReply(v *WorkflowShortApiResultCountReply) WorkflowShortApiResultIReply {
+	return WorkflowShortApiResultIReply{
+		WorkflowShortApiResultCountReply: v,
+	}
 }
 
 // WorkflowShortApiResultGroupedReplyAsWorkflowShortApiResultIReply is a convenience function that returns WorkflowShortApiResultGroupedReply wrapped in WorkflowShortApiResultIReply
@@ -41,6 +49,23 @@ func WorkflowShortApiResultReplyAsWorkflowShortApiResultIReply(v *WorkflowShortA
 func (dst *WorkflowShortApiResultIReply) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into WorkflowShortApiResultCountReply
+	err = newStrictDecoder(data).Decode(&dst.WorkflowShortApiResultCountReply)
+	if err == nil {
+		jsonWorkflowShortApiResultCountReply, _ := json.Marshal(dst.WorkflowShortApiResultCountReply)
+		if string(jsonWorkflowShortApiResultCountReply) == "{}" { // empty struct
+			dst.WorkflowShortApiResultCountReply = nil
+		} else {
+			if err = validator.Validate(dst.WorkflowShortApiResultCountReply); err != nil {
+				dst.WorkflowShortApiResultCountReply = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.WorkflowShortApiResultCountReply = nil
+	}
+
 	// try to unmarshal data into WorkflowShortApiResultGroupedReply
 	err = newStrictDecoder(data).Decode(&dst.WorkflowShortApiResultGroupedReply)
 	if err == nil {
@@ -77,6 +102,7 @@ func (dst *WorkflowShortApiResultIReply) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.WorkflowShortApiResultCountReply = nil
 		dst.WorkflowShortApiResultGroupedReply = nil
 		dst.WorkflowShortApiResultReply = nil
 
@@ -90,6 +116,10 @@ func (dst *WorkflowShortApiResultIReply) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src WorkflowShortApiResultIReply) MarshalJSON() ([]byte, error) {
+	if src.WorkflowShortApiResultCountReply != nil {
+		return json.Marshal(&src.WorkflowShortApiResultCountReply)
+	}
+
 	if src.WorkflowShortApiResultGroupedReply != nil {
 		return json.Marshal(&src.WorkflowShortApiResultGroupedReply)
 	}
@@ -106,6 +136,10 @@ func (obj *WorkflowShortApiResultIReply) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
+	if obj.WorkflowShortApiResultCountReply != nil {
+		return obj.WorkflowShortApiResultCountReply
+	}
+
 	if obj.WorkflowShortApiResultGroupedReply != nil {
 		return obj.WorkflowShortApiResultGroupedReply
 	}
@@ -120,6 +154,10 @@ func (obj *WorkflowShortApiResultIReply) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj WorkflowShortApiResultIReply) GetActualInstanceValue() (interface{}) {
+	if obj.WorkflowShortApiResultCountReply != nil {
+		return *obj.WorkflowShortApiResultCountReply
+	}
+
 	if obj.WorkflowShortApiResultGroupedReply != nil {
 		return *obj.WorkflowShortApiResultGroupedReply
 	}

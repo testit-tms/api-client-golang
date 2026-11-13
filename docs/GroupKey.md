@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **NullableString** |  | 
+**Value** | [**JsonElement**](JsonElement.md) |  | 
 **DisplayValue** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
 ### NewGroupKey
 
-`func NewGroupKey(value NullableString, ) *GroupKey`
+`func NewGroupKey(value JsonElement, ) *GroupKey`
 
 NewGroupKey instantiates a new GroupKey object
 This constructor will assign default values to properties that have it defined,
@@ -28,34 +28,24 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *GroupKey) GetValue() string`
+`func (o *GroupKey) GetValue() JsonElement`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *GroupKey) GetValueOk() (*string, bool)`
+`func (o *GroupKey) GetValueOk() (*JsonElement, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *GroupKey) SetValue(v string)`
+`func (o *GroupKey) SetValue(v JsonElement)`
 
 SetValue sets Value field to given value.
 
 
-### SetValueNil
-
-`func (o *GroupKey) SetValueNil(b bool)`
-
- SetValueNil sets the value for Value to be an explicit nil
-
-### UnsetValue
-`func (o *GroupKey) UnsetValue()`
-
-UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetDisplayValue
 
 `func (o *GroupKey) GetDisplayValue() string`

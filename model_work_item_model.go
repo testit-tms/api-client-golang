@@ -31,6 +31,8 @@ type WorkItemModel struct {
 	EntityTypeName WorkItemTypeModel `json:"entityTypeName"`
 	IsAutomated bool `json:"isAutomated"`
 	AutoTests []AutoTestModel `json:"autoTests,omitempty"`
+	ManualTestId NullableString `json:"manualTestId,omitempty"`
+	AutoTestCases []AutoTestCaseResult `json:"autoTestCases,omitempty"`
 	Attachments []AttachmentModel `json:"attachments,omitempty"`
 	SectionPreconditionSteps []StepModel `json:"sectionPreconditionSteps,omitempty"`
 	SectionPostconditionSteps []StepModel `json:"sectionPostconditionSteps,omitempty"`
@@ -44,6 +46,7 @@ type WorkItemModel struct {
 	CreatedById string `json:"createdById"`
 	ModifiedById NullableString `json:"modifiedById,omitempty"`
 	GlobalId int64 `json:"globalId"`
+	ExternalId NullableString `json:"externalId,omitempty"`
 	Id string `json:"id"`
 	SectionId string `json:"sectionId"`
 	Description NullableString `json:"description,omitempty"`
@@ -279,6 +282,81 @@ func (o *WorkItemModel) HasAutoTests() bool {
 // SetAutoTests gets a reference to the given []AutoTestModel and assigns it to the AutoTests field.
 func (o *WorkItemModel) SetAutoTests(v []AutoTestModel) {
 	o.AutoTests = v
+}
+
+// GetManualTestId returns the ManualTestId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemModel) GetManualTestId() string {
+	if o == nil || IsNil(o.ManualTestId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ManualTestId.Get()
+}
+
+// GetManualTestIdOk returns a tuple with the ManualTestId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemModel) GetManualTestIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ManualTestId.Get(), o.ManualTestId.IsSet()
+}
+
+// HasManualTestId returns a boolean if a field has been set.
+func (o *WorkItemModel) HasManualTestId() bool {
+	if o != nil && o.ManualTestId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetManualTestId gets a reference to the given NullableString and assigns it to the ManualTestId field.
+func (o *WorkItemModel) SetManualTestId(v string) {
+	o.ManualTestId.Set(&v)
+}
+// SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+func (o *WorkItemModel) SetManualTestIdNil() {
+	o.ManualTestId.Set(nil)
+}
+
+// UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+func (o *WorkItemModel) UnsetManualTestId() {
+	o.ManualTestId.Unset()
+}
+
+// GetAutoTestCases returns the AutoTestCases field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemModel) GetAutoTestCases() []AutoTestCaseResult {
+	if o == nil {
+		var ret []AutoTestCaseResult
+		return ret
+	}
+	return o.AutoTestCases
+}
+
+// GetAutoTestCasesOk returns a tuple with the AutoTestCases field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemModel) GetAutoTestCasesOk() ([]AutoTestCaseResult, bool) {
+	if o == nil || IsNil(o.AutoTestCases) {
+		return nil, false
+	}
+	return o.AutoTestCases, true
+}
+
+// HasAutoTestCases returns a boolean if a field has been set.
+func (o *WorkItemModel) HasAutoTestCases() bool {
+	if o != nil && !IsNil(o.AutoTestCases) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestCases gets a reference to the given []AutoTestCaseResult and assigns it to the AutoTestCases field.
+func (o *WorkItemModel) SetAutoTestCases(v []AutoTestCaseResult) {
+	o.AutoTestCases = v
 }
 
 // GetAttachments returns the Attachments field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -639,6 +717,48 @@ func (o *WorkItemModel) GetGlobalIdOk() (*int64, bool) {
 // SetGlobalId sets field value
 func (o *WorkItemModel) SetGlobalId(v int64) {
 	o.GlobalId = v
+}
+
+// GetExternalId returns the ExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemModel) GetExternalId() string {
+	if o == nil || IsNil(o.ExternalId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalId.Get()
+}
+
+// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemModel) GetExternalIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalId.Get(), o.ExternalId.IsSet()
+}
+
+// HasExternalId returns a boolean if a field has been set.
+func (o *WorkItemModel) HasExternalId() bool {
+	if o != nil && o.ExternalId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalId gets a reference to the given NullableString and assigns it to the ExternalId field.
+func (o *WorkItemModel) SetExternalId(v string) {
+	o.ExternalId.Set(&v)
+}
+// SetExternalIdNil sets the value for ExternalId to be an explicit nil
+func (o *WorkItemModel) SetExternalIdNil() {
+	o.ExternalId.Set(nil)
+}
+
+// UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
+func (o *WorkItemModel) UnsetExternalId() {
+	o.ExternalId.Unset()
 }
 
 // GetId returns the Id field value
@@ -1014,6 +1134,12 @@ func (o WorkItemModel) ToMap() (map[string]interface{}, error) {
 	if o.AutoTests != nil {
 		toSerialize["autoTests"] = o.AutoTests
 	}
+	if o.ManualTestId.IsSet() {
+		toSerialize["manualTestId"] = o.ManualTestId.Get()
+	}
+	if o.AutoTestCases != nil {
+		toSerialize["autoTestCases"] = o.AutoTestCases
+	}
 	if o.Attachments != nil {
 		toSerialize["attachments"] = o.Attachments
 	}
@@ -1038,6 +1164,9 @@ func (o WorkItemModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["modifiedById"] = o.ModifiedById.Get()
 	}
 	toSerialize["globalId"] = o.GlobalId
+	if o.ExternalId.IsSet() {
+		toSerialize["externalId"] = o.ExternalId.Get()
+	}
 	toSerialize["id"] = o.Id
 	toSerialize["sectionId"] = o.SectionId
 	if o.Description.IsSet() {

@@ -18,9 +18,14 @@ Name | Type | Description | Notes
 **PostconditionSteps** | Pointer to [**[]UpdateStepApiModel**](UpdateStepApiModel.md) | Set of postcondition steps that are executed after completing the main steps | [optional] 
 **Iterations** | Pointer to [**[]AssignIterationApiModel**](AssignIterationApiModel.md) | Set of iterations associated with the work item | [optional] 
 **AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Set of automated tests linked to the work item | [optional] 
+**ManualTestId** | Pointer to **NullableString** | Identifier of the linked manual test | [optional] 
+**AutoTestCases** | Pointer to [**[]AssignAutoTestCaseIdApiModel**](AssignAutoTestCaseIdApiModel.md) | Set of automated test cases linked to the work item | [optional] 
 **Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Set of files attached to the work item | [optional] 
 **Links** | Pointer to [**[]UpdateLinkApiModel**](UpdateLinkApiModel.md) | Set of links related to the work item | [optional] 
 **Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys associated with the work item | [optional] 
+**LayerName** | Pointer to **NullableString** | Name of test pyramid layer associated with the work item | [optional] 
+**LayerSource** | Pointer to [**NullableLayerSource**](LayerSource.md) | Source of test pyramid layer associated with the work item | [optional] 
+**ResetLayer** | Pointer to **NullableBool** | Reset current test pyramid layer associated with the work item and re-evaluates it | [optional] 
 
 ## Methods
 
@@ -441,6 +446,76 @@ HasAutoTests returns a boolean if a field has been set.
 `func (o *UpdateWorkItemApiModel) UnsetAutoTests()`
 
 UnsetAutoTests ensures that no value is present for AutoTests, not even an explicit nil
+### GetManualTestId
+
+`func (o *UpdateWorkItemApiModel) GetManualTestId() string`
+
+GetManualTestId returns the ManualTestId field if non-nil, zero value otherwise.
+
+### GetManualTestIdOk
+
+`func (o *UpdateWorkItemApiModel) GetManualTestIdOk() (*string, bool)`
+
+GetManualTestIdOk returns a tuple with the ManualTestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManualTestId
+
+`func (o *UpdateWorkItemApiModel) SetManualTestId(v string)`
+
+SetManualTestId sets ManualTestId field to given value.
+
+### HasManualTestId
+
+`func (o *UpdateWorkItemApiModel) HasManualTestId() bool`
+
+HasManualTestId returns a boolean if a field has been set.
+
+### SetManualTestIdNil
+
+`func (o *UpdateWorkItemApiModel) SetManualTestIdNil(b bool)`
+
+ SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+
+### UnsetManualTestId
+`func (o *UpdateWorkItemApiModel) UnsetManualTestId()`
+
+UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+### GetAutoTestCases
+
+`func (o *UpdateWorkItemApiModel) GetAutoTestCases() []AssignAutoTestCaseIdApiModel`
+
+GetAutoTestCases returns the AutoTestCases field if non-nil, zero value otherwise.
+
+### GetAutoTestCasesOk
+
+`func (o *UpdateWorkItemApiModel) GetAutoTestCasesOk() (*[]AssignAutoTestCaseIdApiModel, bool)`
+
+GetAutoTestCasesOk returns a tuple with the AutoTestCases field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestCases
+
+`func (o *UpdateWorkItemApiModel) SetAutoTestCases(v []AssignAutoTestCaseIdApiModel)`
+
+SetAutoTestCases sets AutoTestCases field to given value.
+
+### HasAutoTestCases
+
+`func (o *UpdateWorkItemApiModel) HasAutoTestCases() bool`
+
+HasAutoTestCases returns a boolean if a field has been set.
+
+### SetAutoTestCasesNil
+
+`func (o *UpdateWorkItemApiModel) SetAutoTestCasesNil(b bool)`
+
+ SetAutoTestCasesNil sets the value for AutoTestCases to be an explicit nil
+
+### UnsetAutoTestCases
+`func (o *UpdateWorkItemApiModel) UnsetAutoTestCases()`
+
+UnsetAutoTestCases ensures that no value is present for AutoTestCases, not even an explicit nil
 ### GetAttachments
 
 `func (o *UpdateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel`
@@ -546,6 +621,111 @@ HasParameters returns a boolean if a field has been set.
 `func (o *UpdateWorkItemApiModel) UnsetParameters()`
 
 UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
+### GetLayerName
+
+`func (o *UpdateWorkItemApiModel) GetLayerName() string`
+
+GetLayerName returns the LayerName field if non-nil, zero value otherwise.
+
+### GetLayerNameOk
+
+`func (o *UpdateWorkItemApiModel) GetLayerNameOk() (*string, bool)`
+
+GetLayerNameOk returns a tuple with the LayerName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayerName
+
+`func (o *UpdateWorkItemApiModel) SetLayerName(v string)`
+
+SetLayerName sets LayerName field to given value.
+
+### HasLayerName
+
+`func (o *UpdateWorkItemApiModel) HasLayerName() bool`
+
+HasLayerName returns a boolean if a field has been set.
+
+### SetLayerNameNil
+
+`func (o *UpdateWorkItemApiModel) SetLayerNameNil(b bool)`
+
+ SetLayerNameNil sets the value for LayerName to be an explicit nil
+
+### UnsetLayerName
+`func (o *UpdateWorkItemApiModel) UnsetLayerName()`
+
+UnsetLayerName ensures that no value is present for LayerName, not even an explicit nil
+### GetLayerSource
+
+`func (o *UpdateWorkItemApiModel) GetLayerSource() LayerSource`
+
+GetLayerSource returns the LayerSource field if non-nil, zero value otherwise.
+
+### GetLayerSourceOk
+
+`func (o *UpdateWorkItemApiModel) GetLayerSourceOk() (*LayerSource, bool)`
+
+GetLayerSourceOk returns a tuple with the LayerSource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayerSource
+
+`func (o *UpdateWorkItemApiModel) SetLayerSource(v LayerSource)`
+
+SetLayerSource sets LayerSource field to given value.
+
+### HasLayerSource
+
+`func (o *UpdateWorkItemApiModel) HasLayerSource() bool`
+
+HasLayerSource returns a boolean if a field has been set.
+
+### SetLayerSourceNil
+
+`func (o *UpdateWorkItemApiModel) SetLayerSourceNil(b bool)`
+
+ SetLayerSourceNil sets the value for LayerSource to be an explicit nil
+
+### UnsetLayerSource
+`func (o *UpdateWorkItemApiModel) UnsetLayerSource()`
+
+UnsetLayerSource ensures that no value is present for LayerSource, not even an explicit nil
+### GetResetLayer
+
+`func (o *UpdateWorkItemApiModel) GetResetLayer() bool`
+
+GetResetLayer returns the ResetLayer field if non-nil, zero value otherwise.
+
+### GetResetLayerOk
+
+`func (o *UpdateWorkItemApiModel) GetResetLayerOk() (*bool, bool)`
+
+GetResetLayerOk returns a tuple with the ResetLayer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResetLayer
+
+`func (o *UpdateWorkItemApiModel) SetResetLayer(v bool)`
+
+SetResetLayer sets ResetLayer field to given value.
+
+### HasResetLayer
+
+`func (o *UpdateWorkItemApiModel) HasResetLayer() bool`
+
+HasResetLayer returns a boolean if a field has been set.
+
+### SetResetLayerNil
+
+`func (o *UpdateWorkItemApiModel) SetResetLayerNil(b bool)`
+
+ SetResetLayerNil sets the value for ResetLayer to be an explicit nil
+
+### UnsetResetLayer
+`func (o *UpdateWorkItemApiModel) UnsetResetLayer()`
+
+UnsetResetLayer ensures that no value is present for ResetLayer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

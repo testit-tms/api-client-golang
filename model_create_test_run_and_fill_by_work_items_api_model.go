@@ -41,6 +41,8 @@ type CreateTestRunAndFillByWorkItemsApiModel struct {
 	ConfigurationIds []string `json:"configurationIds"`
 	// Specifies the work item GUIDs, from which test points are created. You can specify several GUIDs.
 	WorkItemIds []string `json:"workItemIds"`
+	// Test run launching options.
+	Option NullableTestRunLaunchOptionApiModel `json:"option,omitempty"`
 }
 
 type _CreateTestRunAndFillByWorkItemsApiModel CreateTestRunAndFillByWorkItemsApiModel
@@ -387,6 +389,48 @@ func (o *CreateTestRunAndFillByWorkItemsApiModel) SetWorkItemIds(v []string) {
 	o.WorkItemIds = v
 }
 
+// GetOption returns the Option field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateTestRunAndFillByWorkItemsApiModel) GetOption() TestRunLaunchOptionApiModel {
+	if o == nil || IsNil(o.Option.Get()) {
+		var ret TestRunLaunchOptionApiModel
+		return ret
+	}
+	return *o.Option.Get()
+}
+
+// GetOptionOk returns a tuple with the Option field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateTestRunAndFillByWorkItemsApiModel) GetOptionOk() (*TestRunLaunchOptionApiModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Option.Get(), o.Option.IsSet()
+}
+
+// HasOption returns a boolean if a field has been set.
+func (o *CreateTestRunAndFillByWorkItemsApiModel) HasOption() bool {
+	if o != nil && o.Option.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOption gets a reference to the given NullableTestRunLaunchOptionApiModel and assigns it to the Option field.
+func (o *CreateTestRunAndFillByWorkItemsApiModel) SetOption(v TestRunLaunchOptionApiModel) {
+	o.Option.Set(&v)
+}
+// SetOptionNil sets the value for Option to be an explicit nil
+func (o *CreateTestRunAndFillByWorkItemsApiModel) SetOptionNil() {
+	o.Option.Set(nil)
+}
+
+// UnsetOption ensures that no value is present for Option, not even an explicit nil
+func (o *CreateTestRunAndFillByWorkItemsApiModel) UnsetOption() {
+	o.Option.Unset()
+}
+
 func (o CreateTestRunAndFillByWorkItemsApiModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -419,6 +463,9 @@ func (o CreateTestRunAndFillByWorkItemsApiModel) ToMap() (map[string]interface{}
 	}
 	toSerialize["configurationIds"] = o.ConfigurationIds
 	toSerialize["workItemIds"] = o.WorkItemIds
+	if o.Option.IsSet() {
+		toSerialize["option"] = o.Option.Get()
+	}
 	return toSerialize, nil
 }
 

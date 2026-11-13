@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## SearchTestPlanAttributesInProject
 
-> []CustomAttributeGetModel SearchTestPlanAttributesInProject(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
+> []CustomAttributeModel SearchTestPlanAttributesInProject(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
 
 Search for attributes used in the project test plans
 
@@ -257,7 +257,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectTestPlanAttributesAPI.SearchTestPlanAttributesInProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SearchTestPlanAttributesInProject`: []CustomAttributeGetModel
+	// response from `SearchTestPlanAttributesInProject`: []CustomAttributeModel
 	fmt.Fprintf(os.Stdout, "Response from `ProjectTestPlanAttributesAPI.SearchTestPlanAttributesInProject`: %v\n", resp)
 }
 ```
@@ -287,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CustomAttributeGetModel**](CustomAttributeGetModel.md)
+[**[]CustomAttributeModel**](CustomAttributeModel.md)
 
 ### Authorization
 

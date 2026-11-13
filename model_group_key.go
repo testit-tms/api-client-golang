@@ -21,7 +21,7 @@ var _ MappedNullable = &GroupKey{}
 
 // GroupKey struct for GroupKey
 type GroupKey struct {
-	Value NullableString `json:"value"`
+	Value JsonElement `json:"value"`
 	DisplayValue NullableString `json:"displayValue,omitempty"`
 }
 
@@ -31,7 +31,7 @@ type _GroupKey GroupKey
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGroupKey(value NullableString) *GroupKey {
+func NewGroupKey(value JsonElement) *GroupKey {
 	this := GroupKey{}
 	this.Value = value
 	return &this
@@ -46,29 +46,27 @@ func NewGroupKeyWithDefaults() *GroupKey {
 }
 
 // GetValue returns the Value field value
-// If the value is explicit nil, the zero value for string will be returned
-func (o *GroupKey) GetValue() string {
-	if o == nil || o.Value.Get() == nil {
-		var ret string
+func (o *GroupKey) GetValue() JsonElement {
+	if o == nil {
+		var ret JsonElement
 		return ret
 	}
 
-	return *o.Value.Get()
+	return o.Value
 }
 
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *GroupKey) GetValueOk() (*string, bool) {
+func (o *GroupKey) GetValueOk() (*JsonElement, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Value.Get(), o.Value.IsSet()
+	return &o.Value, true
 }
 
 // SetValue sets field value
-func (o *GroupKey) SetValue(v string) {
-	o.Value.Set(&v)
+func (o *GroupKey) SetValue(v JsonElement) {
+	o.Value = v
 }
 
 // GetDisplayValue returns the DisplayValue field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -123,7 +121,7 @@ func (o GroupKey) MarshalJSON() ([]byte, error) {
 
 func (o GroupKey) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["value"] = o.Value.Get()
+	toSerialize["value"] = o.Value
 	if o.DisplayValue.IsSet() {
 		toSerialize["displayValue"] = o.DisplayValue.Get()
 	}

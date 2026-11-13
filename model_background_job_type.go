@@ -39,6 +39,8 @@ const (
 	BACKGROUNDJOBTYPE_DELETE_COMPLETED_JOBS BackgroundJobType = "DeleteCompletedJobs"
 	BACKGROUNDJOBTYPE_COPY_SECTIONS BackgroundJobType = "CopySections"
 	BACKGROUNDJOBTYPE_DELETE_SECTION BackgroundJobType = "DeleteSection"
+	BACKGROUNDJOBTYPE_IMPORT_AUTO_TESTS_REPORT BackgroundJobType = "ImportAutoTestsReport"
+	BACKGROUNDJOBTYPE_ANALYZE_AUTO_TEST_LAYERS BackgroundJobType = "AnalyzeAutoTestLayers"
 )
 
 // All allowed values of BackgroundJobType enum
@@ -62,6 +64,8 @@ var AllowedBackgroundJobTypeEnumValues = []BackgroundJobType{
 	"DeleteCompletedJobs",
 	"CopySections",
 	"DeleteSection",
+	"ImportAutoTestsReport",
+	"AnalyzeAutoTestLayers",
 }
 
 func (v *BackgroundJobType) UnmarshalJSON(src []byte) error {

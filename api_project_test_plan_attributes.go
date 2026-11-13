@@ -629,7 +629,7 @@ func (r ApiSearchTestPlanAttributesInProjectRequest) ProjectAttributesFilterMode
 	return r
 }
 
-func (r ApiSearchTestPlanAttributesInProjectRequest) Execute() ([]CustomAttributeGetModel, *http.Response, error) {
+func (r ApiSearchTestPlanAttributesInProjectRequest) Execute() ([]CustomAttributeModel, *http.Response, error) {
 	return r.ApiService.SearchTestPlanAttributesInProjectExecute(r)
 }
 
@@ -649,13 +649,13 @@ func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProject(
 }
 
 // Execute executes the request
-//  @return []CustomAttributeGetModel
-func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectExecute(r ApiSearchTestPlanAttributesInProjectRequest) ([]CustomAttributeGetModel, *http.Response, error) {
+//  @return []CustomAttributeModel
+func (a *ProjectTestPlanAttributesAPIService) SearchTestPlanAttributesInProjectExecute(r ApiSearchTestPlanAttributesInProjectRequest) ([]CustomAttributeModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []CustomAttributeGetModel
+		localVarReturnValue  []CustomAttributeModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProjectTestPlanAttributesAPIService.SearchTestPlanAttributesInProject")

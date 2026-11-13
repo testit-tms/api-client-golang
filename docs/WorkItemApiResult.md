@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **State** | [**WorkItemStateApiModel**](WorkItemStateApiModel.md) | State of the work item | 
 **Priority** | [**WorkItemPriorityApiModel**](WorkItemPriorityApiModel.md) | Priority level of the work item | 
 **IsAutomated** | **bool** |  | 
+**ExternalId** | Pointer to **NullableString** | External identifier of the work item from external systems | [optional] 
 **Attributes** | **map[string]interface{}** | Set of custom attributes associated with the work item | 
 **Tags** | [**[]TagModel**](TagModel.md) | Set of tags applied to the work item | 
 **SectionPreconditionSteps** | [**[]StepModel**](StepModel.md) | Set of section precondition steps that need to be executed before starting the work item steps | 
@@ -28,6 +29,9 @@ Name | Type | Description | Notes
 **PostconditionSteps** | [**[]StepModel**](StepModel.md) | Set of postcondition steps that are executed after completing the main steps | 
 **Iterations** | [**[]IterationModel**](IterationModel.md) | Associated iterations linked to the work item | 
 **AutoTests** | [**[]AutoTestModel**](AutoTestModel.md) | Automated tests associated with the work item | 
+**ManualTestId** | Pointer to **NullableString** | Identifier of the linked manual test | [optional] 
+**AutoTestCases** | [**[]AutoTestCaseApiModel**](AutoTestCaseApiModel.md) | Set of automated test cases linked to the work item | 
+**Layer** | Pointer to [**NullableWorkItemLayerApiResult**](WorkItemLayerApiResult.md) | Test pyramid layer of the work item | [optional] 
 **Attachments** | [**[]AttachmentModel**](AttachmentModel.md) | Files attached to the work item | 
 **Links** | [**[]LinkModel**](LinkModel.md) | Set of links related to the work item | 
 **ExternalIssues** | [**[]ExternalIssueApiResult**](ExternalIssueApiResult.md) | Set of external issues related to the work item | 
@@ -42,7 +46,7 @@ Name | Type | Description | Notes
 
 ### NewWorkItemApiResult
 
-`func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, parameters []WorkItemParameterKeyApiResult, createdDate time.Time, createdById string, isDeleted bool, ) *WorkItemApiResult`
+`func NewWorkItemApiResult(id string, globalId int64, versionId string, versionNumber int32, projectId string, sectionId string, name string, sourceType WorkItemSourceTypeApiModel, entityTypeName WorkItemEntityTypeApiModel, duration int32, medianDuration int64, state WorkItemStateApiModel, priority WorkItemPriorityApiModel, isAutomated bool, attributes map[string]interface{}, tags []TagModel, sectionPreconditionSteps []StepModel, sectionPostconditionSteps []StepModel, preconditionSteps []StepModel, steps []StepModel, postconditionSteps []StepModel, iterations []IterationModel, autoTests []AutoTestModel, autoTestCases []AutoTestCaseApiModel, attachments []AttachmentModel, links []LinkModel, externalIssues []ExternalIssueApiResult, parameters []WorkItemParameterKeyApiResult, createdDate time.Time, createdById string, isDeleted bool, ) *WorkItemApiResult`
 
 NewWorkItemApiResult instantiates a new WorkItemApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -372,6 +376,41 @@ and a boolean to check if the value has been set.
 SetIsAutomated sets IsAutomated field to given value.
 
 
+### GetExternalId
+
+`func (o *WorkItemApiResult) GetExternalId() string`
+
+GetExternalId returns the ExternalId field if non-nil, zero value otherwise.
+
+### GetExternalIdOk
+
+`func (o *WorkItemApiResult) GetExternalIdOk() (*string, bool)`
+
+GetExternalIdOk returns a tuple with the ExternalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalId
+
+`func (o *WorkItemApiResult) SetExternalId(v string)`
+
+SetExternalId sets ExternalId field to given value.
+
+### HasExternalId
+
+`func (o *WorkItemApiResult) HasExternalId() bool`
+
+HasExternalId returns a boolean if a field has been set.
+
+### SetExternalIdNil
+
+`func (o *WorkItemApiResult) SetExternalIdNil(b bool)`
+
+ SetExternalIdNil sets the value for ExternalId to be an explicit nil
+
+### UnsetExternalId
+`func (o *WorkItemApiResult) UnsetExternalId()`
+
+UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetAttributes
 
 `func (o *WorkItemApiResult) GetAttributes() map[string]interface{}`
@@ -552,6 +591,96 @@ and a boolean to check if the value has been set.
 SetAutoTests sets AutoTests field to given value.
 
 
+### GetManualTestId
+
+`func (o *WorkItemApiResult) GetManualTestId() string`
+
+GetManualTestId returns the ManualTestId field if non-nil, zero value otherwise.
+
+### GetManualTestIdOk
+
+`func (o *WorkItemApiResult) GetManualTestIdOk() (*string, bool)`
+
+GetManualTestIdOk returns a tuple with the ManualTestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManualTestId
+
+`func (o *WorkItemApiResult) SetManualTestId(v string)`
+
+SetManualTestId sets ManualTestId field to given value.
+
+### HasManualTestId
+
+`func (o *WorkItemApiResult) HasManualTestId() bool`
+
+HasManualTestId returns a boolean if a field has been set.
+
+### SetManualTestIdNil
+
+`func (o *WorkItemApiResult) SetManualTestIdNil(b bool)`
+
+ SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+
+### UnsetManualTestId
+`func (o *WorkItemApiResult) UnsetManualTestId()`
+
+UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+### GetAutoTestCases
+
+`func (o *WorkItemApiResult) GetAutoTestCases() []AutoTestCaseApiModel`
+
+GetAutoTestCases returns the AutoTestCases field if non-nil, zero value otherwise.
+
+### GetAutoTestCasesOk
+
+`func (o *WorkItemApiResult) GetAutoTestCasesOk() (*[]AutoTestCaseApiModel, bool)`
+
+GetAutoTestCasesOk returns a tuple with the AutoTestCases field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestCases
+
+`func (o *WorkItemApiResult) SetAutoTestCases(v []AutoTestCaseApiModel)`
+
+SetAutoTestCases sets AutoTestCases field to given value.
+
+
+### GetLayer
+
+`func (o *WorkItemApiResult) GetLayer() WorkItemLayerApiResult`
+
+GetLayer returns the Layer field if non-nil, zero value otherwise.
+
+### GetLayerOk
+
+`func (o *WorkItemApiResult) GetLayerOk() (*WorkItemLayerApiResult, bool)`
+
+GetLayerOk returns a tuple with the Layer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayer
+
+`func (o *WorkItemApiResult) SetLayer(v WorkItemLayerApiResult)`
+
+SetLayer sets Layer field to given value.
+
+### HasLayer
+
+`func (o *WorkItemApiResult) HasLayer() bool`
+
+HasLayer returns a boolean if a field has been set.
+
+### SetLayerNil
+
+`func (o *WorkItemApiResult) SetLayerNil(b bool)`
+
+ SetLayerNil sets the value for Layer to be an explicit nil
+
+### UnsetLayer
+`func (o *WorkItemApiResult) UnsetLayer()`
+
+UnsetLayer ensures that no value is present for Layer, not even an explicit nil
 ### GetAttachments
 
 `func (o *WorkItemApiResult) GetAttachments() []AttachmentModel`

@@ -31,6 +31,8 @@ type WorkItemLocalFilterModel struct {
 	IsDeleted NullableBool `json:"isDeleted,omitempty"`
 	// Collection of section identifiers
 	SectionIds []string `json:"sectionIds,omitempty"`
+	// Collection of namespace identifiers
+	NamespaceIds []string `json:"namespaceIds,omitempty"`
 	// Collection of identifiers of users who created work item
 	CreatedByIds []string `json:"createdByIds,omitempty"`
 	// Collection of identifiers of users who applied last modification to work item
@@ -65,6 +67,8 @@ type WorkItemLocalFilterModel struct {
 	Links NullableWorkItemLinkFilterModel `json:"links,omitempty"`
 	// Specifies work item filter by its external metadata
 	ExternalMetadata NullableWorkItemExternalMetadataFilterModel `json:"externalMetadata,omitempty"`
+	// External identifier of the work item
+	ExternalId NullableString `json:"externalId,omitempty"`
 }
 
 // NewWorkItemLocalFilterModel instantiates a new WorkItemLocalFilterModel object
@@ -298,6 +302,39 @@ func (o *WorkItemLocalFilterModel) HasSectionIds() bool {
 // SetSectionIds gets a reference to the given []string and assigns it to the SectionIds field.
 func (o *WorkItemLocalFilterModel) SetSectionIds(v []string) {
 	o.SectionIds = v
+}
+
+// GetNamespaceIds returns the NamespaceIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemLocalFilterModel) GetNamespaceIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.NamespaceIds
+}
+
+// GetNamespaceIdsOk returns a tuple with the NamespaceIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemLocalFilterModel) GetNamespaceIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.NamespaceIds) {
+		return nil, false
+	}
+	return o.NamespaceIds, true
+}
+
+// HasNamespaceIds returns a boolean if a field has been set.
+func (o *WorkItemLocalFilterModel) HasNamespaceIds() bool {
+	if o != nil && !IsNil(o.NamespaceIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetNamespaceIds gets a reference to the given []string and assigns it to the NamespaceIds field.
+func (o *WorkItemLocalFilterModel) SetNamespaceIds(v []string) {
+	o.NamespaceIds = v
 }
 
 // GetCreatedByIds returns the CreatedByIds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -924,6 +961,48 @@ func (o *WorkItemLocalFilterModel) UnsetExternalMetadata() {
 	o.ExternalMetadata.Unset()
 }
 
+// GetExternalId returns the ExternalId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WorkItemLocalFilterModel) GetExternalId() string {
+	if o == nil || IsNil(o.ExternalId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ExternalId.Get()
+}
+
+// GetExternalIdOk returns a tuple with the ExternalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WorkItemLocalFilterModel) GetExternalIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ExternalId.Get(), o.ExternalId.IsSet()
+}
+
+// HasExternalId returns a boolean if a field has been set.
+func (o *WorkItemLocalFilterModel) HasExternalId() bool {
+	if o != nil && o.ExternalId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetExternalId gets a reference to the given NullableString and assigns it to the ExternalId field.
+func (o *WorkItemLocalFilterModel) SetExternalId(v string) {
+	o.ExternalId.Set(&v)
+}
+// SetExternalIdNil sets the value for ExternalId to be an explicit nil
+func (o *WorkItemLocalFilterModel) SetExternalIdNil() {
+	o.ExternalId.Set(nil)
+}
+
+// UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
+func (o *WorkItemLocalFilterModel) UnsetExternalId() {
+	o.ExternalId.Unset()
+}
+
 func (o WorkItemLocalFilterModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -951,6 +1030,9 @@ func (o WorkItemLocalFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.SectionIds != nil {
 		toSerialize["sectionIds"] = o.SectionIds
+	}
+	if o.NamespaceIds != nil {
+		toSerialize["namespaceIds"] = o.NamespaceIds
 	}
 	if o.CreatedByIds != nil {
 		toSerialize["createdByIds"] = o.CreatedByIds
@@ -1002,6 +1084,9 @@ func (o WorkItemLocalFilterModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ExternalMetadata.IsSet() {
 		toSerialize["externalMetadata"] = o.ExternalMetadata.Get()
+	}
+	if o.ExternalId.IsSet() {
+		toSerialize["externalId"] = o.ExternalId.Get()
 	}
 	return toSerialize, nil
 }

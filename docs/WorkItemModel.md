@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **EntityTypeName** | [**WorkItemTypeModel**](WorkItemTypeModel.md) |  | 
 **IsAutomated** | **bool** |  | 
 **AutoTests** | Pointer to [**[]AutoTestModel**](AutoTestModel.md) |  | [optional] 
+**ManualTestId** | Pointer to **NullableString** |  | [optional] 
+**AutoTestCases** | Pointer to [**[]AutoTestCaseResult**](AutoTestCaseResult.md) |  | [optional] 
 **Attachments** | Pointer to [**[]AttachmentModel**](AttachmentModel.md) |  | [optional] 
 **SectionPreconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
 **SectionPostconditionSteps** | Pointer to [**[]StepModel**](StepModel.md) |  | [optional] 
@@ -23,6 +25,7 @@ Name | Type | Description | Notes
 **CreatedById** | **string** |  | 
 **ModifiedById** | Pointer to **NullableString** |  | [optional] 
 **GlobalId** | **int64** |  | 
+**ExternalId** | Pointer to **NullableString** |  | [optional] 
 **Id** | **string** |  | 
 **SectionId** | **string** |  | 
 **Description** | Pointer to **NullableString** |  | [optional] 
@@ -212,6 +215,76 @@ HasAutoTests returns a boolean if a field has been set.
 `func (o *WorkItemModel) UnsetAutoTests()`
 
 UnsetAutoTests ensures that no value is present for AutoTests, not even an explicit nil
+### GetManualTestId
+
+`func (o *WorkItemModel) GetManualTestId() string`
+
+GetManualTestId returns the ManualTestId field if non-nil, zero value otherwise.
+
+### GetManualTestIdOk
+
+`func (o *WorkItemModel) GetManualTestIdOk() (*string, bool)`
+
+GetManualTestIdOk returns a tuple with the ManualTestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManualTestId
+
+`func (o *WorkItemModel) SetManualTestId(v string)`
+
+SetManualTestId sets ManualTestId field to given value.
+
+### HasManualTestId
+
+`func (o *WorkItemModel) HasManualTestId() bool`
+
+HasManualTestId returns a boolean if a field has been set.
+
+### SetManualTestIdNil
+
+`func (o *WorkItemModel) SetManualTestIdNil(b bool)`
+
+ SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+
+### UnsetManualTestId
+`func (o *WorkItemModel) UnsetManualTestId()`
+
+UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+### GetAutoTestCases
+
+`func (o *WorkItemModel) GetAutoTestCases() []AutoTestCaseResult`
+
+GetAutoTestCases returns the AutoTestCases field if non-nil, zero value otherwise.
+
+### GetAutoTestCasesOk
+
+`func (o *WorkItemModel) GetAutoTestCasesOk() (*[]AutoTestCaseResult, bool)`
+
+GetAutoTestCasesOk returns a tuple with the AutoTestCases field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestCases
+
+`func (o *WorkItemModel) SetAutoTestCases(v []AutoTestCaseResult)`
+
+SetAutoTestCases sets AutoTestCases field to given value.
+
+### HasAutoTestCases
+
+`func (o *WorkItemModel) HasAutoTestCases() bool`
+
+HasAutoTestCases returns a boolean if a field has been set.
+
+### SetAutoTestCasesNil
+
+`func (o *WorkItemModel) SetAutoTestCasesNil(b bool)`
+
+ SetAutoTestCasesNil sets the value for AutoTestCases to be an explicit nil
+
+### UnsetAutoTestCases
+`func (o *WorkItemModel) UnsetAutoTestCases()`
+
+UnsetAutoTestCases ensures that no value is present for AutoTestCases, not even an explicit nil
 ### GetAttachments
 
 `func (o *WorkItemModel) GetAttachments() []AttachmentModel`
@@ -542,6 +615,41 @@ and a boolean to check if the value has been set.
 SetGlobalId sets GlobalId field to given value.
 
 
+### GetExternalId
+
+`func (o *WorkItemModel) GetExternalId() string`
+
+GetExternalId returns the ExternalId field if non-nil, zero value otherwise.
+
+### GetExternalIdOk
+
+`func (o *WorkItemModel) GetExternalIdOk() (*string, bool)`
+
+GetExternalIdOk returns a tuple with the ExternalId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExternalId
+
+`func (o *WorkItemModel) SetExternalId(v string)`
+
+SetExternalId sets ExternalId field to given value.
+
+### HasExternalId
+
+`func (o *WorkItemModel) HasExternalId() bool`
+
+HasExternalId returns a boolean if a field has been set.
+
+### SetExternalIdNil
+
+`func (o *WorkItemModel) SetExternalIdNil(b bool)`
+
+ SetExternalIdNil sets the value for ExternalId to be an explicit nil
+
+### UnsetExternalId
+`func (o *WorkItemModel) UnsetExternalId()`
+
+UnsetExternalId ensures that no value is present for ExternalId, not even an explicit nil
 ### GetId
 
 `func (o *WorkItemModel) GetId() string`

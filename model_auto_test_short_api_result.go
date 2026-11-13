@@ -21,11 +21,12 @@ var _ MappedNullable = &AutoTestShortApiResult{}
 
 // AutoTestShortApiResult struct for AutoTestShortApiResult
 type AutoTestShortApiResult struct {
+	GlobalId int64 `json:"globalId"`
 	Id string `json:"id"`
 	ProjectId string `json:"projectId"`
-	Name string `json:"name"`
 	ExternalId string `json:"externalId"`
-	GlobalId int64 `json:"globalId"`
+	Name string `json:"name"`
+	AutoTestCaseGlobalId NullableInt64 `json:"autoTestCaseGlobalId,omitempty"`
 }
 
 type _AutoTestShortApiResult AutoTestShortApiResult
@@ -34,13 +35,13 @@ type _AutoTestShortApiResult AutoTestShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestShortApiResult(id string, projectId string, name string, externalId string, globalId int64) *AutoTestShortApiResult {
+func NewAutoTestShortApiResult(globalId int64, id string, projectId string, externalId string, name string) *AutoTestShortApiResult {
 	this := AutoTestShortApiResult{}
+	this.GlobalId = globalId
 	this.Id = id
 	this.ProjectId = projectId
-	this.Name = name
 	this.ExternalId = externalId
-	this.GlobalId = globalId
+	this.Name = name
 	return &this
 }
 
@@ -50,6 +51,30 @@ func NewAutoTestShortApiResult(id string, projectId string, name string, externa
 func NewAutoTestShortApiResultWithDefaults() *AutoTestShortApiResult {
 	this := AutoTestShortApiResult{}
 	return &this
+}
+
+// GetGlobalId returns the GlobalId field value
+func (o *AutoTestShortApiResult) GetGlobalId() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.GlobalId
+}
+
+// GetGlobalIdOk returns a tuple with the GlobalId field value
+// and a boolean to check if the value has been set.
+func (o *AutoTestShortApiResult) GetGlobalIdOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GlobalId, true
+}
+
+// SetGlobalId sets field value
+func (o *AutoTestShortApiResult) SetGlobalId(v int64) {
+	o.GlobalId = v
 }
 
 // GetId returns the Id field value
@@ -100,30 +125,6 @@ func (o *AutoTestShortApiResult) SetProjectId(v string) {
 	o.ProjectId = v
 }
 
-// GetName returns the Name field value
-func (o *AutoTestShortApiResult) GetName() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *AutoTestShortApiResult) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *AutoTestShortApiResult) SetName(v string) {
-	o.Name = v
-}
-
 // GetExternalId returns the ExternalId field value
 func (o *AutoTestShortApiResult) GetExternalId() string {
 	if o == nil {
@@ -148,28 +149,70 @@ func (o *AutoTestShortApiResult) SetExternalId(v string) {
 	o.ExternalId = v
 }
 
-// GetGlobalId returns the GlobalId field value
-func (o *AutoTestShortApiResult) GetGlobalId() int64 {
+// GetName returns the Name field value
+func (o *AutoTestShortApiResult) GetName() string {
 	if o == nil {
-		var ret int64
+		var ret string
 		return ret
 	}
 
-	return o.GlobalId
+	return o.Name
 }
 
-// GetGlobalIdOk returns a tuple with the GlobalId field value
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestShortApiResult) GetGlobalIdOk() (*int64, bool) {
+func (o *AutoTestShortApiResult) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.GlobalId, true
+	return &o.Name, true
 }
 
-// SetGlobalId sets field value
-func (o *AutoTestShortApiResult) SetGlobalId(v int64) {
-	o.GlobalId = v
+// SetName sets field value
+func (o *AutoTestShortApiResult) SetName(v string) {
+	o.Name = v
+}
+
+// GetAutoTestCaseGlobalId returns the AutoTestCaseGlobalId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTestShortApiResult) GetAutoTestCaseGlobalId() int64 {
+	if o == nil || IsNil(o.AutoTestCaseGlobalId.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.AutoTestCaseGlobalId.Get()
+}
+
+// GetAutoTestCaseGlobalIdOk returns a tuple with the AutoTestCaseGlobalId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTestShortApiResult) GetAutoTestCaseGlobalIdOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoTestCaseGlobalId.Get(), o.AutoTestCaseGlobalId.IsSet()
+}
+
+// HasAutoTestCaseGlobalId returns a boolean if a field has been set.
+func (o *AutoTestShortApiResult) HasAutoTestCaseGlobalId() bool {
+	if o != nil && o.AutoTestCaseGlobalId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestCaseGlobalId gets a reference to the given NullableInt64 and assigns it to the AutoTestCaseGlobalId field.
+func (o *AutoTestShortApiResult) SetAutoTestCaseGlobalId(v int64) {
+	o.AutoTestCaseGlobalId.Set(&v)
+}
+// SetAutoTestCaseGlobalIdNil sets the value for AutoTestCaseGlobalId to be an explicit nil
+func (o *AutoTestShortApiResult) SetAutoTestCaseGlobalIdNil() {
+	o.AutoTestCaseGlobalId.Set(nil)
+}
+
+// UnsetAutoTestCaseGlobalId ensures that no value is present for AutoTestCaseGlobalId, not even an explicit nil
+func (o *AutoTestShortApiResult) UnsetAutoTestCaseGlobalId() {
+	o.AutoTestCaseGlobalId.Unset()
 }
 
 func (o AutoTestShortApiResult) MarshalJSON() ([]byte, error) {
@@ -182,11 +225,14 @@ func (o AutoTestShortApiResult) MarshalJSON() ([]byte, error) {
 
 func (o AutoTestShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["globalId"] = o.GlobalId
 	toSerialize["id"] = o.Id
 	toSerialize["projectId"] = o.ProjectId
-	toSerialize["name"] = o.Name
 	toSerialize["externalId"] = o.ExternalId
-	toSerialize["globalId"] = o.GlobalId
+	toSerialize["name"] = o.Name
+	if o.AutoTestCaseGlobalId.IsSet() {
+		toSerialize["autoTestCaseGlobalId"] = o.AutoTestCaseGlobalId.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -195,11 +241,11 @@ func (o *AutoTestShortApiResult) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"globalId",
 		"id",
 		"projectId",
-		"name",
 		"externalId",
-		"globalId",
+		"name",
 	}
 
 	allProperties := make(map[string]interface{})

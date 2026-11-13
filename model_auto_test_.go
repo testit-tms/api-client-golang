@@ -78,6 +78,8 @@ type AutoTest struct {
 	LastTestResultOutcome NullableString `json:"lastTestResultOutcome,omitempty"`
 	// Stability percentage of the autotest
 	StabilityPercentage NullableInt32 `json:"stabilityPercentage,omitempty"`
+	// Auto test case linked with the autotest
+	AutoTestCase NullableAutoTestCase `json:"autoTestCase,omitempty"`
 }
 
 type _AutoTest AutoTest
@@ -1077,6 +1079,48 @@ func (o *AutoTest) UnsetStabilityPercentage() {
 	o.StabilityPercentage.Unset()
 }
 
+// GetAutoTestCase returns the AutoTestCase field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AutoTest) GetAutoTestCase() AutoTestCase {
+	if o == nil || IsNil(o.AutoTestCase.Get()) {
+		var ret AutoTestCase
+		return ret
+	}
+	return *o.AutoTestCase.Get()
+}
+
+// GetAutoTestCaseOk returns a tuple with the AutoTestCase field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AutoTest) GetAutoTestCaseOk() (*AutoTestCase, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoTestCase.Get(), o.AutoTestCase.IsSet()
+}
+
+// HasAutoTestCase returns a boolean if a field has been set.
+func (o *AutoTest) HasAutoTestCase() bool {
+	if o != nil && o.AutoTestCase.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoTestCase gets a reference to the given NullableAutoTestCase and assigns it to the AutoTestCase field.
+func (o *AutoTest) SetAutoTestCase(v AutoTestCase) {
+	o.AutoTestCase.Set(&v)
+}
+// SetAutoTestCaseNil sets the value for AutoTestCase to be an explicit nil
+func (o *AutoTest) SetAutoTestCaseNil() {
+	o.AutoTestCase.Set(nil)
+}
+
+// UnsetAutoTestCase ensures that no value is present for AutoTestCase, not even an explicit nil
+func (o *AutoTest) UnsetAutoTestCase() {
+	o.AutoTestCase.Unset()
+}
+
 func (o AutoTest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1152,6 +1196,9 @@ func (o AutoTest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.StabilityPercentage.IsSet() {
 		toSerialize["stabilityPercentage"] = o.StabilityPercentage.Get()
+	}
+	if o.AutoTestCase.IsSet() {
+		toSerialize["autoTestCase"] = o.AutoTestCase.Get()
 	}
 	return toSerialize, nil
 }

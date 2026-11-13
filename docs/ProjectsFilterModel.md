@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Specifies a project name to search for | [optional] 
 **IsFavorite** | Pointer to **NullableBool** | Specifies a project favorite status to search for | [optional] 
 **IsDeleted** | Pointer to **NullableBool** | Specifies a project deleted status to search for | [optional] 
-**TestCasesCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of test cases count to search for | [optional] 
-**ChecklistsCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of checklists count to search for | [optional] 
-**SharedStepsCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of shared steps count to search for | [optional] 
-**AutotestsCount** | Pointer to [**NullableInt32RangeSelectorModel**](Int32RangeSelectorModel.md) | Specifies a project range of autotests count to search for | [optional] 
+**TestCasesCount** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a project range of test cases count to search for | [optional] 
+**ChecklistsCount** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a project range of checklists count to search for | [optional] 
+**SharedStepsCount** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a project range of shared steps count to search for | [optional] 
+**AutotestsCount** | Pointer to [**NullableInt64RangeSelectorModel**](Int64RangeSelectorModel.md) | Specifies a project range of autotests count to search for | [optional] 
 **GlobalIds** | Pointer to **[]int64** | Specifies a project global IDs to search for | [optional] 
 **CreatedDate** | Pointer to [**NullableDateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) | Specifies a project range of creation date to search for | [optional] 
 **CreatedByIds** | Pointer to **[]string** | Specifies an autotest creator IDs to search for | [optional] 
@@ -142,20 +142,20 @@ HasIsDeleted returns a boolean if a field has been set.
 UnsetIsDeleted ensures that no value is present for IsDeleted, not even an explicit nil
 ### GetTestCasesCount
 
-`func (o *ProjectsFilterModel) GetTestCasesCount() Int32RangeSelectorModel`
+`func (o *ProjectsFilterModel) GetTestCasesCount() Int64RangeSelectorModel`
 
 GetTestCasesCount returns the TestCasesCount field if non-nil, zero value otherwise.
 
 ### GetTestCasesCountOk
 
-`func (o *ProjectsFilterModel) GetTestCasesCountOk() (*Int32RangeSelectorModel, bool)`
+`func (o *ProjectsFilterModel) GetTestCasesCountOk() (*Int64RangeSelectorModel, bool)`
 
 GetTestCasesCountOk returns a tuple with the TestCasesCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestCasesCount
 
-`func (o *ProjectsFilterModel) SetTestCasesCount(v Int32RangeSelectorModel)`
+`func (o *ProjectsFilterModel) SetTestCasesCount(v Int64RangeSelectorModel)`
 
 SetTestCasesCount sets TestCasesCount field to given value.
 
@@ -177,20 +177,20 @@ HasTestCasesCount returns a boolean if a field has been set.
 UnsetTestCasesCount ensures that no value is present for TestCasesCount, not even an explicit nil
 ### GetChecklistsCount
 
-`func (o *ProjectsFilterModel) GetChecklistsCount() Int32RangeSelectorModel`
+`func (o *ProjectsFilterModel) GetChecklistsCount() Int64RangeSelectorModel`
 
 GetChecklistsCount returns the ChecklistsCount field if non-nil, zero value otherwise.
 
 ### GetChecklistsCountOk
 
-`func (o *ProjectsFilterModel) GetChecklistsCountOk() (*Int32RangeSelectorModel, bool)`
+`func (o *ProjectsFilterModel) GetChecklistsCountOk() (*Int64RangeSelectorModel, bool)`
 
 GetChecklistsCountOk returns a tuple with the ChecklistsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetChecklistsCount
 
-`func (o *ProjectsFilterModel) SetChecklistsCount(v Int32RangeSelectorModel)`
+`func (o *ProjectsFilterModel) SetChecklistsCount(v Int64RangeSelectorModel)`
 
 SetChecklistsCount sets ChecklistsCount field to given value.
 
@@ -212,20 +212,20 @@ HasChecklistsCount returns a boolean if a field has been set.
 UnsetChecklistsCount ensures that no value is present for ChecklistsCount, not even an explicit nil
 ### GetSharedStepsCount
 
-`func (o *ProjectsFilterModel) GetSharedStepsCount() Int32RangeSelectorModel`
+`func (o *ProjectsFilterModel) GetSharedStepsCount() Int64RangeSelectorModel`
 
 GetSharedStepsCount returns the SharedStepsCount field if non-nil, zero value otherwise.
 
 ### GetSharedStepsCountOk
 
-`func (o *ProjectsFilterModel) GetSharedStepsCountOk() (*Int32RangeSelectorModel, bool)`
+`func (o *ProjectsFilterModel) GetSharedStepsCountOk() (*Int64RangeSelectorModel, bool)`
 
 GetSharedStepsCountOk returns a tuple with the SharedStepsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSharedStepsCount
 
-`func (o *ProjectsFilterModel) SetSharedStepsCount(v Int32RangeSelectorModel)`
+`func (o *ProjectsFilterModel) SetSharedStepsCount(v Int64RangeSelectorModel)`
 
 SetSharedStepsCount sets SharedStepsCount field to given value.
 
@@ -247,20 +247,20 @@ HasSharedStepsCount returns a boolean if a field has been set.
 UnsetSharedStepsCount ensures that no value is present for SharedStepsCount, not even an explicit nil
 ### GetAutotestsCount
 
-`func (o *ProjectsFilterModel) GetAutotestsCount() Int32RangeSelectorModel`
+`func (o *ProjectsFilterModel) GetAutotestsCount() Int64RangeSelectorModel`
 
 GetAutotestsCount returns the AutotestsCount field if non-nil, zero value otherwise.
 
 ### GetAutotestsCountOk
 
-`func (o *ProjectsFilterModel) GetAutotestsCountOk() (*Int32RangeSelectorModel, bool)`
+`func (o *ProjectsFilterModel) GetAutotestsCountOk() (*Int64RangeSelectorModel, bool)`
 
 GetAutotestsCountOk returns a tuple with the AutotestsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutotestsCount
 
-`func (o *ProjectsFilterModel) SetAutotestsCount(v Int32RangeSelectorModel)`
+`func (o *ProjectsFilterModel) SetAutotestsCount(v Int64RangeSelectorModel)`
 
 SetAutotestsCount sets AutotestsCount field to given value.
 

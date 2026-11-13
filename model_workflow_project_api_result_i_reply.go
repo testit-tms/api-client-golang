@@ -18,8 +18,16 @@ import (
 
 // WorkflowProjectApiResultIReply - struct for WorkflowProjectApiResultIReply
 type WorkflowProjectApiResultIReply struct {
+	WorkflowProjectApiResultCountReply *WorkflowProjectApiResultCountReply
 	WorkflowProjectApiResultGroupedReply *WorkflowProjectApiResultGroupedReply
 	WorkflowProjectApiResultReply *WorkflowProjectApiResultReply
+}
+
+// WorkflowProjectApiResultCountReplyAsWorkflowProjectApiResultIReply is a convenience function that returns WorkflowProjectApiResultCountReply wrapped in WorkflowProjectApiResultIReply
+func WorkflowProjectApiResultCountReplyAsWorkflowProjectApiResultIReply(v *WorkflowProjectApiResultCountReply) WorkflowProjectApiResultIReply {
+	return WorkflowProjectApiResultIReply{
+		WorkflowProjectApiResultCountReply: v,
+	}
 }
 
 // WorkflowProjectApiResultGroupedReplyAsWorkflowProjectApiResultIReply is a convenience function that returns WorkflowProjectApiResultGroupedReply wrapped in WorkflowProjectApiResultIReply
@@ -41,6 +49,23 @@ func WorkflowProjectApiResultReplyAsWorkflowProjectApiResultIReply(v *WorkflowPr
 func (dst *WorkflowProjectApiResultIReply) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into WorkflowProjectApiResultCountReply
+	err = newStrictDecoder(data).Decode(&dst.WorkflowProjectApiResultCountReply)
+	if err == nil {
+		jsonWorkflowProjectApiResultCountReply, _ := json.Marshal(dst.WorkflowProjectApiResultCountReply)
+		if string(jsonWorkflowProjectApiResultCountReply) == "{}" { // empty struct
+			dst.WorkflowProjectApiResultCountReply = nil
+		} else {
+			if err = validator.Validate(dst.WorkflowProjectApiResultCountReply); err != nil {
+				dst.WorkflowProjectApiResultCountReply = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.WorkflowProjectApiResultCountReply = nil
+	}
+
 	// try to unmarshal data into WorkflowProjectApiResultGroupedReply
 	err = newStrictDecoder(data).Decode(&dst.WorkflowProjectApiResultGroupedReply)
 	if err == nil {
@@ -77,6 +102,7 @@ func (dst *WorkflowProjectApiResultIReply) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.WorkflowProjectApiResultCountReply = nil
 		dst.WorkflowProjectApiResultGroupedReply = nil
 		dst.WorkflowProjectApiResultReply = nil
 
@@ -90,6 +116,10 @@ func (dst *WorkflowProjectApiResultIReply) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src WorkflowProjectApiResultIReply) MarshalJSON() ([]byte, error) {
+	if src.WorkflowProjectApiResultCountReply != nil {
+		return json.Marshal(&src.WorkflowProjectApiResultCountReply)
+	}
+
 	if src.WorkflowProjectApiResultGroupedReply != nil {
 		return json.Marshal(&src.WorkflowProjectApiResultGroupedReply)
 	}
@@ -106,6 +136,10 @@ func (obj *WorkflowProjectApiResultIReply) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
+	if obj.WorkflowProjectApiResultCountReply != nil {
+		return obj.WorkflowProjectApiResultCountReply
+	}
+
 	if obj.WorkflowProjectApiResultGroupedReply != nil {
 		return obj.WorkflowProjectApiResultGroupedReply
 	}
@@ -120,6 +154,10 @@ func (obj *WorkflowProjectApiResultIReply) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj WorkflowProjectApiResultIReply) GetActualInstanceValue() (interface{}) {
+	if obj.WorkflowProjectApiResultCountReply != nil {
+		return *obj.WorkflowProjectApiResultCountReply
+	}
+
 	if obj.WorkflowProjectApiResultGroupedReply != nil {
 		return *obj.WorkflowProjectApiResultGroupedReply
 	}

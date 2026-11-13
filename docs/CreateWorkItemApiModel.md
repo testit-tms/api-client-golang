@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **PostconditionSteps** | Pointer to [**[]CreateStepApiModel**](CreateStepApiModel.md) | Set of postcondition steps that are executed after completing the main steps | [optional] 
 **Iterations** | Pointer to [**[]AssignIterationApiModel**](AssignIterationApiModel.md) | Set of iterations associated with the work item | [optional] 
 **AutoTests** | Pointer to [**[]AutoTestIdModel**](AutoTestIdModel.md) | Set of automated tests linked to the work item | [optional] 
+**ManualTestId** | Pointer to **NullableString** | Identifier of the linked manual test | [optional] 
+**AutoTestCases** | Pointer to [**[]AssignAutoTestCaseIdApiModel**](AssignAutoTestCaseIdApiModel.md) | Set of automated test cases linked to the work item | [optional] 
 **Attachments** | Pointer to [**[]AssignAttachmentApiModel**](AssignAttachmentApiModel.md) | Set of files attached to the work item | [optional] 
 **Links** | Pointer to [**[]CreateLinkApiModel**](CreateLinkApiModel.md) | Set of links related to the work item | [optional] 
 **Parameters** | Pointer to [**[]WorkItemParameterKeyApiModel**](WorkItemParameterKeyApiModel.md) | Set of parameter keys associated with the work item | [optional] 
@@ -477,6 +479,76 @@ HasAutoTests returns a boolean if a field has been set.
 `func (o *CreateWorkItemApiModel) UnsetAutoTests()`
 
 UnsetAutoTests ensures that no value is present for AutoTests, not even an explicit nil
+### GetManualTestId
+
+`func (o *CreateWorkItemApiModel) GetManualTestId() string`
+
+GetManualTestId returns the ManualTestId field if non-nil, zero value otherwise.
+
+### GetManualTestIdOk
+
+`func (o *CreateWorkItemApiModel) GetManualTestIdOk() (*string, bool)`
+
+GetManualTestIdOk returns a tuple with the ManualTestId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManualTestId
+
+`func (o *CreateWorkItemApiModel) SetManualTestId(v string)`
+
+SetManualTestId sets ManualTestId field to given value.
+
+### HasManualTestId
+
+`func (o *CreateWorkItemApiModel) HasManualTestId() bool`
+
+HasManualTestId returns a boolean if a field has been set.
+
+### SetManualTestIdNil
+
+`func (o *CreateWorkItemApiModel) SetManualTestIdNil(b bool)`
+
+ SetManualTestIdNil sets the value for ManualTestId to be an explicit nil
+
+### UnsetManualTestId
+`func (o *CreateWorkItemApiModel) UnsetManualTestId()`
+
+UnsetManualTestId ensures that no value is present for ManualTestId, not even an explicit nil
+### GetAutoTestCases
+
+`func (o *CreateWorkItemApiModel) GetAutoTestCases() []AssignAutoTestCaseIdApiModel`
+
+GetAutoTestCases returns the AutoTestCases field if non-nil, zero value otherwise.
+
+### GetAutoTestCasesOk
+
+`func (o *CreateWorkItemApiModel) GetAutoTestCasesOk() (*[]AssignAutoTestCaseIdApiModel, bool)`
+
+GetAutoTestCasesOk returns a tuple with the AutoTestCases field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoTestCases
+
+`func (o *CreateWorkItemApiModel) SetAutoTestCases(v []AssignAutoTestCaseIdApiModel)`
+
+SetAutoTestCases sets AutoTestCases field to given value.
+
+### HasAutoTestCases
+
+`func (o *CreateWorkItemApiModel) HasAutoTestCases() bool`
+
+HasAutoTestCases returns a boolean if a field has been set.
+
+### SetAutoTestCasesNil
+
+`func (o *CreateWorkItemApiModel) SetAutoTestCasesNil(b bool)`
+
+ SetAutoTestCasesNil sets the value for AutoTestCases to be an explicit nil
+
+### UnsetAutoTestCases
+`func (o *CreateWorkItemApiModel) UnsetAutoTestCases()`
+
+UnsetAutoTestCases ensures that no value is present for AutoTestCases, not even an explicit nil
 ### GetAttachments
 
 `func (o *CreateWorkItemApiModel) GetAttachments() []AssignAttachmentApiModel`

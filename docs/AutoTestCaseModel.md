@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**GlobalId** | **int64** | Global ID of the auto test case | 
 
 ## Methods
 
 ### NewAutoTestCaseModel
 
-`func NewAutoTestCaseModel(id string, ) *AutoTestCaseModel`
+`func NewAutoTestCaseModel(globalId int64, ) *AutoTestCaseModel`
 
 NewAutoTestCaseModel instantiates a new AutoTestCaseModel object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewAutoTestCaseModelWithDefaults instantiates a new AutoTestCaseModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetId
+### GetGlobalId
 
-`func (o *AutoTestCaseModel) GetId() string`
+`func (o *AutoTestCaseModel) GetGlobalId() int64`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetGlobalId returns the GlobalId field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetGlobalIdOk
 
-`func (o *AutoTestCaseModel) GetIdOk() (*string, bool)`
+`func (o *AutoTestCaseModel) GetGlobalIdOk() (*int64, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetGlobalIdOk returns a tuple with the GlobalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetGlobalId
 
-`func (o *AutoTestCaseModel) SetId(v string)`
+`func (o *AutoTestCaseModel) SetGlobalId(v int64)`
 
-SetId sets Id field to given value.
+SetGlobalId sets GlobalId field to given value.
 
 
 

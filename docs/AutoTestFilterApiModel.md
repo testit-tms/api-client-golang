@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **LastTestResultConfigurationIds** | Pointer to **[]string** | Specifies an autotest configuration IDs of the last test result to search for | [optional] 
 **Tags** | Pointer to **[]string** | Specifies an autotest tags to search for | [optional] 
 **ExcludeTags** | Pointer to **[]string** | Specifies an autotest tags to exclude | [optional] 
+**Layers** | Pointer to **[]string** | Specifies auto test layers to search for | [optional] 
+**LayerSources** | Pointer to [**[]LayerSource**](LayerSource.md) | Specifies list of auto test layer sources to search for | [optional] 
 
 ## Methods
 
@@ -816,6 +818,76 @@ HasExcludeTags returns a boolean if a field has been set.
 `func (o *AutoTestFilterApiModel) UnsetExcludeTags()`
 
 UnsetExcludeTags ensures that no value is present for ExcludeTags, not even an explicit nil
+### GetLayers
+
+`func (o *AutoTestFilterApiModel) GetLayers() []string`
+
+GetLayers returns the Layers field if non-nil, zero value otherwise.
+
+### GetLayersOk
+
+`func (o *AutoTestFilterApiModel) GetLayersOk() (*[]string, bool)`
+
+GetLayersOk returns a tuple with the Layers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayers
+
+`func (o *AutoTestFilterApiModel) SetLayers(v []string)`
+
+SetLayers sets Layers field to given value.
+
+### HasLayers
+
+`func (o *AutoTestFilterApiModel) HasLayers() bool`
+
+HasLayers returns a boolean if a field has been set.
+
+### SetLayersNil
+
+`func (o *AutoTestFilterApiModel) SetLayersNil(b bool)`
+
+ SetLayersNil sets the value for Layers to be an explicit nil
+
+### UnsetLayers
+`func (o *AutoTestFilterApiModel) UnsetLayers()`
+
+UnsetLayers ensures that no value is present for Layers, not even an explicit nil
+### GetLayerSources
+
+`func (o *AutoTestFilterApiModel) GetLayerSources() []LayerSource`
+
+GetLayerSources returns the LayerSources field if non-nil, zero value otherwise.
+
+### GetLayerSourcesOk
+
+`func (o *AutoTestFilterApiModel) GetLayerSourcesOk() (*[]LayerSource, bool)`
+
+GetLayerSourcesOk returns a tuple with the LayerSources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLayerSources
+
+`func (o *AutoTestFilterApiModel) SetLayerSources(v []LayerSource)`
+
+SetLayerSources sets LayerSources field to given value.
+
+### HasLayerSources
+
+`func (o *AutoTestFilterApiModel) HasLayerSources() bool`
+
+HasLayerSources returns a boolean if a field has been set.
+
+### SetLayerSourcesNil
+
+`func (o *AutoTestFilterApiModel) SetLayerSourcesNil(b bool)`
+
+ SetLayerSourcesNil sets the value for LayerSources to be an explicit nil
+
+### UnsetLayerSources
+`func (o *AutoTestFilterApiModel) UnsetLayerSources()`
+
+UnsetLayerSources ensures that no value is present for LayerSources, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

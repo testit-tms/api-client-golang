@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **Code** | **string** | Code representing the test status. | 
 **Name** | **string** | Name of the test status. | 
 **Type** | [**TestStatusApiType**](TestStatusApiType.md) | Type of the test status (e.g., Passed, Failed). | 
+**IsSystem** | **bool** | Identifies test status as system. | 
 
 ## Methods
 
 ### NewTestStatusShortApiResult
 
-`func NewTestStatusShortApiResult(id string, code string, name string, type_ TestStatusApiType, ) *TestStatusShortApiResult`
+`func NewTestStatusShortApiResult(id string, code string, name string, type_ TestStatusApiType, isSystem bool, ) *TestStatusShortApiResult`
 
 NewTestStatusShortApiResult instantiates a new TestStatusShortApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *TestStatusShortApiResult) SetType(v TestStatusApiType)`
 
 SetType sets Type field to given value.
+
+
+### GetIsSystem
+
+`func (o *TestStatusShortApiResult) GetIsSystem() bool`
+
+GetIsSystem returns the IsSystem field if non-nil, zero value otherwise.
+
+### GetIsSystemOk
+
+`func (o *TestStatusShortApiResult) GetIsSystemOk() (*bool, bool)`
+
+GetIsSystemOk returns a tuple with the IsSystem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSystem
+
+`func (o *TestStatusShortApiResult) SetIsSystem(v bool)`
+
+SetIsSystem sets IsSystem field to given value.
 
 
 

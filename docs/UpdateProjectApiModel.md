@@ -9,12 +9,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
 **IsFavorite** | Pointer to **NullableBool** | Indicates if the project is marked as favorite | [optional] 
 **WorkflowId** | Pointer to **NullableString** | Identifier of the workflow project should use | [optional] 
+**TestStrategy** | [**TestStrategy**](TestStrategy.md) |  | 
+**TestCaseCoverageMode** | [**TestCaseCoverageMode**](TestCaseCoverageMode.md) |  | 
 
 ## Methods
 
 ### NewUpdateProjectApiModel
 
-`func NewUpdateProjectApiModel(id string, name string, ) *UpdateProjectApiModel`
+`func NewUpdateProjectApiModel(id string, name string, testStrategy TestStrategy, testCaseCoverageMode TestCaseCoverageMode, ) *UpdateProjectApiModel`
 
 NewUpdateProjectApiModel instantiates a new UpdateProjectApiModel object
 This constructor will assign default values to properties that have it defined,
@@ -174,6 +176,46 @@ HasWorkflowId returns a boolean if a field has been set.
 `func (o *UpdateProjectApiModel) UnsetWorkflowId()`
 
 UnsetWorkflowId ensures that no value is present for WorkflowId, not even an explicit nil
+### GetTestStrategy
+
+`func (o *UpdateProjectApiModel) GetTestStrategy() TestStrategy`
+
+GetTestStrategy returns the TestStrategy field if non-nil, zero value otherwise.
+
+### GetTestStrategyOk
+
+`func (o *UpdateProjectApiModel) GetTestStrategyOk() (*TestStrategy, bool)`
+
+GetTestStrategyOk returns a tuple with the TestStrategy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestStrategy
+
+`func (o *UpdateProjectApiModel) SetTestStrategy(v TestStrategy)`
+
+SetTestStrategy sets TestStrategy field to given value.
+
+
+### GetTestCaseCoverageMode
+
+`func (o *UpdateProjectApiModel) GetTestCaseCoverageMode() TestCaseCoverageMode`
+
+GetTestCaseCoverageMode returns the TestCaseCoverageMode field if non-nil, zero value otherwise.
+
+### GetTestCaseCoverageModeOk
+
+`func (o *UpdateProjectApiModel) GetTestCaseCoverageModeOk() (*TestCaseCoverageMode, bool)`
+
+GetTestCaseCoverageModeOk returns a tuple with the TestCaseCoverageMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestCaseCoverageMode
+
+`func (o *UpdateProjectApiModel) SetTestCaseCoverageMode(v TestCaseCoverageMode)`
+
+SetTestCaseCoverageMode sets TestCaseCoverageMode field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

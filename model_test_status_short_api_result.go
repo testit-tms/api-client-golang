@@ -29,6 +29,8 @@ type TestStatusShortApiResult struct {
 	Name string `json:"name"`
 	// Type of the test status (e.g., Passed, Failed).
 	Type TestStatusApiType `json:"type"`
+	// Identifies test status as system.
+	IsSystem bool `json:"isSystem"`
 }
 
 type _TestStatusShortApiResult TestStatusShortApiResult
@@ -37,12 +39,13 @@ type _TestStatusShortApiResult TestStatusShortApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTestStatusShortApiResult(id string, code string, name string, type_ TestStatusApiType) *TestStatusShortApiResult {
+func NewTestStatusShortApiResult(id string, code string, name string, type_ TestStatusApiType, isSystem bool) *TestStatusShortApiResult {
 	this := TestStatusShortApiResult{}
 	this.Id = id
 	this.Code = code
 	this.Name = name
 	this.Type = type_
+	this.IsSystem = isSystem
 	return &this
 }
 
@@ -150,6 +153,30 @@ func (o *TestStatusShortApiResult) SetType(v TestStatusApiType) {
 	o.Type = v
 }
 
+// GetIsSystem returns the IsSystem field value
+func (o *TestStatusShortApiResult) GetIsSystem() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsSystem
+}
+
+// GetIsSystemOk returns a tuple with the IsSystem field value
+// and a boolean to check if the value has been set.
+func (o *TestStatusShortApiResult) GetIsSystemOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsSystem, true
+}
+
+// SetIsSystem sets field value
+func (o *TestStatusShortApiResult) SetIsSystem(v bool) {
+	o.IsSystem = v
+}
+
 func (o TestStatusShortApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -164,6 +191,7 @@ func (o TestStatusShortApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["code"] = o.Code
 	toSerialize["name"] = o.Name
 	toSerialize["type"] = o.Type
+	toSerialize["isSystem"] = o.IsSystem
 	return toSerialize, nil
 }
 
@@ -176,6 +204,7 @@ func (o *TestStatusShortApiResult) UnmarshalJSON(data []byte) (err error) {
 		"code",
 		"name",
 		"type",
+		"isSystem",
 	}
 
 	allProperties := make(map[string]interface{})

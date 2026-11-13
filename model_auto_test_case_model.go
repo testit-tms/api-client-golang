@@ -21,7 +21,8 @@ var _ MappedNullable = &AutoTestCaseModel{}
 
 // AutoTestCaseModel struct for AutoTestCaseModel
 type AutoTestCaseModel struct {
-	Id string `json:"id"`
+	// Global ID of the auto test case
+	GlobalId int64 `json:"globalId"`
 }
 
 type _AutoTestCaseModel AutoTestCaseModel
@@ -30,9 +31,9 @@ type _AutoTestCaseModel AutoTestCaseModel
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAutoTestCaseModel(id string) *AutoTestCaseModel {
+func NewAutoTestCaseModel(globalId int64) *AutoTestCaseModel {
 	this := AutoTestCaseModel{}
-	this.Id = id
+	this.GlobalId = globalId
 	return &this
 }
 
@@ -44,28 +45,28 @@ func NewAutoTestCaseModelWithDefaults() *AutoTestCaseModel {
 	return &this
 }
 
-// GetId returns the Id field value
-func (o *AutoTestCaseModel) GetId() string {
+// GetGlobalId returns the GlobalId field value
+func (o *AutoTestCaseModel) GetGlobalId() int64 {
 	if o == nil {
-		var ret string
+		var ret int64
 		return ret
 	}
 
-	return o.Id
+	return o.GlobalId
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetGlobalIdOk returns a tuple with the GlobalId field value
 // and a boolean to check if the value has been set.
-func (o *AutoTestCaseModel) GetIdOk() (*string, bool) {
+func (o *AutoTestCaseModel) GetGlobalIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return &o.GlobalId, true
 }
 
-// SetId sets field value
-func (o *AutoTestCaseModel) SetId(v string) {
-	o.Id = v
+// SetGlobalId sets field value
+func (o *AutoTestCaseModel) SetGlobalId(v int64) {
+	o.GlobalId = v
 }
 
 func (o AutoTestCaseModel) MarshalJSON() ([]byte, error) {
@@ -78,7 +79,7 @@ func (o AutoTestCaseModel) MarshalJSON() ([]byte, error) {
 
 func (o AutoTestCaseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["id"] = o.Id
+	toSerialize["globalId"] = o.GlobalId
 	return toSerialize, nil
 }
 
@@ -87,7 +88,7 @@ func (o *AutoTestCaseModel) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"id",
+		"globalId",
 	}
 
 	allProperties := make(map[string]interface{})

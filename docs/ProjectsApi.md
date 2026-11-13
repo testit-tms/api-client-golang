@@ -1172,7 +1172,7 @@ import (
 )
 
 func main() {
-	createProjectApiModel := *openapiclient.NewCreateProjectApiModel("Name_example") // CreateProjectApiModel |  (optional)
+	createProjectApiModel := *openapiclient.NewCreateProjectApiModel("Name_example", openapiclient.TestStrategy("Manual"), openapiclient.TestCaseCoverageMode("SingleAutoTestCase")) // CreateProjectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1689,7 +1689,7 @@ import (
 )
 
 func main() {
-	updateProjectApiModel := *openapiclient.NewUpdateProjectApiModel("Id_example", "Name_example") // UpdateProjectApiModel |  (optional)
+	updateProjectApiModel := *openapiclient.NewUpdateProjectApiModel("Id_example", "Name_example", openapiclient.TestStrategy("Manual"), openapiclient.TestCaseCoverageMode("SingleAutoTestCase")) // UpdateProjectApiModel |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

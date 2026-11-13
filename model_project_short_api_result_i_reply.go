@@ -18,8 +18,16 @@ import (
 
 // ProjectShortApiResultIReply - struct for ProjectShortApiResultIReply
 type ProjectShortApiResultIReply struct {
+	ProjectShortApiResultCountReply *ProjectShortApiResultCountReply
 	ProjectShortApiResultGroupedReply *ProjectShortApiResultGroupedReply
 	ProjectShortApiResultReply *ProjectShortApiResultReply
+}
+
+// ProjectShortApiResultCountReplyAsProjectShortApiResultIReply is a convenience function that returns ProjectShortApiResultCountReply wrapped in ProjectShortApiResultIReply
+func ProjectShortApiResultCountReplyAsProjectShortApiResultIReply(v *ProjectShortApiResultCountReply) ProjectShortApiResultIReply {
+	return ProjectShortApiResultIReply{
+		ProjectShortApiResultCountReply: v,
+	}
 }
 
 // ProjectShortApiResultGroupedReplyAsProjectShortApiResultIReply is a convenience function that returns ProjectShortApiResultGroupedReply wrapped in ProjectShortApiResultIReply
@@ -41,6 +49,23 @@ func ProjectShortApiResultReplyAsProjectShortApiResultIReply(v *ProjectShortApiR
 func (dst *ProjectShortApiResultIReply) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into ProjectShortApiResultCountReply
+	err = newStrictDecoder(data).Decode(&dst.ProjectShortApiResultCountReply)
+	if err == nil {
+		jsonProjectShortApiResultCountReply, _ := json.Marshal(dst.ProjectShortApiResultCountReply)
+		if string(jsonProjectShortApiResultCountReply) == "{}" { // empty struct
+			dst.ProjectShortApiResultCountReply = nil
+		} else {
+			if err = validator.Validate(dst.ProjectShortApiResultCountReply); err != nil {
+				dst.ProjectShortApiResultCountReply = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.ProjectShortApiResultCountReply = nil
+	}
+
 	// try to unmarshal data into ProjectShortApiResultGroupedReply
 	err = newStrictDecoder(data).Decode(&dst.ProjectShortApiResultGroupedReply)
 	if err == nil {
@@ -77,6 +102,7 @@ func (dst *ProjectShortApiResultIReply) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.ProjectShortApiResultCountReply = nil
 		dst.ProjectShortApiResultGroupedReply = nil
 		dst.ProjectShortApiResultReply = nil
 
@@ -90,6 +116,10 @@ func (dst *ProjectShortApiResultIReply) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src ProjectShortApiResultIReply) MarshalJSON() ([]byte, error) {
+	if src.ProjectShortApiResultCountReply != nil {
+		return json.Marshal(&src.ProjectShortApiResultCountReply)
+	}
+
 	if src.ProjectShortApiResultGroupedReply != nil {
 		return json.Marshal(&src.ProjectShortApiResultGroupedReply)
 	}
@@ -106,6 +136,10 @@ func (obj *ProjectShortApiResultIReply) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
+	if obj.ProjectShortApiResultCountReply != nil {
+		return obj.ProjectShortApiResultCountReply
+	}
+
 	if obj.ProjectShortApiResultGroupedReply != nil {
 		return obj.ProjectShortApiResultGroupedReply
 	}
@@ -120,6 +154,10 @@ func (obj *ProjectShortApiResultIReply) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj ProjectShortApiResultIReply) GetActualInstanceValue() (interface{}) {
+	if obj.ProjectShortApiResultCountReply != nil {
+		return *obj.ProjectShortApiResultCountReply
+	}
+
 	if obj.ProjectShortApiResultGroupedReply != nil {
 		return *obj.ProjectShortApiResultGroupedReply
 	}

@@ -35,15 +35,15 @@ type DetailedProjectApiResult struct {
 	// Indicates if the project is marked as favorite
 	IsFavorite bool `json:"isFavorite"`
 	// Number of work items in the project
-	WorkItemsCount int32 `json:"workItemsCount"`
+	WorkItemsCount int64 `json:"workItemsCount"`
 	// Number of test cases in the project
-	TestCasesCount NullableInt32 `json:"testCasesCount,omitempty"`
+	TestCasesCount NullableInt64 `json:"testCasesCount,omitempty"`
 	// Number of shared steps in the project
-	SharedStepsCount NullableInt32 `json:"sharedStepsCount,omitempty"`
+	SharedStepsCount NullableInt64 `json:"sharedStepsCount,omitempty"`
 	// Number of checklists in the project
-	CheckListsCount NullableInt32 `json:"checkListsCount,omitempty"`
+	CheckListsCount NullableInt64 `json:"checkListsCount,omitempty"`
 	// Number of autotests in the project
-	AutoTestsCount NullableInt32 `json:"autoTestsCount,omitempty"`
+	AutoTestsCount NullableInt64 `json:"autoTestsCount,omitempty"`
 	// Indicates if the project is deleted
 	IsDeleted bool `json:"isDeleted"`
 	// Creation date of the project
@@ -60,6 +60,10 @@ type DetailedProjectApiResult struct {
 	Type ProjectType `json:"type"`
 	// ID of the workflow used in project
 	WorkflowId string `json:"workflowId"`
+	// Test strategy of the project
+	TestStrategy TestStrategy `json:"testStrategy"`
+	// Coverage mode of test cases of the project
+	TestCaseCoverageMode TestCaseCoverageMode `json:"testCaseCoverageMode"`
 }
 
 type _DetailedProjectApiResult DetailedProjectApiResult
@@ -68,7 +72,7 @@ type _DetailedProjectApiResult DetailedProjectApiResult
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDetailedProjectApiResult(id string, name string, isFavorite bool, workItemsCount int32, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string) *DetailedProjectApiResult {
+func NewDetailedProjectApiResult(id string, name string, isFavorite bool, workItemsCount int64, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string, testStrategy TestStrategy, testCaseCoverageMode TestCaseCoverageMode) *DetailedProjectApiResult {
 	this := DetailedProjectApiResult{}
 	this.Id = id
 	this.Name = name
@@ -80,6 +84,8 @@ func NewDetailedProjectApiResult(id string, name string, isFavorite bool, workIt
 	this.GlobalId = globalId
 	this.Type = type_
 	this.WorkflowId = workflowId
+	this.TestStrategy = testStrategy
+	this.TestCaseCoverageMode = testCaseCoverageMode
 	return &this
 }
 
@@ -272,9 +278,9 @@ func (o *DetailedProjectApiResult) SetIsFavorite(v bool) {
 }
 
 // GetWorkItemsCount returns the WorkItemsCount field value
-func (o *DetailedProjectApiResult) GetWorkItemsCount() int32 {
+func (o *DetailedProjectApiResult) GetWorkItemsCount() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -283,7 +289,7 @@ func (o *DetailedProjectApiResult) GetWorkItemsCount() int32 {
 
 // GetWorkItemsCountOk returns a tuple with the WorkItemsCount field value
 // and a boolean to check if the value has been set.
-func (o *DetailedProjectApiResult) GetWorkItemsCountOk() (*int32, bool) {
+func (o *DetailedProjectApiResult) GetWorkItemsCountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -291,14 +297,14 @@ func (o *DetailedProjectApiResult) GetWorkItemsCountOk() (*int32, bool) {
 }
 
 // SetWorkItemsCount sets field value
-func (o *DetailedProjectApiResult) SetWorkItemsCount(v int32) {
+func (o *DetailedProjectApiResult) SetWorkItemsCount(v int64) {
 	o.WorkItemsCount = v
 }
 
 // GetTestCasesCount returns the TestCasesCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DetailedProjectApiResult) GetTestCasesCount() int32 {
+func (o *DetailedProjectApiResult) GetTestCasesCount() int64 {
 	if o == nil || IsNil(o.TestCasesCount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.TestCasesCount.Get()
@@ -307,7 +313,7 @@ func (o *DetailedProjectApiResult) GetTestCasesCount() int32 {
 // GetTestCasesCountOk returns a tuple with the TestCasesCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DetailedProjectApiResult) GetTestCasesCountOk() (*int32, bool) {
+func (o *DetailedProjectApiResult) GetTestCasesCountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -323,8 +329,8 @@ func (o *DetailedProjectApiResult) HasTestCasesCount() bool {
 	return false
 }
 
-// SetTestCasesCount gets a reference to the given NullableInt32 and assigns it to the TestCasesCount field.
-func (o *DetailedProjectApiResult) SetTestCasesCount(v int32) {
+// SetTestCasesCount gets a reference to the given NullableInt64 and assigns it to the TestCasesCount field.
+func (o *DetailedProjectApiResult) SetTestCasesCount(v int64) {
 	o.TestCasesCount.Set(&v)
 }
 // SetTestCasesCountNil sets the value for TestCasesCount to be an explicit nil
@@ -338,9 +344,9 @@ func (o *DetailedProjectApiResult) UnsetTestCasesCount() {
 }
 
 // GetSharedStepsCount returns the SharedStepsCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DetailedProjectApiResult) GetSharedStepsCount() int32 {
+func (o *DetailedProjectApiResult) GetSharedStepsCount() int64 {
 	if o == nil || IsNil(o.SharedStepsCount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SharedStepsCount.Get()
@@ -349,7 +355,7 @@ func (o *DetailedProjectApiResult) GetSharedStepsCount() int32 {
 // GetSharedStepsCountOk returns a tuple with the SharedStepsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DetailedProjectApiResult) GetSharedStepsCountOk() (*int32, bool) {
+func (o *DetailedProjectApiResult) GetSharedStepsCountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -365,8 +371,8 @@ func (o *DetailedProjectApiResult) HasSharedStepsCount() bool {
 	return false
 }
 
-// SetSharedStepsCount gets a reference to the given NullableInt32 and assigns it to the SharedStepsCount field.
-func (o *DetailedProjectApiResult) SetSharedStepsCount(v int32) {
+// SetSharedStepsCount gets a reference to the given NullableInt64 and assigns it to the SharedStepsCount field.
+func (o *DetailedProjectApiResult) SetSharedStepsCount(v int64) {
 	o.SharedStepsCount.Set(&v)
 }
 // SetSharedStepsCountNil sets the value for SharedStepsCount to be an explicit nil
@@ -380,9 +386,9 @@ func (o *DetailedProjectApiResult) UnsetSharedStepsCount() {
 }
 
 // GetCheckListsCount returns the CheckListsCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DetailedProjectApiResult) GetCheckListsCount() int32 {
+func (o *DetailedProjectApiResult) GetCheckListsCount() int64 {
 	if o == nil || IsNil(o.CheckListsCount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CheckListsCount.Get()
@@ -391,7 +397,7 @@ func (o *DetailedProjectApiResult) GetCheckListsCount() int32 {
 // GetCheckListsCountOk returns a tuple with the CheckListsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DetailedProjectApiResult) GetCheckListsCountOk() (*int32, bool) {
+func (o *DetailedProjectApiResult) GetCheckListsCountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -407,8 +413,8 @@ func (o *DetailedProjectApiResult) HasCheckListsCount() bool {
 	return false
 }
 
-// SetCheckListsCount gets a reference to the given NullableInt32 and assigns it to the CheckListsCount field.
-func (o *DetailedProjectApiResult) SetCheckListsCount(v int32) {
+// SetCheckListsCount gets a reference to the given NullableInt64 and assigns it to the CheckListsCount field.
+func (o *DetailedProjectApiResult) SetCheckListsCount(v int64) {
 	o.CheckListsCount.Set(&v)
 }
 // SetCheckListsCountNil sets the value for CheckListsCount to be an explicit nil
@@ -422,9 +428,9 @@ func (o *DetailedProjectApiResult) UnsetCheckListsCount() {
 }
 
 // GetAutoTestsCount returns the AutoTestsCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DetailedProjectApiResult) GetAutoTestsCount() int32 {
+func (o *DetailedProjectApiResult) GetAutoTestsCount() int64 {
 	if o == nil || IsNil(o.AutoTestsCount.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.AutoTestsCount.Get()
@@ -433,7 +439,7 @@ func (o *DetailedProjectApiResult) GetAutoTestsCount() int32 {
 // GetAutoTestsCountOk returns a tuple with the AutoTestsCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DetailedProjectApiResult) GetAutoTestsCountOk() (*int32, bool) {
+func (o *DetailedProjectApiResult) GetAutoTestsCountOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -449,8 +455,8 @@ func (o *DetailedProjectApiResult) HasAutoTestsCount() bool {
 	return false
 }
 
-// SetAutoTestsCount gets a reference to the given NullableInt32 and assigns it to the AutoTestsCount field.
-func (o *DetailedProjectApiResult) SetAutoTestsCount(v int32) {
+// SetAutoTestsCount gets a reference to the given NullableInt64 and assigns it to the AutoTestsCount field.
+func (o *DetailedProjectApiResult) SetAutoTestsCount(v int64) {
 	o.AutoTestsCount.Set(&v)
 }
 // SetAutoTestsCountNil sets the value for AutoTestsCount to be an explicit nil
@@ -691,6 +697,54 @@ func (o *DetailedProjectApiResult) SetWorkflowId(v string) {
 	o.WorkflowId = v
 }
 
+// GetTestStrategy returns the TestStrategy field value
+func (o *DetailedProjectApiResult) GetTestStrategy() TestStrategy {
+	if o == nil {
+		var ret TestStrategy
+		return ret
+	}
+
+	return o.TestStrategy
+}
+
+// GetTestStrategyOk returns a tuple with the TestStrategy field value
+// and a boolean to check if the value has been set.
+func (o *DetailedProjectApiResult) GetTestStrategyOk() (*TestStrategy, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestStrategy, true
+}
+
+// SetTestStrategy sets field value
+func (o *DetailedProjectApiResult) SetTestStrategy(v TestStrategy) {
+	o.TestStrategy = v
+}
+
+// GetTestCaseCoverageMode returns the TestCaseCoverageMode field value
+func (o *DetailedProjectApiResult) GetTestCaseCoverageMode() TestCaseCoverageMode {
+	if o == nil {
+		var ret TestCaseCoverageMode
+		return ret
+	}
+
+	return o.TestCaseCoverageMode
+}
+
+// GetTestCaseCoverageModeOk returns a tuple with the TestCaseCoverageMode field value
+// and a boolean to check if the value has been set.
+func (o *DetailedProjectApiResult) GetTestCaseCoverageModeOk() (*TestCaseCoverageMode, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TestCaseCoverageMode, true
+}
+
+// SetTestCaseCoverageMode sets field value
+func (o *DetailedProjectApiResult) SetTestCaseCoverageMode(v TestCaseCoverageMode) {
+	o.TestCaseCoverageMode = v
+}
+
 func (o DetailedProjectApiResult) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -738,6 +792,8 @@ func (o DetailedProjectApiResult) ToMap() (map[string]interface{}, error) {
 	toSerialize["globalId"] = o.GlobalId
 	toSerialize["type"] = o.Type
 	toSerialize["workflowId"] = o.WorkflowId
+	toSerialize["testStrategy"] = o.TestStrategy
+	toSerialize["testCaseCoverageMode"] = o.TestCaseCoverageMode
 	return toSerialize, nil
 }
 
@@ -756,6 +812,8 @@ func (o *DetailedProjectApiResult) UnmarshalJSON(data []byte) (err error) {
 		"globalId",
 		"type",
 		"workflowId",
+		"testStrategy",
+		"testCaseCoverageMode",
 	}
 
 	allProperties := make(map[string]interface{})

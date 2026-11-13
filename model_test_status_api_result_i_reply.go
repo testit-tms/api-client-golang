@@ -18,8 +18,16 @@ import (
 
 // TestStatusApiResultIReply - struct for TestStatusApiResultIReply
 type TestStatusApiResultIReply struct {
+	TestStatusApiResultCountReply *TestStatusApiResultCountReply
 	TestStatusApiResultGroupedReply *TestStatusApiResultGroupedReply
 	TestStatusApiResultReply *TestStatusApiResultReply
+}
+
+// TestStatusApiResultCountReplyAsTestStatusApiResultIReply is a convenience function that returns TestStatusApiResultCountReply wrapped in TestStatusApiResultIReply
+func TestStatusApiResultCountReplyAsTestStatusApiResultIReply(v *TestStatusApiResultCountReply) TestStatusApiResultIReply {
+	return TestStatusApiResultIReply{
+		TestStatusApiResultCountReply: v,
+	}
 }
 
 // TestStatusApiResultGroupedReplyAsTestStatusApiResultIReply is a convenience function that returns TestStatusApiResultGroupedReply wrapped in TestStatusApiResultIReply
@@ -41,6 +49,23 @@ func TestStatusApiResultReplyAsTestStatusApiResultIReply(v *TestStatusApiResultR
 func (dst *TestStatusApiResultIReply) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into TestStatusApiResultCountReply
+	err = newStrictDecoder(data).Decode(&dst.TestStatusApiResultCountReply)
+	if err == nil {
+		jsonTestStatusApiResultCountReply, _ := json.Marshal(dst.TestStatusApiResultCountReply)
+		if string(jsonTestStatusApiResultCountReply) == "{}" { // empty struct
+			dst.TestStatusApiResultCountReply = nil
+		} else {
+			if err = validator.Validate(dst.TestStatusApiResultCountReply); err != nil {
+				dst.TestStatusApiResultCountReply = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.TestStatusApiResultCountReply = nil
+	}
+
 	// try to unmarshal data into TestStatusApiResultGroupedReply
 	err = newStrictDecoder(data).Decode(&dst.TestStatusApiResultGroupedReply)
 	if err == nil {
@@ -77,6 +102,7 @@ func (dst *TestStatusApiResultIReply) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.TestStatusApiResultCountReply = nil
 		dst.TestStatusApiResultGroupedReply = nil
 		dst.TestStatusApiResultReply = nil
 
@@ -90,6 +116,10 @@ func (dst *TestStatusApiResultIReply) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src TestStatusApiResultIReply) MarshalJSON() ([]byte, error) {
+	if src.TestStatusApiResultCountReply != nil {
+		return json.Marshal(&src.TestStatusApiResultCountReply)
+	}
+
 	if src.TestStatusApiResultGroupedReply != nil {
 		return json.Marshal(&src.TestStatusApiResultGroupedReply)
 	}
@@ -106,6 +136,10 @@ func (obj *TestStatusApiResultIReply) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
+	if obj.TestStatusApiResultCountReply != nil {
+		return obj.TestStatusApiResultCountReply
+	}
+
 	if obj.TestStatusApiResultGroupedReply != nil {
 		return obj.TestStatusApiResultGroupedReply
 	}
@@ -120,6 +154,10 @@ func (obj *TestStatusApiResultIReply) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj TestStatusApiResultIReply) GetActualInstanceValue() (interface{}) {
+	if obj.TestStatusApiResultCountReply != nil {
+		return *obj.TestStatusApiResultCountReply
+	}
+
 	if obj.TestStatusApiResultGroupedReply != nil {
 		return *obj.TestStatusApiResultGroupedReply
 	}

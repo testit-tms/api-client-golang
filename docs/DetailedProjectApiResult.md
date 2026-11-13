@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Description of the project | [optional] 
 **Name** | **string** | Name of the project | 
 **IsFavorite** | **bool** | Indicates if the project is marked as favorite | 
-**WorkItemsCount** | **int32** | Number of work items in the project | 
-**TestCasesCount** | Pointer to **NullableInt32** | Number of test cases in the project | [optional] 
-**SharedStepsCount** | Pointer to **NullableInt32** | Number of shared steps in the project | [optional] 
-**CheckListsCount** | Pointer to **NullableInt32** | Number of checklists in the project | [optional] 
-**AutoTestsCount** | Pointer to **NullableInt32** | Number of autotests in the project | [optional] 
+**WorkItemsCount** | **int64** | Number of work items in the project | 
+**TestCasesCount** | Pointer to **NullableInt64** | Number of test cases in the project | [optional] 
+**SharedStepsCount** | Pointer to **NullableInt64** | Number of shared steps in the project | [optional] 
+**CheckListsCount** | Pointer to **NullableInt64** | Number of checklists in the project | [optional] 
+**AutoTestsCount** | Pointer to **NullableInt64** | Number of autotests in the project | [optional] 
 **IsDeleted** | **bool** | Indicates if the project is deleted | 
 **CreatedDate** | **time.Time** | Creation date of the project | 
 **ModifiedDate** | Pointer to **NullableTime** | Last modification date of the project | [optional] 
@@ -23,12 +23,14 @@ Name | Type | Description | Notes
 **GlobalId** | **int64** | Global ID of the project | 
 **Type** | [**ProjectType**](ProjectType.md) | Type of the project | 
 **WorkflowId** | **string** | ID of the workflow used in project | 
+**TestStrategy** | [**TestStrategy**](TestStrategy.md) | Test strategy of the project | 
+**TestCaseCoverageMode** | [**TestCaseCoverageMode**](TestCaseCoverageMode.md) | Coverage mode of test cases of the project | 
 
 ## Methods
 
 ### NewDetailedProjectApiResult
 
-`func NewDetailedProjectApiResult(id string, name string, isFavorite bool, workItemsCount int32, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string, ) *DetailedProjectApiResult`
+`func NewDetailedProjectApiResult(id string, name string, isFavorite bool, workItemsCount int64, isDeleted bool, createdDate time.Time, createdById string, globalId int64, type_ ProjectType, workflowId string, testStrategy TestStrategy, testCaseCoverageMode TestCaseCoverageMode, ) *DetailedProjectApiResult`
 
 NewDetailedProjectApiResult instantiates a new DetailedProjectApiResult object
 This constructor will assign default values to properties that have it defined,
@@ -210,40 +212,40 @@ SetIsFavorite sets IsFavorite field to given value.
 
 ### GetWorkItemsCount
 
-`func (o *DetailedProjectApiResult) GetWorkItemsCount() int32`
+`func (o *DetailedProjectApiResult) GetWorkItemsCount() int64`
 
 GetWorkItemsCount returns the WorkItemsCount field if non-nil, zero value otherwise.
 
 ### GetWorkItemsCountOk
 
-`func (o *DetailedProjectApiResult) GetWorkItemsCountOk() (*int32, bool)`
+`func (o *DetailedProjectApiResult) GetWorkItemsCountOk() (*int64, bool)`
 
 GetWorkItemsCountOk returns a tuple with the WorkItemsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWorkItemsCount
 
-`func (o *DetailedProjectApiResult) SetWorkItemsCount(v int32)`
+`func (o *DetailedProjectApiResult) SetWorkItemsCount(v int64)`
 
 SetWorkItemsCount sets WorkItemsCount field to given value.
 
 
 ### GetTestCasesCount
 
-`func (o *DetailedProjectApiResult) GetTestCasesCount() int32`
+`func (o *DetailedProjectApiResult) GetTestCasesCount() int64`
 
 GetTestCasesCount returns the TestCasesCount field if non-nil, zero value otherwise.
 
 ### GetTestCasesCountOk
 
-`func (o *DetailedProjectApiResult) GetTestCasesCountOk() (*int32, bool)`
+`func (o *DetailedProjectApiResult) GetTestCasesCountOk() (*int64, bool)`
 
 GetTestCasesCountOk returns a tuple with the TestCasesCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTestCasesCount
 
-`func (o *DetailedProjectApiResult) SetTestCasesCount(v int32)`
+`func (o *DetailedProjectApiResult) SetTestCasesCount(v int64)`
 
 SetTestCasesCount sets TestCasesCount field to given value.
 
@@ -265,20 +267,20 @@ HasTestCasesCount returns a boolean if a field has been set.
 UnsetTestCasesCount ensures that no value is present for TestCasesCount, not even an explicit nil
 ### GetSharedStepsCount
 
-`func (o *DetailedProjectApiResult) GetSharedStepsCount() int32`
+`func (o *DetailedProjectApiResult) GetSharedStepsCount() int64`
 
 GetSharedStepsCount returns the SharedStepsCount field if non-nil, zero value otherwise.
 
 ### GetSharedStepsCountOk
 
-`func (o *DetailedProjectApiResult) GetSharedStepsCountOk() (*int32, bool)`
+`func (o *DetailedProjectApiResult) GetSharedStepsCountOk() (*int64, bool)`
 
 GetSharedStepsCountOk returns a tuple with the SharedStepsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSharedStepsCount
 
-`func (o *DetailedProjectApiResult) SetSharedStepsCount(v int32)`
+`func (o *DetailedProjectApiResult) SetSharedStepsCount(v int64)`
 
 SetSharedStepsCount sets SharedStepsCount field to given value.
 
@@ -300,20 +302,20 @@ HasSharedStepsCount returns a boolean if a field has been set.
 UnsetSharedStepsCount ensures that no value is present for SharedStepsCount, not even an explicit nil
 ### GetCheckListsCount
 
-`func (o *DetailedProjectApiResult) GetCheckListsCount() int32`
+`func (o *DetailedProjectApiResult) GetCheckListsCount() int64`
 
 GetCheckListsCount returns the CheckListsCount field if non-nil, zero value otherwise.
 
 ### GetCheckListsCountOk
 
-`func (o *DetailedProjectApiResult) GetCheckListsCountOk() (*int32, bool)`
+`func (o *DetailedProjectApiResult) GetCheckListsCountOk() (*int64, bool)`
 
 GetCheckListsCountOk returns a tuple with the CheckListsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCheckListsCount
 
-`func (o *DetailedProjectApiResult) SetCheckListsCount(v int32)`
+`func (o *DetailedProjectApiResult) SetCheckListsCount(v int64)`
 
 SetCheckListsCount sets CheckListsCount field to given value.
 
@@ -335,20 +337,20 @@ HasCheckListsCount returns a boolean if a field has been set.
 UnsetCheckListsCount ensures that no value is present for CheckListsCount, not even an explicit nil
 ### GetAutoTestsCount
 
-`func (o *DetailedProjectApiResult) GetAutoTestsCount() int32`
+`func (o *DetailedProjectApiResult) GetAutoTestsCount() int64`
 
 GetAutoTestsCount returns the AutoTestsCount field if non-nil, zero value otherwise.
 
 ### GetAutoTestsCountOk
 
-`func (o *DetailedProjectApiResult) GetAutoTestsCountOk() (*int32, bool)`
+`func (o *DetailedProjectApiResult) GetAutoTestsCountOk() (*int64, bool)`
 
 GetAutoTestsCountOk returns a tuple with the AutoTestsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAutoTestsCount
 
-`func (o *DetailedProjectApiResult) SetAutoTestsCount(v int32)`
+`func (o *DetailedProjectApiResult) SetAutoTestsCount(v int64)`
 
 SetAutoTestsCount sets AutoTestsCount field to given value.
 
@@ -556,6 +558,46 @@ and a boolean to check if the value has been set.
 `func (o *DetailedProjectApiResult) SetWorkflowId(v string)`
 
 SetWorkflowId sets WorkflowId field to given value.
+
+
+### GetTestStrategy
+
+`func (o *DetailedProjectApiResult) GetTestStrategy() TestStrategy`
+
+GetTestStrategy returns the TestStrategy field if non-nil, zero value otherwise.
+
+### GetTestStrategyOk
+
+`func (o *DetailedProjectApiResult) GetTestStrategyOk() (*TestStrategy, bool)`
+
+GetTestStrategyOk returns a tuple with the TestStrategy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestStrategy
+
+`func (o *DetailedProjectApiResult) SetTestStrategy(v TestStrategy)`
+
+SetTestStrategy sets TestStrategy field to given value.
+
+
+### GetTestCaseCoverageMode
+
+`func (o *DetailedProjectApiResult) GetTestCaseCoverageMode() TestCaseCoverageMode`
+
+GetTestCaseCoverageMode returns the TestCaseCoverageMode field if non-nil, zero value otherwise.
+
+### GetTestCaseCoverageModeOk
+
+`func (o *DetailedProjectApiResult) GetTestCaseCoverageModeOk() (*TestCaseCoverageMode, bool)`
+
+GetTestCaseCoverageModeOk returns a tuple with the TestCaseCoverageMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTestCaseCoverageMode
+
+`func (o *DetailedProjectApiResult) SetTestCaseCoverageMode(v TestCaseCoverageMode)`
+
+SetTestCaseCoverageMode sets TestCaseCoverageMode field to given value.
 
 
 

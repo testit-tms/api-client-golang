@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **Filter** | Pointer to [**NullableCompositeFilter**](CompositeFilter.md) |  | [optional] 
 **Order** | [**[]Order**](Order.md) |  | 
 **Page** | Pointer to [**NullablePage**](Page.md) |  | [optional] 
+**Mode** | [**Mode**](Mode.md) |  | 
 
 ## Methods
 
 ### NewInquiry
 
-`func NewInquiry(order []Order, ) *Inquiry`
+`func NewInquiry(order []Order, mode Mode, ) *Inquiry`
 
 NewInquiry instantiates a new Inquiry object
 This constructor will assign default values to properties that have it defined,
@@ -153,6 +154,26 @@ HasPage returns a boolean if a field has been set.
 `func (o *Inquiry) UnsetPage()`
 
 UnsetPage ensures that no value is present for Page, not even an explicit nil
+### GetMode
+
+`func (o *Inquiry) GetMode() Mode`
+
+GetMode returns the Mode field if non-nil, zero value otherwise.
+
+### GetModeOk
+
+`func (o *Inquiry) GetModeOk() (*Mode, bool)`
+
+GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMode
+
+`func (o *Inquiry) SetMode(v Mode)`
+
+SetMode sets Mode field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

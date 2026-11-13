@@ -41,6 +41,10 @@
 
 * `DELETE_SECTION` (value: `"DeleteSection"`)
 
+* `IMPORT_AUTO_TESTS_REPORT` (value: `"ImportAutoTestsReport"`)
+
+* `ANALYZE_AUTO_TEST_LAYERS` (value: `"AnalyzeAutoTestLayers"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

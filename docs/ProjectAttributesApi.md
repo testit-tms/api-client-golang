@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## SearchAttributesInProject
 
-> []CustomAttributeGetModel SearchAttributesInProject(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
+> []CustomAttributeModel SearchAttributesInProject(ctx, projectId).Skip(skip).Take(take).OrderBy(orderBy).SearchField(searchField).SearchValue(searchValue).ProjectAttributesFilterModel(projectAttributesFilterModel).Execute()
 
 Search for attributes used in the project
 
@@ -335,7 +335,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ProjectAttributesAPI.SearchAttributesInProject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `SearchAttributesInProject`: []CustomAttributeGetModel
+	// response from `SearchAttributesInProject`: []CustomAttributeModel
 	fmt.Fprintf(os.Stdout, "Response from `ProjectAttributesAPI.SearchAttributesInProject`: %v\n", resp)
 }
 ```
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]CustomAttributeGetModel**](CustomAttributeGetModel.md)
+[**[]CustomAttributeModel**](CustomAttributeModel.md)
 
 ### Authorization
 

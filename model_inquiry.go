@@ -25,6 +25,7 @@ type Inquiry struct {
 	Filter NullableCompositeFilter `json:"filter,omitempty"`
 	Order []Order `json:"order"`
 	Page NullablePage `json:"page,omitempty"`
+	Mode Mode `json:"mode"`
 }
 
 type _Inquiry Inquiry
@@ -33,9 +34,10 @@ type _Inquiry Inquiry
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInquiry(order []Order) *Inquiry {
+func NewInquiry(order []Order, mode Mode) *Inquiry {
 	this := Inquiry{}
 	this.Order = order
+	this.Mode = mode
 	return &this
 }
 
@@ -197,6 +199,30 @@ func (o *Inquiry) UnsetPage() {
 	o.Page.Unset()
 }
 
+// GetMode returns the Mode field value
+func (o *Inquiry) GetMode() Mode {
+	if o == nil {
+		var ret Mode
+		return ret
+	}
+
+	return o.Mode
+}
+
+// GetModeOk returns a tuple with the Mode field value
+// and a boolean to check if the value has been set.
+func (o *Inquiry) GetModeOk() (*Mode, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Mode, true
+}
+
+// SetMode sets field value
+func (o *Inquiry) SetMode(v Mode) {
+	o.Mode = v
+}
+
 func (o Inquiry) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -217,6 +243,7 @@ func (o Inquiry) ToMap() (map[string]interface{}, error) {
 	if o.Page.IsSet() {
 		toSerialize["page"] = o.Page.Get()
 	}
+	toSerialize["mode"] = o.Mode
 	return toSerialize, nil
 }
 
@@ -226,6 +253,7 @@ func (o *Inquiry) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"order",
+		"mode",
 	}
 
 	allProperties := make(map[string]interface{})
